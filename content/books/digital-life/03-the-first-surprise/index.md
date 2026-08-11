@@ -11,7 +11,7 @@ We ended the last chapter by changing one number.
 
 ```python
 rule = 22
-```
+````
 
 became:
 
@@ -21,7 +21,7 @@ rule = 30
 
 Nothing else changed.
 
-Same world.
+Same world size.
 
 Same single active cell.
 
@@ -31,23 +31,23 @@ Same synchronous update.
 
 Same periodic boundary.
 
-Same eight-bit lookup mechanism.
+Same implementation.
 
-Only the rule changed.
+Only the eight-bit local rule changed.
 
-And the spacetime diagram stopped looking simple.
+And the spacetime diagram changed dramatically.
 
 ![Rule 30 from a single active cell](/images/books/digital-life/ch03-rule30-hero.png)
 
 There is visible structure on the left.
 
-There is irregularity on the right.
+Irregularity on the right.
 
-There are repeating fragments.
+Repeating fragments.
 
-There are regions that look almost patterned and then break apart.
+Regions that look patterned for a while and then break apart.
 
-The entire thing is generated deterministically.
+And every pixel in that history is determined completely by the previous row.
 
 No random numbers are involved.
 
@@ -57,11 +57,7 @@ That is our first real surprise.
 
 # Nothing random happened
 
-This matters.
-
 Rule 30 does not roll dice.
-
-At every location, the same local transformation is applied.
 
 Its transition table is fixed:
 
@@ -76,7 +72,7 @@ Its transition table is fixed:
 000 → 0
 ```
 
-That gives the binary output:
+Those outputs give:
 
 ```text
 00011110
@@ -91,28 +87,28 @@ which is:
 Every future state follows from:
 
 ```text
-rule
-+
 current state
++
+rule
 ```
 
-There is no hidden source of noise.
+under the experimental setup we defined.
 
-If we begin from exactly the same initial condition, we get exactly the same history.
+If we start from exactly the same state again, we get exactly the same history.
 
 Every time.
 
-So the irregularity in the image cannot be explained by saying:
+So the irregularity cannot be explained by saying:
 
 > randomness was injected.
 
-It wasn't.
+It was not.
 
 ---
 
 # Deterministic does not mean obvious
 
-That distinction is easy to miss.
+This distinction matters.
 
 A deterministic system means:
 
@@ -120,128 +116,136 @@ A deterministic system means:
 
 It does **not** mean:
 
-> a human can easily predict the long-term result.
+> the long-term trajectory is easy to predict without running the system.
 
-Those are completely different claims.
+Those are different claims.
 
-Consider this tiny operation:
+Each individual update is tiny:
 
 ```python
 next_state = step(state, rule=30)
 ```
 
-Each individual update is trivial.
+One cell.
 
-But after many updates, the result becomes difficult to anticipate by inspection.
+Three inputs.
 
-We therefore need to separate:
+One output bit.
+
+But after repeated updates, a large history unfolds.
+
+So we need to separate:
 
 ```text
-local predictability
+local mechanism
 ```
 
 from:
 
 ```text
-global predictability
+global consequence
 ```
 
-Locally, the rule is embarrassingly simple.
+Locally, Rule 30 is trivial to inspect.
 
-Globally, the trajectory is not.
+Globally, its trajectory is not.
+
+That distinction is going to matter throughout this book.
 
 ---
 
 # Where is the complexity?
 
-This question is more difficult than it sounds.
+This is a useful question.
 
-Is the complexity inside the rule?
+Is the apparent complexity stored in the rule?
 
-Not obviously.
+Not in any obvious sense.
 
-The rule has only eight output bits.
+The rule is only eight bits.
 
-Is it inside the starting state?
+Is it stored in the initial condition?
 
 We started with one active cell.
 
-Is it inside the individual cells?
+Is it stored inside each cell?
 
-Each stores one bit.
+Each cell contains one bit.
 
-So perhaps the interesting behavior lives somewhere else:
+So the interesting structure seems to arise from:
 
 ```text
 simple rule
 +
 simple state
 +
-repeated interaction
+repeated local interaction
 +
 time
 ```
 
-The structure appears in the unfolding.
+The structure lives in the unfolding.
 
-This is one reason the word **emergence** is so tempting.
+That is why the word:
 
-But we should be careful.
+```text
+emergence
+```
+
+is tempting.
+
+But we should still be careful.
 
 ---
 
-# What does emergence mean here?
+# Do not use "emergence" as a synonym for surprise
 
-People often use emergence to mean:
+A weak definition of emergence would be:
 
-> something surprising happened.
+> Something happened that I did not expect.
 
-That is too weak.
+That is not enough.
 
 Surprise depends partly on the observer.
 
-A system is not scientifically interesting merely because we failed to guess what it would do.
+A better working description is:
 
-A stronger working idea is:
+> **A macroscopic pattern or behavior arises from local interactions without being explicitly represented in the individual components.**
 
-> a macroscopic pattern or behavior arises from local interactions and is not explicitly represented in the individual components.
-
-Under that definition, Rule 30 is at least a useful candidate.
+Under that definition, Rule 30 is a useful example.
 
 The cells do not contain:
 
 ```text
 triangle
 left edge
-right-side irregularity
+irregular right side
 long-range structure
 ```
 
-The local rule does not contain an explicit spacetime diagram.
+The rule does not contain a stored spacetime diagram.
 
-Yet those structures appear when the system evolves.
+Yet those structures appear when the local interactions repeat.
 
-That gives us something worth investigating.
+That supports a modest claim:
 
-Not proof of life.
+> **Simple local mechanics can generate nontrivial global organization.**
 
-Not proof of intelligence.
+Not life.
 
-Not even proof of deep complexity.
+Not intelligence.
 
-Just evidence that:
+Not even necessarily deep complexity.
 
-> **simple local mechanics can generate nontrivial global organization.**
-
-That is enough for now.
+But enough to keep investigating.
 
 ---
 
-# Compare two rules
+# A controlled comparison
 
-Let's make the contrast explicit.
+Now compare Rule 22 and Rule 30 directly.
 
-Take the same initial condition:
+Same initial condition:
 
 ```text
 000000000010000000000
@@ -253,9 +257,7 @@ Then run Rule 30.
 
 ![Rule 22 compared with Rule 30](/images/books/digital-life/ch03-rule22-vs-rule30.png)
 
-Everything except the rule remains fixed.
-
-We are doing a controlled experiment.
+Everything except the local rule remains fixed.
 
 Conceptually:
 
@@ -267,17 +269,25 @@ Experiment B
 rule = 30
 ```
 
-Same initial state.
+Same:
 
-Same boundary conditions.
+```text
+initial state
+boundary condition
+world size
+generation count
+update semantics
+```
 
-Same world size.
+Only the rule changes.
 
-Same number of generations.
+So under this fixed experimental configuration, the change in trajectory is attributable to the change in rule.
 
-The difference in behavior therefore comes from the rule.
+That sounds obvious.
 
-That seems obvious, but this discipline will become increasingly important later when our systems contain many parameters.
+Later, when our systems contain hundreds of interacting mechanisms, it will not be obvious at all.
+
+This is why we are learning the discipline here.
 
 ---
 
@@ -289,9 +299,9 @@ Rule 30 is:
 00011110
 ```
 
-Suppose we flip a single output bit.
+Flip one output bit and we move to a neighboring rule.
 
-Now we might have:
+For example:
 
 ```text
 00011111
@@ -303,41 +313,45 @@ or:
 00010110
 ```
 
-That gives us a neighboring rule in rule space.
+The representation changes only slightly.
 
-The local mechanism has changed only slightly.
+The resulting trajectory may not.
 
-But the long-term behavior can change dramatically.
+That creates another question:
 
-This suggests a useful experiment.
+> **How stable is a system's global behavior under small changes to its local mechanism?**
 
-Rather than asking:
+This is a much better question than:
 
-> what does Rule 30 do?
+> What does Rule 30 do?
 
-ask:
+Because eventually we will care about:
 
-> how stable is Rule 30's behavior under small changes to the rule itself?
+```text
+mutation
+variation
+robustness
+search
+evolution
+```
 
-That is a different question.
+A tiny change in representation can have a large change in consequence.
 
-And it matters because eventually we will talk about mutation.
-
-A mutation in a digital rule may be tiny in representation but enormous in consequence.
+We should remember that.
 
 ---
 
 # Change one bit in the world
 
-We can perturb the initial condition too.
+Now keep the rule fixed and perturb the initial condition.
 
-Start from:
+Start with:
 
 ```text
 000000000010000000000
 ```
 
-Then compare it with:
+Then compare:
 
 ```text
 000000000011000000000
@@ -345,9 +359,9 @@ Then compare it with:
 
 One extra active cell.
 
-Nothing else changes.
+Everything else remains identical.
 
-Now run both under Rule 30.
+Run both under Rule 30.
 
 ![A one-cell perturbation spreading under Rule 30](/images/books/digital-life/ch03-rule30-perturbation.png)
 
@@ -355,31 +369,19 @@ At first the difference is tiny.
 
 Then it spreads.
 
-The local disturbance affects nearby neighborhoods.
+One changed cell alters several local neighborhoods.
 
-Those changed neighborhoods alter the next generation.
+Those changed neighborhoods alter later neighborhoods.
 
-The difference propagates outward.
+The perturbation propagates.
 
-This gives us another candidate property:
-
-```text
-sensitivity to initial conditions
-```
-
-Again, don't overstate it.
-
-We have not yet measured sensitivity.
-
-We have only created an experiment that can expose it.
-
-Later, we will quantify how quickly two nearby histories diverge.
+Now we have something measurable.
 
 ---
 
-# A difference can move
+# Track the difference, not just the worlds
 
-Suppose we have two states:
+Suppose we have:
 
 ```text
 A
@@ -397,48 +399,123 @@ Their difference is:
 
 One cell.
 
-After one update, the two worlds may differ in several places.
+After one generation, the worlds may differ in several cells.
 
 Then more.
 
-The **difference itself** becomes something we can track.
-
-This is important.
-
-We are no longer limited to studying visible patterns in one world.
-
-We can study:
+Instead of only studying:
 
 ```text
 world A
 world B
+```
+
+we can construct:
+
+```text
 difference(A, B)
 ```
 
-That difference field becomes an experimental instrument.
+That difference field is useful because it converts:
 
-Later we can measure:
+> these two runs look different
+
+into something we can measure.
+
+We can track:
 
 ```text
 number of differing cells
 fraction of differing cells
+spatial width of the difference
 rate of divergence
-spatial spread of perturbation
 ```
 
-This is the beginning of turning pictures into evidence.
+This is an important step.
+
+The animation gives us the hypothesis.
+
+The difference field gives us an instrument.
 
 ---
 
-# But isn't this just chaos?
+# Measure the spread
+
+A simple quantity is the Hamming distance between two binary states.
+
+For states:
+
+[
+A_t
+]
+
+and:
+
+[
+B_t
+]
+
+define:
+
+[
+D(t)
+====
+
+\sum_i
+\mathbf{1}
+\left[
+A_t(i) \neq B_t(i)
+\right]
+]
+
+In code:
+
+```python
+def difference_count(a, b):
+    return sum(x != y for x, y in zip(a, b))
+```
+
+Now run the two initial conditions forward and record:
+
+```python
+difference = []
+
+for _ in range(generations):
+    difference.append(
+        difference_count(state_a, state_b)
+    )
+
+    state_a = step(state_a, rule=30)
+    state_b = step(state_b, rule=30)
+```
+
+Plot that over time.
+
+![Measured growth of the perturbation](/images/books/digital-life/ch03-rule30-difference-growth.png)
+
+Now we are no longer saying:
+
+> the disturbance seems to spread.
+
+We are asking:
+
+> **how much of the world becomes different, and how quickly?**
+
+That is a better question.
+
+---
+
+# Sensitivity is not yet chaos
+
+At this point it is tempting to say:
+
+> Rule 30 is chaotic.
 
 Maybe.
 
-But we should not use that word casually either.
+But we should not use that word casually.
 
-"Chaos" has technical meanings in dynamical systems.
-
-A system looking irregular is not automatically chaotic.
+In dynamical systems, chaos has technical meanings.
 
 Likewise:
 
@@ -452,174 +529,173 @@ emergent
 
 are not synonyms.
 
-A good rule for this book is:
+For this chapter, we can safely say:
 
-> **If a word sounds impressive, define the measurement before trusting the word.**
+```text
+Rule 30 is deterministic.
 
-For now, Rule 30 is:
+Its spacetime diagram contains visually irregular regions.
 
-* deterministic,
-* generated by a local rule,
-* visually irregular in part of its spacetime diagram,
-* sensitive enough to motivate perturbation experiments.
+Small changes to the initial state can spread through later states.
 
-That's plenty.
+The divergence can be measured.
+```
+
+That is enough.
+
+If a stronger word requires a stronger definition, we should earn it later.
+
+---
+
+# The first control is not enough
+
+Suppose our difference count grows rapidly.
+
+Can we immediately claim that Rule 30 is unusually sensitive?
+
+No.
+
+Compared with what?
+
+We should also run:
+
+```text
+Rule 22
+Rule 30
+other neighboring rules
+```
+
+with the same perturbation protocol.
+
+Then we can ask:
+
+```text
+Which rules amplify a one-bit perturbation?
+
+How quickly?
+
+Does the perturbation saturate?
+
+Does it disappear?
+
+Does it remain localized?
+```
+
+That is where a visual example becomes a comparative experiment.
+
+We do not have to complete that whole survey here.
+
+But the experimental direction is now clear.
 
 ---
 
 # The danger of the screenshot
 
-This deserves its own warning.
+A single Rule 30 image is seductive.
 
-Suppose I show you this:
+But a screenshot is weak evidence.
 
-![Measured growth of the perturbation](/images/books/digital-life/ch03-rule30-difference-growth.png)
-
-and say:
-
-> Look how complex it is.
-
-That proves almost nothing.
-
-I chose the rule.
-
-I chose the initial condition.
-
-I chose the crop.
-
-I chose the number of generations.
-
-I chose the rendering.
-
-I could easily show you only the most impressive region.
-
-This is the same problem we will encounter later with artificial-life organisms.
-
-A spectacular example is useful for discovering a phenomenon.
-
-It is weak evidence for how general that phenomenon is.
-
-So eventually we will need to ask:
+I chose:
 
 ```text
-How often does this behavior occur?
+the rule
+the initial condition
+the world size
+the crop
+the number of generations
+the rendering
+```
+
+I could show only the most dramatic part.
+
+That is exactly the same problem we encountered with Lenia.
+
+A spectacular example is useful for finding a phenomenon.
+
+It tells us much less about how general that phenomenon is.
+
+Eventually we will need to ask:
+
+```text
+How often does this happen?
 
 Across which rules?
 
-Across which starting states?
+Across which initial conditions?
 
 How sensitive is it?
 
 How persistent is it?
 
-Can we measure it without hand-picking examples?
+Can we detect it automatically?
 ```
 
-That is where search and measurement enter.
+That is where enumeration and measurement become more important than screenshots.
 
 ---
 
-# Rule 30 has another strange property
+# One system, several observables
 
-Look at the central column of the spacetime diagram.
+There is another useful lesson here.
 
-If we record one cell through time, we obtain a binary sequence:
-
-```text
-0
-1
-1
-0
-1
-0
-...
-```
-
-A tiny deterministic cellular automaton can therefore be used as a generator of complicated-looking bit sequences.
-
-This is historically interesting, but more important for us conceptually.
-
-The spatial system can be observed in another way.
-
-Instead of looking at:
+We can look at Rule 30 as:
 
 ```text
-the whole world at one time
+a whole spatial state at one time
 ```
 
-we can look at:
+or:
 
 ```text
-one location across many times
+a complete spacetime diagram
 ```
 
-The same system supports multiple observables.
+or:
 
-This will matter enormously later.
+```text
+one cell observed across many times
+```
 
-What we conclude about a system depends partly on what we measure.
+or:
+
+```text
+a difference field between two runs
+```
+
+or:
+
+```text
+a trajectory through global state space
+```
+
+These are different observables of the same underlying system.
+
+That matters because what we notice depends strongly on what we measure.
+
+A system may look simple under one observable and complicated under another.
+
+This will become important later when we study:
+
+```text
+density
+activity
+movement
+causality
+lineage
+repair
+```
+
+The system does not come with one privileged measurement.
+
+We have to choose observables that match the question.
 
 ---
 
-# One system, many descriptions
-
-Rule 30 can be described as:
-
-```text
-an eight-bit lookup table
-```
-
-or:
-
-```text
-a one-dimensional cellular automaton
-```
-
-or:
-
-```text
-a spacetime pattern
-```
-
-or:
-
-```text
-a generator of temporal bit sequences
-```
-
-or:
-
-```text
-a dynamical system moving through a large state space
-```
-
-None of these descriptions is necessarily wrong.
-
-They emphasize different levels.
-
-This is a recurring theme in Digital Life.
-
-A future system might simultaneously be describable as:
-
-```text
-a field update equation
-
-a self-maintaining pattern
-
-a learned dynamical system
-
-an evolutionary lineage
-```
-
-The challenge is knowing which claims are supported at which level.
-
----
-
-# Let's inspect the rule itself
+# A tiny rule can create a large causal footprint
 
 There is something almost insulting about how small Rule 30 is.
 
-We can print its entire behavior in eight lines.
+Its entire local behavior fits in eight lines:
 
 ```python
 rule = {
@@ -634,31 +710,38 @@ rule = {
 }
 ```
 
-That is the whole law.
+There is no hidden controller below it.
 
-There is no hidden complexity waiting below it.
+Yet one changed bit can influence a growing region of future states.
 
-The complexity appears only after we allow those local interactions to repeat.
-
-This gives us the first major result of the book:
+That gives us the first major result of the book:
 
 > **A globally nontrivial trajectory does not require a globally complicated controller.**
 
-That result is modest.
+And now we can add something stronger:
 
-But it is foundational.
+> **A local perturbation can acquire a large future footprint through repeated interaction.**
+
+That is more than a pretty pattern.
+
+It is the beginning of causal structure.
 
 ---
 
-# We still don't have a thing
+# But we still do not have a thing
 
-Rule 30 produces structure.
+Rule 30 gives us:
 
-But does it produce an entity?
+```text
+structure
+propagation
+divergence
+history
+```
 
-Something with an identity?
+But does it give us an entity?
 
-Something we can point at and say:
+Something we can point to and say:
 
 > that thing persisted.
 
@@ -668,15 +751,13 @@ The pattern expands.
 
 Regions change.
 
-Information appears to propagate.
+Differences propagate.
 
-But identifying a stable localized object is harder.
+But identifying one localized organization through time is difficult.
 
-So we need another system.
+So the next chapter changes the question.
 
-One where patterns do not merely spread across a spacetime diagram.
-
-One where a structure can appear here:
+We need a system where a pattern can appear here:
 
 ```text
 .##.
@@ -686,9 +767,9 @@ One where a structure can appear here:
 
 and later appear somewhere else while remaining recognizably the same organization.
 
-That brings us to Conway's Game of Life.
+That takes us to Conway's Game of Life.
 
-And to a much stranger question:
+And to a harder question:
 
 > **When does a pattern become a thing?**
 

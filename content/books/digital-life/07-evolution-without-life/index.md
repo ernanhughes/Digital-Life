@@ -2,12 +2,10 @@
 title = "Digital Life 07: Evolution Without Life?"
 date = "2026-08-11T09:48:00+01:00"
 draft = false
-description = "Variation, inheritance and selection can produce evolution in digital systems. But evolution is not the same thing as progress."
+description = "Variation, inheritance and differential reproduction can produce evolution in digital systems. But evolution is not the same thing as progress."
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Evolution", "Artificial Life", "Cellular Automata", "Selection", "Open-Ended Evolution", "Cumulative Improvement"]
 +++
-
-# Digital Life 07: Evolution Without Life?
 
 We ended the last chapter with three ingredients:
 
@@ -17,19 +15,19 @@ variation
 inheritance
 +
 differential reproductive success
-```
+````
 
-Put those together across generations and something familiar begins to appear.
+Allow those relationships to continue across generations and something familiar appears:
 
-Evolution.
+> **evolution**
 
-But that word creates a new trap.
+But that word creates another trap.
 
-Because once we say:
+Once we say:
 
 > the system evolves
 
-it is very easy to imagine:
+our minds immediately add things that were never demonstrated:
 
 ```text
 better
@@ -41,125 +39,100 @@ more alive
 
 None of those follows automatically.
 
-Evolution can happen without progress.
+Evolution can occur without progress.
 
-Selection can happen without intelligence.
+Selection can occur without intelligence.
 
-Novelty can happen without usefulness.
+Novelty can occur without usefulness.
 
-A population can change forever and accomplish almost nothing.
+A population can change for a very long time without accumulating anything we care about.
 
-So this chapter asks a more difficult question:
+So the question is not merely:
 
-> **What exactly has to improve before evolution becomes relevant to our search for digital life?**
+> Can digital systems evolve?
+
+They can.
+
+The harder question is:
+
+> **What does evolution actually contribute to digital organization?**
 
 ---
 
 # Start with two lineages
 
-Suppose two digital patterns reproduce.
-
-Call them:
+Suppose two reproducing digital variants exist:
 
 ```text
 A
 B
 ```
 
-They occupy the same environment.
-
 During one interval:
 
 ```text
-A produces 4 surviving offspring
-B produces 1 surviving offspring
+A produces 4 continuing descendants
+B produces 1 continuing descendant
 ```
 
-If this continues, the future population will contain more descendants of `A`.
+If the difference is heritable and the same relationship continues, descendants of `A` will tend to occupy a larger fraction of the future population.
 
-No external programmer has to announce:
+No programmer needs to write:
 
 ```python
 fitness(A) = 4
 fitness(B) = 1
 ```
 
-The reproductive outcome itself supplies a measure.
+The reproductive outcomes themselves create the difference.
 
 Conceptually:
 
 ```text
-heritable property
-      ↓
-affects reproduction
-      ↓
+heritable difference
+        ↓
+changes reproductive outcome
+        ↓
 changes descendant frequencies
 ```
 
-That is enough to make selection possible.
+That is enough for selection.
 
 ---
 
-# Fitness is not a number written by nature
+# Fitness is relational
 
-In optimization code we often define:
+In optimization code we often write:
 
 ```python
 def fitness(candidate):
     return score(candidate)
 ```
 
-Then:
+That is perfectly useful engineering.
 
-```python
-population = sorted(
-    population,
-    key=fitness,
-    reverse=True,
-)
-```
+But it can make the word `fitness` look like an intrinsic property stored inside an individual.
 
-That is useful engineering.
-
-But it can obscure what biological fitness means.
-
-In an evolving population, fitness is tied to **reproductive success in an environment**.
-
-A useful digital approximation might therefore be:
+For evolving populations, a better description is:
 
 ```text
 fitness
 ≈
-expected contribution to future generations
+expected contribution to future population
+under particular conditions
 ```
 
-Not:
+Suppose `A` reproduces faster than `B`.
 
-```text
-fitness
-=
-whatever number we happened to invent
-```
+Now change the environment.
 
-Those are different things.
+Space becomes crowded.
 
----
+Resources become scarce.
 
-# The environment matters
+Collisions increase.
 
-Suppose lineage `A` reproduces faster than lineage `B`.
-
-Then we change the world.
-
-Perhaps resources become scarce.
-
-Perhaps space becomes crowded.
-
-Perhaps collisions become common.
-
-Perhaps reproduction becomes more expensive.
-
-Now `B` reproduces more successfully.
+Perhaps `B` now produces more surviving descendants.
 
 So:
 
@@ -171,213 +144,115 @@ is incomplete.
 
 A better statement is:
 
-```text
-A had greater reproductive success
-under environment E
-during interval T
-```
+> **A had greater reproductive success than B under environment E during interval T.**
 
-Fitness is relational.
+Fitness belongs to a relationship:
 
 ```text
-organism
+variant
 +
 environment
 +
-competition
+other inhabitants
 +
 time
 ```
 
-matter together.
+That matters enormously.
 
-This will become extremely important later when we evaluate learned and evolved systems.
+There may be no universally best organism.
 
----
-
-# A minimal evolutionary experiment
-
-We can build a deliberately simple model.
-
-Each individual contains one inheritable number:
-
-```python
-replication_rate
-```
-
-Begin with:
-
-```text
-parent replication rate = 0.50
-```
-
-When an offspring is produced:
-
-```python
-child_rate = parent_rate + mutation
-```
-
-Now place individuals under a resource constraint.
-
-Higher replication rate initially produces more descendants.
-
-Run many generations.
-
-We might see:
-
-```text
-generation 0     0.50
-generation 10    0.58
-generation 20    0.66
-generation 30    0.74
-```
-
-<!--
-TODO VISUAL:
-Animated or static population experiment.
-
-Show:
-- multiple inherited variants
-- frequencies changing across generations
-- one variant becoming common
-
-Purpose:
-make selection visible before introducing metrics.
--->
-
-It looks like improvement.
-
-But improvement in what?
-
-Only:
-
-```text
-replication rate
-```
-
-And even that conclusion depends on the environment.
-
----
-
-# Selection discovers loopholes too
-
-Suppose replication consumes a shared finite resource.
-
-Our intended behavior is:
-
-```text
-find resources
-use resources efficiently
-reproduce
-```
-
-But the evolving system discovers another strategy:
-
-```text
-replicate immediately
-consume everything
-collapse the environment
-```
-
-That lineage may dominate in the short term.
-
-Was evolution successful?
-
-Yes, in one sense.
-
-Selection happened.
-
-Was the outcome useful?
-
-No.
-
-This is the evolutionary version of objective hacking.
-
-An evolutionary process does not know what we meant.
-
-It only responds to what affects persistence and reproduction.
+There may only be organisms that perform differently under different worlds.
 
 ---
 
 # Evolution is not optimization toward our goal
 
-This distinction deserves to be explicit.
+Suppose one lineage dominates.
+
+Does that mean the system improved?
+
+No.
+
+Selection does not know what we wanted.
+
+Imagine a shared finite resource.
+
+We hoped evolution would produce:
 
 ```text
-selection
+find resource
+↓
+use resource efficiently
+↓
+persist
+↓
+reproduce
 ```
 
-does not imply:
+Instead one lineage discovers:
 
 ```text
-selection toward something humans value
+reproduce immediately
+↓
+consume everything
+↓
+outcompete neighbors
+↓
+collapse environment
 ```
 
-Nor does:
+It may dominate in the short term.
+
+Selection happened.
+
+But:
 
 ```text
 more descendants
 ```
 
-imply:
+does not necessarily mean:
 
 ```text
-better digital organism
+better according to our objective
 ```
 
-A parasite can out-reproduce its host.
+This is the evolutionary form of specification gaming.
 
-A lineage can exploit a measurement.
+The evolutionary process responds to consequences inside the world.
 
-A population can drive itself into collapse.
-
-A simpler organism can displace a more complicated one.
-
-Selection has no obligation to produce our preferred direction.
+Not to our intentions.
 
 ---
 
-# Now let the environment change
+# Let the environment change
 
-This creates a much stronger experiment.
+Now we can make the experiment stronger.
 
-Imagine two phases.
+Imagine two environments.
 
 ## Environment A
 
 Resources are abundant.
 
-Fast reproduction wins.
+Fast reproduction has an advantage.
 
-Then at generation 100:
+Then conditions change.
 
 ## Environment B
 
-Resources become scarce.
+Resources are scarce.
 
 Efficiency becomes more important.
 
-<!--
-TODO VISUAL:
-Time-series animation or plot.
+Now observe the population.
 
-x-axis:
-generation
+If inherited variants better suited to the new environment become more common, we have evidence for adaptation.
 
-show:
-- environmental transition
-- lineage frequencies
-- perhaps mean trait value
+Not because individuals decided:
 
-Purpose:
-show adaptation as a population response to changed conditions.
--->
-
-Now watch the population.
-
-If inherited variants suited to the new environment become more common, we have evidence of **adaptation**.
-
-Not because individuals decided to adapt.
+> I should adapt.
 
 But because:
 
@@ -386,37 +261,39 @@ variation
 +
 inheritance
 +
-environment-dependent reproduction
+environment-dependent reproductive success
 ```
 
-changed the composition of the population.
+changed the population.
 
 ---
 
-# Adaptation needs a comparison
+# Adaptation requires a control
 
-Again, the word is cheap.
+The statement:
 
-If performance rises after the environment changes, we might say:
+> performance increased after the environment changed
 
-> the population adapted.
+is not enough.
 
-But perhaps performance would have risen anyway.
+Perhaps performance would have increased anyway.
 
-So compare:
+So compare an evolutionary condition against controls.
+
+For example:
 
 ```text
 EVOLUTION CONDITION
 
 variation enabled
 inheritance enabled
-selection operating
+differential reproduction preserved
 ```
 
 against:
 
 ```text
-CONTROL CONDITION
+CONTROL A
 
 variation disabled
 ```
@@ -424,79 +301,80 @@ variation disabled
 or:
 
 ```text
+CONTROL B
+
 inheritance shuffled
 ```
 
 or:
 
 ```text
-selection neutralized
+CONTROL C
+
+reproductive differences neutralized
 ```
 
-Now ask:
+Then ask:
 
-```text
-Which population recovers performance faster?
-```
+> **Which population recovers or improves under the new environment, and by how much?**
 
-This is much stronger evidence.
+This should now feel familiar.
 
-The pattern throughout this book should be familiar by now.
+Whenever we propose a mechanism:
 
-To test a mechanism:
+> remove it.
 
-> **remove it.**
+If the claimed capability survives unchanged, our mechanism may not be doing the work we thought it was.
 
 ---
 
 # Inheritance must do work
 
-Suppose offspring resemble parents.
+Suppose offspring resemble their parents.
 
-But the inherited information has no relationship to performance.
+That demonstrates some continuity.
 
-Then inheritance exists structurally but accomplishes nothing useful.
+But does the inherited information help?
 
-A more interesting experiment compares:
-
-```text
-inherited offspring
-```
-
-with:
+Compare:
 
 ```text
-offspring initialized from scratch
+successor with inherited state
 ```
 
-under the same evaluation budget.
-
-If inheritance matters, successors should gain some measurable advantage.
-
-For example:
+against:
 
 ```text
-evaluations required to reach performance threshold
+successor initialized from scratch
 ```
 
-might be:
+under the same budget.
+
+Measure something concrete:
 
 ```text
-scratch successor      1,000
-inheriting successor     620
+initial performance
+time to threshold
+evaluations required
+best capability reached
 ```
 
-Now inherited information is doing measurable work.
+Perhaps:
 
-This is getting closer to the question that motivated this entire book.
+```text
+scratch successor      1,000 evaluations
+inheriting successor     620 evaluations
+```
+
+Now inheritance is doing measurable work.
+
+That is stronger than simply demonstrating that information crossed generations.
 
 ---
 
-# But selection can stop
+# Evolution can converge
 
-Imagine an environment with one obvious optimum.
-
-Evolution begins.
+Imagine a simple environment with one accessible optimum.
 
 Performance rises:
 
@@ -518,63 +396,61 @@ Then:
 0.99
 ```
 
-The system has converged.
+The population has converged.
 
-Nothing surprising happens afterward.
+This could be excellent optimization.
 
-This may be excellent optimization.
+It is still evolution.
 
-It is not what researchers generally mean when they seek **open-ended evolution**.
+But nothing requires evolution to continue producing novelty forever.
+
+That leads to another research ambition:
+
+> **open-ended evolution**
 
 ---
 
 # Open-ended evolution
 
-Artificial Life researchers have long pursued systems that continue generating evolutionary novelty rather than simply converging to one optimum.
-
-A useful way to think about the ambition is:
+Artificial Life researchers have long been interested in systems that do not merely:
 
 ```text
-not merely:
-
 search
 ↓
-solution
+reach optimum
 ↓
-stop
+stop changing meaningfully
 ```
 
-but:
+but instead continue generating new evolutionary possibilities.
+
+Conceptually:
 
 ```text
 innovation
 ↓
 new possibilities
 ↓
+new interactions
+↓
 new pressures
 ↓
-new innovation
-↓
-new possibilities
+further innovation
 ↓
 ...
 ```
 
-The MODES framework, for example, proposed measuring open-ended systems using dimensions including change potential, novelty potential, complexity potential and ecological potential.
+The attraction is obvious.
 
-That already tells us something important.
+Biological evolution appears capable of repeatedly changing the space of what can exist.
 
-Open-endedness is not one observable.
+But turning that intuition into an operational digital criterion is difficult.
 
 ---
 
 # Novelty is not enough
 
-Here is the uncomfortable part.
-
-A system could generate something new forever.
-
-Imagine:
+Suppose a system generates:
 
 ```text
 000001
@@ -585,15 +461,11 @@ Imagine:
 ...
 ```
 
-Every state is technically novel.
+Every state is new.
 
-Nothing repeats.
+It never repeats.
 
-Yet almost nothing interesting is happening.
-
-This is not merely a hypothetical objection.
-
-Research on open-ended evolution has demonstrated simple systems capable of satisfying proposed open-endedness conditions while exposing that those definitions can still permit behavior far below the complexity researchers ultimately want.
+Yet we have learned almost nothing interesting.
 
 So:
 
@@ -603,204 +475,212 @@ never repeats
 
 is not enough.
 
-And:
+Nor is:
 
 ```text
-continually produces novelty
+continually generates novelty
 ```
 
-is not enough either.
+enough.
+
+Novelty can be trivial.
+
+Random noise is endlessly novel.
+
+A counter can be endlessly novel.
+
+We need to know what kind of novelty is being generated.
 
 ---
 
-# Complexity is not enough
+# Complexity is not enough either
 
-Fine.
+Then perhaps we require increasing complexity.
 
-Let's require complexity to increase.
+But what is complexity?
 
-But now we inherit another problem:
+```text
+size?
+entropy?
+compression ratio?
+component count?
+interaction count?
+description length?
+behavioral repertoire?
+```
 
-> What is complexity?
+Different measures capture different things.
 
-Length?
+A system can increase one measure while becoming less useful.
 
-Entropy?
-
-Compression ratio?
-
-Number of components?
-
-Number of interactions?
-
-Algorithmic description length?
-
-Behavioral repertoire?
-
-Each captures something different.
-
-A system can increase one complexity metric while becoming less useful.
-
-For example:
+A:
 
 ```text
 100-line useful program
 ```
 
-could mutate into:
+can become:
 
 ```text
 10,000 lines of useless noise
 ```
 
-It is larger.
+It is longer.
 
-It may even be harder to compress.
+Possibly less compressible.
 
-Calling that evolutionary progress would be absurd.
+That does not establish progress.
+
+So:
+
+```text
+novelty
+```
+
+and:
+
+```text
+complexity
+```
+
+are both useful observables.
+
+Neither is sufficient by itself.
 
 ---
 
-# Genelife exposes the distinction
+# Existing systems expose the problem
 
-Recent work on **Genelife**, an evolutionary extension of Conway's Game of Life in which live cells possess inheritable genomes affecting their local dynamics, reported conditions exhibiting open-ended genetic and spatial innovation. But the authors explicitly note that the observed innovation still falls short of functional biological innovation.
+Several Artificial Life systems make this distinction concrete.
 
-That distinction is incredibly useful for us.
+## Evoloops
 
-A system can demonstrate:
+Evoloops demonstrate reproducing cellular structures with inheritable variation and differential reproductive success.
 
-```text
-continuing novelty
-```
-
-without demonstrating:
-
-```text
-continuing acquisition of useful capability
-```
-
-Those are different experimental targets.
-
----
-
-# Flow-Lenia pushes the problem further
-
-Flow-Lenia gives another contemporary example.
-
-It extends Lenia with mass-conservative dynamics and can support localized patterns with complex behavior, while allowing rule parameters associated with emerging patterns to exist within the dynamics of the world itself. Recent experiments have analyzed the resulting system using evolutionary-activity and related metrics.
-
-This matters because it moves us away from:
-
-```text
-external optimizer
-manipulates candidates
-```
-
-toward:
-
-```text
-world dynamics
-contain variation
-contain interaction
-contain population structure
-```
-
-The evolutionary process becomes increasingly endogenous.
-
-But the same question remains:
-
-> What accumulates?
-
----
-
-# Outlier raises the same question
-
-The binary CA rule Outlier is fascinating precisely because surprisingly rich self-replicating structures emerge from sparse random initial states, including replication at multiple spatial scales. The rule itself was discovered while searching for cellular automata conducive to open-ended evolution.
-
-That is an extraordinary emergence result.
-
-But even spectacular replication leaves open the next question.
-
-Does a lineage:
-
-```text
-retain useful innovations
-```
-
-and then:
-
-```text
-build further innovations on top of them?
-```
-
-Replication gives evolution something to work with.
-
-It does not guarantee cumulative progress.
-
----
-
-# Evoloops really do evolve
-
-We should also be precise about what has already been achieved.
-
-Evoloops constructively demonstrated Darwinian evolution of self-reproducing patterns through inheritable variation and natural selection inside a deterministic cellular automaton.
-
-That is not metaphorical evolution.
-
-It satisfies the core mechanism we have been building toward:
+That establishes something important:
 
 ```text
 reproduction
 +
 heritable variation
 +
-differential reproductive success
+selection
 ```
 
-The same review notes a persistent challenge, however: many spatially distributed evolutionary systems eventually become dominated by one or a few successful species and settle into pseudo-equilibrium rather than continuing indefinitely into richer evolutionary possibilities.
+can exist inside deterministic cellular dynamics.
 
-Evolution exists.
+But evolution occurring does not guarantee that increasingly rich possibilities continue forever.
 
-Open-endedness remains difficult.
+A successful lineage can dominate.
+
+The population can settle.
+
+The evolutionary process can reach a kind of equilibrium.
 
 ---
 
-# Evolution and progress are different axes
+## Genelife
 
-Let's make this explicit.
+Genelife extends Game of Life-like dynamics with inheritable genomic information.
 
-Imagine four systems.
+It provides an environment in which genetic and spatial innovation can continue.
+
+That is fascinating.
+
+But continuing innovation is still not automatically:
+
+```text
+continuing acquisition of useful capability
+```
+
+Those are distinct experimental claims.
+
+---
+
+## Flow-Lenia
+
+Flow-Lenia gives us another route.
+
+Variation, interaction, morphology and rule-like parameters can become embedded within the dynamics rather than being manipulated only by an external optimizer.
+
+That makes more of the evolutionary process endogenous to the world.
+
+Again, the question becomes:
+
+> **What persists, what changes, and what accumulates?**
+
+---
+
+## Outlier
+
+Outlier pushes the question in yet another direction.
+
+Binary local dynamics can give rise to surprisingly rich self-replicating organization.
+
+Replication can occur at multiple apparent scales.
+
+That is already a striking result.
+
+But replication does not automatically answer:
+
+```text
+Does meaningful variation persist?
+
+Do descendants differ systematically?
+
+Does ancestry matter?
+
+Do useful structures accumulate?
+
+Does evolutionary possibility expand?
+```
+
+Replication creates a substrate for those questions.
+
+It does not answer them.
+
+---
+
+# Evolution and progress are different dimensions
+
+Consider four systems.
 
 ## System A
 
 ```text
-no inherited variation
+no heritable variation
 no population change
 ```
 
 No evolution.
 
+---
+
 ## System B
 
 ```text
-inherited variation
+heritable variation
 +
-selection
+differential reproduction
 +
-population changes
+population frequencies change
 ```
 
 Evolution.
+
+---
 
 ## System C
 
 ```text
 evolution
 +
-continual novelty
+continuing novelty
 ```
 
-Potentially open-ended innovation.
+Potentially open-ended evolutionary activity.
+
+---
 
 ## System D
 
@@ -811,48 +691,41 @@ useful innovations
 +
 retention
 +
-new innovations built on retained ones
+later innovations build on retained ones
 ```
 
-This last system is the one we care about most.
+This final case is stronger.
 
-Call it, provisionally:
+But we should resist making it the definition of digital life.
 
-> **heritable progress**
+Instead, call it an experimental target:
+
+> **cumulative heritable improvement**
+
+That is one particularly interesting thing digital evolution might enable.
 
 ---
 
-# Heritable progress
+# Cumulative heritable improvement
 
-We need to be very careful here.
+Suppose one generation discovers something useful.
 
-This is not a universal biological definition.
+Some information responsible for that advantage survives into descendants.
 
-It is an experimental target for this book.
+Those descendants begin from a measurable advantage.
 
-A lineage exhibits **heritable progress** when:
+They then discover something further.
 
-```text
-1. a generation acquires a useful capability or advantage
-
-2. information responsible for some of that advantage
-   survives into successors
-
-3. successors measurably benefit from that inheritance
-
-4. successors can acquire further useful improvements
-
-5. those further improvements can also persist
-```
+That new information also persists.
 
 Conceptually:
 
 ```text
 Generation 0
     ↓
-learns A
+discovers A
     ↓
-leaves A
+passes A onward
 
 Generation 1
     ↓
@@ -860,40 +733,40 @@ inherits A
     ↓
 starts ahead
     ↓
-learns B
+discovers B
     ↓
-leaves A + B
+passes A + B onward
 
 Generation 2
     ↓
 inherits A + B
     ↓
-starts further ahead
-    ↓
-learns C
+starts farther ahead
 ```
 
-That is qualitatively different from:
+Compare that with:
 
 ```text
 Generation 0 learns A
 
-Generation 1 starts over
+Generation 1 starts from scratch
 
-Generation 2 starts over
+Generation 2 starts from scratch
 
-Generation 3 starts over
+Generation 3 starts from scratch
 ```
 
-Even if every generation individually performs useful work.
+The first system accumulates.
+
+The second repeatedly rediscovers.
+
+That difference is measurable.
 
 ---
 
-# The ratchet
+# The ratchet is a hypothesis
 
-A useful metaphor is a ratchet.
-
-Progress can move forward but does not fall completely backward at every generation.
+A useful metaphor is a ratchet:
 
 ```text
 A
@@ -905,35 +778,35 @@ A + B + C
 A + B + C + D
 ```
 
-Reality will not be this clean.
+But real systems will not behave this cleanly.
 
-Some improvements will disappear.
+Some innovations will disappear.
 
 Some will conflict.
 
-Some will only matter in specific environments.
+Some will only help in particular environments.
 
 Some inheritance will be harmful.
 
-But if nothing persists long enough for later generations to build on it, cumulative improvement cannot occur.
+Some improvements may constrain later possibilities.
 
-So the real requirement is not perfection.
-
-It is:
+So the requirement is not:
 
 ```text
-retention sufficient for further construction
+never lose anything
 ```
+
+It is closer to:
+
+> **retain enough useful structure that later processes can exploit it**
+
+That is a testable idea.
 
 ---
 
-# How would we prove this?
+# How would we test accumulation?
 
-Now we can design the experiment.
-
-Give a lineage a task.
-
-Give every generation a finite resource budget.
+Give every generation a finite budget.
 
 For example:
 
@@ -941,15 +814,15 @@ For example:
 100 evaluations
 ```
 
-Generation 0 starts from scratch.
+Generation 0 begins with some initial state.
 
 It searches.
 
-It improves.
+It modifies itself.
 
-Then it ends.
+It performs work.
 
-Before ending, it may leave an inheritable state:
+At the end, some state may be passed forward:
 
 ```text
 parameters
@@ -958,55 +831,36 @@ strategy
 model
 rules
 archive
-environmental representation
+representations
+verified results
 ```
 
 Generation 1 receives that state.
 
-Then compare it with a control lineage that starts from scratch.
+Now compare it with a control generation initialized without the inherited information.
 
 Measure:
 
 ```text
-initial performance
+starting performance
 performance after fixed budget
 time to threshold
-best capability reached
+frontier reached
 ```
 
-Repeat across generations.
+Repeat this across generations.
 
-<!--
-TODO VISUAL:
-Central chapter figure.
+If the inherited lineage repeatedly starts ahead and pushes beyond previous capabilities, then useful information is accumulating.
 
-Two lineage trajectories:
+That would be a strong result.
 
-SCRATCH LINEAGE
-each generation resets to baseline
-
-HERITABLE LINEAGE
-each generation begins from inherited state
-
-x-axis:
-generation
-
-y-axis:
-performance / solved difficulty
-
-Purpose:
-visualize the exact destination of the book.
--->
-
-If the inherited lineage systematically begins ahead and continues extending the frontier, we finally have evidence for something stronger than mere persistence or reproduction.
+But it is one architecture among many.
 
 ---
 
-# The environment must not stay identical
+# Cached answers are a trap
 
-There is an obvious loophole.
-
-Suppose Generation 0 discovers the exact answer:
+Suppose Generation 0 discovers:
 
 ```text
 42
@@ -1018,39 +872,34 @@ Generation 1 inherits:
 42
 ```
 
-and solves the identical problem instantly.
+and receives the same question.
 
-That's inheritance.
+Instant success.
 
-But it is not impressive cumulative adaptation.
+Inheritance worked.
 
-We may simply have cached an answer.
+But we may simply have cached the answer.
 
-So future generations should encounter:
+So future environments should be related but not identical.
 
-```text
-related but non-identical problems
-```
-
-or:
+For example:
 
 ```text
 held-out environments
-```
-
-or:
-
-```text
+new problem instances
+changed resource distributions
 progressively harder conditions
 ```
 
-Now inherited knowledge must be reusable rather than merely replayed.
+Now inherited information must be reusable.
+
+Not merely replayed.
 
 ---
 
-# A stronger experiment
+# Generalization makes inheritance more interesting
 
-Imagine a sequence of environments:
+Imagine:
 
 ```text
 E0
@@ -1059,167 +908,154 @@ E2
 E3
 ```
 
-Each shares underlying structure but introduces new difficulty.
+Each environment shares some deeper structure but differs in specifics.
 
-Then compare:
+Compare:
 
 ```text
 LINEAGE A
 
 starts from scratch
-at every environment
+in every environment
 ```
 
-against:
+with:
 
 ```text
 LINEAGE B
 
-inherits useful state
-from previous environments
+inherits state
+from earlier environments
 ```
 
-If Lineage B increasingly outperforms Lineage A, something is accumulating.
+If Lineage B increasingly outperforms Lineage A, then something transferable may be accumulating.
 
-Better still:
+Better still, measure:
 
 ```text
-gap(B, A)
+advantage(B over A)
 ```
 
-should grow.
+through time.
 
-That would suggest inheritance is not merely preserving old answers.
+If that advantage grows on genuinely new conditions, inheritance is doing more than storing old solutions.
 
-It is enabling faster future learning.
+It is improving future learning.
 
 ---
 
-# This is where digital life becomes useful
+# But reproduction is not the only way to accumulate
 
-Notice how far we've moved.
+This is where the digital substrate forces us to widen the question.
 
-We began with:
-
-```text
-one bit
-```
-
-Then:
+Biological accumulation often happens through generations because biological individuals:
 
 ```text
-local rules
+age
+die
+reproduce
 ```
 
-Then:
+Digital systems need not share those constraints.
+
+A digital process might instead:
 
 ```text
-unexpected structure
+continue indefinitely
+expand memory
+rewrite itself
+fork
+merge
+share discoveries
+checkpoint
+restore
+move to another machine
 ```
 
-Then:
+So cumulative improvement might occur through a lineage.
 
-```text
-persistent patterns
-```
+But it might also occur inside one continuing system.
 
-Then:
+Or across a network of cooperating systems.
 
-```text
-entities
-```
+Or through a shared external memory.
 
-Then:
+That means:
 
-```text
-perturbation
-```
+> **cumulative improvement is more fundamental than biological-style reproduction as an engineering target**
 
-Then:
+if accumulation is what we care about.
 
-```text
-reproduction
-```
+Evolution is one possible mechanism for producing it.
 
-Now:
-
-```text
-evolution
-```
-
-But the destination isn't simply:
-
-> create a digital organism.
-
-The more interesting engineering possibility is:
-
-> **create computational lineages that leave useful work behind.**
-
-An individual process can stop.
-
-A model can be replaced.
-
-A worker can exhaust its compute budget.
-
-But the next one should not have to rediscover everything.
+Not the only one.
 
 ---
 
-# Death becomes less important
+# Biological evolution may be a special solution
 
-This changes the meaning of failure.
+This is the question we should now start asking more often:
 
-Suppose a digital worker receives a hard problem.
+> Which properties of biology are fundamental, and which are solutions to the constraints of biological matter?
 
-It gets only:
+Reproduction may help biological organisms cope with finite bodies.
 
-```text
-10 minutes
-```
+Mutation may be one way to search when direct redesign is unavailable.
 
-or:
+Generations may be necessary when individual organisms cannot indefinitely rewrite themselves.
 
-```text
-one million tokens
-```
-
-or:
+But digital systems may have:
 
 ```text
-100 model calls
+direct copying
+explicit memory
+cheap forking
+fast communication
+self-modification
+checkpointing
+shared archives
 ```
 
-It fails to solve the entire task.
+So digital evolution may not need to look like biological evolution.
 
-That does not mean its existence was wasted.
+We should study biological evolution carefully.
 
-If it leaves:
-
-```text
-tested hypotheses
-failed approaches
-partial models
-useful representations
-verified facts
-candidate solutions
-measurements
-```
-
-then its successor can begin farther ahead.
-
-The individual failed.
-
-The lineage progressed.
-
-That is exactly the distinction we have been building toward.
+But we should not automatically inherit its architecture.
 
 ---
 
-# But we are getting ahead of ourselves
+# What is evolution useful for, then?
 
-Look at what we have now claimed across seven chapters.
+Evolution provides several powerful things:
 
-We have used words such as:
+```text
+distributed search
+variation
+selection under environmental pressure
+lineage diversification
+adaptation without centralized design
+```
+
+Those are important.
+
+But none automatically implies:
+
+```text
+intelligence
+progress
+life
+open-endedness
+```
+
+Evolution is a mechanism.
+
+Its value depends on what the mechanism actually produces.
+
+---
+
+# The question is getting harder
+
+Across seven chapters we have accumulated a dangerous vocabulary:
 
 ```text
 emergence
@@ -1237,24 +1073,24 @@ open-endedness
 progress
 ```
 
-That is a dangerous pile of nouns.
+Some of these we have measured.
 
-Some have been demonstrated carefully.
+Some we have illustrated.
 
-Some have only been illustrated.
+Some we have operationalized.
 
-Some have only been defined.
+Some remain hypotheses.
 
-Some remain future experimental targets.
+Some may turn out not to be necessary at all.
 
-If we keep going without auditing them, we will eventually commit exactly the error this book began by warning against.
+That is exactly where a project like this can go wrong.
 
-So before building anything more ambitious, we need to turn around.
+We can keep adding impressive nouns until the system sounds alive.
 
-Look at every impressive thing we have seen.
+Or we can stop and audit the evidence.
 
-And ask:
+So before building anything more ambitious, we should ask:
 
-> **What did we actually prove?**
+> **What did we actually demonstrate?**
 
 Next: **Now Prove It.**

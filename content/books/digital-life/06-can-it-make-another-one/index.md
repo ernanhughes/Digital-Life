@@ -2,138 +2,111 @@
 title = "Digital Life 06: Can It Make Another One?"
 date = "2026-08-11T01:46:00+01:00"
 draft = false
-description = "Ask what digital reproduction actually requires, from simple copying to inheritable variation and self-reproducing cellular structures."
+description = "Ask what digital reproduction actually requires, from simple copying to causal reproduction, inheritance and lineage."
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Cellular Automata", "Self-Replication", "Self-Reproduction", "Evoloops", "Outlier", "Inheritance"]
 +++
 
-# Digital Life 06: Can It Make Another One?
+In the last chapter, we damaged persistent patterns.
 
-We killed the glider.
-
-That exposed an uncomfortable weakness.
-
-A persistent pattern can disappear permanently after a tiny perturbation.
-
-One possible solution is to make the original pattern harder to destroy.
-
-Another is very different:
-
-> **Don't require the original to survive forever.**
-
-Make another one.
-
-Then another.
-
-Now persistence can move from:
+That gave us:
 
 ```text
-one structure surviving through time
-```
+persistence
+≠
+robustness
+≠
+regeneration
+````
 
-to:
+Now consider a different possibility.
 
-```text
-information surviving through successors
-```
+Instead of asking whether one organization can continue forever, ask:
 
-That is a major transition.
+> **Can one organization cause another recognizable organization to appear?**
 
-And an extremely dangerous place to start using biological words too casually.
+That is reproduction in its weakest interesting form.
 
----
+But we should be careful immediately.
 
-# Copy this
+Digital systems make copying cheap.
 
-Suppose we begin with:
-
-```text
-.##.
-####
-.#..
-```
-
-and after some number of updates we have:
+So cheap, in fact, that:
 
 ```text
-.##.        .##.
-####        ####
-.#..        .#..
+copying
 ```
 
-There are now two copies of the pattern.
+by itself tells us almost nothing.
 
-That looks like reproduction.
+The real question is not:
 
-But what exactly have we demonstrated?
+> Can digital state be duplicated?
 
-At minimum:
+Obviously it can.
 
-> A dynamical process caused an additional instance of a recognizable configuration to appear.
+The interesting question is:
 
-That's interesting.
+> **Can the dynamics of the system itself produce another instance, and can we demonstrate a causal relationship between them?**
 
-But let's make the problem deliberately stupid first.
+That is much harder.
 
 ---
 
 # The world's worst self-reproducer
 
-Consider:
+Start with the stupidest possible example.
 
 ```python
 def reproduce(x):
     return x.copy()
 ```
 
-Run:
+Then:
 
 ```python
 parent = [1, 0, 1, 1]
-
 child = reproduce(parent)
 ```
 
-Congratulations.
-
-We now have:
+Now:
 
 ```text
 parent = 1011
 child  = 1011
 ```
 
-The system reproduced.
+Did the system reproduce?
 
-Or did it?
+In one trivial sense, yes.
 
-Technically, we copied some data.
+Some state was copied.
 
-But almost everything interesting was supplied from outside:
+But nearly everything interesting came from outside the supposed organism:
 
 ```text
 where the object begins
 what counts as the object
-when copying occurs
-where the child goes
-how copying is performed
+when copying happens
+how copying works
+where the new copy goes
 ```
 
-Calling the function:
+The function name:
 
 ```python
 reproduce()
 ```
 
-adds no scientific content.
+does not establish reproduction as an internal property of the system.
 
-This is exactly the cargo-cult problem we promised to avoid.
+That would be exactly the mistake this book is trying to avoid.
 
 ---
 
-# Copying is cheap
+# Copying is native to the digital substrate
 
-Modern computers copy things constantly.
+Computers already duplicate things constantly:
 
 ```text
 files
@@ -145,19 +118,37 @@ virtual machines
 model checkpoints
 ```
 
-If duplication alone were sufficient for digital life, your operating system would be overflowing with organisms.
+This matters because the digital substrate differs fundamentally from biology.
 
-The interesting question is not:
+Copying digital state is often:
 
-> Can software make another copy of some state?
+```text
+cheap
+fast
+exact
+```
 
-Obviously it can.
+So we should not automatically treat duplication itself as a profound achievement.
 
-The interesting question is:
+The interesting part is where the mechanism lives.
 
-> **Can reproduction arise from the dynamics of the system itself?**
+Compare:
 
-Now we're asking something harder.
+```text
+external copier
+     ↓
+duplicate state
+```
+
+with:
+
+```text
+local dynamics
+     ↓
+new recognizable instance
+```
+
+Those are very different claims.
 
 ---
 
@@ -171,158 +162,107 @@ There is no:
 spawn_child()
 ```
 
+No object constructor.
+
+No hidden supervisor identifying parents and children.
+
 There is only:
 
 ```text
-cell state
+local state
 +
 neighborhood
 +
-local transition rule
+transition rule
 +
 time
 ```
 
-Yet a localized pattern eventually produces another localized pattern resembling itself.
+Yet eventually:
 
-Now something different has happened.
+```text
+one localized organization
+```
 
-The mechanism responsible for copying is embedded in the same local physics that governs everything else.
+is followed by:
+
+```text
+two spatially separated recognizable organizations
+```
+
+Now something more interesting has happened.
+
+The mechanism that produces the second structure is embedded in the same local dynamics governing everything else.
 
 There is no privileged reproduction API.
 
-That is why self-reproducing cellular automata became such an important Artificial Life problem.
+That is the kind of reproduction we care about.
 
 ---
 
-# What exactly counts as a copy?
+# What counts as another one?
 
-Before getting impressed, define it.
-
-Suppose configuration `C` exists at one location.
-
-After some time there are two spatially separate instances:
-
-```text
-C       C
-```
-
-How similar must they be?
-
-For an exact binary system perhaps:
-
-```text
-child == parent
-```
-
-is enough.
-
-But what if the child is rotated?
-
-```text
-parent       child
-
-.##.          ....
-####          ###.
-.#..          .##.
-....          .#..
-```
-
-Or translated?
-
-Or one bit differs?
-
-Or the parent has changed while constructing the child?
-
-Once again, **identity becomes part of the measurement**.
-
----
-
-# A useful classical criterion
-
-A traditional way to formalize self-replication in cellular automata is to consider a bounded configuration surrounded by quiescent space and ask whether evolution can eventually produce arbitrarily many copies of that configuration.
-
-The recent review of self-reproduction in cellular automata revisits precisely this problem and distinguishes several notions of replication and reproduction.
-
-Conceptually:
-
-```text
-C
-
-↓
-
-C     C
-
-↓
-
-C     C     C
-
-↓
-
-...
-```
-
-But even this leaves an important question.
-
-Did `C` do anything?
-
-Or did the universe happen to create more `C`s around it?
-
----
-
-# Causal reproduction
-
-Suppose a world spontaneously produces this pattern every 100 generations:
+Suppose a configuration `C` appears here:
 
 ```text
 C
 ```
 
-Eventually there will be many instances of `C`.
-
-But removing one existing `C` changes nothing.
-
-New copies continue appearing at exactly the same rate.
-
-Calling the original pattern a parent would be misleading.
-
-So we need something stronger.
-
-Compare:
+Later:
 
 ```text
-WORLD A
-
-contains C
-    ↓
-new C appears
+C        C
 ```
 
-against:
+Have we demonstrated reproduction?
+
+Not yet.
+
+We immediately need an identity criterion.
+
+How similar must the new configuration be?
+
+Exactly identical?
+
+Translated?
+
+Rotated?
+
+At another internal phase?
+
+Slightly different?
+
+What if the original changes while the second appears?
+
+Again, the question:
+
+> Did it make another one?
+
+contains another question inside it:
+
+> **What counts as the same kind of thing?**
+
+Chapter 04 has returned.
+
+Identity is not an optional philosophical decoration.
+
+It determines whether our detector reports:
 
 ```text
-WORLD B
-
-C removed
-    ↓
-does new C still appear?
+1 entity
 ```
 
-If eliminating the supposed parent eliminates or strongly reduces production of the supposed offspring, we have much stronger evidence for a reproductive relationship.
+or:
 
-Notice how familiar this should feel.
-
-Again:
-
-> **intervention tells us whether the proposed mechanism matters.**
+```text
+2 entities
+```
 
 ---
 
-# Parent and offspring must separate
+# Growth is not necessarily reproduction
 
-Another useful requirement is spatial individuality.
-
-Imagine one pattern simply expanding:
+Suppose:
 
 ```text
 ###
@@ -340,385 +280,208 @@ and then:
 #########
 ```
 
+The structure became larger.
+
 Did it reproduce?
 
 Probably not.
 
-One structure became larger.
+There may still be only one continuing organization.
 
-For reproduction, we generally want something more like:
-
-```text
-parent
-   ↓
-parent + distinct offspring
-```
-
-There must be some defensible boundary between them.
-
-That returns us to the problem from Chapter 04.
-
-Before talking about reproduction, we need some notion of:
+So reproduction usually requires something stronger:
 
 ```text
-individual
+one candidate entity
+        ↓
+two defensibly distinct candidate entities
 ```
 
-Otherwise we cannot tell whether there are now two of anything.
+That means we need some separation criterion.
+
+Perhaps:
+
+```text
+spatial separation
+```
+
+Perhaps later:
+
+```text
+causal separation
+```
+
+For now, geometry gives us a first approximation.
+
+But we should already mark it as provisional.
+
+A digital individual may eventually turn out not to correspond neatly to one connected blob.
 
 ---
 
-# The old problem was harder than it looked
+# Similarity is not parenthood
 
-John von Neumann explored this question long before modern Artificial Life.
-
-The goal was not merely to make a pattern that happened to duplicate.
-
-The deeper problem was to understand how a machine could contain a description that participated in constructing another machine, including a copy of that description.
-
-Later cellular-automata systems simplified and explored pieces of this problem.
-
-Chris Langton's self-reproducing loops became one important milestone.
-
-And then something more interesting happened.
-
-The copies stopped being perfect.
-
----
-
-# Replication versus reproduction
-
-This distinction is worth locking into the book.
-
-The recent Evoloops review uses:
+Now suppose the world spontaneously creates the same pattern every 100 generations.
 
 ```text
-SELF-REPLICATION
+C
 ```
 
-for the production of essentially identical copies.
-
-And:
+Then later:
 
 ```text
-SELF-REPRODUCTION
+C    C    C    C
 ```
 
-when offspring can contain **inheritable variation**.
+We might see many copies.
+
+But imagine removing the first one.
+
+The later copies still appear at exactly the same times.
+
+Was the first `C` their parent?
+
+No useful evidence supports that.
 
 So:
 
 ```text
-replication
-
-parent
-  ↓
-identical child
-```
-
-while:
-
-```text
-reproduction
-
-parent
-  ↓
-similar child
-  ↓
-variation may be inherited
-```
-
-![Recognized descendants increasing across generations](/images/books/digital-life/ch06-lineage-growth.png)
-
-That second case opens the door to something replication alone cannot provide.
-
-Evolution.
-
-But we aren't there yet.
-
----
-
-# Evoloops
-
-Evoloops are particularly important for our argument.
-
-They were derived from earlier self-reproducing loop systems but modified so reproduction could tolerate a broader range of local situations. Interactions and collisions during replication could create variations, and some of those variations remained capable of reproducing.
-
-That changes the system fundamentally.
-
-Instead of:
-
-```text
-A
-↓
-A
-↓
-A
-↓
-A
-```
-
-we can get something like:
-
-```text
-A
-↓
-A'
-↓
-A''
-```
-
-where the differences affect future reproductive success.
-
-The Evoloops work demonstrated that variation and natural selection could occur inside a deterministic cellular automaton. The review emphasizes something especially relevant to this book: the implementation itself contained no global concept of an individual or selection, and differential reproductive success emerged from local interactions in the CA world.
-
-That is a much stronger result than calling a function called `mutate()`.
-
----
-
-# There is no fitness score
-
-This is worth stopping on.
-
-Many artificial evolutionary systems look like:
-
-```python
-for candidate in population:
-    score = fitness(candidate)
-
-keep_best_candidates()
-```
-
-There is nothing wrong with this.
-
-We will use optimization later.
-
-But Evoloops offer a different kind of experiment.
-
-There is not necessarily some external system saying:
-
-```text
-you scored 0.82
-you scored 0.51
-therefore you reproduce
-```
-
-Instead:
-
-```text
-reproduce successfully
-      ↓
-more descendants
-```
-
-or:
-
-```text
-fail to reproduce
-      ↓
-lineage disappears
-```
-
-Fitness becomes connected to what actually happens in the environment.
-
-That brings the implementation closer to the phenomenon being claimed.
-
----
-
-# But deterministic evolution?
-
-There is an apparent paradox here.
-
-The CA is deterministic.
-
-Given exactly the same starting configuration:
-
-```text
-same future
-```
-
-every time.
-
-Yet variation and natural selection can still occur during the trajectory.
-
-There is no contradiction.
-
-Determinism describes how states follow from earlier states.
-
-Evolution describes relationships between:
-
-```text
-variation
-inheritance
-differential reproduction
-```
-
-Those can exist inside a completely deterministic universe.
-
-Randomness is not logically required for evolution.
-
-Variation is.
-
----
-
-# Then something stranger appeared
-
-More recently, Bo Yang reported a binary cellular automaton rule called **Outlier**.
-
-This is particularly interesting because the underlying cells are only binary, the rule acts on a two-dimensional Moore neighborhood, and the rule was discovered through genetic programming while searching for systems capable of open-ended evolutionary behavior.
-
-From sparse random initial states, the rule can produce lower-level clusters that generate new clusters, including periodically self-duplicating structures. Under sufficiently sparse conditions, those structures can also combine into larger formations that themselves exhibit self-replication.
-
-In other words, replication appears at more than one spatial scale.
-
-![One localized digital pattern producing a second spatially distinct copy](/images/books/digital-life/ch06-self-replication.gif)
-
-This is exactly the kind of result the opening of this book was designed to reach.
-
-Remember how little machinery we needed in Chapter 02?
-
-```text
-local states
+similarity
 +
-local neighborhoods
-+
-transition rules
+later appearance
 ```
 
-Now systems built from the same general idea are producing structures that make more structures.
+is not enough.
+
+We need causality.
 
 ---
 
-# But "replication" can fool us too
+# Causal reproduction
 
-Suppose a blob divides:
+Compare two worlds.
 
-```text
-OOOOOO
-```
-
-into:
+## World A
 
 ```text
-OOO   OOO
+candidate parent present
+        ↓
+candidate offspring appears
 ```
 
-It looks spectacular.
-
-Before calling it reproduction, ask:
+## World B
 
 ```text
-Are these actually distinct persistent structures?
-
-Do both continue independently?
-
-Does the process happen repeatedly?
-
-Does removing the parent alter child production?
-
-Are the offspring sufficiently similar?
-
-Does variation pass to descendants?
+candidate parent removed
+        ↓
+does candidate offspring still appear?
 ```
 
-The picture is the beginning of the experiment.
+If removing the supposed parent prevents, delays or substantially changes production of the supposed offspring, then the parent hypothesis becomes much stronger.
 
-Not the end.
+This is the same principle we introduced in the previous chapter:
+
+> **Intervention tests whether the proposed mechanism is doing real work.**
+
+That gives us a much stronger reproductive claim:
+
+```text
+parent-like organization
+        ↓
+causally contributes
+        ↓
+production of distinct offspring-like organization
+```
+
+Now the word:
+
+```text
+parent
+```
+
+starts earning its meaning.
 
 ---
 
-# Build a replication test
+# A minimal reproduction test
 
-Suppose we detect a candidate pattern `P`.
+Suppose we detect candidate pattern `P`.
 
-A minimal test could look like:
+A useful first protocol might be:
 
 ```text
 1. identify P at time t₀
 
 2. track P through time
 
-3. detect a second spatially separate
-   pattern sufficiently similar to P
+3. detect another spatially distinct
+   pattern satisfying the identity criterion
 
-4. verify both persist independently
+4. verify that the new pattern persists
+   independently for some minimum time
 
 5. repeat the observation
 
-6. perturb or remove P
+6. remove or perturb P
 
-7. test whether offspring production changes
+7. measure whether production
+   of the new pattern changes
 ```
 
-Now our claim is much stronger.
+Notice how much more demanding this is than:
+
+> Look! Two blobs!
+
+That is deliberate.
 
 ---
 
-# Count descendants
+# Replication and reproduction are not identical questions
 
-A simple observable is:
-
-```text
-number of recognized copies through time
-```
-
-For example:
+Suppose the parent produces:
 
 ```text
-t = 0      1
-t = 100    1
-t = 200    2
-t = 300    4
-t = 400    7
-```
-
-Plot:
-
-```text
-time
- ↓
-number of copies
-```
-
-That tells us whether a pattern merely duplicated once or generated a proliferating lineage.
-
-![Recognized descendants increasing across generations](/images/books/digital-life/ch06-lineage-growth.png)
-
-Again, this is stronger than a cherry-picked GIF.
-
----
-
-# Now make one copy different
-
-Suppose reproduction produces:
-
-```text
-parent
-
 101101
 ```
 
-and:
+and the child is:
 
 ```text
-offspring
+101101
+```
 
+That is an exact copy under this representation.
+
+Call that:
+
+```text
+replication
+```
+
+Now suppose offspring can differ:
+
+```text
+parent
+101101
+
+child
 101001
 ```
 
-One bit changed.
+Now we have:
 
-Wonderful.
+```text
+variation
+```
 
-We have variation.
+But variation alone is still not enough to tell us much.
 
-But have we demonstrated inheritance?
+The next question is whether the difference survives into further descendants.
 
-Not necessarily.
+---
 
-To establish inheritance, the changed property must affect descendants.
+# Variation is not inheritance
 
-Imagine:
+Suppose:
 
 ```text
 Generation 0
@@ -734,9 +497,13 @@ Generation 3
 101001
 ```
 
-Now the difference has persisted across reproduction.
+Now the altered property has persisted through reproduction.
 
-That's much more interesting.
+That is much closer to:
+
+```text
+inheritance
+```
 
 So:
 
@@ -744,21 +511,346 @@ So:
 variation
 ```
 
-is not enough.
-
-We want:
+is not the same as:
 
 ```text
 heritable variation
 ```
 
+A one-generation error may be noise.
+
+An inherited difference can alter the future of a lineage.
+
+---
+
+# Parenthood becomes a graph
+
+Once offspring can produce offspring, the experiment changes again.
+
+Instead of merely counting objects, we can represent:
+
+```text
+A
+├── B
+│   ├── D
+│   └── E
+└── C
+    └── F
+```
+
+Now we have a:
+
+> **lineage graph**
+
+This is important.
+
+We are no longer only measuring:
+
+```text
+how many patterns exist?
+```
+
+We can ask:
+
+```text
+who descended from whom?
+
+which branches persist?
+
+which properties recur within branches?
+
+which variants spread?
+
+which branches disappear?
+```
+
+Reproduction introduces history with structure.
+
+---
+
+# Count descendants, but do not stop there
+
+A simple measurement is:
+
+```text
+recognized descendants through time
+```
+
+For example:
+
+```text
+t = 0      1
+t = 100    1
+t = 200    2
+t = 300    4
+t = 400    7
+```
+
+![Recognized descendants increasing across generations](/images/books/digital-life/ch06-lineage-growth.png)
+
+This tells us whether a structure duplicated once or participated in a growing lineage.
+
+But raw counts are not enough.
+
+A lineage graph tells us far more than population size alone.
+
+Two systems may both contain:
+
+```text
+100 copies
+```
+
+while one came from:
+
+```text
+one deep branching ancestry
+```
+
+and another came from:
+
+```text
+100 independent spontaneous appearances
+```
+
+Those are completely different mechanisms.
+
+---
+
+# Self-reproducing cellular automata
+
+This problem has a long history.
+
+Von Neumann's work on self-reproducing automata was not merely about making shapes duplicate.
+
+The deeper problem involved a machine participating in the construction of another machine while also propagating the information needed for that construction.
+
+Later cellular-automaton systems simplified the machinery.
+
+Langton's loops became one famous example of local dynamics producing self-reproducing structures.
+
+Then systems such as Evoloops pushed the idea further by allowing variation among reproducing structures.
+
+The important lesson for us is not the historical sequence itself.
+
+It is the mechanism:
+
+```text
+local rules
++
+localized organization
++
+reproduction
++
+variation
+```
+
+without requiring an external function to identify and copy the object.
+
+---
+
+# Evoloops: reproduction without a fitness function
+
+Evoloops are especially interesting because reproduction occurs inside the world.
+
+Interactions and collisions can create variation.
+
+Some variants remain able to reproduce.
+
+So instead of:
+
+```text
+A
+↓
+A
+↓
+A
+```
+
+we may obtain:
+
+```text
+A
+↓
+A'
+↓
+A''
+```
+
+and those differences can alter what happens later.
+
+That matters because there need not be an external loop saying:
+
+```python
+score = fitness(candidate)
+if score > threshold:
+    reproduce(candidate)
+```
+
+Instead:
+
+```text
+successfully reproduce
+        ↓
+more descendants
+```
+
+or:
+
+```text
+fail to reproduce
+        ↓
+lineage disappears
+```
+
+The environment and dynamics produce differential reproductive success directly.
+
+That is a very different architecture from ordinary optimization.
+
+---
+
+# Determinism does not prevent evolution
+
+There is a temptation to think:
+
+```text
+deterministic universe
+```
+
+means:
+
+```text
+no evolution
+```
+
+But those ideas address different questions.
+
+Determinism says:
+
+> Given the complete present state, the future state is fixed.
+
+Evolution concerns relationships among:
+
+```text
+variation
+inheritance
+differential reproduction
+```
+
+Those relationships can exist inside a deterministic trajectory.
+
+Randomness is not logically required.
+
+Variation is.
+
+---
+
+# Outlier makes the problem stranger
+
+More recent cellular-automaton work gives us an even more interesting case.
+
+In the system called **Outlier**, simple binary local dynamics can generate structures that appear to replicate at more than one spatial scale.
+
+![One localized digital pattern producing a second spatially distinct copy](/images/books/digital-life/ch06-self-replication.gif)
+
+That is exactly the kind of observation that should make us suspicious.
+
+Not dismissive.
+
+Suspicious.
+
+Because the image invites the sentence:
+
+> It reproduced.
+
+But now we know what that sentence requires.
+
+We must ask:
+
+```text
+Are there really distinct entities?
+
+Are they persistent?
+
+Are they related by ancestry?
+
+Does the supposed parent matter causally?
+
+Does the process repeat?
+
+Do descendants themselves produce descendants?
+```
+
+The visual phenomenon is only the start.
+
+This will matter later.
+
+A lot.
+
+---
+
+# The most dangerous word here is "offspring"
+
+Suppose a blob divides:
+
+```text
+OOOOOO
+```
+
+into:
+
+```text
+OOO    OOO
+```
+
+Our eyes immediately construct:
+
+```text
+parent
++
+child
+```
+
+But several alternatives may explain the same image.
+
+Perhaps:
+
+```text
+one object fragmented
+```
+
+Perhaps:
+
+```text
+two structures emerged from a shared surrounding process
+```
+
+Perhaps:
+
+```text
+the apparent parent was not causally necessary
+```
+
+Perhaps:
+
+```text
+our entity detector split one distributed organization into two pieces
+```
+
+So the word:
+
+```text
+offspring
+```
+
+must be earned by ancestry evidence.
+
+Geometry alone is not enough.
+
 ---
 
 # Mutation is not evolution
 
-This is perhaps the most important warning in the chapter.
-
-It is easy to build:
+Now suppose we explicitly implement:
 
 ```python
 child = parent.copy()
@@ -767,161 +859,180 @@ if random.random() < mutation_rate:
     child[random_index] ^= 1
 ```
 
-and announce:
-
-> the organism evolves.
+Have we built evolution?
 
 No.
 
-We have implemented mutation.
-
-Evolution requires a population-level process across generations.
-
-At minimum, we are looking for relationships among:
+We have implemented:
 
 ```text
-variation
+copying
 +
-inheritance
+mutation
+```
+
+Evolution requires a population-level process over generations.
+
+At minimum:
+
+```text
+heritable variation
 +
 differential reproductive success
++
+change in variant frequencies through time
 ```
 
-And even then, if we want the stronger result that motivates this book, we need something more.
+That distinction is crucial.
+
+A mutation operator is not an evolutionary result.
 
 ---
 
-# Evolution can go nowhere
+# And evolution is not progress
 
-Imagine 1,000 generations.
+Suppose a population changes for 10,000 generations.
 
-Every generation differs slightly.
+Variants arise.
 
-The population continually changes.
+Variants disappear.
 
-But:
+Lineages branch.
 
-```text
-performance does not improve
-complexity does not increase
-capabilities do not accumulate
-adaptations disappear as quickly as they appear
-```
+Different forms dominate at different times.
 
-Has evolution occurred?
+Evolution may certainly be occurring.
 
-Potentially, yes.
-
-Has **progress** occurred?
-
-Not necessarily.
-
-This distinction is central to where this book is heading.
-
-We're interested not merely in:
+But perhaps:
 
 ```text
-change across generations
+capability does not increase
+
+useful structure does not accumulate
+
+each useful change is later lost
+
+later generations do not begin ahead of earlier ones
 ```
 
-but eventually:
+Then we should not automatically say:
 
 ```text
-useful change
-+
-inheritance
-+
-retention
-+
-further useful change
+progress
 ```
 
-That is much harder.
+Evolution and cumulative improvement are different claims.
+
+This is going to matter in the next chapter.
 
 ---
 
-# Replication gives us a new kind of persistence
+# A lineage creates a new kind of persistence
 
-Earlier we studied:
+Earlier, persistence meant:
 
 ```text
-one pattern
-persisting through time
+one organization
+continuing through time
 ```
 
-Now there is another possibility:
+Reproduction allows another possibility:
 
 ```text
-pattern A
-    ↓
-pattern B
-    ↓
-pattern C
-    ↓
-pattern D
+organization A
+      ↓
+organization B
+      ↓
+organization C
+      ↓
+organization D
 ```
 
-No single instance needs to survive indefinitely.
+No individual needs to continue indefinitely.
 
-What persists is something distributed across the lineage.
+Some relationship may persist across successors.
 
-Perhaps:
+That relationship could involve:
 
 ```text
-structure
-rule parameters
+shape
+internal state
+parameters
 encoded description
 behavior
 learned information
 ```
 
-This is the first appearance of one of the book's eventual central questions:
+But we must not assume in advance which of these matters.
 
-> **What exactly should survive when the individual does not?**
+The experimental question is:
+
+> **What remains correlated across ancestry?**
+
+That is a much cleaner formulation of inheritance.
 
 ---
 
-# The individual can die
+# Digital lineages may not resemble biological lineages
 
-This changes how we think about death.
+This is where we need to resist importing biology too quickly.
 
-Suppose:
-
-```text
-parent exists
-    ↓
-offspring produced
-    ↓
-parent disappears
-```
-
-Nothing necessarily failed.
-
-If information important to future success passed forward, the lineage may continue.
-
-That means we eventually need two different units of analysis:
+Biological lineage is usually drawn as a tree:
 
 ```text
-individual
+parent
+├── child
+└── child
 ```
 
-and:
+Digital systems may allow stranger possibilities.
+
+A digital entity might:
+
+```text
+fork
+copy
+checkpoint
+restore
+exchange state
+merge
+```
+
+So ancestry could eventually look more like:
+
+```text
+graph
+```
+
+than:
+
+```text
+tree
+```
+
+Two descendants might exchange information.
+
+Two branches might merge.
+
+A restored checkpoint might create another continuation from an earlier state.
+
+That means even the concept:
 
 ```text
 lineage
 ```
 
-A system can perform badly at one level and well at another.
+may need a digital version rather than a biological copy.
 
-An individual may disappear.
+For now, simple parent-child reproduction gives us a clean starting laboratory.
 
-The lineage may improve.
+But it may not be the final architecture.
 
 ---
 
-# Now our vocabulary is dangerous
+# Our vocabulary is becoming dangerous
 
-We have accumulated a lot of biological language:
+We now have words such as:
 
 ```text
 individual
@@ -929,113 +1040,98 @@ parent
 offspring
 replication
 reproduction
-mutation
-inheritance
-selection
-lineage
-```
-
-Every one of these terms can become cargo cult.
-
-So keep translating them back into operational questions.
-
-### Individual
-
-Can we identify a persistent localized configuration independently of its environment?
-
-### Parent
-
-Does the existence or behavior of one instance causally contribute to production of another?
-
-### Offspring
-
-Is a distinct persistent instance produced?
-
-### Replication
-
-Is the offspring effectively identical under our identity criterion?
-
-### Reproduction
-
-Can offspring contain inheritable variation?
-
-### Inheritance
-
-Do properties of one instance predict corresponding properties in descendants beyond chance or environmental explanation?
-
-### Selection
-
-Do inherited differences affect reproductive success?
-
-### Evolution
-
-Do inherited variants change in frequency over generations?
-
-That gives us something testable.
-
----
-
-# And then comes the question we actually care about
-
-Suppose all of this works.
-
-We have:
-
-```text
-replication
 variation
 inheritance
 selection
+lineage
 evolution
 ```
 
-Is that enough?
+Every one can become cargo cult.
 
-Remember where this book is eventually going.
+So translate them back into operational questions.
 
-We don't merely want a population that keeps changing.
+## Individual
 
-We want to know whether generations can **build on one another**.
+Can we define a pattern or causal organization sufficiently well to track it through time?
 
-Can generation `N` discover something useful?
+## Parent
 
-Can that useful information survive reproduction?
+Does one candidate entity causally contribute to the appearance of another?
 
-Can generation `N + 1` begin from that advantage?
+## Offspring
 
-Can it then discover something further?
+Does a distinct continuing organization appear as a consequence of that process?
 
-Can that survive too?
+## Replication
 
-Conceptually:
+Does the offspring satisfy an identity criterion equivalent to the parent's?
+
+## Variation
+
+Does the offspring differ on some measured property?
+
+## Inheritance
+
+Do parental properties predict corresponding descendant properties across generations?
+
+## Selection
+
+Do inherited differences alter expected reproductive success under the environment being tested?
+
+## Evolution
+
+Do inherited variants change in prevalence across generations?
+
+Those are questions we can test.
+
+---
+
+# Reproduction may not be fundamental
+
+There is one more thing we should refuse to assume.
+
+Biology depends heavily on reproduction.
+
+But biology also contains:
 
 ```text
-generation 0
-    ↓
-useful change A
-    ↓
-generation 1 inherits A
-    ↓
-useful change B
-    ↓
-generation 2 inherits A + B
-    ↓
-useful change C
+finite bodies
+aging
+damage
+death
+limited individual growth
 ```
 
-That is stronger than reproduction.
+A digital system may not inherit those constraints.
 
-Stronger than mutation.
+It might instead:
 
-Stronger even than evolution in the weakest sense.
+```text
+continue growing
+self-modify
+expand memory
+repair indefinitely
+fork only when useful
+checkpoint and restore
+distribute itself across machines
+```
 
-It is the beginning of:
+So reproduction may eventually turn out to be:
 
-> **cumulative improvement across a lineage.**
+```text
+important
+```
 
-We're not ready to build that yet.
+without being:
 
-But now we can finally see the path.
+```text
+fundamental
+```
+
+We are studying it because it enables ancestry, inheritance and population dynamics.
+
+Not because we have already decided that every digital life-form must reproduce.
 
 ---
 
@@ -1043,32 +1139,77 @@ But now we can finally see the path.
 
 Yes.
 
-Cellular automata have demonstrated nontrivial self-replication for decades, and systems such as Evoloops demonstrated inheritable variation and Darwinian natural selection within deterministic CA dynamics.
+Digital systems can certainly produce copies.
 
-More recent work such as Outlier shows that self-replicating organization can even emerge in a binary CA across multiple spatial scales from sparse initial conditions rather than requiring an explicitly handcrafted replicator as the starting object.
+More interestingly, cellular automata can contain local dynamics from which new recognizable structures arise without an external reproduction API.
 
-But those results do not let us collapse everything into:
+And systems such as Evoloops and Outlier give us increasingly challenging cases in which reproduction, variation and ancestry become serious experimental questions.
 
-> digital life achieved.
-
-They give us a better sequence of questions:
+But the useful sequence is not:
 
 ```text
-Can it make another one?
-
-Can the copy differ?
-
-Can the difference be inherited?
-
-Does the difference affect reproductive success?
-
-Does the population change?
-
-Does anything useful accumulate?
+looks like replication
+↓
+therefore reproduction
+↓
+therefore life
 ```
 
-That last question is the hard one.
+It is:
 
-Before answering it, however, we need to confront the machinery that connects reproduction to change across generations.
+```text
+candidate entity
+↓
+distinct second entity
+↓
+similarity
+↓
+causal dependence
+↓
+repeated production
+↓
+lineage
+↓
+heritable variation
+↓
+differential reproduction
+```
+
+And only after that do we get to ask about evolution.
+
+---
+
+# The question changes again
+
+Suppose we establish all of this.
+
+We have:
+
+```text
+reproduction
+variation
+inheritance
+selection
+```
+
+What happens over generations?
+
+Do variants simply churn?
+
+Do lineages remain static?
+
+Does one type replace another?
+
+Does the population adapt to its environment?
+
+Does anything accumulate?
+
+And perhaps most importantly:
+
+> **Can later generations begin from something genuinely better than earlier generations?**
+
+That is no longer a question about reproduction.
+
+It is a question about evolution.
 
 Next: **Evolution Without Life?**

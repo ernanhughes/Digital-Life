@@ -1,13 +1,11 @@
 +++
 date = '2026-08-11T12:48:00+01:00'
 draft = false
-title = 'Digital Life 11: Is It Really Reproducing?'
+title = 'Digital Life 13: Is It Really Reproducing?'
 categories = ['Programming', 'Artificial Life']
 tags = ['Digital Life', 'Artificial Life', 'Cellular Automata', 'Outlier', 'Causality', 'Collective Motion', 'Experiments']
 series = ['Digital Life From First Principles']
 +++
-
-# Digital Life From First Principles 11: Is It Really Reproducing?
 
 Something strange happened while we were looking at Outlier.
 

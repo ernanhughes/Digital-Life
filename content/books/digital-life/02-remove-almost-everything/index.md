@@ -11,27 +11,31 @@ In the previous chapter we started with something complicated.
 
 A continuous field.
 
-A smooth neighborhood.
+Smooth local interactions.
 
-A growth process.
+Localized structures.
 
-Localized structures that moved through space.
+Motion.
+
+Deformation.
 
 Patterns that looked disturbingly creature-like.
 
 That was useful because it gave us a mystery.
 
-Now we are going to destroy almost all of it.
+Now we are going to attack the mystery.
 
-Not gradually.
+Not by adding more machinery.
+
+By removing it.
 
 Aggressively.
 
-We want to know:
+The question is:
 
-> **How little machinery can remain before interesting organization disappears?**
+> **How little machinery can remain before our intuition stops seeing organization?**
 
-Start with the kind of system we saw in Lenia.
+Start with something like Lenia.
 
 Conceptually:
 
@@ -46,10 +50,10 @@ smooth spatial weighting
 +
 growth response
 +
-many parameters
+multiple parameters
 +
 repeated updates
-```
+````
 
 Now remove things.
 
@@ -57,7 +61,7 @@ Now remove things.
 
 # Remove continuous state
 
-Instead of allowing every location to contain values such as:
+Lenia allows locations to contain values such as:
 
 ```text
 0.00
@@ -67,18 +71,18 @@ Instead of allowing every location to contain values such as:
 1.00
 ```
 
-allow only:
+Remove that.
+
+Allow only:
 
 ```text
 0
 1
 ```
 
-Two states.
-
 Nothing in between.
 
-We could call them:
+We could call those states:
 
 ```text
 off / on
@@ -87,7 +91,7 @@ empty / occupied
 white / black
 ```
 
-but those names already start smuggling interpretation into the model.
+but those names already begin to smuggle interpretation into the system.
 
 For now:
 
@@ -98,11 +102,15 @@ For now:
 
 is enough.
 
+The state tells us what a location contains.
+
+Nothing more.
+
 ---
 
 # Remove a dimension
 
-Lenia normally gives us a two-dimensional field.
+The systems we just looked at lived in a two-dimensional field.
 
 Remove that too.
 
@@ -116,31 +124,36 @@ Instead of:
 0 0 1 0 0
 ```
 
-use a single line:
+use:
 
 ```text
 0 0 0 0 1 0 0 0 0
 ```
 
-Our entire world is now one-dimensional.
+One line.
 
-No creatures can turn north.
+That is the entire world.
 
-There is no north.
+There is no:
 
-No shapes can expand upward.
+```text
+north
+south
+up
+down
+```
 
-There is no upward.
+A cell has only a position along the line.
 
-Every cell has only a position along a line.
+We have removed most of the geometry that made the previous chapter feel organism-like.
 
 ---
 
 # Remove the large neighborhood
 
-Now reduce what each cell can see.
+Now reduce what each cell is allowed to see.
 
-A cell will inspect only:
+Each location will inspect only:
 
 ```text
 left
@@ -148,56 +161,48 @@ centre
 right
 ```
 
-Three cells in total.
+Three cells.
 
-For the centre cell here:
+For example:
 
 ```text
 0 1 1
 ```
 
-its entire local universe is:
+means:
 
 ```text
-left   centre   right
-  0       1       1
+left    centre    right
+  0        1        1
 ```
 
-It knows nothing else.
+That is the centre cell's entire local universe.
 
-It cannot see ten cells away.
-
-It cannot know what the overall pattern looks like.
-
-It cannot know whether the world contains:
+It cannot see:
 
 ```text
-one active cell
+ten cells away
+the overall shape
+the total population
+the future
+the past
 ```
 
-or:
+unless information about those things reaches it through repeated local interactions.
 
-```text
-a million active cells
-```
+This locality matters.
 
-unless that difference changes its immediate neighborhood.
-
-This locality is crucial.
-
-Each part has very little information.
-
-Any large-scale organization must arise from repeated interaction.
+If large-scale structure appears, no individual cell can contain a complete description of it.
 
 ---
 
 # Remove the complicated response
 
-Lenia uses a smooth response to a neighborhood field.
+Lenia uses a smooth response to a weighted neighborhood field.
 
-We don't need that anymore.
+Remove that too.
 
-Our cells will use a lookup table.
+Our new system gets a lookup table.
 
 There are only eight possible three-cell binary neighborhoods:
 
@@ -212,7 +217,7 @@ There are only eight possible three-cell binary neighborhoods:
 000
 ```
 
-For each neighborhood, choose the next state of the centre cell.
+For each one, choose the next state of the centre cell.
 
 For example:
 
@@ -227,35 +232,41 @@ For example:
 000 → 0
 ```
 
-That is an entire rule.
+That is the entire local law.
 
-Nothing else is required.
+No neural network.
+
+No optimizer.
+
+No hidden state.
+
+No biological mechanism.
+
+Eight answers.
 
 ---
 
-# Eight answers define the universe
+# Eight bits define the local universe
 
-Because there are eight possible neighborhoods and each can produce either `0` or `1`, an elementary rule is completely described by eight bits.
-
-The example above becomes:
+Write those outputs in order:
 
 ```text
 00010110
 ```
 
-Interpreted as a binary number:
+As a binary number:
 
 ```text
 00010110₂ = 22
 ```
 
-So this is **Rule 22**.
+So this rule is called:
 
-The name sounds almost disappointingly mundane.
+> **Rule 22**
 
-That's useful.
+The name is useful because it is almost aggressively unromantic.
 
-We have stripped our system down to:
+We have reduced the system to:
 
 ```text
 binary state
@@ -267,13 +278,13 @@ three-cell neighborhood
 eight-bit lookup table
 ```
 
-That is almost everything.
+That is nearly everything.
 
 ---
 
 # Build it
 
-Let's write the smallest clear implementation.
+Here is the complete update step:
 
 ```python
 def step(state, rule):
@@ -290,7 +301,7 @@ def step(state, rule):
     return next_state
 ```
 
-There are only two ideas here.
+There are only two tricks.
 
 First:
 
@@ -312,21 +323,21 @@ Then:
 (rule >> neighborhood) & 1
 ```
 
-extracts the corresponding output bit from the rule number.
+extracts one bit from the rule number.
 
-So a number such as:
+So:
 
 ```text
 22
 ```
 
-really is enough to encode the entire transition law.
+really is enough to encode the full transition law.
 
 ---
 
 # Start with almost nothing
 
-Create a world:
+Now create a world:
 
 ```python
 width = 81
@@ -334,7 +345,7 @@ state = [0] * width
 state[width // 2] = 1
 ```
 
-The initial state is:
+The initial condition is:
 
 ```text
 ........................................#........................................
@@ -344,33 +355,35 @@ One active cell.
 
 Everything else is zero.
 
-If you prefer numerical form:
-
-```text
-00000000000000000000000000000000000000001000000000000000000000000000000000000
-```
-
-This is deliberately austere.
-
-No random initialization.
-
-No hidden state.
-
-No learned parameters.
-
-No population.
+No random noise.
 
 No environment.
 
+No population.
+
+No agent.
+
 No organism.
 
-Just one bit.
+No memory.
+
+No objective.
+
+No fitness.
+
+Just:
+
+```text
+one bit
+```
+
+in an otherwise empty world.
 
 ---
 
 # Let time begin
 
-Now repeat the update:
+Now repeat the rule:
 
 ```python
 history = [state]
@@ -380,44 +393,48 @@ for _ in range(40):
     history.append(state)
 ```
 
-Every generation becomes a new row.
-
-For display:
+Every generation becomes another row:
 
 ```python
 for row in history:
     print("".join("#" if cell else "." for cell in row))
 ```
 
-The output begins with one active cell.
+The result begins with one active cell.
 
-Then something starts happening.
+Then structure appears.
 
 ![Rule 22 spacetime diagram](/images/books/digital-life/ch02-rule22-spacetime.png)
 
-This image is called a **spacetime diagram**.
+This is a **spacetime diagram**.
 
-Space runs horizontally.
+Horizontal position is space.
 
-Time runs downward.
+Vertical position is time.
 
-One row becomes the next.
+Each row is the entire world at one moment.
 
-The whole history is visible at once.
+The image is not a picture of a two-dimensional object.
+
+It is a picture of history.
 
 ---
 
 # Nothing is moving downward
 
-This diagram creates a useful illusion.
+This sounds obvious, but it matters.
 
-It looks as though the pattern is falling downward through the image.
+The pattern appears to fall down the page.
 
-It isn't.
+Nothing is actually moving downward.
 
-The vertical axis is time.
+There is no downward direction in the world.
 
-Each row is the entire world at a different moment.
+The vertical axis is:
+
+```text
+time
+```
 
 So:
 
@@ -428,72 +445,78 @@ row 2 = world at t = 2
 ...
 ```
 
-The diagram converts a temporal process into a spatial image.
+A temporal process has been converted into a spatial image.
 
-That technique will appear throughout the book.
+This is already a reminder from Chapter 01:
 
-It lets us inspect the history of a system instead of watching only its current state.
+> **The picture is not the mechanism.**
+
+The image is a representation we constructed so that the process becomes easier to inspect.
+
+We should never confuse those two levels.
 
 ---
 
 # The update is simultaneous
 
-There is another important detail.
-
-Every cell at time:
+Every cell at:
 
 ```text
 t + 1
 ```
 
-is computed from the state at:
+is computed from the world at:
 
 ```text
 t
 ```
 
-We do **not** update one cell and allow later cells to see that newly changed value.
-
 Conceptually:
 
 ```text
 current state
-    ↓
+      ↓
 compute every next value
-    ↓
-new state
+      ↓
+replace entire state
 ```
 
 Not:
 
 ```text
 change cell 1
-    ↓
-change cell 2 using modified cell 1
-    ↓
-change cell 3 using modified cell 2
+      ↓
+cell 2 sees changed cell 1
+      ↓
+cell 3 sees changed cell 2
 ```
 
-Those are different models.
+Those systems would behave differently.
 
-A cellular automaton is defined not only by its local rule but also by its update semantics.
+So even in this tiny model, the experiment is not defined by the eight-bit rule alone.
+
+It also includes:
+
+```text
+update semantics
+```
 
 We are using synchronous updates.
 
-That means every cell sees the same generation of history.
+Every location sees the same moment of history.
 
 ---
 
 # What happens at the edges?
 
-Our implementation contains this:
+This implementation contains:
 
 ```python
 state[(i - 1) % len(state)]
 state[(i + 1) % len(state)]
 ```
 
-The modulo operator makes the world wrap around.
+Modulo arithmetic makes the world wrap around.
 
 The left edge touches the right edge.
 
@@ -505,9 +528,9 @@ Conceptually:
 |_________________|
 ```
 
-The line is topologically a ring.
+Topologically, the line is a ring.
 
-That is not a harmless implementation detail.
+That is not just a programming convenience.
 
 We could instead choose:
 
@@ -517,17 +540,29 @@ reflective boundaries
 an effectively infinite world
 ```
 
-Different boundary conditions can change long-run behavior.
+and eventually obtain different behavior.
 
-For now we use periodic boundaries because they are simple and avoid special edge logic.
+The boundary is part of the experimental configuration.
 
-But the choice belongs to the model.
+That lesson will matter later.
+
+Whenever we say:
+
+> Rule X does Y
+
+we should really mean something closer to:
+
+> Rule X, under this initial condition, boundary condition, world size and update process, produced Y.
+
+The observed behavior belongs to the whole experiment.
+
+Not merely to the rule number.
 
 ---
 
-# The cells contain almost nothing
+# Where is the pattern stored?
 
-Look again at one cell.
+Look at one cell.
 
 It stores:
 
@@ -541,7 +576,7 @@ or:
 1
 ```
 
-That's it.
+Nothing else.
 
 It does not store:
 
@@ -551,29 +586,42 @@ its history
 its direction
 its purpose
 its parent
-its neighbors
+its neighborhood
 the global pattern
 ```
 
-And the rule itself contains only eight output bits.
+The rule contains only eight output bits.
 
-Yet the spacetime diagram can exhibit structure spanning hundreds of cells and generations.
+Yet the spacetime diagram can contain structure spanning:
 
-Where is that structure stored?
+```text
+many cells
+many generations
+```
+
+So where is that structure?
 
 Not in a single cell.
 
-Not explicitly in the rule.
+Not in a dedicated object.
 
 Not in a controller.
 
-It exists in the **trajectory of the whole interacting system**.
+Not as an explicit blueprint inside Rule 22.
 
-That is already a major clue.
+The structure exists in:
+
+> **the trajectory produced by repeated interaction between rule and state**
+
+That is a much more useful statement than simply saying:
+
+> complexity emerged.
+
+We can point to exactly where the information is and is not represented.
 
 ---
 
-# Separate the rule from the state
+# Rule is not behavior
 
 This distinction is going to matter throughout the book.
 
@@ -589,37 +637,39 @@ and:
 STATE
 ```
 
-The rule defines how local configurations transform.
+The rule describes local transformation.
 
-The state defines what the world currently contains.
+The state describes the current world.
 
-Same rule:
+The same rule:
 
 ```text
 22
 ```
 
-Different initial state:
+can begin from:
 
 ```text
 00000000100000000
 ```
 
-versus:
+or:
 
 ```text
 00100111101000110
 ```
 
-can produce very different histories.
+and produce different histories.
 
-So behavior is not simply:
+So:
 
 ```text
 behavior = rule
 ```
 
-It is closer to:
+is too simple.
+
+A better description is:
 
 ```text
 behavior =
@@ -631,32 +681,52 @@ behavior =
     +
     world size
     +
+    update semantics
+    +
     time
 ```
 
-Later we will add randomness, learned parameters and environments.
+Later we may add:
 
-But even here, the observed result belongs to an experimental configuration, not to a rule number alone.
+```text
+randomness
+environment
+learning
+memory
+interaction with other systems
+```
+
+But the principle is already visible here:
+
+> **Behavior belongs to an experimental configuration.**
+
+This will save us from many bad claims later.
 
 ---
 
-# How many worlds are possible?
+# Tiny local space, enormous global space
 
-A world of width `N` where each cell has two states has:
+Each local neighborhood has only:
+
+```text
+8
+```
+
+possible configurations.
+
+But a world of width `N` has:
 
 ```text
 2^N
 ```
 
-possible configurations.
+possible global states.
 
-Even a tiny world of 20 cells has:
+At width 20:
 
 ```text
 2^20 = 1,048,576
 ```
-
-possible states.
 
 At width 100:
 
@@ -664,78 +734,95 @@ At width 100:
 2^100
 ```
 
-is already enormous.
+is enormous.
 
-And yet each individual cell sees only one of eight local neighborhoods.
-
-This mismatch is important.
-
-Locally:
+So locally:
 
 ```text
 8 possibilities
 ```
 
-Globally:
+while globally:
 
 ```text
-an enormous state space
+an enormous configuration space
 ```
 
-Tiny local mechanics can therefore generate trajectories through vast global configuration spaces.
+The same tiny local rule can therefore generate trajectories through a very large state space.
 
-That is one reason simple rules can surprise us.
+That mismatch is one reason small rules can surprise us.
+
+The rule can be trivial to inspect while its long-run consequences are difficult to predict by inspection alone.
 
 ---
 
 # There are only 256 elementary rules
 
-The local rule itself is tiny enough to enumerate completely.
+The local-rule universe is tiny.
 
-There are eight neighborhoods.
+Eight neighborhoods.
 
-Each neighborhood chooses one of two outputs.
+Two possible outputs for each.
 
-So the total number of rules is:
+Therefore:
 
 ```text
 2^8 = 256
 ```
 
-Every possible elementary binary radius-1 cellular automaton fits inside:
+possible elementary binary radius-1 rules.
+
+Every one fits between:
 
 ```text
 0
-through
+```
+
+and:
+
+```text
 255
 ```
 
-That means we could test all of them.
+This is extraordinary for our purposes.
 
-Later, we will.
+We have a system where:
 
-For now this gives us an extraordinary laboratory.
+```text
+the local mechanism space is completely enumerable
+```
 
-The entire rule universe is small enough to enumerate, but the behavior generated by those rules can still be difficult to predict.
+while:
+
+```text
+the resulting global trajectories can still be surprising
+```
+
+We do not have to sample the rule space.
+
+We can eventually test every rule.
+
+That gives us something close to a complete experimental laboratory.
 
 ---
 
-# This is the reduction
+# What did we actually remove?
 
-Compare where we started.
+Compare Chapter 01.
 
-### Chapter 01
+We had:
 
 ```text
-continuous field
-large neighborhoods
+continuous fields
+two-dimensional geometry
 smooth kernels
+large neighborhoods
 growth functions
 moving localized structures
-Flow-Lenia
+mass-conserving variants
 ```
 
-### Chapter 02
+Now we have:
 
 ```text
 one dimension
@@ -750,7 +837,7 @@ We removed:
 ```text
 continuous state
 two-dimensional geometry
-smooth perception
+smooth spatial weighting
 complex growth responses
 multiple kernels
 mass transport
@@ -759,59 +846,72 @@ organism-like morphology
 
 What remains is almost embarrassingly small.
 
-And yet the system has not become completely trivial.
+And yet the output is not completely trivial.
 
-That is the reason elementary cellular automata matter to this book.
+That is why elementary cellular automata matter to this book.
 
-They give us the smallest useful laboratory in which to ask:
+They let us ask a cleaner question than Lenia allowed:
 
-> **Can globally complicated behavior arise from locally trivial rules?**
+> **How much global structure can be generated before almost every apparently necessary mechanism has been removed?**
 
 ---
 
-# But we have not shown emergence yet
+# But do not say "emergence" yet
 
-Be careful.
+Look at the Rule 22 image again.
 
-A pretty spacetime diagram is not automatically evidence of emergence.
+It is tempting to say:
 
-We have shown only that:
+> Emergence!
 
-```text
-a small deterministic rule
-```
+But that word can become another label we award too cheaply.
 
-can produce:
+So far we have shown only:
 
 ```text
-a larger structured trajectory
+a tiny deterministic local mechanism
 ```
 
-We still need to ask:
+producing:
 
 ```text
-How predictable is it?
-
-How repetitive is it?
-
-Does structure persist?
-
-Does local information propagate?
-
-How sensitive is it to the starting state?
-
-Is the apparent complexity more than visual texture?
+a larger structured history
 ```
 
-Those questions will come later.
+That is interesting.
 
-First we need a rule that makes the problem impossible to ignore.
+But we have not yet established:
+
+```text
+unpredictability
+persistent objects
+information transport
+robustness
+causal organization
+adaptation
+```
+
+The spacetime diagram gives us another observation.
+
+It does not yet give us a theory.
+
+So the next move is the same one we established in Chapter 00:
+
+```text
+SEE SOMETHING
+↓
+ASK WHAT IT MEANS
+↓
+MEASURE
+↓
+COMPARE
+```
 
 ---
 
 # Change one number
 
-Our implementation accepts:
+Our implementation currently says:
 
 ```python
 rule=22
@@ -825,15 +925,17 @@ rule=30
 
 Nothing else changes.
 
-Same world.
+Same code.
+
+Same world size.
 
 Same initial condition.
 
 Same boundary condition.
 
-Same update mechanism.
+Same update semantics.
 
-Only eight bits differ.
+Only the eight-bit transition table changes.
 
 Run it again.
 
@@ -843,16 +945,18 @@ The result changes dramatically.
 
 The machine is still tiny.
 
-The mechanism is still entirely deterministic.
+The mechanism is still deterministic.
 
-But the trajectory becomes much harder to dismiss as simple repetition.
+The rule is still only eight bits.
 
-That is where we go next.
+But now the trajectory becomes much harder to dismiss as simple repetition.
 
-We started with something creature-like.
+This is exactly what we wanted from the reduction.
 
 We removed almost everything.
 
 The mystery survived.
 
-Next: **The First Surprise.**
+Next:
+
+> **The First Surprise.**

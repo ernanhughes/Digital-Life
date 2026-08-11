@@ -7,8 +7,6 @@ categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Artificial Life", "Lenia", "Flow-Lenia", "Cellular Automata", "Emergence"]
 +++
 
-# Digital Life 01: Look at This Thing
-
 Don't read anything yet.
 
 Watch this.
@@ -865,33 +863,3 @@ Because before we ask what digital life might be, we need to answer something si
 > **How little computation is required before our intuition starts seeing organization?**
 
 Next: **Remove Almost Everything.**
-
----
-
-## What survived this chapter?
-
-**What we saw**
-
-Localized patterns can move, deform and persist in systems built from repeated local field updates.
-
-**What we are tempted to say**
-
-Creatures exist and move through the simulation.
-
-**What we can currently claim**
-
-Recognizable localized organization can persist while the underlying state changes.
-
-**What remains unresolved**
-
-Whether the apparent pattern deserves to be treated as an individual entity at all.
-
-**What we do next**
-
-Remove almost every mechanism that made the phenomenon look life-like.
-
----
-
-## Sources
-
-This chapter draws primarily on Bert Wang-Chak Chan's original **Lenia — Biology of Artificial Life**, the later **Lenia and Expanded Universe**, and Plantec and colleagues' work on **Flow-Lenia** and its mass-conserving, parameter-localized extension.

@@ -1,13 +1,11 @@
 +++
-title = "Digital Life 10: The Closest Thing We Have"
+title = "Digital Life 12: The Closest Thing We Have"
 date = "2026-08-11T10:43:00+01:00"
 draft = false
 description = "What is the strongest existing example of digital life? We examine Outlier, a binary cellular automaton in which distributed self-replicators emerge from simple local dynamics."
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Artificial Life", "Outlier", "Cellular Automata", "Self-Replication", "Open-Ended Evolution"]
 +++
-
-# Digital Life 10: The Closest Thing We Have
 
 Before inventing our digital life, we should steal everything we can.
 

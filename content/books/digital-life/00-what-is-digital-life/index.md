@@ -6,8 +6,6 @@ categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Cellular Automata", "Artificial Life", "Emergence"]
 +++
 
-# Digital Life 00: What Would Digital Life Mean?
-
 Suppose we wanted to build life in software.
 
 What would we actually build?

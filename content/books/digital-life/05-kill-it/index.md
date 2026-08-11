@@ -7,25 +7,23 @@ categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Cellular Automata", "Robustness", "Regeneration", "Perturbation", "Game of Life"]
 +++
 
-# Digital Life 05: Kill It
-
 We have been too kind to our systems.
 
 So far we have:
 
-* initialized them carefully,
-* given them clean environments,
-* watched them evolve,
-* selected examples that behave interestingly,
-* and mostly left them alone.
+- initialized them carefully,
+- placed them in clean environments,
+- watched them evolve,
+- selected examples that behave interestingly,
+- and mostly left them alone.
 
-That is a dangerous way to study anything that looks life-like.
+That is a dangerous way to understand a mechanism.
 
-A structure that persists when nothing interferes with it may be interesting.
+A structure that persists under exactly the conditions that produce it tells us something.
 
-But biological systems do something harder.
+But not enough.
 
-They persist in a world that keeps interfering with them.
+If we want to know what is actually maintaining that structure, we need to interfere.
 
 So let's interfere.
 
@@ -41,11 +39,11 @@ Our glider:
 ###
 ```
 
-moves through Conway's Game of Life as a dynamically persistent localized pattern.
+is a dynamically persistent localized pattern.
 
-After four generations it reproduces its orientation one cell diagonally away.
+Under undisturbed Game of Life dynamics, it repeats its local configuration every four generations while translating one cell diagonally.
 
-That gave us a useful definition of persistence.
+That gave us a useful operational definition of persistence.
 
 Now remove one cell.
 
@@ -59,69 +57,95 @@ For example:
 
 One bit changed.
 
-Run the same rule.
+Same rule.
 
 Same world.
 
-Same boundary conditions.
+Same boundary condition.
 
 Same update semantics.
 
-Only the initial structure has changed.
+Only the state has been perturbed.
+
+Run it.
 
 ![Survival as damage severity increases](/images/books/digital-life/ch05-damage-survival-curve.png)
 
-What happens?
+Several outcomes are possible.
 
-Perhaps the pattern disappears.
+The structure may disappear.
 
-Perhaps it becomes another Life pattern.
+It may become another Life pattern.
 
-Perhaps some debris persists.
+Some activity may survive.
 
-What does not happen is equally important:
+Debris may spread.
 
-the original glider does not necessarily reconstruct itself.
+But one possibility is especially important:
 
-That immediately tells us something.
+> **the original glider may fail to reconstruct itself**
 
-> **Persistence under normal evolution does not imply recovery after damage.**
+That immediately separates two claims:
+
+```text
+persists when undisturbed
+```
+
+from:
+
+```text
+returns after disturbance
+```
+
+Those are not the same property.
 
 ---
 
 # Three different claims
 
-We need to stop using one vague word for several different properties.
+We need separate words for separate phenomena.
 
-Consider these three systems.
+## Persistence
 
-## System A
+A structure continues under its ordinary dynamics.
 
-It remains unchanged forever if nothing disturbs it.
+```text
+undisturbed state
+      ↓
+ordinary dynamics
+      ↓
+organization continues
+```
 
-That is:
+## Robustness
 
-> **persistence**
+A perturbation occurs, but some defined property continues to hold.
 
-## System B
+```text
+organization
+      ↓
+perturbation
+      ↓
+property still holds
+```
 
-Small disturbances do not destroy its overall behavior.
+## Regeneration
 
-That is:
+A perturbation substantially changes the structure, and subsequent dynamics return it toward a defined previous organization.
 
-> **robustness**
+```text
+organization
+      ↓
+damage
+      ↓
+organization disrupted
+      ↓
+continued dynamics
+      ↓
+defined organization returns
+```
 
-## System C
-
-A disturbance changes its structure, but the system subsequently reconstructs something sufficiently close to its earlier organization.
-
-That is:
-
-> **regeneration**
-
-These are not synonyms.
-
-Write them separately:
+So:
 
 ```text
 persistence
@@ -131,11 +155,13 @@ robustness
 regeneration
 ```
 
-A system can have one without the others.
+A system can possess one without possessing the others.
+
+This distinction will matter repeatedly.
 
 ---
 
-# A block persists
+# A block persists perfectly
 
 Take the Game of Life block:
 
@@ -163,7 +189,7 @@ t = 2
 ##
 ```
 
-It is perfectly persistent.
+Perfect persistence.
 
 Now delete one cell:
 
@@ -172,116 +198,129 @@ Now delete one cell:
 ##
 ```
 
-Run one generation.
+Run the dynamics.
 
-The remaining structure disappears.
+The pattern collapses.
 
-So the block has excellent undisturbed persistence and terrible tolerance to this particular perturbation.
+So the block has excellent:
 
-The experiment exposes a property the clean simulation hid.
+```text
+undisturbed persistence
+```
+
+and poor tolerance to this particular intervention.
+
+The perturbation has exposed something that observation alone did not.
 
 ---
 
-# A perturbation is part of the experiment
+# The perturbation is the experiment
 
-This sounds obvious, but it changes how we think about these systems.
-
-Our experiment is no longer merely:
+Before this chapter, many of our experiments looked like:
 
 ```text
 initial state
-    ↓
+      ↓
 evolution
-    ↓
-final state
+      ↓
+observation
 ```
 
-It becomes:
+Now the structure changes:
 
 ```text
 initial state
-    ↓
-stable behavior
-    ↓
-controlled perturbation
-    ↓
+      ↓
+ordinary behavior
+      ↓
+controlled intervention
+      ↓
 response
-    ↓
+      ↓
 measurement
 ```
 
-The perturbation is not noise around the experiment.
+The perturbation is not unwanted noise around the experiment.
 
-It **is** the experiment.
+> **The perturbation is the experiment.**
+
+We deliberately change something because the response can reveal which mechanisms matter.
+
+This is the beginning of causal experimentation.
 
 ---
 
 # Damage must be defined
 
-"Damage the organism" sounds intuitive.
+“Damage the pattern” sounds intuitive.
 
-It is also scientifically useless until we specify what damage means.
+It is useless experimentally until we specify what we changed.
 
-For a binary cellular automaton, we might define damage as:
+For a binary cellular automaton, damage could mean:
 
 ```text
-flip one active cell to inactive
+turn one active cell off
 ```
 
 or:
 
 ```text
-flip N randomly chosen cells
+flip N randomly selected cells
 ```
 
 or:
 
 ```text
-erase every cell inside a square region
+erase everything inside a region
 ```
 
 or:
 
 ```text
-replace a fraction of the pattern with random states
+replace part of the pattern with random state
 ```
 
-Each is a different intervention.
+These are different interventions.
 
-So a proper damage protocol might be:
+A reproducible protocol might be:
 
 ```text
 pattern: glider
 damage time: t = 20
-damage type: delete active cells
-damage amount: 1 cell
-damage location: leading edge
-trials: all possible active-cell deletions
+damage operation: active → inactive
+damage amount: one cell
+damage positions: every active cell in turn
+repetitions: all possible deletions
+observation window: 50 generations
 ```
 
-Now someone else can reproduce what we did.
+Now another person can repeat the experiment.
+
+And now we can meaningfully compare systems.
 
 ---
 
-# One successful recovery proves very little
+# One lucky recovery proves very little
 
-Imagine a pattern with ten active cells.
+Imagine a structure containing ten active cells.
 
-We delete one particular cell.
+Delete one particular cell.
 
-The pattern recovers.
+It returns to its previous pattern.
 
-Wonderful.
+Interesting.
 
-But what if deleting any of the other nine cells destroys it?
+Now delete one of the other nine cells.
 
-Then:
+It collapses.
 
-> "the system regenerates after damage"
+Then the statement:
 
-would be misleading.
+> the system regenerates after damage
 
-A stronger experiment tries many perturbations.
+would be far too broad.
+
+A better experiment systematically tests perturbations.
 
 For example:
 
@@ -292,30 +331,34 @@ for cell in active_cells:
 
     result = run(damaged)
 
-    measure_recovery(result)
+    measure_response(result)
 ```
 
 Now we can ask:
 
 ```text
-How many perturbations were survivable?
+Which perturbations were tolerated?
 
-Which locations were critical?
+Which positions were critical?
 
-How much structure was lost?
+How much organization remained?
 
-How long did recovery take?
+Did the original organization return?
+
+How long did that take?
 ```
 
-The system begins to acquire a **damage profile**.
+Instead of one anecdote, we obtain a:
+
+> **damage-response profile**
 
 ---
 
 # Survival is not recovery
 
-Suppose we damage a structure and it continues to exist.
+Suppose we damage a structure and some activity remains.
 
-That does not mean it regenerated.
+That does not mean the structure regenerated.
 
 Imagine:
 
@@ -325,9 +368,11 @@ before
 .###.
 ##.##
 .###.
+```
 
-after damage
+After damage:
 
+```text
 .#...
 ##...
 .....
@@ -343,7 +388,7 @@ Twenty generations later:
 
 Something survived.
 
-But the original organization did not return.
+But the previous organization did not return.
 
 So:
 
@@ -351,142 +396,165 @@ So:
 nonzero activity
 ```
 
-is not enough.
+is not recovery.
 
-Nor is:
+Neither is:
 
 ```text
 localized activity
 ```
 
-enough.
-
-To claim recovery, we need some relationship between:
+To make a regeneration claim, we need a defined relationship between:
 
 ```text
-structure before damage
+organization before perturbation
 ```
 
 and:
 
 ```text
-structure after recovery
+organization after continued evolution
 ```
 
 ---
 
-# What counts as "the same"?
+# Recovery forces us to define identity
 
-Game of Life gives us a clean version of this problem.
+This connects directly to the previous chapter.
 
-For exact discrete patterns, we might compare states directly.
-
-```python
-np.array_equal(before, after)
-```
-
-But that fails for moving patterns.
-
-A recovered glider might be shifted.
-
-So perhaps we compare:
+Suppose our target pattern is:
 
 ```text
-same structure
+T
+```
+
+and the later pattern is:
+
+```text
+R
+```
+
+For a stationary discrete pattern, we might compare them directly:
+
+```python
+np.array_equal(T, R)
+```
+
+But that fails for a glider.
+
+A glider could return while shifted in space.
+
+So perhaps recovery means:
+
+```text
+same organization
 up to translation
 ```
 
 For an oscillator:
 
 ```text
-same structure
+same organization
 up to phase
 ```
 
-Later, in continuous artificial-life systems, exact equality will become unrealistic.
-
-Then we may need:
+For more complicated systems we may need invariance under:
 
 ```text
-shape similarity
-mass similarity
-spatial overlap
-feature similarity
-behavioral similarity
+translation
+rotation
+phase
+scale
+internal deformation
 ```
 
-Notice what is happening.
+The moment we ask:
 
-The moment we ask whether something regenerated, we are forced to define what we mean by its identity.
+> Did it regenerate?
 
-The philosophical question from the previous chapter becomes an engineering requirement.
+we are forced to answer:
+
+> **What counts as the same entity?**
+
+The philosophical problem has become an engineering requirement.
 
 ---
 
-# Define a recovery score
+# Exact equality is usually the wrong metric
 
-Suppose we have a target pattern:
-
-```text
-T
-```
-
-and a recovered pattern:
-
-```text
-R
-```
-
-A simple binary similarity score might measure the fraction of cells that match after alignment.
-
-For example:
+Suppose we compare two whole worlds using:
 
 ```python
 def similarity(a, b):
     return np.mean(a == b)
 ```
 
-But this has a problem.
+There is an immediate problem.
 
-If almost every cell in the world is zero, two completely different tiny patterns could still receive a very high score.
-
-So the metric must focus on the relevant region or structure.
-
-Perhaps we measure:
-
-```text
-intersection
-union
-```
-
-of active cells.
-
-One possible score is intersection-over-union:
-
-```text
-IoU =
-active in both
--------------
-active in either
-```
-
-Now identical active regions score:
+If almost every cell is zero, two completely different tiny structures may still score close to:
 
 ```text
 1.0
 ```
 
-and disjoint patterns score:
+because the empty background dominates the metric.
+
+So our measurement must focus on the structure we care about.
+
+One simple choice is intersection-over-union.
+
+For active-cell sets:
+
+[
+A
+]
+
+and:
+
+[
+B
+]
+
+define:
+
+[
+IoU(A,B)
+========
+
+\frac{|A \cap B|}
+{|A \cup B|}
+]
+
+Identical active regions produce:
+
+```text
+1.0
+```
+
+Disjoint regions produce:
 
 ```text
 0.0
 ```
 
-Better.
+In code:
 
-Still not universally correct.
+```python
+def iou(a, b):
+    intersection = np.logical_and(a, b).sum()
+    union = np.logical_or(a, b).sum()
 
-But at least explicit.
+    if union == 0:
+        return 1.0
+
+    return intersection / union
+```
+
+For moving structures, we would first align them under the transformations our identity criterion allows.
+
+Still imperfect.
+
+But explicit.
 
 ---
 
@@ -496,45 +564,58 @@ Suppose we define:
 
 ```text
 recovered =
-IoU >= 0.90
-within 50 generations
+    IoU >= 0.90
+    within 50 generations
+    after optimal translation alignment
 ```
 
-Now our claim can be:
+Now we can report:
 
-> Under this damage protocol, the pattern returned to at least 0.90 IoU with its pre-damage morphology within 50 updates.
+> Under this perturbation protocol, the pattern returned to at least 0.90 IoU with its pre-damage morphology within 50 updates after translation alignment.
 
-That is ugly compared with:
+That is much uglier than:
 
 > It healed itself.
 
 Good.
 
-Ugly claims are often safer.
+The ugly statement tells us what was actually demonstrated.
 
 We can always summarize later.
 
-But the experiment should preserve the operational statement.
+But the experiment should preserve the operational claim.
 
 ---
 
-# Robustness can mean something weaker
+# Robustness does not require regeneration
 
-A system may fail to reconstruct its exact morphology yet preserve its function.
+A system may fail to restore its previous shape while preserving something else.
 
-Imagine a future digital organism whose task is:
+Imagine a future digital system whose behavior is:
 
 ```text
-move toward a resource source
+move toward a signal source
 ```
 
-Damage changes its shape.
+Damage changes its morphology.
 
-But it still moves toward the resource.
+Its shape similarity falls dramatically.
 
-Morphological similarity could be low while functional performance remains high.
+Yet it continues moving toward the signal.
 
-That suggests two different recovery questions:
+Then:
+
+```text
+morphology failed
+```
+
+while:
+
+```text
+capability survived
+```
+
+So there are at least two questions:
 
 ```text
 Did the structure recover?
@@ -543,18 +624,36 @@ Did the structure recover?
 and:
 
 ```text
-Did the capability recover?
+Did the capability survive or recover?
 ```
 
-Those are not necessarily the same.
+These are different measurements.
 
-Later we will need both.
+And this is a broader lesson:
+
+> **Robustness always needs an object: robust with respect to what?**
+
+Shape?
+
+Movement?
+
+Computation?
+
+Replication?
+
+Memory?
+
+A system is not simply “robust.”
+
+It is robust with respect to some property under some class of perturbations.
 
 ---
 
-# A damage curve
+# Build a damage curve
 
-Instead of one perturbation, increase the severity.
+One perturbation gives one data point.
+
+Increase the intervention systematically.
 
 For example:
 
@@ -567,57 +666,60 @@ For example:
 60% removed
 ```
 
-For each level:
+At each level:
 
-1. damage the system,
-2. run it,
+1. perturb the pattern,
+2. evolve it,
 3. measure survival,
-4. measure structural recovery,
-5. repeat across locations or random seeds.
+4. measure structural similarity,
+5. repeat across positions or random seeds.
 
 Then plot:
 
 ```text
 damage severity
-        ↓
-recovery score
+      ↓
+response
 ```
 
 ![A Game of Life glider undergoing a controlled perturbation](/images/books/digital-life/ch05-glider-damage.gif)
 
-Now robustness stops being:
+Now we can ask whether degradation is:
 
-> this thing seems tough.
+```text
+gradual
+abrupt
+threshold-like
+position-dependent
+```
 
-It becomes a relationship.
-
-Some systems might tolerate tiny perturbations and collapse suddenly.
-
-Others may degrade gradually.
-
-Still others may recover across a broad range.
-
-Those response curves tell us much more than a clean animation.
+That tells us much more than one impressive animation.
 
 ---
 
 # Damage location matters
 
-Imagine a large pattern.
+Suppose a structure contains one hundred active cells.
 
-Removing 10% of its cells from one region may have almost no effect.
+Removing ten cells from one region might do almost nothing.
 
-Removing the same number from another region may destroy it.
+Removing ten elsewhere might destroy the pattern completely.
 
-So damage severity alone is insufficient.
+So:
+
+```text
+amount of damage
+```
+
+is not enough.
 
 We also need:
 
 ```text
-where?
+location of damage
 ```
 
-This allows us to ask whether a system has:
+This allows us to search for:
 
 ```text
 fragile regions
@@ -626,216 +728,183 @@ critical structures
 distributed organization
 ```
 
-Later, when we study learned cellular automata, this becomes extremely interesting.
+Eventually this becomes a question about where the system's causal organization actually lives.
 
-Does information live everywhere?
+Is function concentrated?
 
-Or are there regions without which recovery becomes impossible?
+Distributed?
+
+Redundant?
+
+Does there even exist a clean spatial location corresponding to the mechanism?
+
+We should not assume the answer in advance.
 
 ---
 
-# Repeated damage is harder
+# Repeated perturbation is a stronger test
 
-Suppose a system recovers once.
+Suppose a system survives one intervention.
 
 Damage it again.
 
 Then again.
 
-A system could possess enough redundancy to survive one intervention but progressively lose its ability to recover.
-
-So another protocol is:
-
 ```text
 damage
-↓
-recover
-↓
+  ↓
+response
+  ↓
 damage
-↓
-recover
-↓
+  ↓
+response
+  ↓
 damage
-↓
-recover
+  ↓
+response
 ```
 
-Measure whether performance declines.
+A system might survive one perturbation by consuming redundancy that never returns.
 
-Now we're testing sustained robustness rather than one lucky recovery.
+Another might repeatedly reconstruct the lost organization.
+
+Those are different mechanisms.
+
+So repeated intervention lets us distinguish:
+
+```text
+one-time tolerance
+```
+
+from:
+
+```text
+sustained recovery capacity
+```
+
+Again, the perturbation reveals structure that clean observation hides.
 
 ---
 
-# The environment can be the perturbation
+# Damage does not have to mean deleting cells
 
-Damage does not have to mean deleting cells.
+The deeper idea is not “injury.”
 
-A perturbation could be:
+It is intervention.
+
+We could alter:
 
 ```text
-change temperature parameter
-change resource availability
-introduce another pattern
-alter boundary conditions
-inject noise
-change update frequency
-shift the objective
+state
+parameters
+environment
+resource access
+boundary conditions
+noise level
+update timing
+other interacting structures
 ```
 
-The deeper idea is:
+The common pattern is:
 
-> **A property becomes more convincing when it survives variation in conditions.**
+```text
+hold most things fixed
+      ↓
+change one defined condition
+      ↓
+measure the response
+```
 
-This principle will recur everywhere.
+This matters because a capability becomes much more informative when we know where it fails.
 
-If a learned rule only works under the exact condition it was trained on, its apparent intelligence may be brittle.
+A system that works only under one carefully selected setup may still be interesting.
 
-If an evolved organism only survives in one hand-selected world, its adaptation may be narrow.
+But the boundary of the claim is narrow.
 
-If inherited knowledge only helps on the same task that produced it, we may merely be copying answers.
-
-Perturbation exposes the boundary of the claim.
+Perturbation helps us find that boundary.
 
 ---
 
-# The glider fails our stronger test
+# The glider fails the stronger test
 
-Return to our glider.
+Return to the glider.
 
-It is beautiful.
+It is:
 
-It is localized.
+```text
+localized
+periodic
+translating
+dynamically persistent
+```
 
-It moves.
+But perturb the wrong cell and its characteristic trajectory disappears.
 
-Its organization persists through changing cells.
+That does not make the glider less interesting.
 
-But if we alter the wrong cell, its characteristic trajectory is destroyed.
-
-That does not make the glider uninteresting.
-
-It makes the description more accurate.
+It makes our description more precise.
 
 We can say:
 
-> The glider demonstrates translating dynamic persistence under undisturbed Game of Life dynamics.
+> **The glider exhibits translating dynamic persistence under undisturbed Game of Life dynamics.**
 
-We should not say:
+We should not infer:
 
-> The glider demonstrates self-maintaining robust organization.
+> The glider exhibits robust self-maintenance under damage.
 
 Those are different achievements.
 
-And now we know how to distinguish them.
+And now we have an experiment that separates them.
 
 ---
 
-# Could a local system actually regenerate?
+# Could local dynamics regenerate structure?
 
-Now the obvious question becomes interesting.
+Now the stronger question becomes interesting.
 
-Can we construct a system where:
+Can we build a system where:
 
 ```text
-target structure
+organized state
       ↓
-damage
+perturbation
       ↓
-local interactions
+organization disrupted
       ↓
-target structure returns
+local dynamics continue
+      ↓
+organization returns
 ```
 
-without a central controller holding a blueprint and simply repainting the missing pieces?
+without a central controller simply storing the desired image and repainting it?
 
-Yes.
+That would be a more interesting mechanism.
 
-Later in the book we will build learned neural cellular automata that can do something much closer to this.
-
-They will begin from local rules.
-
-We will damage the resulting morphology.
-
-And the learned dynamics can sometimes restore it.
-
-But when we get there, we will not simply show a GIF and declare:
-
-> healing!
-
-We now know the questions to ask.
+If we eventually encounter or construct such a system, the protocol is already waiting for it:
 
 ```text
-How much damage?
+How much perturbation?
 
-Which regions?
+Where?
 
 How many trials?
 
-How complete was recovery?
+How similar was the recovered organization?
 
-How quickly?
+How long did recovery take?
 
-Compared with what baseline?
+What baseline are we comparing against?
 
-Does it generalize to damage patterns not used during training?
+Does recovery generalize to perturbations not used to construct the system?
 ```
 
-The flashy experiment comes later.
-
-The measurement rules come first.
+The measurement rules come before the spectacular GIF.
 
 ---
 
-# This is why we damage things
+# Intervention is becoming part of our method
 
-There is a general method hiding here.
-
-Whenever a system appears to possess a capability:
-
-```text
-persistence
-memory
-adaptation
-regeneration
-generalization
-inheritance
-```
-
-don't merely observe the capability in the condition that produced it.
-
-Attack the condition.
-
-For memory:
-
-> remove or corrupt the stored state.
-
-For inheritance:
-
-> compare successors with and without it.
-
-For adaptation:
-
-> change the environment.
-
-For regeneration:
-
-> damage the structure.
-
-For robustness:
-
-> increase the perturbation.
-
-For evolution:
-
-> evaluate on unseen environments.
-
-The intervention tells us whether the mechanism is doing real work.
-
----
-
-# Our experimental vocabulary is growing
-
-We started this book with:
+We started the book with:
 
 ```text
 state
@@ -845,68 +914,153 @@ local interaction
 time
 ```
 
-Now we have added:
+Then we added observation.
+
+Now we have added intervention.
+
+Our laboratory increasingly looks like:
 
 ```text
-intervention
+SYSTEM
+   ↓
+OBSERVATION
+   ↓
+HYPOTHESIS
+   ↓
+CONTROLLED INTERVENTION
+   ↓
+RESPONSE
+   ↓
+MEASUREMENT
+   ↓
+BOUNDED CLAIM
 ```
 
-So our laboratory increasingly looks like:
+This is a major step.
 
-```text
-system
-    ↓
-observation
-    ↓
-controlled perturbation
-    ↓
-response
-    ↓
-measurement
-    ↓
-bounded claim
-```
+We are no longer merely asking:
 
-That is much closer to the method we will need for digital life.
+> What does the system do?
+
+We can ask:
+
+> **What makes the system able to do it?**
 
 ---
 
-# But damage raises another question
+# Attack the capability
 
-Suppose a system is damaged beyond recovery.
+This gives us a general rule for the rest of the book.
 
-Suppose it disappears.
+If a system appears to possess:
 
-Fine.
+```text
+memory
+persistence
+regeneration
+adaptation
+inheritance
+coordination
+```
 
-But what if, before disappearing, it produces another pattern?
+do not only observe the condition in which the capability appears.
 
-Or another pattern emerges nearby that resembles it?
+Intervene on the mechanism that supposedly supports it.
 
-Or a structure produces copies of itself before any damage occurs?
+For memory:
 
-Persistence concerns one continuing organization.
+```text
+remove or corrupt candidate stored state
+```
 
-Reproduction changes the problem.
+For regeneration:
 
-Now the system does not need one instance to last forever.
+```text
+damage the organization
+```
 
-Information can persist through **successors**.
+For adaptation:
 
-That is much closer to what biology actually does.
+```text
+change the environment
+```
 
-And it creates a whole new set of traps.
+For inheritance:
 
-A pattern that copies itself is not automatically evolving.
+```text
+compare successors with and without inherited information
+```
+
+For coordination:
+
+```text
+break communication or alter neighbors
+```
+
+Then ask whether the capability survives.
+
+That moves us from association toward mechanism.
+
+---
+
+# And now reproduction enters — carefully
+
+Damage raises another possibility.
+
+Instead of requiring one organization to persist indefinitely, a system might produce another organization resembling itself.
+
+That would move persistence from:
+
+```text
+one continuing instance
+```
+
+to something like:
+
+```text
+information or organization
+continuing across instances
+```
+
+Biology uses this strategy extensively.
+
+But we should not therefore assume that digital life must.
+
+A digital system might:
+
+```text
+persist indefinitely
+repair itself
+grow continuously
+fork
+copy
+checkpoint
+restore
+merge
+```
+
+Reproduction is only one possible mechanism among several.
+
+So the next chapter is not asking:
+
+> What must life do next?
+
+It is asking a narrower experimental question:
+
+> **What changes when one persistent pattern can produce another?**
+
+That question brings new traps.
 
 A duplicate is not automatically offspring.
 
-A mutation is not automatically adaptation.
+Similarity is not automatically causal reproduction.
 
-And reproduction without useful inheritance may accomplish very little.
+Variation is not automatically inheritance.
 
-So now that we know how to kill a pattern, let's ask whether it can avoid the problem another way.
+Mutation is not automatically evolution.
 
-By making another one.
+Before we can use any of those words, we need mechanisms and tests.
 
-Next: **Can It Make Another One?**
+So next we ask:
+
+> **Can It Make Another One?**
