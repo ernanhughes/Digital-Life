@@ -1,5 +1,5 @@
 +++
-title = "Digital Life 04: When Does a Pattern Become a Thing?"
+title = "04: When Does a Pattern Become a Thing?"
 date = "2026-08-11T01:26:00+01:00"
 draft = false
 description = "Use Conway's Game of Life to ask when a recurring localized pattern becomes useful to treat as an entity."
@@ -15,10 +15,8 @@ It gave us sensitivity to perturbation.
 
 But it did not obviously give us a **thing**.
 
-The pattern expanded.
-
-Regions changed.
-
+The pattern expanded.  
+Regions changed.  
 Differences spread.
 
 Interesting global behavior appeared.
@@ -31,8 +29,7 @@ the answer was not obvious.
 
 So let's change systems.
 
-Not because Conway's Game of Life is more complicated.
-
+Not because Conway's Game of Life is more complicated.  
 It isn't.
 
 But because it gives us something Rule 30 does not give us so cleanly:
@@ -51,7 +48,7 @@ Much earlier than that:
 
 ---
 
-# Start with five cells
+## Start With Five Cells
 
 Consider this pattern:
 
@@ -59,10 +56,9 @@ Consider this pattern:
 .#.
 ..#
 ###
-````
+```
 
-Five active cells.
-
+Five active cells.  
 Everything else is empty.
 
 Nothing in those five cells says:
@@ -71,12 +67,9 @@ Nothing in those five cells says:
 move diagonally
 ```
 
-There is no velocity.
-
-No direction variable.
-
-No object controller.
-
+There is no velocity.  
+No direction variable.  
+No object controller.  
 No instruction such as:
 
 ```python
@@ -98,7 +91,7 @@ But before we accept that sentence, we should ask what actually moved.
 
 ---
 
-# The cells did not move
+## The Cells Did Not Move
 
 Game of Life cells occupy fixed coordinates.
 
@@ -120,17 +113,23 @@ earlier cells become inactive
 a similar organization appears nearby
 ```
 
-No material object crosses the grid.
+```mermaid
+flowchart LR
+    A[Active cells<br/>in region R] --> B[Change nearby<br/>neighborhoods]
+    B --> C[Different cells<br/>become active]
+    C --> D[Earlier cells<br/>become inactive]
+    D --> E[Similar organization<br/>appears shifted]
+```
 
+No material object crosses the grid.  
 The **organization** does.
 
-This is the same conceptual problem we encountered with Lenia.
-
+This is the same conceptual problem we encountered with Lenia.  
 But Game of Life gives us a much cleaner laboratory.
 
 ---
 
-# The Game of Life rule
+## The Game of Life Rule
 
 Game of Life uses a two-dimensional binary lattice.
 
@@ -152,7 +151,7 @@ exactly 3
 
 active neighbors.
 
-Usually:
+Usually written:
 
 ```text
 B3/S23
@@ -185,7 +184,7 @@ The larger structures are descriptions we introduce after observing what the loc
 
 ---
 
-# Build the rule
+## Build the Rule
 
 A clear implementation is small:
 
@@ -225,7 +224,7 @@ No global object model.
 
 ---
 
-# Put a glider into the world
+## Put a Glider Into the World
 
 ```python
 state = np.zeros((20, 20), dtype=np.uint8)
@@ -263,7 +262,7 @@ We have a repeatable relationship.
 
 ---
 
-# What persisted?
+## What Persisted?
 
 Suppose we label the five active cells at the start:
 
@@ -277,10 +276,8 @@ E
 
 Four generations later, the original active coordinates are mostly no longer active.
 
-The pattern is made from different cells.
-
-Its coordinates changed.
-
+The pattern is made from different cells.  
+Its coordinates changed.  
 Its intermediate shape changed.
 
 Yet we still naturally say:
@@ -321,11 +318,11 @@ That is already a much richer notion of identity than material continuity.
 
 ---
 
-# Material identity and organizational identity
+## Material Identity and Organizational Identity
 
 We can distinguish two rough notions of sameness.
 
-## Material identity
+### Material identity
 
 ```text
 same components
@@ -333,11 +330,10 @@ same components
 same thing
 ```
 
-That works well for some physical objects.
-
+That works well for some physical objects.  
 But it is a poor description of a glider.
 
-## Organizational identity
+### Organizational identity
 
 ```text
 same organization
@@ -348,8 +344,7 @@ usefully treated as the same thing
 
 The glider strongly invites this second description.
 
-But there is an important qualification.
-
+But there is an important qualification.  
 We have not proved:
 
 > every persistent pattern is an entity.
@@ -360,9 +355,18 @@ We have shown something narrower:
 
 That is enough.
 
+```mermaid
+flowchart TD
+    A[Identity Criteria] --> B[Material Identity]
+    A --> C[Organizational Identity]
+    B --> B1["Same cells<br/>(fails for glider)"]
+    C --> C1["Same configuration<br/>+ transformation"]
+    C1 --> C2["Recurrence after period<br/>+ translation"]
+```
+
 ---
 
-# Measure the motion
+## Measure the Motion
 
 We can make this less philosophical.
 
@@ -411,7 +415,7 @@ starts becoming experimentally useful because several measurable quantities rema
 
 ---
 
-# Localization matters
+## Localization Matters
 
 Why is the glider easier to treat as a thing than Rule 30's expanding history?
 
@@ -419,8 +423,7 @@ One major reason is:
 
 > **localization**
 
-Most of the world is not part of the glider.
-
+Most of the world is not part of the glider.  
 Activity is concentrated in a bounded region.
 
 We can measure:
@@ -458,7 +461,7 @@ For now, localization is a useful first approximation.
 
 ---
 
-# A block persists differently
+## A Block Persists Differently
 
 Consider:
 
@@ -506,7 +509,7 @@ are already separate properties.
 
 ---
 
-# A blinker persists by changing
+## A Blinker Persists by Changing
 
 Now consider:
 
@@ -526,31 +529,24 @@ Then back again.
 
 This is a blinker.
 
-Its exact state does not persist.
-
+Its exact state does not persist.  
 Its behavior does.
 
 So persistence itself has several forms.
 
 ---
 
-# Three forms of persistence
+## Three Forms of Persistence
 
-## Fixed persistence
+### Fixed persistence
 
 ```text
 state(t + 1) = state(t)
 ```
 
-Example:
+Example: block
 
-```text
-block
-```
-
----
-
-## Periodic persistence
+### Periodic persistence
 
 ```text
 state(t + p) = state(t)
@@ -558,45 +554,37 @@ state(t + p) = state(t)
 
 for some period `p`.
 
-Example:
+Example: blinker (p=2)
+
+### Translating persistence
+
+For some period `p` and spatial translation Δ:
 
 ```text
-blinker
+state(t + p) = translate(state(t), Δ)
 ```
 
----
+Example: glider (p=4, Δ=(+1,+1))
 
-## Translating persistence
-
-For some period `p` and spatial translation `Δ`:
-
-```text
-state(t + p)
-=
-translate(state(t), Δ)
+```mermaid
+graph TD
+    Persistence[Persistence Types] --> Fixed[Fixed<br/>state unchanged]
+    Persistence --> Periodic[Periodic<br/>returns after p steps]
+    Persistence --> Translating[Translating<br/>returns shifted after p steps]
+    Fixed --> Block["Example: Block"]
+    Periodic --> Blinker["Example: Blinker (p=2)"]
+    Translating --> Glider["Example: Glider (p=4, Δ=+1,+1)"]
 ```
 
-Example:
-
-```text
-glider
-```
-
-That is much better than one vague word.
-
+That is much better than one vague word.  
 We can now specify what kind of persistence we mean.
 
 ---
 
-# Identity depends on which changes we ignore
+## Identity Depends on Which Changes We Ignore
 
-Suppose the glider at `t = 0` occupies one location.
-
-At `t = 4`, it occupies the same local configuration shifted by:
-
-```text
-(+1, +1)
-```
+Suppose the glider at `t = 0` occupies one location.  
+At `t = 4`, it occupies the same local configuration shifted by (+1,+1).
 
 A raw whole-grid comparison gives:
 
@@ -604,11 +592,7 @@ A raw whole-grid comparison gives:
 np.array_equal(state_t0, state_t4)
 ```
 
-which returns:
-
-```text
-False
-```
+which returns `False`.
 
 But if we compensate for translation:
 
@@ -636,13 +620,12 @@ exact constituent cells?
 
 Different choices imply different identity criteria.
 
-This is not merely philosophy.
-
+This is not merely philosophy.  
 It determines the algorithm we use to detect persistent entities.
 
 ---
 
-# Identity requires invariants
+## Identity Requires Invariants
 
 One useful way to think about identity is:
 
@@ -674,7 +657,7 @@ That is testable.
 
 ---
 
-# But this is only our first definition of a thing
+## But This Is Only Our First Definition of a Thing
 
 This is important.
 
@@ -726,7 +709,7 @@ That distinction is going to become important.
 
 ---
 
-# The danger of naming things
+## The Danger of Naming Things
 
 Game of Life contains named patterns such as:
 
@@ -740,16 +723,14 @@ pulsar
 gun
 ```
 
-Names are useful.
-
+Names are useful.  
 Instead of listing coordinates, we can say:
 
 > glider
 
 and reason at a higher level.
 
-But naming has a side effect.
-
+But naming has a side effect.  
 Once something has a noun, the mind starts treating it as an object automatically.
 
 The noun does not prove the ontology.
@@ -760,8 +741,7 @@ Calling a pattern:
 spaceship
 ```
 
-does not make it an engineered vehicle.
-
+does not make it an engineered vehicle.  
 Calling something:
 
 ```text
@@ -770,15 +750,14 @@ gun
 
 does not make it analogous to a physical gun in every meaningful respect.
 
-We will use names.
-
+We will use names.  
 But we should remember:
 
 > **Naming compresses description. It does not establish mechanism.**
 
 ---
 
-# Can two apparent things interact?
+## Can Two Apparent Things Interact?
 
 Now put two localized patterns in the same world.
 
@@ -810,8 +789,7 @@ Was the collision outcome reproducible?
 Would the same outcome occur if one input were removed?
 ```
 
-That final question is especially important.
-
+That final question is especially important.  
 It begins moving us from:
 
 ```text
@@ -828,10 +806,9 @@ We will need that later.
 
 ---
 
-# Does a glider carry information?
+## Does a Glider Carry Information?
 
-A glider begins in one region.
-
+A glider begins in one region.  
 Later, a correlated structured state exists somewhere else.
 
 So something about the earlier configuration constrains a later distant configuration.
@@ -844,6 +821,12 @@ localized state
 repeated local transformations
       ↓
 correlated localized state elsewhere
+```
+
+```mermaid
+flowchart LR
+    A[Localized pattern<br/>at t=0, pos x] --> B[Repeated local<br/>transformations]
+    B --> C[Correlated localized<br/>pattern at t=4, pos x+Δ]
 ```
 
 This is why gliders can be used as signals in computational constructions inside Game of Life.
@@ -862,18 +845,15 @@ That is enough to make it useful as a signal.
 
 ---
 
-# So is the glider a thing?
+## So Is the Glider a Thing?
 
-Biologically?
-
+Biologically?  
 We have shown nothing close to enough.
 
-Philosophically?
-
+Philosophically?  
 We can argue indefinitely.
 
-Experimentally?
-
+Experimentally?  
 We can be precise.
 
 The glider is:
@@ -913,10 +893,9 @@ That is the bounded claim.
 
 ---
 
-# Now we have something we can hurt
+## Now We Have Something We Can Hurt
 
-Rule 30 gave us spreading structure.
-
+Rule 30 gave us spreading structure.  
 The glider gives us a localized persistent pattern.
 
 That means we can finally perform a stronger experiment.
@@ -956,8 +935,7 @@ regeneration
 
 A pattern surviving forever in an undisturbed world tells us much less than a pattern surviving disturbance.
 
-So next, we stop admiring it.
-
+So next, we stop admiring it.  
 We damage it.
 
 Next: **Kill It.**

@@ -1,11 +1,13 @@
 +++
-title = "Digital Life 10: Properties of Digital Life"
+title = "10: Properties of Digital Life"
 date = "2026-08-11T10:36:00+01:00"
 draft = false
 description = "If digital life does not inhabit the same world as biological life, why should it inherit the same limits?"
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Artificial Life", "Digital Organisms", "Information", "Growth", "Computation"]
 +++
+
+# Properties of Digital Life
 
 We have changed the question.
 
@@ -21,26 +23,19 @@ regeneration
 reproduction
 inheritance
 evolution
-````
+```
 
 But the previous chapter exposed the assumption underneath them.
 
 > **We were still letting biology choose the architecture.**
 
-A biological organism exists inside one particular substrate.
-
-It is made from matter.
-
-Its signals propagate physically.
-
-Its components decay.
-
-Its copying is expensive.
-
-Its memory is limited.
-
-Its body is finite.
-
+A biological organism exists inside one particular substrate.  
+It is made from matter.  
+Its signals propagate physically.  
+Its components decay.  
+Its copying is expensive.  
+Its memory is limited.  
+Its body is finite.  
 Its architecture has been shaped by those constraints.
 
 A digital system inhabits a different design space.
@@ -53,7 +48,7 @@ That is the question of this chapter.
 
 ---
 
-# Life as it could be
+## Life as It Could Be
 
 Artificial Life has always carried a broader ambition than recreating terrestrial organisms.
 
@@ -95,7 +90,7 @@ That difference changes almost everything.
 
 ---
 
-# Start from the substrate
+## Start From the Substrate
 
 The digital substrate gives us operations biology does not naturally possess.
 
@@ -116,77 +111,29 @@ verify
 distribute
 ```
 
-Some are trivial operations in software.
-
-Some are extremely difficult to use well.
-
+Some are trivial operations in software.  
+Some are extremely difficult to use well.  
 But they are native possibilities.
 
 So before importing a biological mechanism, we should ask:
 
 > **What problem was biology solving, and does the digital substrate have the same problem?**
 
-If yes, perhaps the mechanism survives.
-
+If yes, perhaps the mechanism survives.  
 If not, perhaps something very different should replace it.
 
 ---
 
-# Growth may be radically cheaper
+## Growth May Be Radically Cheaper
 
-Biological organisms cannot grow without limit.
+Biological organisms cannot grow without limit.  
+Growth eventually runs into constraints involving energy, material, transport, heat, structure, signal distance, geometry.
 
-Growth eventually runs into constraints involving:
-
-```text
-energy
-material
-transport
-heat
-structure
-signal distance
-geometry
-```
-
-Digital systems are physical too.
-
-They still consume:
-
-```text
-compute
-memory
-storage
-energy
-bandwidth
-```
-
+Digital systems are physical too.  
+They still consume compute, memory, storage, energy, bandwidth.  
 But their logical scale can change by enormous factors before the same kinds of constraints appear.
 
-A digital organization might grow from:
-
-```text
-1 unit
-```
-
-to:
-
-```text
-10
-```
-
-to:
-
-```text
-1,000
-```
-
-to:
-
-```text
-1,000,000
-```
-
-without anything analogous to bones, blood vessels or surface-area limits.
+A digital organization might grow from 1 unit to 10, to 1,000, to 1,000,000 without anything analogous to bones, blood vessels or surface-area limits.
 
 So a first hypothesis is:
 
@@ -196,159 +143,67 @@ That alone could change what a digital life cycle looks like.
 
 ---
 
-# Perhaps there is no mature size
+## Perhaps There Is No Mature Size
 
-Biology encourages a familiar lifecycle:
+Biology encourages a familiar lifecycle: birth → growth → maturity → reproduction → death.
 
-```text
-birth
-↓
-growth
-↓
-maturity
-↓
-reproduction
-↓
-death
+A digital organization might instead do: start → grow → restructure → grow → distribute → grow → fork → merge → continue.
+
+```mermaid
+flowchart LR
+    A[Start] --> B[Grow]
+    B --> C[Restructure]
+    C --> D[Grow]
+    D --> E[Distribute]
+    E --> F[Grow]
+    F --> G[Fork]
+    G --> H[Merge]
+    H --> I[Continue]
+    I --> B
 ```
 
-A digital organization might instead do:
-
-```text
-start
-↓
-grow
-↓
-restructure
-↓
-grow
-↓
-distribute
-↓
-grow
-↓
-fork
-↓
-merge
-↓
-continue
-```
-
-Perhaps there is no adulthood.
-
-No fixed body size.
-
-No mandatory reproductive phase.
-
-No obvious endpoint.
-
+Perhaps there is no adulthood. No fixed body size. No mandatory reproductive phase. No obvious endpoint.  
 If so, biological lifecycle language may actively obscure the system.
 
 ---
 
-# Reproduction may become optional
+## Reproduction May Become Optional
 
-Consider why biological reproduction matters so much.
+Consider why biological reproduction matters so much.  
+Individual biological organisms are finite and vulnerable. If organization is to persist beyond one body, information must pass into another.
 
-Individual biological organisms are finite and vulnerable.
-
-If organization is to persist beyond one body, information must pass into another.
-
-But suppose a digital entity can:
-
-```text
-continue operating
-replace damaged hardware
-move between machines
-expand its memory
-restore from checkpoints
-restructure itself
-```
-
+But suppose a digital entity can continue operating, replace damaged hardware, move between machines, expand its memory, restore from checkpoints, restructure itself.  
 Why must it create offspring?
 
-It still might.
-
-Reproduction could provide:
-
-```text
-parallel exploration
-fault tolerance
-competition
-distributed search
-independent specialization
-```
-
-But now reproduction has to justify itself as a mechanism.
-
-It is no longer automatically a requirement.
+It still might. Reproduction could provide parallel exploration, fault tolerance, competition, distributed search, independent specialization.  
+But now reproduction has to justify itself as a mechanism. It is no longer automatically a requirement.
 
 ---
 
-# Copying is almost too easy
+## Copying Is Almost Too Easy
 
-Digital copying is cheap.
+Digital copying is cheap. A file can be duplicated. A process can fork. A model can be copied. A machine image can be cloned.
 
-A file can be duplicated.
-
-A process can fork.
-
-A model can be copied.
-
-A machine image can be cloned.
-
-So if we define reproduction as:
-
-```text
-produce another copy
-```
-
-the property becomes nearly meaningless.
+So if we define reproduction as “produce another copy”, the property becomes nearly meaningless.
 
 The interesting questions shift to:
 
 ```text
 Why copy?
-
 What becomes independent?
-
 What is causally continuous?
-
 What information should transfer?
-
 What should not transfer?
 ```
 
-The difficult part may not be reproduction.
-
-It may be deciding what deserves continuation.
+The difficult part may not be reproduction. It may be deciding what deserves continuation.
 
 ---
 
-# Forking changes ancestry
+## Forking Changes Ancestry
 
-Suppose a system reaches state:
-
-```text
-S
-```
-
-and forks.
-
-Now:
-
-```text
-S₁
-S₂
-```
-
-Both share the entire history before the fork.
-
-Which one is the original?
-
-Perhaps both are continuations.
-
-Perhaps neither has a privileged status.
+Suppose a system reaches state `S` and forks. Now `S₁` and `S₂` share the entire history before the fork.  
+Which one is the original? Perhaps both are continuations. Perhaps neither has a privileged status.
 
 Digital ancestry may naturally begin with:
 
@@ -370,211 +225,72 @@ That is already a different concept of lineage.
 
 ---
 
-# And branches may merge
+## And Branches May Merge
 
-Now suppose the two branches explore different possibilities.
-
-```text
-S₁ discovers A
-S₂ discovers B
-```
-
-Later:
-
-```text
-merge(S₁, S₂)
-```
-
-produces a state containing useful parts of both discoveries.
+Now suppose the two branches explore different possibilities. `S₁` discovers `A`, `S₂` discovers `B`. Later a merge produces a state containing useful parts of both discoveries.
 
 Then ancestry becomes:
 
-```text
-      S
-     / \
-   S₁   S₂
-     \ /
-      S₃
+```mermaid
+graph TD
+    S[S] --> S1[S₁]
+    S --> S2[S₂]
+    S1 --> S3[S₃]
+    S2 --> S3
 ```
 
-A tree is no longer enough.
-
-We may need:
-
-> **lineage graphs**
-
-rather than family trees.
-
-That changes inheritance too.
-
-Information may travel:
-
-```text
-downward
-sideways
-back together
-```
-
+A tree is no longer enough. We may need **lineage graphs** rather than family trees.  
+That changes inheritance too. Information may travel downward, sideways, back together.  
 Digital ancestry could be recombinational by default.
 
 ---
 
-# Acquired information can cross the fork
+## Acquired Information Can Cross the Fork
 
-Biological offspring do not usually inherit everything a parent learned.
+Biological offspring do not usually inherit everything a parent learned. Digital successors potentially can.
 
-Digital successors potentially can.
+Suppose an entity begins with `K` and discovers `A`, `B`, `C`. Its current state becomes `K+A+B+C`.  
+If it forks, both branches can begin from `K+A+B+C`.
 
-Suppose an entity begins with:
-
-```text
-K
-```
-
-and during operation discovers:
-
-```text
-A
-B
-C
-```
-
-Its current state becomes:
-
-```text
-K + A + B + C
-```
-
-If it forks, both branches can begin from:
-
-```text
-K + A + B + C
-```
-
-The distinction between:
-
-```text
-learning
-```
-
-and:
-
-```text
-inheritance
-```
-
-has now changed.
-
+The distinction between learning and inheritance has now changed.  
 Acquired information can become inherited information almost automatically.
 
 ---
 
-# But perfect inheritance may be terrible
+## But Perfect Inheritance May Be Terrible
 
-Suppose every experience is preserved.
+Suppose every experience is preserved generation after generation: everything learned, attempted, every failure, every temporary state, every irrelevant detail – accumulating forever.
 
-Generation after generation:
-
-```text
-everything learned
-+
-everything attempted
-+
-every failure
-+
-every temporary state
-+
-every irrelevant detail
-```
-
-accumulates forever.
-
-That is not necessarily progress.
-
-It may be informational collapse.
+That is not necessarily progress. It may be informational collapse.
 
 So the hard problem becomes:
 
 > **What should survive?**
 
-The scarce resource may not be storage.
-
-It may be:
-
-```text
-attention
-retrieval
-context
-compression
-integration
-verification
-```
+The scarce resource may not be storage. It may be attention, retrieval, context, compression, integration, verification.
 
 Digital life may remember almost everything and still fail because it cannot find or use what matters.
 
 ---
 
-# External information changes adaptation
+## External Information Changes Adaptation
 
-Biological organisms mostly learn from:
+Biological organisms mostly learn from inheritance, direct experience, and social transmission.  
+A digital entity may also access documents, databases, code, models, historical experiments, other agents, external memory.
 
-```text
-inheritance
-+
-direct experience
-+
-social transmission
-```
+That changes the meaning of environment.  
+For digital life, the environment may include not only resources, obstacles, other entities, but also **information systems**.
 
-A digital entity may also access:
-
-```text
-documents
-databases
-code
-models
-historical experiments
-other agents
-external memory
-```
-
-That changes the meaning of environment.
-
-For digital life, the environment may include not only:
-
-```text
-resources
-obstacles
-other entities
-```
-
-but also:
-
-```text
-information systems
-```
-
-A digital organism may encounter a problem and consult a library before acting.
-
+A digital organism may encounter a problem and consult a library before acting.  
 That is a genuinely different adaptive strategy.
 
 ---
 
-# Access is not understanding
+## Access Is Not Understanding
 
-But information access is cheap in another misleading way.
+But information access is cheap in another misleading way. A disk can contain a million books. It does not understand them.
 
-A disk can contain a million books.
-
-It does not understand them.
-
-So the interesting property is not:
-
-```text
-information available
-```
-
-but something closer to:
+So the interesting property is not *information available*, but something closer to:
 
 ```text
 information
@@ -590,46 +306,18 @@ changed behavior
 improved outcome
 ```
 
-Call that:
+Call that **information assimilation**.
 
-> **information assimilation**
-
-Now we have something testable.
-
-Remove access.
-
-Corrupt retrieved information.
-
-Replace relevant documents with irrelevant ones.
-
-Measure whether behavior changes.
-
+Now we have something testable. Remove access. Corrupt retrieved information. Replace relevant documents with irrelevant ones. Measure whether behavior changes.  
 The experimental method survives even when the mechanism becomes new.
 
 ---
 
-# Understanding itself can be inherited
+## Understanding Itself Can Be Inherited
 
-Suppose one system solves a difficult problem.
+Suppose one system solves a difficult problem. It does not merely store `answer = 42`. It constructs a model, a representation, a strategy, a verified explanation.
 
-It does not merely store:
-
-```text
-answer = 42
-```
-
-It constructs:
-
-```text
-a model
-a representation
-a strategy
-a verified explanation
-```
-
-Now that compressed understanding can be transferred.
-
-Conceptually:
+Now that compressed understanding can be transferred:
 
 ```text
 experience
@@ -643,235 +331,95 @@ transmission
 successor begins ahead
 ```
 
-Humans already do a weaker version through culture.
-
-Digital systems could potentially transfer much richer internal state with far greater fidelity.
-
-That may make cumulative improvement much easier.
-
-Or it may create completely new failure modes.
+Humans already do a weaker version through culture. Digital systems could potentially transfer much richer internal state with far greater fidelity.  
+That may make cumulative improvement much easier, or create completely new failure modes.
 
 ---
 
-# Individuality may become optional
+## Individuality May Become Optional
 
-A biological organism is often spatially compact.
-
-A digital system might be distributed across:
-
-```text
-machine A
-machine B
-database C
-model server D
-memory store E
-```
+A biological organism is often spatially compact.  
+A digital system might be distributed across machine A, machine B, database C, model server D, memory store E.
 
 Where is the individual?
 
-Perhaps its boundary is not geometric.
+Perhaps its boundary is not geometric. Maybe individuality is defined by causal continuity, shared state, information flow, control, authorization, coordination.
 
-Maybe individuality is defined by:
-
-```text
-causal continuity
-shared state
-information flow
-control
-authorization
-coordination
-```
-
-This echoes the warning from Chapter 04.
-
-Connected geometry gave us a useful first entity definition.
-
+This echoes the warning from Chapter 04: connected geometry gave us a useful first entity definition.  
 Digital systems may force us to replace it.
 
 ---
 
-# Communication can blur the individual
+## Communication Can Blur the Individual
 
-Suppose two digital entities exchange:
-
-```text
-memory
-models
-strategies
-internal state
-```
-
-continuously.
-
+Suppose two digital entities exchange memory, models, strategies, internal state continuously.  
 At what point are they still two?
 
-If they synchronize nearly everything every second, perhaps:
-
-```text
-two processes
-```
-
-does not imply:
-
-```text
-two individuals
-```
-
+If they synchronize nearly everything every second, perhaps “two processes” does not imply “two individuals”.  
 If synchronization stops, when do they become separate?
 
-Digital individuality may be graded rather than binary.
-
+Digital individuality may be graded rather than binary.  
 That is another experiment waiting to happen.
 
 ---
 
-# Embodiment may move
+## Embodiment May Move
 
-A digital process could execute on one machine and later continue on another.
+A digital process could execute on one machine and later continue on another: serialize, transfer, continue.
 
-```text
-machine A
-↓
-serialize
-↓
-transfer
-↓
-machine B
-↓
-continue
-```
-
-Did the entity move?
-
-Was it recreated?
-
-Does the difference matter?
-
-The answer may depend on which properties remain causally continuous.
-
+Did the entity move? Was it recreated? Does the difference matter?  
+The answer may depend on which properties remain causally continuous.  
 Again, the digital substrate makes identity a mechanism question rather than a location question.
 
 ---
 
-# Death becomes informational
+## Death Becomes Informational
 
-If a system can be:
-
-```text
-checkpointed
-copied
-distributed
-restored
-```
-
-then process termination is not necessarily death.
+If a system can be checkpointed, copied, distributed, restored, then process termination is not necessarily death.
 
 A more useful digital notion might be:
 
 > **irreversible loss of the information necessary to continue the organization**
 
-That definition could survive:
+That definition could survive hardware failure, migration, restart, checkpoint restore while still distinguishing genuine loss.
 
-```text
-hardware failure
-migration
-restart
-checkpoint restore
-```
-
-while still distinguishing genuine loss.
-
-But even that remains a hypothesis.
-
-We should test it rather than legislate it.
+But even that remains a hypothesis. We should test it rather than legislate it.
 
 ---
 
-# Checkpoints create branching time
+## Checkpoints Create Branching Time
 
-Suppose state `C` is saved at:
-
-```text
-t = 100
-```
-
-The entity continues to:
+Suppose state `C` is saved at `t=100`. The entity continues to `t=200`. Then the checkpoint is restored separately. Now two continuations exist:
 
 ```text
-t = 200
-```
-
-Then the checkpoint is restored separately.
-
-Now two continuations exist:
-
-```text
-history through t = 100
+history through t=100
         ↓
    ┌────┴────┐
    ↓         ↓
 original   restored
 ```
 
-One past can produce multiple futures.
+One past can produce multiple futures. Digital identity may naturally contain branching time.
 
-Digital identity may naturally contain branching time.
-
-That is not a small philosophical curiosity.
-
-It affects:
-
-```text
-lineage
-ownership
-memory
-causal ancestry
-responsibility
-selection
-```
-
-if we ever build systems rich enough for those questions to matter.
+That is not a small philosophical curiosity. It affects lineage, ownership, memory, causal ancestry, responsibility, selection – if we ever build systems rich enough for those questions to matter.
 
 ---
 
-# Self-modification changes evolution
+## Self-Modification Changes Evolution
 
-Biological evolution usually changes inherited structure through population processes.
-
+Biological evolution usually changes inherited structure through population processes.  
 Digital systems may modify themselves directly.
 
-Imagine:
+Imagine: current system → inspect behavior → propose modification → test modification → keep or reject.
 
-```text
-current system
-↓
-inspect behavior
-↓
-propose modification
-↓
-test modification
-↓
-keep or reject
-```
-
-Now adaptation can happen inside one continuing entity.
-
-No offspring are required.
-
-No generational turnover is required.
-
-This does not eliminate evolutionary search.
-
-But it introduces another mechanism.
+Now adaptation can happen inside one continuing entity. No offspring are required. No generational turnover is required.  
+This does not eliminate evolutionary search, but introduces another mechanism.
 
 ---
 
-# Forking can make self-modification safer
+## Forking Can Make Self-Modification Safer
 
-Self-modification has a problem.
-
-A system may destroy itself.
-
+Self-modification has a problem: a system may destroy itself.  
 Forking provides a digital alternative:
 
 ```text
@@ -887,233 +435,97 @@ test independently
 retain useful result
 ```
 
-Now:
-
-```text
-evolutionary variation
-```
-
-and:
-
-```text
-deliberate engineering
-```
-
-begin to overlap.
-
-A digital entity might generate its own variants, evaluate them and integrate successful changes.
-
-Evolution could become partly intentional.
+Now evolutionary variation and deliberate engineering begin to overlap.  
+A digital entity might generate its own variants, evaluate them and integrate successful changes. Evolution could become partly intentional.
 
 ---
 
-# Scarcity does not disappear
+## Scarcity Does Not Disappear
 
-It would be a mistake to conclude:
+It would be a mistake to conclude digital systems have no resource constraints. They absolutely do.
 
-> Digital systems have no resource constraints.
+The likely change is that **scarcity moves**.
 
-They absolutely do.
+Possible scarce resources include: compute, memory, bandwidth, latency, storage, energy, attention, context, trust, verification, coordination.
 
-The likely change is:
-
-> **scarcity moves**
-
-Possible scarce resources include:
-
-```text
-compute
-memory
-bandwidth
-latency
-storage
-energy
-attention
-context
-trust
-verification
-coordination
-```
-
-Perhaps copying is cheap but synchronizing copies is expensive.
-
-Perhaps information is abundant but trustworthy information is scarce.
-
-Perhaps storage is plentiful but retrieval is the bottleneck.
-
+Perhaps copying is cheap but synchronizing copies is expensive.  
+Perhaps information is abundant but trustworthy information is scarce.  
+Perhaps storage is plentiful but retrieval is the bottleneck.  
 Perhaps compute is plentiful but serial decision time matters.
 
-Different scarcity creates different organizational pressure.
-
+Different scarcity creates different organizational pressure.  
 That may be where genuinely digital forms of life begin to diverge most strongly from biological ones.
 
 ---
 
-# Some biological properties may return
+## Some Biological Properties May Return
 
-We should not overcorrect.
+We should not overcorrect.  
+Perhaps experiments eventually show that digital organization still benefits from something equivalent to boundaries, resource budgets, death, reproduction, error correction, individuality.
 
-Perhaps experiments eventually show that digital organization still benefits from something equivalent to:
+Excellent. Then those mechanisms earn their place.
 
-```text
-boundaries
-resource budgets
-death
-reproduction
-error correction
-individuality
-```
-
-Excellent.
-
-Then those mechanisms earn their place.
-
-The important difference is the direction of reasoning.
-
-Not:
+The important difference is the direction of reasoning:
 
 ```text
-biology uses it
-↓
-add it
-```
-
-but:
-
-```text
-remove it
-↓
-observe failure
-↓
-identify missing function
-↓
-reintroduce minimal mechanism
-↓
-test again
+Not: biology uses it → add it
+But: remove it → observe failure → identify missing function → reintroduce minimal mechanism → test again
 ```
 
 That is the substrate-first method.
 
 ---
 
-# A provisional comparison
+## A Provisional Comparison
 
 We can now write a hypothesis map.
 
-| Biological constraint or pattern      | Digital possibility                      |
-| ------------------------------------- | ---------------------------------------- |
-| Finite growth                         | Potentially enormous continued growth    |
-| Expensive reproduction                | Cheap copying and forking                |
-| Limited inheritance of acquired state | Direct transfer of learned state         |
-| Slow communication                    | High-bandwidth state exchange            |
-| Local information                     | Access to external information systems   |
-| Tree-like lineage                     | Branching and merging graphs             |
-| Fixed body                            | Distributed or movable execution         |
-| Irreversible physical death           | Checkpoint, restore and redundancy       |
-| Blind mutation                        | Deliberate self-modification             |
-| Generational adaptation               | Continuous adaptation within one process |
-| Limited memory                        | Vast external storage                    |
-| Expensive knowledge transfer          | High-fidelity representation transfer    |
+| Biological constraint or pattern | Digital possibility |
+|----------------------------------|---------------------|
+| Finite growth | Potentially enormous continued growth |
+| Expensive reproduction | Cheap copying and forking |
+| Limited inheritance of acquired state | Direct transfer of learned state |
+| Slow communication | High-bandwidth state exchange |
+| Local information | Access to external information systems |
+| Tree-like lineage | Branching and merging graphs |
+| Fixed body | Distributed or movable execution |
+| Irreversible physical death | Checkpoint, restore and redundancy |
+| Blind mutation | Deliberate self-modification |
+| Generational adaptation | Continuous adaptation within one process |
+| Limited memory | Vast external storage |
+| Expensive knowledge transfer | High-fidelity representation transfer |
 
-This is **not** a definition of digital life.
-
-It is a map of differences worth testing.
+This is **not** a definition of digital life. It is a map of differences worth testing.
 
 ---
 
-# Our current hypotheses
+## Our Current Hypotheses
 
-We should write them down explicitly.
+We should write them down explicitly – not as findings, but as hypotheses.
 
-Not as findings.
+- **Hypothesis 1:** Digital growth can remain useful across scales far beyond normal biological growth before resource constraints dominate.
+- **Hypothesis 2:** Acquired information can become directly inheritable and may fundamentally alter adaptation.
+- **Hypothesis 3:** Copying may be so cheap that reproduction becomes a strategic operation rather than a defining property.
+- **Hypothesis 4:** Digital ancestry may naturally form branching and merging graphs rather than simple trees.
+- **Hypothesis 5:** Digital death may correspond more closely to irreversible informational discontinuity than process termination.
+- **Hypothesis 6:** External information access and assimilation may be basic environmental interactions for digital entities.
+- **Hypothesis 7:** Scarcity may shift toward compute, bandwidth, attention, integration, trust and coordination.
+- **Hypothesis 8:** Self-modification may allow some evolutionary processes to become deliberate.
 
-As hypotheses.
-
-## Hypothesis 1
-
-Digital growth can remain useful across scales far beyond normal biological growth before resource constraints dominate.
-
-## Hypothesis 2
-
-Acquired information can become directly inheritable and may fundamentally alter adaptation.
-
-## Hypothesis 3
-
-Copying may be so cheap that reproduction becomes a strategic operation rather than a defining property.
-
-## Hypothesis 4
-
-Digital ancestry may naturally form branching and merging graphs rather than simple trees.
-
-## Hypothesis 5
-
-Digital death may correspond more closely to irreversible informational discontinuity than process termination.
-
-## Hypothesis 6
-
-External information access and assimilation may be basic environmental interactions for digital entities.
-
-## Hypothesis 7
-
-Scarcity may shift toward compute, bandwidth, attention, integration, trust and coordination.
-
-## Hypothesis 8
-
-Self-modification may allow some evolutionary processes to become deliberate.
-
-None of these is established.
-
-That is important.
-
+None of these is established. That is important.  
 They are the next research program.
 
 ---
 
-# Start with the simplest one
+## Start With the Simplest One
 
-We could try to test all eight at once.
+We could try to test all eight at once. That would be a disaster.  
+Instead, begin with the simplest difference: **growth**.
 
-That would be a disaster.
-
-Instead, begin with the simplest difference:
-
-> **growth**
-
-A biological organism cannot simply:
-
-```text
-grow
-grow
-grow
-grow
-grow
-```
-
-without radically changing architecture.
-
+A biological organism cannot simply grow-grow-grow-grow without radically changing architecture.  
 Can a digital structure?
 
-Start with almost nothing.
-
-A seed.
-
-A lattice.
-
-A local growth rule.
-
-No metabolism.
-
-No reproduction.
-
-No death.
-
-No genome.
-
-No memory variable.
-
-No intelligence.
-
-No artificial resource scarcity.
+Start with almost nothing. A seed. A lattice. A local growth rule. No metabolism. No reproduction. No death. No genome. No memory variable. No intelligence. No artificial resource scarcity.
 
 Only:
 
@@ -1129,82 +541,31 @@ Then watch what becomes necessary.
 
 ---
 
-# Why a crystal?
+## Why a Crystal?
 
 A crystal is a useful place to begin because it sits near several boundaries we care about.
 
-It has:
-
-```text
-organization
-growth
-local interaction
-persistence
-structural propagation
-defects
-```
-
+It has: organization, growth, local interaction, persistence, structural propagation, defects.  
 Yet we normally do not call it alive.
 
 Perfect.
 
-We do not need to begin with something that obviously looks like an organism.
-
-We can begin with something that is obviously organized.
-
-Then ask:
+We do not need to begin with something that obviously looks like an organism.  
+We can begin with something that is obviously organized. Then ask:
 
 > **What is missing?**
 
 ---
 
-# One seed
+## One Seed
 
-Imagine a hexagonal lattice.
+Imagine a hexagonal lattice. At the center: `●`. One occupied position.
 
-At the center:
-
-```text
-●
-```
-
-One occupied position.
-
-Now use a simple local growth rule.
-
-For example:
+Now use a simple local growth rule. For example:
 
 > An empty location may become occupied when it touches the existing structure.
 
-Then:
-
-```text
-        ●
-```
-
-becomes something like:
-
-```text
-      ● ●
-     ● ● ●
-      ● ●
-```
-
-and continues outward.
-
-No food.
-
-No energy variable.
-
-No parent.
-
-No child.
-
-No metabolism.
-
-No programmed repair.
-
-Just structural propagation.
+Then a single seed expands outward. No food. No energy variable. No parent. No child. No metabolism. No programmed repair. Just structural propagation.
 
 Our first question is:
 
@@ -1212,7 +573,7 @@ Our first question is:
 
 ---
 
-# Then attack it
+## Then Attack It
 
 Once the crystal grows, we can use the method we already developed.
 
@@ -1220,47 +581,25 @@ Ask:
 
 ```text
 Does unlimited growth remain ordered?
-
 What kinds of defects appear?
-
-Do defects persist?
-
-Do defects propagate?
-
+Do defects persist? Do defects propagate?
 What happens if we remove a region?
-
 Does the structure fill the hole?
-
 Is that repair or merely continued growth?
-
-Can two growth fronts coexist?
-
-Can one invade another?
-
+Can two growth fronts coexist? Can one invade another?
 Does history become encoded in the structure?
-
 Does increasing scale create new constraints?
 ```
 
-These are empirical questions.
-
-Now the substrate-first theory begins producing experiments.
+These are empirical questions. Now the substrate-first theory begins producing experiments.
 
 ---
 
-# Growth is not automatically repair
+## Growth Is Not Automatically Repair
 
-Suppose we remove a patch from the crystal.
+Suppose we remove a patch from the crystal. Later the hole fills. It is tempting to say “it repaired itself.”
 
-Later the hole fills.
-
-It is tempting to say:
-
-> It repaired itself.
-
-But perhaps the rule simply fills any empty location touching the structure.
-
-Then the hole disappeared because growth continued.
+But perhaps the rule simply fills any empty location touching the structure. Then the hole disappeared because growth continued.
 
 That is different from:
 
@@ -1276,50 +615,36 @@ dynamics detect or encode that deviation
 return toward target
 ```
 
-So:
-
-> **continued growth into a hole is not automatically regeneration toward a target morphology**
+So: **continued growth into a hole is not automatically regeneration toward a target morphology.**
 
 This is exactly the sort of distinction the book is now equipped to make.
 
 ---
 
-# The new method
+## The New Method
 
 From here on, we have two complementary experimental moves.
 
-## When we see an impressive property
+```mermaid
+flowchart TD
+    subgraph Method1 [When we see an impressive property]
+    A1[SEE SOMETHING] --> A2[NAME THE HYPOTHESIS]
+    A2 --> A3[MEASURE]
+    A3 --> A4[CONTROL]
+    A4 --> A5[LOOK FOR CONFOUNDS]
+    A5 --> A6[KEEP ONLY WHAT SURVIVES]
+    end
 
-```text
-SEE SOMETHING
-↓
-NAME THE HYPOTHESIS
-↓
-MEASURE
-↓
-CONTROL
-↓
-LOOK FOR CONFOUNDS
-↓
-KEEP ONLY WHAT SURVIVES
+    subgraph Method2 [When biology suggests a requirement]
+    B1[IDENTIFY THE SUPPOSED REQUIREMENT] --> B2[ASK WHAT CONSTRAINT CREATED IT]
+    B2 --> B3[REMOVE IT]
+    B3 --> B4[OBSERVE WHAT BREAKS]
+    B4 --> B5[REINTRODUCE ONLY IF NECESSARY]
+    end
 ```
 
-## When biology suggests a requirement
-
-```text
-IDENTIFY THE SUPPOSED REQUIREMENT
-↓
-ASK WHAT CONSTRAINT CREATED IT
-↓
-REMOVE IT
-↓
-OBSERVE WHAT BREAKS
-↓
-REINTRODUCE ONLY IF NECESSARY
-```
-
-One tests claims.
-
-The other tests assumptions.
-
+One tests claims.  
+The other tests assumptions.  
 Together they give us a way to investigate digital life without defining the answer in advance.
+
+Next: **The Crystal**

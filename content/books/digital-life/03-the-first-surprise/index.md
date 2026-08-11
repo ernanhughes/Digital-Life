@@ -1,5 +1,5 @@
 +++
-title = "Digital Life 03: The First Surprise"
+title = "03: The First Surprise"
 date = "2026-08-11T01:19:00+01:00"
 draft = false
 description = "Change one rule number and watch a tiny deterministic system become unexpectedly difficult to predict."
@@ -11,7 +11,7 @@ We ended the last chapter by changing one number.
 
 ```python
 rule = 22
-````
+```
 
 became:
 
@@ -445,28 +445,27 @@ A simple quantity is the Hamming distance between two binary states.
 
 For states:
 
-[
+$$
 A_t
-]
+$$
 
 and:
 
-[
+$$
 B_t
-]
+$$
 
 define:
 
-[
+$$
 D(t)
-====
 
 \sum_i
 \mathbf{1}
 \left[
 A_t(i) \neq B_t(i)
 \right]
-]
+$$
 
 In code:
 

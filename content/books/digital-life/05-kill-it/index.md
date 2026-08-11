@@ -1,5 +1,5 @@
 +++
-title = "Digital Life 05: Kill It"
+title = "05: Kill It"
 date = "2026-08-11T01:34:00+01:00"
 draft = false
 description = "Damage persistent digital patterns and separate survival, robustness and regeneration into experimentally distinct claims."
@@ -29,7 +29,7 @@ So let's interfere.
 
 ---
 
-# Start with the glider
+## Start With the Glider
 
 Our glider:
 
@@ -55,14 +55,10 @@ For example:
 ###
 ```
 
-One bit changed.
-
-Same rule.
-
-Same world.
-
-Same boundary condition.
-
+One bit changed.  
+Same rule.  
+Same world.  
+Same boundary condition.  
 Same update semantics.
 
 Only the state has been perturbed.
@@ -73,12 +69,9 @@ Run it.
 
 Several outcomes are possible.
 
-The structure may disappear.
-
-It may become another Life pattern.
-
-Some activity may survive.
-
+The structure may disappear.  
+It may become another Life pattern.  
+Some activity may survive.  
 Debris may spread.
 
 But one possibility is especially important:
@@ -101,11 +94,11 @@ Those are not the same property.
 
 ---
 
-# Three different claims
+## Three Different Claims
 
 We need separate words for separate phenomena.
 
-## Persistence
+### Persistence
 
 A structure continues under its ordinary dynamics.
 
@@ -117,7 +110,7 @@ ordinary dynamics
 organization continues
 ```
 
-## Robustness
+### Robustness
 
 A perturbation occurs, but some defined property continues to hold.
 
@@ -129,7 +122,7 @@ perturbation
 property still holds
 ```
 
-## Regeneration
+### Regeneration
 
 A perturbation substantially changes the structure, and subsequent dynamics return it toward a defined previous organization.
 
@@ -145,6 +138,17 @@ continued dynamics
 defined organization returns
 ```
 
+```mermaid
+flowchart TD
+    A[Original Organization] --> B[Perturbation]
+    B --> C[Outcome?]
+    C --> D[Property still holds<br/><i>Robustness</i>]
+    C --> E[Organization disrupted]
+    E --> F[Dynamics continue]
+    F --> G[Previous organization returns<br/><i>Regeneration</i>]
+    C --> H[Organization lost<br/><i>No recovery</i>]
+```
+
 So:
 
 ```text
@@ -155,13 +159,12 @@ robustness
 regeneration
 ```
 
-A system can possess one without possessing the others.
-
+A system can possess one without possessing the others.  
 This distinction will matter repeatedly.
 
 ---
 
-# A block persists perfectly
+## A Block Persists Perfectly
 
 Take the Game of Life block:
 
@@ -214,7 +217,7 @@ The perturbation has exposed something that observation alone did not.
 
 ---
 
-# The perturbation is the experiment
+## The Perturbation Is the Experiment
 
 Before this chapter, many of our experiments looked like:
 
@@ -250,7 +253,7 @@ This is the beginning of causal experimentation.
 
 ---
 
-# Damage must be defined
+## Damage Must Be Defined
 
 “Damage the pattern” sounds intuitive.
 
@@ -294,24 +297,21 @@ repetitions: all possible deletions
 observation window: 50 generations
 ```
 
-Now another person can repeat the experiment.
-
+Now another person can repeat the experiment.  
 And now we can meaningfully compare systems.
 
 ---
 
-# One lucky recovery proves very little
+## One Lucky Recovery Proves Very Little
 
 Imagine a structure containing ten active cells.
 
-Delete one particular cell.
-
+Delete one particular cell.  
 It returns to its previous pattern.
 
 Interesting.
 
-Now delete one of the other nine cells.
-
+Now delete one of the other nine cells.  
 It collapses.
 
 Then the statement:
@@ -354,7 +354,7 @@ Instead of one anecdote, we obtain a:
 
 ---
 
-# Survival is not recovery
+## Survival Is Not Recovery
 
 Suppose we damage a structure and some activity remains.
 
@@ -386,8 +386,7 @@ Twenty generations later:
 .....
 ```
 
-Something survived.
-
+Something survived.  
 But the previous organization did not return.
 
 So:
@@ -418,21 +417,11 @@ organization after continued evolution
 
 ---
 
-# Recovery forces us to define identity
+## Recovery Forces Us to Define Identity
 
 This connects directly to the previous chapter.
 
-Suppose our target pattern is:
-
-```text
-T
-```
-
-and the later pattern is:
-
-```text
-R
-```
+Suppose our target pattern is `T` and the later pattern is `R`.
 
 For a stationary discrete pattern, we might compare them directly:
 
@@ -440,8 +429,7 @@ For a stationary discrete pattern, we might compare them directly:
 np.array_equal(T, R)
 ```
 
-But that fails for a glider.
-
+But that fails for a glider.  
 A glider could return while shifted in space.
 
 So perhaps recovery means:
@@ -480,7 +468,7 @@ The philosophical problem has become an engineering requirement.
 
 ---
 
-# Exact equality is usually the wrong metric
+## Exact Equality Is Usually the Wrong Metric
 
 Suppose we compare two whole worlds using:
 
@@ -491,51 +479,20 @@ def similarity(a, b):
 
 There is an immediate problem.
 
-If almost every cell is zero, two completely different tiny structures may still score close to:
-
-```text
-1.0
-```
-
-because the empty background dominates the metric.
+If almost every cell is zero, two completely different tiny structures may still score close to 1.0 because the empty background dominates the metric.
 
 So our measurement must focus on the structure we care about.
 
 One simple choice is intersection-over-union.
 
-For active-cell sets:
+For active-cell sets A and B:
 
-[
-A
-]
+$$
+IoU(A,B) = \frac{|A \cap B|}{|A \cup B|}
+$$
 
-and:
-
-[
-B
-]
-
-define:
-
-[
-IoU(A,B)
-========
-
-\frac{|A \cap B|}
-{|A \cup B|}
-]
-
-Identical active regions produce:
-
-```text
-1.0
-```
-
-Disjoint regions produce:
-
-```text
-0.0
-```
+Identical active regions produce 1.0.  
+Disjoint regions produce 0.0.
 
 In code:
 
@@ -552,13 +509,12 @@ def iou(a, b):
 
 For moving structures, we would first align them under the transformations our identity criterion allows.
 
-Still imperfect.
-
+Still imperfect.  
 But explicit.
 
 ---
 
-# Metrics create claims
+## Metrics Create Claims
 
 Suppose we define:
 
@@ -579,15 +535,13 @@ That is much uglier than:
 
 Good.
 
-The ugly statement tells us what was actually demonstrated.
-
-We can always summarize later.
-
+The ugly statement tells us what was actually demonstrated.  
+We can always summarize later.  
 But the experiment should preserve the operational claim.
 
 ---
 
-# Robustness does not require regeneration
+## Robustness Does Not Require Regeneration
 
 A system may fail to restore its previous shape while preserving something else.
 
@@ -597,10 +551,8 @@ Imagine a future digital system whose behavior is:
 move toward a signal source
 ```
 
-Damage changes its morphology.
-
-Its shape similarity falls dramatically.
-
+Damage changes its morphology.  
+Its shape similarity falls dramatically.  
 Yet it continues moving toward the signal.
 
 Then:
@@ -633,23 +585,18 @@ And this is a broader lesson:
 
 > **Robustness always needs an object: robust with respect to what?**
 
-Shape?
-
-Movement?
-
-Computation?
-
-Replication?
-
+Shape?  
+Movement?  
+Computation?  
+Replication?  
 Memory?
 
-A system is not simply “robust.”
-
+A system is not simply “robust.”  
 It is robust with respect to some property under some class of perturbations.
 
 ---
 
-# Build a damage curve
+## Build a Damage Curve
 
 One perturbation gives one data point.
 
@@ -697,12 +644,11 @@ That tells us much more than one impressive animation.
 
 ---
 
-# Damage location matters
+## Damage Location Matters
 
 Suppose a structure contains one hundred active cells.
 
-Removing ten cells from one region might do almost nothing.
-
+Removing ten cells from one region might do almost nothing.  
 Removing ten elsewhere might destroy the pattern completely.
 
 So:
@@ -730,24 +676,20 @@ distributed organization
 
 Eventually this becomes a question about where the system's causal organization actually lives.
 
-Is function concentrated?
-
-Distributed?
-
-Redundant?
-
+Is function concentrated?  
+Distributed?  
+Redundant?  
 Does there even exist a clean spatial location corresponding to the mechanism?
 
 We should not assume the answer in advance.
 
 ---
 
-# Repeated perturbation is a stronger test
+## Repeated Perturbation Is a Stronger Test
 
 Suppose a system survives one intervention.
 
-Damage it again.
-
+Damage it again.  
 Then again.
 
 ```text
@@ -764,8 +706,7 @@ damage
 response
 ```
 
-A system might survive one perturbation by consuming redundancy that never returns.
-
+A system might survive one perturbation by consuming redundancy that never returns.  
 Another might repeatedly reconstruct the lost organization.
 
 Those are different mechanisms.
@@ -786,10 +727,9 @@ Again, the perturbation reveals structure that clean observation hides.
 
 ---
 
-# Damage does not have to mean deleting cells
+## Damage Does Not Have to Mean Deleting Cells
 
-The deeper idea is not “injury.”
-
+The deeper idea is not “injury.”  
 It is intervention.
 
 We could alter:
@@ -817,15 +757,13 @@ measure the response
 
 This matters because a capability becomes much more informative when we know where it fails.
 
-A system that works only under one carefully selected setup may still be interesting.
-
-But the boundary of the claim is narrow.
-
+A system that works only under one carefully selected setup may still be interesting.  
+But the boundary of the claim is narrow.  
 Perturbation helps us find that boundary.
 
 ---
 
-# The glider fails the stronger test
+## The Glider Fails the Stronger Test
 
 Return to the glider.
 
@@ -840,8 +778,7 @@ dynamically persistent
 
 But perturb the wrong cell and its characteristic trajectory disappears.
 
-That does not make the glider less interesting.
-
+That does not make the glider less interesting.  
 It makes our description more precise.
 
 We can say:
@@ -852,13 +789,12 @@ We should not infer:
 
 > The glider exhibits robust self-maintenance under damage.
 
-Those are different achievements.
-
+Those are different achievements.  
 And now we have an experiment that separates them.
 
 ---
 
-# Could local dynamics regenerate structure?
+## Could Local Dynamics Regenerate Structure?
 
 Now the stronger question becomes interesting.
 
@@ -902,7 +838,7 @@ The measurement rules come before the spectacular GIF.
 
 ---
 
-# Intervention is becoming part of our method
+## Intervention Is Becoming Part of Our Method
 
 We started the book with:
 
@@ -914,26 +850,20 @@ local interaction
 time
 ```
 
-Then we added observation.
-
+Then we added observation.  
 Now we have added intervention.
 
 Our laboratory increasingly looks like:
 
-```text
-SYSTEM
-   ↓
-OBSERVATION
-   ↓
-HYPOTHESIS
-   ↓
-CONTROLLED INTERVENTION
-   ↓
-RESPONSE
-   ↓
-MEASUREMENT
-   ↓
-BOUNDED CLAIM
+```mermaid
+flowchart TD
+    A[System] --> B[Observation]
+    B --> C[Hypothesis]
+    C --> D[Controlled Intervention]
+    D --> E[Response]
+    E --> F[Measurement]
+    F --> G[Bounded Claim]
+    G -.->|refine| C
 ```
 
 This is a major step.
@@ -948,7 +878,7 @@ We can ask:
 
 ---
 
-# Attack the capability
+## Attack the Capability
 
 This gives us a general rule for the rest of the book.
 
@@ -963,8 +893,7 @@ inheritance
 coordination
 ```
 
-do not only observe the condition in which the capability appears.
-
+do not only observe the condition in which the capability appears.  
 Intervene on the mechanism that supposedly supports it.
 
 For memory:
@@ -1003,7 +932,7 @@ That moves us from association toward mechanism.
 
 ---
 
-# And now reproduction enters — carefully
+## And Now Reproduction Enters — Carefully
 
 Damage raises another possibility.
 
@@ -1051,12 +980,9 @@ It is asking a narrower experimental question:
 
 That question brings new traps.
 
-A duplicate is not automatically offspring.
-
-Similarity is not automatically causal reproduction.
-
-Variation is not automatically inheritance.
-
+A duplicate is not automatically offspring.  
+Similarity is not automatically causal reproduction.  
+Variation is not automatically inheritance.  
 Mutation is not automatically evolution.
 
 Before we can use any of those words, we need mechanisms and tests.

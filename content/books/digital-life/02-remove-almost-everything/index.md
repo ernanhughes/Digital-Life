@@ -1,13 +1,11 @@
 +++
-title = "Digital Life 02: Remove Almost Everything"
+title = "02: Remove Almost Everything"
 date = "2026-08-11T01:08:00+01:00"
 draft = false
 description = "Strip digital life down to a line of binary cells, a three-cell neighborhood and one tiny deterministic rule."
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Cellular Automata", "Elementary Cellular Automata", "Emergence", "Python"]
 +++
-
-# Remove Almost Everything
 
 In the previous chapter we started with something complicated.
 

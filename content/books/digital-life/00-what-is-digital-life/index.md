@@ -1,12 +1,10 @@
 +++
-title = "Digital Life 00: What Would Digital Life Mean?"
+title = "00: What Would Digital Life Mean?"
 date = "2026-08-11T00:31:00+01:00"
 draft = false
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Cellular Automata", "Artificial Life", "Emergence"]
 +++
-
-# What Would Digital Life Mean?
 
 Suppose we wanted to build life in software.
 

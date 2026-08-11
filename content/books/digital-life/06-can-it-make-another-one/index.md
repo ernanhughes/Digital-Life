@@ -1,5 +1,5 @@
 +++
-title = "Digital Life 06: Can It Make Another One?"
+title = "06: Can It Make Another One?"
 date = "2026-08-11T01:46:00+01:00"
 draft = false
 description = "Ask what digital reproduction actually requires, from simple copying to causal reproduction, inheritance and lineage."
@@ -17,7 +17,7 @@ persistence
 robustness
 ≠
 regeneration
-````
+```
 
 Now consider a different possibility.
 
@@ -53,7 +53,7 @@ That is much harder.
 
 ---
 
-# The world's worst self-reproducer
+## The World's Worst Self-Reproducer
 
 Start with the stupidest possible example.
 
@@ -78,8 +78,7 @@ child  = 1011
 
 Did the system reproduce?
 
-In one trivial sense, yes.
-
+In one trivial sense, yes.  
 Some state was copied.
 
 But nearly everything interesting came from outside the supposed organism:
@@ -104,7 +103,7 @@ That would be exactly the mistake this book is trying to avoid.
 
 ---
 
-# Copying is native to the digital substrate
+## Copying Is Native to the Digital Substrate
 
 Computers already duplicate things constantly:
 
@@ -150,9 +149,21 @@ new recognizable instance
 
 Those are very different claims.
 
+```mermaid
+flowchart LR
+    subgraph External
+    A[External copier function] --> B[Duplicate state]
+    end
+    subgraph Internal
+    C[Local dynamics + rule] --> D[New recognizable<br/>instance arises]
+    end
+    B -.- E[Not reproduction as<br/>internal property]
+    D -.- F[Potentially interesting<br/>self-reproduction]
+```
+
 ---
 
-# Remove the reproduction function
+## Remove the Reproduction Function
 
 Imagine a cellular automaton.
 
@@ -162,8 +173,7 @@ There is no:
 spawn_child()
 ```
 
-No object constructor.
-
+No object constructor.  
 No hidden supervisor identifying parents and children.
 
 There is only:
@@ -200,7 +210,7 @@ That is the kind of reproduction we care about.
 
 ---
 
-# What counts as another one?
+## What Counts as Another One?
 
 Suppose a configuration `C` appears here:
 
@@ -220,16 +230,11 @@ Not yet.
 
 We immediately need an identity criterion.
 
-How similar must the new configuration be?
-
-Exactly identical?
-
-Translated?
-
-Rotated?
-
-At another internal phase?
-
+How similar must the new configuration be?  
+Exactly identical?  
+Translated?  
+Rotated?  
+At another internal phase?  
 Slightly different?
 
 What if the original changes while the second appears?
@@ -244,8 +249,7 @@ contains another question inside it:
 
 Chapter 04 has returned.
 
-Identity is not an optional philosophical decoration.
-
+Identity is not an optional philosophical decoration.  
 It determines whether our detector reports:
 
 ```text
@@ -260,7 +264,7 @@ or:
 
 ---
 
-# Growth is not necessarily reproduction
+## Growth Is Not Necessarily Reproduction
 
 Suppose:
 
@@ -310,15 +314,14 @@ Perhaps later:
 causal separation
 ```
 
-For now, geometry gives us a first approximation.
-
+For now, geometry gives us a first approximation.  
 But we should already mark it as provisional.
 
 A digital individual may eventually turn out not to correspond neatly to one connected blob.
 
 ---
 
-# Similarity is not parenthood
+## Similarity Is Not Parenthood
 
 Now suppose the world spontaneously creates the same pattern every 100 generations.
 
@@ -334,12 +337,10 @@ C    C    C    C
 
 We might see many copies.
 
-But imagine removing the first one.
-
+But imagine removing the first one.  
 The later copies still appear at exactly the same times.
 
-Was the first `C` their parent?
-
+Was the first `C` their parent?  
 No useful evidence supports that.
 
 So:
@@ -356,11 +357,11 @@ We need causality.
 
 ---
 
-# Causal reproduction
+## Causal Reproduction
 
 Compare two worlds.
 
-## World A
+### World A
 
 ```text
 candidate parent present
@@ -368,12 +369,24 @@ candidate parent present
 candidate offspring appears
 ```
 
-## World B
+### World B
 
 ```text
 candidate parent removed
         ↓
 does candidate offspring still appear?
+```
+
+```mermaid
+flowchart TD
+    subgraph A [World A: Parent present]
+    A1[Parent exists] --> A2[Offspring appears]
+    end
+    subgraph B [World B: Parent removed]
+    B1[Parent absent] --> B2[Offspring still appears?]
+    end
+    B2 -->|Yes| Weak[Weak evidence<br/>parent not causal]
+    B2 -->|No/Delayed| Strong[Stronger evidence<br/>parent is causal]
 ```
 
 If removing the supposed parent prevents, delays or substantially changes production of the supposed offspring, then the parent hypothesis becomes much stronger.
@@ -402,29 +415,28 @@ starts earning its meaning.
 
 ---
 
-# A minimal reproduction test
+## A Minimal Reproduction Test
 
 Suppose we detect candidate pattern `P`.
 
 A useful first protocol might be:
 
-```text
-1. identify P at time t₀
-
-2. track P through time
-
-3. detect another spatially distinct
-   pattern satisfying the identity criterion
-
-4. verify that the new pattern persists
-   independently for some minimum time
-
+1. identify `P` at time t₀
+2. track `P` through time
+3. detect another spatially distinct pattern satisfying the identity criterion
+4. verify that the new pattern persists independently for some minimum time
 5. repeat the observation
+6. remove or perturb `P`
+7. measure whether production of the new pattern changes
 
-6. remove or perturb P
-
-7. measure whether production
-   of the new pattern changes
+```mermaid
+flowchart LR
+    A[Identify P at t0] --> B[Track P]
+    B --> C[Detect distinct<br/>similar pattern]
+    C --> D[Verify new pattern<br/>persists independently]
+    D --> E[Repeat observation]
+    E --> F[Remove/perturb P]
+    F --> G[Measure change in<br/>offspring production]
 ```
 
 Notice how much more demanding this is than:
@@ -435,7 +447,7 @@ That is deliberate.
 
 ---
 
-# Replication and reproduction are not identical questions
+## Replication and Reproduction Are Not Identical Questions
 
 Suppose the parent produces:
 
@@ -449,13 +461,8 @@ and the child is:
 101101
 ```
 
-That is an exact copy under this representation.
-
-Call that:
-
-```text
-replication
-```
+That is an exact copy under this representation.  
+Call that **replication**.
 
 Now suppose offspring can differ:
 
@@ -467,19 +474,14 @@ child
 101001
 ```
 
-Now we have:
+Now we have **variation**.
 
-```text
-variation
-```
-
-But variation alone is still not enough to tell us much.
-
+But variation alone is still not enough to tell us much.  
 The next question is whether the difference survives into further descendants.
 
 ---
 
-# Variation is not inheritance
+## Variation Is Not Inheritance
 
 Suppose:
 
@@ -499,11 +501,7 @@ Generation 3
 
 Now the altered property has persisted through reproduction.
 
-That is much closer to:
-
-```text
-inheritance
-```
+That is much closer to **inheritance**.
 
 So:
 
@@ -517,13 +515,12 @@ is not the same as:
 heritable variation
 ```
 
-A one-generation error may be noise.
-
+A one-generation error may be noise.  
 An inherited difference can alter the future of a lineage.
 
 ---
 
-# Parenthood becomes a graph
+## Parenthood Becomes a Graph
 
 Once offspring can produce offspring, the experiment changes again.
 
@@ -538,9 +535,16 @@ A
     └── F
 ```
 
-Now we have a:
+Now we have a **lineage graph**.
 
-> **lineage graph**
+```mermaid
+graph TD
+    A[A] --> B[B]
+    A --> C[C]
+    B --> D[D]
+    B --> E[E]
+    C --> F[F]
+```
 
 This is important.
 
@@ -568,7 +572,7 @@ Reproduction introduces history with structure.
 
 ---
 
-# Count descendants, but do not stop there
+## Count Descendants, but Do Not Stop There
 
 A simple measurement is:
 
@@ -590,48 +594,27 @@ t = 400    7
 
 This tells us whether a structure duplicated once or participated in a growing lineage.
 
-But raw counts are not enough.
-
+But raw counts are not enough.  
 A lineage graph tells us far more than population size alone.
 
-Two systems may both contain:
-
-```text
-100 copies
-```
-
-while one came from:
-
-```text
-one deep branching ancestry
-```
-
-and another came from:
-
-```text
-100 independent spontaneous appearances
-```
+Two systems may both contain 100 copies while one came from one deep branching ancestry and another came from 100 independent spontaneous appearances.
 
 Those are completely different mechanisms.
 
 ---
 
-# Self-reproducing cellular automata
+## Self-Reproducing Cellular Automata
 
 This problem has a long history.
 
-Von Neumann's work on self-reproducing automata was not merely about making shapes duplicate.
-
+Von Neumann's work on self-reproducing automata was not merely about making shapes duplicate.  
 The deeper problem involved a machine participating in the construction of another machine while also propagating the information needed for that construction.
 
-Later cellular-automaton systems simplified the machinery.
-
-Langton's loops became one famous example of local dynamics producing self-reproducing structures.
-
+Later cellular-automaton systems simplified the machinery.  
+Langton's loops became one famous example of local dynamics producing self-reproducing structures.  
 Then systems such as Evoloops pushed the idea further by allowing variation among reproducing structures.
 
-The important lesson for us is not the historical sequence itself.
-
+The important lesson for us is not the historical sequence itself.  
 It is the mechanism:
 
 ```text
@@ -648,12 +631,11 @@ without requiring an external function to identify and copy the object.
 
 ---
 
-# Evoloops: reproduction without a fitness function
+## Evoloops: Reproduction Without a Fitness Function
 
 Evoloops are especially interesting because reproduction occurs inside the world.
 
-Interactions and collisions can create variation.
-
+Interactions and collisions can create variation.  
 Some variants remain able to reproduce.
 
 So instead of:
@@ -708,7 +690,7 @@ That is a very different architecture from ordinary optimization.
 
 ---
 
-# Determinism does not prevent evolution
+## Determinism Does Not Prevent Evolution
 
 There is a temptation to think:
 
@@ -736,15 +718,13 @@ inheritance
 differential reproduction
 ```
 
-Those relationships can exist inside a deterministic trajectory.
-
-Randomness is not logically required.
-
+Those relationships can exist inside a deterministic trajectory.  
+Randomness is not logically required.  
 Variation is.
 
 ---
 
-# Outlier makes the problem stranger
+## Outlier Makes the Problem Stranger
 
 More recent cellular-automaton work gives us an even more interesting case.
 
@@ -754,8 +734,7 @@ In the system called **Outlier**, simple binary local dynamics can generate stru
 
 That is exactly the kind of observation that should make us suspicious.
 
-Not dismissive.
-
+Not dismissive.  
 Suspicious.
 
 Because the image invites the sentence:
@@ -780,15 +759,12 @@ Does the process repeat?
 Do descendants themselves produce descendants?
 ```
 
-The visual phenomenon is only the start.
-
-This will matter later.
-
-A lot.
+The visual phenomenon is only the start.  
+This will matter later. A lot.
 
 ---
 
-# The most dangerous word here is "offspring"
+## The Most Dangerous Word Here Is "Offspring"
 
 Suppose a blob divides:
 
@@ -836,19 +812,12 @@ Perhaps:
 our entity detector split one distributed organization into two pieces
 ```
 
-So the word:
-
-```text
-offspring
-```
-
-must be earned by ancestry evidence.
-
+So the word **offspring** must be earned by ancestry evidence.  
 Geometry alone is not enough.
 
 ---
 
-# Mutation is not evolution
+## Mutation Is Not Evolution
 
 Now suppose we explicitly implement:
 
@@ -883,22 +852,18 @@ differential reproductive success
 change in variant frequencies through time
 ```
 
-That distinction is crucial.
-
+That distinction is crucial.  
 A mutation operator is not an evolutionary result.
 
 ---
 
-# And evolution is not progress
+## And Evolution Is Not Progress
 
 Suppose a population changes for 10,000 generations.
 
-Variants arise.
-
-Variants disappear.
-
-Lineages branch.
-
+Variants arise.  
+Variants disappear.  
+Lineages branch.  
 Different forms dominate at different times.
 
 Evolution may certainly be occurring.
@@ -915,19 +880,14 @@ each useful change is later lost
 later generations do not begin ahead of earlier ones
 ```
 
-Then we should not automatically say:
+Then we should not automatically say **progress**.
 
-```text
-progress
-```
-
-Evolution and cumulative improvement are different claims.
-
+Evolution and cumulative improvement are different claims.  
 This is going to matter in the next chapter.
 
 ---
 
-# A lineage creates a new kind of persistence
+## A Lineage Creates a New Kind of Persistence
 
 Earlier, persistence meant:
 
@@ -948,8 +908,7 @@ organization C
 organization D
 ```
 
-No individual needs to continue indefinitely.
-
+No individual needs to continue indefinitely.  
 Some relationship may persist across successors.
 
 That relationship could involve:
@@ -973,7 +932,7 @@ That is a much cleaner formulation of inheritance.
 
 ---
 
-# Digital lineages may not resemble biological lineages
+## Digital Lineages May Not Resemble Biological Lineages
 
 This is where we need to resist importing biology too quickly.
 
@@ -998,39 +957,31 @@ exchange state
 merge
 ```
 
-So ancestry could eventually look more like:
+So ancestry could eventually look more like a **graph** than a **tree**.
 
-```text
-graph
+```mermaid
+graph TD
+    A[Parent] --> B[Child 1]
+    A --> C[Child 2]
+    B --> D[Descendant]
+    C --> D
+    D --> E[Merged descendant]
+    B -.->|checkpoint| F[Restored copy]
+    F --> G[Alternate continuation]
 ```
 
-than:
-
-```text
-tree
-```
-
-Two descendants might exchange information.
-
-Two branches might merge.
-
+Two descendants might exchange information.  
+Two branches might merge.  
 A restored checkpoint might create another continuation from an earlier state.
 
-That means even the concept:
+That means even the concept **lineage** may need a digital version rather than a biological copy.
 
-```text
-lineage
-```
-
-may need a digital version rather than a biological copy.
-
-For now, simple parent-child reproduction gives us a clean starting laboratory.
-
+For now, simple parent-child reproduction gives us a clean starting laboratory.  
 But it may not be the final architecture.
 
 ---
 
-# Our vocabulary is becoming dangerous
+## Our Vocabulary Is Becoming Dangerous
 
 We now have words such as:
 
@@ -1051,48 +1002,26 @@ Every one can become cargo cult.
 
 So translate them back into operational questions.
 
-## Individual
-
-Can we define a pattern or causal organization sufficiently well to track it through time?
-
-## Parent
-
-Does one candidate entity causally contribute to the appearance of another?
-
-## Offspring
-
-Does a distinct continuing organization appear as a consequence of that process?
-
-## Replication
-
-Does the offspring satisfy an identity criterion equivalent to the parent's?
-
-## Variation
-
-Does the offspring differ on some measured property?
-
-## Inheritance
-
-Do parental properties predict corresponding descendant properties across generations?
-
-## Selection
-
-Do inherited differences alter expected reproductive success under the environment being tested?
-
-## Evolution
-
-Do inherited variants change in prevalence across generations?
+| Word | Operational Question |
+|------|---------------------|
+| **Individual** | Can we define a pattern or causal organization sufficiently well to track it through time? |
+| **Parent** | Does one candidate entity causally contribute to the appearance of another? |
+| **Offspring** | Does a distinct continuing organization appear as a consequence of that process? |
+| **Replication** | Does the offspring satisfy an identity criterion equivalent to the parent's? |
+| **Variation** | Does the offspring differ on some measured property? |
+| **Inheritance** | Do parental properties predict corresponding descendant properties across generations? |
+| **Selection** | Do inherited differences alter expected reproductive success under the environment being tested? |
+| **Evolution** | Do inherited variants change in prevalence across generations? |
 
 Those are questions we can test.
 
 ---
 
-# Reproduction may not be fundamental
+## Reproduction May Not Be Fundamental
 
 There is one more thing we should refuse to assume.
 
-Biology depends heavily on reproduction.
-
+Biology depends heavily on reproduction.  
 But biology also contains:
 
 ```text
@@ -1117,25 +1046,14 @@ checkpoint and restore
 distribute itself across machines
 ```
 
-So reproduction may eventually turn out to be:
+So reproduction may eventually turn out to be **important** without being **fundamental**.
 
-```text
-important
-```
-
-without being:
-
-```text
-fundamental
-```
-
-We are studying it because it enables ancestry, inheritance and population dynamics.
-
+We are studying it because it enables ancestry, inheritance and population dynamics.  
 Not because we have already decided that every digital life-form must reproduce.
 
 ---
 
-# So can it make another one?
+## So Can It Make Another One?
 
 Yes.
 
@@ -1157,29 +1075,23 @@ therefore life
 
 It is:
 
-```text
-candidate entity
-↓
-distinct second entity
-↓
-similarity
-↓
-causal dependence
-↓
-repeated production
-↓
-lineage
-↓
-heritable variation
-↓
-differential reproduction
+```mermaid
+flowchart TD
+    A[Candidate entity] --> B[Distinct second entity]
+    B --> C[Similarity]
+    C --> D[Causal dependence]
+    D --> E[Repeated production]
+    E --> F[Lineage]
+    F --> G[Heritable variation]
+    G --> H[Differential reproduction]
+    H --> I[Evolution?]
 ```
 
 And only after that do we get to ask about evolution.
 
 ---
 
-# The question changes again
+## The Question Changes Again
 
 Suppose we establish all of this.
 
@@ -1194,22 +1106,17 @@ selection
 
 What happens over generations?
 
-Do variants simply churn?
-
-Do lineages remain static?
-
-Does one type replace another?
-
-Does the population adapt to its environment?
-
+Do variants simply churn?  
+Do lineages remain static?  
+Does one type replace another?  
+Does the population adapt to its environment?  
 Does anything accumulate?
 
 And perhaps most importantly:
 
 > **Can later generations begin from something genuinely better than earlier generations?**
 
-That is no longer a question about reproduction.
-
+That is no longer a question about reproduction.  
 It is a question about evolution.
 
 Next: **Evolution Without Life?**

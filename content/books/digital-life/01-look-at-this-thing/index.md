@@ -1,13 +1,11 @@
 +++
-title = "Digital Life 01: Look at This Thing"
+title = "01: Look at This Thing"
 date = "2026-08-11T01:06:00+01:00"
 draft = false
 description = "Before we learn how artificial life works, look at what a few local rules can already produce."
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Artificial Life", "Lenia", "Flow-Lenia", "Cellular Automata", "Emergence"]
 +++
-
-# Look at This Thing
 
 Don't read anything yet.
 
