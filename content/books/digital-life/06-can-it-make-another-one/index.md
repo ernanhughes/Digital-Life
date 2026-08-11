@@ -428,6 +428,8 @@ similar child
 variation may be inherited
 ```
 
+![Recognized descendants increasing across generations](/images/books/digital-life/ch06-lineage-growth.png)
+
 That second case opens the door to something replication alone cannot provide.
 
 Evolution.
@@ -569,25 +571,7 @@ From sparse random initial states, the rule can produce lower-level clusters tha
 
 In other words, replication appears at more than one spatial scale.
 
-<!--
-TODO VISUAL:
-Outlier-inspired schematic or our own reproduction of the rule if practical.
-
-Show:
-
-small-scale structures
-        ↓
-duplication
-
-and
-
-larger aggregate
-        ↓
-duplication
-
-Do not reuse a copyrighted paper figure unless licensing/attribution is handled correctly.
-Prefer our own simulation.
--->
+![One localized digital pattern producing a second spatially distinct copy](/images/books/digital-life/ch06-self-replication.gif)
 
 This is exactly the kind of result the opening of this book was designed to reach.
 
@@ -698,13 +682,7 @@ number of copies
 
 That tells us whether a pattern merely duplicated once or generated a proliferating lineage.
 
-<!--
-TODO VISUAL:
-Simple copy-count-over-time plot.
-
-Could initially use a synthetic explanatory curve,
-but preferably derive it from an actual self-replicating CA experiment later.
--->
+![Recognized descendants increasing across generations](/images/books/digital-life/ch06-lineage-growth.png)
 
 Again, this is stronger than a cherry-picked GIF.
 
