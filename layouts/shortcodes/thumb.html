@@ -1,0 +1,18 @@
+{{/* thumb.html */}}
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" | default "" -}}
+{{- $w   := .Get "w"   | default "300x" -}}
+
+{{- $img := .Page.Resources.GetMatch $src -}}
+{{- if not $img -}}
+  {{/* Try site-wide assets pipeline (optional): resources.Get reads /assets */}}
+  {{- $img = resources.Get $src -}}
+{{- end -}}
+
+{{- if $img -}}
+  {{- $resized := $img.Fit $w -}}
+  <img src="{{ $resized.RelPermalink }}" width="{{ $resized.Width }}" height="{{ $resized.Height }}" alt="{{ $alt }}">
+{{- else -}}
+  {{/* Fallback for /static paths: no processing, just render */}}
+  <img src="{{ $src | relURL }}" alt="{{ $alt }}" style="max-width: {{ trim $w "x" }}px; height:auto;">
+{{- end -}}

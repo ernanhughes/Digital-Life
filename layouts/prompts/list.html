@@ -1,0 +1,77 @@
+{{ define "main" }}
+{{- $paths := slice
+  (dict "name" "PyTorch: Zero to Hero" "number" "01" "slug" "pytorch" "description" "Debug training systems and apply the machinery-level techniques from the PyTorch curriculum.")
+  (dict "name" "Models From First Principles" "number" "02" "slug" "models" "description" "Inspect model architecture and decide which learned mechanisms are actually justified by the problem.")
+  (dict "name" "Agents From First Principles" "number" "03" "slug" "agents" "description" "Apply planning, tools, memory, search and verification patterns to real agent repositories.")
+  (dict "name" "Advanced Agents From First Principles" "number" "04" "slug" "advanced-agents" "description" "Audit production agent systems for reliability, authority, distributed execution and operational safety.")
+-}}
+<section class="prompt-hub">
+  <header class="prompt-hub__hero">
+    <span class="prompt-hub__eyebrow">Use with AI</span>
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Description }}</p>
+    {{ with .Content }}<div class="prompt-hub__copy">{{ . }}</div>{{ end }}
+  </header>
+
+  <nav class="prompt-library-nav" aria-label="Prompt learning paths">
+    {{- range $paths -}}
+      {{- $count := len (where $.Pages "Params.learning_path" "eq" .name) -}}
+      <a href="#{{ .slug }}"><span>{{ .number }}</span>{{ .name }}<small>{{ $count }} prompts</small></a>
+    {{- end -}}
+  </nav>
+
+  <div class="prompt-library">
+    {{- range $paths -}}
+      {{- $path := . -}}
+      {{- $prompts := where $.Pages "Params.learning_path" "eq" .name -}}
+      {{- $pathReviews := where $prompts "Params.related_chapter" "eq" nil -}}
+      {{- $chapterPrompts := where $prompts "Params.related_chapter" "ne" nil -}}
+      <section class="prompt-library-section" id="{{ .slug }}">
+        <header class="prompt-library-section__header">
+          <div class="prompt-library-section__identity">
+            <span>{{ .number }}</span>
+            <div>
+              <small>Learning path</small>
+              <h2>{{ .name }}</h2>
+            </div>
+          </div>
+          <div class="prompt-library-section__intro">
+            <p>{{ .description }}</p>
+            <a href="{{ printf "/learn/%s/" .slug | relURL }}">View curriculum →</a>
+          </div>
+        </header>
+
+        {{- if gt (len $pathReviews) 0 -}}
+          <div class="prompt-library-group">
+            <div class="prompt-library-group__heading">
+              <div><span>Start broad</span><h3>Path reviews</h3></div>
+              <p>Use these when you want to inspect the whole repository through the lens of this learning path.</p>
+            </div>
+            <div class="prompt-grid">
+              {{- range $pathReviews.ByTitle -}}
+                {{ partial "prompt_card.html" (dict "page" . "kind" "Path Review") }}
+              {{- end -}}
+            </div>
+          </div>
+        {{- end -}}
+
+        {{- if gt (len $chapterPrompts) 0 -}}
+          <div class="prompt-library-group">
+            <div class="prompt-library-group__heading">
+              <div><span>Go specific</span><h3>Chapter applications</h3></div>
+              <p>Focused workflows that apply one mechanism or diagnostic method from a specific chapter.</p>
+            </div>
+            <div class="prompt-grid">
+              {{- range $chapterPrompts.ByTitle -}}
+                {{ partial "prompt_card.html" (dict "page" . "kind" "Chapter Application") }}
+              {{- end -}}
+            </div>
+          </div>
+        {{- end -}}
+      </section>
+    {{- end -}}
+  </div>
+</section>
+{{ end }}
+
+{{ define "sidebar" }}{{ end }}

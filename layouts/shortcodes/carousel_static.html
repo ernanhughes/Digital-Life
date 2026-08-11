@@ -1,0 +1,83 @@
+{{- $height := .Get "height" | default "360px" -}}
+{{- $dir := .Get "dir" | default "img" -}}           {{/* path under /static */}}
+{{- $prefix := .Get "prefix" | default "gap_" -}}
+{{- $captions := (eq (.Get "captions") "true") -}}
+
+{{- /* List files in static/<dir> and filter by prefix + image extension */ -}}
+{{- $root := printf "static/%s" $dir -}}
++ {{- $files := sort (readDir $root) "Name" -}}
+{{- $images := slice -}}
+{{- range $f := $files -}}
+  {{- $name := $f.Name -}}
+  {{- $ext := lower (delimit (last 1 (split $name ".")) "") -}}
+  {{- if and (hasPrefix $name $prefix) (in (slice "jpg" "jpeg" "png" "webp" "gif") $ext) -}}
+    {{- $images = $images | append $name -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if eq (len $images) 0 -}}
+  <p><em>No images found in /{{ $dir }}/ with prefix "{{ $prefix }}".</em></p>
+{{- else -}}
+
+<style>
+.carousel-wrap{position:relative;--h:{{ $height }}}
+.carousel-track{display:grid;grid-auto-flow:column;grid-auto-columns:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;scroll-behavior:smooth;border-radius:12px}
+.carousel-track::-webkit-scrollbar{display:none}
+.carousel-slide{position:relative;height:var(--h);scroll-snap-align:start}
+.carousel-slide img{width:100%;height:100%;object-fit:contain;background:#0b0b0b}
+.carousel-dots{display:flex;gap:6px;justify-content:center;margin-top:8px}
+.carousel-dot{width:10px;height:10px;border-radius:50%;background:#ccc;cursor:pointer}
+.carousel-dot.active{background:#555}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.55);color:#fff;border:0;width:38px;height:38px;border-radius:999px;cursor:pointer;display:grid;place-items:center}
+.carousel-btn[disabled]{opacity:.3;cursor:default}
+.carousel-prev{left:8px}
+.carousel-next{right:8px}
+.carousel-caption{position:absolute;left:0;right:0;bottom:0;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.6));padding:8px 10px;font-size:.9rem}
+</style>
+
+<div class="carousel-wrap" data-carousel>
+  <div class="carousel-track">
+    {{- range $i, $name := $images -}}
+      {{- $url := printf "/%s/%s" $dir $name -}}
+      <figure class="carousel-slide" id="slide-{{ add $i 1 }}">
+        <a href="{{ $url }}" target="_blank" rel="noopener">
+          <img src="{{ $url }}" alt="{{ $name }}">
+        </a>
+        {{- if $captions -}}
+          <figcaption class="carousel-caption">{{ $name }}</figcaption>
+        {{- end -}}
+      </figure>
+    {{- end -}}
+  </div>
+
+  <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
+  <button class="carousel-btn carousel-next" aria-label="Next">›</button>
+
+  <div class="carousel-dots">
+    {{- range $i, $_ := $images -}}
+      <span class="carousel-dot" data-index="{{ $i }}"></span>
+    {{- end -}}
+  </div>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('[data-carousel]').forEach(function(root){
+    const track = root.querySelector('.carousel-track');
+    const slides = Array.from(root.querySelectorAll('.carousel-slide'));
+    const prev = root.querySelector('.carousel-prev');
+    const next = root.querySelector('.carousel-next');
+    const dots = Array.from(root.querySelectorAll('.carousel-dot'));
+    function go(i){ i=Math.max(0,Math.min(i,slides.length-1)); slides[i].scrollIntoView({behavior:'smooth',inline:'start',block:'nearest'}); }
+    function idx(){ const w=track.clientWidth||1; return Math.round(track.scrollLeft / w); }
+    function sync(){ const i=idx(); dots.forEach((d,j)=>d.classList.toggle('active',j===i)); prev.disabled=(i===0); next.disabled=(i===slides.length-1); }
+    prev.addEventListener('click', ()=>go(idx()-1));
+    next.addEventListener('click', ()=>go(idx()+1));
+    dots.forEach((d,i)=>d.addEventListener('click', ()=>go(i)));
+    track.addEventListener('scroll', ()=>{ requestAnimationFrame(sync); });
+    sync();
+  });
+})();
+</script>
+
+{{- end -}}

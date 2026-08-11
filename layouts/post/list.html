@@ -1,0 +1,48 @@
+{{ define "main" }}
+{{ $pages := .Pages.ByDate.Reverse }}
+<section class="article-archive">
+  <header class="article-archive__hero">
+    <span class="article-archive__eyebrow">Articles</span>
+    <h1>Browse the archive</h1>
+    <p>The full programmer.ie article history. Learning paths and AI prompts are curated separately; this archive keeps the broader research, experiments and technical writing easy to scan.</p>
+    <div class="article-archive__stats">
+      <span>{{ len $pages }} articles</span>
+      <a href="{{ "/learn/" | relURL }}">Learning paths</a>
+      <a href="{{ "/prompts/" | relURL }}">AI prompts</a>
+    </div>
+  </header>
+
+  <nav class="article-archive__topics" aria-label="Browse article categories">
+    <span>Browse by topic</span>
+    <a href="{{ "/categories/ai/" | relURL }}">AI</a>
+    <a href="{{ "/categories/programming/" | relURL }}">Programming</a>
+    <a href="{{ "/categories/finance/" | relURL }}">Finance</a>
+    <a href="{{ "/categories/agents/" | relURL }}">Agents</a>
+    <a href="{{ "/categories/pytorch/" | relURL }}">PyTorch</a>
+    <a href="{{ "/categories/" | relURL }}">All categories →</a>
+  </nav>
+
+  <div class="article-archive__list">
+    {{ range $pages }}
+      {{ $seriesName := partial "series_name.html" . }}
+      <article class="archive-row">
+        <div class="archive-row__meta">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time>
+          {{ with index .Params.categories 0 }}<a href="{{ (printf "/categories/%s/" (. | urlize)) | relURL }}">{{ . }}</a>{{ end }}
+          {{ if $seriesName }}<span>Series</span>{{ end }}
+        </div>
+        <div class="archive-row__body">
+          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          <p>{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 220 }}{{ end }}</p>
+          {{ if $seriesName }}
+            <span class="archive-row__series">{{ $seriesName }}</span>
+          {{ end }}
+        </div>
+        <a class="archive-row__action" href="{{ .RelPermalink }}" aria-label="Read {{ .Title }}">Read →</a>
+      </article>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+{{ define "sidebar" }}{{ end }}

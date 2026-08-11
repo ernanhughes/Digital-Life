@@ -1,0 +1,50 @@
+{{ define "main" }}
+
+<section class="book-page">
+
+  <header class="book-page__hero">
+    <span class="books-hub__eyebrow">Programmer.ie Book</span>
+
+    <h1>{{ .Title }}</h1>
+
+    {{ with .Description }}
+      <p>{{ . }}</p>
+    {{ end }}
+
+    {{ with .Content }}
+      <div class="book-page__intro">
+        {{ . }}
+      </div>
+    {{ end }}
+  </header>
+
+  <section class="book-page__chapters">
+    <span class="books-hub__eyebrow">Contents</span>
+    <h2>Chapters</h2>
+
+    <div class="book-chapter-list">
+      {{ range .Pages.ByTitle }}
+        <article class="book-chapter-card">
+          <h3>
+            <a href="{{ .RelPermalink }}">
+              {{ .Title }}
+            </a>
+          </h3>
+
+          {{ with .Description }}
+            <p>{{ . }}</p>
+          {{ end }}
+
+          <a href="{{ .RelPermalink }}">
+            Read chapter →
+          </a>
+        </article>
+      {{ end }}
+    </div>
+  </section>
+
+</section>
+
+{{ end }}
+
+{{ define "sidebar" }}{{ end }}

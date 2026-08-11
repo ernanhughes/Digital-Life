@@ -1,0 +1,11 @@
+{{- $seriesName := "" -}}
+{{- with .Params.series -}}
+  {{- $seriesName = index . 0 -}}
+{{- else -}}
+  {{- with .File -}}
+    {{- if hasPrefix .BaseFileName "advanced-agents-from-first-principles-" -}}
+      {{- $seriesName = "Advanced Agents From First Principles" -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $seriesName -}}

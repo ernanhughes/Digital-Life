@@ -1,0 +1,44 @@
+{{ define "main" }}
+<section class="page-section">
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}
+      <div class="page-intro">
+        {{ . }}
+      </div>
+    {{ end }}
+  </header>
+
+  {{ $categories := slice
+    (dict "term" "ai" "title" "AI" "desc" "Research, systems, models, reasoning, and applied AI work.")
+    (dict "term" "pytorch" "title" "PyTorch" "desc" "Pytorch is the language of AI.")
+    (dict "term" "research" "title" "Research" "desc" "Research and applied AI work.")
+    (dict "term" "finance" "title" "Finance" "desc" "Debt, macroeconomics, structural analysis, and market-related writing.")
+    (dict "term" "programming" "title" "Programming" "desc" "Code, architecture, engineering workflows, and implementation notes.")
+    (dict "term" "cellular automata" "title" "Cellular Automata" "desc" "Posts on cellular automata, rule systems, pattern behavior, and experiments.")
+    (dict "term" "hallucination" "title" "Hallucination" "desc" "Posts on AI hallucination, grounding, reliability, and evaluation.")
+    (dict "term" "health" "title" "Health" "desc" "Posts on health and general well being.")
+  }}
+
+  <div class="index-grid">
+    {{ range $categories }}
+      {{ $term := .term }}
+      {{ $taxonomy := index site.Taxonomies.categories $term }}
+      {{ if $taxonomy }}
+        {{ $page := site.GetPage (printf "/categories/%s" $term) }}
+        <a class="index-card" href="{{ if $page }}{{ $page.RelPermalink }}{{ else }}/categories/{{ $term | urlize }}/{{ end }}">
+          <h2>{{ .title }}</h2>
+          <p>{{ .desc }}</p>
+          <span class="count">{{ len $taxonomy.Pages }} post{{ if ne (len $taxonomy.Pages) 1 }}s{{ end }}</span>
+        </a>
+      {{ else }}
+        <div class="index-card is-empty">
+          <h2>{{ .title }}</h2>
+          <p>{{ .desc }}</p>
+          <span class="count">0 posts</span>
+        </div>
+      {{ end }}
+    {{ end }}
+  </div>
+</section>
+{{ end }}

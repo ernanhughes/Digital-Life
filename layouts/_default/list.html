@@ -1,0 +1,49 @@
+{{ define "main" }}
+<main class="main" role="main">
+
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}
+      <div class="page-intro">{{ . }}</div>
+    {{ end }}
+  </header>
+
+  <div class="post-list">
+    {{ range .Pages.ByDate.Reverse }}
+      {{ $page := . }}
+
+      <article class="post-card">
+
+        <!-- Thumbnail -->
+        {{ with .Params.thumbnail }}
+          <a class="post-card__image" href="{{ $page.RelPermalink }}">
+            <img src="{{ . }}" alt="{{ $page.Title }}">
+          </a>
+        {{ else }}
+          {{/* fallback to existing thumbnail partial */}}
+          {{ partial "post_thumbnail.html" (dict "class" "post-card" "page" .) }}
+        {{ end }}
+
+        <!-- Content -->
+        <div class="post-card__content">
+          <h2 class="post-card__title">
+            <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
+          </h2>
+
+          <div class="post-card__meta">
+            <time datetime="{{ $page.Date.Format "2006-01-02" }}">
+              {{ $page.Date.Format "Jan 2, 2006" }}
+            </time>
+          </div>
+
+          {{ with $page.Summary }}
+            <p class="post-card__summary">{{ . }}</p>
+          {{ end }}
+        </div>
+
+      </article>
+    {{ end }}
+  </div>
+
+</main>
+{{ end }}

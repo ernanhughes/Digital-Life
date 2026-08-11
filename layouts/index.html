@@ -1,0 +1,105 @@
+{{ define "main" }}
+{{ $posts := where .Site.RegularPages "Section" "post" }}
+{{ $latest := first 6 $posts.ByDate.Reverse }}
+{{ $books := .Site.Data.books.books }}
+{{ $solutions := .Site.Data.solutions }}
+{{ $covered := where $solutions "status" "covered" }}
+<section class="home-modern">
+  <header class="home-hero">
+    <span class="home-eyebrow">Programmer.ie</span>
+    <h1>Technical books for building with AI.</h1>
+    <p>Read complete books on the web, understand the mechanisms from first principles, and apply them to real code through verified solutions and AI diagnostics.</p>
+    <div class="home-hero__actions">
+      <a class="home-button home-button--primary" href="{{ "/books/" | relURL }}">Explore the books</a>
+      <a class="home-button" href="{{ "/solutions/" | relURL }}">Find a solution</a>
+    </div>
+  </header>
+
+  <section class="home-section" aria-labelledby="books-heading">
+    <div class="home-section__heading">
+      <div>
+        <span class="home-section__eyebrow">Books</span>
+        <h2 id="books-heading">Start with a complete path</h2>
+      </div>
+      <a href="{{ "/books/" | relURL }}">View all books →</a>
+    </div>
+    <p class="home-section__intro">Programmer.ie is organized around books rather than publication dates. Each book is available as a structured web edition now, with ebook and video editions built from the same source.</p>
+    <div class="home-path-grid">
+      {{ range $key, $book := $books }}
+        <a class="home-path-card" href="{{ $book.learn_url | relURL }}">
+          <span class="home-path-card__number">{{ printf "%02d" $book.expected_chapters }}</span>
+          <span class="home-path-card__level">{{ $book.level }}</span>
+          <h3>{{ $book.title }}</h3>
+          <p>{{ $book.description }}</p>
+          <strong>Read {{ $book.expected_chapters }} chapters →</strong>
+        </a>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="home-section home-ai" aria-labelledby="product-system-heading">
+    <div class="home-section__heading">
+      <div>
+        <span class="home-section__eyebrow">Apply</span>
+        <h2 id="product-system-heading">From knowledge to engineering action</h2>
+      </div>
+      <a href="{{ "/solutions/" | relURL }}">Browse solutions →</a>
+    </div>
+    <p class="home-section__intro">The books explain the mechanisms. The solution library turns those mechanisms into problem-first diagnostics, and the AI prompts let you apply them directly to your own repository.</p>
+    <div class="home-prompt-grid">
+      <article class="home-prompt-card">
+        <span>Problem first</span>
+        <h3><a href="{{ "/solutions/" | relURL }}">{{ len $covered }} verified solution paths</a></h3>
+        <p>Start from the symptom you are seeing and trace it to evidence, mechanism, chapter and repository diagnostic.</p>
+        <a class="home-prompt-card__action" href="{{ "/solutions/" | relURL }}">Find a solution →</a>
+      </article>
+      <article class="home-prompt-card">
+        <span>Structured learning</span>
+        <h3><a href="{{ "/learn/" | relURL }}">Read the web editions</a></h3>
+        <p>Every book remains fully navigable as a free web learning path with chapter progress and connected application material.</p>
+        <a class="home-prompt-card__action" href="{{ "/learn/" | relURL }}">Open learning paths →</a>
+      </article>
+      <article class="home-prompt-card">
+        <span>Use with AI</span>
+        <h3><a href="{{ "/prompts/" | relURL }}">Apply chapters to your code</a></h3>
+        <p>Evidence-driven repository prompts turn the material into audits for PyTorch, model design, agents and production AI systems.</p>
+        <a class="home-prompt-card__action" href="{{ "/prompts/" | relURL }}">Browse AI prompts →</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="home-section" aria-labelledby="latest-heading">
+    <div class="home-section__heading">
+      <div>
+        <span class="home-section__eyebrow">Writing</span>
+        <h2 id="latest-heading">Latest articles and research</h2>
+      </div>
+      <a href="{{ "/post/" | relURL }}">Browse the archive →</a>
+    </div>
+    <div class="home-latest-grid">
+      {{ range $latest }}
+        <article class="home-latest-card">
+          <div class="home-latest-card__meta">
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time>
+            {{ with .Params.categories }}{{ with index . 0 }}<span>{{ . }}</span>{{ end }}{{ end }}
+          </div>
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <p>{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . | plainify | truncate 180 }}{{ end }}{{ end }}</p>
+          <a class="home-latest-card__action" href="{{ .RelPermalink }}">Read →</a>
+        </article>
+      {{ end }}
+    </div>
+  </section>
+
+  <footer class="home-archive">
+    <div>
+      <span class="home-section__eyebrow">Archive</span>
+      <h2>The long-form archive remains part of the library.</h2>
+      <p>Older tutorials, experiments, research and technical writing stay available without making chronology the organizing principle of the site.</p>
+    </div>
+    <a class="home-button" href="{{ "/post/" | relURL }}">Browse all articles</a>
+  </footer>
+</section>
+{{ end }}
+
+{{ define "sidebar" }}{{ end }}

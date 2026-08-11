@@ -1,0 +1,184 @@
+{{- /* Visual AI Carousel — explicit items or dir scan fallback
+    Params:
+      items      : JSON/YAML string list of {src, caption, alt, link}
+      height     : CSS height (default "360px")
+      dir        : path under /static (fallback mode; default "img")
+      prefix     : filename prefix filter (fallback mode; default "gap_")
+      pixelated  : "true"|"false" image-rendering: pixelated (default "true")
+      autoplay   : seconds between slides (int; 0 or empty disables)
+      captions   : "true"|"false" (default "true")
+      captionPos : "below"|"overlay" (default "below")
+*/ -}}
+
+{{- $height := .Get "height" | default "360px" -}}
+{{- $dir := .Get "dir" | default "img" -}}
+{{- $prefix := .Get "prefix" | default "gap_" -}}
+{{- $captions := (eq (.Get "captions") "false") | not -}}
+{{- $captionPos := .Get "captionPos" | default "below" -}}
+{{- $pixelated := (eq (.Get "pixelated") "false") | not -}}
+{{- $autoplaySec := .Get "autoplay" | default "" -}}
+{{- $itemsRaw := .Get "items" | default "" -}}
+
+{{- /* Build image list: explicit items (preferred) or fallback scan */ -}}
+{{- $items := slice -}}
+{{- if $itemsRaw -}}
+ {{- $parsed := $itemsRaw | unmarshal -}}
+ {{- range $parsed -}}
+   {{- $src := .src -}}
+   {{- if hasPrefix $src "/" -}}{{- else -}}{{- $src = printf "/%s" $src -}}{{- end -}}
+   {{- $alt := .alt | default .caption | default "slide" -}}
+   {{- $cap := .caption | default "" -}}
+   {{- $lnk := .link | default $src -}}
+   {{- $items = $items | append (dict "src" $src "alt" $alt "caption" $cap "link" $lnk) -}}
+ {{- end -}}
+{{- else -}}
+ {{- $root := printf "static/%s" $dir -}}
+ {{- $files := sort (readDir $root) "Name" -}}
+ {{- range $f := $files -}}
+   {{- $name := $f.Name -}}
+   {{- $ext := lower (delimit (last 1 (split $name ".")) "") -}}
+   {{- if and (hasPrefix $name $prefix) (in (slice "jpg" "jpeg" "png" "webp" "gif") $ext) -}}
+     {{- $url := printf "/%s/%s" $dir $name -}}
+     {{- $items = $items | append (dict "src" $url "alt" $name "caption" $name "link" $url) -}}
+   {{- end -}}
+ {{- end -}}
+{{- end -}}
+
+{{- if eq (len $items) 0 -}}
+ <p><em>No images found. Provide <code>items</code> or ensure /{{ $dir }}/{{ $prefix }}*</em></p>
+{{- else -}}
+
+<style>
+.vai-wrap{position:relative;--h:{{ $height }};--bg:#0b0b0b}
+.vai-track{display:grid;grid-auto-flow:column;grid-auto-columns:100%;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;border-radius:12px;background:var(--bg)}
+.vai-track::-webkit-scrollbar{display:none}
+.vai-slide{scroll-snap-align:start;background:var(--bg)}
+.vai-fig{margin:0}
+.vai-img{width:100%;height:var(--h);object-fit:contain;{{ if $pixelated }}image-rendering: pixelated;{{ end }}background:var(--bg)}
+.vai-cap-below{font-size:.95rem;line-height:1.4;padding:.5rem .25rem;color:var(--text,#ddd);text-align:left}
+.vai-cap-overlay{position:absolute;left:0;right:0;bottom:0;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.6));padding:8px 10px;font-size:.95rem}
+.vai-dots{display:flex;gap:6px;justify-content:center;margin-top:8px}
+.vai-dot{width:10px;height:10px;border-radius:50%;background:#bbb;cursor:pointer}
+.vai-dot.active{background:#666}
+.vai-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.55);color:#fff;border:0;width:40px;height:40px;border-radius:999px;cursor:pointer;display:grid;place-items:center}
+.vai-btn[disabled]{opacity:.3;cursor:default}
+.vai-prev{left:8px}
+.vai-next{right:8px}
+</style>
+
+<div class="vai-wrap" data-vai
+    data-autoplay="{{ $autoplaySec }}">
+ <div class="vai-track" role="region" aria-roledescription="carousel" aria-label="Image carousel">
+   {{- range $i, $it := $items -}}
+     <section class="vai-slide" aria-label="Slide {{ add $i 1 }} of {{ len $items }}">
+       <figure class="vai-fig">
+         <a href="{{ $it.link }}" target="_blank" rel="noopener">
+           <img class="vai-img" src="{{ $it.src }}" alt="{{ $it.alt }}">
+         </a>
+         {{- if $captions -}}
+           {{- if eq $captionPos "overlay" -}}
+             <figcaption class="vai-cap-overlay">{{ $it.caption }}</figcaption>
+           {{- else -}}
+             <figcaption class="vai-cap-below">{{ $it.caption }}</figcaption>
+           {{- end -}}
+         {{- end -}}
+       </figure>
+     </section>
+   {{- end -}}
+ </div>
+
+ <button class="vai-btn vai-prev" aria-label="Previous slide">‹</button>
+ <button class="vai-btn vai-next" aria-label="Next slide">›</button>
+
+ <div class="vai-dots" aria-label="Slide indicators">
+   {{- range $i, $_ := $items -}}
+     <span class="vai-dot" role="button" aria-label="Go to slide {{ add $i 1 }}" data-index="{{ $i }}"></span>
+   {{- end -}}
+ </div>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('[data-vai]').forEach(function(root){
+    const track = root.querySelector('.vai-track');
+    const slides = Array.from(root.querySelectorAll('.vai-slide'));
+    const prev = root.querySelector('.vai-prev');
+    const next = root.querySelector('.vai-next');
+    const dots = Array.from(root.querySelectorAll('.vai-dot'));
+    const autoplay = parseInt(root.dataset.autoplay || "0", 10) || 0;
+
+    let timer = null;
+    let current = 0;
+    let inViewport = true; // for autoplay pausing
+
+    // --- helpers -----------------------------------------------------------
+    function leftOf(i){
+      // horizontal-only movement: never recenters the page vertically
+      const target = slides[i];
+      const left = target.offsetLeft;
+      track.scrollTo({ left, behavior:'smooth' });
+    }
+    function go(i){
+      i = Math.max(0, Math.min(i, slides.length-1));
+      if (i === current) return;
+      leftOf(i);
+    }
+    function index(){
+      // robust to fractional scroll positions
+      const w = track.clientWidth || 1;
+      return Math.round(track.scrollLeft / w);
+    }
+    function sync(){
+      current = index();
+      dots.forEach((d,j)=>d.classList.toggle('active', j===current));
+      prev.disabled = (current===0);
+      next.disabled = (current===slides.length-1);
+    }
+    function startAutoplay(){
+      if(!autoplay) return;
+      stopAutoplay();
+      timer = setInterval(()=>{
+        if (!inViewport) return; // do not move when off-screen
+        const i = index();
+        if(i >= slides.length-1) go(0); else go(i+1);
+      }, autoplay*1000);
+    }
+    function stopAutoplay(){ if(timer){ clearInterval(timer); timer=null; } }
+
+    // --- controls ----------------------------------------------------------
+    prev.addEventListener('click', ()=>{ go(index()-1); });
+    next.addEventListener('click', ()=>{ go(index()+1); });
+    dots.forEach((d,i)=>d.addEventListener('click', ()=>go(i)));
+
+    // Keyboard support (left/right)
+    root.tabIndex = 0;
+    root.addEventListener('keydown', (e)=>{
+      if(e.key==='ArrowLeft'){ e.preventDefault(); go(index()-1); }
+      if(e.key==='ArrowRight'){ e.preventDefault(); go(index()+1); }
+    });
+
+    // Track scrolling updates UI state
+    track.addEventListener('scroll', ()=> requestAnimationFrame(sync));
+
+    // Optional: pause autoplay when carousel not visible
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries)=>{
+        inViewport = entries.some(e => e.isIntersecting);
+      }, { root: null, threshold: 0.01 });
+      io.observe(root);
+    }
+
+    // Accessibility: pause on hover/focus
+    root.addEventListener('mouseenter', stopAutoplay);
+    root.addEventListener('mouseleave', startAutoplay);
+    root.addEventListener('focusin', stopAutoplay);
+    root.addEventListener('focusout', startAutoplay);
+
+    // init
+    sync();
+    startAutoplay();
+  });
+})();
+</script>
+
+{{- end -}}

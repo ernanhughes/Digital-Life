@@ -1,0 +1,82 @@
+books:
+  pytorch-zero-to-hero:
+    title: "PyTorch: Zero to Hero"
+    subtitle: "Build the machinery before the abstractions."
+    description: "Tensors, autograd, neural networks, data pipelines, attention, training diagnostics and a small language model from first principles."
+    pattern: "pytorch-zero-to-hero-*.md"
+    expected_chapters: 11
+    learn_url: "/learn/pytorch/"
+    solutions_domain: "pytorch"
+    level: "Foundations"
+    status: "web-complete"
+    formats: ["web"]
+    publication:
+      author: "Ernan Hughes"
+      language: "en-IE"
+      rights: "Copyright 2026 Ernan Hughes"
+      epub:
+        enabled: true
+        css: "scripts/epub.css"
+        toc_depth: 2
+        cover: null
+        release_url: null
+
+  models-from-first-principles:
+    title: "Models From First Principles"
+    subtitle: "Understand why each learned component exists."
+    description: "Scorers, value functions, policies, hierarchical state, recursive compute and model selection through explicit architectural decomposition."
+    pattern: "models-from-first-principles-*.md"
+    expected_chapters: 9
+    learn_url: "/learn/models/"
+    solutions_domain: "models"
+    level: "Model architecture"
+    status: "web-complete"
+    formats: ["web"]
+
+  agents-from-first-principles:
+    title: "Agents From First Principles"
+    subtitle: "Turn models into systems that act."
+    description: "Planning, structured actions, tools, state, memory, search, revision and external verification assembled into a working agent architecture."
+    pattern: "agents-from-first-principles-*.md"
+    expected_chapters: 10
+    learn_url: "/learn/agents/"
+    solutions_domain: "agents"
+    level: "Agent systems"
+    status: "web-complete"
+    formats: ["web"]
+
+  advanced-agents-from-first-principles:
+    title: "Advanced Agents From First Principles"
+    subtitle: "Engineer autonomous systems for production."
+    description: "Evidence, distributed execution, reliability, authority, durable workflows, replay, security, verification and explicit control planes."
+    pattern: "advanced-agents-from-first-principles-*.md"
+    expected_chapters: 46
+    learn_url: "/learn/advanced-agents/"
+    solutions_domain: "advanced-agents"
+    level: "Production AI"
+    status: "web-complete"
+    formats: ["web"]
+
+  cellular-automata-from-first-principles:
+    title: "Cellular Automata: From First Principles to Artificial Life"
+    subtitle: "Build worlds from local rules."
+    description: "Cells, elementary rules, simulation, quantitative behavior analysis, rule-space search, continuous artificial life, Lenia, neural cellular automata and reproducible experimental tooling built as executable Python systems."
+    pattern: "cellular-automata-from-first-principles-*.md"
+    expected_chapters: 59
+    learn_url: "/learn/cellular-automata/"
+    solutions_domain: "cellular-automata"
+    level: "Simulation and artificial life"
+    status: "in-progress"
+    formats: ["web"]
+
+  digital-life:
+    title: "Digital Life: From First Principles"
+    subtitle: "From emergence to inheritance and cumulative improvement."
+    description: "An evidence-first exploration of emergence, persistence, computation, artificial life, learning, inheritance, evolution and cumulative improvement in computational systems."
+    content_root: "books/digital-life"
+    expected_chapters: 1
+    book_url: "/books/digital-life/"
+    solutions_domain: "digital-life"
+    level: "Digital life and artificial life"
+    status: "in-progress"
+    formats: ["web"]

@@ -1,0 +1,85 @@
+{{ define "main" }}
+{{- $solutions := .Site.Data.solutions -}}
+{{- $domains := slice
+  (dict "id" "pytorch" "title" "PyTorch" "description" "Framework, tensor, training and GPU failures")
+  (dict "id" "models" "title" "Models" "description" "Objectives, representations and architecture decisions")
+  (dict "id" "agents" "title" "Agents" "description" "Planning, tools, memory, search and verification")
+  (dict "id" "advanced-agents" "title" "Advanced Agents" "description" "Reliability, authority, durability and production control")
+-}}
+{{- $covered := where $solutions "status" "covered" -}}
+{{- $missing := where $solutions "status" "missing" -}}
+
+<section class="solutions-hub">
+  <header class="solutions-hub__hero">
+    <span class="solutions-hub__eyebrow">Problem → evidence → solution</span>
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Description }}</p>
+    {{ with .Content }}<div class="solutions-hub__intro">{{ . }}</div>{{ end }}
+  </header>
+
+  <div class="solutions-summary" aria-label="Solution coverage summary">
+    <div><strong>{{ len $solutions }}</strong><span>Known problems</span></div>
+    <div><strong>{{ len $covered }}</strong><span>Covered</span></div>
+    <div><strong>{{ len $missing }}</strong><span>Coverage gaps</span></div>
+    <div><strong>{{ len $domains }}</strong><span>Engineering domains</span></div>
+  </div>
+
+  <nav class="solutions-jump" aria-label="Solution domains">
+    {{ range $domains }}
+      {{- $domainSolutions := where $solutions "domain" .id -}}
+      {{- $domainCovered := where $domainSolutions "status" "covered" -}}
+      <a href="#solutions-{{ .id }}">
+        <strong>{{ .title }}</strong>
+        <span>{{ len $domainCovered }}/{{ len $domainSolutions }} covered</span>
+      </a>
+    {{ end }}
+  </nav>
+
+  {{ range $domain := $domains }}
+    {{- $domainSolutions := where $solutions "domain" $domain.id -}}
+    {{- $domainCovered := where $domainSolutions "status" "covered" -}}
+    {{- $domainMissing := where $domainSolutions "status" "missing" -}}
+    <section class="solution-domain" id="solutions-{{ $domain.id }}">
+      <header class="solution-domain__header">
+        <div>
+          <span class="solution-domain__eyebrow">{{ len $domainCovered }} of {{ len $domainSolutions }} covered</span>
+          <h2>{{ $domain.title }}</h2>
+          <p>{{ $domain.description }}</p>
+        </div>
+        <div class="solution-domain__meter" aria-label="{{ $domain.title }} coverage">
+          <span style="width: {{ if gt (len $domainSolutions) 0 }}{{ div (mul (len $domainCovered) 100) (len $domainSolutions) }}{{ else }}0{{ end }}%"></span>
+        </div>
+      </header>
+
+      <div class="solution-domain__grid">
+        {{ range $domainSolutions }}
+          <article class="solution-card solution-card--{{ .status }}" id="solution-{{ .id }}">
+            <div class="solution-card__meta">
+              <span class="solution-card__status">{{ if eq .status "covered" }}Covered{{ else }}Coverage gap{{ end }}</span>
+              <span>{{ replace .category "-" " " | title }}</span>
+            </div>
+            <h3>{{ .title }}</h3>
+            <ul>
+              {{ range first 3 .symptoms }}<li>{{ . }}</li>{{ end }}
+            </ul>
+            {{ if eq .status "covered" }}
+              <div class="solution-card__actions">
+                {{ with .prompt }}<a href="{{ printf "/prompts/%s/" . | relURL }}">Run diagnostic →</a>{{ end }}
+                {{ with .chapter }}<a href="{{ printf "/post/%s/" . | relURL }}">Learn why →</a>{{ end }}
+              </div>
+            {{ else }}
+              <p class="solution-card__gap">Tracked explicitly so the next content wave can close this gap.</p>
+            {{ end }}
+          </article>
+        {{ end }}
+      </div>
+
+      {{ if gt (len $domainMissing) 0 }}
+        <p class="solution-domain__backlog">{{ len $domainMissing }} documented coverage gap{{ if ne (len $domainMissing) 1 }}s{{ end }} remain in this domain.</p>
+      {{ end }}
+    </section>
+  {{ end }}
+</section>
+{{ end }}
+
+{{ define "sidebar" }}{{ end }}

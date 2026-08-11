@@ -1,0 +1,78 @@
+{{- $seriesName := partial "series_name.html" . -}}
+{{- if $seriesName -}}
+  {{- $pages := partial "series_pages.html" (dict "site" .Site "series" $seriesName) -}}
+  {{- $currentIndex := -1 -}}
+  {{- range $i, $p := $pages -}}
+    {{- if eq $p.RelPermalink $.RelPermalink -}}{{- $currentIndex = $i -}}{{- end -}}
+  {{- end -}}
+  {{- if ge $currentIndex 0 -}}
+    {{- $total := len $pages -}}
+    {{- $position := add $currentIndex 1 -}}
+    {{- $progress := div (mul $position 100.0) $total -}}
+    {{- $hub := "" -}}
+    {{- if eq $seriesName "PyTorch: Zero to Hero" -}}{{- $hub = "/learn/pytorch/" -}}{{- end -}}
+    {{- if eq $seriesName "Models From First Principles" -}}{{- $hub = "/learn/models/" -}}{{- end -}}
+    {{- if eq $seriesName "Agents From First Principles" -}}{{- $hub = "/learn/agents/" -}}{{- end -}}
+    {{- if eq $seriesName "Advanced Agents From First Principles" -}}{{- $hub = "/learn/advanced-agents/" -}}{{- end -}}
+    {{- $chapterKey := .File.BaseFileName -}}
+    {{- $promptPages := where .Site.RegularPages "Section" "prompts" -}}
+    {{- $relatedPrompts := where $promptPages "Params.related_chapter" "eq" $chapterKey -}}
+
+    <aside class="series-reader" aria-label="Series navigation">
+      <div class="series-reader__topline">
+        <span class="series-reader__continue">Continue this learning path</span>
+        <a class="series-reader__series" href="{{ $hub | relURL }}">View curriculum</a>
+      </div>
+
+      <div class="series-reader__progress" aria-hidden="true">
+        <span style="width: {{ printf "%.2f" $progress }}%"></span>
+      </div>
+
+      {{- if gt (len $relatedPrompts) 0 -}}
+        {{- $relatedPrompt := index $relatedPrompts 0 -}}
+        <div class="series-reader__apply">
+          <div>
+            <span class="series-reader__apply-label">Use this chapter</span>
+            <strong>Apply this mechanism to your own repository with AI.</strong>
+          </div>
+          <a href="{{ $relatedPrompt.RelPermalink }}">Apply this to my repo →</a>
+        </div>
+      {{- end -}}
+
+      <div class="series-reader__links">
+        <div class="series-reader__prev">
+          {{- if gt $currentIndex 0 -}}
+            {{- $prev := index $pages (sub $currentIndex 1) -}}
+            {{- $prevTitle := $prev.Title -}}
+            {{- if eq $seriesName "PyTorch: Zero to Hero" -}}
+              {{- $prevTitle = replaceRE `^PyTorch Zero to Hero [0-9]+:\s*` "" $prev.Title -}}
+            {{- else -}}
+              {{- $prevTitle = replaceRE (printf `^%s [0-9]+:\s*` $seriesName) "" $prev.Title -}}
+            {{- end -}}
+            <span>Previous</span>
+            <a href="{{ $prev.RelPermalink }}">← {{ $prevTitle }}</a>
+          {{- else -}}
+            <span>Series</span>
+            <a href="{{ $hub | relURL }}">← View curriculum</a>
+          {{- end -}}
+        </div>
+        <div class="series-reader__next">
+          {{- if lt $position $total -}}
+            {{- $next := index $pages $position -}}
+            {{- $nextTitle := $next.Title -}}
+            {{- if eq $seriesName "PyTorch: Zero to Hero" -}}
+              {{- $nextTitle = replaceRE `^PyTorch Zero to Hero [0-9]+:\s*` "" $next.Title -}}
+            {{- else -}}
+              {{- $nextTitle = replaceRE (printf `^%s [0-9]+:\s*` $seriesName) "" $next.Title -}}
+            {{- end -}}
+            <span>Next</span>
+            <a href="{{ $next.RelPermalink }}">{{ $nextTitle }} →</a>
+          {{- else -}}
+            <span>Complete</span>
+            <a href="{{ $hub | relURL }}">Back to curriculum →</a>
+          {{- end -}}
+        </div>
+      </div>
+    </aside>
+  {{- end -}}
+{{- end -}}

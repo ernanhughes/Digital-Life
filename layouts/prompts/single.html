@@ -1,0 +1,61 @@
+{{ define "main" }}
+{{ $related := false }}
+{{ with .Params.related_chapter }}
+  {{ $matches := where $.Site.RegularPages "File.BaseFileName" "eq" . }}
+  {{ if gt (len $matches) 0 }}{{ $related = index $matches 0 }}{{ end }}
+{{ end }}
+{{ $promptKind := "Path Review" }}
+{{ if .Params.related_chapter }}{{ $promptKind = "Chapter Application" }}{{ end }}
+<article class="prompt-page">
+  <nav class="prompt-page__crumb"><a href="{{ "/prompts/" | relURL }}">AI Prompts</a><span>→</span>{{ .Title }}</nav>
+
+  <header class="prompt-page__hero">
+    <span class="prompt-page__eyebrow">Use with AI · {{ $promptKind }}</span>
+    <h1>{{ .Title }}</h1>
+    <p class="prompt-page__description">{{ .Description }}</p>
+    <div class="prompt-page__meta">
+      <span>{{ $promptKind }}</span>
+      {{ with .Params.learning_path }}<span>{{ . }}</span>{{ end }}
+      {{ with .Params.target }}<span>{{ . }}</span>{{ end }}
+      {{ with .Params.difficulty }}<span>{{ . }}</span>{{ end }}
+    </div>
+    <div class="prompt-page__source-links">
+      {{ with $related }}<a class="prompt-page__learn" href="{{ .RelPermalink }}">Read the source chapter →</a>{{ end }}
+      {{ with .Params.learn_url }}<a class="prompt-page__learn" href="{{ . | relURL }}">View the learning path →</a>{{ end }}
+    </div>
+  </header>
+
+  {{ with $related }}
+    <aside class="prompt-page__source">
+      <span>Based on</span>
+      <strong>{{ .Title }}</strong>
+      <a href="{{ .RelPermalink }}">Open chapter →</a>
+    </aside>
+  {{ end }}
+
+  <section class="prompt-page__instructions">
+    <h2>How to use this</h2>
+    <ol>
+      <li>Open a repository-aware AI assistant.</li>
+      <li>Give it access to the repository or files you want reviewed.</li>
+      <li>Copy the prompt below and run it unchanged first.</li>
+      <li>Use the evidence it finds to decide what to inspect or change next.</li>
+    </ol>
+  </section>
+
+  <section class="prompt-page__prompt-wrap">
+    <div class="prompt-page__prompt-head">
+      <div><span>Prompt</span><strong>Copy and run against your own project</strong></div>
+      <button class="prompt-copy" type="button" data-copy-prompt>Copy prompt</button>
+    </div>
+    <div class="prompt-page__body" data-prompt-body>{{ .Content }}</div>
+  </section>
+
+  <footer class="prompt-page__footer">
+    <a href="{{ "/prompts/" | relURL }}">← All AI prompts</a>
+    {{ with $related }}<a href="{{ .RelPermalink }}">Source chapter →</a>{{ else }}{{ with .Params.learn_url }}<a href="{{ . | relURL }}">Learning path →</a>{{ end }}{{ end }}
+  </footer>
+</article>
+{{ end }}
+
+{{ define "sidebar" }}{{ end }}

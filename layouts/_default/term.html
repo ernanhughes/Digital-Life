@@ -1,0 +1,41 @@
+{{ define "main" }}
+  <section class="container">
+    <header class="page-header">
+      <h1>{{ .Title }}</h1>
+      {{ with .Content }}
+        <div class="page-content">
+          {{ . }}
+        </div>
+      {{ end }}
+      <p class="term-meta">{{ len .Pages }} posts</p>
+    </header>
+
+    {{ if .Pages }}
+      <ul class="post-list">
+        {{ range .Pages.ByDate.Reverse }}
+          <li class="post-item">
+            <article>
+              <h2>
+                <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+              </h2>
+
+              <p class="post-meta">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">
+                  {{ .Date.Format "2 January 2006" }}
+                </time>
+              </p>
+
+              {{ with .Summary }}
+                <div class="post-summary">
+                  {{ . }}
+                </div>
+              {{ end }}
+            </article>
+          </li>
+        {{ end }}
+      </ul>
+    {{ else }}
+      <p>No posts found in this category yet.</p>
+    {{ end }}
+  </section>
+{{ end }}

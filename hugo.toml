@@ -1,0 +1,103 @@
+baseURL = 'http://programmer.ie/'
+languageCode = 'en-us'
+title = 'Programmer.ie: Modern AI programming'
+theme = 'mainroad'
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[[menu.main]]
+  name = "Home"
+  pageRef = "/"
+  weight = 10
+
+[[menu.main]]
+  name = "Books"
+  pageRef = "/books"
+  weight = 20
+
+[[menu.main]]
+  name = "Solutions"
+  pageRef = "/solutions"
+  weight = 25
+
+[[menu.main]]
+  name = "Learn"
+  pageRef = "/learn"
+  weight = 30
+
+[[menu.main]]
+  name = "Prompts"
+  pageRef = "/prompts"
+  weight = 35
+
+[[menu.main]]
+  name = "Articles"
+  url = "/post/"
+  weight = 40
+
+[[menu.main]]
+  name = "Search"
+  pageRef = "/search"
+  weight = 45
+
+[[menu.main]]
+  name = "About"
+  pageRef = "/about"
+  weight = 50
+
+[Author]
+  name = "Ernan Hughes"
+  bio = "I believe AI will be how we interact with information and technology. This blog is my exploration of this transformation, where I dive into the latest trends, advancements, and research in AI. Along the way, I’ll share practical examples and code snippets to help you understand and implement these technologies yourself. Join me on this journey as we navigate the ever-evolving landscape of AI together."
+  avatar = "img/avatar.png"
+
+[services]
+  [services.googleAnalytics]
+    id = 'G-4CM6BHM78G'
+
+[Params]
+  subtitle = "Technical books for building with AI"
+  description = "Books, solutions, learning paths and practical AI engineering on Programmer.ie"
+  opengraph = true
+  twitter_cards = true
+  readmore = false
+  authorbox = true
+  toc = true
+  post_navigation = true
+  post_meta = ["categories", "date"]
+  postSections = ["post"]
+  mathjax = true
+  mathjaxPath = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  customCSS = ["css/custom.css", "css/series.css", "css/prompts.css", "css/prompt-library.css", "css/chapter-ai.css", "css/home.css", "css/archive.css", "css/search.css", "css/solutions.css", "css/books.css", "css/visual-system.css"]
+  customJS = ["js/prompts.js", "js/search.js"]
+  
+[Params.Author]
+  name = "Ernan Hughes"
+  bio = "I believe AI will be how we interact with information and technology. This blog is my exploration of this transformation, where I dive into the latest trends, advancements, and research in AI. Along the way, I’ll share practical examples and code snippets to help you understand and implement these technologies yourself. Join me on this journey as we navigate the ever-evolving landscape of AI together."
+  avatar = "img/avatar.png"
+
+[Params.sidebar]
+  home = "right"
+  list = "left"
+  single = false
+  widgets = ["search", "recent", "categories", "taglist", "social"]
+
+[Params.widgets]
+  recent_num = 25
+  tags_counter = false
+
+[Params.widgets.social]
+  github = "ernanhughes"
+  email = "ernanhughes@gmail.com"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)']]

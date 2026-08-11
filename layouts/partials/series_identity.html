@@ -1,0 +1,42 @@
+{{- $seriesName := partial "series_name.html" . -}}
+{{- if $seriesName -}}
+  {{- $pages := partial "series_pages.html" (dict "site" .Site "series" $seriesName) -}}
+  {{- $currentIndex := -1 -}}
+  {{- range $i, $p := $pages -}}
+    {{- if eq $p.RelPermalink $.RelPermalink -}}{{- $currentIndex = $i -}}{{- end -}}
+  {{- end -}}
+  {{- if ge $currentIndex 0 -}}
+    {{- $hub := "" -}}
+    {{- if eq $seriesName "PyTorch: Zero to Hero" -}}{{- $hub = "/learn/pytorch/" -}}{{- end -}}
+    {{- if eq $seriesName "Models From First Principles" -}}{{- $hub = "/learn/models/" -}}{{- end -}}
+    {{- if eq $seriesName "Agents From First Principles" -}}{{- $hub = "/learn/agents/" -}}{{- end -}}
+    {{- if eq $seriesName "Advanced Agents From First Principles" -}}{{- $hub = "/learn/advanced-agents/" -}}{{- end -}}
+
+    {{- $stageName := "" -}}
+    {{- $stageRange := "" -}}
+    {{- $stageNumber := "" -}}
+    {{- if eq $seriesName "Advanced Agents From First Principles" -}}
+      {{- if lt $currentIndex 12 -}}{{- $stageNumber = "01" -}}{{- $stageName = "Reasoning Architectures" -}}{{- $stageRange = "Steps 00–11" -}}{{- end -}}
+      {{- if and (ge $currentIndex 12) (lt $currentIndex 19) -}}{{- $stageNumber = "02" -}}{{- $stageName = "Evidence & Optimization" -}}{{- $stageRange = "Steps 12–18" -}}{{- end -}}
+      {{- if and (ge $currentIndex 19) (lt $currentIndex 23) -}}{{- $stageNumber = "03" -}}{{- $stageName = "Distributed Execution" -}}{{- $stageRange = "Steps 19–22" -}}{{- end -}}
+      {{- if and (ge $currentIndex 23) (lt $currentIndex 27) -}}{{- $stageNumber = "04" -}}{{- $stageName = "Behavioral Production Engineering" -}}{{- $stageRange = "Steps 23–26" -}}{{- end -}}
+      {{- if and (ge $currentIndex 27) (lt $currentIndex 29) -}}{{- $stageNumber = "05" -}}{{- $stageName = "Reliability Engineering" -}}{{- $stageRange = "Steps 27–28" -}}{{- end -}}
+      {{- if and (ge $currentIndex 29) (lt $currentIndex 32) -}}{{- $stageNumber = "06" -}}{{- $stageName = "Authority & Competence" -}}{{- $stageRange = "Steps 29–31" -}}{{- end -}}
+      {{- if and (ge $currentIndex 32) (lt $currentIndex 35) -}}{{- $stageNumber = "07" -}}{{- $stageName = "Capability Architecture" -}}{{- $stageRange = "Steps 32–34" -}}{{- end -}}
+      {{- if and (ge $currentIndex 35) (lt $currentIndex 38) -}}{{- $stageNumber = "08" -}}{{- $stageName = "Continuity & Temporal Correctness" -}}{{- $stageRange = "Steps 35–37" -}}{{- end -}}
+      {{- if and (ge $currentIndex 38) (lt $currentIndex 44) -}}{{- $stageNumber = "09" -}}{{- $stageName = "Durable Autonomous Systems" -}}{{- $stageRange = "Steps 38–43" -}}{{- end -}}
+      {{- if ge $currentIndex 44 -}}{{- $stageNumber = "10" -}}{{- $stageName = "Synthesis" -}}{{- $stageRange = "Steps 44–45" -}}{{- end -}}
+    {{- end -}}
+
+    <div class="series-identity">
+      <div class="series-identity__trail">
+        <a href="{{ $hub | relURL }}">{{ $seriesName }}</a>
+        {{- if $stageName -}}<span aria-hidden="true">→</span><span>Stage {{ $stageNumber }}</span>{{- end -}}
+      </div>
+      <div class="series-identity__meta">
+        {{- if $stageName -}}<span class="series-identity__stage">{{ $stageName }} · {{ $stageRange }}</span>{{- end -}}
+        <span>Chapter {{ printf "%02d" $currentIndex }} of {{ printf "%02d" (sub (len $pages) 1) }}</span>
+      </div>
+    </div>
+  {{- end -}}
+{{- end -}}

@@ -1,0 +1,13 @@
+{{- $p := .page -}}
+<article class="prompt-card">
+  <div class="prompt-card__meta">
+    <span>{{ .kind }}</span>
+    {{ with $p.Params.difficulty }}<span>{{ . }}</span>{{ end }}
+  </div>
+  <h4><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a></h4>
+  <p>{{ $p.Description }}</p>
+  <div class="prompt-card__footer">
+    {{ with $p.Params.target }}<span>{{ . }}</span>{{ end }}
+    <a href="{{ $p.RelPermalink }}">Open prompt →</a>
+  </div>
+</article>

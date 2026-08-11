@@ -1,0 +1,16 @@
+{{- if or .Params.math .Site.Params.math .Site.Params.mathjax -}}
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    tags: 'ams' // supports \tag{} and equation numbers if you use them
+  },
+  options: {
+    skipHtmlTags: ['script','noscript','style','textarea','pre','code']
+  }
+};
+</script>
+<script async id="mathjax-script" src="{{ .Site.Params.mathjaxPath }}"></script>
+{{- end -}}

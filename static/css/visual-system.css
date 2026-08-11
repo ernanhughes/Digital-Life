@@ -1,0 +1,149 @@
+:root {
+  --accent: #3978c5;
+  --accent-strong: #2f69ad;
+  --accent-soft: #eef5fc;
+  --ink: #17202a;
+  --ink-soft: #4f5e6b;
+  --surface: #ffffff;
+  --surface-muted: #f6f9fc;
+  --border: rgba(23, 32, 42, 0.10);
+}
+
+/* Replace the remaining Mainroad red with the programmer.ie blue system. */
+a:hover,
+.meta a:hover,
+.content a,
+.warning a,
+.authorbox__description a,
+.content a:hover,
+.warning a:hover,
+.authorbox__description a:hover {
+  color: var(--accent);
+}
+
+.btn:hover,
+.tags__item:hover,
+.menu__item:hover,
+.menu__item--active {
+  background: var(--accent);
+}
+
+blockquote {
+  border-left-color: var(--accent);
+}
+
+.logo__tagline {
+  color: var(--accent);
+}
+
+.divider {
+  background: var(--accent);
+}
+
+.js .menu__btn--active {
+  color: var(--accent);
+}
+
+:focus > .menu__btn-title {
+  box-shadow: inset 0 0 1px 3px var(--accent);
+}
+
+@media screen and (min-width: 767px) {
+  .menu {
+    border-bottom-color: var(--accent);
+  }
+}
+
+/* Give the inherited Mainroad shell the same neutral/blue language as new pages. */
+body {
+  color: var(--ink);
+  background: var(--surface-muted);
+}
+
+.header,
+.wrapper {
+  background: var(--surface);
+}
+
+.container--outer {
+  box-shadow: 0 12px 40px rgba(31, 49, 67, 0.10);
+}
+
+.logo__title {
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+
+.logo__tagline {
+  border-top-color: var(--border);
+}
+
+.menu__list,
+.menu__btn {
+  background: var(--ink);
+}
+
+.menu__item {
+  transition: background-color 0.16s ease;
+}
+
+.menu__link {
+  letter-spacing: 0.025em;
+}
+
+.post__meta {
+  border-top-color: var(--border);
+  border-bottom-color: var(--border);
+}
+
+.meta,
+.meta a {
+  color: #697784;
+}
+
+.content a,
+.warning a,
+.authorbox__description a {
+  text-decoration-color: rgba(57, 120, 197, 0.35);
+  text-underline-offset: 0.14em;
+}
+
+.content a:hover,
+.warning a:hover,
+.authorbox__description a:hover {
+  color: var(--accent-strong);
+  text-decoration-color: currentColor;
+}
+
+.tags__item {
+  background: var(--ink);
+}
+
+.btn {
+  background: var(--ink);
+  border-radius: 7px;
+}
+
+blockquote {
+  background: var(--surface-muted);
+  padding: 0.9rem 1.1rem;
+  border-radius: 0 8px 8px 0;
+}
+
+/* Legacy widgets and pager links should not reintroduce the old theme accent. */
+.widget a:hover,
+.pager__link:hover,
+.pagination__item:hover,
+.pagination__item--current {
+  color: var(--accent);
+}
+
+/* Keep focus visible and aligned with the palette. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}

@@ -1,0 +1,90 @@
+{{ define "main" }}
+{{ $seriesName := .Params.series_name }}
+{{ $pages := partial "series_pages.html" (dict "site" .Site "series" $seriesName) }}
+{{ $first := index $pages 0 }}
+{{ $promptURL := "" }}
+{{ if eq $seriesName "PyTorch: Zero to Hero" }}{{ $promptURL = "/prompts/pytorch-repository-review/" }}{{ end }}
+{{ if eq $seriesName "Models From First Principles" }}{{ $promptURL = "/prompts/model-architecture-review/" }}{{ end }}
+{{ if eq $seriesName "Agents From First Principles" }}{{ $promptURL = "/prompts/agent-architecture-review/" }}{{ end }}
+{{ if eq $seriesName "Advanced Agents From First Principles" }}{{ $promptURL = "/prompts/production-agent-review/" }}{{ end }}
+<section class="series-hub">
+  <nav class="series-hub__crumb"><a href="{{ "/learn/" | relURL }}">Learn</a><span>→</span>{{ .Title }}</nav>
+
+  <header class="series-hub__hero">
+    <div class="series-hub__kicker">Learning Path {{ printf "%02d" .Params.series_number }}</div>
+    <h1>{{ .Title }}</h1>
+    <p class="series-hub__description">{{ .Description }}</p>
+    {{ with .Content }}<div class="series-hub__copy">{{ . }}</div>{{ end }}
+    <div class="series-hub__meta">
+      <span>{{ .Params.series_level }}</span>
+      <span>{{ len $pages }} chapters</span>
+      <span>Sequential or reference</span>
+    </div>
+    <div class="series-hub__actions">
+      <a class="series-hub__start" href="{{ $first.RelPermalink }}">Start at chapter 00</a>
+      {{ with $promptURL }}<a class="series-hub__prompt" href="{{ . | relURL }}">Use with AI</a>{{ end }}
+    </div>
+  </header>
+
+  {{ if eq $seriesName "Advanced Agents From First Principles" }}
+    {{ $stages := slice
+      (dict "name" "01 — Reasoning Architectures" "range" "Steps 00–11" "start" 0 "end" 12 "summary" "Generation, candidates, search, specialists and architecture selection.")
+      (dict "name" "02 — Evidence & Optimization" "range" "Steps 12–18" "start" 12 "end" 19 "summary" "Benchmarking, observability, uncertainty, compute allocation and information value.")
+      (dict "name" "03 — Distributed Execution" "range" "Steps 19–22" "start" 19 "end" 23 "summary" "Parallelism, leases, fencing, backpressure and failure containment.")
+      (dict "name" "04 — Behavioral Production Engineering" "range" "Steps 23–26" "start" 23 "end" 27 "summary" "Drift, releases, replay, provenance and incident forensics.")
+      (dict "name" "05 — Reliability Engineering" "range" "Steps 27–28" "start" 27 "end" 29 "summary" "SLOs, error budgets and evidence-driven reliability investment.")
+      (dict "name" "06 — Authority & Competence" "range" "Steps 29–31" "start" 29 "end" 32 "summary" "Escalation, competence envelopes and sandboxed capability acquisition.")
+      (dict "name" "07 — Capability Architecture" "range" "Steps 32–34" "start" 32 "end" 35 "summary" "Capability portfolios, dependency graphs and execution placement.")
+      (dict "name" "08 — Continuity & Temporal Correctness" "range" "Steps 35–37" "start" 35 "end" 38 "summary" "Portable state, freshness and versioned intent across long-running work.")
+      (dict "name" "09 — Durable Autonomous Systems" "range" "Steps 38–43" "start" 38 "end" 44 "summary" "Commitments, durable workflows, recovery, trust, coordination and the control plane.")
+      (dict "name" "10 — Synthesis" "range" "Steps 44–45" "start" 44 "end" 46 "summary" "The complete reference architecture—and the case for removing what you do not need.")
+    }}
+
+    <div class="series-stages">
+      {{ range $stages }}
+        {{ $stageStart := .start }}
+        <section class="series-stage">
+          <header class="series-stage__header">
+            <div>
+              <span class="series-stage__range">{{ .range }}</span>
+              <h2>{{ .name }}</h2>
+            </div>
+            <p>{{ .summary }}</p>
+          </header>
+          <ol class="series-chapters" start="{{ add .start 1 }}">
+            {{ range $i, $page := first (sub .end .start) (after .start $pages) }}
+              {{ $short := replaceRE `^Advanced Agents From First Principles [0-9]+:\s*` "" $page.Title }}
+              <li class="series-chapter">
+                <a href="{{ $page.RelPermalink }}"><span class="series-chapter__step">{{ printf "%02d" (add $stageStart $i) }}</span><span>{{ $short }}</span></a>
+              </li>
+            {{ end }}
+          </ol>
+        </section>
+      {{ end }}
+    </div>
+  {{ else }}
+    <section class="series-stage series-stage--single">
+      <header class="series-stage__header">
+        <div><span class="series-stage__range">Complete curriculum</span><h2>Chapters</h2></div>
+        <p>Work through the path in order, or jump directly to the mechanism you need.</p>
+      </header>
+      <ol class="series-chapters">
+        {{ range $i, $page := $pages }}
+          {{ $short := replaceRE (printf `^%s [0-9]+:\s*` $seriesName) "" $page.Title }}
+          {{ if eq $seriesName "PyTorch: Zero to Hero" }}{{ $short = replaceRE `^PyTorch Zero to Hero [0-9]+:\s*` "" $page.Title }}{{ end }}
+          <li class="series-chapter">
+            <a href="{{ $page.RelPermalink }}"><span class="series-chapter__step">{{ printf "%02d" $i }}</span><span>{{ $short }}</span></a>
+          </li>
+        {{ end }}
+      </ol>
+    </section>
+  {{ end }}
+
+  <footer class="series-hub__footer">
+    <a href="{{ "/learn/" | relURL }}">← All learning paths</a>
+    {{ with $promptURL }}<a href="{{ . | relURL }}">Apply this path with AI →</a>{{ end }}
+  </footer>
+</section>
+{{ end }}
+
+{{ define "sidebar" }}{{ end }}

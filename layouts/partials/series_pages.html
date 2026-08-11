@@ -1,0 +1,15 @@
+{{- $site := .site -}}
+{{- $seriesName := .series -}}
+{{- $pages := where $site.RegularPages "Params.series" "intersect" (slice $seriesName) -}}
+{{- if eq $seriesName "Advanced Agents From First Principles" -}}
+  {{- $fallback := slice -}}
+  {{- range $page := $site.RegularPages -}}
+    {{- with $page.File -}}
+      {{- if hasPrefix .BaseFileName "advanced-agents-from-first-principles-" -}}
+        {{- $fallback = $fallback | append $page -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $pages = union $pages $fallback -}}
+{{- end -}}
+{{- return $pages.ByTitle -}}

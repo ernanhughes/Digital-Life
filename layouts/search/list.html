@@ -1,0 +1,121 @@
+{{ define "main" }}
+{{- $root := . -}}
+{{- $records := slice -}}
+{{- $learningPaths := slice
+  (dict "path" "/learn/pytorch/" "series" "PyTorch: Zero to Hero")
+  (dict "path" "/learn/models/" "series" "Models From First Principles")
+  (dict "path" "/learn/agents/" "series" "Agents From First Principles")
+  (dict "path" "/learn/advanced-agents/" "series" "Advanced Agents From First Principles")
+-}}
+
+{{- range $key, $book := .Site.Data.books.books -}}
+  {{- $records = $records | append (dict
+    "title" $book.title
+    "url" (printf "/books/#book-%s" $key | relURL)
+    "type" "Book"
+    "series" $book.level
+    "description" $book.description
+    "date" ""
+    "tags" (slice $book.subtitle "book" "ebook")
+  ) -}}
+{{- end -}}
+
+{{- range $path := $learningPaths -}}
+  {{- with $root.Site.GetPage $path.path -}}
+    {{- $records = $records | append (dict
+      "title" .Title
+      "url" .RelPermalink
+      "type" "Learning Path"
+      "series" $path.series
+      "description" (.Description | default (.Summary | plainify))
+      "date" ""
+      "tags" (slice)
+    ) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- range .Site.Data.solutions -}}
+  {{- $description := delimit .symptoms ", " -}}
+  {{- $records = $records | append (dict
+    "title" .title
+    "url" (printf "/solutions/#solution-%s" .id | relURL)
+    "type" "Solution"
+    "series" (replace .domain "-" " " | title)
+    "description" $description
+    "date" ""
+    "tags" (slice .category .status)
+  ) -}}
+{{- end -}}
+
+{{- range .Site.RegularPages -}}
+  {{- if or (eq .Section "post") (eq .Section "prompts") -}}
+    {{- $seriesName := partial "series_name.html" . -}}
+    {{- $type := "Article" -}}
+    {{- if eq .Section "prompts" -}}
+      {{- $type = "AI Prompt" -}}
+    {{- else if $seriesName -}}
+      {{- $type = "Chapter" -}}
+    {{- end -}}
+    {{- $description := .Description | default (.Summary | plainify | truncate 260) -}}
+    {{- $records = $records | append (dict
+      "title" .Title
+      "url" .RelPermalink
+      "type" $type
+      "series" $seriesName
+      "description" $description
+      "date" (.Date.Format "2006-01-02")
+      "tags" (.Params.tags | default (slice))
+    ) -}}
+  {{- end -}}
+{{- end -}}
+
+<section class="site-search">
+  <header class="site-search__hero">
+    <span class="site-search__eyebrow">Search Programmer.ie</span>
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Description }}</p>
+    {{ with .Content }}<div class="site-search__intro">{{ . }}</div>{{ end }}
+  </header>
+
+  <form class="site-search__panel" role="search" action="{{ "/search/" | relURL }}" method="get" data-site-search-form>
+    <label class="site-search__label" for="site-search-input">What are you looking for?</label>
+    <div class="site-search__input-wrap">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m1.35-5.65a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input id="site-search-input" name="q" type="search" autocomplete="off" enterkeyhint="search" placeholder="Try: PyTorch book, autograd, agent verification, uncertainty…" data-site-search-input>
+      <button class="site-search__submit" type="submit">Search</button>
+    </div>
+
+    <div class="site-search__filters" role="group" aria-label="Filter search results">
+      <button type="button" class="is-active" data-search-filter="All">All</button>
+      <button type="button" data-search-filter="Book">Books</button>
+      <button type="button" data-search-filter="Solution">Solutions</button>
+      <button type="button" data-search-filter="Learning Path">Learning paths</button>
+      <button type="button" data-search-filter="Chapter">Chapters</button>
+      <button type="button" data-search-filter="AI Prompt">AI prompts</button>
+      <button type="button" data-search-filter="Article">Articles</button>
+    </div>
+  </form>
+
+  <div class="site-search__status" aria-live="polite" data-search-status>
+    Search across books, solutions, learning paths, chapters, AI prompts and articles.
+  </div>
+  <div class="site-search__results" data-search-results></div>
+
+  <template id="site-search-result-template">
+    <article class="search-result">
+      <div class="search-result__meta">
+        <span class="search-result__type" data-result-type></span>
+        <span class="search-result__series" data-result-series></span>
+        <time data-result-date></time>
+      </div>
+      <h2><a data-result-link></a></h2>
+      <p data-result-description></p>
+      <a class="search-result__action" data-result-action>Open →</a>
+    </article>
+  </template>
+
+  <script type="application/json" id="site-search-index">{{ $records | jsonify | safeHTML }}</script>
+</section>
+{{ end }}
+
+{{ define "sidebar" }}{{ end }}

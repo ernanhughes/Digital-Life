@@ -1,0 +1,233 @@
+.solutions-hub {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1rem 0 4rem;
+}
+
+.solutions-hub__hero {
+  padding: 2.6rem 0 2rem;
+  border-bottom: 1px solid var(--border-color, rgba(0, 0, 0, 0.09));
+}
+
+.solutions-hub__eyebrow,
+.solution-domain__eyebrow {
+  display: inline-block;
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.solutions-hub__hero h1 {
+  margin: 0.5rem 0 0.8rem;
+  font-size: clamp(2.5rem, 5vw, 4.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.solutions-hub__hero > p,
+.solutions-hub__intro {
+  max-width: 860px;
+  color: #586673;
+  font-size: 1.12rem;
+  line-height: 1.65;
+}
+
+.solutions-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin: 1.5rem 0;
+}
+
+.solutions-summary div {
+  padding: 1.1rem 1.2rem;
+  border: 1px solid var(--border-color, rgba(0, 0, 0, 0.09));
+  border-radius: 14px;
+  background: #fff;
+}
+
+.solutions-summary strong,
+.solutions-summary span {
+  display: block;
+}
+
+.solutions-summary strong {
+  font-size: 1.8rem;
+  color: #1d2832;
+}
+
+.solutions-summary span {
+  margin-top: 0.2rem;
+  color: #74818c;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.solutions-jump {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 2.6rem;
+}
+
+.solutions-jump a {
+  padding: 1rem;
+  border-radius: 12px;
+  background: #f3f7fb;
+  text-decoration: none;
+}
+
+.solutions-jump strong,
+.solutions-jump span {
+  display: block;
+}
+
+.solutions-jump span {
+  margin-top: 0.25rem;
+  color: #6e7b87;
+  font-size: 0.8rem;
+}
+
+.solution-domain {
+  padding: 2rem 0 2.7rem;
+  border-top: 1px solid var(--border-color, rgba(0, 0, 0, 0.09));
+  scroll-margin-top: 90px;
+}
+
+.solution-domain__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(200px, 320px);
+  gap: 2rem;
+  align-items: end;
+  margin-bottom: 1.2rem;
+}
+
+.solution-domain__header h2 {
+  margin: 0.25rem 0 0.35rem;
+  font-size: 2rem;
+}
+
+.solution-domain__header p {
+  margin: 0;
+  color: #677480;
+}
+
+.solution-domain__meter {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e8eef4;
+}
+
+.solution-domain__meter span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+}
+
+.solution-domain__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.solution-card {
+  padding: 1.25rem 1.3rem;
+  border: 1px solid var(--border-color, rgba(0, 0, 0, 0.09));
+  border-radius: 16px;
+  background: #fff;
+}
+
+.solution-card--missing {
+  background: #fafbfc;
+  border-style: dashed;
+}
+
+.solution-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+  color: #75818c;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.solution-card__status {
+  padding: 0.26rem 0.5rem;
+  border-radius: 999px;
+  background: #eaf2fb;
+  color: var(--accent);
+}
+
+.solution-card--missing .solution-card__status {
+  background: #eef1f4;
+  color: #64717c;
+}
+
+.solution-card h3 {
+  margin: 0.75rem 0 0.65rem;
+  font-size: 1.28rem;
+  line-height: 1.25;
+}
+
+.solution-card ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: #66727d;
+  line-height: 1.55;
+}
+
+.solution-card__actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.solution-card__actions a {
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.solution-card__gap,
+.solution-domain__backlog {
+  color: #7a858f;
+  font-size: 0.88rem;
+}
+
+.solution-card__gap {
+  margin: 0.9rem 0 0;
+}
+
+.solution-domain__backlog {
+  margin: 1rem 0 0;
+}
+
+@media (max-width: 860px) {
+  .solutions-summary,
+  .solutions-jump {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .solution-domain__header {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .solutions-summary,
+  .solutions-jump,
+  .solution-domain__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .solution-card__actions {
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+}
