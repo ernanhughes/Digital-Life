@@ -13,20 +13,11 @@ Don't read anything yet.
 
 Watch this.
 
-<!--
-TODO VISUAL:
-Full-width animated Lenia or Flow-Lenia organism.
-
-Prefer:
-- localized organism
-- visible locomotion or deformation
-- no explanatory labels
-- dark/neutral background
-- several seconds of uninterrupted motion
-
-Caption should initially be minimal:
-"One state of a continuous cellular automaton evolving through time."
--->
+{{< figure
+    src="/images/books/digital-life/ch01-lenia-organism.gif"
+    alt="A localized continuous cellular automaton pattern evolving and moving through time."
+    caption="One state of a continuous cellular automaton evolving through time."
+>}}
 
 Something is moving.
 
@@ -44,7 +35,7 @@ A creature.
 
 An organism.
 
-Maybe even an animal.
+Perhaps even an animal.
 
 That reaction is useful.
 
@@ -52,11 +43,55 @@ But don't trust it.
 
 ---
 
-## What exactly are you looking at?
+# Your brain has already invented an object
+
+Before we know anything about the mechanism, we have probably done something like this:
+
+```text
+pattern
+↓
+persistent pattern
+↓
+moving persistent pattern
+↓
+thing
+↓
+creature
+````
+
+Notice how quickly that happened.
+
+Nothing in the simulation announced:
+
+```text
+I AM AN OBJECT
+```
+
+Nothing told us where the supposed body begins or ends.
+
+Nothing told us that the pattern at one moment is the same individual as the pattern several moments later.
+
+We inferred all of that.
+
+That is the mystery we are going to begin with.
+
+Not:
+
+> Is this alive?
+
+That question is much too large.
+
+The first question is smaller:
+
+> **Why does this look so much like a thing at all?**
+
+---
+
+# What exactly are you looking at?
 
 There is no little creature hidden inside the simulation.
 
-There is no object with code resembling:
+There is no object containing:
 
 ```python
 creature.move()
@@ -64,17 +99,22 @@ creature.turn()
 creature.keep_shape()
 ```
 
-There is no animation path telling it where to travel.
+There is no animation path specifying where it should travel.
 
-There is no skeleton.
+No skeleton.
 
 No muscles.
 
-No collision controller deciding how the body should deform.
+No controller deciding:
 
-At the level that matters to us, there is a spatial field of values and a rule repeatedly transforming that field.
+```text
+keep the left side attached
+move the front forward
+bend here
+restore the outline
+```
 
-Something closer to:
+At the level that matters to us, there is something much simpler:
 
 ```text
 current field
@@ -92,7 +132,7 @@ And again.
 
 And again.
 
-The thing you perceive as an object is an **ongoing pattern in that process**.
+The thing you perceive as an object is an **ongoing organization in that process**.
 
 That distinction will matter throughout this book.
 
@@ -102,23 +142,33 @@ That distinction will matter throughout this book.
 
 The family of systems we are looking at is called **Lenia**.
 
-Bert Wang-Chak Chan introduced Lenia as a continuous cellular automaton: rather than restricting cells to states such as dead or alive, the state varies continuously, and the local update process is generalized accordingly. The original work reported more than 400 identified recurring forms across 18 families, many found through interactive evolutionary search.
+Lenia is a continuous cellular automaton.
 
-The paper calls these patterns *lifeforms*.
+Unlike a binary cellular automaton, where a cell may be only:
+
+```text
+0
+or
+1
+```
+
+Lenia uses continuously varying state.
+
+The original Lenia work reported hundreds of recurring forms found through exploration of the system.
+
+The paper refers to these patterns as *lifeforms*.
 
 We are going to be more cautious.
 
 For now, call them:
 
-> **persistent localized patterns.**
+> **persistent localized patterns**
 
-That phrase tells us something we can investigate without deciding what they *are*.
+That gives us something we can investigate without deciding what they are.
 
-They occupy a region of space.
+They occupy regions of space.
 
-They have structure.
-
-They change through time.
+They change.
 
 Some persist.
 
@@ -134,9 +184,9 @@ Those are observations.
 
 ---
 
-## This is already strange
+# There is no creature variable
 
-Consider what isn't represented explicitly.
+Consider what is not represented explicitly.
 
 There is no variable containing:
 
@@ -153,15 +203,15 @@ creature_outline
 No object containing:
 
 ```text
-left_leg
-right_leg
 head
 tail
+left_leg
+right_leg
 ```
 
-Indeed, the word `creature` does not have to occur anywhere in the mechanism.
+The word `creature` does not have to occur anywhere in the mechanism.
 
-Instead, there is something like a field:
+Instead we have something more like a field:
 
 ```text
 0.00  0.00  0.01  0.04  0.08
@@ -171,77 +221,249 @@ Instead, there is something like a field:
 0.00  0.01  0.08  0.11  0.03
 ```
 
-and each location is updated according to its surrounding field.
+Each location is updated according to the state around it.
 
-Yet when those numbers evolve, we perceive something larger than the numbers.
+Yet when those numbers evolve, we perceive something larger than the individual values.
 
 A coherent structure appears.
 
-That structure can move through the grid even though individual locations in the grid remain exactly where they are.
+It may travel across the grid even though the grid locations themselves never move.
 
-Already we have encountered one of the deepest ideas in this book:
+That gives us an important possibility:
 
-> **An entity can potentially be represented by persistence of organization rather than persistence of material.**
+> **An apparent entity may persist as organization rather than as a fixed collection of material.**
 
-We have not proved that the Lenia pattern deserves to be called an entity.
+Notice the wording.
 
-But now we have a question worth investigating.
+May.
+
+We have not yet earned:
+
+```text
+entity
+```
+
+But we have found a question worth pursuing.
 
 ---
 
-# It gets worse
+# What is actually moving?
 
-The original Lenia system was only the beginning.
+Look again at the animation.
 
-Later work generalized Lenia into higher dimensions, multiple kernels and multiple channels. Those experiments reported phenomena including self-replication, emission, ingestion-like growth and patterns with differentiated internal regions.
+{{< figure
+    src="/images/books/digital-life/ch01-lenia-fixed-grid-motion.png"
+    alt="Four frames of a Lenia structure moving across a fixed coordinate grid while the lattice remains stationary."
+    caption="The pattern moves across the field while the underlying lattice remains fixed."
+>}}
 
-Again, be careful with those words.
+Suppose the pattern travels from left to right.
 
-If something copies itself, we have observed copying.
+The grid does not move.
 
-Whether that deserves to be called reproduction will require a stronger test.
+The individual locations in the grid do not travel with it.
 
-If one region behaves differently from another, we have differentiated dynamics.
-
-Calling those regions organs would add an interpretation we have not yet earned.
-
-This difference between:
+Instead:
 
 ```text
-what happened
+state here
+↓
+changes nearby state
+↓
+new organization appears slightly to the right
+↓
+that organization changes nearby state
+↓
+organization appears farther right
+```
+
+So when we say:
+
+> the creature moved
+
+the underlying description is closer to:
+
+> **a recognizable organization of state was repeatedly reconstructed at changing spatial coordinates**
+
+Those descriptions refer to the same visual event at different levels.
+
+One is intuitive.
+
+One is operational.
+
+We will need both.
+
+But we must know when we have crossed from one into the other.
+
+---
+
+# Is a wave a thing?
+
+This problem is not unique to artificial life.
+
+Consider a wave crossing water.
+
+The water molecules do not travel across the ocean with the wave.
+
+The organization does.
+
+Consider a flame.
+
+Its constituent matter is continually changing.
+
+Yet we comfortably refer to:
+
+> the flame
+
+Now consider our Lenia pattern.
+
+Its local state is continually changing.
+
+Nevertheless something remains recognizable.
+
+Perhaps identity does not require preserving the same material.
+
+Perhaps persistence of organization is enough.
+
+Or perhaps we are simply very good at seeing objects where no useful object exists.
+
+Both possibilities remain open.
+
+The mistake would be deciding from the animation alone.
+
+---
+
+# The most dangerous word may be "it"
+
+Look at the sentences we have already used:
+
+> It moved.
+
+> It changed shape.
+
+> It persisted.
+
+The word **it** is doing a lot of work.
+
+Before we can say that something persists, we need some rule for deciding that:
+
+```text
+pattern at t
 ```
 
 and:
 
 ```text
-what we call what happened
+pattern at t + 1
 ```
 
-is going to become increasingly important.
+are instances of the same continuing organization.
+
+That might be based on:
+
+```text
+shape similarity
+location
+causal continuity
+internal structure
+trajectory
+```
+
+or something else entirely.
+
+We do not know yet.
+
+For now, visual continuity is enough to generate the question.
+
+It is not enough to settle it.
+
+Later in this book we will discover why this matters.
+
+A connected shape may not always be the right boundary of a digital individual.
+
+Several disconnected structures may participate in one causal process.
+
+Two identical-looking structures may have completely different histories.
+
+So our first intuition about "the thing" is deliberately provisional.
+
+---
+
+# It gets more convincing
+
+Lenia was only the beginning.
+
+Later work expanded the basic system through additional dimensions, kernels and channels, producing increasingly elaborate localized dynamics.
+
+Some reported patterns appear to:
+
+```text
+move
+change morphology
+interact
+emit structures
+produce similar structures
+```
+
+Again, the language matters.
+
+If something produces another similar pattern, we can say:
+
+```text
+a second similar pattern appeared
+```
+
+We should not immediately jump to:
+
+```text
+reproduction
+```
+
+because reproduction is a causal claim.
+
+If one region behaves differently from another, we can say:
+
+```text
+different regions exhibit different dynamics
+```
+
+We should not silently turn those regions into:
+
+```text
+organs
+```
+
+The recurring distinction is:
+
+```text
+WHAT HAPPENED
+```
+
+versus:
+
+```text
+WHAT WE CALL WHAT HAPPENED
+```
+
+Artificial life becomes much more interesting once we stop pretending those are the same thing.
 
 ---
 
 # Then came Flow-Lenia
 
-There was another problem.
+Lenia also raises another issue.
 
-Ordinary Lenia can create remarkable localized structures, but its dynamics do not impose conservation of the material represented in the field.
+Its ordinary dynamics do not require conservation of the quantity represented in the field.
 
-Values can grow and disappear according to the growth rule.
+State can increase or decrease under the update rule.
 
-That makes some biological analogies particularly tempting and particularly dangerous.
+A later system called **Flow-Lenia** changes that.
 
-A newer system called **Flow-Lenia** changes this assumption.
+Flow-Lenia introduces mass-conserving dynamics.
 
-Flow-Lenia is a mass-conserving extension of Lenia. Instead of allowing state simply to appear or disappear through the usual Lenia growth process, the update mechanism transports the field while conserving its total mass. The system was also designed so that rule parameters can become localized within the dynamics rather than existing only as one global external rule.
+Instead of allowing state simply to appear or disappear through the ordinary Lenia growth process, the system transports the field while conserving total mass.
 
-That sounds like a small technical adjustment.
-
-It isn't.
-
-Consider the difference.
-
-Ordinary growth-like dynamics can effectively do:
+Conceptually, ordinary growth-like dynamics can permit something like:
 
 ```text
 nothing
@@ -257,21 +479,23 @@ something
 nothing
 ```
 
-A mass-conserving system has to do something more like:
+A conserving system instead forces us toward:
 
 ```text
 something here
-     ↓
+      ↓
 something somewhere else
 ```
 
-Material has to move.
+Material has to go somewhere.
+
+That gives us a useful example of how **one constraint can change the questions we are able to ask**.
 
 ---
 
-## Follow the material
+# Follow the material
 
-Imagine this simplified field:
+Imagine this toy field:
 
 ```text
 0 0 0 0 0
@@ -281,13 +505,13 @@ Imagine this simplified field:
 0 0 0 0 0
 ```
 
-Suppose its total mass is:
+Its total is:
 
 ```text
 3 + 2 + 5 + 2 + 3 = 15
 ```
 
-After an update, the shape might become:
+After an update, the distribution might change:
 
 ```text
 0 0 1 0 0
@@ -297,15 +521,15 @@ After an update, the shape might become:
 0 0 0 0 0
 ```
 
-but the total remains:
+but the total could remain:
 
 ```text
 15
 ```
 
-The numbers above are illustrative, not Flow-Lenia itself.
+These numbers are illustrative, not a literal Flow-Lenia update.
 
-The important idea is conservation:
+The important point is the constraint:
 
 ```text
 shape changes
@@ -317,23 +541,65 @@ but
 total material remains constrained
 ```
 
-That one constraint changes the kind of questions we can ask.
+Now new questions become possible.
 
-If a structure grows somewhere, where did that material come from?
+If a structure grows here:
 
-If two structures collide, how is their material redistributed?
+> Where did that material come from?
 
-If one structure dominates another, what actually happened to the state that composed the losing structure?
+If two structures collide:
 
-The simulation starts giving us fewer places to hide sloppy biological metaphors.
+> Where did their state go?
 
-That's useful.
+If one expands while another disappears:
+
+> Did material transfer between them?
+
+Conservation gives us fewer places to hide sloppy interpretations.
+
+That is useful.
+
+---
+
+# But conservation is not life either
+
+This is important.
+
+It would be easy to say:
+
+> Ah. Now we have something more biological because mass is conserved.
+
+But remember the rule from Chapter 00.
+
+We do not add a biological-looking mechanism and then declare victory.
+
+Mass conservation is interesting because it imposes a measurable constraint.
+
+It may change what kinds of stable structures can exist.
+
+It may change how interactions work.
+
+It may make some interpretations easier to test.
+
+But:
+
+```text
+mass conservation
+≠
+metabolism
+≠
+organism
+≠
+life
+```
+
+We are studying consequences.
+
+Not awarding biological labels.
 
 ---
 
 # There is still no creature
-
-This is worth repeating.
 
 Even in Flow-Lenia, we do not begin with:
 
@@ -345,20 +611,18 @@ class Organism:
     genome: Genome
 ```
 
-We begin with a field and local dynamics.
+We still begin with a field and update dynamics.
 
-Then spatially localized structures emerge from it.
+Then localized organization appears.
 
-Researchers have demonstrated Flow-Lenia configurations containing complex localized patterns and have optimized update-rule parameters to produce behaviours of interest. More recent experiments also examine evolutionary activity within the system rather than merely displaying visually interesting patterns.
+The direction of explanation is backwards compared with ordinary object-oriented software.
 
-The direction of explanation is therefore unusual.
-
-In ordinary software:
+Normally:
 
 ```text
 programmer defines object
         ↓
-object produces behaviour
+object produces behavior
 ```
 
 Here:
@@ -373,111 +637,23 @@ localized organization appears
 we decide whether "object" is a useful description
 ```
 
-That reversal is one of the reasons artificial life is so interesting.
+That reversal is one of the reasons artificial life is so compelling.
 
----
+And so dangerous.
 
-# What is doing the moving?
-
-Look again at the animation.
-
-<!--
-TODO VISUAL:
-Second sequence.
-
-Three or four frames of the same organism moving.
-
-Overlay either:
-- fixed grid coordinates, or
-- a highlighted stationary patch of grid.
-
-Purpose:
-make clear that the lattice does not move while the pattern does.
--->
-
-Suppose the structure moves from left to right.
-
-The grid does not move.
-
-Individual grid locations do not travel with the structure.
-
-The pattern at one location alters nearby state.
-
-Those altered neighborhoods alter the next state.
-
-The organization reappears slightly displaced.
-
-Then again.
-
-And again.
-
-So when we say:
-
-> **the creature moved**
-
-the underlying description is more like:
-
-> **a recognizable organization of state was repeatedly reconstructed at changing spatial coordinates.**
-
-Those two descriptions refer to the same observation at different levels.
-
-One feels biological.
-
-One feels mechanical.
-
-We need both.
-
-But we should know when we have switched between them.
-
----
-
-# Is a wave an object?
-
-This problem isn't unique to artificial life.
-
-Consider a wave travelling across water.
-
-The water molecules do not travel across the ocean with the wave.
-
-The organization does.
-
-Or consider a flame.
-
-Its constituent molecules continually change.
-
-Yet we have no difficulty referring to:
-
-> the flame.
-
-Now consider the thing on our screen.
-
-Its underlying state is continually changing.
-
-Nevertheless, something remains recognizable through time.
-
-Perhaps identity does not always require keeping the same material.
-
-Perhaps persistence of organization can sometimes be enough.
-
-Or perhaps we are just very good at seeing objects where none exist.
-
-Both possibilities remain open.
-
-We'll test them.
+Because the object appears to us before we know whether our object boundary means anything.
 
 ---
 
 # Don't fall in love with the animation
 
-This is where artificial life can deceive us.
-
-Humans are exceptionally willing to see agency.
+Humans are extremely willing to see agency.
 
 Something moves toward something else:
 
 > It wants it.
 
-Something avoids something:
+Something moves away:
 
 > It is afraid.
 
@@ -485,9 +661,13 @@ Something restores its shape:
 
 > It healed.
 
-Something produces a copy:
+Something produces a similar structure:
 
 > It reproduced.
+
+Several structures travel together:
+
+> They are flocking.
 
 Something persists:
 
@@ -499,7 +679,7 @@ A beautiful animation can produce a terrible scientific argument.
 
 So throughout this book we will keep two descriptions side by side.
 
-### The tempting description
+## The tempting description
 
 ```text
 It moves.
@@ -511,20 +691,24 @@ It heals.
 It competes.
 
 It reproduces.
+
+It flocks.
 ```
 
-### The operational description
+## The operational description
 
 ```text
 Its centroid changes.
 
-Mass transfers between localized regions.
+State transfers between localized regions.
 
-Similarity to a prior morphology increases after perturbation.
+Similarity to an earlier morphology increases after perturbation.
 
 One pattern changes the future persistence of another.
 
 A second pattern satisfying a defined similarity criterion appears.
+
+Nearby velocity vectors show directional correlation.
 ```
 
 The first language helps us notice interesting phenomena.
@@ -535,27 +719,25 @@ Neither should silently replace the other.
 
 ---
 
-# Now damage it
+# Try to kill the interpretation
 
-Suppose we remove part of the pattern.
+Suppose the animation appears to show healing.
 
-<!--
-TODO VISUAL:
-before → damage → after
+Don't write:
 
-Do NOT label the last frame "healed".
+> It heals.
 
-Label:
-t = 0
-perturbation
-t = N
--->
+Damage it.
+
+{{< figure
+    src="/images/books/digital-life/ch01-lenia-damage-triptych.png"
+    alt="A Lenia pattern before perturbation, immediately after damage, and at a later time."
+    caption="Before, perturbation, and a later state. We have not yet earned the word healed."
+>}}
 
 Several things could happen.
 
-### Outcome A
-
-It collapses.
+## Outcome A — collapse
 
 ```text
 structure
@@ -565,9 +747,7 @@ damage
 disintegration
 ```
 
-### Outcome B
-
-It survives but remains damaged.
+## Outcome B — persistence without recovery
 
 ```text
 structure
@@ -577,9 +757,7 @@ damage
 altered persistent structure
 ```
 
-### Outcome C
-
-Its later state becomes similar to its earlier organization.
+## Outcome C — structural return
 
 ```text
 structure
@@ -588,25 +766,27 @@ damage
    ↓
 temporary disruption
    ↓
-structural recovery
+later morphology resembles prior morphology
 ```
 
 Only the third case even gives us a reason to investigate regeneration.
 
-And even then we need questions:
+And then we still have to ask:
 
 ```text
 How much damage?
 
-Recovery compared with what?
+Compared with what control?
 
-How similar is the recovered structure?
+How similar is the later structure?
 
 How long does recovery take?
 
-Does it work from different damage locations?
+Does recovery occur from different damage locations?
 
 Does it work repeatedly?
+
+Would the same morphology have returned without the perturbation?
 ```
 
 The animation gives us the hypothesis.
@@ -617,23 +797,34 @@ The experiment has to do the rest.
 
 # This book begins at the wrong end
 
-Most explanations of cellular automata begin with a cell.
+Most explanations of cellular automata begin with the machinery.
 
-Then a neighborhood.
+A cell.
 
-Then a rule.
+A neighborhood.
 
-Then perhaps Conway's Game of Life.
+A rule.
 
-Eventually, after enough machinery, they show you systems like Lenia.
+Perhaps Conway's Game of Life.
+
+Eventually, after enough explanation, they show you something like Lenia.
 
 We are going to do the opposite.
 
-We started here because this is the mystery we actually care about.
+We started with the spectacle because this is the mystery we actually care about.
 
-Something that looks disturbingly creature-like can arise from repeated local transformations over a field.
+Something disturbingly creature-like can arise from repeated local transformations over a field.
 
-Now we are going to remove almost all of it.
+Our eyes immediately invent:
+
+```text
+body
+identity
+motion
+agency
+```
+
+Now we are going to remove almost everything that made the spectacle convincing.
 
 Take away:
 
@@ -665,15 +856,39 @@ A neighborhood of three cells.
 
 One tiny deterministic rule.
 
-If the apparent complexity of systems such as Lenia depends on all their elaborate machinery, then stripping that machinery away should destroy the mystery.
+If all the mystery depends on the elaborate machinery of systems such as Lenia, then stripping that machinery away should destroy it.
 
-That's our next experiment.
+That is our next experiment.
 
-Because before we ask how close computation can get to life, we need to answer something simpler:
+Because before we ask what digital life might be, we need to answer something simpler:
 
-> **How little computation is required before unexpected organization begins to appear?**
+> **How little computation is required before our intuition starts seeing organization?**
 
 Next: **Remove Almost Everything.**
+
+---
+
+## What survived this chapter?
+
+**What we saw**
+
+Localized patterns can move, deform and persist in systems built from repeated local field updates.
+
+**What we are tempted to say**
+
+Creatures exist and move through the simulation.
+
+**What we can currently claim**
+
+Recognizable localized organization can persist while the underlying state changes.
+
+**What remains unresolved**
+
+Whether the apparent pattern deserves to be treated as an individual entity at all.
+
+**What we do next**
+
+Remove almost every mechanism that made the phenomenon look life-like.
 
 ---
 
