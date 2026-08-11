@@ -6,15 +6,15 @@ categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Cellular Automata", "Artificial Life", "Emergence"]
 +++
 
+# What Would Digital Life Mean?
+
 Suppose we wanted to build life in software.
 
 What would we actually build?
 
-Not a bird rendered on a screen.
-
-Not a creature with an animation loop.
-
-Not an AI assistant with a name, a face and a `memory` database.
+Not a bird rendered on a screen.  
+Not a creature with an animation loop.  
+Not an AI assistant with a name, a face, and a `memory` database.
 
 Something more fundamental.
 
@@ -24,7 +24,7 @@ That sounds simple until we try to define what those properties are.
 
 We might immediately reach for words such as:
 
-```text
+```
 structure
 persistence
 response
@@ -34,7 +34,7 @@ memory
 reproduction
 inheritance
 evolution
-````
+```
 
 Those words are useful.
 
@@ -92,7 +92,7 @@ That is where this book begins.
 
 ---
 
-# The cargo cult of life
+## The Cargo Cult of Life
 
 A cargo cult copies the visible form of something without reproducing the mechanism that made the original thing work.
 
@@ -100,7 +100,7 @@ Digital life has an obvious version of this problem.
 
 We can copy the vocabulary of biology:
 
-```text
+```
 cell
 organism
 energy
@@ -136,7 +136,7 @@ If we claim inheritance, something useful must pass from one continuation or suc
 
 If we claim reproduction, visual resemblance between an earlier structure and a later one is not enough. We need evidence that the earlier organization participated causally in producing the later one.
 
-And if we claim evolution, we will need to be precise about what varies, what persists, what is selected and what actually changes over time.
+And if we claim evolution, we will need to be precise about what varies, what persists, what is selected, and what actually changes over time.
 
 The goal is not to make software sound alive.
 
@@ -144,7 +144,7 @@ The goal is to discover how far the evidence takes us.
 
 ---
 
-# But there is a second trap
+## But There Is a Second Trap
 
 Avoiding biological vocabulary is not enough.
 
@@ -154,7 +154,7 @@ We could decide in advance what life must contain.
 
 For example:
 
-```text
+```
 boundary
 metabolism
 death
@@ -175,41 +175,28 @@ Why should it?
 
 Biological organisms exist under very particular constraints.
 
-They occupy physical bodies.
-
-Matter is expensive to rearrange.
-
-Copying an organism is difficult.
-
-Information transfer is limited.
-
-Bodies degrade.
-
-Individuals die.
-
-Acquired knowledge is only partially transferable.
-
+They occupy physical bodies.  
+Matter is expensive to rearrange.  
+Copying an organism is difficult.  
+Information transfer is limited.  
+Bodies degrade.  
+Individuals die.  
+Acquired knowledge is only partially transferable.  
 Lineages branch but generally do not merge.
 
 Digital systems inhabit a different substrate.
 
-Copies can be nearly free.
-
-State can be checkpointed.
-
-Processes can move between machines.
-
-Two lineages could fork and later merge.
-
-Acquired information can potentially be transferred directly.
-
-A process may be distributed across many locations.
-
+Copies can be nearly free.  
+State can be checkpointed.  
+Processes can move between machines.  
+Two lineages could fork and later merge.  
+Acquired information can potentially be transferred directly.  
+A process may be distributed across many locations.  
 A digital system might grow without reproducing at all.
 
 So this book will not begin with a checklist called:
 
-```text
+```
 REQUIREMENTS FOR LIFE
 ```
 
@@ -219,13 +206,13 @@ That is part of the experiment.
 
 ---
 
-# We are not building an animal
+## We Are Not Building an Animal
 
 For centuries, humans watched birds and tried to understand flight.
 
 Birds have:
 
-```text
+```
 feathers
 wings
 muscles
@@ -237,7 +224,7 @@ But successful aircraft did not require us to manufacture an artificial bird.
 
 The important discoveries were deeper:
 
-```text
+```
 lift
 drag
 thrust
@@ -263,21 +250,17 @@ It is:
 
 > **Discover the aerodynamics of digital life.**
 
-What mechanisms actually matter?
-
-Which properties emerge naturally?
-
-Which familiar biological constraints disappear?
-
-Which new constraints replace them?
-
+What mechanisms actually matter?  
+Which properties emerge naturally?  
+Which familiar biological constraints disappear?  
+Which new constraints replace them?  
 And which things we assume are fundamental turn out merely to be solutions biology found for living in the physical world?
 
 We should not answer those questions in advance.
 
 ---
 
-# Start with almost nothing
+## Start With Almost Nothing
 
 To investigate them, we need a world simple enough that we can see what is happening.
 
@@ -285,7 +268,7 @@ Cellular automata are almost perfect.
 
 A minimal cellular automaton can contain only:
 
-```text
+```
 state
 +
 local interaction
@@ -297,7 +280,7 @@ Imagine a row of cells.
 
 Each cell contains only:
 
-```text
+```
 0
 or
 1
@@ -307,7 +290,7 @@ At every step, every cell looks at a small neighborhood and applies the same rul
 
 For example:
 
-```text
+```
 left   centre   right
   1       0       1
 
@@ -318,17 +301,14 @@ left   centre   right
 
 Every cell performs the same operation.
 
-There is no central controller.
-
-No global planner.
-
-No stored blueprint of the final pattern.
-
+There is no central controller.  
+No global planner.  
+No stored blueprint of the final pattern.  
 No cell knows what the whole system is doing.
 
 There is only:
 
-```text
+```
 local state
 local interaction
 repetition through time
@@ -342,11 +322,11 @@ That makes them useful for a first question:
 
 ---
 
-# Complexity does not have to be stored explicitly
+## Complexity Does Not Have to Be Stored Explicitly
 
 Consider a system with:
 
-```text
+```
 201 cells
 2 possible states per cell
 1 local transition rule
@@ -354,7 +334,7 @@ Consider a system with:
 
 No cell stores:
 
-```text
+```
 triangle
 wave
 glider
@@ -369,7 +349,7 @@ Each cell sees only a tiny neighborhood.
 
 Yet repeated local interaction can produce:
 
-```text
+```
 triangles
 waves
 moving structures
@@ -388,7 +368,7 @@ It is not even necessarily interesting.
 
 ---
 
-# Surprise is cheap
+## Surprise Is Cheap
 
 A complicated-looking cellular automaton can be mesmerizing.
 
@@ -398,49 +378,46 @@ Maybe it is.
 
 Maybe it is not.
 
-Random noise can look complicated.
-
-A short-lived transient can look extraordinary just before disappearing.
-
-A periodic system can look chaotic if we observe too small a window.
-
+Random noise can look complicated.  
+A short-lived transient can look extraordinary just before disappearing.  
+A periodic system can look chaotic if we observe too small a window.  
 A pattern can resemble an organism without possessing any property beyond its geometry.
 
 Humans are extremely good at turning motion into nouns.
 
 We see:
 
-```text
+```
 a shape moved
 ```
 
 and start saying:
 
-```text
+```
 it travelled
 ```
 
 We see:
 
-```text
+```
 one shape became two
 ```
 
 and start saying:
 
-```text
+```
 it reproduced
 ```
 
 We see:
 
-```text
+```
 several structures moved together
 ```
 
 and start saying:
 
-```text
+```
 they flocked
 ```
 
@@ -454,7 +431,7 @@ So the book needs another rule.
 
 ---
 
-# Our experimental method
+## Our Experimental Method
 
 The visual system gives us hypotheses.
 
@@ -462,7 +439,7 @@ The experiment decides what survives.
 
 Our basic process will be:
 
-```text
+```
 SEE SOMETHING
 ↓
 NAME THE HYPOTHESIS
@@ -482,7 +459,7 @@ KEEP ONLY WHAT SURVIVES
 
 Or, more formally:
 
-```text
+```
 property
 ↓
 mechanism
@@ -496,6 +473,18 @@ measurement
 controlled experiment
 ↓
 bounded claim
+```
+
+```mermaid
+flowchart TD
+    A[See Something] --> B[Name the Hypothesis]
+    B --> C[Define Evidence]
+    C --> D[Measure]
+    D --> E[Build a Control]
+    E --> F[Look for Confounds]
+    F --> G[Build a Better Control]
+    G --> H[Keep Only What Survives]
+    H -.->|repeat| A
 ```
 
 The last step matters.
@@ -522,7 +511,7 @@ The strength of the claim should follow the strength of the evidence.
 
 ---
 
-# We will probably be wrong
+## We Will Probably Be Wrong
 
 This deserves to be explicit.
 
@@ -538,7 +527,7 @@ That **is** the project.
 
 A useful investigation often looks like:
 
-```text
+```
 interesting observation
 ↓
 exciting explanation
@@ -562,7 +551,7 @@ We are trying to discover which claims remain standing after we attack them.
 
 ---
 
-# What counts as a thing?
+## What Counts as a Thing?
 
 Even our nouns will have to earn their place.
 
@@ -580,18 +569,15 @@ Perhaps not.
 
 Suppose two disconnected regions participate in one continuing causal process.
 
-Are they two things?
-
+Are they two things?  
 Or one distributed thing?
 
 Suppose two structures look identical but have completely independent histories.
 
-Are they the same kind of object?
-
+Are they the same kind of object?  
 Yes.
 
-Are they the same individual?
-
+Are they the same individual?  
 Probably not.
 
 These questions will matter later.
@@ -606,7 +592,7 @@ That is something we will have to discover experimentally.
 
 ---
 
-# Persistence is not enough
+## Persistence Is Not Enough
 
 A program can persist indefinitely by doing nothing.
 
@@ -623,28 +609,20 @@ Likewise, a cellular automaton can settle into a stable configuration and remain
 
 So persistence is useful only when we ask a more precise question.
 
-What exactly persists?
-
-A geometry?
-
-A relationship?
-
-A process?
-
-A causal organization?
-
-An ability?
-
+What exactly persists?  
+A geometry?  
+A relationship?  
+A process?  
+A causal organization?  
+An ability?  
 A piece of information?
 
 And what happens when the system is disturbed?
 
 Later we will deliberately damage structures that appear persistent.
 
-Some will survive.
-
-Some will disappear.
-
+Some will survive.  
+Some will disappear.  
 Some may continue but fail to restore their previous form.
 
 Those are different properties.
@@ -653,32 +631,23 @@ We should not collapse them into one word.
 
 ---
 
-# Reproduction may not be fundamental
+## Reproduction May Not Be Fundamental
 
 Biology makes reproduction look unavoidable.
 
-Organisms die.
-
-Matter must be gathered.
-
-Bodies must be rebuilt.
-
+Organisms die.  
+Matter must be gathered.  
+Bodies must be rebuilt.  
 Lineages persist by producing new organisms.
 
 Digital systems may not face the same constraint.
 
-A process could simply continue.
-
-Or grow.
-
-Or fork.
-
-Or create a copy.
-
-Or checkpoint itself.
-
-Or merge with another process.
-
+A process could simply continue.  
+Or grow.  
+Or fork.  
+Or create a copy.  
+Or checkpoint itself.  
+Or merge with another process.  
 Or transfer its acquired state directly.
 
 So when we later investigate reproduction, we should not assume:
@@ -689,15 +658,14 @@ A better question is:
 
 > **Under what computational conditions does reproduction become useful or necessary?**
 
-Perhaps reproduction is fundamental to digital life.
-
+Perhaps reproduction is fundamental to digital life.  
 Perhaps it is merely one possible strategy.
 
 We do not know yet.
 
 ---
 
-# The same is true of evolution
+## The Same Is True of Evolution
 
 Evolution is one of the most powerful mechanisms known in biology.
 
@@ -707,7 +675,7 @@ Digital systems may be able to do things biological organisms generally cannot.
 
 A successor might inherit:
 
-```text
+```
 acquired knowledge
 learned parameters
 search history
@@ -717,13 +685,10 @@ code modifications
 
 directly.
 
-Two branches might exchange what they learned.
-
-Several lineages might merge.
-
-Variation might be deliberate rather than random.
-
-Selection might be external, internal or unnecessary.
+Two branches might exchange what they learned.  
+Several lineages might merge.  
+Variation might be deliberate rather than random.  
+Selection might be external, internal, or unnecessary.
 
 So when we eventually investigate evolution, we will not assume that copying biological evolution is the only route to cumulative change.
 
@@ -737,7 +702,7 @@ Digital systems may have others.
 
 ---
 
-# Why begin with cellular automata?
+## Why Begin With Cellular Automata?
 
 Because cellular automata remove excuses.
 
@@ -747,7 +712,7 @@ With a small automaton, we know the ingredients.
 
 For an elementary cellular automaton:
 
-```text
+```
 one-dimensional grid
 binary state
 radius-1 neighborhood
@@ -759,7 +724,7 @@ That is almost the entire system.
 
 We can:
 
-```text
+```
 inspect every state
 replay every step
 change one bit
@@ -776,13 +741,13 @@ They are useful because they are **experimental microscopes for emergence**.
 
 ---
 
-# The first experiment
+## The First Experiment
 
 We will begin with one of the smallest possible worlds.
 
 A line of binary cells:
 
-```text
+```
 00000000001000000000
 ```
 
@@ -790,7 +755,7 @@ One active cell sits in the centre.
 
 Every cell looks at:
 
-```text
+```
 left
 centre
 right
@@ -800,7 +765,7 @@ and uses the same transition rule.
 
 Conceptually:
 
-```text
+```
 current generation
         ↓
 local neighborhoods
@@ -814,7 +779,7 @@ Repeat this process.
 
 Stack the generations vertically:
 
-```text
+```
 generation 0
 generation 1
 generation 2
@@ -834,7 +799,7 @@ That will be our first surprise.
 
 ---
 
-# What we will not do
+## What We Will Not Do
 
 Throughout this book we will resist shortcuts.
 
@@ -860,7 +825,7 @@ We will not say:
 
 Instead we will ask:
 
-```text
+```
 Compared with what?
 
 Measured how?
@@ -882,11 +847,11 @@ Those questions matter more than the terminology.
 
 ---
 
-# The book will not climb a biological ladder
+## The Book Will Not Climb a Biological Ladder
 
 We will encounter many familiar properties:
 
-```text
+```
 structure
 persistence
 identity
@@ -900,7 +865,7 @@ evolution
 
 But they should not be read as:
 
-```text
+```
 LEVEL 1
 ↓
 LEVEL 2
@@ -912,12 +877,9 @@ ALIVE
 
 They are experimental questions.
 
-Some may turn out to be deeply important.
-
-Some may turn out to be consequences of biological constraints.
-
-Some may have completely different digital equivalents.
-
+Some may turn out to be deeply important.  
+Some may turn out to be consequences of biological constraints.  
+Some may have completely different digital equivalents.  
 And some may disappear from our final picture of digital life entirely.
 
 The order in which we study them is a way to learn.
@@ -926,7 +888,7 @@ It is not a definition.
 
 ---
 
-# The real question
+## The Real Question
 
 At the end of this book, we may still refuse to say that anything we built is alive.
 
@@ -934,7 +896,7 @@ That would be a perfectly acceptable result.
 
 What matters is whether we can say things such as:
 
-```text
+```
 this structure persists under these conditions
 
 this pattern fails under this perturbation
@@ -966,6 +928,8 @@ But:
 
 That is the experiment.
 
+---
+
 In the next chapter we are going to do something slightly perverse.
 
 Before building the smallest system in the book, we are going to look at some of the most spectacular artificial-life systems we can find.
@@ -973,35 +937,3 @@ Before building the smallest system in the book, we are going to look at some of
 We will let ourselves be impressed.
 
 And then we will start taking things away.
-
-````
-
-## Why I think this version is stronger
-
-The biggest changes are deliberate:
-
-- I **removed the long biological “progress ladder”** as the implied architecture of life.
-- I pulled the **substrate-first argument into Chapter 00** rather than waiting until much later.
-- I introduced the eventual revelation that **geometric boundaries may not define digital individuals**.
-- I weakened reproduction and evolution from “destinations” into **hypotheses/mechanisms we will investigate**.
-- I made the experimental loop explicit from the start, including the fact that **our own controls can be wrong**.
-- I changed the ending so Chapter 01’s spectacle-first opening becomes intentional: **look at something astonishing, then strip it down**.
-
-And importantly, I would **not** introduce the full bird/aircraft historical argument here. I gave it only enough space to establish the thesis. The full version belongs in the later pivot chapter, where “Don’t Build an Animal” can land much harder.
-
-This now gives us a much better Chapter 00 → Chapter 01 handoff:
-
-```text
-00
-We don't know what digital life requires.
-Evidence must decide.
-
-↓  
-
-01
-Now look at something that seems spectacularly alive.
-
-↓
-
-02
-Remove almost everything.

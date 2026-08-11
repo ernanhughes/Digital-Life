@@ -7,6 +7,8 @@ categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Artificial Life", "Lenia", "Flow-Lenia", "Cellular Automata", "Emergence"]
 +++
 
+# Look at This Thing
+
 Don't read anything yet.
 
 Watch this.
@@ -27,12 +29,9 @@ Its shape changes as it travels, yet some larger organization survives those cha
 
 If you watched it without context, you could easily reach for biological language.
 
-A cell.
-
-A creature.
-
-An organism.
-
+A cell.  
+A creature.  
+An organism.  
 Perhaps even an animal.
 
 That reaction is useful.
@@ -41,7 +40,7 @@ But don't trust it.
 
 ---
 
-# Your brain has already invented an object
+## Your Brain Has Already Invented an Object
 
 Before we know anything about the mechanism, we have probably done something like this:
 
@@ -55,7 +54,15 @@ moving persistent pattern
 thing
 ↓
 creature
-````
+```
+
+```mermaid
+flowchart LR
+    A[Pattern] --> B[Persistent Pattern]
+    B --> C[Moving Persistent Pattern]
+    C --> D[Thing]
+    D --> E[Creature]
+```
 
 Notice how quickly that happened.
 
@@ -85,7 +92,7 @@ The first question is smaller:
 
 ---
 
-# What exactly are you looking at?
+## What Exactly Are You Looking At?
 
 There is no little creature hidden inside the simulation.
 
@@ -99,10 +106,8 @@ creature.keep_shape()
 
 There is no animation path specifying where it should travel.
 
-No skeleton.
-
-No muscles.
-
+No skeleton.  
+No muscles.  
 No controller deciding:
 
 ```text
@@ -124,10 +129,8 @@ local response
 next field
 ```
 
-Again.
-
-And again.
-
+Again.  
+And again.  
 And again.
 
 The thing you perceive as an object is an **ongoing organization in that process**.
@@ -136,7 +139,7 @@ That distinction will matter throughout this book.
 
 ---
 
-# Meet Lenia
+## Meet Lenia
 
 The family of systems we are looking at is called **Lenia**.
 
@@ -164,16 +167,11 @@ For now, call them:
 
 That gives us something we can investigate without deciding what they are.
 
-They occupy regions of space.
-
-They change.
-
-Some persist.
-
-Some move.
-
-Some deform.
-
+They occupy regions of space.  
+They change.  
+Some persist.  
+Some move.  
+Some deform.  
 Some disappear.
 
 Those are observations.
@@ -182,7 +180,7 @@ Those are observations.
 
 ---
 
-# There is no creature variable
+## There Is No Creature Variable
 
 Consider what is not represented explicitly.
 
@@ -231,9 +229,8 @@ That gives us an important possibility:
 
 > **An apparent entity may persist as organization rather than as a fixed collection of material.**
 
-Notice the wording.
-
-May.
+Notice the wording.  
+*May.*
 
 We have not yet earned:
 
@@ -245,7 +242,7 @@ But we have found a question worth pursuing.
 
 ---
 
-# What is actually moving?
+## What Is Actually Moving?
 
 Look again at the animation.
 
@@ -285,8 +282,7 @@ the underlying description is closer to:
 
 Those descriptions refer to the same visual event at different levels.
 
-One is intuitive.
-
+One is intuitive.  
 One is operational.
 
 We will need both.
@@ -295,7 +291,7 @@ But we must know when we have crossed from one into the other.
 
 ---
 
-# Is a wave a thing?
+## Is a Wave a Thing?
 
 This problem is not unique to artificial life.
 
@@ -331,14 +327,12 @@ The mistake would be deciding from the animation alone.
 
 ---
 
-# The most dangerous word may be "it"
+## The Most Dangerous Word May Be "It"
 
 Look at the sentences we have already used:
 
-> It moved.
-
-> It changed shape.
-
+> It moved.  
+> It changed shape.  
 > It persisted.
 
 The word **it** is doing a lot of work.
@@ -377,17 +371,15 @@ It is not enough to settle it.
 
 Later in this book we will discover why this matters.
 
-A connected shape may not always be the right boundary of a digital individual.
-
-Several disconnected structures may participate in one causal process.
-
+A connected shape may not always be the right boundary of a digital individual.  
+Several disconnected structures may participate in one causal process.  
 Two identical-looking structures may have completely different histories.
 
 So our first intuition about "the thing" is deliberately provisional.
 
 ---
 
-# It gets more convincing
+## It Gets More Convincing
 
 Lenia was only the beginning.
 
@@ -447,7 +439,7 @@ Artificial life becomes much more interesting once we stop pretending those are 
 
 ---
 
-# Then came Flow-Lenia
+## Then Came Flow-Lenia
 
 Lenia also raises another issue.
 
@@ -491,7 +483,7 @@ That gives us a useful example of how **one constraint can change the questions 
 
 ---
 
-# Follow the material
+## Follow the Material
 
 Imagine this toy field:
 
@@ -559,7 +551,7 @@ That is useful.
 
 ---
 
-# But conservation is not life either
+## But Conservation Is Not Life Either
 
 This is important.
 
@@ -573,10 +565,8 @@ We do not add a biological-looking mechanism and then declare victory.
 
 Mass conservation is interesting because it imposes a measurable constraint.
 
-It may change what kinds of stable structures can exist.
-
-It may change how interactions work.
-
+It may change what kinds of stable structures can exist.  
+It may change how interactions work.  
 It may make some interpretations easier to test.
 
 But:
@@ -597,7 +587,7 @@ Not awarding biological labels.
 
 ---
 
-# There is still no creature
+## There Is Still No Creature
 
 Even in Flow-Lenia, we do not begin with:
 
@@ -635,6 +625,15 @@ localized organization appears
 we decide whether "object" is a useful description
 ```
 
+```mermaid
+flowchart TD
+    A[Programmer Defines Local Dynamics] --> B[Dynamics Unfold]
+    B --> C[Localized Organization Appears]
+    C --> D{Is "Object" Useful?}
+    D -- Yes --> E[Treat as Object]
+    D -- No --> F[Keep as Distributed Process]
+```
+
 That reversal is one of the reasons artificial life is so compelling.
 
 And so dangerous.
@@ -643,7 +642,7 @@ Because the object appears to us before we know whether our object boundary mean
 
 ---
 
-# Don't fall in love with the animation
+## Don't Fall in Love With the Animation
 
 Humans are extremely willing to see agency.
 
@@ -677,7 +676,7 @@ A beautiful animation can produce a terrible scientific argument.
 
 So throughout this book we will keep two descriptions side by side.
 
-## The tempting description
+### The Tempting Description
 
 ```text
 It moves.
@@ -693,7 +692,7 @@ It reproduces.
 It flocks.
 ```
 
-## The operational description
+### The Operational Description
 
 ```text
 Its centroid changes.
@@ -717,7 +716,7 @@ Neither should silently replace the other.
 
 ---
 
-# Try to kill the interpretation
+## Try to Kill the Interpretation
 
 Suppose the animation appears to show healing.
 
@@ -735,7 +734,7 @@ Damage it.
 
 Several things could happen.
 
-## Outcome A — collapse
+### Outcome A — Collapse
 
 ```text
 structure
@@ -745,7 +744,7 @@ damage
 disintegration
 ```
 
-## Outcome B — persistence without recovery
+### Outcome B — Persistence Without Recovery
 
 ```text
 structure
@@ -755,7 +754,7 @@ damage
 altered persistent structure
 ```
 
-## Outcome C — structural return
+### Outcome C — Structural Return
 
 ```text
 structure
@@ -765,6 +764,15 @@ damage
 temporary disruption
    ↓
 later morphology resembles prior morphology
+```
+
+```mermaid
+flowchart TD
+    Start[Structure] --> Damage
+    Damage --> A[Disintegration]
+    Damage --> B[Altered Persistent Structure]
+    Damage --> C[Temporary Disruption]
+    C --> C1[Later Morphology Resembles Prior]
 ```
 
 Only the third case even gives us a reason to investigate regeneration.
@@ -793,16 +801,13 @@ The experiment has to do the rest.
 
 ---
 
-# This book begins at the wrong end
+## This Book Begins at the Wrong End
 
 Most explanations of cellular automata begin with the machinery.
 
-A cell.
-
-A neighborhood.
-
-A rule.
-
+A cell.  
+A neighborhood.  
+A rule.  
 Perhaps Conway's Game of Life.
 
 Eventually, after enough explanation, they show you something like Lenia.
@@ -844,14 +849,10 @@ Our target is this:
 000000000010000000000
 ```
 
-One line.
-
-Two possible states.
-
-One active cell.
-
-A neighborhood of three cells.
-
+One line.  
+Two possible states.  
+One active cell.  
+A neighborhood of three cells.  
 One tiny deterministic rule.
 
 If all the mystery depends on the elaborate machinery of systems such as Lenia, then stripping that machinery away should destroy it.

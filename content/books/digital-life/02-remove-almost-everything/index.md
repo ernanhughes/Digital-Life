@@ -7,18 +7,15 @@ categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Cellular Automata", "Elementary Cellular Automata", "Emergence", "Python"]
 +++
 
+# Remove Almost Everything
+
 In the previous chapter we started with something complicated.
 
-A continuous field.
-
-Smooth local interactions.
-
-Localized structures.
-
-Motion.
-
-Deformation.
-
+A continuous field.  
+Smooth local interactions.  
+Localized structures.  
+Motion.  
+Deformation.  
 Patterns that looked disturbingly creature-like.
 
 That was useful because it gave us a mystery.
@@ -53,13 +50,23 @@ growth response
 multiple parameters
 +
 repeated updates
-````
+```
 
 Now remove things.
 
+```mermaid
+flowchart LR
+    A[Continuous State] --> B[Binary State: 0 or 1]
+    C[2D World] --> D[1D Line]
+    E[Large Neighborhood] --> F[3-Cell Neighborhood]
+    G[Smooth Response] --> H[8-bit Lookup Table]
+    I[Multiple Parameters] --> J[Single Rule Number]
+    K[Complex Initial State] --> L[Single Active Cell]
+```
+
 ---
 
-# Remove continuous state
+## Remove Continuous State
 
 Lenia allows locations to contain values such as:
 
@@ -102,13 +109,12 @@ For now:
 
 is enough.
 
-The state tells us what a location contains.
-
+The state tells us what a location contains.  
 Nothing more.
 
 ---
 
-# Remove a dimension
+## Remove a Dimension
 
 The systems we just looked at lived in a two-dimensional field.
 
@@ -149,7 +155,7 @@ We have removed most of the geometry that made the previous chapter feel organis
 
 ---
 
-# Remove the large neighborhood
+## Remove the Large Neighborhood
 
 Now reduce what each cell is allowed to see.
 
@@ -196,7 +202,7 @@ If large-scale structure appears, no individual cell can contain a complete desc
 
 ---
 
-# Remove the complicated response
+## Remove the Complicated Response
 
 Lenia uses a smooth response to a weighted neighborhood field.
 
@@ -234,19 +240,16 @@ For example:
 
 That is the entire local law.
 
-No neural network.
-
-No optimizer.
-
-No hidden state.
-
+No neural network.  
+No optimizer.  
+No hidden state.  
 No biological mechanism.
 
 Eight answers.
 
 ---
 
-# Eight bits define the local universe
+## Eight Bits Define the Local Universe
 
 Write those outputs in order:
 
@@ -282,7 +285,7 @@ That is nearly everything.
 
 ---
 
-# Build it
+## Build It
 
 Here is the complete update step:
 
@@ -335,7 +338,7 @@ really is enough to encode the full transition law.
 
 ---
 
-# Start with almost nothing
+## Start With Almost Nothing
 
 Now create a world:
 
@@ -355,20 +358,13 @@ One active cell.
 
 Everything else is zero.
 
-No random noise.
-
-No environment.
-
-No population.
-
-No agent.
-
-No organism.
-
-No memory.
-
-No objective.
-
+No random noise.  
+No environment.  
+No population.  
+No agent.  
+No organism.  
+No memory.  
+No objective.  
 No fitness.
 
 Just:
@@ -381,7 +377,7 @@ in an otherwise empty world.
 
 ---
 
-# Let time begin
+## Let Time Begin
 
 Now repeat the rule:
 
@@ -408,19 +404,16 @@ Then structure appears.
 
 This is a **spacetime diagram**.
 
-Horizontal position is space.
-
-Vertical position is time.
-
+Horizontal position is space.  
+Vertical position is time.  
 Each row is the entire world at one moment.
 
-The image is not a picture of a two-dimensional object.
-
+The image is not a picture of a two-dimensional object.  
 It is a picture of history.
 
 ---
 
-# Nothing is moving downward
+## Nothing Is Moving Downward
 
 This sounds obvious, but it matters.
 
@@ -457,7 +450,7 @@ We should never confuse those two levels.
 
 ---
 
-# The update is simultaneous
+## The Update Is Simultaneous
 
 Every cell at:
 
@@ -501,13 +494,12 @@ It also includes:
 update semantics
 ```
 
-We are using synchronous updates.
-
+We are using synchronous updates.  
 Every location sees the same moment of history.
 
 ---
 
-# What happens at the edges?
+## What Happens at the Edges?
 
 This implementation contains:
 
@@ -554,13 +546,12 @@ we should really mean something closer to:
 
 > Rule X, under this initial condition, boundary condition, world size and update process, produced Y.
 
-The observed behavior belongs to the whole experiment.
-
+The observed behavior belongs to the whole experiment.  
 Not merely to the rule number.
 
 ---
 
-# Where is the pattern stored?
+## Where Is the Pattern Stored?
 
 Look at one cell.
 
@@ -601,12 +592,9 @@ many generations
 
 So where is that structure?
 
-Not in a single cell.
-
-Not in a dedicated object.
-
-Not in a controller.
-
+Not in a single cell.  
+Not in a dedicated object.  
+Not in a controller.  
 Not as an explicit blueprint inside Rule 22.
 
 The structure exists in:
@@ -621,7 +609,7 @@ We can point to exactly where the information is and is not represented.
 
 ---
 
-# Rule is not behavior
+## Rule Is Not Behavior
 
 This distinction is going to matter throughout the book.
 
@@ -637,8 +625,7 @@ and:
 STATE
 ```
 
-The rule describes local transformation.
-
+The rule describes local transformation.  
 The state describes the current world.
 
 The same rule:
@@ -704,7 +691,7 @@ This will save us from many bad claims later.
 
 ---
 
-# Tiny local space, enormous global space
+## Tiny Local Space, Enormous Global Space
 
 Each local neighborhood has only:
 
@@ -756,12 +743,11 @@ The rule can be trivial to inspect while its long-run consequences are difficult
 
 ---
 
-# There are only 256 elementary rules
+## There Are Only 256 Elementary Rules
 
 The local-rule universe is tiny.
 
-Eight neighborhoods.
-
+Eight neighborhoods.  
 Two possible outputs for each.
 
 Therefore:
@@ -798,15 +784,14 @@ while:
 the resulting global trajectories can still be surprising
 ```
 
-We do not have to sample the rule space.
-
+We do not have to sample the rule space.  
 We can eventually test every rule.
 
 That gives us something close to a complete experimental laboratory.
 
 ---
 
-# What did we actually remove?
+## What Did We Actually Remove?
 
 Compare Chapter 01.
 
@@ -856,7 +841,7 @@ They let us ask a cleaner question than Lenia allowed:
 
 ---
 
-# But do not say "emergence" yet
+## But Do Not Say "Emergence" Yet
 
 Look at the Rule 22 image again.
 
@@ -891,8 +876,7 @@ causal organization
 adaptation
 ```
 
-The spacetime diagram gives us another observation.
-
+The spacetime diagram gives us another observation.  
 It does not yet give us a theory.
 
 So the next move is the same one we established in Chapter 00:
@@ -909,7 +893,7 @@ COMPARE
 
 ---
 
-# Change one number
+## Change One Number
 
 Our implementation currently says:
 
@@ -925,14 +909,10 @@ rule=30
 
 Nothing else changes.
 
-Same code.
-
-Same world size.
-
-Same initial condition.
-
-Same boundary condition.
-
+Same code.  
+Same world size.  
+Same initial condition.  
+Same boundary condition.  
 Same update semantics.
 
 Only the eight-bit transition table changes.
@@ -943,18 +923,15 @@ Run it again.
 
 The result changes dramatically.
 
-The machine is still tiny.
-
-The mechanism is still deterministic.
-
+The machine is still tiny.  
+The mechanism is still deterministic.  
 The rule is still only eight bits.
 
 But now the trajectory becomes much harder to dismiss as simple repetition.
 
 This is exactly what we wanted from the reduction.
 
-We removed almost everything.
-
+We removed almost everything.  
 The mystery survived.
 
 Next:
