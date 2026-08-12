@@ -1,0 +1,575 @@
+{
+  "endpoint": 20,
+  "calibration_reps": 40,
+  "permutations_per_test": 100,
+  "candidate_instruments": [
+    "energy_distance",
+    "paired_mean_l2",
+    "paired_max_abs_mean",
+    "paired_ridge_hotelling"
+  ],
+  "effect_families": [
+    "single_feature",
+    "sparse_three",
+    "dense_pc1"
+  ],
+  "strengths_are_standardized_multivariate_shift_norms": true,
+  "selection_thresholds": {
+    "max_null_fpr": 0.1,
+    "target_shift_norm": 1.0,
+    "min_power_at_target": 0.8
+  },
+  "instruments": {
+    "energy_distance": {
+      "families": {
+        "single_feature": {
+          "description": "single feature: cov_anisotropy",
+          "feature_indices": [
+            7
+          ],
+          "results": [
+            {
+              "shift_norm": 0.0,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            },
+            {
+              "shift_norm": 0.25,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            },
+            {
+              "shift_norm": 0.5,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            },
+            {
+              "shift_norm": 0.75,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            },
+            {
+              "shift_norm": 1.0,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            },
+            {
+              "shift_norm": 1.5,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            },
+            {
+              "shift_norm": 2.0,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            }
+          ]
+        },
+        "sparse_three": {
+          "description": "equal standardized shift across top-variance features",
+          "feature_indices": [
+            7,
+            19,
+            1
+          ],
+          "results": [
+            {
+              "shift_norm": 0.0,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            },
+            {
+              "shift_norm": 0.25,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            },
+            {
+              "shift_norm": 0.5,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            },
+            {
+              "shift_norm": 0.75,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            },
+            {
+              "shift_norm": 1.0,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            },
+            {
+              "shift_norm": 1.5,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            },
+            {
+              "shift_norm": 2.0,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            }
+          ]
+        },
+        "dense_pc1": {
+          "description": "leading principal direction of standardized baseline features",
+          "feature_indices": null,
+          "results": [
+            {
+              "shift_norm": 0.0,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            },
+            {
+              "shift_norm": 0.25,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            },
+            {
+              "shift_norm": 0.5,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            },
+            {
+              "shift_norm": 0.75,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.010148514851485154
+            },
+            {
+              "shift_norm": 1.0,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            },
+            {
+              "shift_norm": 1.5,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            },
+            {
+              "shift_norm": 2.0,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            }
+          ]
+        }
+      },
+      "worst_null_fpr": 1.0,
+      "worst_target_power": 1.0,
+      "mean_target_power": 1.0,
+      "eligible": false
+    },
+    "paired_mean_l2": {
+      "families": {
+        "single_feature": {
+          "description": "single feature: cov_anisotropy",
+          "feature_indices": [
+            7
+          ],
+          "results": [
+            {
+              "shift_norm": 0.0,
+              "detection_rate_alpha_0_05": 0.575,
+              "mean_p_value": 0.06237623762376241
+            },
+            {
+              "shift_norm": 0.25,
+              "detection_rate_alpha_0_05": 0.625,
+              "mean_p_value": 0.05569306930693071
+            },
+            {
+              "shift_norm": 0.5,
+              "detection_rate_alpha_0_05": 0.65,
+              "mean_p_value": 0.053712871287128726
+            },
+            {
+              "shift_norm": 0.75,
+              "detection_rate_alpha_0_05": 0.85,
+              "mean_p_value": 0.041089108910891105
+            },
+            {
+              "shift_norm": 1.0,
+              "detection_rate_alpha_0_05": 0.9,
+              "mean_p_value": 0.029702970297029712
+            },
+            {
+              "shift_norm": 1.5,
+              "detection_rate_alpha_0_05": 0.95,
+              "mean_p_value": 0.01806930693069308
+            },
+            {
+              "shift_norm": 2.0,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.011633663366336639
+            }
+          ]
+        },
+        "sparse_three": {
+          "description": "equal standardized shift across top-variance features",
+          "feature_indices": [
+            7,
+            19,
+            1
+          ],
+          "results": [
+            {
+              "shift_norm": 0.0,
+              "detection_rate_alpha_0_05": 0.6,
+              "mean_p_value": 0.06460396039603963
+            },
+            {
+              "shift_norm": 0.25,
+              "detection_rate_alpha_0_05": 0.6,
+              "mean_p_value": 0.05792079207920795
+            },
+            {
+              "shift_norm": 0.5,
+              "detection_rate_alpha_0_05": 0.8,
+              "mean_p_value": 0.0415841584158416
+            },
+            {
+              "shift_norm": 0.75,
+              "detection_rate_alpha_0_05": 0.925,
+              "mean_p_value": 0.024504950495049516
+            },
+            {
+              "shift_norm": 1.0,
+              "detection_rate_alpha_0_05": 0.925,
+              "mean_p_value": 0.017574257425742583
+            },
+            {
+              "shift_norm": 1.5,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.01163366336633664
+            },
+            {
+              "shift_norm": 2.0,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            }
+          ]
+        },
+        "dense_pc1": {
+          "description": "leading principal direction of standardized baseline features",
+          "feature_indices": null,
+          "results": [
+            {
+              "shift_norm": 0.0,
+              "detection_rate_alpha_0_05": 0.55,
+              "mean_p_value": 0.06831683168316835
+            },
+            {
+              "shift_norm": 0.25,
+              "detection_rate_alpha_0_05": 0.55,
+              "mean_p_value": 0.05148514851485151
+            },
+            {
+              "shift_norm": 0.5,
+              "detection_rate_alpha_0_05": 0.725,
+              "mean_p_value": 0.03465346534653467
+            },
+            {
+              "shift_norm": 0.75,
+              "detection_rate_alpha_0_05": 0.975,
+              "mean_p_value": 0.02425742574257427
+            },
+            {
+              "shift_norm": 1.0,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.013366336633663373
+            },
+            {
+              "shift_norm": 1.5,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.010396039603960402
+            },
+            {
+              "shift_norm": 2.0,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            }
+          ]
+        }
+      },
+      "worst_null_fpr": 0.6,
+      "worst_target_power": 0.9,
+      "mean_target_power": 0.9416666666666668,
+      "eligible": false
+    },
+    "paired_max_abs_mean": {
+      "families": {
+        "single_feature": {
+          "description": "single feature: cov_anisotropy",
+          "feature_indices": [
+            7
+          ],
+          "results": [
+            {
+              "shift_norm": 0.0,
+              "detection_rate_alpha_0_05": 0.325,
+              "mean_p_value": 0.1487623762376238
+            },
+            {
+              "shift_norm": 0.25,
+              "detection_rate_alpha_0_05": 0.275,
+              "mean_p_value": 0.14628712871287133
+            },
+            {
+              "shift_norm": 0.5,
+              "detection_rate_alpha_0_05": 0.375,
+              "mean_p_value": 0.12054455445544558
+            },
+            {
+              "shift_norm": 0.75,
+              "detection_rate_alpha_0_05": 0.55,
+              "mean_p_value": 0.09282178217821786
+            },
+            {
+              "shift_norm": 1.0,
+              "detection_rate_alpha_0_05": 0.675,
+              "mean_p_value": 0.05544554455445546
+            },
+            {
+              "shift_norm": 1.5,
+              "detection_rate_alpha_0_05": 0.925,
+              "mean_p_value": 0.019059405940594066
+            },
+            {
+              "shift_norm": 2.0,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            }
+          ]
+        },
+        "sparse_three": {
+          "description": "equal standardized shift across top-variance features",
+          "feature_indices": [
+            7,
+            19,
+            1
+          ],
+          "results": [
+            {
+              "shift_norm": 0.0,
+              "detection_rate_alpha_0_05": 0.3,
+              "mean_p_value": 0.15049504950495055
+            },
+            {
+              "shift_norm": 0.25,
+              "detection_rate_alpha_0_05": 0.325,
+              "mean_p_value": 0.1398514851485149
+            },
+            {
+              "shift_norm": 0.5,
+              "detection_rate_alpha_0_05": 0.375,
+              "mean_p_value": 0.1076732673267327
+            },
+            {
+              "shift_norm": 0.75,
+              "detection_rate_alpha_0_05": 0.675,
+              "mean_p_value": 0.06559405940594062
+            },
+            {
+              "shift_norm": 1.0,
+              "detection_rate_alpha_0_05": 0.85,
+              "mean_p_value": 0.029455445544554464
+            },
+            {
+              "shift_norm": 1.5,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.011138613861386145
+            },
+            {
+              "shift_norm": 2.0,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            }
+          ]
+        },
+        "dense_pc1": {
+          "description": "leading principal direction of standardized baseline features",
+          "feature_indices": null,
+          "results": [
+            {
+              "shift_norm": 0.0,
+              "detection_rate_alpha_0_05": 0.3,
+              "mean_p_value": 0.16138613861386145
+            },
+            {
+              "shift_norm": 0.25,
+              "detection_rate_alpha_0_05": 0.375,
+              "mean_p_value": 0.13217821782178224
+            },
+            {
+              "shift_norm": 0.5,
+              "detection_rate_alpha_0_05": 0.425,
+              "mean_p_value": 0.10495049504950496
+            },
+            {
+              "shift_norm": 0.75,
+              "detection_rate_alpha_0_05": 0.45,
+              "mean_p_value": 0.09331683168316834
+            },
+            {
+              "shift_norm": 1.0,
+              "detection_rate_alpha_0_05": 0.575,
+              "mean_p_value": 0.07178217821782182
+            },
+            {
+              "shift_norm": 1.5,
+              "detection_rate_alpha_0_05": 0.75,
+              "mean_p_value": 0.04084158415841585
+            },
+            {
+              "shift_norm": 2.0,
+              "detection_rate_alpha_0_05": 0.925,
+              "mean_p_value": 0.021287128712871296
+            }
+          ]
+        }
+      },
+      "worst_null_fpr": 0.325,
+      "worst_target_power": 0.575,
+      "mean_target_power": 0.6999999999999998,
+      "eligible": false
+    },
+    "paired_ridge_hotelling": {
+      "families": {
+        "single_feature": {
+          "description": "single feature: cov_anisotropy",
+          "feature_indices": [
+            7
+          ],
+          "results": [
+            {
+              "shift_norm": 0.0,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.014108910891089116
+            },
+            {
+              "shift_norm": 0.25,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.012871287128712874
+            },
+            {
+              "shift_norm": 0.5,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.01064356435643565
+            },
+            {
+              "shift_norm": 0.75,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.01064356435643565
+            },
+            {
+              "shift_norm": 1.0,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.01163366336633664
+            },
+            {
+              "shift_norm": 1.5,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            },
+            {
+              "shift_norm": 2.0,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            }
+          ]
+        },
+        "sparse_three": {
+          "description": "equal standardized shift across top-variance features",
+          "feature_indices": [
+            7,
+            19,
+            1
+          ],
+          "results": [
+            {
+              "shift_norm": 0.0,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.01361386138613862
+            },
+            {
+              "shift_norm": 0.25,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.011881188118811887
+            },
+            {
+              "shift_norm": 0.5,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.01163366336633664
+            },
+            {
+              "shift_norm": 0.75,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.010148514851485154
+            },
+            {
+              "shift_norm": 1.0,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.010148514851485154
+            },
+            {
+              "shift_norm": 1.5,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            },
+            {
+              "shift_norm": 2.0,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            }
+          ]
+        },
+        "dense_pc1": {
+          "description": "leading principal direction of standardized baseline features",
+          "feature_indices": null,
+          "results": [
+            {
+              "shift_norm": 0.0,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.013366336633663373
+            },
+            {
+              "shift_norm": 0.25,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.012376237623762382
+            },
+            {
+              "shift_norm": 0.5,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.012871287128712878
+            },
+            {
+              "shift_norm": 0.75,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.011881188118811887
+            },
+            {
+              "shift_norm": 1.0,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.010396039603960402
+            },
+            {
+              "shift_norm": 1.5,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            },
+            {
+              "shift_norm": 2.0,
+              "detection_rate_alpha_0_05": 1.0,
+              "mean_p_value": 0.009900990099009906
+            }
+          ]
+        }
+      },
+      "worst_null_fpr": 1.0,
+      "worst_target_power": 1.0,
+      "mean_target_power": 1.0,
+      "eligible": false
+    }
+  },
+  "selected_instrument": null,
+  "measurement_ready": false,
+  "selection_note": "Instrument selection uses only synthetic calibration. Real matched-arrangement p-values from Stage 3 are not used to choose the winner."
+}

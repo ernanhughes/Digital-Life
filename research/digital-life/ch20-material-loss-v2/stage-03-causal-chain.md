@@ -1,0 +1,22 @@
+# Stage 3 — Trace Loss to Frontier to Reoccupation
+
+```json
+{
+  "mechanism_chain": {
+    "surface": {
+      "new_frontier_sites_per_loss": 0.9952131148647402,
+      "reoccupation_per_loss": 0.9363695679658072,
+      "lost_site_reoccupied_fraction": 0.9363924617160245,
+      "late_holes": 3.2000000000000006
+    },
+    "interior": {
+      "new_frontier_sites_per_loss": 1.0,
+      "reoccupation_per_loss": 0.9561405127844184,
+      "lost_site_reoccupied_fraction": 0.9566387868384768,
+      "late_holes": 37.606249999999996
+    }
+  },
+  "bounded_interpretation": "This stage is descriptive. It checks whether equal-count interior loss creates more new frontier and more subsequent reoccupation than equal-count surface loss. It does not label reoccupation as repair.",
+  "status": "MEASURED"
+}
+```

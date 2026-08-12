@@ -1,0 +1,45 @@
+# Stage 0 — Freeze the Scarcity Question
+
+```json
+{
+  "role": "FINITE CONSTRUCTION-EVALUATION BUDGET",
+  "chapter_20_bridge": "Chapter 20 measured rapid reoccupation under effectively unlimited frontier evaluation. Chapter 21 limits how many frontier candidates can receive an attachment evaluation.",
+  "new_constraint": "At most B frontier candidates are evaluated for attachment per update.",
+  "loss_rate": 0.08,
+  "primary_budget": 256,
+  "primary_policies": [
+    "high_support",
+    "low_support"
+  ],
+  "policy_information_boundary": "Policies use only current occupied-neighbour count plus keyed scheduling noise. They do not know occupancy history or whether a candidate is a reoccupation site.",
+  "primary_tradeoff_requirements": {
+    "high_support_reoccupation_per_loss_advantage_min": 0.15,
+    "low_support_first_occupations_per_1000_evals_advantage_min": 100.0,
+    "alpha": 0.05,
+    "both_required": true
+  },
+  "secondary_budget_sweep": [
+    64,
+    128,
+    256,
+    512,
+    1024,
+    2048,
+    "unlimited"
+  ],
+  "new_sentence_if_primary_succeeds": "With computational opportunity held fixed, local scheduling changes the tradeoff between reusing lost material and occupying new sites.",
+  "forbidden_overclaims": [
+    "maintenance",
+    "homeostasis",
+    "metabolism",
+    "energy",
+    "repair",
+    "adaptation",
+    "agency",
+    "choice",
+    "organism",
+    "life"
+  ],
+  "status": "MEASURED"
+}
+```

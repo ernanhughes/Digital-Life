@@ -1,0 +1,41 @@
+{
+  "hypothesis": "Persistent labels become causally inert when growth moves beyond them and current frontier cells no longer contact modified material.",
+  "probe_summary": [
+    {
+      "probe": 5,
+      "mean_frontier_contact_count": 16.6875,
+      "mean_frontier_exposed_fraction": 0.15183491971224217,
+      "mean_post_ablation_symdiff": 0.002984307758185673,
+      "ablation_p_value": 0.014985014985014986,
+      "causal_effect_detected": true
+    },
+    {
+      "probe": 7,
+      "mean_frontier_contact_count": 2.25,
+      "mean_frontier_exposed_fraction": 0.017590920226151323,
+      "mean_post_ablation_symdiff": 8.890469416785207e-05,
+      "ablation_p_value": 0.5014985014985015,
+      "causal_effect_detected": false
+    },
+    {
+      "probe": 10,
+      "mean_frontier_contact_count": 0.0,
+      "mean_frontier_exposed_fraction": 0.0,
+      "mean_post_ablation_symdiff": 0.0,
+      "ablation_p_value": 1.0,
+      "causal_effect_detected": false
+    },
+    {
+      "probe": 14,
+      "mean_frontier_contact_count": 0.0,
+      "mean_frontier_exposed_fraction": 0.0,
+      "mean_post_ablation_symdiff": 0.0,
+      "ablation_p_value": 1.0,
+      "causal_effect_detected": false
+    }
+  ],
+  "positive_ablation_while_contact_present": true,
+  "all_tested_post_contact_ablation_effects_absent": true,
+  "status": "SUPPORTED",
+  "bounded_statement": "Timed ablations are consistent with the hypothesis that persistent material state matters only while it remains causally accessible to the active growth frontier."
+}

@@ -1,0 +1,59 @@
+{
+  "base_model_version": "digital-crystal-v1-frozen",
+  "experiment_version": "digital-crystal-two-pasts-v1",
+  "schema_version": 1,
+  "chapter": 19,
+  "chapter_title": "Can the Crystal Tell Two Pasts Apart?",
+  "run_type": "TWO-PASTS COMMON-CHALLENGE TEST",
+  "profile": "quick",
+  "profile_config": {
+    "groups": 96,
+    "seed_noise_groups": 200,
+    "radius": 64,
+    "warmup_steps": 14,
+    "experience_elapsed_step": 3,
+    "retention_steps": 10,
+    "challenge_elapsed_step": 14,
+    "response_horizon": 4,
+    "write_fraction": 0.2,
+    "transmission_fraction": 0.5,
+    "history_read_gain": 0.18,
+    "challenge_gain": 0.65,
+    "primary_sei_population_fraction": 0.01,
+    "primary_sei_seed_noise_sd": 0.5,
+    "bootstrap_reps": 2000,
+    "permutations": 4000,
+    "alpha": 0.05,
+    "max_capacity_fraction": 0.85,
+    "aperture_observation_steps": [
+      1,
+      2,
+      4,
+      6,
+      8,
+      10
+    ]
+  },
+  "seed": 20260824,
+  "canonical_ch18_substrate_modified": false,
+  "chapter_19_extension": {
+    "material_states": [
+      "normal",
+      "history_A",
+      "history_B"
+    ],
+    "pre_challenge_A_B_geometry_identical": true,
+    "pre_challenge_A_B_label_locations_identical": true,
+    "history_identity_inert_until_challenge": true,
+    "common_challenge": true
+  },
+  "scientific_boundary": "History discrimination only. No memory, learning, adaptation, recall, meaning, representation, self, or life claim.",
+  "started_at_unix": 1786554838.0482683,
+  "finished_at_unix": 1786554854.266625,
+  "stage_0_status": "MEASURED",
+  "stage_1_status": "MEASURED",
+  "stage_2_status": "MEASURED",
+  "stage_3_status": "MEASURED",
+  "final_status": "FAILED",
+  "bounded_claim": "Chapter 19 did not establish that the identity of the earlier experience produces a scientifically meaningful difference in response to the later common challenge under this protocol."
+}

@@ -1,0 +1,43 @@
+# Stage 1 — Can Experience Write Persistent Local State?
+
+```json
+{
+  "experience_pulse_zero_index": 3,
+  "pulse_free_retention_steps": 6,
+  "groups": 32,
+  "modified_cells_immediately_after_write": {
+    "n": 32,
+    "mean": 20.5,
+    "median": 20.5,
+    "std": 4.330127018922194,
+    "ci95_low": 19.0,
+    "ci95_high": 21.96875,
+    "min": 13.0,
+    "max": 30.0
+  },
+  "modified_cells_after_retention_delay": {
+    "n": 32,
+    "mean": 20.5,
+    "median": 20.5,
+    "std": 4.330127018922194,
+    "ci95_low": 18.9375,
+    "ci95_high": 22.03125,
+    "min": 13.0,
+    "max": 30.0
+  },
+  "modified_fraction_after_retention_delay": {
+    "n": 32,
+    "mean": 0.0220179141548971,
+    "median": 0.023059198865650478,
+    "std": 0.0045912025407808706,
+    "ci95_low": 0.020375684519302936,
+    "ci95_high": 0.023615690130856855,
+    "min": 0.014388489208633094,
+    "max": 0.030120481927710843
+  },
+  "all_groups_wrote_nonzero_state": true,
+  "all_groups_retained_exact_modified_count": true,
+  "status": "MEASURED",
+  "bounded_statement": "A transient pulse wrote local modified-cell state that remained present through the declared pulse-free retention interval. This establishes persistent experimental material state by construction; it does not establish memory."
+}
+```

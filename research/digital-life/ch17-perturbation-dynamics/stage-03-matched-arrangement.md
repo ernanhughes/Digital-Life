@@ -1,0 +1,306 @@
+# Stage 3 — Match Count, Onset and Offset; Change Only Interior Timing
+
+This stage directly removes the recency-of-last-pulse confound.
+
+```json
+{
+  "codeword_A": "1110000000000001",
+  "codeword_B": "1000000110000001",
+  "pulse_positions_A_zero_indexed": [
+    0,
+    1,
+    2,
+    15
+  ],
+  "pulse_positions_B_zero_indexed": [
+    0,
+    7,
+    8,
+    15
+  ],
+  "same_pulse_count": true,
+  "same_first_pulse": true,
+  "same_last_pulse": true,
+  "groups": 24,
+  "primary_measurement": "decoder-free multivariate energy distance on normalized morphology features with paired within-group swap permutation",
+  "secondary_measurements": "paired morphology symmetric difference, feature distance, absolute population difference",
+  "results": {
+    "16": {
+      "energy_distance_test": {
+        "statistic": 0.35943103490325257,
+        "permutations": 250,
+        "p_value": 0.6932270916334662,
+        "null_mean": 0.4095140194760422,
+        "null_q95": 0.5652551985637833,
+        "null_q99": 0.6826037773117031,
+        "null_max": 0.7330168302026516
+      },
+      "paired_state_difference": {
+        "symdiff": {
+          "n": 24,
+          "mean": 0.16467868261105809,
+          "median": 0.16342068569036772,
+          "std": 0.014779933924678745,
+          "ci95_low": 0.15852104037110623,
+          "ci95_high": 0.1703152429549012,
+          "min": 0.13473684210526315,
+          "max": 0.18993993993993993
+        },
+        "feature_distance": {
+          "n": 24,
+          "mean": 0.0844978007755401,
+          "median": 0.07873291095397367,
+          "std": 0.030113824077832998,
+          "ci95_low": 0.0735900447111711,
+          "ci95_high": 0.09684184670672269,
+          "min": 0.04579729240016265,
+          "max": 0.17713357559655268
+        },
+        "abs_population_difference": {
+          "n": 24,
+          "mean": 38.791666666666664,
+          "median": 34.0,
+          "std": 25.116361146117924,
+          "ci95_low": 28.041666666666668,
+          "ci95_high": 48.58541666666667,
+          "min": 1.0,
+          "max": 97.0
+        }
+      },
+      "steps_since_last_pulse_A": 0,
+      "steps_since_last_pulse_B": 0,
+      "equal_time_since_last_pulse": true
+    },
+    "18": {
+      "energy_distance_test": {
+        "statistic": 0.3394683981072033,
+        "permutations": 250,
+        "p_value": 0.8167330677290837,
+        "null_mean": 0.3911175356976446,
+        "null_q95": 0.49042359018513815,
+        "null_q99": 0.5896790512420516,
+        "null_max": 0.6473824213369701
+      },
+      "paired_state_difference": {
+        "symdiff": {
+          "n": 24,
+          "mean": 0.16184973874543726,
+          "median": 0.16243992995221546,
+          "std": 0.014981426431153072,
+          "ci95_low": 0.1562026112823256,
+          "ci95_high": 0.1680981246709162,
+          "min": 0.1288732394366197,
+          "max": 0.18572524942440521
+        },
+        "feature_distance": {
+          "n": 24,
+          "mean": 0.08073152159927428,
+          "median": 0.07018793617526632,
+          "std": 0.02663001195384179,
+          "ci95_low": 0.07114256873992689,
+          "ci95_high": 0.0916783494531122,
+          "min": 0.04900708813807656,
+          "max": 0.1586959850210877
+        },
+        "abs_population_difference": {
+          "n": 24,
+          "mean": 43.833333333333336,
+          "median": 39.0,
+          "std": 28.632246777987152,
+          "ci95_low": 33.469791666666666,
+          "ci95_high": 57.19270833333333,
+          "min": 2.0,
+          "max": 116.0
+        }
+      },
+      "steps_since_last_pulse_A": 2,
+      "steps_since_last_pulse_B": 2,
+      "equal_time_since_last_pulse": true
+    },
+    "20": {
+      "energy_distance_test": {
+        "statistic": 0.3623684840958967,
+        "permutations": 250,
+        "p_value": 0.6733067729083665,
+        "null_mean": 0.3943650269440433,
+        "null_q95": 0.5039718554234137,
+        "null_q99": 0.5564876874558079,
+        "null_max": 0.5939627146515605
+      },
+      "paired_state_difference": {
+        "symdiff": {
+          "n": 24,
+          "mean": 0.15800254063469765,
+          "median": 0.16037246760285,
+          "std": 0.014007376388062952,
+          "ci95_low": 0.15249440518220014,
+          "ci95_high": 0.16333999207313762,
+          "min": 0.12407862407862408,
+          "max": 0.18118869013271782
+        },
+        "feature_distance": {
+          "n": 24,
+          "mean": 0.07967235955937337,
+          "median": 0.07938685296248985,
+          "std": 0.02351596422202716,
+          "ci95_low": 0.06996290612203417,
+          "ci95_high": 0.08926497531025436,
+          "min": 0.04656309150438273,
+          "max": 0.14521086552298443
+        },
+        "abs_population_difference": {
+          "n": 24,
+          "mean": 43.5,
+          "median": 36.5,
+          "std": 26.567524034680638,
+          "ci95_low": 33.89479166666666,
+          "ci95_high": 54.66875,
+          "min": 2.0,
+          "max": 113.0
+        }
+      },
+      "steps_since_last_pulse_A": 4,
+      "steps_since_last_pulse_B": 4,
+      "equal_time_since_last_pulse": true
+    },
+    "24": {
+      "energy_distance_test": {
+        "statistic": 0.48481520900336683,
+        "permutations": 250,
+        "p_value": 0.09561752988047809,
+        "null_mean": 0.40535266579661117,
+        "null_q95": 0.5158368291966476,
+        "null_q99": 0.5651970004634391,
+        "null_max": 0.5876040262143638
+      },
+      "paired_state_difference": {
+        "symdiff": {
+          "n": 24,
+          "mean": 0.1477327960928597,
+          "median": 0.15071627043994001,
+          "std": 0.014831560279621599,
+          "ci95_low": 0.14162528256113247,
+          "ci95_high": 0.15342732710948573,
+          "min": 0.1171634121274409,
+          "max": 0.17982708933717578
+        },
+        "feature_distance": {
+          "n": 24,
+          "mean": 0.07584857191608148,
+          "median": 0.06696120771753056,
+          "std": 0.027923060682172585,
+          "ci95_low": 0.06609782232957391,
+          "ci95_high": 0.08730983771755739,
+          "min": 0.03856887308755746,
+          "max": 0.16776022624494694
+        },
+        "abs_population_difference": {
+          "n": 24,
+          "mean": 56.625,
+          "median": 45.0,
+          "std": 36.231676403390445,
+          "ci95_low": 43.95625,
+          "ci95_high": 72.91562499999999,
+          "min": 16.0,
+          "max": 143.0
+        }
+      },
+      "steps_since_last_pulse_A": 8,
+      "steps_since_last_pulse_B": 8,
+      "equal_time_since_last_pulse": true
+    },
+    "28": {
+      "energy_distance_test": {
+        "statistic": 0.3730406798904058,
+        "permutations": 250,
+        "p_value": 0.7649402390438247,
+        "null_mean": 0.4189043446415624,
+        "null_q95": 0.5142506647359025,
+        "null_q99": 0.5705774494185635,
+        "null_max": 0.6732293798218674
+      },
+      "paired_state_difference": {
+        "symdiff": {
+          "n": 24,
+          "mean": 0.14112053163773305,
+          "median": 0.14266615737203972,
+          "std": 0.01395703898307453,
+          "ci95_low": 0.13519655092875396,
+          "ci95_high": 0.14676064972872171,
+          "min": 0.11235471373224279,
+          "max": 0.17141564902758932
+        },
+        "feature_distance": {
+          "n": 24,
+          "mean": 0.0752158442040656,
+          "median": 0.07180861469876372,
+          "std": 0.025848843257307758,
+          "ci95_low": 0.06510609758492415,
+          "ci95_high": 0.08494769986086587,
+          "min": 0.03713188625353285,
+          "max": 0.1532493705413328
+        },
+        "abs_population_difference": {
+          "n": 24,
+          "mean": 71.0,
+          "median": 59.5,
+          "std": 38.68893037205,
+          "ci95_low": 55.72604166666667,
+          "ci95_high": 84.80208333333333,
+          "min": 14.0,
+          "max": 161.0
+        }
+      },
+      "steps_since_last_pulse_A": 12,
+      "steps_since_last_pulse_B": 12,
+      "equal_time_since_last_pulse": true
+    },
+    "32": {
+      "energy_distance_test": {
+        "statistic": 0.45472506894370124,
+        "permutations": 250,
+        "p_value": 0.450199203187251,
+        "null_mean": 0.4482077131027827,
+        "null_q95": 0.5594359129311518,
+        "null_q99": 0.616734983767571,
+        "null_max": 0.6859251283235421
+      },
+      "paired_state_difference": {
+        "symdiff": {
+          "n": 24,
+          "mean": 0.13732167198202702,
+          "median": 0.14073126550229625,
+          "std": 0.01421844212483485,
+          "ci95_low": 0.13116006044772982,
+          "ci95_high": 0.1426999819585852,
+          "min": 0.11050663039782387,
+          "max": 0.1787812041116006
+        },
+        "feature_distance": {
+          "n": 24,
+          "mean": 0.07499682200289116,
+          "median": 0.06757717933697692,
+          "std": 0.02308529559424737,
+          "ci95_low": 0.06629283627237427,
+          "ci95_high": 0.08490814251418749,
+          "min": 0.03734898900341557,
+          "max": 0.1436567063144855
+        },
+        "abs_population_difference": {
+          "n": 24,
+          "mean": 73.16666666666667,
+          "median": 70.5,
+          "std": 44.602565945121235,
+          "ci95_low": 55.202083333333334,
+          "ci95_high": 91.64895833333333,
+          "min": 2.0,
+          "max": 177.0
+        }
+      },
+      "steps_since_last_pulse_A": 16,
+      "steps_since_last_pulse_B": 16,
+      "equal_time_since_last_pulse": true
+    }
+  }
+}
+```

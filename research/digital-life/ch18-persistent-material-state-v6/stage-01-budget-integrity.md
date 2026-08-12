@@ -1,0 +1,113 @@
+# Stage 1 — Did We Actually Hold Copy Quantity Fixed?
+
+```json
+{
+  "groups": 48,
+  "placement_policies": [
+    "interior_biased",
+    "random_matched",
+    "surface_biased"
+  ],
+  "all_groups_exact_cumulative_budget_match": true,
+  "summary": {
+    "interior_biased": {
+      "cumulative_transmissions": {
+        "n": 48,
+        "mean": 26.875,
+        "median": 26.5,
+        "std": 6.796521782009775,
+        "ci95_low": 25.020833333333332,
+        "ci95_high": 28.833854166666665,
+        "min": 12.0,
+        "max": 46.0
+      },
+      "eligible_count": {
+        "n": 1056,
+        "mean": 2.5,
+        "median": 0.0,
+        "std": 5.371431161922558,
+        "ci95_low": 2.1846354166666666,
+        "ci95_high": 2.832504734848485,
+        "min": 0.0,
+        "max": 37.0
+      },
+      "mean_selected_surface_exposure": {
+        "n": 1056,
+        "mean": 0.19231207949247722,
+        "median": 0.0,
+        "std": 0.4353727221667938,
+        "ci95_low": 0.16569301033168218,
+        "ci95_high": 0.21754646523378765,
+        "min": 0.0,
+        "max": 2.5
+      }
+    },
+    "random_matched": {
+      "cumulative_transmissions": {
+        "n": 48,
+        "mean": 26.875,
+        "median": 26.5,
+        "std": 6.796521782009775,
+        "ci95_low": 25.1453125,
+        "ci95_high": 28.896354166666665,
+        "min": 12.0,
+        "max": 46.0
+      },
+      "eligible_count": {
+        "n": 1056,
+        "mean": 3.4176136363636362,
+        "median": 0.0,
+        "std": 6.293999095034802,
+        "ci95_low": 3.045407196969697,
+        "ci95_high": 3.778432765151515,
+        "min": 0.0,
+        "max": 37.0
+      },
+      "mean_selected_surface_exposure": {
+        "n": 1056,
+        "mean": 0.4789713246034269,
+        "median": 0.0,
+        "std": 0.9305336456512127,
+        "ci95_low": 0.4229383434195224,
+        "ci95_high": 0.535916534045973,
+        "min": 0.0,
+        "max": 4.0
+      }
+    },
+    "surface_biased": {
+      "cumulative_transmissions": {
+        "n": 48,
+        "mean": 26.875,
+        "median": 26.5,
+        "std": 6.796521782009775,
+        "ci95_low": 25.041666666666668,
+        "ci95_high": 28.959374999999998,
+        "min": 12.0,
+        "max": 46.0
+      },
+      "eligible_count": {
+        "n": 1056,
+        "mean": 4.613636363636363,
+        "median": 0.0,
+        "std": 7.58589473286254,
+        "ci95_low": 4.153361742424242,
+        "ci95_high": 5.072277462121212,
+        "min": 0.0,
+        "max": 37.0
+      },
+      "mean_selected_surface_exposure": {
+        "n": 1056,
+        "mean": 0.9272099086729768,
+        "median": 0.0,
+        "std": 1.6655433884597395,
+        "ci95_low": 0.8296940489802705,
+        "ci95_high": 1.033854452904524,
+        "min": 0.0,
+        "max": 5.0
+      }
+    }
+  },
+  "status": "MEASURED",
+  "bounded_statement": "Every synchronized branch transmitted exactly the same number of cells at every step and therefore the same cumulative number of cells. Differences between policies are attributable to placement and its downstream consequences, not realized copy count."
+}
+```

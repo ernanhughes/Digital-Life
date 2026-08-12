@@ -1,0 +1,6 @@
+{
+  "canonical_rng_traversal": "sorted(frontier)",
+  "repeat_from_identical_state_exact": true,
+  "morphology_hash_a": "5fd54c923adbc247272c7ada",
+  "morphology_hash_b": "5fd54c923adbc247272c7ada"
+}

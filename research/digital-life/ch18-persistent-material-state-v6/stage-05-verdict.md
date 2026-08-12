@@ -1,0 +1,32 @@
+# Stage 5 — Bounded Chapter 18 V6 Verdict
+
+```json
+{
+  "experiment_role": "EXPLORATORY EXACT-MATCHED-BUDGET MECHANISM TEST",
+  "chapter": 18,
+  "question": "Does the spatial placement of persistent material determine whether it remains causally active when the exact amount copied is held fixed?",
+  "budget_invariant_valid": true,
+  "predicted_order": "interior_biased < random_matched < surface_biased",
+  "frontier_access_order_supported": false,
+  "realized_causal_flip_order_supported": false,
+  "late_ablation_order_supported": false,
+  "status": "FAILED",
+  "bounded_claim": "Under an exact matched cumulative copying budget, V6 did not establish the predicted interior < random < surface ordering.",
+  "nonclaims": [
+    "memory",
+    "learning",
+    "adaptation",
+    "self-maintenance",
+    "homeostasis",
+    "attention",
+    "active boundary",
+    "information storage",
+    "biological inheritance",
+    "agency",
+    "individuality",
+    "reproduction",
+    "life"
+  ],
+  "next_question": "If exact-budget surface placement is supported, test whether a later experience can update, replace, or compete with the existing surface-associated state without increasing the propagation budget."
+}
+```

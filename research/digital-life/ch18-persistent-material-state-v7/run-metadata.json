@@ -1,0 +1,52 @@
+{
+  "base_model_version": "digital-crystal-v1-frozen",
+  "experiment_version": "digital-crystal-persistent-material-state-v7",
+  "schema_version": 7,
+  "chapter": 18,
+  "chapter_title": "Can Experience Change the Material?",
+  "run_type": "EXPLORATORY INTEGRATED CAUSAL-LIFETIME TEST",
+  "profile": "quick",
+  "profile_config": {
+    "groups": 64,
+    "radius": 64,
+    "warmup_steps": 14,
+    "experience_pulse_step": 3,
+    "message_gain": 0.65,
+    "write_probability": 0.2,
+    "modified_neighbor_gain": 0.3,
+    "transmission_fraction": 0.5,
+    "placement_policies": [
+      "interior_biased",
+      "random_matched",
+      "surface_biased"
+    ],
+    "window_start": 5,
+    "window_end": 18,
+    "sustained_zero_steps": 3,
+    "descriptive_steps": [
+      5,
+      8,
+      10,
+      12,
+      14,
+      18
+    ],
+    "bootstrap_reps": 1500,
+    "permutations": 2000,
+    "alpha": 0.05,
+    "max_capacity_fraction": 0.85
+  },
+  "seed": 20260820,
+  "canonical_model_modified": false,
+  "counterfactual_coupling": "cell-keyed CRN from Chapter 17",
+  "v6_result_being_followed": "The exact matched-copy-quantity late t=14 endpoint failed, while an earlier exploratory t=8 pattern showed interior < random < surface for frontier access, probability leverage, and realized causal flips.",
+  "v7_design": "Keep exact matched per-step and cumulative transmission counts, but replace a single late endpoint with predeclared integrated causal-lifetime measures over a frozen observation window.",
+  "scientific_boundary": "Causal lifetime only. No claim of memory, learning, adaptation, self-maintenance, homeostasis, active boundary, or life.",
+  "started_at_unix": 1786541522.9206185,
+  "finished_at_unix": 1786541537.4539392,
+  "stage_1_status": "MEASURED",
+  "stage_2_status": "MEASURED",
+  "stage_3_status": "MEASURED",
+  "final_status": "SUPPORTED",
+  "next_question": "If causal lifetime is supported, restore the opportunity feedback observed in v5 and test whether causal accessibility helps generate future opportunities for its own continuation, while keeping the claim below self-maintenance."
+}

@@ -1,0 +1,622 @@
+# Stage 2 — Does Timing Matter Independently of Copy Quantity?
+
+```json
+{
+  "groups": 64,
+  "window": {
+    "start": 5,
+    "end": 24
+  },
+  "summary": {
+    "aligned": {
+      "access_fraction_auc": {
+        "n": 64,
+        "mean": 6.182041156760313,
+        "median": 6.368155865879579,
+        "std": 0.8830534707768853,
+        "ci95_low": 5.960056324282151,
+        "ci95_high": 6.393216854610464,
+        "min": 1.5686756937821982,
+        "max": 7.584040168328867
+      },
+      "contact_count_auc": {
+        "n": 64,
+        "mean": 1071.859375,
+        "median": 1102.0,
+        "std": 152.35719411832633,
+        "ci95_low": 1030.8734375,
+        "ci95_high": 1106.4546875,
+        "min": 261.0,
+        "max": 1314.0
+      },
+      "probability_leverage_auc": {
+        "n": 64,
+        "mean": 97.13079375218193,
+        "median": 99.52402597780554,
+        "std": 11.635131230385753,
+        "ci95_low": 93.94596879641291,
+        "ci95_high": 99.61151612916427,
+        "min": 26.334413048226505,
+        "max": 113.97618297788206
+      },
+      "total_realized_flips": {
+        "n": 64,
+        "mean": 97.90625,
+        "median": 98.5,
+        "std": 14.970511378623645,
+        "ci95_low": 93.9375,
+        "ci95_high": 101.367578125,
+        "min": 21.0,
+        "max": 123.0
+      },
+      "sustained_loss_time": {
+        "n": 64,
+        "mean": 25.0,
+        "median": 25.0,
+        "std": 0.0,
+        "ci95_low": 25.0,
+        "ci95_high": 25.0,
+        "min": 25.0,
+        "max": 25.0
+      },
+      "applied_transmissions": {
+        "n": 64,
+        "mean": 289.3125,
+        "median": 292.0,
+        "std": 18.971915921962125,
+        "ci95_low": 284.453125,
+        "ci95_high": 291.90625,
+        "min": 139.0,
+        "max": 292.0
+      },
+      "truncation_rate": 0.01953125
+    },
+    "shuffled": {
+      "access_fraction_auc": {
+        "n": 64,
+        "mean": 6.177987327558016,
+        "median": 6.26215468483703,
+        "std": 0.9451106917165739,
+        "ci95_low": 5.933747256704578,
+        "ci95_high": 6.406614311073405,
+        "min": 1.5686756937821982,
+        "max": 8.06717406628032
+      },
+      "contact_count_auc": {
+        "n": 64,
+        "mean": 1049.984375,
+        "median": 1070.5,
+        "std": 157.52226947596768,
+        "ci95_low": 1010.217578125,
+        "ci95_high": 1086.590234375,
+        "min": 261.0,
+        "max": 1346.0
+      },
+      "probability_leverage_auc": {
+        "n": 64,
+        "mean": 94.60413955588909,
+        "median": 96.54028278304807,
+        "std": 11.973210081461508,
+        "ci95_low": 91.44890690871752,
+        "ci95_high": 97.36258866486668,
+        "min": 26.334413048226505,
+        "max": 115.49499935939062
+      },
+      "total_realized_flips": {
+        "n": 64,
+        "mean": 94.84375,
+        "median": 97.0,
+        "std": 14.997102584749495,
+        "ci95_low": 91.116015625,
+        "ci95_high": 98.32890624999999,
+        "min": 21.0,
+        "max": 124.0
+      },
+      "sustained_loss_time": {
+        "n": 64,
+        "mean": 25.0,
+        "median": 25.0,
+        "std": 0.0,
+        "ci95_low": 25.0,
+        "ci95_high": 25.0,
+        "min": 25.0,
+        "max": 25.0
+      },
+      "applied_transmissions": {
+        "n": 64,
+        "mean": 287.828125,
+        "median": 292.0,
+        "std": 19.099701149085423,
+        "ci95_low": 282.726171875,
+        "ci95_high": 290.883203125,
+        "min": 139.0,
+        "max": 292.0
+      },
+      "truncation_rate": 0.0421875
+    },
+    "shifted": {
+      "access_fraction_auc": {
+        "n": 64,
+        "mean": 6.273676747469571,
+        "median": 6.356544947272345,
+        "std": 0.9281627595230655,
+        "ci95_low": 6.036062185035163,
+        "ci95_high": 6.488612309767681,
+        "min": 1.5686756937821982,
+        "max": 7.683818399518628
+      },
+      "contact_count_auc": {
+        "n": 64,
+        "mean": 1062.96875,
+        "median": 1068.5,
+        "std": 150.9778511021981,
+        "ci95_low": 1024.349609375,
+        "ci95_high": 1095.369140625,
+        "min": 261.0,
+        "max": 1348.0
+      },
+      "probability_leverage_auc": {
+        "n": 64,
+        "mean": 94.86960492308651,
+        "median": 95.78240378069984,
+        "std": 11.900152518763136,
+        "ci95_low": 91.63195608548432,
+        "ci95_high": 97.58220431123607,
+        "min": 26.334413048226505,
+        "max": 116.08523619639436
+      },
+      "total_realized_flips": {
+        "n": 64,
+        "mean": 95.828125,
+        "median": 100.0,
+        "std": 14.12395426162146,
+        "ci95_low": 92.366796875,
+        "ci95_high": 99.180078125,
+        "min": 21.0,
+        "max": 119.0
+      },
+      "sustained_loss_time": {
+        "n": 64,
+        "mean": 25.0,
+        "median": 25.0,
+        "std": 0.0,
+        "ci95_low": 25.0,
+        "ci95_high": 25.0,
+        "min": 25.0,
+        "max": 25.0
+      },
+      "applied_transmissions": {
+        "n": 64,
+        "mean": 287.171875,
+        "median": 292.0,
+        "std": 19.113603375197858,
+        "ci95_low": 281.1546875,
+        "ci95_high": 290.46875,
+        "min": 142.0,
+        "max": 292.0
+      },
+      "truncation_rate": 0.046875
+    }
+  },
+  "trajectory_summary": {
+    "aligned": {
+      "5": {
+        "frontier_exposed_fraction": 0.33501174381172305,
+        "frontier_contact": 37.515625,
+        "sum_delta_p": 2.977207215687675,
+        "realized_flips": 2.8125
+      },
+      "6": {
+        "frontier_exposed_fraction": 0.32504446738964476,
+        "frontier_contact": 38.359375,
+        "sum_delta_p": 3.179510990449313,
+        "realized_flips": 3.125
+      },
+      "7": {
+        "frontier_exposed_fraction": 0.3103390534056767,
+        "frontier_contact": 38.65625,
+        "sum_delta_p": 3.2995773218221514,
+        "realized_flips": 3.609375
+      },
+      "8": {
+        "frontier_exposed_fraction": 0.3143615901084887,
+        "frontier_contact": 41.0,
+        "sum_delta_p": 3.6233063373992174,
+        "realized_flips": 3.65625
+      },
+      "9": {
+        "frontier_exposed_fraction": 0.31250359979505316,
+        "frontier_contact": 42.9375,
+        "sum_delta_p": 3.881020631422995,
+        "realized_flips": 3.59375
+      },
+      "10": {
+        "frontier_exposed_fraction": 0.30864802343060793,
+        "frontier_contact": 44.4375,
+        "sum_delta_p": 4.005294671636214,
+        "realized_flips": 3.765625
+      },
+      "11": {
+        "frontier_exposed_fraction": 0.31270302760105173,
+        "frontier_contact": 47.203125,
+        "sum_delta_p": 4.311847141916138,
+        "realized_flips": 4.171875
+      },
+      "12": {
+        "frontier_exposed_fraction": 0.3084452952278506,
+        "frontier_contact": 48.65625,
+        "sum_delta_p": 4.3803752915056196,
+        "realized_flips": 4.953125
+      },
+      "13": {
+        "frontier_exposed_fraction": 0.31017503641870076,
+        "frontier_contact": 50.859375,
+        "sum_delta_p": 4.622366713520005,
+        "realized_flips": 4.765625
+      },
+      "14": {
+        "frontier_exposed_fraction": 0.306187733168285,
+        "frontier_contact": 52.140625,
+        "sum_delta_p": 4.761221336641114,
+        "realized_flips": 4.640625
+      },
+      "15": {
+        "frontier_exposed_fraction": 0.29904508566346366,
+        "frontier_contact": 53.234375,
+        "sum_delta_p": 4.84672391940018,
+        "realized_flips": 4.59375
+      },
+      "16": {
+        "frontier_exposed_fraction": 0.30193027686240775,
+        "frontier_contact": 55.515625,
+        "sum_delta_p": 5.108379745697491,
+        "realized_flips": 5.578125
+      },
+      "17": {
+        "frontier_exposed_fraction": 0.3016449443418514,
+        "frontier_contact": 57.078125,
+        "sum_delta_p": 5.201659420435864,
+        "realized_flips": 5.140625
+      },
+      "18": {
+        "frontier_exposed_fraction": 0.30446642614769115,
+        "frontier_contact": 59.953125,
+        "sum_delta_p": 5.606613141218967,
+        "realized_flips": 6.171875
+      },
+      "19": {
+        "frontier_exposed_fraction": 0.3078708660882891,
+        "frontier_contact": 63.03125,
+        "sum_delta_p": 5.918990687038464,
+        "realized_flips": 5.828125
+      },
+      "20": {
+        "frontier_exposed_fraction": 0.30177457304251754,
+        "frontier_contact": 63.75,
+        "sum_delta_p": 5.8498301387156,
+        "realized_flips": 5.921875
+      },
+      "21": {
+        "frontier_exposed_fraction": 0.30446327206579205,
+        "frontier_contact": 66.015625,
+        "sum_delta_p": 6.0849038714863,
+        "realized_flips": 5.8125
+      },
+      "22": {
+        "frontier_exposed_fraction": 0.3101129021947272,
+        "frontier_contact": 69.09375,
+        "sum_delta_p": 6.448004288988372,
+        "realized_flips": 6.828125
+      },
+      "23": {
+        "frontier_exposed_fraction": 0.30367084060741717,
+        "frontier_contact": 70.03125,
+        "sum_delta_p": 6.408368431564082,
+        "realized_flips": 6.296875
+      },
+      "24": {
+        "frontier_exposed_fraction": 0.30364239938907395,
+        "frontier_contact": 72.390625,
+        "sum_delta_p": 6.615592455636168,
+        "realized_flips": 6.640625
+      }
+    },
+    "shuffled": {
+      "5": {
+        "frontier_exposed_fraction": 0.33501174381172305,
+        "frontier_contact": 37.515625,
+        "sum_delta_p": 2.977207215687675,
+        "realized_flips": 2.8125
+      },
+      "6": {
+        "frontier_exposed_fraction": 0.35310458589830024,
+        "frontier_contact": 41.6875,
+        "sum_delta_p": 3.611253240513192,
+        "realized_flips": 3.515625
+      },
+      "7": {
+        "frontier_exposed_fraction": 0.3247211378369532,
+        "frontier_contact": 40.375,
+        "sum_delta_p": 3.4980058581046176,
+        "realized_flips": 3.6875
+      },
+      "8": {
+        "frontier_exposed_fraction": 0.347573974535811,
+        "frontier_contact": 45.265625,
+        "sum_delta_p": 4.187875538069894,
+        "realized_flips": 4.109375
+      },
+      "9": {
+        "frontier_exposed_fraction": 0.35986139456484206,
+        "frontier_contact": 49.3125,
+        "sum_delta_p": 4.721996594745072,
+        "realized_flips": 4.375
+      },
+      "10": {
+        "frontier_exposed_fraction": 0.3466025275424913,
+        "frontier_contact": 49.796875,
+        "sum_delta_p": 4.641902675614194,
+        "realized_flips": 4.484375
+      },
+      "11": {
+        "frontier_exposed_fraction": 0.3270166674481894,
+        "frontier_contact": 49.171875,
+        "sum_delta_p": 4.444425508370311,
+        "realized_flips": 4.3125
+      },
+      "12": {
+        "frontier_exposed_fraction": 0.31026818489038277,
+        "frontier_contact": 48.8125,
+        "sum_delta_p": 4.30755793281739,
+        "realized_flips": 4.875
+      },
+      "13": {
+        "frontier_exposed_fraction": 0.32723229074266,
+        "frontier_contact": 53.625,
+        "sum_delta_p": 4.897625151838666,
+        "realized_flips": 4.953125
+      },
+      "14": {
+        "frontier_exposed_fraction": 0.33856829402856337,
+        "frontier_contact": 57.4375,
+        "sum_delta_p": 5.411115084215913,
+        "realized_flips": 5.140625
+      },
+      "15": {
+        "frontier_exposed_fraction": 0.3227807778890343,
+        "frontier_contact": 57.328125,
+        "sum_delta_p": 5.22593424209572,
+        "realized_flips": 5.09375
+      },
+      "16": {
+        "frontier_exposed_fraction": 0.33289665567140303,
+        "frontier_contact": 61.09375,
+        "sum_delta_p": 5.660737716205782,
+        "realized_flips": 6.015625
+      },
+      "17": {
+        "frontier_exposed_fraction": 0.3006132560576893,
+        "frontier_contact": 56.8125,
+        "sum_delta_p": 5.052706417851331,
+        "realized_flips": 4.953125
+      },
+      "18": {
+        "frontier_exposed_fraction": 0.27898146687729797,
+        "frontier_contact": 54.75,
+        "sum_delta_p": 4.748795761110497,
+        "realized_flips": 5.328125
+      },
+      "19": {
+        "frontier_exposed_fraction": 0.29924098113040265,
+        "frontier_contact": 61.09375,
+        "sum_delta_p": 5.68971774299583,
+        "realized_flips": 5.890625
+      },
+      "20": {
+        "frontier_exposed_fraction": 0.25370861993222593,
+        "frontier_contact": 53.234375,
+        "sum_delta_p": 4.697854810219344,
+        "realized_flips": 4.5625
+      },
+      "21": {
+        "frontier_exposed_fraction": 0.24031286803357235,
+        "frontier_contact": 52.125,
+        "sum_delta_p": 4.535524406587557,
+        "realized_flips": 4.265625
+      },
+      "22": {
+        "frontier_exposed_fraction": 0.2547734373477804,
+        "frontier_contact": 57.09375,
+        "sum_delta_p": 5.114076661245113,
+        "realized_flips": 4.859375
+      },
+      "23": {
+        "frontier_exposed_fraction": 0.27158420440861125,
+        "frontier_contact": 62.90625,
+        "sum_delta_p": 5.810463778380059,
+        "realized_flips": 5.859375
+      },
+      "24": {
+        "frontier_exposed_fraction": 0.25313425891008245,
+        "frontier_contact": 60.546875,
+        "sum_delta_p": 5.369363219220935,
+        "realized_flips": 5.75
+      }
+    },
+    "shifted": {
+      "5": {
+        "frontier_exposed_fraction": 0.3821555692319979,
+        "frontier_contact": 42.828125,
+        "sum_delta_p": 3.5896173459525134,
+        "realized_flips": 3.390625
+      },
+      "6": {
+        "frontier_exposed_fraction": 0.4013403667591549,
+        "frontier_contact": 47.28125,
+        "sum_delta_p": 4.243379994803168,
+        "realized_flips": 4.140625
+      },
+      "7": {
+        "frontier_exposed_fraction": 0.4077721689828299,
+        "frontier_contact": 50.53125,
+        "sum_delta_p": 4.68298587047231,
+        "realized_flips": 4.9375
+      },
+      "8": {
+        "frontier_exposed_fraction": 0.4195642140406185,
+        "frontier_contact": 54.40625,
+        "sum_delta_p": 5.149080363242845,
+        "realized_flips": 5.25
+      },
+      "9": {
+        "frontier_exposed_fraction": 0.35662863314850357,
+        "frontier_contact": 48.578125,
+        "sum_delta_p": 4.3236185603108135,
+        "realized_flips": 4.375
+      },
+      "10": {
+        "frontier_exposed_fraction": 0.3204763330936593,
+        "frontier_contact": 45.890625,
+        "sum_delta_p": 3.9376056917788156,
+        "realized_flips": 3.9375
+      },
+      "11": {
+        "frontier_exposed_fraction": 0.2970922644841759,
+        "frontier_contact": 44.765625,
+        "sum_delta_p": 3.864862791877961,
+        "realized_flips": 4.03125
+      },
+      "12": {
+        "frontier_exposed_fraction": 0.2958312140931953,
+        "frontier_contact": 46.65625,
+        "sum_delta_p": 4.045042138398536,
+        "realized_flips": 4.453125
+      },
+      "13": {
+        "frontier_exposed_fraction": 0.2944843081308739,
+        "frontier_contact": 48.3125,
+        "sum_delta_p": 4.231285017371885,
+        "realized_flips": 4.0625
+      },
+      "14": {
+        "frontier_exposed_fraction": 0.28812131998681617,
+        "frontier_contact": 49.09375,
+        "sum_delta_p": 4.308428618118829,
+        "realized_flips": 4.546875
+      },
+      "15": {
+        "frontier_exposed_fraction": 0.287094197899781,
+        "frontier_contact": 51.15625,
+        "sum_delta_p": 4.501227397204595,
+        "realized_flips": 4.171875
+      },
+      "16": {
+        "frontier_exposed_fraction": 0.28711839735182165,
+        "frontier_contact": 53.078125,
+        "sum_delta_p": 4.730437341753967,
+        "realized_flips": 4.890625
+      },
+      "17": {
+        "frontier_exposed_fraction": 0.28312504451164,
+        "frontier_contact": 53.8125,
+        "sum_delta_p": 4.75336353595011,
+        "realized_flips": 4.96875
+      },
+      "18": {
+        "frontier_exposed_fraction": 0.2790569070494813,
+        "frontier_contact": 55.09375,
+        "sum_delta_p": 4.87654939688449,
+        "realized_flips": 5.390625
+      },
+      "19": {
+        "frontier_exposed_fraction": 0.27500333319724124,
+        "frontier_contact": 56.5,
+        "sum_delta_p": 5.011021285108328,
+        "realized_flips": 5.234375
+      },
+      "20": {
+        "frontier_exposed_fraction": 0.27411468849799686,
+        "frontier_contact": 57.953125,
+        "sum_delta_p": 5.197983653388168,
+        "realized_flips": 4.984375
+      },
+      "21": {
+        "frontier_exposed_fraction": 0.27647281293930104,
+        "frontier_contact": 60.3125,
+        "sum_delta_p": 5.4669733905110345,
+        "realized_flips": 5.015625
+      },
+      "22": {
+        "frontier_exposed_fraction": 0.2861628339829517,
+        "frontier_contact": 64.125,
+        "sum_delta_p": 5.954907269453189,
+        "realized_flips": 6.234375
+      },
+      "23": {
+        "frontier_exposed_fraction": 0.2867222470646791,
+        "frontier_contact": 66.5,
+        "sum_delta_p": 6.100729009089052,
+        "realized_flips": 5.96875
+      },
+      "24": {
+        "frontier_exposed_fraction": 0.27533989302285133,
+        "frontier_contact": 66.09375,
+        "sum_delta_p": 5.900506251415892,
+        "realized_flips": 5.84375
+      }
+    }
+  },
+  "paired_tests": {
+    "access_fraction_auc": {
+      "aligned_gt_shuffled": {
+        "mean_difference_B_minus_A": 0.004053829202297091,
+        "p_value": 0.4332833583208396,
+        "permutations": 2000,
+        "null_mean": 0.00044987726323179666,
+        "null_q95": 0.042625932182208996
+      },
+      "aligned_gt_shifted": {
+        "mean_difference_B_minus_A": -0.09163559070925704,
+        "p_value": 0.9625187406296851,
+        "permutations": 2000,
+        "null_mean": -0.0002502149759754314,
+        "null_q95": 0.0824997893740725
+      }
+    },
+    "probability_leverage_auc": {
+      "aligned_gt_shuffled": {
+        "mean_difference_B_minus_A": 2.526654196292835,
+        "p_value": 0.0004997501249375312,
+        "permutations": 2000,
+        "null_mean": 0.014585566766954465,
+        "null_q95": 0.7908180294000436
+      },
+      "aligned_gt_shifted": {
+        "mean_difference_B_minus_A": 2.261188829095426,
+        "p_value": 0.0004997501249375312,
+        "permutations": 2000,
+        "null_mean": -0.020036317008159735,
+        "null_q95": 0.9669079463653522
+      }
+    },
+    "total_realized_flips": {
+      "aligned_gt_shuffled": {
+        "mean_difference_B_minus_A": 3.0625,
+        "p_value": 0.0014992503748125937,
+        "permutations": 2000,
+        "null_mean": 0.015703125,
+        "null_q95": 1.59375
+      },
+      "aligned_gt_shifted": {
+        "mean_difference_B_minus_A": 2.078125,
+        "p_value": 0.04597701149425287,
+        "permutations": 2000,
+        "null_mean": 0.039359375,
+        "null_q95": 2.015625
+      }
+    }
+  },
+  "status": "MEASURED",
+  "bounded_statement": "V9 tests temporal alignment while preserving the donor-derived requested copy multiset, requested total, and surface placement rule."
+}
+```

@@ -1,0 +1,56 @@
+{
+  "base_model_version": "digital-crystal-v1-frozen",
+  "experiment_version": "digital-crystal-persistent-material-state-v1",
+  "schema_version": 1,
+  "chapter": 18,
+  "chapter_title": "Can Experience Change the Material?",
+  "run_type": "EXPLORATORY MECHANISM DISCOVERY",
+  "profile": "quick",
+  "profile_config": {
+    "groups": 32,
+    "radius": 64,
+    "warmup_steps": 14,
+    "experience_horizon": 8,
+    "experience_pulse_step": 3,
+    "retention_delay": 6,
+    "ablation_horizon": 4,
+    "ablation_primary_endpoint": 4,
+    "challenge_horizon": 4,
+    "challenge_pulse_step": 0,
+    "challenge_observation_steps": [
+      1,
+      2,
+      4
+    ],
+    "challenge_primary_endpoint": 2,
+    "message_gain": 0.65,
+    "write_probability": 0.2,
+    "modified_neighbor_gain": 0.3,
+    "permutations": 1000,
+    "bootstrap_reps": 1000,
+    "alpha": 0.05,
+    "max_capacity_fraction": 0.85
+  },
+  "seed": 20260814,
+  "canonical_model_modified": false,
+  "counterfactual_coupling": "cell-keyed CRN from Chapter 17",
+  "experimental_extension": {
+    "cell_states": [
+      "occupied-normal",
+      "occupied-modified"
+    ],
+    "write_rule": "During an explicit pulse, each occupied boundary cell that is not already modified is independently written with fixed probability using a separate cell-keyed material RNG channel.",
+    "persistence_rule": "modified remains modified",
+    "causal_rule": "each modified occupied neighbour adds a fixed local growth-score bias to a frontier cell on later steps",
+    "write_probability": 0.2,
+    "modified_neighbor_gain": 0.3
+  },
+  "scientific_boundary": "Persistent local material state only. No global memory register, history buffer, learned parameter, target behaviour, or decoder.",
+  "started_at_unix": 1786537257.9436862,
+  "finished_at_unix": 1786537264.692557,
+  "stage_1_status": "MEASURED",
+  "stage_2_status": "FAILED",
+  "stage_3_status": "FAILED",
+  "final_status": "FAILED",
+  "next_question": "Persistent labels existed but were not shown to causally alter later growth under the ablation protocol."
+}

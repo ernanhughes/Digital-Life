@@ -1,0 +1,25 @@
+# Stage 0 — V7 Validity Gate
+
+```json
+{
+  "role": "V7 EXACT MATCHED-BUDGET VALIDITY GATE",
+  "canonical_model_modified": false,
+  "placement_policies": [
+    "interior_biased",
+    "random_matched",
+    "surface_biased"
+  ],
+  "transmission_fraction": 0.5,
+  "shared_budget": 2,
+  "selected_counts": {
+    "interior_biased": 2,
+    "random_matched": 2,
+    "surface_biased": 2
+  },
+  "budget_unit_check_pass": true,
+  "window_start": 5,
+  "window_end": 18,
+  "sustained_zero_steps": 3,
+  "scientific_role": "V7 preserves the exact matched-copy-quantity control from v6 and changes only the outcome definition from a single late endpoint to predeclared integrated causal-lifetime measures."
+}
+```

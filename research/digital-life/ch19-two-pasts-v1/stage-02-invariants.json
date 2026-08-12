@@ -1,0 +1,29 @@
+{
+  "audit_groups": 24,
+  "prechallenge_geometry_and_label_locations_exact_all": true,
+  "no_challenge_A_B_exact_all": true,
+  "erased_history_challenge_exact_all": true,
+  "mean_labelled_cells_at_challenge": 110.33333333333333,
+  "co_moving_aperture_diagnostic": {
+    "1": {
+      "mean_frontier_contact_fraction": 0.3366332244705564
+    },
+    "2": {
+      "mean_frontier_contact_fraction": 0.3278507748717386
+    },
+    "4": {
+      "mean_frontier_contact_fraction": 0.31011633164913177
+    },
+    "6": {
+      "mean_frontier_contact_fraction": 0.2938708958544251
+    },
+    "8": {
+      "mean_frontier_contact_fraction": 0.28187087533128996
+    },
+    "10": {
+      "mean_frontier_contact_fraction": 0.27255323446815977
+    }
+  },
+  "aperture_note": "Secondary only. This tracks whether retained history remains in contact with the moving growth frontier; it is not a wave claim.",
+  "status": "MEASURED"
+}

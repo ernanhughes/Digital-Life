@@ -1,0 +1,495 @@
+# Stage 2 — Does a Bounded Dynamic Budget Exist?
+
+```json
+{
+  "role": "PRIMARY FROZEN BUDGET-FAMILY TEST",
+  "groups_per_budget": 96,
+  "candidate_budgets": [
+    48,
+    64,
+    80,
+    96,
+    128
+  ],
+  "by_budget": {
+    "48": {
+      "budget": 48,
+      "late_mean_population": {
+        "n": 96,
+        "mean": 262.0489583333333,
+        "median": 262.8,
+        "std": 15.295057645435437,
+        "ci95_low": 258.88999999999993,
+        "ci95_high": 265.1185546875
+      },
+      "late_normalized_population_slope": {
+        "n": 96,
+        "mean": -0.003191772991959401,
+        "median": -0.0033449189604977192,
+        "std": 0.004561244777399825,
+        "ci95_low": -0.0040390409656137355,
+        "ci95_high": -0.0022967328971769405
+      },
+      "late_mean_attachments": {
+        "n": 96,
+        "mean": 22.0109375,
+        "median": 22.05,
+        "std": 1.2485613431592295,
+        "ci95_low": 21.76509114583334,
+        "ci95_high": 22.258854166666662
+      },
+      "late_mean_losses": {
+        "n": 96,
+        "mean": 22.77552083333333,
+        "median": 22.775,
+        "std": 1.0988030519296097,
+        "ci95_low": 22.553645833333334,
+        "ci95_high": 22.99895833333333
+      },
+      "late_mean_first_occupations": {
+        "n": 96,
+        "mean": 4.2703125,
+        "median": 4.25,
+        "std": 0.6291003653923928,
+        "ci95_low": 4.144791666666666,
+        "ci95_high": 4.392708333333334
+      },
+      "late_mean_reoccupations": {
+        "n": 96,
+        "mean": 17.740624999999998,
+        "median": 17.75,
+        "std": 1.1198992553374,
+        "ci95_low": 17.51666666666667,
+        "ci95_high": 17.956263020833333
+      },
+      "late_mean_net": {
+        "n": 96,
+        "mean": -0.7645833333333334,
+        "median": -0.75,
+        "std": 1.050436417241266,
+        "ci95_low": -0.9630468749999999,
+        "ci95_high": -0.5609375
+      },
+      "late_turnover_fraction": {
+        "n": 96,
+        "mean": 0.1711491504593401,
+        "median": 0.1708949755431583,
+        "std": 0.00690139614857065,
+        "ci95_low": 0.16980123484117135,
+        "ci95_high": 0.1725686767875755
+      },
+      "mean_evaluation_fraction": {
+        "n": 96,
+        "mean": 0.1673295791476734,
+        "median": 0.16643728827465154,
+        "std": 0.011021662572707992,
+        "ci95_low": 0.16512141984874457,
+        "ci95_high": 0.1695799783442644
+      },
+      "max_capacity_fraction": {
+        "n": 96,
+        "mean": 0.019078836113048808,
+        "median": 0.019088084215866573,
+        "std": 0.0008861942428113435,
+        "ci95_low": 0.018907052603208824,
+        "ci95_high": 0.01925390600228296
+      },
+      "collapsed_fraction": 0.0,
+      "classification": {
+        "slope_gate": false,
+        "population_gate": true,
+        "unsaturated_gate": true,
+        "loss_gate": true,
+        "reoccupation_gate": true,
+        "first_occupation_gate": true,
+        "turnover_gate": true,
+        "late_net_gate": true,
+        "qualifies_as_bounded_dynamic_regime": false
+      }
+    },
+    "64": {
+      "budget": 64,
+      "late_mean_population": {
+        "n": 96,
+        "mean": 368.3807291666667,
+        "median": 366.275,
+        "std": 16.772760451008946,
+        "ci95_low": 365.0702994791667,
+        "ci95_high": 371.6584375
+      },
+      "late_normalized_population_slope": {
+        "n": 96,
+        "mean": -0.002708656932132373,
+        "median": -0.0025817414042493938,
+        "std": 0.0034662980971321205,
+        "ci95_low": -0.0034093161178950907,
+        "ci95_high": -0.0020267966064997952
+      },
+      "late_mean_attachments": {
+        "n": 96,
+        "mean": 30.879166666666666,
+        "median": 30.725,
+        "std": 1.5805672976675624,
+        "ci95_low": 30.567161458333334,
+        "ci95_high": 31.18600260416667
+      },
+      "late_mean_losses": {
+        "n": 96,
+        "mean": 31.905208333333334,
+        "median": 31.9,
+        "std": 1.5925728797116263,
+        "ci95_low": 31.574973958333334,
+        "ci95_high": 32.2203125
+      },
+      "late_mean_first_occupations": {
+        "n": 96,
+        "mean": 5.875520833333333,
+        "median": 5.85,
+        "std": 0.6898510438633099,
+        "ci95_low": 5.746875,
+        "ci95_high": 6.015638020833333
+      },
+      "late_mean_reoccupations": {
+        "n": 96,
+        "mean": 25.003645833333334,
+        "median": 24.9,
+        "std": 1.5483649235253003,
+        "ci95_low": 24.69165364583333,
+        "ci95_high": 25.3015625
+      },
+      "late_mean_net": {
+        "n": 96,
+        "mean": -1.0260416666666667,
+        "median": -1.0750000000000002,
+        "std": 1.1998021583987275,
+        "ci95_low": -1.2672135416666666,
+        "ci95_high": -0.7869791666666667
+      },
+      "late_turnover_fraction": {
+        "n": 96,
+        "mean": 0.17051882057186296,
+        "median": 0.17047010607826552,
+        "std": 0.005722140176008971,
+        "ci95_low": 0.16936146999939175,
+        "ci95_high": 0.17165140283015834
+      },
+      "mean_evaluation_fraction": {
+        "n": 96,
+        "mean": 0.20477356653585077,
+        "median": 0.20389219741207232,
+        "std": 0.012716188162838569,
+        "ci95_low": 0.20225802385946715,
+        "ci95_high": 0.20735300479507685
+      },
+      "max_capacity_fraction": {
+        "n": 96,
+        "mean": 0.025839859851607583,
+        "median": 0.02574671824465724,
+        "std": 0.0008501596531936213,
+        "ci95_low": 0.025669430528251633,
+        "ci95_high": 0.026010966268205548
+      },
+      "collapsed_fraction": 0.0,
+      "classification": {
+        "slope_gate": false,
+        "population_gate": true,
+        "unsaturated_gate": true,
+        "loss_gate": true,
+        "reoccupation_gate": true,
+        "first_occupation_gate": true,
+        "turnover_gate": true,
+        "late_net_gate": true,
+        "qualifies_as_bounded_dynamic_regime": false
+      }
+    },
+    "80": {
+      "budget": 80,
+      "late_mean_population": {
+        "n": 96,
+        "mean": 470.3796875,
+        "median": 469.875,
+        "std": 20.06084767339107,
+        "ci95_low": 466.3773958333333,
+        "ci95_high": 474.3907291666667
+      },
+      "late_normalized_population_slope": {
+        "n": 96,
+        "mean": -0.0025187540145995536,
+        "median": -0.0027019020182929366,
+        "std": 0.003851570985261068,
+        "ci95_low": -0.003282513050877681,
+        "ci95_high": -0.0017494971233238978
+      },
+      "late_mean_attachments": {
+        "n": 96,
+        "mean": 39.73229166666667,
+        "median": 39.725,
+        "std": 1.7722715006256302,
+        "ci95_low": 39.38018229166667,
+        "ci95_high": 40.084921875000006
+      },
+      "late_mean_losses": {
+        "n": 96,
+        "mean": 40.80833333333334,
+        "median": 40.75,
+        "std": 1.5704619948260388,
+        "ci95_low": 40.503125000000004,
+        "ci95_high": 41.119283854166675
+      },
+      "late_mean_first_occupations": {
+        "n": 96,
+        "mean": 7.184375,
+        "median": 7.15,
+        "std": 0.8730862530490088,
+        "ci95_low": 7.0187369791666665,
+        "ci95_high": 7.351588541666667
+      },
+      "late_mean_reoccupations": {
+        "n": 96,
+        "mean": 32.54791666666667,
+        "median": 32.575,
+        "std": 1.5276730958288485,
+        "ci95_low": 32.241627604166666,
+        "ci95_high": 32.839609374999995
+      },
+      "late_mean_net": {
+        "n": 96,
+        "mean": -1.0760416666666668,
+        "median": -1.2,
+        "std": 1.500350470752657,
+        "ci95_low": -1.3771093749999999,
+        "ci95_high": -0.7807291666666667
+      },
+      "late_turnover_fraction": {
+        "n": 96,
+        "mean": 0.17134173217489446,
+        "median": 0.1712571144030984,
+        "std": 0.005312255691642682,
+        "ci95_low": 0.17029922020651128,
+        "ci95_high": 0.17238283566846235
+      },
+      "mean_evaluation_fraction": {
+        "n": 96,
+        "mean": 0.23609707398840185,
+        "median": 0.23479868170776713,
+        "std": 0.014652969205860017,
+        "ci95_low": 0.23310179571817644,
+        "ci95_high": 0.23895682687323894
+      },
+      "max_capacity_fraction": {
+        "n": 96,
+        "mean": 0.03271582429661572,
+        "median": 0.032659014522163736,
+        "std": 0.0012213306346097557,
+        "ci95_low": 0.03247996464582409,
+        "ci95_high": 0.032964879008392
+      },
+      "collapsed_fraction": 0.0,
+      "classification": {
+        "slope_gate": false,
+        "population_gate": true,
+        "unsaturated_gate": true,
+        "loss_gate": true,
+        "reoccupation_gate": true,
+        "first_occupation_gate": true,
+        "turnover_gate": true,
+        "late_net_gate": true,
+        "qualifies_as_bounded_dynamic_regime": false
+      }
+    },
+    "96": {
+      "budget": 96,
+      "late_mean_population": {
+        "n": 96,
+        "mean": 579.5546875,
+        "median": 580.325,
+        "std": 21.907340848656432,
+        "ci95_low": 575.2621614583333,
+        "ci95_high": 583.9377473958333
+      },
+      "late_normalized_population_slope": {
+        "n": 96,
+        "mean": -0.0026797121474159704,
+        "median": -0.002506074082705836,
+        "std": 0.0033849531852905763,
+        "ci95_low": -0.00334253368205601,
+        "ci95_high": -0.0019808195164217352
+      },
+      "late_mean_attachments": {
+        "n": 96,
+        "mean": 48.70677083333333,
+        "median": 48.525,
+        "std": 1.8719483206944783,
+        "ci95_low": 48.327044270833326,
+        "ci95_high": 49.08338541666667
+      },
+      "late_mean_losses": {
+        "n": 96,
+        "mean": 50.29739583333333,
+        "median": 50.225,
+        "std": 1.8062809974272185,
+        "ci95_low": 49.93125,
+        "ci95_high": 50.638684895833336
+      },
+      "late_mean_first_occupations": {
+        "n": 96,
+        "mean": 8.526562499999999,
+        "median": 8.55,
+        "std": 0.8315474833737778,
+        "ci95_low": 8.366653645833333,
+        "ci95_high": 8.697395833333333
+      },
+      "late_mean_reoccupations": {
+        "n": 96,
+        "mean": 40.18020833333333,
+        "median": 40.175,
+        "std": 1.8241721866826788,
+        "ci95_low": 39.81509114583333,
+        "ci95_high": 40.55990885416667
+      },
+      "late_mean_net": {
+        "n": 96,
+        "mean": -1.590625,
+        "median": -1.55,
+        "std": 1.6530404602301465,
+        "ci95_low": -1.9146223958333335,
+        "ci95_high": -1.2541406249999998
+      },
+      "late_turnover_fraction": {
+        "n": 96,
+        "mean": 0.1709076948443906,
+        "median": 0.17104893452025732,
+        "std": 0.004271168331368306,
+        "ci95_low": 0.17008422091499303,
+        "ci95_high": 0.17174400673976475
+      },
+      "mean_evaluation_fraction": {
+        "n": 96,
+        "mean": 0.2647097023130169,
+        "median": 0.2628303868539161,
+        "std": 0.016189347427157063,
+        "ci95_low": 0.2614988631473334,
+        "ci95_high": 0.2680258823777618
+      },
+      "max_capacity_fraction": {
+        "n": 96,
+        "mean": 0.039783356585706135,
+        "median": 0.03982497304838607,
+        "std": 0.0014834884299555855,
+        "ci95_low": 0.03948475846597755,
+        "ci95_high": 0.04006874312998077
+      },
+      "collapsed_fraction": 0.0,
+      "classification": {
+        "slope_gate": false,
+        "population_gate": true,
+        "unsaturated_gate": true,
+        "loss_gate": true,
+        "reoccupation_gate": true,
+        "first_occupation_gate": true,
+        "turnover_gate": true,
+        "late_net_gate": true,
+        "qualifies_as_bounded_dynamic_regime": false
+      }
+    },
+    "128": {
+      "budget": 128,
+      "late_mean_population": {
+        "n": 96,
+        "mean": 801.1776041666666,
+        "median": 802.225,
+        "std": 28.953264400801494,
+        "ci95_low": 795.6158072916666,
+        "ci95_high": 807.1548177083332
+      },
+      "late_normalized_population_slope": {
+        "n": 96,
+        "mean": -0.0027976040167390337,
+        "median": -0.0025608510570916745,
+        "std": 0.0028669535209386366,
+        "ci95_low": -0.0033650959715776922,
+        "ci95_high": -0.0022405779947271805
+      },
+      "late_mean_attachments": {
+        "n": 96,
+        "mean": 67.49479166666667,
+        "median": 67.25,
+        "std": 2.2797792964124572,
+        "ci95_low": 67.0536328125,
+        "ci95_high": 67.95420572916666
+      },
+      "late_mean_losses": {
+        "n": 96,
+        "mean": 69.70729166666666,
+        "median": 69.9,
+        "std": 2.510200025230393,
+        "ci95_low": 69.21197916666667,
+        "ci95_high": 70.20365885416666
+      },
+      "late_mean_first_occupations": {
+        "n": 96,
+        "mean": 11.264583333333334,
+        "median": 11.275,
+        "std": 1.1778194988748591,
+        "ci95_low": 11.0301953125,
+        "ci95_high": 11.4963671875
+      },
+      "late_mean_reoccupations": {
+        "n": 96,
+        "mean": 56.23020833333333,
+        "median": 56.275,
+        "std": 2.138635560679638,
+        "ci95_low": 55.80830729166667,
+        "ci95_high": 56.66044270833333
+      },
+      "late_mean_net": {
+        "n": 96,
+        "mean": -2.2125,
+        "median": -2.275,
+        "std": 2.0883637513361357,
+        "ci95_low": -2.6463671874999997,
+        "ci95_high": -1.8083072916666665
+      },
+      "late_turnover_fraction": {
+        "n": 96,
+        "mean": 0.1713218104351133,
+        "median": 0.17106649624015596,
+        "std": 0.003906100873136434,
+        "ci95_low": 0.1705332943008437,
+        "ci95_high": 0.17213633984333415
+      },
+      "mean_evaluation_fraction": {
+        "n": 96,
+        "mean": 0.32349899405431654,
+        "median": 0.32395964138769595,
+        "std": 0.015878980721705478,
+        "ci95_low": 0.32036985487996994,
+        "ci95_high": 0.3265212156240871
+      },
+      "max_capacity_fraction": {
+        "n": 96,
+        "mean": 0.054380165726002495,
+        "median": 0.054600799036083454,
+        "std": 0.0017576880516752475,
+        "ci95_low": 0.054043187979580194,
+        "ci95_high": 0.05472500435981991
+      },
+      "collapsed_fraction": 0.0,
+      "classification": {
+        "slope_gate": false,
+        "population_gate": true,
+        "unsaturated_gate": true,
+        "loss_gate": true,
+        "reoccupation_gate": true,
+        "first_occupation_gate": true,
+        "turnover_gate": true,
+        "late_net_gate": true,
+        "qualifies_as_bounded_dynamic_regime": false
+      }
+    }
+  },
+  "qualifying_budgets": [],
+  "at_least_one_qualifies": false,
+  "status": "MEASURED"
+}
+```

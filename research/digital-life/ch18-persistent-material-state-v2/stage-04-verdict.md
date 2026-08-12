@@ -1,0 +1,29 @@
+# Stage 4 — Bounded Chapter 18 V2 Verdict
+
+```json
+{
+  "experiment_role": "EXPLORATORY MECHANISM AUTOPSY",
+  "chapter": 18,
+  "question": "Why did persistent material state become causally inert?",
+  "stage_1_accessibility_measured": "MEASURED",
+  "stage_2_timed_ablation_measured": "MEASURED",
+  "stage_3_accessibility_hypothesis": "SUPPORTED",
+  "final_status": "SUPPORTED",
+  "bounded_claim": "V2 does not add a new memory mechanism. It tests whether the v1 failure occurred because experience-written material persisted physically but lost causal access to the active growth frontier.",
+  "nonclaims": [
+    "memory",
+    "learning",
+    "adaptation",
+    "information storage",
+    "inheritance",
+    "epigenetics",
+    "signalling",
+    "semantics",
+    "agency",
+    "individuality",
+    "reproduction",
+    "life"
+  ],
+  "next_question": "Design, but do not yet assume, the smallest local mechanism that keeps experience-written material in causal contact with the active growth surface."
+}
+```

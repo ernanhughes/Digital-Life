@@ -1,0 +1,31 @@
+{
+  "labels": [
+    "ordered",
+    "shuffled"
+  ],
+  "chance": 0.5,
+  "n_train": 700,
+  "n_test": 300,
+  "random_forest_accuracy": 0.5133333333333333,
+  "logistic_accuracy": 0.5166666666666667,
+  "random_forest_confusion": [
+    [
+      88,
+      62
+    ],
+    [
+      84,
+      66
+    ]
+  ],
+  "logistic_confusion": [
+    [
+      72,
+      78
+    ],
+    [
+      67,
+      83
+    ]
+  ]
+}

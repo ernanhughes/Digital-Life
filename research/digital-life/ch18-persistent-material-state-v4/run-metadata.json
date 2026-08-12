@@ -1,0 +1,63 @@
+{
+  "base_model_version": "digital-crystal-v1-frozen",
+  "experiment_version": "digital-crystal-persistent-material-state-v4",
+  "schema_version": 4,
+  "chapter": 18,
+  "chapter_title": "Can Experience Change the Material?",
+  "run_type": "EXPLORATORY MECHANISM CHARACTERIZATION",
+  "profile": "quick",
+  "profile_config": {
+    "groups": 40,
+    "radius": 64,
+    "warmup_steps": 14,
+    "experience_pulse_step": 3,
+    "message_gain": 0.65,
+    "write_probability": 0.2,
+    "modified_neighbor_gain": 0.3,
+    "inheritance_sweep": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "observation_steps": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      10,
+      12,
+      14,
+      18,
+      22
+    ],
+    "cell_audit_steps": [
+      8,
+      10,
+      12,
+      14,
+      18
+    ],
+    "late_ablation_step": 14,
+    "late_ablation_followup": 4,
+    "permutations": 1500,
+    "bootstrap_reps": 1000,
+    "alpha": 0.05,
+    "max_capacity_fraction": 0.85
+  },
+  "seed": 20260817,
+  "canonical_model_modified": false,
+  "counterfactual_coupling": "cell-keyed CRN from Chapter 17",
+  "v3_result_being_explained": "Local inheritance extended frontier contact, but the late retained-vs-erased whole-crystal ablation did not establish a systematic population-level effect.",
+  "v4_design": "Predeclared inheritance-probability sweep plus direct cell-level frontier causal audit. The sweep characterizes propagation regimes and is not used to select a winner by significance.",
+  "scientific_boundary": "Mechanistic characterization only. No claim of memory, learning, adaptation, phase transition, criticality, or biological inheritance.",
+  "started_at_unix": 1786538935.7575896,
+  "finished_at_unix": 1786538962.089829,
+  "stage_1_status": "MEASURED",
+  "stage_2_status": "MEASURED",
+  "stage_3_status": "MEASURED",
+  "final_status": "MEASURED",
+  "next_question": "Use the mechanism map to decide whether the next intervention should target propagation availability, local causal gain, or surface-biased state transmission. Do not choose solely from a significance result."
+}

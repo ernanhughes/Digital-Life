@@ -1,0 +1,98 @@
+{
+  "late_ablation_step": 14,
+  "followup_steps": 4,
+  "results": {
+    "none": {
+      "frontier_contact_at_ablation": {
+        "n": 48,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "pathwise_symmetric_difference_after_followup": {
+        "n": 48,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "paired_ridge_test": {
+        "statistic": 0.0,
+        "p_value": 1.0,
+        "permutations": 2000,
+        "null_mean": 0.0,
+        "null_q95": 0.0,
+        "null_q99": 0.0
+      }
+    },
+    "uniform_budget": {
+      "frontier_contact_at_ablation": {
+        "n": 48,
+        "mean": 5.979166666666667,
+        "median": 5.0,
+        "std": 4.10025194009127,
+        "ci95_low": 4.9578125,
+        "ci95_high": 7.208333333333333,
+        "min": 0.0,
+        "max": 18.0
+      },
+      "pathwise_symmetric_difference_after_followup": {
+        "n": 48,
+        "mean": 0.0009044039577559641,
+        "median": 0.0,
+        "std": 0.0014725933717068508,
+        "ci95_low": 0.0005080193639551659,
+        "ci95_high": 0.0013660440822213216,
+        "min": 0.0,
+        "max": 0.005979073243647235
+      },
+      "paired_ridge_test": {
+        "statistic": 0.3286774809164163,
+        "p_value": 0.0069965017491254375,
+        "permutations": 2000,
+        "null_mean": 0.16950879855108567,
+        "null_q95": 0.2615652213908785,
+        "null_q99": 0.313753161426542
+      }
+    },
+    "surface_biased_budget": {
+      "frontier_contact_at_ablation": {
+        "n": 48,
+        "mean": 57.1875,
+        "median": 54.5,
+        "std": 18.27185477950537,
+        "ci95_low": 51.854166666666664,
+        "ci95_high": 62.291666666666664,
+        "min": 21.0,
+        "max": 108.0
+      },
+      "pathwise_symmetric_difference_after_followup": {
+        "n": 48,
+        "mean": 0.01646926134295169,
+        "median": 0.015554434183118582,
+        "std": 0.007481259413434953,
+        "ci95_low": 0.014351552383882677,
+        "ci95_high": 0.018660379908805272,
+        "min": 0.0031520882584712374,
+        "max": 0.03802008608321377
+      },
+      "paired_ridge_test": {
+        "statistic": 2.8023255402213767,
+        "p_value": 0.0004997501249375312,
+        "permutations": 2000,
+        "null_mean": 0.23187688156589215,
+        "null_q95": 0.40977907943024533,
+        "null_q99": 0.5262037587951967
+      }
+    }
+  },
+  "status": "MEASURED",
+  "interpretation": "Whole-crystal ablation is corroborative. The primary mechanistic question is whether matched-budget surface placement produces more accessible and causally active state than uniform placement."
+}

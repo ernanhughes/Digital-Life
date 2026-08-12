@@ -1,0 +1,63 @@
+{
+  "base_model_version": "digital-crystal-v1-frozen",
+  "experiment_version": "digital-crystal-persistent-material-state-v6",
+  "schema_version": 6,
+  "chapter": 18,
+  "chapter_title": "Can Experience Change the Material?",
+  "run_type": "EXPLORATORY EXACT-MATCHED-BUDGET MECHANISM TEST",
+  "profile": "quick",
+  "profile_config": {
+    "groups": 48,
+    "radius": 64,
+    "warmup_steps": 14,
+    "experience_pulse_step": 3,
+    "message_gain": 0.65,
+    "write_probability": 0.2,
+    "modified_neighbor_gain": 0.3,
+    "transmission_fraction": 0.5,
+    "placement_policies": [
+      "interior_biased",
+      "random_matched",
+      "surface_biased"
+    ],
+    "observation_steps": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      10,
+      12,
+      14,
+      18,
+      22
+    ],
+    "cell_audit_steps": [
+      8,
+      10,
+      12,
+      14,
+      18
+    ],
+    "late_ablation_step": 14,
+    "late_ablation_followup": 4,
+    "permutations": 2000,
+    "bootstrap_reps": 1000,
+    "alpha": 0.05,
+    "max_capacity_fraction": 0.85
+  },
+  "seed": 20260819,
+  "canonical_model_modified": false,
+  "counterfactual_coupling": "cell-keyed CRN from Chapter 17",
+  "v5_issue_being_fixed": "V5 matched transmission fraction but not realized copy quantity. Surface placement created more eligible opportunities and therefore more cumulative transmissions.",
+  "v6_design": "Run interior, random, and surface placement side-by-side. At every step compute one shared K from the minimum eligible count and force all branches to transmit exactly K cells. Assert equal cumulative transmission counts after every step.",
+  "scientific_boundary": "Placement-only mechanism test. No claim of memory, learning, adaptation, self-maintenance, homeostasis, or life.",
+  "started_at_unix": 1786539967.767887,
+  "finished_at_unix": 1786539991.7443268,
+  "stage_1_status": "MEASURED",
+  "stage_2_status": "MEASURED",
+  "stage_3_status": "MEASURED",
+  "stage_4_status": "MEASURED",
+  "final_status": "FAILED",
+  "next_question": "If exact-budget surface placement is supported, test whether a later experience can update, replace, or compete with the existing surface-associated state without increasing the propagation budget."
+}

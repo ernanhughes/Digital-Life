@@ -1,0 +1,28 @@
+# Stage 0 — V4 Mechanism Characterization Audit
+
+```json
+{
+  "role": "V4 MECHANISM CHARACTERIZATION AUDIT",
+  "canonical_model_modified": false,
+  "inheritance_sweep": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "exact_reproducibility_by_inheritance_probability": {
+    "0.0": true,
+    "0.25": true,
+    "0.5": true,
+    "0.75": true,
+    "1.0": true
+  },
+  "all_sweep_regimes_exactly_reproducible": true,
+  "zero_inheritance_limiting_case": {
+    "inheritance_probability": 0.0,
+    "interpretation": "At p=0, material may still be written by the original pulse and affect nearby growth, but no newly attached cell inherits state."
+  },
+  "scientific_role": "Characterize accessibility and direct causal leverage across a predeclared inheritance sweep; do not select the best regime by significance."
+}
+```

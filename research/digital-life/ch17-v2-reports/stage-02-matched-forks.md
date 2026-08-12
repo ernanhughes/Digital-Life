@@ -1,0 +1,135 @@
+# Stage 2 — During the Message and After It
+
+```json
+{
+  "levels": [
+    {
+      "level": "L1",
+      "title": "One pulse: early vs late",
+      "groups": 24,
+      "n_codewords": 2,
+      "observation_steps": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        40
+      ],
+      "max_capacity_fraction_observed": 0.3358705231952568,
+      "saturation_guard": 0.85
+    },
+    {
+      "level": "L2",
+      "title": "Two-pulse burst: early vs late",
+      "groups": 24,
+      "n_codewords": 2,
+      "observation_steps": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        40
+      ],
+      "max_capacity_fraction_observed": 0.3440429452768208,
+      "saturation_guard": 0.85
+    },
+    {
+      "level": "L3",
+      "title": "Four pulses: clustered vs dispersed",
+      "groups": 24,
+      "n_codewords": 2,
+      "observation_steps": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        40
+      ],
+      "max_capacity_fraction_observed": 0.33891515102956493,
+      "saturation_guard": 0.85
+    },
+    {
+      "level": "L4",
+      "title": "Two hard constant-weight temporal words",
+      "groups": 24,
+      "n_codewords": 2,
+      "observation_steps": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        40
+      ],
+      "max_capacity_fraction_observed": 0.33282589536094864,
+      "saturation_guard": 0.85
+    },
+    {
+      "level": "L5",
+      "title": "Four hard constant-weight temporal words",
+      "groups": 24,
+      "n_codewords": 4,
+      "observation_steps": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        40
+      ],
+      "max_capacity_fraction_observed": 0.33579040141014344,
+      "saturation_guard": 0.85
+    },
+    {
+      "level": "L6",
+      "title": "Eight hard constant-weight temporal words",
+      "groups": 24,
+      "n_codewords": 8,
+      "observation_steps": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        40
+      ],
+      "max_capacity_fraction_observed": 0.34580562454931496,
+      "saturation_guard": 0.85
+    }
+  ],
+  "measurement_schedule": {
+    "during_transmission": [
+      4,
+      8,
+      12
+    ],
+    "end_of_transmission": [
+      16
+    ],
+    "after_transmission": [
+      0,
+      4,
+      8,
+      16,
+      24
+    ]
+  },
+  "checkpoint_control": "Within each level and receiver group all codewords begin from the same checkpoint, RNG state, and future environmental forcing.",
+  "raw_and_paired_delta_features": "Raw receiver features are primary. Matched no-channel feature deltas are reported as a mechanistic diagnostic, not the headline decoder."
+}
+```

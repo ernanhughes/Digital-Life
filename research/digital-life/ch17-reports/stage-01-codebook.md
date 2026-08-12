@@ -1,0 +1,94 @@
+# Stage 1 — Different Inputs Without Different Energy
+
+The experiment uses a nested constant-weight codebook.
+
+Every word has:
+* the same length;
+* the same number of 1 bits;
+* the same first bit;
+* the same last bit.
+
+Only temporal arrangement distinguishes one word from another.
+
+```json
+{
+  "count": 8,
+  "length": 16,
+  "weight_each": [
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6
+  ],
+  "first_bit_each": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "last_bit_each": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "pairwise_hamming": {
+    "min": 6,
+    "mean": 6.428571428571429,
+    "max": 8
+  },
+  "codewords": [
+    "1000000010001111",
+    "1111100000000001",
+    "1000011101000001",
+    "1100010000110001",
+    "1010001010100001",
+    "1001000100011001",
+    "1000100001100101",
+    "1010000001010011"
+  ],
+  "nested_tests": {
+    "2_codewords": [
+      "1000000010001111",
+      "1111100000000001"
+    ],
+    "4_codewords": [
+      "1000000010001111",
+      "1111100000000001",
+      "1000011101000001",
+      "1100010000110001"
+    ],
+    "8_codewords": [
+      "1000000010001111",
+      "1111100000000001",
+      "1000011101000001",
+      "1100010000110001",
+      "1010001010100001",
+      "1001000100011001",
+      "1000100001100101",
+      "1010000001010011"
+    ]
+  },
+  "encoded_bits": {
+    "2": 1,
+    "4": 2,
+    "8": 3
+  },
+  "design_rule": "All words have equal length, equal Hamming weight, and identical first/last bits. Only temporal arrangement carries codeword identity.",
+  "figure": "static\\images\\books\\digital-life\\ch17-01-codebook.png"
+}
+```
+
+Figure: `static\images\books\digital-life\ch17-01-codebook.png`

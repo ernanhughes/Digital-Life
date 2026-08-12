@@ -1,0 +1,41 @@
+{
+  "model_version": "digital-crystal-v1-frozen",
+  "signalling_version": "digital-crystal-signalling-v3.4",
+  "schema_version": 3,
+  "profile": "full",
+  "profile_config": {
+    "pair_steps": 90,
+    "crystal_radius": 56,
+    "pair_replicates": 60,
+    "intervention_replicates": 120,
+    "impulse_horizon": 12,
+    "message_gain": 0.65,
+    "pulse_window": 12,
+    "pulse_sigma": 0.75,
+    "min_pulse_attachments": 3,
+    "chain_length": 6,
+    "chain_steps": 90,
+    "chain_replicates": 30,
+    "board_width": 6,
+    "board_height": 6,
+    "board_steps": 90,
+    "board_replicates": 15,
+    "max_capacity_fraction": 0.85
+  },
+  "seed": 20260812,
+  "started_at_unix": 1786497121.2757924,
+  "scientific_boundary": "Primitive causal transmission only. No semantics, coordination, agency, individuality, or life claim.",
+  "message_definition": "One bit emitted by sender growth when attachment activity exceeds a threshold derived from the sender's own recent history.",
+  "receiver_coupling": "Received bit directly perturbs the Digital Crystal environmental forcing used by the frozen attachment rule.",
+  "saturation_policy": "Stages 1, 2, 3, 5, and 6 guard against hard-radius saturation. Stages comparing controls use matched/common horizons so endpoint morphology remains informative.",
+  "sender_specificity_controls": [
+    "shuffled chronology",
+    "count-matched unrelated sender replay",
+    "exact inter-pulse-interval multiset permutation",
+    "rate-matched random timing"
+  ],
+  "finished_at_unix": 1786497909.6615794,
+  "final_verdict": "CAUSAL_TRANSMISSION_SUPPORTED",
+  "stage0_reproducibility_passed": true,
+  "stage1_message_count": 49
+}

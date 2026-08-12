@@ -1,0 +1,62 @@
+{
+  "base_model_version": "digital-crystal-v1-frozen",
+  "experiment_version": "digital-crystal-persistent-material-state-v2",
+  "schema_version": 2,
+  "chapter": 18,
+  "chapter_title": "Can Experience Change the Material?",
+  "run_type": "EXPLORATORY MECHANISM AUTOPSY",
+  "profile": "quick",
+  "profile_config": {
+    "groups": 32,
+    "radius": 64,
+    "warmup_steps": 14,
+    "experience_horizon": 8,
+    "experience_pulse_step": 3,
+    "accessibility_observation_steps": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      12,
+      14
+    ],
+    "ablation_probe_steps": [
+      5,
+      7,
+      10,
+      14
+    ],
+    "ablation_followup_horizon": 3,
+    "ablation_primary_endpoint": 3,
+    "message_gain": 0.65,
+    "write_probability": 0.2,
+    "modified_neighbor_gain": 0.3,
+    "permutations": 1000,
+    "bootstrap_reps": 1000,
+    "alpha": 0.05,
+    "max_capacity_fraction": 0.85
+  },
+  "seed": 20260815,
+  "canonical_model_modified": false,
+  "counterfactual_coupling": "cell-keyed CRN from Chapter 17",
+  "experimental_extension_unchanged_from_v1": true,
+  "material_mechanism": {
+    "write_probability": 0.2,
+    "modified_neighbor_gain": 0.3,
+    "persistence_rule": "modified remains modified",
+    "causal_rule": "modified occupied neighbours bias later frontier attachment"
+  },
+  "v1_result_being_autopsied": "Persistent labels were written and retained, but retained-vs-erased continuations were exactly identical at the late ablation.",
+  "v2_hypothesis": "Persistent material becomes causally inert when growth buries the modified cells and the active frontier no longer has modified occupied neighbours.",
+  "scientific_boundary": "No new propagation, inheritance, memory, learning, or adaptation mechanism is introduced in v2.",
+  "started_at_unix": 1786537635.3227508,
+  "finished_at_unix": 1786537640.3051827,
+  "stage_1_status": "MEASURED",
+  "stage_2_status": "MEASURED",
+  "stage_3_status": "SUPPORTED",
+  "final_status": "SUPPORTED",
+  "next_question": "Design, but do not yet assume, the smallest local mechanism that keeps experience-written material in causal contact with the active growth surface."
+}

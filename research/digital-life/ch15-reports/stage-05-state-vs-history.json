@@ -1,0 +1,7 @@
+{
+  "history_reconstructs_checkpoint_morphology": true,
+  "checkpoint_contains_explicit_event_sequence": false,
+  "checkpoint_state_continues_exactly": true,
+  "history_reconstructed_geometry_without_rng_continues_exactly": false,
+  "history_geometry_only_final_difference": 0.003132832080200501
+}

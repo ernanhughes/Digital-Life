@@ -1,0 +1,27 @@
+# Stage 4 — Does the Measuring Apparatus Invent Effects?
+
+Known-null sham pseudoexperiments use the same treatment in both arms.
+
+```json
+{
+  "known_null": true,
+  "endpoint": 20,
+  "same_codeword_both_pseudoarms": "1110000000000001",
+  "sham_reps": 20,
+  "alpha": 0.05,
+  "false_positive_count": 0,
+  "false_positive_rate": 0.0,
+  "p_value_summary": {
+    "n": 20,
+    "mean": 0.5388446215139442,
+    "median": 0.46812749003984067,
+    "std": 0.2957449575552664,
+    "ci95_low": 0.41761454183266933,
+    "ci95_high": 0.667808764940239,
+    "min": 0.055776892430278883,
+    "max": 1.0
+  },
+  "minimum_p_value": 0.055776892430278883,
+  "maximum_energy_statistic": 0.7659941246632656
+}
+```

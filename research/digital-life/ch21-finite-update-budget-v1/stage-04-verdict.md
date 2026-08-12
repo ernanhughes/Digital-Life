@@ -1,0 +1,39 @@
+# Stage 4 — Bounded Chapter 21 Verdict
+
+```json
+{
+  "question": "When attachment evaluations are scarce, does local scheduling change the tradeoff between reusing lost material and occupying new sites?",
+  "reoccupation_gate_passed": true,
+  "reoccupation_advantage": 0.42525067887219437,
+  "reoccupation_ci95": [
+    0.4223096370669325,
+    0.4284771275434652
+  ],
+  "reoccupation_p_value": 0.00024993751562109475,
+  "reoccupation_sei": 0.15,
+  "first_occupation_gate_passed": false,
+  "first_occupation_advantage_per_1000_evals": 61.582919827733086,
+  "first_occupation_ci95": [
+    59.90029819126394,
+    63.15771837751961
+  ],
+  "first_occupation_p_value": 0.00024993751562109475,
+  "first_occupation_sei": 100.0,
+  "status": "FAILED",
+  "bounded_claim": "Chapter 21 V1 did not establish both predeclared arms of the construction-allocation tradeoff under the fixed finite evaluation budget.",
+  "forbidden_overclaims": [
+    "maintenance",
+    "homeostasis",
+    "metabolism",
+    "energy",
+    "repair",
+    "adaptation",
+    "agency",
+    "choice",
+    "organism",
+    "life"
+  ],
+  "next_question_if_supported": "Can a local rule allocate scarce construction opportunity in a way that preserves a bounded process without an externally selected scheduling policy?",
+  "next_question_if_failed": "Do not tune B or the neighbour-count thresholds to force a tradeoff. Use the budget sweep to determine whether candidate evaluation scarcity itself is the wrong resource abstraction."
+}
+```

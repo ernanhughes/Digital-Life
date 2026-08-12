@@ -1,0 +1,9 @@
+{
+  "procedural_replay_exact_morphology": true,
+  "procedural_replay_exact_process": true,
+  "event_log_replay_exact_final_morphology": true,
+  "event_log_all_trajectory_hashes_match": true,
+  "trajectory_steps": 96,
+  "trajectory_hash_match_count": 96,
+  "figure": "static\\images\\books\\digital-life\\ch15-04-history-replay.png"
+}

@@ -1,0 +1,11 @@
+{
+  "role": "EXTENSION AUDIT",
+  "base_model_version": "digital-crystal-v1-frozen",
+  "experimental_extension": "digital-crystal-persistent-material-state-v1",
+  "canonical_model_modified": false,
+  "exact_when_material_state_empty": true,
+  "material_extension_exact_reproducibility": true,
+  "write_probability": 0.2,
+  "modified_neighbor_gain": 0.3,
+  "interpretation": "The material-state extension leaves the Chapter 17 CRN growth process unchanged while no cells are modified. The extension becomes causally active only after experience writes local material state."
+}

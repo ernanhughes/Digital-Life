@@ -1,0 +1,44 @@
+# Stage 1 — Before There Are Messages, There Are Pulses
+
+A sender Digital Crystal emits one bit only when its own current attachment
+activity exceeds a threshold derived from its recent attachment history.
+
+The sender and receiver are advanced together and the stage stops at the
+longest **common** horizon for which both remain below the hard-radius
+saturation guard of `0.85`.
+
+```json
+{
+  "pulse_rule": {
+    "window": 12,
+    "sigma": 0.75,
+    "min_attachments": 3
+  },
+  "requested_steps": 90,
+  "common_safe_horizon": 76,
+  "first_unsafe_step": 77,
+  "sender_final_population": 7723,
+  "sender_capacity_fraction": 0.8064111934843897,
+  "message_count": 49,
+  "message_rate": 0.6447368421052632,
+  "message_structure": {
+    "length": 76,
+    "pulse_count": 49,
+    "pulse_rate": 0.6447368421052632,
+    "first_pulse": 12,
+    "last_pulse": 73,
+    "ipi_mean": 1.2708333333333333,
+    "ipi_std": 1.0555327117411168,
+    "ipi_median": 1.0,
+    "lag1_autocorrelation": 0.5879120879120885
+  },
+  "receiver_final_population": 8026,
+  "receiver_capacity_fraction": 0.8380494935783648,
+  "saturation_guard": 0.85,
+  "figure": "static\\images\\books\\digital-life\\ch16-01-sender-pulses-receiver.png"
+}
+```
+
+Figure: `static\images\books\digital-life\ch16-01-sender-pulses-receiver.png`
+
+The pulse has no semantics. It means only: an endogenous sender event occurred.

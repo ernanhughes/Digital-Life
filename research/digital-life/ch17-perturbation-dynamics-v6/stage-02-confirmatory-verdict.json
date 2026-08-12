@@ -1,0 +1,24 @@
+{
+  "experiment_role": "CONFIRMATORY",
+  "preflight_passed": true,
+  "matched_arrangement_status": "FAILED",
+  "primary_endpoint": 8,
+  "primary_instrument": "paired_ridge_hotelling_angular9",
+  "primary_p_value": 0.736631684157921,
+  "primary_alpha": 0.05,
+  "bounded_statement": "Under the frozen CRN coupling, short matched codewords, t=8 endpoint, angular9 feature set, and paired ridge statistic, the independent v6 sample did not establish a systematic temporal-arrangement signature. Secondary endpoints or all24 results do not alter this primary decision.",
+  "secondary_results_cannot_change_primary_decision": true,
+  "chapter18_status": "DEFERRED",
+  "nonclaims": [
+    "memory",
+    "information storage",
+    "semantics",
+    "sender identity",
+    "coordination",
+    "learning",
+    "agency",
+    "individuality",
+    "life",
+    "Shannon channel capacity"
+  ]
+}

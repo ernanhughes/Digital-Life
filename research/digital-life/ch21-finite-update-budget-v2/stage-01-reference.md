@@ -1,0 +1,41 @@
+# Stage 1 — Fresh Reference Under Scarcity
+
+```json
+{
+  "role": "FRESH DESCRIPTIVE B=128 REFERENCE",
+  "groups": 160,
+  "late_mean_population": {
+    "n": 160,
+    "mean": 803.5371875,
+    "median": 801.525,
+    "std": 31.936182062740325,
+    "ci95_low": 798.5446953124999,
+    "ci95_high": 808.5133906249999
+  },
+  "late_normalized_population_slope": {
+    "n": 160,
+    "mean": -0.002603307554909483,
+    "median": -0.0025060846326322352,
+    "std": 0.002817271908786378,
+    "ci95_low": -0.0030283528319752393,
+    "ci95_high": -0.0021870347520400605
+  },
+  "late_mean_net": {
+    "n": 160,
+    "mean": -2.13,
+    "median": -2.075,
+    "std": 2.1275535896257844,
+    "ci95_low": -2.460640625,
+    "ci95_high": -1.8196171874999996
+  },
+  "late_turnover_fraction": {
+    "n": 160,
+    "mean": 0.17071881948747641,
+    "median": 0.17038324064819976,
+    "std": 0.00458907517056708,
+    "ci95_low": 0.17000761950608653,
+    "ci95_high": 0.17143726855486213
+  },
+  "status": "MEASURED"
+}
+```

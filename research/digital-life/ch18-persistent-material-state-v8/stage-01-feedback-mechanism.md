@@ -1,0 +1,78 @@
+# Stage 1 — Does Accessibility Generate Future Propagation Opportunity?
+
+```json
+{
+  "groups": 64,
+  "window": {
+    "start": 5,
+    "end": 24
+  },
+  "natural_feedback": {
+    "access_auc": {
+      "n": 64,
+      "mean": 1101.359375,
+      "median": 1082.0,
+      "std": 346.75447758408166,
+      "ci95_low": 1018.3265625,
+      "ci95_high": 1179.5992187499999,
+      "min": 241.0,
+      "max": 2047.0
+    },
+    "eligible_opportunity_auc": {
+      "n": 64,
+      "mean": 558.671875,
+      "median": 541.0,
+      "std": 174.78344231930086,
+      "ci95_low": 515.10078125,
+      "ci95_high": 599.09453125,
+      "min": 123.0,
+      "max": 1051.0
+    },
+    "transmission_count_auc": {
+      "n": 64,
+      "mean": 279.421875,
+      "median": 271.0,
+      "std": 87.77916265540686,
+      "ci95_low": 258.87109375,
+      "ci95_high": 300.61484375,
+      "min": 59.0,
+      "max": 524.0
+    }
+  },
+  "clamped_schedule": {
+    "access_auc": {
+      "n": 64,
+      "mean": 1047.234375,
+      "median": 1066.0,
+      "std": 99.81384895574048,
+      "ci95_low": 1023.456640625,
+      "ci95_high": 1070.678125,
+      "min": 576.0,
+      "max": 1185.0
+    },
+    "eligible_opportunity_auc": {
+      "n": 64,
+      "mean": 535.59375,
+      "median": 542.0,
+      "std": 53.254612109539394,
+      "ci95_low": 521.866796875,
+      "ci95_high": 549.03125,
+      "min": 287.0,
+      "max": 631.0
+    },
+    "transmission_count_auc": {
+      "n": 64,
+      "mean": 274.671875,
+      "median": 275.0,
+      "std": 2.1217231168027086,
+      "ci95_low": 274.109375,
+      "ci95_high": 274.984375,
+      "min": 258.0,
+      "max": 275.0
+    }
+  },
+  "clamped_schedule_truncation_rate": 0.00625,
+  "status": "MEASURED",
+  "bounded_statement": "V8 directly measures whether greater causal accessibility is associated with more eligible propagation opportunities and, in the natural branch, more realized transmissions."
+}
+```

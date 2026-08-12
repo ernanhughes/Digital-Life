@@ -1,0 +1,1465 @@
+# Chapter 21 — What Does It Cost to Stay? (V3)
+
+## Run metadata
+
+```json
+{
+  "base_model_version": "digital-crystal-v1-frozen",
+  "experiment_version": "digital-crystal-finite-update-budget-v3",
+  "schema_version": 3,
+  "chapter": 21,
+  "chapter_title": "What Does It Cost to Stay?",
+  "run_type": "NORMALIZED PROCESS-STABILITY TEST",
+  "profile": "quick",
+  "profile_config": {
+    "groups": 48,
+    "radius": 72,
+    "continuation_steps": 72,
+    "late_window": 20,
+    "loss_rate": 0.08,
+    "candidate_budgets": [
+      48,
+      64,
+      80,
+      96,
+      128
+    ],
+    "start_conditions": {
+      "small": 8,
+      "medium": 14,
+      "large": 20
+    },
+    "max_start_size_cv": 0.1,
+    "max_budget_cv_gross_turnover": 0.1,
+    "max_abs_gross_turnover_slope": 0.0025,
+    "minimum_gross_turnover_fraction": 0.05,
+    "minimum_late_population": 100,
+    "max_capacity_fraction": 0.75,
+    "bootstrap_reps": 2000
+  },
+  "seed": 20260830,
+  "candidate_budgets_frozen": [
+    48,
+    64,
+    80,
+    96,
+    128
+  ],
+  "start_conditions_frozen": {
+    "small": 8,
+    "medium": 14,
+    "large": 20
+  },
+  "scheduling_policy": "neutral only",
+  "scientific_boundary": "Stable normalized process flows only. No homeostasis, maintenance, metabolism, energy, attractor, self-preservation, adaptation, agency, organism, or life claim.",
+  "started_at_unix": 1786558768.6786292,
+  "finished_at_unix": 1786558878.8128123,
+  "stage_0_status": "MEASURED",
+  "stage_1_status": "MEASURED",
+  "stage_2_status": "MEASURED",
+  "final_status": "FAILED",
+  "bounded_claim": "Chapter 21 V3 did not establish that normalized construction, loss and turnover flows satisfy all predeclared invariance and temporal-stability criteria across different starting sizes and finite evaluation budgets."
+}
+```
+
+---
+
+## Stage 0 — Freeze the Stable-Process Question
+
+```json
+{
+  "role": "NORMALIZED PROCESS-STABILITY TEST",
+  "v2_status": "FAILED bounded-population hypothesis because every candidate missed the frozen population-slope gate. V3 does not retry population stationarity.",
+  "question": "Can normalized construction/loss flows remain stable across different starting sizes and finite budgets even while total population drifts?",
+  "candidate_budgets": [
+    48,
+    64,
+    80,
+    96,
+    128
+  ],
+  "start_conditions": {
+    "small": 8,
+    "medium": 14,
+    "large": 20
+  },
+  "process_metrics": [
+    "loss_fraction",
+    "attachment_fraction",
+    "reoccupation_fraction",
+    "first_fraction",
+    "gross_turnover_fraction"
+  ],
+  "primary_gates": {
+    "max_start_size_cv_per_metric_per_budget": 0.1,
+    "max_budget_cv_for_gross_turnover_fraction": 0.1,
+    "max_abs_late_gross_turnover_fraction_slope": 0.0025,
+    "minimum_gross_turnover_fraction": 0.05,
+    "minimum_late_population": 100,
+    "max_capacity_fraction": 0.75,
+    "all_required": true
+  },
+  "new_sentence_if_successful": "Across different starting sizes and finite evaluation budgets, the Digital Crystal converges to a stable normalized turnover regime even though absolute population size may drift.",
+  "forbidden_overclaims": [
+    "homeostasis",
+    "maintenance",
+    "metabolism",
+    "energy",
+    "attractor",
+    "self-preservation",
+    "adaptation",
+    "agency",
+    "organism",
+    "life"
+  ],
+  "status": "MEASURED"
+}
+```
+
+---
+
+## Stage 1 — Run the Frozen Process-Stability Grid
+
+```json
+{
+  "role": "FROZEN START-SIZE \u00d7 BUDGET GRID",
+  "groups_per_condition": 48,
+  "by_budget": {
+    "48": {
+      "small": {
+        "late_mean_loss_fraction": {
+          "n": 48,
+          "mean": 0.08775574290925094,
+          "median": 0.08753562350495572,
+          "std": 0.004411141704689682,
+          "ci95_low": 0.08648915649348769,
+          "ci95_high": 0.08903709781595025
+        },
+        "late_mean_attachment_fraction": {
+          "n": 48,
+          "mean": 0.08554675882782736,
+          "median": 0.08550584873258937,
+          "std": 0.0038135643513443128,
+          "ci95_low": 0.08450444458087977,
+          "ci95_high": 0.08667161757364082
+        },
+        "late_mean_reoccupation_fraction": {
+          "n": 48,
+          "mean": 0.0674891089591639,
+          "median": 0.0672601464316582,
+          "std": 0.003961196080910997,
+          "ci95_low": 0.06640057923592006,
+          "ci95_high": 0.06858074071462526
+        },
+        "late_mean_first_fraction": {
+          "n": 48,
+          "mean": 0.018057649868663452,
+          "median": 0.018070752441325336,
+          "std": 0.002430966357470632,
+          "ci95_low": 0.017416123090513956,
+          "ci95_high": 0.018741512705428027
+        },
+        "late_mean_gross_turnover_fraction": {
+          "n": 48,
+          "mean": 0.1733025017370783,
+          "median": 0.1721087557029491,
+          "std": 0.007356820120750748,
+          "ci95_low": 0.17134475331121146,
+          "ci95_high": 0.17539919808679538
+        },
+        "late_gross_turnover_fraction_slope": {
+          "n": 48,
+          "mean": -9.196702687724568e-05,
+          "median": -0.00012193675891597355,
+          "std": 0.0010927048318417224,
+          "ci95_low": -0.000391026854106575,
+          "ci95_high": 0.00022065316558720014
+        },
+        "late_mean_population": {
+          "n": 48,
+          "mean": 267.24375000000003,
+          "median": 267.82500000000005,
+          "std": 16.917888760314717,
+          "ci95_low": 262.549609375,
+          "ci95_high": 272.04622395833337
+        },
+        "max_capacity_fraction": {
+          "n": 48,
+          "mean": 0.019006172448052087,
+          "median": 0.01896125309150866,
+          "std": 0.0008020393411615885,
+          "ci95_low": 0.01878686029551652,
+          "ci95_high": 0.01924269267761642
+        },
+        "collapsed_fraction": 0.0
+      },
+      "medium": {
+        "late_mean_loss_fraction": {
+          "n": 48,
+          "mean": 0.0878702719426034,
+          "median": 0.08744688796225045,
+          "std": 0.004172917199411268,
+          "ci95_low": 0.08675497396945948,
+          "ci95_high": 0.08904394200814289
+        },
+        "late_mean_attachment_fraction": {
+          "n": 48,
+          "mean": 0.0847975643307793,
+          "median": 0.08510794052032686,
+          "std": 0.004151521067139103,
+          "ci95_low": 0.08360595742775472,
+          "ci95_high": 0.0859221583331355
+        },
+        "late_mean_reoccupation_fraction": {
+          "n": 48,
+          "mean": 0.06790588828464926,
+          "median": 0.067735338775401,
+          "std": 0.004283304699687145,
+          "ci95_low": 0.06669419317506949,
+          "ci95_high": 0.0690797649482559
+        },
+        "late_mean_first_fraction": {
+          "n": 48,
+          "mean": 0.01689167604613007,
+          "median": 0.016870075273991425,
+          "std": 0.0021932226684464274,
+          "ci95_low": 0.016277243544170997,
+          "ci95_high": 0.01751491167574272
+        },
+        "late_mean_gross_turnover_fraction": {
+          "n": 48,
+          "mean": 0.1726678362733827,
+          "median": 0.17269826823870288,
+          "std": 0.007553713997413594,
+          "ci95_low": 0.1705008169011481,
+          "ci95_high": 0.1747541485323833
+        },
+        "late_gross_turnover_fraction_slope": {
+          "n": 48,
+          "mean": -0.00024331874779793278,
+          "median": -0.00022800270607361097,
+          "std": 0.0011475640055557226,
+          "ci95_low": -0.0005579459973782707,
+          "ci95_high": 5.936602810198549e-05
+        },
+        "late_mean_population": {
+          "n": 48,
+          "mean": 263.478125,
+          "median": 264.75,
+          "std": 16.07022787856939,
+          "ci95_low": 259.16726562499997,
+          "ci95_high": 268.0605208333333
+        },
+        "max_capacity_fraction": {
+          "n": 48,
+          "mean": 0.01917528061386264,
+          "median": 0.01918320755913501,
+          "std": 0.0008596757237660025,
+          "ci95_low": 0.018940114570782336,
+          "ci95_high": 0.01940390692709324
+        },
+        "collapsed_fraction": 0.0
+      },
+      "large": {
+        "late_mean_loss_fraction": {
+          "n": 48,
+          "mean": 0.08704945108662741,
+          "median": 0.08660557849310391,
+          "std": 0.004583169318483765,
+          "ci95_low": 0.08572892097975018,
+          "ci95_high": 0.08830510775532285
+        },
+        "late_mean_attachment_fraction": {
+          "n": 48,
+          "mean": 0.08384405668331511,
+          "median": 0.08432634338817124,
+          "std": 0.0044005216252482465,
+          "ci95_low": 0.0825891817667797,
+          "ci95_high": 0.08503467445590632
+        },
+        "late_mean_reoccupation_fraction": {
+          "n": 48,
+          "mean": 0.07028839864979265,
+          "median": 0.07072488220128746,
+          "std": 0.004287972791199062,
+          "ci95_low": 0.06907340779561882,
+          "ci95_high": 0.07146825648120107
+        },
+        "late_mean_first_fraction": {
+          "n": 48,
+          "mean": 0.013555658033522438,
+          "median": 0.013437259286576877,
+          "std": 0.0021811393044162334,
+          "ci95_low": 0.012939958701727643,
+          "ci95_high": 0.014142393647185092
+        },
+        "late_mean_gross_turnover_fraction": {
+          "n": 48,
+          "mean": 0.17089350776994253,
+          "median": 0.1699597481884837,
+          "std": 0.008021956823996776,
+          "ci95_low": 0.1687575510171416,
+          "ci95_high": 0.173151204099428
+        },
+        "late_gross_turnover_fraction_slope": {
+          "n": 48,
+          "mean": 0.00016369360274253266,
+          "median": 0.0001899845653276707,
+          "std": 0.00102800990439676,
+          "ci95_low": -0.00012184140819100831,
+          "ci95_high": 0.00045639819234295813
+        },
+        "late_mean_population": {
+          "n": 48,
+          "mean": 252.9489583333333,
+          "median": 251.0,
+          "std": 13.31038823859232,
+          "ci95_low": 249.2196875,
+          "ci95_high": 256.7595052083334
+        },
+        "max_capacity_fraction": {
+          "n": 48,
+          "mean": 0.02765711205529837,
+          "median": 0.027427230642399644,
+          "std": 0.002935409269010394,
+          "ci95_low": 0.026808763766461626,
+          "ci95_high": 0.02848812015135181
+        },
+        "collapsed_fraction": 0.0
+      }
+    },
+    "64": {
+      "small": {
+        "late_mean_loss_fraction": {
+          "n": 48,
+          "mean": 0.0867694897226582,
+          "median": 0.08634035989801964,
+          "std": 0.00399278179414248,
+          "ci95_low": 0.0856791622198613,
+          "ci95_high": 0.08788926589726721
+        },
+        "late_mean_attachment_fraction": {
+          "n": 48,
+          "mean": 0.08524910672901748,
+          "median": 0.08504244668732727,
+          "std": 0.0032907252762123624,
+          "ci95_low": 0.08435613775881598,
+          "ci95_high": 0.08618918634138291
+        },
+        "late_mean_reoccupation_fraction": {
+          "n": 48,
+          "mean": 0.06800678123060991,
+          "median": 0.06773045143067503,
+          "std": 0.003101500285123206,
+          "ci95_low": 0.06711004934744964,
+          "ci95_high": 0.0688695216886958
+        },
+        "late_mean_first_fraction": {
+          "n": 48,
+          "mean": 0.01724232549840757,
+          "median": 0.01713054780625184,
+          "std": 0.0017186243389638214,
+          "ci95_low": 0.016757884193295016,
+          "ci95_high": 0.01771277123330961
+        },
+        "late_mean_gross_turnover_fraction": {
+          "n": 48,
+          "mean": 0.1720185964516757,
+          "median": 0.16993447294351355,
+          "std": 0.006383070066231255,
+          "ci95_low": 0.17018440146466482,
+          "ci95_high": 0.17379844219340598
+        },
+        "late_gross_turnover_fraction_slope": {
+          "n": 48,
+          "mean": -6.950655717811016e-05,
+          "median": -0.0002050418937421837,
+          "std": 0.0008116959031243555,
+          "ci95_low": -0.0003028834663355349,
+          "ci95_high": 0.00015984711528665174
+        },
+        "late_mean_population": {
+          "n": 48,
+          "mean": 373.73854166666666,
+          "median": 375.825,
+          "std": 18.927120133591867,
+          "ci95_low": 367.935390625,
+          "ci95_high": 379.13544270833336
+        },
+        "max_capacity_fraction": {
+          "n": 48,
+          "mean": 0.025705762360749992,
+          "median": 0.025810133806836198,
+          "std": 0.0010511389835165157,
+          "ci95_low": 0.025408501913036122,
+          "ci95_high": 0.026010982782674868
+        },
+        "collapsed_fraction": 0.0
+      },
+      "medium": {
+        "late_mean_loss_fraction": {
+          "n": 48,
+          "mean": 0.0873515387017028,
+          "median": 0.08688694594328392,
+          "std": 0.0038753691364647926,
+          "ci95_low": 0.08628424564000302,
+          "ci95_high": 0.08846983867497368
+        },
+        "late_mean_attachment_fraction": {
+          "n": 48,
+          "mean": 0.08411132113774451,
+          "median": 0.0838536707687425,
+          "std": 0.004025510893690526,
+          "ci95_low": 0.08297891530283945,
+          "ci95_high": 0.08529061862242102
+        },
+        "late_mean_reoccupation_fraction": {
+          "n": 48,
+          "mean": 0.06830232036733237,
+          "median": 0.067721872206345,
+          "std": 0.00391496445981784,
+          "ci95_low": 0.06727071778018273,
+          "ci95_high": 0.06939577192529929
+        },
+        "late_mean_first_fraction": {
+          "n": 48,
+          "mean": 0.015809000770412134,
+          "median": 0.015689108492767216,
+          "std": 0.0015270037575497416,
+          "ci95_low": 0.015382309878789073,
+          "ci95_high": 0.016257084188834346
+        },
+        "late_mean_gross_turnover_fraction": {
+          "n": 48,
+          "mean": 0.1714628598394473,
+          "median": 0.1710237626048508,
+          "std": 0.006759091338438625,
+          "ci95_low": 0.16972278486873377,
+          "ci95_high": 0.1735351724123255
+        },
+        "late_gross_turnover_fraction_slope": {
+          "n": 48,
+          "mean": -1.8264154728052856e-05,
+          "median": 3.094771834070155e-05,
+          "std": 0.0008457648095824303,
+          "ci95_low": -0.0002589117275296474,
+          "ci95_high": 0.0001973973587749306
+        },
+        "late_mean_population": {
+          "n": 48,
+          "mean": 364.24166666666673,
+          "median": 363.675,
+          "std": 20.12961809927588,
+          "ci95_low": 358.403984375,
+          "ci95_high": 369.99588541666674
+        },
+        "max_capacity_fraction": {
+          "n": 48,
+          "mean": 0.025810133806836198,
+          "median": 0.025873549369015154,
+          "std": 0.0011230411237067612,
+          "ci95_low": 0.025487705307882552,
+          "ci95_high": 0.026111357727186254
+        },
+        "collapsed_fraction": 0.0
+      },
+      "large": {
+        "late_mean_loss_fraction": {
+          "n": 48,
+          "mean": 0.08656431537516936,
+          "median": 0.08665859231186501,
+          "std": 0.0033384133085222465,
+          "ci95_low": 0.08568698776912903,
+          "ci95_high": 0.08751479768506647
+        },
+        "late_mean_attachment_fraction": {
+          "n": 48,
+          "mean": 0.08445900503182723,
+          "median": 0.08417424004442486,
+          "std": 0.003501734858332463,
+          "ci95_low": 0.08345101570555359,
+          "ci95_high": 0.0854197092277526
+        },
+        "late_mean_reoccupation_fraction": {
+          "n": 48,
+          "mean": 0.0707235641605864,
+          "median": 0.07062893072297453,
+          "std": 0.0038485102199188534,
+          "ci95_low": 0.06961903655977157,
+          "ci95_high": 0.07184532640117484
+        },
+        "late_mean_first_fraction": {
+          "n": 48,
+          "mean": 0.013735440871240819,
+          "median": 0.01361537107335421,
+          "std": 0.0020849226572512017,
+          "ci95_low": 0.013188832614131682,
+          "ci95_high": 0.014335751695754895
+        },
+        "late_mean_gross_turnover_fraction": {
+          "n": 48,
+          "mean": 0.17102332040699655,
+          "median": 0.17071345041750813,
+          "std": 0.005918433306380268,
+          "ci95_low": 0.16941392218558932,
+          "ci95_high": 0.17267215831344632
+        },
+        "late_gross_turnover_fraction_slope": {
+          "n": 48,
+          "mean": -7.823756626682247e-05,
+          "median": -9.87127396500299e-05,
+          "std": 0.001006155259528867,
+          "ci95_low": -0.0003623394487604243,
+          "ci95_high": 0.00018879638049257131
+        },
+        "late_mean_population": {
+          "n": 48,
+          "mean": 351.13229166666673,
+          "median": 348.20000000000005,
+          "std": 20.158519368921,
+          "ci95_low": 345.13380208333325,
+          "ci95_high": 356.9573697916667
+        },
+        "max_capacity_fraction": {
+          "n": 48,
+          "mean": 0.02929270509649735,
+          "median": 0.029266281945589445,
+          "std": 0.0023340297362338977,
+          "ci95_low": 0.02867962193755681,
+          "ci95_high": 0.029916324486862413
+        },
+        "collapsed_fraction": 0.0
+      }
+    },
+    "80": {
+      "small": {
+        "late_mean_loss_fraction": {
+          "n": 48,
+          "mean": 0.08693974276623505,
+          "median": 0.08686042422643715,
+          "std": 0.002911518495490561,
+          "ci95_low": 0.08610619703178304,
+          "ci95_high": 0.08774020880624447
+        },
+        "late_mean_attachment_fraction": {
+          "n": 48,
+          "mean": 0.08489834471472672,
+          "median": 0.08462436819661016,
+          "std": 0.0028228677190180926,
+          "ci95_low": 0.0841493727966205,
+          "ci95_high": 0.08565581566416976
+        },
+        "late_mean_reoccupation_fraction": {
+          "n": 48,
+          "mean": 0.0685872559322603,
+          "median": 0.06875021900157052,
+          "std": 0.002967033795193265,
+          "ci95_low": 0.06775553974225089,
+          "ci95_high": 0.069448739706771
+        },
+        "late_mean_first_fraction": {
+          "n": 48,
+          "mean": 0.016311088782466402,
+          "median": 0.01633464722541753,
+          "std": 0.0016665429397913724,
+          "ci95_low": 0.01584247959832098,
+          "ci95_high": 0.016782343221116745
+        },
+        "late_mean_gross_turnover_fraction": {
+          "n": 48,
+          "mean": 0.17183808748096174,
+          "median": 0.1715350259154772,
+          "std": 0.004797206869723758,
+          "ci95_low": 0.17052911764138426,
+          "ci95_high": 0.17316884926983694
+        },
+        "late_gross_turnover_fraction_slope": {
+          "n": 48,
+          "mean": 8.363299077631085e-05,
+          "median": 0.00017647947227732389,
+          "std": 0.0011192156459387892,
+          "ci95_low": -0.0002041542204848809,
+          "ci95_high": 0.00039957739939608204
+        },
+        "late_mean_population": {
+          "n": 48,
+          "mean": 481.2791666666667,
+          "median": 482.17499999999995,
+          "std": 18.797523697634233,
+          "ci95_low": 475.950703125,
+          "ci95_high": 486.51359375000004
+        },
+        "max_capacity_fraction": {
+          "n": 48,
+          "mean": 0.032657693364618344,
+          "median": 0.03265901452216374,
+          "std": 0.0012907460774396508,
+          "ci95_low": 0.032295663168241485,
+          "ci95_high": 0.033027617477328935
+        },
+        "collapsed_fraction": 0.0
+      },
+      "medium": {
+        "late_mean_loss_fraction": {
+          "n": 48,
+          "mean": 0.08602323337241986,
+          "median": 0.08650837336875122,
+          "std": 0.0032926137596230986,
+          "ci95_low": 0.0850362796446255,
+          "ci95_high": 0.086979678504161
+        },
+        "late_mean_attachment_fraction": {
+          "n": 48,
+          "mean": 0.08305089128755976,
+          "median": 0.0830856750315975,
+          "std": 0.0029746622486367794,
+          "ci95_low": 0.08219782765340983,
+          "ci95_high": 0.08385096002091302
+        },
+        "late_mean_reoccupation_fraction": {
+          "n": 48,
+          "mean": 0.06764596644041267,
+          "median": 0.06795831277068312,
+          "std": 0.0030773209518699302,
+          "ci95_low": 0.06671462378694218,
+          "ci95_high": 0.06849448499954298
+        },
+        "late_mean_first_fraction": {
+          "n": 48,
+          "mean": 0.015404924847147087,
+          "median": 0.015481132543574512,
+          "std": 0.0011875434795209185,
+          "ci95_low": 0.01506796567053053,
+          "ci95_high": 0.015725536617974056
+        },
+        "late_mean_gross_turnover_fraction": {
+          "n": 48,
+          "mean": 0.16907412465997962,
+          "median": 0.16919476417860646,
+          "std": 0.005386996019002873,
+          "ci95_low": 0.16752485852554796,
+          "ci95_high": 0.17053504644539372
+        },
+        "late_gross_turnover_fraction_slope": {
+          "n": 48,
+          "mean": -5.4677090465877294e-05,
+          "median": -4.6244705747204146e-05,
+          "std": 0.000732742149899744,
+          "ci95_low": -0.00026451461341027004,
+          "ci95_high": 0.0001423411357886891
+        },
+        "late_mean_population": {
+          "n": 48,
+          "mean": 471.534375,
+          "median": 466.625,
+          "std": 21.317027347175138,
+          "ci95_low": 465.57875,
+          "ci95_high": 477.5258854166666
+        },
+        "max_capacity_fraction": {
+          "n": 48,
+          "mean": 0.032804341852157186,
+          "median": 0.03297609233305854,
+          "std": 0.0011937989360730223,
+          "ci95_low": 0.03247137712177902,
+          "ci95_high": 0.03314011404231932
+        },
+        "collapsed_fraction": 0.0
+      },
+      "large": {
+        "late_mean_loss_fraction": {
+          "n": 48,
+          "mean": 0.0870248863426013,
+          "median": 0.08727140310056597,
+          "std": 0.003086399813907943,
+          "ci95_low": 0.08618231963167584,
+          "ci95_high": 0.08785828889947597
+        },
+        "late_mean_attachment_fraction": {
+          "n": 48,
+          "mean": 0.08402865289733451,
+          "median": 0.08425635540077425,
+          "std": 0.0023695268858762862,
+          "ci95_low": 0.08338390066635046,
+          "ci95_high": 0.08468714394251128
+        },
+        "late_mean_reoccupation_fraction": {
+          "n": 48,
+          "mean": 0.07049148732352672,
+          "median": 0.07036847170181833,
+          "std": 0.002826154635272336,
+          "ci95_low": 0.0696832512920057,
+          "ci95_high": 0.07129509103330652
+        },
+        "late_mean_first_fraction": {
+          "n": 48,
+          "mean": 0.013537165573807783,
+          "median": 0.013502667493956469,
+          "std": 0.0016499562995520279,
+          "ci95_low": 0.013080114374298565,
+          "ci95_high": 0.013991180138271027
+        },
+        "late_mean_gross_turnover_fraction": {
+          "n": 48,
+          "mean": 0.1710535392399358,
+          "median": 0.17140934904592306,
+          "std": 0.0047334750010425836,
+          "ci95_low": 0.16976151561850072,
+          "ci95_high": 0.17236376915825885
+        },
+        "late_gross_turnover_fraction_slope": {
+          "n": 48,
+          "mean": -3.788811337916093e-05,
+          "median": -3.300265212719331e-05,
+          "std": 0.0007227619205029373,
+          "ci95_low": -0.0002317122407301726,
+          "ci95_high": 0.00016988196762917547
+        },
+        "late_mean_population": {
+          "n": 48,
+          "mean": 453.54062500000003,
+          "median": 451.875,
+          "std": 19.73460524768395,
+          "ci95_low": 447.9319791666667,
+          "ci95_high": 459.0440364583333
+        },
+        "max_capacity_fraction": {
+          "n": 48,
+          "mean": 0.034046229944828456,
+          "median": 0.03402244910901135,
+          "std": 0.001304732913832425,
+          "ci95_low": 0.033685520905996996,
+          "ci95_high": 0.034455854841778176
+        },
+        "collapsed_fraction": 0.0
+      }
+    },
+    "96": {
+      "small": {
+        "late_mean_loss_fraction": {
+          "n": 48,
+          "mean": 0.08815201460563071,
+          "median": 0.08863882632469515,
+          "std": 0.0027157841826598614,
+          "ci95_low": 0.08735972027773242,
+          "ci95_high": 0.08889309715732824
+        },
+        "late_mean_attachment_fraction": {
+          "n": 48,
+          "mean": 0.08477551730910343,
+          "median": 0.08471943407138986,
+          "std": 0.002324708725944321,
+          "ci95_low": 0.08413868270402916,
+          "ci95_high": 0.08541976797675738
+        },
+        "late_mean_reoccupation_fraction": {
+          "n": 48,
+          "mean": 0.06890027287784924,
+          "median": 0.06882378150039675,
+          "std": 0.0026069609425870516,
+          "ci95_low": 0.0681722505043777,
+          "ci95_high": 0.06961426737151806
+        },
+        "late_mean_first_fraction": {
+          "n": 48,
+          "mean": 0.015875244431254185,
+          "median": 0.015735391379111244,
+          "std": 0.0015742599399598074,
+          "ci95_low": 0.015425201293338693,
+          "ci95_high": 0.0163411068407083
+        },
+        "late_mean_gross_turnover_fraction": {
+          "n": 48,
+          "mean": 0.17292753191473417,
+          "median": 0.17271045996511863,
+          "std": 0.004303293033201622,
+          "ci95_low": 0.17173803124852363,
+          "ci95_high": 0.17410854492070132
+        },
+        "late_gross_turnover_fraction_slope": {
+          "n": 48,
+          "mean": -0.00011486708087417633,
+          "median": -0.00012148536513226341,
+          "std": 0.0007868751989263977,
+          "ci95_low": -0.00032904566943206943,
+          "ci95_high": 0.00010712603227972027
+        },
+        "late_mean_population": {
+          "n": 48,
+          "mean": 586.0833333333334,
+          "median": 584.725,
+          "std": 23.144574138591054,
+          "ci95_low": 579.8903645833333,
+          "ci95_high": 592.9007291666668
+        },
+        "max_capacity_fraction": {
+          "n": 48,
+          "mean": 0.03986460777474792,
+          "median": 0.03988838861056503,
+          "std": 0.00155080108476554,
+          "ci95_low": 0.039428592755828946,
+          "ci95_high": 0.04028473587418352
+        },
+        "collapsed_fraction": 0.0
+      },
+      "medium": {
+        "late_mean_loss_fraction": {
+          "n": 48,
+          "mean": 0.08622517573770662,
+          "median": 0.08606705448168696,
+          "std": 0.0024258188495545835,
+          "ci95_low": 0.08556003756399617,
+          "ci95_high": 0.08689708420061783
+        },
+        "late_mean_attachment_fraction": {
+          "n": 48,
+          "mean": 0.08380924306790145,
+          "median": 0.08397273465394957,
+          "std": 0.002638002082769276,
+          "ci95_low": 0.08309712048264455,
+          "ci95_high": 0.08455585882131464
+        },
+        "late_mean_reoccupation_fraction": {
+          "n": 48,
+          "mean": 0.06892734920867298,
+          "median": 0.06863004520626895,
+          "std": 0.002509743779046793,
+          "ci95_low": 0.06829401567080139,
+          "ci95_high": 0.06968337041282502
+        },
+        "late_mean_first_fraction": {
+          "n": 48,
+          "mean": 0.01488189385922848,
+          "median": 0.014915246284452361,
+          "std": 0.0014923835803854987,
+          "ci95_low": 0.014467105071090083,
+          "ci95_high": 0.015304581987062324
+        },
+        "late_mean_gross_turnover_fraction": {
+          "n": 48,
+          "mean": 0.17003441880560807,
+          "median": 0.16993465072425787,
+          "std": 0.004056578539743953,
+          "ci95_low": 0.16894314033165012,
+          "ci95_high": 0.17125684795166535
+        },
+        "late_gross_turnover_fraction_slope": {
+          "n": 48,
+          "mean": -0.0001556816748611201,
+          "median": -0.00022500740686519604,
+          "std": 0.0007053466569596217,
+          "ci95_low": -0.00035188454216334146,
+          "ci95_high": 4.522436773048127e-05
+        },
+        "late_mean_population": {
+          "n": 48,
+          "mean": 577.8666666666667,
+          "median": 577.825,
+          "std": 19.836891629071985,
+          "ci95_low": 572.1485677083333,
+          "ci95_high": 583.0203385416665
+        },
+        "max_capacity_fraction": {
+          "n": 48,
+          "mean": 0.039588485847760375,
+          "median": 0.0396347263618492,
+          "std": 0.0013719968599438563,
+          "ci95_low": 0.03922252520768597,
+          "ci95_high": 0.03997964756801319
+        },
+        "collapsed_fraction": 0.0
+      },
+      "large": {
+        "late_mean_loss_fraction": {
+          "n": 48,
+          "mean": 0.08745306571703576,
+          "median": 0.08700343414244247,
+          "std": 0.0028871965539411853,
+          "ci95_low": 0.08668157489974672,
+          "ci95_high": 0.08826324848369094
+        },
+        "late_mean_attachment_fraction": {
+          "n": 48,
+          "mean": 0.08398433820469292,
+          "median": 0.08423551792466359,
+          "std": 0.0032434638135131182,
+          "ci95_low": 0.08310606443467429,
+          "ci95_high": 0.08485234016500394
+        },
+        "late_mean_reoccupation_fraction": {
+          "n": 48,
+          "mean": 0.07072718540488356,
+          "median": 0.07040428778807165,
+          "std": 0.00286983795761447,
+          "ci95_low": 0.0699546623942521,
+          "ci95_high": 0.07155576860170926
+        },
+        "late_mean_first_fraction": {
+          "n": 48,
+          "mean": 0.01325715279980936,
+          "median": 0.013148211368538422,
+          "std": 0.0014908140805424213,
+          "ci95_low": 0.012840066537350694,
+          "ci95_high": 0.01366649505823436
+        },
+        "late_mean_gross_turnover_fraction": {
+          "n": 48,
+          "mean": 0.17143740392172868,
+          "median": 0.17146086430313578,
+          "std": 0.00530441115844629,
+          "ci95_low": 0.16994694529831336,
+          "ci95_high": 0.172889039143386
+        },
+        "late_gross_turnover_fraction_slope": {
+          "n": 48,
+          "mean": -0.00016821941713002634,
+          "median": -0.00020160497845496769,
+          "std": 0.0006466776743721425,
+          "ci95_low": -0.0003455557673298791,
+          "ci95_high": 9.791283818467231e-06
+        },
+        "late_mean_population": {
+          "n": 48,
+          "mean": 557.609375,
+          "median": 554.25,
+          "std": 23.10464781521012,
+          "ci95_low": 551.5457812499999,
+          "ci95_high": 563.955390625
+        },
+        "max_capacity_fraction": {
+          "n": 48,
+          "mean": 0.039953125330289385,
+          "median": 0.04001521973492295,
+          "std": 0.0014347210290359264,
+          "ci95_low": 0.039564705011943264,
+          "ci95_high": 0.04032836710212019
+        },
+        "collapsed_fraction": 0.0
+      }
+    },
+    "128": {
+      "small": {
+        "late_mean_loss_fraction": {
+          "n": 48,
+          "mean": 0.0870190895613319,
+          "median": 0.08691634431871838,
+          "std": 0.0027519723035901826,
+          "ci95_low": 0.08623661949167385,
+          "ci95_high": 0.08775501139177243
+        },
+        "late_mean_attachment_fraction": {
+          "n": 48,
+          "mean": 0.08474129091716233,
+          "median": 0.08473586096109648,
+          "std": 0.0019088619875139313,
+          "ci95_low": 0.08420539803632346,
+          "ci95_high": 0.0852626867404811
+        },
+        "late_mean_reoccupation_fraction": {
+          "n": 48,
+          "mean": 0.06958246909631671,
+          "median": 0.06941925871204901,
+          "std": 0.0019984923854478097,
+          "ci95_low": 0.06900975261906378,
+          "ci95_high": 0.07012541910918023
+        },
+        "late_mean_first_fraction": {
+          "n": 48,
+          "mean": 0.015158821820845625,
+          "median": 0.01523170838478783,
+          "std": 0.0012435111686581598,
+          "ci95_low": 0.014816739831375868,
+          "ci95_high": 0.015511593028323159
+        },
+        "late_mean_gross_turnover_fraction": {
+          "n": 48,
+          "mean": 0.17176038047849426,
+          "median": 0.17211237631687307,
+          "std": 0.0040753389250681995,
+          "ci95_low": 0.17061012531002753,
+          "ci95_high": 0.17283786145562788
+        },
+        "late_gross_turnover_fraction_slope": {
+          "n": 48,
+          "mean": -8.096504026182612e-05,
+          "median": -4.909821773072875e-05,
+          "std": 0.0006134507653303991,
+          "ci95_low": -0.0002564550321843681,
+          "ci95_high": 8.338975978788057e-05
+        },
+        "late_mean_population": {
+          "n": 48,
+          "mean": 818.7125,
+          "median": 819.8,
+          "std": 29.77301987985024,
+          "ci95_low": 810.3258593749999,
+          "ci95_high": 827.2690104166667
+        },
+        "max_capacity_fraction": {
+          "n": 48,
+          "mean": 0.05459022977572029,
+          "median": 0.054442260130636064,
+          "std": 0.0017634181775650797,
+          "ci95_low": 0.054059091413532885,
+          "ci95_high": 0.05507644878136428
+        },
+        "collapsed_fraction": 0.0
+      },
+      "medium": {
+        "late_mean_loss_fraction": {
+          "n": 48,
+          "mean": 0.08760312703514879,
+          "median": 0.08750571912869134,
+          "std": 0.0021926289925237904,
+          "ci95_low": 0.0869901837268021,
+          "ci95_high": 0.08821047732444576
+        },
+        "late_mean_attachment_fraction": {
+          "n": 48,
+          "mean": 0.08453603210732392,
+          "median": 0.08452921258058035,
+          "std": 0.002058186036804944,
+          "ci95_low": 0.08397165930758956,
+          "ci95_high": 0.08509513897466314
+        },
+        "late_mean_reoccupation_fraction": {
+          "n": 48,
+          "mean": 0.0705721907493886,
+          "median": 0.07056215167319164,
+          "std": 0.0020185375223671707,
+          "ci95_low": 0.06998923663220677,
+          "ci95_high": 0.07115539225479543
+        },
+        "late_mean_first_fraction": {
+          "n": 48,
+          "mean": 0.013963841357935311,
+          "median": 0.013980200733555843,
+          "std": 0.0012286869063436992,
+          "ci95_low": 0.013627934737094349,
+          "ci95_high": 0.014307081104004513
+        },
+        "late_mean_gross_turnover_fraction": {
+          "n": 48,
+          "mean": 0.1721391591424727,
+          "median": 0.172503676958505,
+          "std": 0.0035810715613639552,
+          "ci95_low": 0.17114534717310492,
+          "ci95_high": 0.17312463543752737
+        },
+        "late_gross_turnover_fraction_slope": {
+          "n": 48,
+          "mean": 5.225522712946541e-05,
+          "median": -4.286284848956065e-05,
+          "std": 0.0005930708386855819,
+          "ci95_low": -0.00011308159353825093,
+          "ci95_high": 0.00022726162423687845
+        },
+        "late_mean_population": {
+          "n": 48,
+          "mean": 799.1104166666665,
+          "median": 799.95,
+          "std": 24.72249806271594,
+          "ci95_low": 792.3636979166666,
+          "ci95_high": 805.8753385416667
+        },
+        "max_capacity_fraction": {
+          "n": 48,
+          "mean": 0.05448982180227028,
+          "median": 0.05418859788192022,
+          "std": 0.0016994796712217343,
+          "ci95_low": 0.05400882136893061,
+          "ci95_high": 0.054991993785274904
+        },
+        "collapsed_fraction": 0.0
+      },
+      "large": {
+        "late_mean_loss_fraction": {
+          "n": 48,
+          "mean": 0.08662922631270849,
+          "median": 0.08613570782885777,
+          "std": 0.002519176149380399,
+          "ci95_low": 0.08593659671088853,
+          "ci95_high": 0.08735140586600915
+        },
+        "late_mean_attachment_fraction": {
+          "n": 48,
+          "mean": 0.0834225543214312,
+          "median": 0.0835007906542542,
+          "std": 0.0022663549564805093,
+          "ci95_low": 0.08278792095514581,
+          "ci95_high": 0.08406489648427298
+        },
+        "late_mean_reoccupation_fraction": {
+          "n": 48,
+          "mean": 0.07042740899488024,
+          "median": 0.0706653427686637,
+          "std": 0.0023892200776359997,
+          "ci95_low": 0.06974319173397624,
+          "ci95_high": 0.07113278103810655
+        },
+        "late_mean_first_fraction": {
+          "n": 48,
+          "mean": 0.012995145326550958,
+          "median": 0.013128842476618593,
+          "std": 0.001159510294193629,
+          "ci95_low": 0.012687823453510008,
+          "ci95_high": 0.013311486101092548
+        },
+        "late_mean_gross_turnover_fraction": {
+          "n": 48,
+          "mean": 0.1700517806341397,
+          "median": 0.16976516415254686,
+          "std": 0.0039450738002705255,
+          "ci95_low": 0.16897706731668466,
+          "ci95_high": 0.17110591008984322
+        },
+        "late_gross_turnover_fraction_slope": {
+          "n": 48,
+          "mean": 5.305470604343e-05,
+          "median": 9.331839113078561e-05,
+          "std": 0.0006717942302485663,
+          "ci95_low": -0.00014946154961805128,
+          "ci95_high": 0.00023973135323168807
+        },
+        "late_mean_population": {
+          "n": 48,
+          "mean": 783.7916666666666,
+          "median": 783.2249999999999,
+          "std": 26.892809948950198,
+          "ci95_low": 776.4280208333332,
+          "ci95_high": 790.795703125
+        },
+        "max_capacity_fraction": {
+          "n": 48,
+          "mean": 0.05454663157672226,
+          "median": 0.05463250681717294,
+          "std": 0.0013141011477742662,
+          "ci95_low": 0.05416349588855771,
+          "ci95_high": 0.05492329359291437
+        },
+        "collapsed_fraction": 0.0
+      }
+    }
+  },
+  "status": "MEASURED"
+}
+```
+
+---
+
+## Stage 2 — Are the Normalized Flows Stable?
+
+```json
+{
+  "role": "PRIMARY NORMALIZED PROCESS-INVARIANCE TEST",
+  "start_size_cv_by_budget": {
+    "48": {
+      "loss_fraction": {
+        "cv": 0.004145434723484318,
+        "passed": true,
+        "start_means": {
+          "small": 0.08775574290925094,
+          "medium": 0.0878702719426034,
+          "large": 0.08704945108662741
+        }
+      },
+      "attachment_fraction": {
+        "cv": 0.008223720091781081,
+        "passed": true,
+        "start_means": {
+          "small": 0.08554675882782736,
+          "medium": 0.0847975643307793,
+          "large": 0.08384405668331511
+        }
+      },
+      "reoccupation_fraction": {
+        "cv": 0.01798623889040885,
+        "passed": true,
+        "start_means": {
+          "small": 0.0674891089591639,
+          "medium": 0.06790588828464926,
+          "large": 0.07028839864979265
+        }
+      },
+      "first_fraction": {
+        "cv": 0.11799456229935522,
+        "passed": false,
+        "start_means": {
+          "small": 0.018057649868663452,
+          "medium": 0.01689167604613007,
+          "large": 0.013555658033522438
+        }
+      },
+      "gross_turnover_fraction": {
+        "cv": 0.005917378492885348,
+        "passed": true,
+        "start_means": {
+          "small": 0.1733025017370783,
+          "medium": 0.1726678362733827,
+          "large": 0.17089350776994253
+        }
+      }
+    },
+    "64": {
+      "loss_fraction": {
+        "cv": 0.0038371892607226912,
+        "passed": true,
+        "start_means": {
+          "small": 0.0867694897226582,
+          "medium": 0.0873515387017028,
+          "large": 0.08656431537516936
+        }
+      },
+      "attachment_fraction": {
+        "cv": 0.0056267596867844326,
+        "passed": true,
+        "start_means": {
+          "small": 0.08524910672901748,
+          "medium": 0.08411132113774451,
+          "large": 0.08445900503182723
+        }
+      },
+      "reoccupation_fraction": {
+        "cv": 0.01763547598870939,
+        "passed": true,
+        "start_means": {
+          "small": 0.06800678123060991,
+          "medium": 0.06830232036733237,
+          "large": 0.0707235641605864
+        }
+      },
+      "first_fraction": {
+        "cv": 0.0923088366103265,
+        "passed": true,
+        "start_means": {
+          "small": 0.01724232549840757,
+          "medium": 0.015809000770412134,
+          "large": 0.013735440871240819
+        }
+      },
+      "gross_turnover_fraction": {
+        "cv": 0.002374565348896193,
+        "passed": true,
+        "start_means": {
+          "small": 0.1720185964516757,
+          "medium": 0.1714628598394473,
+          "large": 0.17102332040699655
+        }
+      }
+    },
+    "80": {
+      "loss_fraction": {
+        "cv": 0.005232353209933954,
+        "passed": true,
+        "start_means": {
+          "small": 0.08693974276623505,
+          "medium": 0.08602323337241986,
+          "large": 0.0870248863426013
+        }
+      },
+      "attachment_fraction": {
+        "cv": 0.008984713569582808,
+        "passed": true,
+        "start_means": {
+          "small": 0.08489834471472672,
+          "medium": 0.08305089128755976,
+          "large": 0.08402865289733451
+        }
+      },
+      "reoccupation_fraction": {
+        "cv": 0.017177100783890665,
+        "passed": true,
+        "start_means": {
+          "small": 0.0685872559322603,
+          "medium": 0.06764596644041267,
+          "large": 0.07049148732352672
+        }
+      },
+      "first_fraction": {
+        "cv": 0.07656309214630995,
+        "passed": true,
+        "start_means": {
+          "small": 0.016311088782466402,
+          "medium": 0.015404924847147087,
+          "large": 0.013537165573807783
+        }
+      },
+      "gross_turnover_fraction": {
+        "cv": 0.006814899888809109,
+        "passed": true,
+        "start_means": {
+          "small": 0.17183808748096174,
+          "medium": 0.16907412465997962,
+          "large": 0.1710535392399358
+        }
+      }
+    },
+    "96": {
+      "loss_fraction": {
+        "cv": 0.009125535133358238,
+        "passed": true,
+        "start_means": {
+          "small": 0.08815201460563071,
+          "medium": 0.08622517573770662,
+          "large": 0.08745306571703576
+        }
+      },
+      "attachment_fraction": {
+        "cv": 0.004992987609664368,
+        "passed": true,
+        "start_means": {
+          "small": 0.08477551730910343,
+          "medium": 0.08380924306790145,
+          "large": 0.08398433820469292
+        }
+      },
+      "reoccupation_fraction": {
+        "cv": 0.012297549236509536,
+        "passed": true,
+        "start_means": {
+          "small": 0.06890027287784924,
+          "medium": 0.06892734920867298,
+          "large": 0.07072718540488356
+        }
+      },
+      "first_fraction": {
+        "cv": 0.07355399297879674,
+        "passed": true,
+        "start_means": {
+          "small": 0.015875244431254185,
+          "medium": 0.01488189385922848,
+          "large": 0.01325715279980936
+        }
+      },
+      "gross_turnover_fraction": {
+        "cv": 0.00688931888811987,
+        "passed": true,
+        "start_means": {
+          "small": 0.17292753191473417,
+          "medium": 0.17003441880560807,
+          "large": 0.17143740392172868
+        }
+      }
+    },
+    "128": {
+      "loss_fraction": {
+        "cv": 0.004595788508218074,
+        "passed": true,
+        "start_means": {
+          "small": 0.0870190895613319,
+          "medium": 0.08760312703514879,
+          "large": 0.08662922631270849
+        }
+      },
+      "attachment_fraction": {
+        "cv": 0.0068781635753274286,
+        "passed": true,
+        "start_means": {
+          "small": 0.08474129091716233,
+          "medium": 0.08453603210732392,
+          "large": 0.0834225543214312
+        }
+      },
+      "reoccupation_fraction": {
+        "cv": 0.0062178324493242084,
+        "passed": true,
+        "start_means": {
+          "small": 0.06958246909631671,
+          "medium": 0.0705721907493886,
+          "large": 0.07042740899488024
+        }
+      },
+      "first_fraction": {
+        "cv": 0.06303219715718977,
+        "passed": true,
+        "start_means": {
+          "small": 0.015158821820845625,
+          "medium": 0.013963841357935311,
+          "large": 0.012995145326550958
+        }
+      },
+      "gross_turnover_fraction": {
+        "cv": 0.005300027049200538,
+        "passed": true,
+        "start_means": {
+          "small": 0.17176038047849426,
+          "medium": 0.1721391591424727,
+          "large": 0.1700517806341397
+        }
+      }
+    }
+  },
+  "mean_gross_turnover_fraction_by_budget": {
+    "48": 0.17228794859346785,
+    "64": 0.17150159223270653,
+    "80": 0.1706552504602924,
+    "96": 0.17146645154735696,
+    "128": 0.17131710675170223
+  },
+  "gross_turnover_fraction_between_budget_cv": 0.0030355916081414203,
+  "gross_turnover_between_budget_cv_gate_passed": true,
+  "max_abs_gross_turnover_fraction_slope_by_budget": {
+    "48": 0.00024331874779793278,
+    "64": 7.823756626682247e-05,
+    "80": 8.363299077631085e-05,
+    "96": 0.00016821941713002634,
+    "128": 8.096504026182612e-05
+  },
+  "minimum_late_population_by_budget": {
+    "48": 252.9489583333333,
+    "64": 351.13229166666673,
+    "80": 453.54062500000003,
+    "96": 557.609375,
+    "128": 783.7916666666666
+  },
+  "maximum_capacity_fraction_by_budget": {
+    "48": 0.02765711205529837,
+    "64": 0.02929270509649735,
+    "80": 0.034046229944828456,
+    "96": 0.039953125330289385,
+    "128": 0.05459022977572029
+  },
+  "maximum_collapsed_fraction_by_budget": {
+    "48": 0.0,
+    "64": 0.0,
+    "80": 0.0,
+    "96": 0.0,
+    "128": 0.0
+  },
+  "all_start_size_cv_gates_passed": false,
+  "all_temporal_slope_gates_passed": true,
+  "all_activity_gates_passed": true,
+  "all_population_gates_passed": true,
+  "all_capacity_gates_passed": true,
+  "all_collapse_gates_passed": true,
+  "stable_normalized_process_regime_supported": false,
+  "status": "MEASURED"
+}
+```
+
+---
+
+## Stage 3 — Bounded Chapter 21 V3 Verdict
+
+```json
+{
+  "question": "Can the Digital Crystal exhibit a stable normalized turnover regime even when absolute population size drifts?",
+  "stable_normalized_process_regime_supported": false,
+  "status": "FAILED",
+  "bounded_claim": "Chapter 21 V3 did not establish that normalized construction, loss and turnover flows satisfy all predeclared invariance and temporal-stability criteria across different starting sizes and finite evaluation budgets.",
+  "forbidden_overclaims": [
+    "homeostasis",
+    "maintenance",
+    "metabolism",
+    "energy",
+    "attractor",
+    "self-preservation",
+    "adaptation",
+    "agency",
+    "organism",
+    "life"
+  ],
+  "next_question_if_supported": "Does the stable process occupy a causally coherent region whose future is predicted better by its own internal state than by the surrounding lattice?",
+  "next_question_if_failed": "Do not relax the invariance thresholds after seeing the result. Close Chapter 21 and move to causal-individuation tests."
+}
+```

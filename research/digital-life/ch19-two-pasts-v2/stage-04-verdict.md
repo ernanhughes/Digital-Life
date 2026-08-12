@@ -1,0 +1,39 @@
+# Stage 4 — Bounded Chapter 19 V2 Verdict
+
+```json
+{
+  "experiment_role": "NON-SYMBOLIC TWO-HISTORY MATERIAL TEST",
+  "question": "Can different experiences create different spatial material organizations that materially mediate different later responses?",
+  "mechanism_validity_gate_passed": true,
+  "primary_p_value": 0.16320919770057485,
+  "primary_mean_material_mediated_interaction": 0.00043128008849873355,
+  "primary_ci95": [
+    -0.0003797564791826701,
+    0.0012347116998084528
+  ],
+  "predeclared_sei_population_fraction": 0.01,
+  "seed_noise_sd": 0.013053561923406115,
+  "effect_in_seed_noise_sd": 0.0330392647638506,
+  "predeclared_sei_seed_noise_sd": 0.5,
+  "significance_gate_passed": false,
+  "raw_magnitude_gate_passed": false,
+  "seed_noise_magnitude_gate_passed": false,
+  "status": "FAILED",
+  "bounded_claim": "Chapter 19 V2 did not establish that different spatial organizations produced by two prior directional experiences contribute a scientifically meaningful difference in response to the later common challenge beyond the geometry-only erasure control.",
+  "forbidden_overclaims": [
+    "memory",
+    "learning",
+    "adaptation",
+    "recall",
+    "recognition",
+    "meaning",
+    "representation",
+    "wave",
+    "flocking",
+    "self",
+    "life"
+  ],
+  "next_question_if_supported": "Can a later experience rewrite or compete with the spatial material organization left by an earlier experience?",
+  "next_question_if_failed": "Do not tune the effect threshold or promote a secondary endpoint. Close this specific history-discrimination mechanism unless a qualitatively different material encoding mechanism is proposed."
+}
+```

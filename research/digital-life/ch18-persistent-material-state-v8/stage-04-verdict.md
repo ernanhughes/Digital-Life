@@ -1,0 +1,35 @@
+# Stage 4 — Bounded Chapter 18 V8 Verdict
+
+```json
+{
+  "experiment_role": "EXPLORATORY OPPORTUNITY-FEEDBACK TEST",
+  "chapter": 18,
+  "question": "Can causal accessibility create propagation opportunities that help causal accessibility continue?",
+  "required_metrics": [
+    "access_fraction_auc",
+    "probability_leverage_auc",
+    "total_realized_flips"
+  ],
+  "causal_metrics_natural_gt_clamped": true,
+  "sustained_loss_time_supportive": false,
+  "natural_produces_more_transmissions": false,
+  "clamped_schedule_truncation_rate": 0.006510416666666667,
+  "truncation_rate_acceptable": true,
+  "status": "FAILED",
+  "bounded_claim": "V8 did not establish that endogenous propagation opportunity extends causal accessibility beyond the frozen exogenous schedule.",
+  "nonclaims": [
+    "memory",
+    "learning",
+    "adaptation",
+    "self-maintenance",
+    "homeostasis",
+    "autopoiesis",
+    "active boundary",
+    "agency",
+    "individuality",
+    "reproduction",
+    "life"
+  ],
+  "next_question": "If opportunity feedback is supported, intervene directly on the feedback link itself: selectively suppress or restore propagation opportunities while holding current material state fixed, before considering any self-maintenance terminology."
+}
+```

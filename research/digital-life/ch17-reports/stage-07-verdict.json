@@ -1,0 +1,162 @@
+{
+  "verdict": "NOT_SUPPORTED_AS_TESTED",
+  "bounded_claim": "This protocol did not establish reliable receiver-only recovery of constant-weight temporal codeword identity.",
+  "predeclared_threshold": "primary combined accuracy > grouped permutation q95 AND at least 0.10 absolute accuracy above chance",
+  "tests": {
+    "2": {
+      "0": {
+        "accuracy": 0.4583333333333333,
+        "chance": 0.5,
+        "margin_above_chance": -0.041666666666666685,
+        "null_q95": 0.6052083333333332,
+        "passes_predeclared_threshold": false
+      },
+      "4": {
+        "accuracy": 0.5833333333333334,
+        "chance": 0.5,
+        "margin_above_chance": 0.08333333333333337,
+        "null_q95": 0.6052083333333332,
+        "passes_predeclared_threshold": false
+      },
+      "8": {
+        "accuracy": 0.4791666666666667,
+        "chance": 0.5,
+        "margin_above_chance": -0.020833333333333315,
+        "null_q95": 0.6052083333333332,
+        "passes_predeclared_threshold": false
+      },
+      "16": {
+        "accuracy": 0.3958333333333333,
+        "chance": 0.5,
+        "margin_above_chance": -0.10416666666666669,
+        "null_q95": 0.6458333333333334,
+        "passes_predeclared_threshold": false
+      },
+      "24": {
+        "accuracy": 0.4583333333333333,
+        "chance": 0.5,
+        "margin_above_chance": -0.041666666666666685,
+        "null_q95": 0.6041666666666666,
+        "passes_predeclared_threshold": false
+      }
+    },
+    "4": {
+      "0": {
+        "accuracy": 0.25,
+        "chance": 0.25,
+        "margin_above_chance": 0.0,
+        "null_q95": 0.3229166666666667,
+        "passes_predeclared_threshold": false
+      },
+      "4": {
+        "accuracy": 0.2604166666666667,
+        "chance": 0.25,
+        "margin_above_chance": 0.010416666666666685,
+        "null_q95": 0.3229166666666667,
+        "passes_predeclared_threshold": false
+      },
+      "8": {
+        "accuracy": 0.2604166666666667,
+        "chance": 0.25,
+        "margin_above_chance": 0.010416666666666685,
+        "null_q95": 0.3229166666666667,
+        "passes_predeclared_threshold": false
+      },
+      "16": {
+        "accuracy": 0.2604166666666667,
+        "chance": 0.25,
+        "margin_above_chance": 0.010416666666666685,
+        "null_q95": 0.34375,
+        "passes_predeclared_threshold": false
+      },
+      "24": {
+        "accuracy": 0.3020833333333333,
+        "chance": 0.25,
+        "margin_above_chance": 0.052083333333333315,
+        "null_q95": 0.3333333333333333,
+        "passes_predeclared_threshold": false
+      }
+    },
+    "8": {
+      "0": {
+        "accuracy": 0.18229166666666666,
+        "chance": 0.125,
+        "margin_above_chance": 0.05729166666666666,
+        "null_q95": 0.17213541666666665,
+        "passes_predeclared_threshold": false
+      },
+      "4": {
+        "accuracy": 0.15104166666666666,
+        "chance": 0.125,
+        "margin_above_chance": 0.026041666666666657,
+        "null_q95": 0.15625,
+        "passes_predeclared_threshold": false
+      },
+      "8": {
+        "accuracy": 0.15104166666666666,
+        "chance": 0.125,
+        "margin_above_chance": 0.026041666666666657,
+        "null_q95": 0.16666666666666666,
+        "passes_predeclared_threshold": false
+      },
+      "16": {
+        "accuracy": 0.11979166666666667,
+        "chance": 0.125,
+        "margin_above_chance": -0.005208333333333329,
+        "null_q95": 0.15625,
+        "passes_predeclared_threshold": false
+      },
+      "24": {
+        "accuracy": 0.13541666666666666,
+        "chance": 0.125,
+        "margin_above_chance": 0.010416666666666657,
+        "null_q95": 0.16145833333333334,
+        "passes_predeclared_threshold": false
+      }
+    }
+  },
+  "largest_recoverable_nested_codebook_by_lag": {
+    "0": 0,
+    "4": 0,
+    "8": 0,
+    "16": 0,
+    "24": 0
+  },
+  "explicit_nonclaims": [
+    "language",
+    "semantics",
+    "meaning",
+    "understanding",
+    "sender identity",
+    "coordination",
+    "learning",
+    "intelligence",
+    "agency",
+    "individuality",
+    "selfhood",
+    "life",
+    "Shannon channel capacity"
+  ],
+  "evidence_ledger": [
+    {
+      "claim": "Distinct constant-weight temporal inputs can alter receiver state differently",
+      "status": "FAILED"
+    },
+    {
+      "claim": "Codeword identity is recoverable after transmission has ended",
+      "status": "FAILED"
+    },
+    {
+      "claim": "The receiver understands message meaning",
+      "status": "UNTESTED"
+    },
+    {
+      "claim": "Sender identity survives the channel",
+      "status": "UNTESTED"
+    },
+    {
+      "claim": "Shannon channel capacity has been measured",
+      "status": "UNTESTED"
+    }
+  ]
+}

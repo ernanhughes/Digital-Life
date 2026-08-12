@@ -1,0 +1,34 @@
+# Stage 4 — Bounded Chapter 20 V2 Verdict
+
+```json
+{
+  "question": "Does material loss create new construction opportunity that is used as reoccupation by ordinary Digital Crystal growth?",
+  "primary_gate_passed": false,
+  "primary_mean_interior_minus_surface_reoccupation_per_loss": 0.01977094481861134,
+  "primary_ci95": [
+    0.0182876320058967,
+    0.021231648457244182
+  ],
+  "primary_p_value": 0.00024993751562109475,
+  "primary_sei": 0.15,
+  "secondary_gate_passed": false,
+  "secondary_mean_interior_minus_surface_lost_site_reoccupied_fraction": 0.020246325122452145,
+  "secondary_p_value": 0.00024993751562109475,
+  "secondary_sei": 0.15,
+  "status": "FAILED",
+  "bounded_claim": "Chapter 20 V2 did not establish the predeclared increase in reoccupation per loss for interior-biased versus surface-biased material removal under the exact-count protocol.",
+  "forbidden_overclaims": [
+    "repair",
+    "regeneration",
+    "maintenance",
+    "homeostasis",
+    "metabolism",
+    "death",
+    "aging",
+    "organism",
+    "life"
+  ],
+  "next_question_if_supported": "Does reoccupation merely refill local vacancies, or can a finite computational update budget force a tradeoff between outward construction and preservation of already-built material?",
+  "next_question_if_failed": "Do not tune placement fractions. Close the reoccupation mechanism and move to a qualitatively different maintenance constraint."
+}
+```

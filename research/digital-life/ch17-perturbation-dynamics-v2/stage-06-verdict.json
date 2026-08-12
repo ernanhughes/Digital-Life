@@ -1,0 +1,33 @@
+{
+  "experiment_role": "EXPLORATORY / MECHANISM CHARACTERIZATION",
+  "single_pulse_response": "MEASURED",
+  "single_pulse_latest_observation": 32,
+  "single_pulse_causal_symdiff_mean": 0.12968415596747898,
+  "independent_stochastic_symdiff_mean": 0.1387010895940292,
+  "ensemble_superposition": "MEASURED",
+  "matched_endpoint_arrangement_status": "UNTESTED",
+  "matched_endpoint_primary_endpoint": 20,
+  "matched_endpoint_p_value": 0.6733067729083665,
+  "pipeline_sham_false_positive_rate": 0.0,
+  "pipeline_sensitivity_adequate": false,
+  "bounded_statement": "The matched-endpoint test did not establish a systematic arrangement signature, but the declared spike-in calibration showed insufficient sensitivity at the predeclared target effect. The underlying arrangement claim therefore remains unresolved under this protocol.",
+  "nonclaims": [
+    "information storage",
+    "memory",
+    "signalling",
+    "semantics",
+    "sender identity",
+    "coordination",
+    "learning",
+    "agency",
+    "individuality",
+    "life",
+    "Shannon channel capacity"
+  ],
+  "next_decision_logic": {
+    "if_sensitivity_inadequate": "Do not interpret a negative matched-arrangement result as absence. Increase groups or improve the primary measurement only after using the calibration curve to justify the change.",
+    "if_matched_effect_absent_with_adequate_sensitivity": "Treat matched interior timing as unsupported under this protocol and retain the earlier L3 result as compatible with recency or other ordinary response dynamics.",
+    "if_matched_effect_present": "Freeze the matched condition and design a separate Chapter 18 confirmatory recoverability experiment.",
+    "if_superposition_residual_large": "Investigate the mechanism of ensemble non-additivity before describing the result with information-processing language."
+  }
+}

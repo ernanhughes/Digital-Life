@@ -1,0 +1,17 @@
+# Stage 1 — Establish the Seed-Noise Scale
+
+```json
+{
+  "role": "SEED-NOISE NULL",
+  "groups": 200,
+  "challenge_response_normalized": {
+    "n": 200,
+    "mean": 0.005435612182138765,
+    "std": 0.013053561923406115,
+    "q05": -0.01729797266328882,
+    "q50": 0.004633616931080649,
+    "q95": 0.025252450980392145
+  },
+  "status": "MEASURED"
+}
+```

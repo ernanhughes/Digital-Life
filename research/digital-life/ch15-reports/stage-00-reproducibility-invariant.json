@@ -1,0 +1,16 @@
+{
+  "implementation_invariant": "RNG-consuming candidate traversal is canonicalized with sorted(frontier); equivalent mathematical states must not depend on Python set/hash-table layout.",
+  "state_identity_after_roundtrip": {
+    "occupied_equal": true,
+    "birth_time_equal": true,
+    "step_equal": true,
+    "signal_cursor_equal": true,
+    "rng_state_equal": true,
+    "process_hash_equal": true
+  },
+  "one_step_exact_after_container_roundtrip": true,
+  "one_step_additions_equal": true,
+  "full_remaining_horizon_exact_after_container_roundtrip": true,
+  "remaining_steps_checked": 48,
+  "passed": true
+}

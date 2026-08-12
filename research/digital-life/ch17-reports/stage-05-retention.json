@@ -1,0 +1,132 @@
+{
+  "retention_curves": {
+    "2": [
+      {
+        "lag": 0,
+        "accuracy": 0.4583333333333333,
+        "chance": 0.5,
+        "null_q95": 0.6052083333333332,
+        "survives_null": false,
+        "decoder_mi_bits": 0.005015171814029898
+      },
+      {
+        "lag": 4,
+        "accuracy": 0.5833333333333334,
+        "chance": 0.5,
+        "null_q95": 0.6052083333333332,
+        "survives_null": false,
+        "decoder_mi_bits": 0.020131243348847278
+      },
+      {
+        "lag": 8,
+        "accuracy": 0.4791666666666667,
+        "chance": 0.5,
+        "null_q95": 0.6052083333333332,
+        "survives_null": false,
+        "decoder_mi_bits": 0.0012548838431834727
+      },
+      {
+        "lag": 16,
+        "accuracy": 0.3958333333333333,
+        "chance": 0.5,
+        "null_q95": 0.6458333333333334,
+        "survives_null": false,
+        "decoder_mi_bits": 0.03205907716826763
+      },
+      {
+        "lag": 24,
+        "accuracy": 0.4583333333333333,
+        "chance": 0.5,
+        "null_q95": 0.6041666666666666,
+        "survives_null": false,
+        "decoder_mi_bits": 0.005159341095685475
+      }
+    ],
+    "4": [
+      {
+        "lag": 0,
+        "accuracy": 0.25,
+        "chance": 0.25,
+        "null_q95": 0.3229166666666667,
+        "survives_null": false,
+        "decoder_mi_bits": 0.03181117419407736
+      },
+      {
+        "lag": 4,
+        "accuracy": 0.2604166666666667,
+        "chance": 0.25,
+        "null_q95": 0.3229166666666667,
+        "survives_null": false,
+        "decoder_mi_bits": 0.03672954775346489
+      },
+      {
+        "lag": 8,
+        "accuracy": 0.2604166666666667,
+        "chance": 0.25,
+        "null_q95": 0.3229166666666667,
+        "survives_null": false,
+        "decoder_mi_bits": 0.0213091012891114
+      },
+      {
+        "lag": 16,
+        "accuracy": 0.2604166666666667,
+        "chance": 0.25,
+        "null_q95": 0.34375,
+        "survives_null": false,
+        "decoder_mi_bits": 0.12309680461531279
+      },
+      {
+        "lag": 24,
+        "accuracy": 0.3020833333333333,
+        "chance": 0.25,
+        "null_q95": 0.3333333333333333,
+        "survives_null": false,
+        "decoder_mi_bits": 0.04481177056734052
+      }
+    ],
+    "8": [
+      {
+        "lag": 0,
+        "accuracy": 0.18229166666666666,
+        "chance": 0.125,
+        "null_q95": 0.17213541666666665,
+        "survives_null": true,
+        "decoder_mi_bits": 0.22448462072054043
+      },
+      {
+        "lag": 4,
+        "accuracy": 0.15104166666666666,
+        "chance": 0.125,
+        "null_q95": 0.15625,
+        "survives_null": false,
+        "decoder_mi_bits": 0.1375711284532423
+      },
+      {
+        "lag": 8,
+        "accuracy": 0.15104166666666666,
+        "chance": 0.125,
+        "null_q95": 0.16666666666666666,
+        "survives_null": false,
+        "decoder_mi_bits": 0.211345496655308
+      },
+      {
+        "lag": 16,
+        "accuracy": 0.11979166666666667,
+        "chance": 0.125,
+        "null_q95": 0.15625,
+        "survives_null": false,
+        "decoder_mi_bits": 0.19299492663265155
+      },
+      {
+        "lag": 24,
+        "accuracy": 0.13541666666666666,
+        "chance": 0.125,
+        "null_q95": 0.16145833333333334,
+        "survives_null": false,
+        "decoder_mi_bits": 0.20319936822552126
+      }
+    ]
+  },
+  "figure": "static\\images\\books\\digital-life\\ch17-05-retention.png",
+  "interpretation_boundary": "This measures decoder-accessible codeword identity after the channel is off. It is not a Shannon capacity estimate."
+}

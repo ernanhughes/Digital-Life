@@ -1,0 +1,40 @@
+# Stage 4 — Bounded Chapter 18 V7 Verdict
+
+```json
+{
+  "experiment_role": "EXPLORATORY INTEGRATED CAUSAL-LIFETIME TEST",
+  "chapter": 18,
+  "question": "Does spatial placement change how long an exactly fixed quantity of propagated material remains causally available to growth?",
+  "window": {
+    "start": 5,
+    "end": 18
+  },
+  "budget_invariant_valid": true,
+  "required_metrics": [
+    "access_fraction_auc",
+    "probability_leverage_auc",
+    "total_realized_flips"
+  ],
+  "mean_ordering_supported_for_required_metrics": true,
+  "paired_directional_tests_supported": true,
+  "sustained_loss_time_order_supportive": true,
+  "status": "SUPPORTED",
+  "bounded_claim": "With exact per-step and cumulative copy quantity held fixed, interior, random, and surface placement showed the predeclared ordered difference in integrated frontier accessibility, integrated local probability leverage, and total realized causal attachment flips over the frozen observation window.",
+  "nonclaims": [
+    "memory",
+    "learning",
+    "adaptation",
+    "self-maintenance",
+    "homeostasis",
+    "attention",
+    "active boundary",
+    "information storage",
+    "biological inheritance",
+    "agency",
+    "individuality",
+    "reproduction",
+    "life"
+  ],
+  "next_question": "If causal lifetime is supported, restore the opportunity feedback observed in v5 and test whether causal accessibility helps generate future opportunities for its own continuation, while keeping the claim below self-maintenance."
+}
+```

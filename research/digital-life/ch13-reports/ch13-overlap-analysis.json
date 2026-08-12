@@ -1,0 +1,200 @@
+{
+  "analysis_version": "ch13-overlap-v2",
+  "database": "data\\digital-life\\outlier.sqlite3",
+  "run_id": 1,
+  "run_metadata": {
+    "size": 512,
+    "generations": 1600
+  },
+  "pair_dataset_key": "f58110a7b2263f3a619481df",
+  "pair_rows": 2617077,
+  "pair_params": {
+    "pair_radius": 96.0,
+    "flow_radius": 48.0,
+    "density_radius": 32.0,
+    "flow_min_neighbors": 3,
+    "max_pairs_per_tick": 2500,
+    "time_bin_width": 25,
+    "max_matches_per_stratum": 5000,
+    "seed": 42
+  },
+  "distance_edges": [
+    0.0,
+    4.0,
+    8.0,
+    12.0,
+    16.0,
+    24.0,
+    32.0,
+    48.0,
+    64.0,
+    96.0
+  ],
+  "primary": {
+    "support": {
+      "threshold": 100,
+      "lower": 4.0,
+      "upper": 64.0,
+      "bins_supported": 7,
+      "bins_total": 9,
+      "same_inside": 196657,
+      "different_inside": 951361,
+      "same_total": 710596,
+      "different_total": 1906481,
+      "rule": "largest contiguous ORIGINAL Chapter 13 distance-bin region with at least 100 same-family and 100 different-family raw pair records per bin"
+    },
+    "raw_inside_support": {
+      "same_mean": 0.1732066656062538,
+      "different_mean": 0.1165883464790153,
+      "difference": 0.05661831912723851,
+      "same_n": 196657,
+      "different_n": 951361
+    },
+    "matched_inside_support": {
+      "matched_pairs_per_group": 64948,
+      "used_strata": 659,
+      "same_mean": 0.15082315233393326,
+      "diff_mean": 0.15788972569829532,
+      "raw_difference": -0.007066573364362061,
+      "mean_stratum_effect": -0.026462612862070547,
+      "bootstrap_95_low": -0.06645028719387464,
+      "bootstrap_95_high": 0.012172493449979185,
+      "same_std": 0.7156242689264282,
+      "diff_std": 0.7302212809939481,
+      "effect_by_distance": {
+        "1": {
+          "strata": 76,
+          "matched_pairs": 836,
+          "mean_effect_unweighted": -0.24417094446995097,
+          "mean_effect_weighted": -0.1755825882195969
+        },
+        "2": {
+          "strata": 101,
+          "matched_pairs": 8443,
+          "mean_effect_unweighted": -0.06755775868504461,
+          "mean_effect_weighted": -0.04032934830511669
+        },
+        "3": {
+          "strata": 105,
+          "matched_pairs": 11709,
+          "mean_effect_unweighted": -0.01236824102941098,
+          "mean_effect_weighted": -0.028217184782268763
+        },
+        "4": {
+          "strata": 135,
+          "matched_pairs": 26228,
+          "mean_effect_unweighted": 0.016026176009694942,
+          "mean_effect_weighted": 0.007863387351987508
+        },
+        "5": {
+          "strata": 117,
+          "matched_pairs": 8480,
+          "mean_effect_unweighted": -0.009573396042974875,
+          "mean_effect_weighted": 0.04929411531072158
+        },
+        "6": {
+          "strata": 99,
+          "matched_pairs": 7974,
+          "mean_effect_unweighted": 0.10404399723409091,
+          "mean_effect_weighted": -0.029525312324536635
+        },
+        "7": {
+          "strata": 26,
+          "matched_pairs": 1278,
+          "mean_effect_unweighted": -0.08091051198331962,
+          "mean_effect_weighted": -0.023550265718553422
+        }
+      }
+    }
+  },
+  "sensitivity": [
+    {
+      "threshold": 50,
+      "supported": true,
+      "lower": 4.0,
+      "upper": 96.0,
+      "same_raw_n": 196717,
+      "different_raw_n": 1906468,
+      "raw_effect": 0.07382230959121897,
+      "matched_pairs_per_group": 65008,
+      "matched_strata": 661,
+      "matched_same_mean": 0.1515076343686673,
+      "matched_different_mean": 0.1573563370270071,
+      "matched_pooled_effect": -0.0058487026583398105,
+      "equal_stratum_effect": -0.018156441822795782,
+      "bootstrap_95_low": -0.05810687328244094,
+      "bootstrap_95_high": 0.02366389314544426
+    },
+    {
+      "threshold": 100,
+      "supported": true,
+      "lower": 4.0,
+      "upper": 64.0,
+      "same_raw_n": 196657,
+      "different_raw_n": 951361,
+      "raw_effect": 0.05661831912723851,
+      "matched_pairs_per_group": 64948,
+      "matched_strata": 659,
+      "matched_same_mean": 0.15082315233393326,
+      "matched_different_mean": 0.15788972569829532,
+      "matched_pooled_effect": -0.007066573364362061,
+      "equal_stratum_effect": -0.026462612862070547,
+      "bootstrap_95_low": -0.06645028719387464,
+      "bootstrap_95_high": 0.012172493449979185
+    },
+    {
+      "threshold": 250,
+      "supported": true,
+      "lower": 4.0,
+      "upper": 64.0,
+      "same_raw_n": 196657,
+      "different_raw_n": 951361,
+      "raw_effect": 0.05661831912723851,
+      "matched_pairs_per_group": 64948,
+      "matched_strata": 659,
+      "matched_same_mean": 0.15082315233393326,
+      "matched_different_mean": 0.15788972569829532,
+      "matched_pooled_effect": -0.007066573364362061,
+      "equal_stratum_effect": -0.026462612862070547,
+      "bootstrap_95_low": -0.06645028719387464,
+      "bootstrap_95_high": 0.012172493449979185
+    },
+    {
+      "threshold": 500,
+      "supported": true,
+      "lower": 4.0,
+      "upper": 64.0,
+      "same_raw_n": 196657,
+      "different_raw_n": 951361,
+      "raw_effect": 0.05661831912723851,
+      "matched_pairs_per_group": 64948,
+      "matched_strata": 659,
+      "matched_same_mean": 0.15082315233393326,
+      "matched_different_mean": 0.15788972569829532,
+      "matched_pooled_effect": -0.007066573364362061,
+      "equal_stratum_effect": -0.026462612862070547,
+      "bootstrap_95_low": -0.06645028719387464,
+      "bootstrap_95_high": 0.012172493449979185
+    }
+  ],
+  "original_apparent_effect": {
+    "same": 0.746,
+    "comparison": 0.101,
+    "gap": 0.645,
+    "primary_upper_ci_fraction_of_original_gap": 0.018872082868184783,
+    "primary_upper_ci_percent_of_original_gap": 1.8872082868184783
+  },
+  "bounded_claim": "Within the empirically supported distance region [4.0, 64.0) cells under the declared minimum-count criterion, the original balanced time/distance/density matching gives a same-family minus different-family effect of -0.0071. The equal-stratum effect is -0.0265 with a bootstrap 95% interval [-0.0665, +0.0122]. The upper bound is 1.9% of the original apparent 0.645 family gap. Outside adequate common support, especially at the shortest separations if different-family controls are sparse there, this experiment does not identify an independent ancestry effect.",
+  "artifacts": {
+    "distance_counts_csv": "research\\digital-life\\ch13-reports\\ch13-distance-bin-counts.csv",
+    "sensitivity_csv": "research\\digital-life\\ch13-reports\\ch13-overlap-sensitivity.csv",
+    "distance_overlap_figure": "static\\images\\books\\digital-life\\ch13-outlier-distance-overlap.png",
+    "effect_by_distance_figure": "static\\images\\books\\digital-life\\ch13-outlier-overlap-effect-by-distance.png"
+  },
+  "scope_limit": {
+    "our_size": 512,
+    "our_generations": 1600,
+    "published_reference_size": 1024,
+    "published_reference_updates": 20000
+  }
+}

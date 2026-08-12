@@ -1,0 +1,167 @@
+# Stage 3 — Secondary Late Ablation Across Propagation Regimes
+
+```json
+{
+  "late_ablation_step": 14,
+  "followup_steps": 4,
+  "results": {
+    "0.0": {
+      "inheritance_probability": 0.0,
+      "frontier_contact_at_ablation": {
+        "n": 40,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "pathwise_symmetric_difference_after_followup": {
+        "n": 40,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "paired_ridge_test": {
+        "statistic": 0.0,
+        "p_value": 1.0,
+        "permutations": 1500,
+        "null_mean": 0.0,
+        "null_q95": 0.0,
+        "null_q99": 0.0
+      }
+    },
+    "0.25": {
+      "inheritance_probability": 0.25,
+      "frontier_contact_at_ablation": {
+        "n": 40,
+        "mean": 0.15,
+        "median": 0.0,
+        "std": 0.653834841531101,
+        "ci95_low": 0.0,
+        "ci95_high": 0.425,
+        "min": 0.0,
+        "max": 4.0
+      },
+      "pathwise_symmetric_difference_after_followup": {
+        "n": 40,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "paired_ridge_test": {
+        "statistic": 0.0,
+        "p_value": 1.0,
+        "permutations": 1500,
+        "null_mean": 0.0,
+        "null_q95": 0.0,
+        "null_q99": 0.0
+      }
+    },
+    "0.5": {
+      "inheritance_probability": 0.5,
+      "frontier_contact_at_ablation": {
+        "n": 40,
+        "mean": 6.9,
+        "median": 6.0,
+        "std": 5.756735185849702,
+        "ci95_low": 5.1743749999999995,
+        "ci95_high": 8.95,
+        "min": 0.0,
+        "max": 26.0
+      },
+      "pathwise_symmetric_difference_after_followup": {
+        "n": 40,
+        "mean": 0.0006848588957245686,
+        "median": 0.0,
+        "std": 0.0012203533674365126,
+        "ci95_low": 0.00037476194092343393,
+        "ci95_high": 0.0011039249819210378,
+        "min": 0.0,
+        "max": 0.005568814638027049
+      },
+      "paired_ridge_test": {
+        "statistic": 0.3202509662008302,
+        "p_value": 0.020652898067954697,
+        "permutations": 1500,
+        "null_mean": 0.15860074654909811,
+        "null_q95": 0.27341430038862646,
+        "null_q99": 0.3663588032232651
+      }
+    },
+    "0.75": {
+      "inheritance_probability": 0.75,
+      "frontier_contact_at_ablation": {
+        "n": 40,
+        "mean": 31.65,
+        "median": 28.0,
+        "std": 14.208360215028334,
+        "ci95_low": 27.2,
+        "ci95_high": 36.000625,
+        "min": 3.0,
+        "max": 68.0
+      },
+      "pathwise_symmetric_difference_after_followup": {
+        "n": 40,
+        "mean": 0.007967821029106708,
+        "median": 0.007222811927048153,
+        "std": 0.005345088005746953,
+        "ci95_low": 0.006345032900919417,
+        "ci95_high": 0.009730301767464186,
+        "min": 0.0,
+        "max": 0.022708158116063918
+      },
+      "paired_ridge_test": {
+        "statistic": 1.6354356440969227,
+        "p_value": 0.0006662225183211193,
+        "permutations": 1500,
+        "null_mean": 0.24933235218964045,
+        "null_q95": 0.4580955436401872,
+        "null_q99": 0.59874428902509
+      }
+    },
+    "1.0": {
+      "inheritance_probability": 1.0,
+      "frontier_contact_at_ablation": {
+        "n": 40,
+        "mean": 93.975,
+        "median": 94.5,
+        "std": 22.94720843588605,
+        "ci95_low": 86.675,
+        "ci95_high": 101.3025,
+        "min": 51.0,
+        "max": 138.0
+      },
+      "pathwise_symmetric_difference_after_followup": {
+        "n": 40,
+        "mean": 0.03042161697710045,
+        "median": 0.028996859571838195,
+        "std": 0.00997013339477966,
+        "ci95_low": 0.02750853917647301,
+        "ci95_high": 0.03382269100993558,
+        "min": 0.015006821282401092,
+        "max": 0.056024558710667687
+      },
+      "paired_ridge_test": {
+        "statistic": 9.299875483312654,
+        "p_value": 0.0006662225183211193,
+        "permutations": 1500,
+        "null_mean": 0.22368841306564954,
+        "null_q95": 0.4052430627107341,
+        "null_q99": 0.5740502177908746
+      }
+    }
+  },
+  "status": "MEASURED",
+  "interpretation": "Late whole-crystal ablation is secondary corroboration. V4 does not select an inheritance probability by the smallest p-value."
+}
+```

@@ -1,0 +1,10 @@
+# Stage 0 — Freeze the Substrate
+
+```json
+{
+  "canonical_rng_traversal": "sorted(frontier)",
+  "exact": true,
+  "hash_a": "5fd54c923adbc247272c7ada",
+  "hash_b": "5fd54c923adbc247272c7ada"
+}
+```

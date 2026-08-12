@@ -1,0 +1,42 @@
+# Stage 0 — Freeze the Bounded-Dynamics Test
+
+```json
+{
+  "role": "BOUNDED DYNAMIC PERSISTENCE TEST",
+  "v1_status": "FAILED primary allocation tradeoff because the first-occupation arm did not clear its predeclared SEI. V2 does not retry that policy hypothesis.",
+  "question": "Under ongoing material loss and neutral finite evaluation budget, does at least one frozen candidate budget produce approximately stationary population while gross turnover continues?",
+  "candidate_budgets": [
+    48,
+    64,
+    80,
+    96,
+    128
+  ],
+  "loss_rate": 0.08,
+  "success_criteria": {
+    "abs_normalized_late_population_slope_max": 0.0025,
+    "minimum_late_population": 150,
+    "maximum_capacity_fraction": 0.75,
+    "minimum_late_mean_losses": 5.0,
+    "minimum_late_mean_reoccupations": 2.0,
+    "minimum_late_mean_first_occupations": 2.0,
+    "minimum_turnover_fraction": 0.05,
+    "maximum_abs_late_net_per_update": 3.0,
+    "all_required": true
+  },
+  "new_sentence_if_successful": "Under ongoing material loss, a finite neutral evaluation budget can support an approximately bounded Digital Crystal population while first occupation, loss and reoccupation all continue.",
+  "forbidden_overclaims": [
+    "homeostasis",
+    "maintenance",
+    "metabolism",
+    "energy",
+    "repair",
+    "self-preservation",
+    "adaptation",
+    "agency",
+    "organism",
+    "life"
+  ],
+  "status": "MEASURED"
+}
+```

@@ -1,0 +1,12 @@
+{
+  "cached": false,
+  "run_key": "adc090ec883a9a61fd69188c",
+  "checkpoint_key": "d117f55965fcee7ee343127a",
+  "checkpoint_step": 48,
+  "checkpoint_population": 2702,
+  "final_population": 9574,
+  "final_morphology_hash": "bc8e6d8c9783431f1459bf17",
+  "final_process_hash": "bd33c9aa0a510803be6ce6bf",
+  "history_events": 96,
+  "figure": "static\\images\\books\\digital-life\\ch15-01-reference-and-checkpoint.png"
+}

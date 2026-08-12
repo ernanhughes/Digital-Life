@@ -1,0 +1,61 @@
+# Stage 5 — Known-Effect Sensitivity Curve
+
+```json
+{
+  "known_effect_calibration": true,
+  "endpoint": 20,
+  "feature_index": 7,
+  "feature_name": "cov_anisotropy",
+  "empirical_feature_sd": 0.047899972633380486,
+  "spike_in_reps": 100,
+  "results": [
+    {
+      "shift_sd_units": 0.0,
+      "detection_rate_alpha_0_05": 0.04,
+      "p_value_mean": 0.5323383084577114,
+      "p_value_median": 0.5547263681592041
+    },
+    {
+      "shift_sd_units": 0.25,
+      "detection_rate_alpha_0_05": 0.05,
+      "p_value_mean": 0.4499004975124377,
+      "p_value_median": 0.40796019900497515
+    },
+    {
+      "shift_sd_units": 0.5,
+      "detection_rate_alpha_0_05": 0.04,
+      "p_value_mean": 0.40601990049751235,
+      "p_value_median": 0.36318407960199006
+    },
+    {
+      "shift_sd_units": 0.75,
+      "detection_rate_alpha_0_05": 0.12,
+      "p_value_mean": 0.29004975124378113,
+      "p_value_median": 0.23134328358208955
+    },
+    {
+      "shift_sd_units": 1.0,
+      "detection_rate_alpha_0_05": 0.09,
+      "p_value_mean": 0.2614925373134328,
+      "p_value_median": 0.208955223880597
+    },
+    {
+      "shift_sd_units": 1.5,
+      "detection_rate_alpha_0_05": 0.34,
+      "p_value_mean": 0.12179104477611942,
+      "p_value_median": 0.0945273631840796
+    },
+    {
+      "shift_sd_units": 2.0,
+      "detection_rate_alpha_0_05": 0.49,
+      "p_value_mean": 0.07412935323383084,
+      "p_value_median": 0.05472636815920398
+    }
+  ],
+  "declared_sensitivity_target_sd": 1.0,
+  "declared_sensitivity_target_power": 0.8,
+  "target_detection_rate": 0.09,
+  "sensitivity_adequate_for_target": false,
+  "interpretation": "This is a narrow pipeline sensitivity curve for synthetic shifts along one real feature. Poor sensitivity prevents a strong negative interpretation of the matched-arrangement test."
+}
+```

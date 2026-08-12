@@ -1,0 +1,34 @@
+# Stage 0 — Freeze the V2 Mechanism Question
+
+```json
+{
+  "role": "LOSS-CREATED-CONSTRUCTION-OPPORTUNITY AUTOPSY",
+  "v1_status": "FAILED: no tested loss rate produced the predeclared finite near-stationary construction/loss regime.",
+  "new_question": "When material is lost, how much subsequent attachment is first occupation and how much is reoccupation of previously occupied material?",
+  "primary_comparison": "Interior-biased versus surface-biased loss with exactly matched loss count every update.",
+  "primary_outcome": "reoccupation_count / cumulative_loss_count, interior minus surface",
+  "primary_sei": 0.15,
+  "secondary_outcome": "fraction of unique lost sites subsequently reoccupied, interior minus surface",
+  "secondary_sei": 0.15,
+  "mechanism_chain": [
+    "material loss",
+    "new empty location",
+    "changed frontier",
+    "ordinary attachment opportunity",
+    "reoccupation or first occupation"
+  ],
+  "observer_only_history_ledger": true,
+  "forbidden_overclaims": [
+    "repair",
+    "regeneration",
+    "maintenance",
+    "homeostasis",
+    "metabolism",
+    "death",
+    "aging",
+    "organism",
+    "life"
+  ],
+  "status": "MEASURED"
+}
+```

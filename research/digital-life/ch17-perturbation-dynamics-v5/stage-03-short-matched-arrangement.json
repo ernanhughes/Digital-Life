@@ -1,0 +1,522 @@
+{
+  "codeword_A": "11100001",
+  "codeword_B": "10001101",
+  "pulse_positions_A_zero_indexed": [
+    0,
+    1,
+    2,
+    7
+  ],
+  "pulse_positions_B_zero_indexed": [
+    0,
+    4,
+    5,
+    7
+  ],
+  "codeword_invariants": {
+    "pulse_count_A": 4,
+    "pulse_count_B": 4,
+    "first_pulse_A": 0,
+    "first_pulse_B": 0,
+    "last_pulse_A": 7,
+    "last_pulse_B": 7,
+    "same_pulse_count": true,
+    "same_first_pulse": true,
+    "same_last_pulse": true
+  },
+  "last_pulse_elapsed_step": 8,
+  "observation_steps": [
+    8,
+    9,
+    10,
+    12
+  ],
+  "angular_subspace": {
+    "basis": "mechanism-derived before v5 data",
+    "feature_names": [
+      "cov_anisotropy",
+      "sector_0",
+      "sector_1",
+      "sector_2",
+      "sector_3",
+      "sector_4",
+      "sector_5",
+      "harmonic6_cos",
+      "harmonic6_sin"
+    ],
+    "feature_indices": [
+      7,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ]
+  },
+  "results": {
+    "sequential": {
+      "8": {
+        "steps_since_last_pulse": 0,
+        "symdiff": {
+          "n": 24,
+          "mean": 0.16719929823866306,
+          "median": 0.1642813330607238,
+          "std": 0.017278094399511973,
+          "ci95_low": 0.16116023597504903,
+          "ci95_high": 0.17348038952296949,
+          "min": 0.1378809869375907,
+          "max": 0.2076923076923077
+        },
+        "ridge_all24": {
+          "statistic": 1.1379361022522057,
+          "p_value": 0.21956087824351297,
+          "null_q95": 1.767071341802788,
+          "permutations": 500
+        },
+        "ridge_angular9": {
+          "statistic": 0.15953994681915026,
+          "p_value": 0.8642714570858283,
+          "null_q95": 0.7507782674230847,
+          "permutations": 500
+        },
+        "top_directional_features": [
+          {
+            "feature_index": 11,
+            "feature_name": "degree_2",
+            "mean_standardized_delta_A_minus_B": 0.9223326485630036
+          },
+          {
+            "feature_index": 12,
+            "feature_name": "degree_3",
+            "mean_standardized_delta_A_minus_B": -0.6787400132900204
+          },
+          {
+            "feature_index": 10,
+            "feature_name": "degree_1",
+            "mean_standardized_delta_A_minus_B": -0.30796610837031296
+          },
+          {
+            "feature_index": 17,
+            "feature_name": "sector_1",
+            "mean_standardized_delta_A_minus_B": -0.17747935507049054
+          },
+          {
+            "feature_index": 5,
+            "feature_name": "centroid_y_scaled",
+            "mean_standardized_delta_A_minus_B": 0.1472679219120659
+          },
+          {
+            "feature_index": 9,
+            "feature_name": "mean_degree",
+            "mean_standardized_delta_A_minus_B": -0.12963955138886585
+          }
+        ]
+      },
+      "9": {
+        "steps_since_last_pulse": 1,
+        "symdiff": {
+          "n": 24,
+          "mean": 0.16951304512333176,
+          "median": 0.17108505826394732,
+          "std": 0.018040937720880508,
+          "ci95_low": 0.16230542879077162,
+          "ci95_high": 0.17716267062223118,
+          "min": 0.13009198423127463,
+          "max": 0.19681620839363242
+        },
+        "ridge_all24": {
+          "statistic": 0.37289340423914963,
+          "p_value": 0.9580838323353293,
+          "null_q95": 1.6811891251675273,
+          "permutations": 500
+        },
+        "ridge_angular9": {
+          "statistic": 0.11521847172464902,
+          "p_value": 0.9401197604790419,
+          "null_q95": 0.8049299212544716,
+          "permutations": 500
+        },
+        "top_directional_features": [
+          {
+            "feature_index": 14,
+            "feature_name": "degree_5",
+            "mean_standardized_delta_A_minus_B": 0.39547338060951254
+          },
+          {
+            "feature_index": 9,
+            "feature_name": "mean_degree",
+            "mean_standardized_delta_A_minus_B": -0.2463696997972168
+          },
+          {
+            "feature_index": 10,
+            "feature_name": "degree_1",
+            "mean_standardized_delta_A_minus_B": 0.23451356971075024
+          },
+          {
+            "feature_index": 8,
+            "feature_name": "boundary_fraction",
+            "mean_standardized_delta_A_minus_B": 0.23366487007415238
+          },
+          {
+            "feature_index": 15,
+            "feature_name": "degree_6",
+            "mean_standardized_delta_A_minus_B": -0.23366487007415107
+          },
+          {
+            "feature_index": 11,
+            "feature_name": "degree_2",
+            "mean_standardized_delta_A_minus_B": 0.22288493853301375
+          }
+        ]
+      },
+      "10": {
+        "steps_since_last_pulse": 2,
+        "symdiff": {
+          "n": 24,
+          "mean": 0.16990522704428415,
+          "median": 0.16757289143698073,
+          "std": 0.019030693950313878,
+          "ci95_low": 0.16262811820753412,
+          "ci95_high": 0.1778240011657909,
+          "min": 0.13080684596577016,
+          "max": 0.20504731861198738
+        },
+        "ridge_all24": {
+          "statistic": 0.5023131758842763,
+          "p_value": 0.8423153692614771,
+          "null_q95": 1.547146528335512,
+          "permutations": 500
+        },
+        "ridge_angular9": {
+          "statistic": 0.15799382442499832,
+          "p_value": 0.8762475049900199,
+          "null_q95": 0.6641644603410422,
+          "permutations": 500
+        },
+        "top_directional_features": [
+          {
+            "feature_index": 12,
+            "feature_name": "degree_3",
+            "mean_standardized_delta_A_minus_B": 0.6167179321194763
+          },
+          {
+            "feature_index": 13,
+            "feature_name": "degree_4",
+            "mean_standardized_delta_A_minus_B": -0.28284216685164626
+          },
+          {
+            "feature_index": 10,
+            "feature_name": "degree_1",
+            "mean_standardized_delta_A_minus_B": -0.2750998845844215
+          },
+          {
+            "feature_index": 17,
+            "feature_name": "sector_1",
+            "mean_standardized_delta_A_minus_B": -0.18459432451383243
+          },
+          {
+            "feature_index": 22,
+            "feature_name": "harmonic6_cos",
+            "mean_standardized_delta_A_minus_B": 0.17339990230689936
+          },
+          {
+            "feature_index": 11,
+            "feature_name": "degree_2",
+            "mean_standardized_delta_A_minus_B": 0.13952110249763905
+          }
+        ]
+      },
+      "12": {
+        "steps_since_last_pulse": 4,
+        "symdiff": {
+          "n": 24,
+          "mean": 0.17475408456286998,
+          "median": 0.17593888980398614,
+          "std": 0.017012594241146116,
+          "ci95_low": 0.16848483460476507,
+          "ci95_high": 0.1813287144633646,
+          "min": 0.14332247557003258,
+          "max": 0.20662100456621005
+        },
+        "ridge_all24": {
+          "statistic": 0.42794353978755345,
+          "p_value": 0.9301397205588823,
+          "null_q95": 1.736698914269882,
+          "permutations": 500
+        },
+        "ridge_angular9": {
+          "statistic": 0.23720857106855134,
+          "p_value": 0.688622754491018,
+          "null_q95": 0.7584964331164874,
+          "permutations": 500
+        },
+        "top_directional_features": [
+          {
+            "feature_index": 13,
+            "feature_name": "degree_4",
+            "mean_standardized_delta_A_minus_B": 0.29968031057029604
+          },
+          {
+            "feature_index": 4,
+            "feature_name": "centroid_x_scaled",
+            "mean_standardized_delta_A_minus_B": -0.2593961559202746
+          },
+          {
+            "feature_index": 16,
+            "feature_name": "sector_0",
+            "mean_standardized_delta_A_minus_B": 0.25429188592650026
+          },
+          {
+            "feature_index": 12,
+            "feature_name": "degree_3",
+            "mean_standardized_delta_A_minus_B": -0.24185114506852345
+          },
+          {
+            "feature_index": 23,
+            "feature_name": "harmonic6_sin",
+            "mean_standardized_delta_A_minus_B": 0.17902370509499702
+          },
+          {
+            "feature_index": 1,
+            "feature_name": "max_radius_fraction",
+            "mean_standardized_delta_A_minus_B": 0.16384638410380806
+          }
+        ]
+      }
+    },
+    "crn": {
+      "8": {
+        "steps_since_last_pulse": 0,
+        "symdiff": {
+          "n": 24,
+          "mean": 0.06000690611492588,
+          "median": 0.0599886851038076,
+          "std": 0.027254917525942193,
+          "ci95_low": 0.049304093367581216,
+          "ci95_high": 0.06971549944499034,
+          "min": 0.012216404886561954,
+          "max": 0.12581699346405228
+        },
+        "ridge_all24": {
+          "statistic": 0.5694318645602444,
+          "p_value": 0.656686626746507,
+          "null_q95": 1.3060511370962216,
+          "permutations": 500
+        },
+        "ridge_angular9": {
+          "statistic": 0.06376911590113155,
+          "p_value": 0.9860279441117764,
+          "null_q95": 0.6885936073861416,
+          "permutations": 500
+        },
+        "top_directional_features": [
+          {
+            "feature_index": 10,
+            "feature_name": "degree_1",
+            "mean_standardized_delta_A_minus_B": -0.2990452001876169
+          },
+          {
+            "feature_index": 12,
+            "feature_name": "degree_3",
+            "mean_standardized_delta_A_minus_B": -0.28321375521373926
+          },
+          {
+            "feature_index": 9,
+            "feature_name": "mean_degree",
+            "mean_standardized_delta_A_minus_B": 0.2356792170334242
+          },
+          {
+            "feature_index": 1,
+            "feature_name": "max_radius_fraction",
+            "mean_standardized_delta_A_minus_B": -0.20348923188911994
+          },
+          {
+            "feature_index": 15,
+            "feature_name": "degree_6",
+            "mean_standardized_delta_A_minus_B": 0.1272874765185327
+          },
+          {
+            "feature_index": 8,
+            "feature_name": "boundary_fraction",
+            "mean_standardized_delta_A_minus_B": -0.12728747651853253
+          }
+        ]
+      },
+      "9": {
+        "steps_since_last_pulse": 1,
+        "symdiff": {
+          "n": 24,
+          "mean": 0.05799848879974164,
+          "median": 0.05262842759792491,
+          "std": 0.03119211698735732,
+          "ci95_low": 0.04724044777126201,
+          "ci95_high": 0.07105481325460121,
+          "min": 0.0064,
+          "max": 0.13037037037037036
+        },
+        "ridge_all24": {
+          "statistic": 0.6582837305537967,
+          "p_value": 0.6027944111776448,
+          "null_q95": 1.3250794778650958,
+          "permutations": 500
+        },
+        "ridge_angular9": {
+          "statistic": 0.11051447445748348,
+          "p_value": 0.9660678642714571,
+          "null_q95": 0.730394922313651,
+          "permutations": 500
+        },
+        "top_directional_features": [
+          {
+            "feature_index": 12,
+            "feature_name": "degree_3",
+            "mean_standardized_delta_A_minus_B": 0.3734610259582662
+          },
+          {
+            "feature_index": 11,
+            "feature_name": "degree_2",
+            "mean_standardized_delta_A_minus_B": -0.34768601565985063
+          },
+          {
+            "feature_index": 1,
+            "feature_name": "max_radius_fraction",
+            "mean_standardized_delta_A_minus_B": -0.24194335156365354
+          },
+          {
+            "feature_index": 9,
+            "feature_name": "mean_degree",
+            "mean_standardized_delta_A_minus_B": 0.16160571647004138
+          },
+          {
+            "feature_index": 22,
+            "feature_name": "harmonic6_cos",
+            "mean_standardized_delta_A_minus_B": -0.14073001522712938
+          },
+          {
+            "feature_index": 14,
+            "feature_name": "degree_5",
+            "mean_standardized_delta_A_minus_B": -0.13870369984760997
+          }
+        ]
+      },
+      "10": {
+        "steps_since_last_pulse": 2,
+        "symdiff": {
+          "n": 24,
+          "mean": 0.05481352389709728,
+          "median": 0.05508532462062135,
+          "std": 0.032300211385991706,
+          "ci95_low": 0.04298029763865749,
+          "ci95_high": 0.06780199781835404,
+          "min": 0.00583941605839416,
+          "max": 0.13829787234042554
+        },
+        "ridge_all24": {
+          "statistic": 0.6151665547963838,
+          "p_value": 0.6666666666666666,
+          "null_q95": 1.4309237466912799,
+          "permutations": 500
+        },
+        "ridge_angular9": {
+          "statistic": 0.06899158362261912,
+          "p_value": 0.9880239520958084,
+          "null_q95": 0.656886125481105,
+          "permutations": 500
+        },
+        "top_directional_features": [
+          {
+            "feature_index": 1,
+            "feature_name": "max_radius_fraction",
+            "mean_standardized_delta_A_minus_B": -0.2508726030021273
+          },
+          {
+            "feature_index": 14,
+            "feature_name": "degree_5",
+            "mean_standardized_delta_A_minus_B": -0.2462375632709286
+          },
+          {
+            "feature_index": 12,
+            "feature_name": "degree_3",
+            "mean_standardized_delta_A_minus_B": -0.1991086390390477
+          },
+          {
+            "feature_index": 15,
+            "feature_name": "degree_6",
+            "mean_standardized_delta_A_minus_B": 0.16035854047928666
+          },
+          {
+            "feature_index": 8,
+            "feature_name": "boundary_fraction",
+            "mean_standardized_delta_A_minus_B": -0.160358540479286
+          },
+          {
+            "feature_index": 22,
+            "feature_name": "harmonic6_cos",
+            "mean_standardized_delta_A_minus_B": -0.14192217465175141
+          }
+        ]
+      },
+      "12": {
+        "steps_since_last_pulse": 4,
+        "symdiff": {
+          "n": 24,
+          "mean": 0.05332187399025767,
+          "median": 0.046025021460591994,
+          "std": 0.03590999923620204,
+          "ci95_low": 0.03907842051774997,
+          "ci95_high": 0.0657788088968141,
+          "min": 0.0,
+          "max": 0.1425462459194777
+        },
+        "ridge_all24": {
+          "statistic": 0.825673504796549,
+          "p_value": 0.43912175648702595,
+          "null_q95": 1.5550532300789532,
+          "permutations": 500
+        },
+        "ridge_angular9": {
+          "statistic": 0.17073672452098523,
+          "p_value": 0.8502994011976048,
+          "null_q95": 0.6960901740069352,
+          "permutations": 500
+        },
+        "top_directional_features": [
+          {
+            "feature_index": 1,
+            "feature_name": "max_radius_fraction",
+            "mean_standardized_delta_A_minus_B": -0.35416880166057313
+          },
+          {
+            "feature_index": 12,
+            "feature_name": "degree_3",
+            "mean_standardized_delta_A_minus_B": -0.22236964712569218
+          },
+          {
+            "feature_index": 11,
+            "feature_name": "degree_2",
+            "mean_standardized_delta_A_minus_B": 0.16642942867358268
+          },
+          {
+            "feature_index": 22,
+            "feature_name": "harmonic6_cos",
+            "mean_standardized_delta_A_minus_B": -0.15242228559428592
+          },
+          {
+            "feature_index": 20,
+            "feature_name": "sector_4",
+            "mean_standardized_delta_A_minus_B": 0.12047264958157539
+          },
+          {
+            "feature_index": 6,
+            "feature_name": "cov_trace_scaled",
+            "mean_standardized_delta_A_minus_B": -0.11949567442039226
+          }
+        ]
+      }
+    }
+  },
+  "scientific_status": "EXPLORATORY ONLY"
+}

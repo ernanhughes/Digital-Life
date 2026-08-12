@@ -1,0 +1,33 @@
+# Stage 6 — Bounded Experimental Verdict
+
+```json
+{
+  "experiment_role": "EXPLORATORY / MECHANISM CHARACTERIZATION",
+  "single_pulse_response": "MEASURED",
+  "superposition_characterized": "MEASURED",
+  "matched_endpoint_arrangement_status": "FAILED",
+  "matched_endpoint_primary_endpoint": 20,
+  "matched_endpoint_p_value": 0.6733067729083665,
+  "sham_false_positive_rate": 0.0,
+  "bounded_statement": "At the declared matched-endpoint observation, this protocol did not establish a receiver-state distribution difference attributable to interior temporal arrangement.",
+  "nonclaims": [
+    "information storage",
+    "memory",
+    "signalling",
+    "semantics",
+    "sender identity",
+    "coordination",
+    "learning",
+    "agency",
+    "individuality",
+    "life",
+    "Shannon channel capacity"
+  ],
+  "next_decision_logic": {
+    "if_matched_endpoint_effect_absent": "Treat the old Chapter 17 L3 candidate as consistent with recency/ordinary response dynamics and push the information-survival interpretation back.",
+    "if_effect_present_but_superposition_error_small": "Interpret the difference primarily through ordinary additive response dynamics; do not promote an information-retention claim.",
+    "if_effect_present_and_superposition_error_material": "Freeze the matched-endpoint condition and design a separate Chapter 18 confirmatory information-survival experiment.",
+    "if_sham_false_positive_rate_suspicious": "Do not trust the scientific endpoint until the analysis pipeline is repaired and the sham calibration is repeated."
+  }
+}
+```

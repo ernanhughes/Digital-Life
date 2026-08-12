@@ -2,12 +2,11 @@
 *.zip
 *.gz
 *.csv
+*.sqlite3
 test.md
 *output.txt
-data/
 /book/chapters/img/*.*
 /public
-/research
 /styles
 /results
 

@@ -1,0 +1,96 @@
+{
+  "groups": 48,
+  "transmission_fraction": 0.5,
+  "policies": [
+    "uniform_budget",
+    "surface_biased_budget"
+  ],
+  "summary": {
+    "uniform_budget": {
+      "eligible_count": {
+        "n": 864,
+        "mean": 6.33912037037037,
+        "median": 4.0,
+        "std": 6.694701274304751,
+        "ci95_low": 5.872627314814815,
+        "ci95_high": 6.777864583333333,
+        "min": 0.0,
+        "max": 34.0
+      },
+      "transmitted_count": {
+        "n": 864,
+        "mean": 3.1550925925925926,
+        "median": 2.0,
+        "std": 3.3814611665752197,
+        "ci95_low": 2.9420717592592593,
+        "ci95_high": 3.380787037037037,
+        "min": 0.0,
+        "max": 17.0
+      },
+      "mean_eligible_surface_exposure": {
+        "n": 864,
+        "mean": 1.5181212760215947,
+        "median": 1.8181818181818181,
+        "std": 1.0067897074779057,
+        "ci95_low": 1.449299110716447,
+        "ci95_high": 1.5839826914203663,
+        "min": 0.0,
+        "max": 5.0
+      },
+      "mean_transmitted_surface_exposure": {
+        "n": 864,
+        "mean": 1.3611156466574155,
+        "median": 1.5,
+        "std": 1.093258397109103,
+        "ci95_low": 1.292329967590129,
+        "ci95_high": 1.4335521817459878,
+        "min": 0.0,
+        "max": 4.0
+      }
+    },
+    "surface_biased_budget": {
+      "eligible_count": {
+        "n": 864,
+        "mean": 27.247685185185187,
+        "median": 25.0,
+        "std": 10.863153156127563,
+        "ci95_low": 26.533362268518516,
+        "ci95_high": 28.038194444444443,
+        "min": 8.0,
+        "max": 72.0
+      },
+      "transmitted_count": {
+        "n": 864,
+        "mean": 13.625,
+        "median": 12.0,
+        "std": 5.436981137440968,
+        "ci95_low": 13.256799768518519,
+        "ci95_high": 14.018605324074075,
+        "min": 4.0,
+        "max": 36.0
+      },
+      "mean_eligible_surface_exposure": {
+        "n": 864,
+        "mean": 2.4277356472681673,
+        "median": 2.4285714285714284,
+        "std": 0.3008807870799873,
+        "ci95_low": 2.408056114503084,
+        "ci95_high": 2.4469524858020373,
+        "min": 1.4666666666666666,
+        "max": 3.1578947368421053
+      },
+      "mean_transmitted_surface_exposure": {
+        "n": 864,
+        "mean": 3.510924528095521,
+        "median": 3.5384615384615383,
+        "std": 0.31826103886358814,
+        "ci95_low": 3.4895391256854476,
+        "ci95_high": 3.532058591447023,
+        "min": 2.25,
+        "max": 4.3
+      }
+    }
+  },
+  "status": "MEASURED",
+  "bounded_statement": "V5 verifies that surface-biased allocation changes where propagated state is placed while holding the nominal per-step transmission budget fixed."
+}

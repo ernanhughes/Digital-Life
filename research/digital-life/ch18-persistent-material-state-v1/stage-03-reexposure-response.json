@@ -1,0 +1,190 @@
+{
+  "groups": 32,
+  "challenge_pulse_zero_index": 0,
+  "observation_steps": [
+    1,
+    2,
+    4
+  ],
+  "primary_endpoint": 2,
+  "primary_contrast": "difference in pulse response between experienced-retained and experienced-erased crystals",
+  "primary_test": {
+    "statistic": 0.0,
+    "p_value": 1.0,
+    "permutations": 1000,
+    "null_mean": 0.0,
+    "null_q95": 0.0,
+    "null_q99": 0.0
+  },
+  "results": {
+    "1": {
+      "retained_vs_erased_primary": {
+        "statistic": 0.0,
+        "p_value": 1.0,
+        "permutations": 1000,
+        "null_mean": 0.0,
+        "null_q95": 0.0,
+        "null_q99": 0.0
+      },
+      "erased_vs_naive_secondary": {
+        "statistic": 0.3813845957950321,
+        "p_value": 0.8101898101898102,
+        "permutations": 1000,
+        "null_mean": 0.5412192890322347,
+        "null_q95": 0.8709222030565986,
+        "null_q99": 1.0716145160419692
+      },
+      "mean_response_norm_retained": {
+        "n": 32,
+        "mean": 0.015500974868261545,
+        "median": 0.013076012957424565,
+        "std": 0.006914306504474328,
+        "ci95_low": 0.013195182495887843,
+        "ci95_high": 0.018115956346057158,
+        "min": 0.006062706202802673,
+        "max": 0.028851991172275965
+      },
+      "mean_response_norm_erased": {
+        "n": 32,
+        "mean": 0.015500974868261545,
+        "median": 0.013076012957424565,
+        "std": 0.006914306504474328,
+        "ci95_low": 0.013196977273989649,
+        "ci95_high": 0.01799135679141127,
+        "min": 0.006062706202802673,
+        "max": 0.028851991172275965
+      },
+      "mean_response_norm_naive": {
+        "n": 32,
+        "mean": 0.015089488616657074,
+        "median": 0.013226727046050513,
+        "std": 0.006224785691834603,
+        "ci95_low": 0.013098717153502831,
+        "ci95_high": 0.017295109302435076,
+        "min": 0.00533133347061063,
+        "max": 0.0329434523026008
+      }
+    },
+    "2": {
+      "retained_vs_erased_primary": {
+        "statistic": 0.0,
+        "p_value": 1.0,
+        "permutations": 1000,
+        "null_mean": 0.0,
+        "null_q95": 0.0,
+        "null_q99": 0.0
+      },
+      "erased_vs_naive_secondary": {
+        "statistic": 0.43160317780630525,
+        "p_value": 0.6593406593406593,
+        "permutations": 1000,
+        "null_mean": 0.5210829593435558,
+        "null_q95": 0.8377595948322861,
+        "null_q99": 1.047484544385744
+      },
+      "mean_response_norm_retained": {
+        "n": 32,
+        "mean": 0.018407341885717257,
+        "median": 0.01717294489600176,
+        "std": 0.007538118112941817,
+        "ci95_low": 0.01596421565265286,
+        "ci95_high": 0.02109733403193734,
+        "min": 0.007535730968995161,
+        "max": 0.03824556916452358
+      },
+      "mean_response_norm_erased": {
+        "n": 32,
+        "mean": 0.018407341885717257,
+        "median": 0.01717294489600176,
+        "std": 0.007538118112941817,
+        "ci95_low": 0.01582732771138531,
+        "ci95_high": 0.021114854172064754,
+        "min": 0.007535730968995161,
+        "max": 0.03824556916452358
+      },
+      "mean_response_norm_naive": {
+        "n": 32,
+        "mean": 0.01876088536299063,
+        "median": 0.01905560729239712,
+        "std": 0.006955865433604355,
+        "ci95_low": 0.016315085934955807,
+        "ci95_high": 0.02138668801068985,
+        "min": 0.007799148502099575,
+        "max": 0.033146701876320114
+      }
+    },
+    "4": {
+      "retained_vs_erased_primary": {
+        "statistic": 0.0,
+        "p_value": 1.0,
+        "permutations": 1000,
+        "null_mean": 0.0,
+        "null_q95": 0.0,
+        "null_q99": 0.0
+      },
+      "erased_vs_naive_secondary": {
+        "statistic": 0.19703332223892553,
+        "p_value": 0.994005994005994,
+        "permutations": 1000,
+        "null_mean": 0.4827601379999661,
+        "null_q95": 0.7310758635798873,
+        "null_q99": 0.8783925227900732
+      },
+      "mean_response_norm_retained": {
+        "n": 32,
+        "mean": 0.020118468219256426,
+        "median": 0.018378709352051867,
+        "std": 0.011519297878469602,
+        "ci95_low": 0.016174440832134172,
+        "ci95_high": 0.02410027876765833,
+        "min": 0.0029154089739187885,
+        "max": 0.05584224750611892
+      },
+      "mean_response_norm_erased": {
+        "n": 32,
+        "mean": 0.020118468219256426,
+        "median": 0.018378709352051867,
+        "std": 0.011519297878469602,
+        "ci95_low": 0.016448171479211418,
+        "ci95_high": 0.023989215813901857,
+        "min": 0.0029154089739187885,
+        "max": 0.05584224750611892
+      },
+      "mean_response_norm_naive": {
+        "n": 32,
+        "mean": 0.0201889354379772,
+        "median": 0.018398985789610176,
+        "std": 0.00971393418376374,
+        "ci95_low": 0.017151565582724668,
+        "ci95_high": 0.02347132122064478,
+        "min": 0.0041714558413901886,
+        "max": 0.054199724333281525
+      }
+    }
+  },
+  "checkpoint_control": {
+    "retained_vs_erased_visible_symdiff": {
+      "n": 32,
+      "mean": 0.0,
+      "median": 0.0,
+      "std": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    },
+    "erased_vs_naive_visible_symdiff": {
+      "n": 32,
+      "mean": 0.023428442008011557,
+      "median": 0.021317849473673336,
+      "std": 0.0175836757781457,
+      "ci95_low": 0.017367112127858776,
+      "ci95_high": 0.02956121572015796,
+      "min": 0.0,
+      "max": 0.06505771248688352
+    }
+  },
+  "alpha": 0.05,
+  "status": "FAILED",
+  "bounded_statement": "Past experience altered a persistent local material state, and the frozen experiment did not establish that retaining that state changed the receiver's response to a later identical pulse relative to erasing it while holding experienced morphology fixed."
+}

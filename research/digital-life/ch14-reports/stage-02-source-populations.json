@@ -1,0 +1,14 @@
+{
+  "counts": {
+    "constant": 100,
+    "sine": 100,
+    "square": 100,
+    "saw": 100,
+    "white_noise": 100,
+    "random_walk": 100
+  },
+  "cached_runs": 0,
+  "total_runs": 600,
+  "gallery": "static\\images\\books\\digital-life\\ch14-02-source-gallery.png",
+  "signals": "static\\images\\books\\digital-life\\ch14-02-source-signals.png"
+}

@@ -1,0 +1,207 @@
+# Stage 0 — Freeze the Exogenous Propagation Schedule
+
+```json
+{
+  "role": "V8 FROZEN EXOGENOUS REFERENCE SCHEDULE",
+  "reference_groups": 64,
+  "schedule_rule": "rounded median natural-feedback budget per elapsed step",
+  "schedule": {
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 10,
+    "6": 10,
+    "7": 10,
+    "8": 10,
+    "9": 11,
+    "10": 10,
+    "11": 12,
+    "12": 12,
+    "13": 13,
+    "14": 14,
+    "15": 15,
+    "16": 14,
+    "17": 14,
+    "18": 16,
+    "19": 16,
+    "20": 16,
+    "21": 17,
+    "22": 18,
+    "23": 18,
+    "24": 19
+  },
+  "distribution": {
+    "1": {
+      "n": 64,
+      "mean": 0.0,
+      "median": 0.0,
+      "min": 0,
+      "max": 0
+    },
+    "2": {
+      "n": 64,
+      "mean": 0.0,
+      "median": 0.0,
+      "min": 0,
+      "max": 0
+    },
+    "3": {
+      "n": 64,
+      "mean": 0.0,
+      "median": 0.0,
+      "min": 0,
+      "max": 0
+    },
+    "4": {
+      "n": 64,
+      "mean": 0.0,
+      "median": 0.0,
+      "min": 0,
+      "max": 0
+    },
+    "5": {
+      "n": 64,
+      "mean": 10.0625,
+      "median": 10.0,
+      "min": 4,
+      "max": 16
+    },
+    "6": {
+      "n": 64,
+      "mean": 9.71875,
+      "median": 10.0,
+      "min": 4,
+      "max": 17
+    },
+    "7": {
+      "n": 64,
+      "mean": 10.265625,
+      "median": 10.0,
+      "min": 3,
+      "max": 18
+    },
+    "8": {
+      "n": 64,
+      "mean": 10.40625,
+      "median": 10.0,
+      "min": 5,
+      "max": 20
+    },
+    "9": {
+      "n": 64,
+      "mean": 11.046875,
+      "median": 11.0,
+      "min": 3,
+      "max": 23
+    },
+    "10": {
+      "n": 64,
+      "mean": 11.703125,
+      "median": 10.5,
+      "min": 2,
+      "max": 22
+    },
+    "11": {
+      "n": 64,
+      "mean": 12.078125,
+      "median": 12.0,
+      "min": 4,
+      "max": 22
+    },
+    "12": {
+      "n": 64,
+      "mean": 12.90625,
+      "median": 12.5,
+      "min": 5,
+      "max": 22
+    },
+    "13": {
+      "n": 64,
+      "mean": 13.140625,
+      "median": 13.0,
+      "min": 5,
+      "max": 24
+    },
+    "14": {
+      "n": 64,
+      "mean": 13.734375,
+      "median": 14.0,
+      "min": 5,
+      "max": 24
+    },
+    "15": {
+      "n": 64,
+      "mean": 15.0625,
+      "median": 15.0,
+      "min": 6,
+      "max": 26
+    },
+    "16": {
+      "n": 64,
+      "mean": 14.8125,
+      "median": 14.0,
+      "min": 5,
+      "max": 25
+    },
+    "17": {
+      "n": 64,
+      "mean": 15.609375,
+      "median": 14.5,
+      "min": 5,
+      "max": 29
+    },
+    "18": {
+      "n": 64,
+      "mean": 15.890625,
+      "median": 16.0,
+      "min": 5,
+      "max": 26
+    },
+    "19": {
+      "n": 64,
+      "mean": 16.28125,
+      "median": 15.5,
+      "min": 4,
+      "max": 29
+    },
+    "20": {
+      "n": 64,
+      "mean": 16.96875,
+      "median": 16.0,
+      "min": 5,
+      "max": 32
+    },
+    "21": {
+      "n": 64,
+      "mean": 17.265625,
+      "median": 17.0,
+      "min": 4,
+      "max": 32
+    },
+    "22": {
+      "n": 64,
+      "mean": 17.9375,
+      "median": 18.0,
+      "min": 4,
+      "max": 33
+    },
+    "23": {
+      "n": 64,
+      "mean": 18.625,
+      "median": 18.5,
+      "min": 4,
+      "max": 35
+    },
+    "24": {
+      "n": 64,
+      "mean": 19.359375,
+      "median": 19.0,
+      "min": 6,
+      "max": 40
+    }
+  },
+  "scientific_role": "The clamped branch receives a propagation schedule generated from separate reference trajectories. Evaluation outcomes cannot change that schedule.",
+  "status": "MEASURED"
+}
+```

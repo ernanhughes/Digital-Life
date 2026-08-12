@@ -1,0 +1,12 @@
+{
+  "exact_morphology": true,
+  "exact_process_state": true,
+  "population_trajectory_equal": true,
+  "attachment_trajectory_equal": true,
+  "reference_morphology_hash": "bc8e6d8c9783431f1459bf17",
+  "restored_morphology_hash": "bc8e6d8c9783431f1459bf17",
+  "reference_process_hash": "bd33c9aa0a510803be6ce6bf",
+  "restored_process_hash": "bd33c9aa0a510803be6ce6bf",
+  "symmetric_difference_cells": 0,
+  "figure": "static\\images\\books\\digital-life\\ch15-02-exact-restore.png"
+}
