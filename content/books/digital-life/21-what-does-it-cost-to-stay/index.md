@@ -203,12 +203,12 @@ Before looking at the policies, the neutral budget sweep already showed somethin
 Approximate late populations were:
 
 ```text
-B = 64        ~381
-B = 128       ~829
-B = 256      ~1717
-B = 512      ~3092
-B = 1024     ~3513
-unlimited    ~3462
+B = 64        ~381
+B = 128       ~829
+B = 256      ~1717
+B = 512      ~3092
+B = 1024     ~3513
+unlimited    ~3462
 ```
 
 The amount of computational opportunity strongly constrained how large the lossy crystal became.
@@ -254,28 +254,28 @@ Approximate late behaviour:
 ```text
 HIGH SUPPORT
 
-late population                  ~1923
-reoccupation / loss               0.959
-first occupations / 1000 evals    188
-late net growth                   +24.3
+late population                  ~1923
+reoccupation / loss               0.959
+first occupations / 1000 evals    188
+late net growth                   +24.3
 ```
 
 ```text
 NEUTRAL
 
-late population                  ~1723
-reoccupation / loss               0.844
-first occupations / 1000 evals    212
-late net growth                   +10.0
+late population                  ~1723
+reoccupation / loss               0.844
+first occupations / 1000 evals    212
+late net growth                   +10.0
 ```
 
 ```text
 LOW SUPPORT
 
-late population                  ~1131
-reoccupation / loss               0.534
-first occupations / 1000 evals    249
-late net growth                    -1.5
+late population                  ~1131
+reoccupation / loss               0.534
+first occupations / 1000 evals    249
+late net growth                    -1.5
 ```
 
 The differences were large.
@@ -288,7 +288,7 @@ So finite computation had created a real allocation tension:
 
 ```text
 REUSE LOST MATERIAL
-        versus
+        versus
 OCCUPY NEW MATERIAL
 ```
 
@@ -443,11 +443,11 @@ late normalized population slope
 The approximate slopes were:
 
 ```text
-B=48     -0.00319
-B=64     -0.00271
-B=80     -0.00252
-B=96     -0.00268
-B=128    -0.00280
+B=48     -0.00319
+B=64     -0.00271
+B=80     -0.00252
+B=96     -0.00268
+B=128    -0.00280
 ```
 
 The frozen threshold was:
@@ -557,11 +557,11 @@ Then we changed not only computational budget, but starting size.
 The frozen start conditions were:
 
 ```text
-SMALL      warmup = 8
+SMALL      warmup = 8
 
-MEDIUM     warmup = 14
+MEDIUM     warmup = 14
 
-LARGE      warmup = 20
+LARGE      warmup = 20
 ```
 
 Crossed with:
@@ -581,11 +581,11 @@ The most striking result was gross turnover.
 Mean late gross turnover fractions across budgets were approximately:
 
 ```text
-B=48     0.17229
-B=64     0.17150
-B=80     0.17066
-B=96     0.17147
-B=128    0.17132
+B=48     0.17229
+B=64     0.17150
+B=80     0.17066
+B=96     0.17147
+B=128    0.17132
 ```
 
 The coefficient of variation across those budget means was only:
@@ -639,9 +639,9 @@ Take `B=48`.
 Gross turnover by starting condition was roughly:
 
 ```text
-small     0.17330
-medium    0.17267
-large     0.17089
+small     0.17330
+medium    0.17267
+large     0.17089
 ```
 
 Loss fraction was also tightly clustered.
@@ -673,9 +673,9 @@ first occupation / population
 At `B=48`:
 
 ```text
-small     0.01806
-medium    0.01689
-large     0.01356
+small     0.01806
+medium    0.01689
+large     0.01356
 ```
 
 The coefficient of variation was:
@@ -695,10 +695,10 @@ So that gate failed.
 At larger budgets, the start-size dependence weakened:
 
 ```text
-B=64     CV ~0.092
-B=80     CV ~0.077
-B=96     CV ~0.074
-B=128    CV ~0.063
+B=64     CV ~0.092
+B=80     CV ~0.077
+B=96     CV ~0.074
+B=128    CV ~0.063
 ```
 
 Those passed.
@@ -892,6 +892,371 @@ FAILED
 The failures progressively removed bad simplifications.
 
 What remained was more precise.
+
+---
+
+## What Survived the Hypothesis?
+
+Chapter 21 contained three formal hypotheses.
+
+All three failed.
+
+V1 did not establish the full two-sided allocation tradeoff at the predeclared magnitudes.
+
+V2 did not establish a finite approximately stationary population regime.
+
+V3 did not establish invariance of the complete normalized process vector across every tested starting size and budget.
+
+Those failures remain failures.
+
+But beneath them, several process-level regularities survived.
+
+### Scarce computation changed the scale of the process
+
+The first result was immediate.
+
+As computational evaluation budget fell, the size of the lossy crystal fell with it.
+
+Approximate late populations under neutral scheduling ranged from:
+
+```text
+B = 64
+~381
+```
+
+to:
+
+```text
+B = 1024
+~3513
+```
+
+while the unlimited condition was of similar large scale.
+
+So:
+
+```text
+AVAILABLE COMPUTATIONAL OPPORTUNITY
+↓
+PROCESS SCALE
+```
+
+is not metaphorical.
+
+It is measured.
+
+The crystal can only attempt construction where evaluation opportunity is actually spent.
+
+This gives us a new substrate-level constraint:
+
+> **Finite computation limits the scale at which the material process can continue.**
+
+That is not energy.
+
+It is not metabolism.
+
+It is simply computational scarcity.
+
+### Scheduling changed what the same budget produced
+
+At the same budget, local scheduling changed the balance between reoccupation and first occupation.
+
+High-support scheduling produced much greater reoccupation.
+
+Low-support scheduling produced more first occupation.
+
+The full V1 tradeoff failed because the exploration-side magnitude did not clear its frozen threshold.
+
+But the measured allocation effect remains real.
+
+So:
+
+```text
+SAME COMPUTATIONAL BUDGET
+≠
+SAME MATERIAL FUTURE
+```
+
+and:
+
+```text
+WHERE COMPUTATION IS SPENT
+MATTERS
+```
+
+The crystal does not know whether it is servicing:
+
+```text
+old territory
+```
+
+or:
+
+```text
+new territory
+```
+
+Yet geometry makes different scheduling rules allocate evaluation opportunity differently across those categories.
+
+### The Flux Principle became much stronger
+
+V2 failed to find a truly stationary population.
+
+But it exposed something more interesting.
+
+Across the tested budget family, gross turnover remained close to:
+
+```text
+0.17 per update
+```
+
+as a fraction of population.
+
+V3 then measured this more carefully.
+
+Late gross-turnover fractions were approximately:
+
+```text
+B=48     0.17229
+B=64     0.17150
+B=80     0.17066
+B=96     0.17147
+B=128    0.17132
+```
+
+The coefficient of variation across those budget means was only:
+
+```text
+0.0030
+```
+
+and temporal drift in late gross turnover was also very small.
+
+That gives us the strongest version yet of the **Flux Principle**:
+
+> **The Digital Crystal can exhibit highly stable normalized material traffic even while absolute population and spatial scale remain different or drifting.**
+
+So:
+
+```text
+STABLE SIZE
+≠
+STABLE PROCESS
+```
+
+The process can be statistically stable in flow without being stationary in body size.
+
+### Phenomenon record
+
+**Phenomenon:** Stable normalized material flux
+
+**Status:** **MEASURED**
+
+**Current bounded description:**
+
+> Across the tested budgets and starting sizes, normalized loss, attachment, reoccupation and gross material turnover were highly stable, while first occupation retained greater sensitivity to starting condition under severe computational scarcity.
+
+This is narrower than calling the system homeostatic.
+
+But it is also more precise.
+
+The stable object may be:
+
+```text
+process traffic
+```
+
+rather than:
+
+```text
+body size
+```
+
+### Continuation and expansion separated
+
+The metric that broke V3 was:
+
+```text
+first occupation / population
+```
+
+especially at the harshest budget.
+
+Meanwhile:
+
+```text
+loss
+attachment
+reoccupation
+gross turnover
+```
+
+remained much more stable.
+
+That exposes another structural decomposition:
+
+```text
+CONTINUATION
+=
+ongoing loss / attachment / reuse traffic
+
+EXPANSION
+=
+occupation of never-before-used territory
+```
+
+The two are not the same process.
+
+Under severe scarcity, continuation remains comparatively regular while expansion remains more dependent on starting history and scale.
+
+So:
+
+```text
+STAYING
+≠
+GROWING
+```
+
+and:
+
+```text
+CONTINUATION
+≠
+EXPANSION
+```
+
+These are operational distinctions, not biological ones.
+
+### Phenomenon record
+
+**Phenomenon:** Continuation–expansion separation
+
+**Status:** **SUPPORTED**
+
+**Current bounded description:**
+
+> Under finite computational opportunity, the Digital Crystal's ongoing reuse and turnover dynamics are more stable than its expansion into never-before-occupied territory.
+
+This result could become important later because it tells us not to treat every attachment as one undifferentiated activity.
+
+Chapter 20 already separated:
+
+```text
+first occupation
+```
+
+from:
+
+```text
+reoccupation
+```
+
+Chapter 21 shows that those categories respond differently to scarcity.
+
+### A caution about the apparent turnover invariant
+
+The striking stability around:
+
+```text
+~0.171
+```
+
+should not yet be promoted into a deep emergent law.
+
+The loss rate is frozen at:
+
+```text
+δ = 0.08
+```
+
+and rapid reoccupation is already known from Chapter 20.
+
+So part of the observed gross-turnover stability may arise mechanically from:
+
+```text
+expected losses
++
+rapid replacement
+```
+
+rather than from a new self-organized invariant.
+
+That means the phenomenon is real:
+
+```text
+stable normalized turnover
+```
+
+but the explanation remains open.
+
+A future audit should compare:
+
+```text
+OBSERVED TURNOVER
+-
+MECHANICALLY EXPECTED TURNOVER
+```
+
+before claiming a deeper substrate law.
+
+This does not weaken the chapter.
+
+It tells us exactly what remains to be explained.
+
+### Connection to the Interface Principle
+
+Chapter 20 showed that loss creates new frontier.
+
+Chapter 21 now shows that finite computation determines which frontier opportunities can actually be serviced.
+
+So the interface story becomes:
+
+```text
+LOSS
+↓
+CREATES FRONTIER
+
+FRONTIER
+↓
+CREATES OPPORTUNITY
+
+FINITE BUDGET
+↓
+SELECTS WHICH OPPORTUNITIES ARE EVALUATED
+
+SCHEDULING
+↓
+CHANGES WHICH MATERIAL FUTURE OCCURS
+```
+
+That is a much stronger substrate picture than simply saying:
+
+```text
+the crystal has a boundary
+```
+
+The relevant object is increasingly:
+
+> **the dynamically generated set of construction opportunities together with the finite computation available to act on them.**
+
+### What this phenomenon does not establish
+
+The surviving phenomena do **not** establish:
+
+- metabolism,
+- homeostasis,
+- self-maintenance,
+- energy use,
+- resource sensing,
+- active prioritization,
+- a fixed sustainable body size,
+- or life.
+
+They establish something narrower:
+
+> **Finite computational opportunity constrains the scale and allocation of Digital Crystal construction. Under those constraints, gross normalized turnover can remain strikingly stable while expansion remains more sensitive to history and scarcity.**
+
+That belongs in the project-wide phenomenon record independently of the three failed primary hypotheses.
 
 ---
 

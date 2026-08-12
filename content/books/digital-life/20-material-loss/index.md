@@ -233,15 +233,15 @@ It exploded.
 Late averages looked approximately like this:
 
 ```text
-δ       attachments       losses       net growth
+δ       attachments       losses       net growth
 
-0.00       152               0            +152
-0.02       227              81            +146
-0.04       299             158            +141
-0.06       358             227            +131
-0.08       430             303            +127
-0.12       530             420            +110
-0.16       632             531            +101
+0.00       152               0            +152
+0.02       227              81            +146
+0.04       299             158            +141
+0.06       358             227            +131
+0.08       430             303            +127
+0.12       530             420            +110
+0.16       632             531            +101
 ```
 
 At `δ = 0.16`, the crystal was losing more than five hundred cells per update.
@@ -291,13 +291,13 @@ And the boundary measurements showed it dramatically.
 Approximate late mean boundary counts were:
 
 ```text
-δ=0.00      372
-δ=0.02      807
-δ=0.04     1167
-δ=0.06     1430
-δ=0.08     1695
-δ=0.12     1940
-δ=0.16     2068
+δ=0.00      372
+δ=0.02      807
+δ=0.04     1167
+δ=0.06     1430
+δ=0.08     1695
+δ=0.12     1940
+δ=0.16     2068
 ```
 
 So our original statement:
@@ -352,8 +352,8 @@ That cleared the predeclared 10% effect threshold.
 And the hole counts were dramatically different:
 
 ```text
-surface loss      ~2.7 late holes
-interior loss    ~29.8 late holes
+surface loss      ~2.7 late holes
+interior loss    ~29.8 late holes
 ```
 
 So equal loss did not have equal consequences.
@@ -504,8 +504,8 @@ Another way to measure the same phenomenon is to ask what fraction of unique los
 Again:
 
 ```text
-surface     ≈ 93.6%
-interior    ≈ 95.7%
+surface     ≈ 93.6%
+interior    ≈ 95.7%
 ```
 
 That is the central mechanistic result of Chapter 20.
@@ -519,8 +519,8 @@ And usually quickly.
 Mean reoccupation delay:
 
 ```text
-surface     ≈ 1.56 updates
-interior    ≈ 1.09 updates
+surface     ≈ 1.56 updates
+interior    ≈ 1.09 updates
 ```
 
 So a typical lost site was often empty for only one or two steps.
@@ -578,8 +578,8 @@ V2 also measured how much new frontier was created per removed cell.
 The numbers were:
 
 ```text
-surface     ~0.995 new frontier sites per loss
-interior    ~1.000 new frontier sites per loss
+surface     ~0.995 new frontier sites per loss
+interior    ~1.000 new frontier sites per loss
 ```
 
 That is almost one-for-one.
@@ -745,8 +745,8 @@ There was one result that initially looked contradictory.
 Interior-biased loss produced many more visible holes:
 
 ```text
-surface     ~3.2
-interior    ~37.6
+surface     ~3.2
+interior    ~37.6
 ```
 
 Yet interior lost sites were reoccupied slightly more often and much faster.
@@ -883,6 +883,338 @@ construction changes state again
 ```
 
 We do not need to make it biological.
+
+---
+
+## What Survived the Hypothesis?
+
+Both primary hypotheses in this chapter failed.
+
+The first predicted a finite near-stationary regime in which loss would eventually balance growth.
+
+That did not happen.
+
+The second predicted that interior-biased loss would produce a scientifically large reoccupation advantage over surface-biased loss.
+
+That also did not happen.
+
+Those failures remain failures.
+
+But underneath them, the experiment exposed a much broader mechanism.
+
+### Loss changed the geometry of opportunity
+
+The original scaling argument treated growth and loss almost as independent processes:
+
+```text
+growth
+~ outer boundary
+
+loss
+~ occupied area
+```
+
+That picture failed because material loss changes the very geometry that determines where growth can occur.
+
+A removed cell becomes:
+
+```text
+empty
+```
+
+and if occupied neighbours remain around it, that location becomes an ordinary attachment opportunity.
+
+So:
+
+```text
+LOSS
+↓
+NEW EMPTY SITE
+↓
+NEW LOCAL FRONTIER
+↓
+NEW ATTACHMENT OPPORTUNITY
+```
+
+The experiment measured this almost one-for-one:
+
+```text
+surface loss
+~0.995 new frontier sites per loss
+
+interior loss
+~1.000 new frontier sites per loss
+```
+
+The crystal did not merely suffer loss.
+
+Loss manufactured frontier.
+
+### Phenomenon record
+
+**Phenomenon:** Loss-generated construction opportunity
+
+**Status:** **SUPPORTED**
+
+**Current bounded description:**
+
+> Under the tested Digital Crystal loss conditions, removing occupied material almost always creates a new local frontier opportunity that the ordinary frozen growth rule can potentially reuse.
+
+This extends the Interface Principle from Chapter 18.
+
+Chapter 18 showed that historical state matters when it remains coupled to the active construction interface.
+
+Chapter 20 shows that the interface itself can be **created by loss**.
+
+So the active interface is not just something the crystal carries outward.
+
+It can also be regenerated internally whenever material disappears.
+
+### Reoccupation is the dominant shared phenomenon
+
+Under exact-count matched loss:
+
+```text
+surface unique lost sites reoccupied
+≈ 93.6%
+
+interior unique lost sites reoccupied
+≈ 95.7%
+```
+
+and mean reoccupation delay was approximately:
+
+```text
+surface
+1.56 updates
+
+interior
+1.09 updates
+```
+
+The predeclared interior-minus-surface difference failed because the shared effect was already close to saturation.
+
+The stronger surviving observation is therefore:
+
+> **Sparse material loss is usually converted into a new attachment opportunity that ordinary growth rapidly reuses.**
+
+This is not repair.
+
+No damage detector exists.
+
+No target state is reconstructed.
+
+No special pathway distinguishes:
+
+```text
+new territory
+```
+
+from:
+
+```text
+territory that used to be occupied
+```
+
+The observer knows a site is being reoccupied.
+
+The crystal does not.
+
+So:
+
+```text
+REOCCUPATION
+≠
+REPAIR
+```
+
+### Phenomenon record
+
+**Phenomenon:** Rapid reuse of lost material
+
+**Status:** **SUPPORTED**
+
+**Current bounded description:**
+
+> Under the tested exact-count conditions, more than 93% of lost sites were subsequently reoccupied, typically within one or two updates, through the same local growth rule used for ordinary expansion.
+
+This is a substrate-level consequence of geometry, not evidence of biological maintenance.
+
+### The Flux Principle
+
+Chapter 20 also exposes a second major phenomenon.
+
+Before loss existed:
+
+```text
+attachment
+=
+first occupation
+```
+
+After loss exists:
+
+```text
+attachment
+=
+first occupation
++
+reoccupation
+```
+
+That means population becomes an incomplete description of the process.
+
+A crystal can have modest net growth while undergoing enormous gross material traffic.
+
+For example:
+
+```text
++632 attachments
+-531 losses
+----------------
++101 net
+```
+
+A population curve sees:
+
+```text
++101
+```
+
+but the process actually executed:
+
+```text
+1163 gross material events
+```
+
+So the chapter establishes:
+
+```text
+NET POPULATION CHANGE
+≠
+GROSS MATERIAL TURNOVER
+```
+
+This gives us the **Flux Principle**:
+
+> **Static population or morphology can conceal large ongoing construction, loss and reoccupation flows.**
+
+The active process may be much more dynamic than its net state suggests.
+
+### State is not dynamics
+
+The hole paradox reinforces the same point.
+
+Interior-biased loss can show more holes in a snapshot while individual lost sites are also being reoccupied faster.
+
+That is possible because:
+
+```text
+number of holes now
+```
+
+is not the same thing as:
+
+```text
+lifetime of each hole
+```
+
+A system can create and close vacancies rapidly while maintaining many vacancies at any one instant.
+
+So again:
+
+```text
+SNAPSHOT
+≠
+PROCESS
+```
+
+This is the Flux Principle in another form.
+
+### Structural compensation, not maintenance
+
+The chapter also reveals a bounded feedback loop:
+
+```text
+loss
+↓
+changes local geometry
+↓
+creates attachment opportunity
+↓
+ordinary growth reoccupies sites
+↓
+changes local geometry again
+```
+
+That is legitimate mechanistic feedback.
+
+But it is not evidence for:
+
+```text
+damage sensing
+goal-directed preservation
+repair objective
+self-maintenance
+```
+
+The correct term is **structural compensation**.
+
+The system counteracts some loss because the geometry of loss creates opportunities for the same process that fills empty sites.
+
+### Connection to earlier phenomena
+
+The cross-chapter picture is now becoming much tighter.
+
+Chapter 18:
+
+```text
+causal relevance
+lives at active interface
+```
+
+Chapter 19:
+
+```text
+accessible difference
+does not guarantee readout
+```
+
+Chapter 20:
+
+```text
+loss creates interface
+```
+
+So the interface is no longer merely:
+
+```text
+the outer boundary of a growing object
+```
+
+It is better understood as:
+
+> **the dynamically generated set of locations where the process currently has an opportunity to change state.**
+
+That definition will matter later.
+
+### What this phenomenon does not establish
+
+The surviving phenomena do **not** establish:
+
+- repair,
+- homeostasis,
+- self-maintenance,
+- energy use,
+- metabolism,
+- a finite sustainable size,
+- or life.
+
+They establish something narrower and more fundamental:
+
+> **Material loss dynamically generates new construction opportunity, and ordinary Digital Crystal growth rapidly reuses most lost sites. At the same time, large gross turnover can remain hidden beneath relatively modest net population change.**
+
+Those phenomena should now be tracked independently of the failed finite-regime and interior-superiority hypotheses.
 
 ---
 
@@ -1032,7 +1364,7 @@ For the first time:
 
 ```text
 OUTWARD CONSTRUCTION
-        competes with
+        competes with
 REOCCUPATION
 ```
 

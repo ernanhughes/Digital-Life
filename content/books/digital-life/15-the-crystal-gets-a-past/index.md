@@ -168,8 +168,8 @@ t = 48
 In the full v3 experiment:
 
 ```text
-population at checkpoint    2,702
-final population            9,574
+population at checkpoint    2,702
+final population            9,574
 ```
 
 The final morphology receives a hash:
@@ -235,8 +235,8 @@ The growth loop effectively did:
 
 ```python
 for cell in frontier:
-    ...
-    rng.random()
+    ...
+    rng.random()
 ```
 
 A set has no scientific ordering.
@@ -314,15 +314,15 @@ same complete remaining continuation
 The v3 reproducibility invariant passed:
 
 ```text
-occupied state equal                   True
-birth metadata equal                   True
-signal cursor equal                    True
-RNG state equal                        True
-process hash equal                     True
+occupied state equal                   True
+birth metadata equal                   True
+signal cursor equal                    True
+RNG state equal                        True
+process hash equal                     True
 
-one-step continuation exact            True
-full remaining horizon exact           True
-remaining steps checked                48
+one-step continuation exact            True
+full remaining horizon exact           True
+remaining steps checked                48
 ```
 
 The implementation no longer depends on accidental set layout.
@@ -369,18 +369,18 @@ the same final process state
 After the reproducibility fix:
 
 ```text
-exact final morphology            True
-exact final process state         True
-population trajectory identical   True
-attachment trajectory identical   True
-symmetric-difference cells        0
+exact final morphology            True
+exact final process state         True
+population trajectory identical   True
+attachment trajectory identical   True
+symmetric-difference cells        0
 ```
 
 The morphology hashes match:
 
 ```text
-REFERENCE   bc8e6d8c9783431f1459bf17
-RESTORED    bc8e6d8c9783431f1459bf17
+REFERENCE   bc8e6d8c9783431f1459bf17
+RESTORED    bc8e6d8c9783431f1459bf17
 ```
 
 The complete process hashes match too.
@@ -449,9 +449,9 @@ different RNG continuation state
 The final result becomes:
 
 ```text
-final population                 9,550
-symmetric-difference cells          28
-normalized difference          0.002924
+final population                 9,550
+symmetric-difference cells          28
+normalized difference          0.002924
 ```
 
 The difference is small.
@@ -494,9 +494,9 @@ Both conditions still execute exactly `48` future updates.
 The result:
 
 ```text
-final population                 9,549
-symmetric-difference cells          27
-normalized difference          0.002820
+final population                 9,549
+symmetric-difference cells          27
+normalized difference          0.002820
 ```
 
 So we can now say:
@@ -527,9 +527,9 @@ but replace the birth-time metadata.
 What happens?
 
 ```text
-final population                 9,574
-symmetric-difference cells           0
-normalized difference          0.000000
+final population                 9,574
+symmetric-difference cells           0
+normalized difference          0.000000
 ```
 
 The final occupied set is exact.
@@ -569,9 +569,9 @@ Continue.
 The result:
 
 ```text
-final population                 9,548
-symmetric-difference cells          30
-normalized difference          0.003133
+final population                 9,548
+symmetric-difference cells          30
+normalized difference          0.003133
 ```
 
 The visible shape at the checkpoint was identical.
@@ -714,8 +714,8 @@ run again
 The result:
 
 ```text
-exact final morphology     True
-exact final process state  True
+exact final morphology     True
+exact final process state  True
 ```
 
 That establishes reproducibility of the computational procedure.
@@ -814,11 +814,11 @@ And if we take reconstructed geometry without the correct stochastic continuatio
 In the full experiment:
 
 ```text
-history reconstructs checkpoint morphology    True
-checkpoint continues exactly                  True
+history reconstructs checkpoint morphology    True
+checkpoint continues exactly                  True
 
 history-derived geometry without RNG
-continues exactly                             False
+continues exactly                             False
 ```
 
 The final difference in that last condition was:
@@ -924,9 +924,9 @@ Nothing differs.
 Then deliberately provide different future environments.
 
 ```text
-              ┌── FUTURE A
+              ┌── FUTURE A
 SAVED PAST ───┤
-              └── FUTURE B
+              └── FUTURE B
 ```
 
 The resulting morphologies diverge.
@@ -934,8 +934,8 @@ The resulting morphologies diverge.
 In one illustrative branch:
 
 ```text
-final symmetric difference    35 cells
-normalized difference         0.003655
+final symmetric difference    35 cells
+normalized difference         0.003655
 ```
 
 {{< figure
@@ -1023,21 +1023,21 @@ Now compare final normalized morphology divergence.
 Different future environments produced:
 
 ```text
-mean divergence      0.003815
-median               0.003655
+mean divergence      0.003815
+median               0.003655
 ```
 
 The stochastic null produced:
 
 ```text
-mean divergence      0.005290
-median               0.004812
+mean divergence      0.005290
+median               0.004812
 ```
 
 So:
 
 ```text
-treatment - null mean    -0.001475
+treatment - null mean    -0.001475
 ```
 
 The environmental treatment was not larger.
@@ -1194,27 +1194,268 @@ That is enough.
 
 ---
 
+## What Survived the Hypothesis?
+
+The chapter began with a simple problem:
+
+```text
+the crystal has a present
+but
+the present does not preserve chronology
+```
+
+Chapter 14 had already shown that final morphology contains some information about the conditions under which the crystal formed, but not enough to reconstruct temporal ordering.
+
+Chapter 15 asked a different question:
+
+> What information must survive if the process is to continue exactly, and what information must survive if its formation history is to be reconstructed?
+
+The answer turned out to contain two distinct mechanisms.
+
+### The checkpoint phenomenon
+
+A complete checkpoint can be serialized, restored and continued exactly.
+
+Across the validation runs:
+
+```text
+30 / 30 exact restores
+```
+
+The restored process reproduced:
+
+```text
+the same cells
+the same attachment decisions
+the same population trajectory
+the same final process state
+```
+
+But visible morphology alone was not sufficient.
+
+The same occupied structure could lead to a different future when hidden continuation variables differed.
+
+So:
+
+```text
+VISIBLE FORM
+≠
+EXECUTABLE STATE
+```
+
+This is not merely an implementation lesson.
+
+It tells us that the future of the Digital Crystal depends on information that is not necessarily visible in the current morphology.
+
+### Phenomenon record
+
+**Phenomenon:** Executable hidden state
+
+**Status:** **SUPPORTED**
+
+**Current bounded description:**
+
+> Digital Crystal v1 requires continuation-relevant state beyond visible morphology for exact future replay. A complete checkpoint is sufficient for exact continuation, while morphology alone is not.
+
+The experimentally identified continuation-relevant components include:
+
+```text
+occupied structure
+RNG continuation state
+environmental sequence position
+```
+
+while birth-time metadata behaves differently:
+
+```text
+birth time
+→ historical information
+
+birth time
+→ not required for same occupied-set continuation
+```
+
+That gives us another important distinction:
+
+```text
+HISTORICAL INFORMATION
+≠
+CAUSALLY ACTIVE CONTINUATION STATE
+```
+
+### State and history are different computational objects
+
+The event-log experiment exposes the other half of the chapter.
+
+The stored history reconstructs:
+
+```text
+96 / 96 morphology states exactly
+```
+
+but that event history does not restore the historical RNG state required for exact stochastic continuation.
+
+So the two representations answer different questions:
+
+```text
+CHECKPOINT
+→ what is required to continue from here?
+
+EVENT HISTORY
+→ how did the present morphology arise?
+```
+
+or more compactly:
+
+```text
+STATE
+→ FUTURE
+
+HISTORY
+→ PAST
+```
+
+They overlap, but they are not interchangeable.
+
+This gives us a second project-wide distinction:
+
+> **A process can preserve enough information to reconstruct its past without preserving the continuation state required to regenerate its exact future from that reconstruction alone.**
+
+### The implementation failure revealed a deeper rule
+
+The accidental dependence on Python `set` iteration order matters here too.
+
+Before canonicalization, the simulation contained an undeclared continuation variable:
+
+```text
+Python container traversal order
+```
+
+Two mathematically equivalent reconstructed states could consume the same random draws in different orders and diverge.
+
+That was not Digital Crystal physics.
+
+It was implementation state leaking into the experiment.
+
+Once frontier traversal was canonicalized, exact restore became reproducible.
+
+This gives us a methodological phenomenon worth carrying across the project:
+
+> **Scientific state must be separated from implementation state.**
+
+If hidden program details influence outcomes, they must either be promoted into the declared model or eliminated.
+
+### Connection to the Lossy-History Principle
+
+Chapter 15 also sharpens the result from Chapter 14.
+
+Chapter 14 showed:
+
+```text
+coarse source characteristics
+survive in morphology
+
+exact temporal order
+does not
+```
+
+Chapter 15 shows that this loss is not inevitable to the digital substrate as a whole.
+
+The chronology can be preserved perfectly if we use an explicit event history.
+
+So the stronger cross-chapter picture becomes:
+
+```text
+MORPHOLOGY
+→ lossy historical integration
+
+EVENT LOG
+→ exact formation-history reconstruction
+
+CHECKPOINT
+→ exact continuation
+```
+
+That matters because it tells us that different representations preserve different slices of the past.
+
+The substrate gives us several native computational affordances:
+
+```text
+serialization
+checkpointing
+event logging
+replay
+branching
+```
+
+We do not need to force all historical information into visible form.
+
+### Counterfactual branchability survives, dominance does not
+
+The checkpoint also provides an executable branch point.
+
+One exact saved state can be restored into multiple controlled futures.
+
+That property survives.
+
+But the stronger environmental-divergence interpretation does not.
+
+Different prescribed future environments produced measurable divergence, yet that divergence did not exceed ordinary stochastic continuation variation under the frozen comparison.
+
+So:
+
+```text
+EXECUTABLE BRANCHABILITY
+SUPPORTED
+
+ENVIRONMENTAL MANIPULATION
+DOMINATES STOCHASTIC DIVERGENCE
+NOT SUPPORTED
+```
+
+Again, the failed interpretation does not erase the underlying capability.
+
+### What this phenomenon does not establish
+
+The surviving phenomena do **not** establish:
+
+- cognitive memory,
+- learning,
+- adaptation,
+- autonomous reproduction,
+- a mathematically minimal state representation,
+- a biological genome analogue,
+- or life.
+
+They establish something narrower and more computationally native:
+
+> **A Digital Crystal can possess hidden executable state sufficient for exact continuation, an explicit history sufficient for exact morphology reconstruction, and a checkpoint that functions as a reusable counterfactual branch point. These are distinct capabilities carried by distinct representations.**
+
+This phenomenon should now be tracked independently of the chapter's stronger historical or environmental interpretations.
+
+---
+
 ## Evidence Ledger
 
-| Claim                                                             | Status            | Evidence                                              |
+| Claim                                                             | Status            | Evidence                                              |
 | ----------------------------------------------------------------- | ----------------- | ----------------------------------------------------- |
-| Canonicalized model survives state serialization/reconstruction   | **SUPPORTED**     | one-step and 48-step invariant pass                   |
-| Complete checkpoint resumes exact trajectory                      | **SUPPORTED**     | identical process and morphology hashes               |
-| Exact restore generalizes across tested seeds                     | **SUPPORTED**     | `30/30` exact                                         |
-| Visible morphology alone is sufficient continuation state         | **FAILED**        | 30-cell divergence                                    |
-| RNG state matters for exact continuation                          | **SUPPORTED**     | 28-cell divergence                                    |
-| Signal cursor matters at fixed horizon                            | **SUPPORTED**     | 27-cell divergence                                    |
-| Birth-time metadata affects future occupied-set growth            | **FAILED**        | 0 differing occupied cells                            |
-| Birth times function as historical metadata in v1                 | **SUPPORTED**     | history differs while geometric continuation does not |
-| Event log reconstructs morphology trajectory                      | **SUPPORTED**     | `96/96` trajectory hashes                             |
-| Event log reconstructs historical RNG state                       | **NOT SUPPORTED** | additions alone do not contain RNG history            |
-| State and history are operationally distinct                      | **SUPPORTED**     | one continues; one reconstructs                       |
-| Checkpoint is an executable branch point                          | **SUPPORTED**     | controlled alternative continuations                  |
-| Different forcing produces divergence beyond stochastic variation | **NOT SUPPORTED** | treatment mean `<` stochastic-null mean               |
-| Checkpoint representation is mathematically minimal               | **UNTESTED**      | only sufficiency/ablations tested                     |
-| Stored history is cognitive memory                                | **NOT CLAIMED**   | process does not consult history                      |
-| Crystal learns or adapts from history                             | **NOT CLAIMED**   | no such mechanism                                     |
-| Crystal is alive                                                  | **NOT CLAIMED**   | evidence insufficient                                 |
+| Canonicalized model survives state serialization/reconstruction   | **SUPPORTED**     | one-step and 48-step invariant pass                   |
+| Complete checkpoint resumes exact trajectory                      | **SUPPORTED**     | identical process and morphology hashes               |
+| Exact restore generalizes across tested seeds                     | **SUPPORTED**     | `30/30` exact                                         |
+| Visible morphology alone is sufficient continuation state         | **FAILED**        | 30-cell divergence                                    |
+| RNG state matters for exact continuation                          | **SUPPORTED**     | 28-cell divergence                                    |
+| Signal cursor matters at fixed horizon                            | **SUPPORTED**     | 27-cell divergence                                    |
+| Birth-time metadata affects future occupied-set growth            | **FAILED**        | 0 differing occupied cells                            |
+| Birth times function as historical metadata in v1                 | **SUPPORTED**     | history differs while geometric continuation does not |
+| Event log reconstructs morphology trajectory                      | **SUPPORTED**     | `96/96` trajectory hashes                             |
+| Event log reconstructs historical RNG state                       | **NOT SUPPORTED** | additions alone do not contain RNG history            |
+| State and history are operationally distinct                      | **SUPPORTED**     | one continues; one reconstructs                       |
+| Checkpoint is an executable branch point                          | **SUPPORTED**     | controlled alternative continuations                  |
+| Different forcing produces divergence beyond stochastic variation | **NOT SUPPORTED** | treatment mean `<` stochastic-null mean               |
+| Checkpoint representation is mathematically minimal               | **UNTESTED**      | only sufficiency/ablations tested                     |
+| Stored history is cognitive memory                                | **NOT CLAIMED**   | process does not consult history                      |
+| Crystal learns or adapts from history                             | **NOT CLAIMED**   | no such mechanism                                     |
+| Crystal is alive                                                  | **NOT CLAIMED**   | evidence insufficient                                 |
 
 ---
 

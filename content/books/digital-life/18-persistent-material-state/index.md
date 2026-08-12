@@ -141,11 +141,11 @@ Then continue both versions under the same future conditions.
 
 ```text
 experienced + labels retained
-                \
-                 → continue
+                \
+                 → continue
 
 experienced + labels erased
-                /
+                /
 ```
 
 The result was brutal.
@@ -572,25 +572,25 @@ SURFACE
 The mean integrated frontier-access fraction was approximately:
 
 ```text
-interior     0.515
-random       0.847
-surface      1.293
+interior     0.515
+random       0.847
+surface      1.293
 ```
 
 Integrated local probability leverage was approximately:
 
 ```text
-interior      3.87
-random        7.33
-surface      12.26
+interior      3.87
+random        7.33
+surface      12.26
 ```
 
 And the mean number of realized causal attachment flips over the window was approximately:
 
 ```text
-interior      4.06
-random        7.52
-surface      12.39
+interior      4.06
+random        7.52
+surface      12.39
 ```
 
 Crucially, the amount of propagated state remained exactly matched.
@@ -739,7 +739,7 @@ This distinction is part of the result.
 
 ## What Did We Actually Build?
 
-Strip away the words *experience* and *memory*.
+Strip away the words **experience** and **memory**.
 
 The mechanism is simple.
 
@@ -844,6 +844,294 @@ It was to discover what survived after we tried to remove the assumptions hidden
 
 ---
 
+## What Survived the Hypothesis?
+
+Several attractive interpretations failed in this chapter.
+
+A persistent mark did not automatically remain useful.
+
+Propagation did not automatically preserve access.
+
+Surface-biased propagation initially looked stronger, but the first comparison was confounded because the surface branch produced more copies.
+
+A late exact-budget endpoint then failed.
+
+Three later broad hypotheses about feedback, timing and efficiency also failed.
+
+Those failures stay failed.
+
+But underneath them, one phenomenon became much clearer.
+
+### The surviving observation
+
+The modified material mattered when the active growth process could still reach it.
+
+When modified cells were buried behind later growth, they could remain present indefinitely while having no detectable effect on future construction.
+
+When the same amount of modified state was placed nearer the active frontier, it remained causally available for longer and produced larger integrated effects.
+
+With cumulative propagation quantity held exactly equal, the frozen V7 experiment measured:
+
+```text
+integrated frontier access
+
+interior    0.515
+random      0.847
+surface     1.293
+```
+
+```text
+integrated probability leverage
+
+interior     3.87
+random       7.33
+surface     12.26
+```
+
+```text
+realized causal attachment flips
+
+interior     4.06
+random       7.52
+surface     12.39
+```
+
+The total transmitted quantity was identical:
+
+```text
+27.1875
+```
+
+So the effect cannot be explained simply by one policy creating more modified material.
+
+The chapter therefore leaves us with:
+
+```text
+PERSISTENT STATE
+SUPPORTED
+
+PERSISTENT STATE IS AUTOMATICALLY USABLE
+FAILED
+
+SPATIAL PLACEMENT CONTROLS CAUSAL AVAILABILITY
+SUPPORTED
+```
+
+### Phenomenon record
+
+**Phenomenon:** Interface-mediated causal access
+
+**Status:** **SUPPORTED**
+
+**Current bounded description:**
+
+> A persistent local state in Digital Crystal v1 can alter later construction while it remains coupled to the active growth interface, and with state quantity held constant, spatial placement strongly changes the duration and magnitude of that causal availability.
+
+This is the strongest evidence so far for what we can now call the **Interface Principle**:
+
+> **In the Digital Crystal, stored state becomes causally relevant primarily when it remains coupled to the dynamically active construction interface.**
+
+The important object is therefore not just:
+
+```text
+modified material
+```
+
+but:
+
+```text
+modified material
+        ∩
+active construction opportunity
+```
+
+The bulk can preserve state.
+
+The interface determines whether that state can still participate in the future.
+
+### Storage and access are different resources
+
+Chapter 18 exposes a distinctly digital asymmetry.
+
+The stored material state can survive indefinitely.
+
+Nothing forces it to decay.
+
+Yet its causal usefulness can vanish rapidly.
+
+So:
+
+```text
+STORAGE
+can remain abundant
+
+while
+
+CAUSAL ACCESS
+becomes scarce
+```
+
+This gives us one of the cleanest substrate-level statements in the project:
+
+> **Storage is cheap. Access is scarce.**
+
+That is not merely a metaphor.
+
+It is an operational result.
+
+The bit can remain present while the current dynamics lose every route by which that bit can influence construction.
+
+### The active frontier is more than geometry
+
+The active frontier is not important merely because it is visually on the outside.
+
+It is where future construction decisions are currently being made.
+
+That makes it a causal interface:
+
+```text
+current state
+↓
+frontier exposure
+↓
+local probability change
+↓
+stochastic decision boundary
+↓
+realized construction difference
+```
+
+The chapter closes this chain experimentally.
+
+Modified material changes local attachment probability.
+
+Some of those probability shifts cross the shared stochastic decision boundary.
+
+Actual attachment events then differ.
+
+So the frontier is where persistent historical state becomes operational.
+
+### Connection to earlier chapters
+
+This phenomenon clarifies several earlier results.
+
+Chapter 14 showed that morphology can preserve coarse information about forcing while losing exact temporal order.
+
+Chapter 15 showed that visible morphology is not the same thing as executable continuation state.
+
+Chapter 17 showed that a causal consequence can exist without becoming a stable readable signature.
+
+Chapter 18 now adds:
+
+```text
+even persistent state
+does not matter
+unless the active process can reach it
+```
+
+That means the project-wide history hierarchy is no longer only about what survives.
+
+It is also about what remains **accessible**:
+
+```text
+PAST EVENT
+↓
+TRACE
+↓
+PERSISTENT TRACE
+↓
+ACCESSIBLE TRACE
+↓
+CAUSAL LEVERAGE
+↓
+REALIZED FUTURE DIFFERENCE
+```
+
+Every arrow is a separate property.
+
+### A possible moving-interface interpretation
+
+There is also a broader observation worth recording carefully.
+
+The region of causal activity moves outward as the crystal grows.
+
+A modified state may remain fixed in the lattice while the active construction interface moves past it.
+
+So the causal phenomenon is not static.
+
+It has a moving spatial support.
+
+That is consistent with a broader **moving-interface** or **propagating-field** hypothesis.
+
+But Chapter 18 did not measure:
+
+```text
+phase propagation
+lag-distance relation
+propagation velocity
+dispersion
+wave equation
+```
+
+So this is not evidence for a literal wave.
+
+The correct status is:
+
+```text
+MOVING CAUSAL INTERFACE
+OBSERVED
+
+WAVE-LIKE PROPAGATION
+OPEN HYPOTHESIS
+```
+
+### The negative results matter
+
+V8, V9 and V10 do not disappear into this broader interpretation.
+
+They remain negative constraints.
+
+The chapter did **not** establish:
+
+```text
+self-maintaining accessibility
+general timing advantage
+general causal-efficiency advantage
+```
+
+Those failures narrow the Interface Principle.
+
+The evidence supports:
+
+> **placement controls access**
+
+not:
+
+> **the system actively regulates that access**
+
+That distinction is essential.
+
+### What this phenomenon does not establish
+
+The surviving phenomenon does **not** establish:
+
+- memory,
+- learning,
+- adaptation,
+- homeostasis,
+- self-maintenance,
+- active regulation,
+- a wave mechanism,
+- or life.
+
+It establishes something narrower and more fundamental:
+
+> **A history-induced material state can persist indefinitely yet become causally inert when it falls out of contact with the active construction interface. Spatial placement determines how long the same amount of historical state remains usable.**
+
+This phenomenon now belongs in the project-wide phenomenon record independently of the failed memory, feedback, timing and efficiency hypotheses.
+
+---
+
 ## The Result of Chapter 18
 
 We can now say something we could not say before.
@@ -920,7 +1208,7 @@ Now ask:
 
 ```text
 history A ─┐
-           ├──→ same later condition ──→ same response?
+           ├──→ same later condition ──→ same response?
 history B ─┘
 ```
 

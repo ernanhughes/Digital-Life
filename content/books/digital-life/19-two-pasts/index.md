@@ -283,8 +283,8 @@ We got:
 And against the seed-noise scale:
 
 ```text
-observed effect     0.383 SD
-required            0.500 SD
+observed effect     0.383 SD
+required            0.500 SD
 ```
 
 So the formal result was:
@@ -306,15 +306,15 @@ There was another interesting pattern in V1.
 The challenge-step attachment counts looked like this:
 
 ```text
-             A          B
+             A          B
 
-step 1      76.79      71.13
+step 1      76.79      71.13
 
-step 2      71.51      72.34
+step 2      71.51      72.34
 
-step 3      74.81      75.50
+step 3      74.81      75.50
 
-step 4      78.00      78.22
+step 4      78.00      78.22
 ```
 
 Most of the difference occurred immediately.
@@ -360,10 +360,10 @@ In other words:
 
 ```text
 if A:
-    increase probability
+    increase probability
 
 if B:
-    decrease probability
+    decrease probability
 ```
 
 That proved something about retained symbolic labels.
@@ -486,14 +486,14 @@ or more explicitly:
 
 ```text
 [(A challenge - A no-challenge)
- -
- (B challenge - B no-challenge)]
+ -
+ (B challenge - B no-challenge)]
 
 MINUS
 
 [(A-erased challenge - A-erased no-challenge)
- -
- (B-erased challenge - B-erased no-challenge)]
+ -
+ (B-erased challenge - B-erased no-challenge)]
 ```
 
 That is a demanding test.
@@ -539,14 +539,14 @@ A secondary angular diagnostic tracked the mean orientation of the modified mate
 Across the retention period:
 
 ```text
-          A angle       B angle
+          A angle       B angle
 
-t1       -0.063         +0.331
-t2       -0.073         +0.329
-t4       -0.097         +0.318
-t6       -0.107         +0.330
-t8       -0.119         +0.326
-t10      -0.132         +0.330
+t1       -0.063         +0.331
+t2       -0.073         +0.329
+t4       -0.097         +0.318
+t6       -0.107         +0.330
+t8       -0.119         +0.326
+t10      -0.132         +0.330
 ```
 
 The traces did not simply collapse into one indistinguishable distribution.
@@ -601,12 +601,12 @@ The common challenge was applied.
 The mean attachment trajectories were:
 
 ```text
-          A       B
+          A       B
 
-step 1   77.02   77.25
-step 2   73.29   73.76
-step 3   75.56   76.19
-step 4   80.47   81.15
+step 1   77.02   77.25
+step 2   73.29   73.76
+step 3   75.56   76.19
+step 4   80.47   81.15
 ```
 
 They were almost on top of each other.
@@ -945,6 +945,292 @@ DISTINGUISHABLE MATERIAL ORGANIZATION
 The final arrow remains unearned.
 
 That is a useful place to stop.
+
+---
+
+## What Survived the Hypothesis?
+
+The chapter asked whether two different pasts could become functionally distinguishable later.
+
+That stronger claim failed.
+
+But the failure was unusually informative because several lower rungs of the mechanism clearly survived.
+
+### What survived before readout
+
+In V2, both histories wrote the same amount of modified material.
+
+They propagated the same number of copies.
+
+They ended with the same average quantity of altered material.
+
+Yet their spatial organizations remained measurably different.
+
+At the same time, roughly one fifth of the active frontier still remained in contact with modified material at the end of the retention window.
+
+So the histories were not:
+
+```text
+gone
+```
+
+and they were not:
+
+```text
+buried beyond causal reach
+```
+
+They were still:
+
+```text
+persistent
+spatially distinguishable
+causally accessible
+```
+
+Then the common challenge arrived.
+
+The material-mediated history effect was:
+
+```text
+0.000431
+```
+
+or about:
+
+```text
+0.043% of crystal population
+```
+
+with confidence interval:
+
+```text
+-0.000380 ... +0.001235
+```
+
+and:
+
+```text
+p ≈ 0.163
+```
+
+Against seed noise, the effect was only:
+
+```text
+0.033 SD
+```
+
+versus the frozen requirement:
+
+```text
+0.500 SD
+```
+
+So the final readout arrow failed decisively.
+
+### Phenomenon record
+
+**Phenomenon:** Distinguishable history without functional readout
+
+**Status:** **SUPPORTED**
+
+**Current bounded description:**
+
+> Two different prior experiences can leave persistent, spatially distinguishable organizations of the same altered material while that material remains substantially coupled to the active growth interface, yet those differences need not produce a scientifically meaningful difference under a common later challenge.
+
+This is stronger than merely saying:
+
+```text
+history was lost
+```
+
+The history was not lost.
+
+The distinction was still physically present.
+
+The distinction was still accessible.
+
+What failed was:
+
+```text
+DIFFERENT ACCESSIBLE TRACE
+↓
+DIFFERENT LATER RESPONSE
+```
+
+So Chapter 19 adds another rung to the project-wide history hierarchy:
+
+```text
+PERSISTENT TRACE
+≠
+ACCESSIBLE TRACE
+≠
+DISTINGUISHABLE TRACE
+≠
+READABLE TRACE
+```
+
+### This extends the Lossy-History Principle
+
+Chapter 14 showed that broad source statistics survive more readily than exact temporal order.
+
+Chapter 16 showed that coarse pulse-stream structure survives more readily than sender identity or exact interval chronology.
+
+Chapter 17 showed that different histories can produce different particular futures without producing a stable population-level signature.
+
+Chapter 18 showed that even persistent historical state matters only while it remains coupled to active construction.
+
+Chapter 19 now shows something still stronger:
+
+> **Even a persistent, accessible and measurably different historical trace can remain functionally inert with respect to a later probe.**
+
+So the Lossy-History Principle is no longer only about loss of chronology.
+
+It now has several possible failure points:
+
+```text
+history may fail to persist
+
+or
+
+history may persist but lose access
+
+or
+
+history may remain accessible but lose distinction
+
+or
+
+history may remain distinct but fail readout
+```
+
+Those are different mechanisms.
+
+### The detector problem is real
+
+The chapter's wave analogy is useful only as an analogy.
+
+Two states can differ in a degree of freedom that the chosen probe does not measure.
+
+So a failed challenge means:
+
+```text
+THIS PROBE
+did not extract
+a meaningful history-dependent response
+```
+
+It does **not** establish:
+
+```text
+NO POSSIBLE FUTURE INTERACTION
+could ever distinguish the traces
+```
+
+But that does not justify searching indefinitely for a probe that works.
+
+The mechanism family was frozen and tested.
+
+The primary effect was tiny.
+
+So the correct action remains:
+
+```text
+NO V3
+```
+
+That is a strength of the result.
+
+### Connection to the Interface Principle
+
+Chapter 19 also sharpens the Interface Principle.
+
+Chapter 18 showed:
+
+```text
+state must remain accessible to the active interface
+```
+
+Chapter 19 shows:
+
+```text
+accessibility is necessary
+but not sufficient
+```
+
+The active interface can still encounter a historical difference without the later dynamics producing a meaningful differential response.
+
+So the revised relationship is:
+
+```text
+PERSISTENCE
+↓
+ACCESSIBILITY
+↓
+DISTINGUISHABILITY
+↓
+READOUT
+```
+
+and each arrow must be earned separately.
+
+This prevents us from collapsing:
+
+```text
+accessible
+```
+
+into:
+
+```text
+usable
+```
+
+### Open propagating-field question
+
+The persistent directional material organizations also resemble a moving spatial phenomenon.
+
+That resemblance is worth preserving as an observation.
+
+But the chapter does not establish:
+
+```text
+wave
+phase
+propagation velocity
+dispersion
+```
+
+So the correct status remains:
+
+```text
+DIRECTIONAL SPATIAL TRACE
+MEASURED
+
+PROPAGATING-FIELD INTERPRETATION
+OPEN
+```
+
+This belongs with the Chapter 13 and Chapter 18 observations for a later spatiotemporal audit.
+
+### What this phenomenon does not establish
+
+The surviving phenomenon does **not** establish:
+
+- memory,
+- representation,
+- semantic history,
+- learning,
+- adaptation,
+- a wave mechanism,
+- a general-purpose history decoder,
+- or life.
+
+It establishes something narrower:
+
+> **The Digital Crystal can retain different, accessible material organizations corresponding to different pasts without those differences becoming functionally readable by the tested later dynamics.**
+
+That phenomenon should now be tracked independently of the failed readout hypothesis.
 
 ---
 
