@@ -10,13 +10,10 @@ Suppose we wanted to build life in software.
 
 What would we actually build?
 
-Not a bird rendered on a screen.  
-Not a creature with an animation loop.  
-Not an AI assistant with a name, a face, and a `memory` database.
-
-Something more fundamental.
-
 A computational system in which some of the properties we associate with living things begin to arise from the operation of the system itself.
+
+The goal is not to construct a graphical creature, an animated agent, or a personality-driven assistant.
+The goal is to create a computational system whose internal processes naturally give rise to behaviors and structures reminiscent of living systems.
 
 That sounds simple until we try to define what those properties are.
 
