@@ -91,18 +91,18 @@ It gives us something much better: a test.
 
 Our earlier crystal could be written approximately as:
 
-\[
+$$
 C_{t+1} = G(C_t)
-\]
+$$
 
 where \(C_t\) is the current crystal and \(G\) is the local growth rule.
 
 Now we add one thing: \(E_t\), an external signal.  
 The new system becomes:
 
-\[
+$$
 C_{t+1} = G(C_t, E_t)
-\]
+$$
 
 The signal does not draw the crystal.  
 It does not say:
@@ -119,10 +119,10 @@ The external signal only perturbs the conditions under which local growth occurs
 ```mermaid
 flowchart LR
     subgraph External
-    E[Environmental Signal<br/>E(t)]
+    E["Environmental Signal<br/>E(t)"]
     end
     subgraph Local Growth
-    D[Local Dynamics<br/>G(C,E)] --> C[Current Crystal State<br/>C(t)]
+    D["Local Dynamics<br/>G(C,E)"] --> C["Current Crystal State<br/>C(t)"]
     C --> D
     end
     D --> M[Final Morphology]
@@ -165,9 +165,9 @@ There is no stored answer telling the crystal what it should become.
 The signal only changes the probability that particular local growth events occur.  
 One convenient form is a logistic attachment function:
 
-\[
+$$
 P(\text{attach}) = \sigma(a + bn + cE_t + dA + q)
-\]
+$$
 
 where:
 - \(n\) is occupied-neighbor count,
@@ -188,9 +188,9 @@ Otherwise the experiment would be meaningless.
 
 Before giving it interesting inputs, we give it the least interesting input possible:
 
-\[
+$$
 E(t) = 0
-\]
+$$
 
 Constant. No oscillation. No changing environment.
 
@@ -570,9 +570,9 @@ So perhaps the source-classification success comes almost entirely from those di
 We can test that much more brutally.  
 We construct one set of values, for example:
 
-\[
+$$
 V = \{ v_1, v_2, v_3, \dots, v_{72} \}
-\]
+$$
 
 Then every source receives **exactly those same values**.  
 Not approximately the same distribution. Exactly the same multiset.  
@@ -720,15 +720,15 @@ We can now write the model more carefully.
 
 Let \(C_t\) be the crystalline state, \(E_t\) the environmental forcing, and \(G\) the fixed local growth dynamics.
 
-\[
+$$
 C_{t+1} = G(C_t, E_t)
-\]
+$$
 
 After a finite experimental horizon \(T\), we observe:
 
-\[
+$$
 M_T = \Phi(C_T)
-\]
+$$
 
 where \(M_T\) is the measured morphology.
 
@@ -886,7 +886,7 @@ It has **state**, but not yet an experimentally demonstrated **history**.
 ```mermaid
 flowchart LR
     subgraph Crystal Process
-    A[Past Events] -->|causal influence| B[Current State C(t)]
+    A[Past Events] -->|causal influence| B["Current State C(t)"]
     end
     B --> C{Can we recover<br/>the order of past events?}
     C -->|Yes| D[State contains history]
