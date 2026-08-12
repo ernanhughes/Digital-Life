@@ -58,7 +58,7 @@ one local growth rule
 one lattice
 +
 time
-````
+```
 
 We built that system ourselves.
 

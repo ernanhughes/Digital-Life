@@ -28,7 +28,7 @@ a shape
 another shape
 movement
 coordination
-````
+```
 
 and very quickly turn that into:
 
@@ -112,7 +112,7 @@ If reproduction occurs here, it cannot be because the programmer wrote:
 
 ```python
 if organism.ready:
-    organism.reproduce()
+    organism.reproduce()
 ```
 
 Something more interesting must be happening.
@@ -126,11 +126,11 @@ Suppose we see this:
 ```text
 time t
 
-    A
+    A
 
 time t + 500
 
-    A     A
+    A     A
 ```
 
 It is tempting to say:
@@ -188,12 +188,12 @@ If removing a predecessor changes the child from `alive` to `dead`, then that pr
 
 ```mermaid
 flowchart TD
-    A["Child cell is alive"] --> B["Identify live predecessors in 3×3 neighborhood"]
-    B --> C["Remove one predecessor at a time"]
-    C --> D["Recompute rule on modified neighborhood"]
-    D --> E{"Child becomes dead?"}
-    E -- Yes --> F["Record causal dependency: predecessor → child"]
-    E -- No --> G["Predecessor not necessary"]
+    A["Child cell is alive"] --> B["Identify live predecessors in 3×3 neighborhood"]
+    B --> C["Remove one predecessor at a time"]
+    C --> D["Recompute rule on modified neighborhood"]
+    D --> E{"Child becomes dead?"}
+    E -- Yes --> F["Record causal dependency: predecessor → child"]
+    E -- No --> G["Predecessor not necessary"]
 ```
 
 This is not a complete theory of causality.
@@ -216,11 +216,11 @@ The result looks approximately like:
 
 ```text
 cluster at t
-     ↓
+     ↓
 cluster at t+1
-     ↓
+     ↓
 cluster at t+2
-     ↓
+     ↓
 ...
 ```
 
@@ -248,17 +248,17 @@ Before going further, we need to pin down exactly what this chapter can and cann
 Our run is:
 
 ```text
-grid          512 × 512
-generations   1,600
-boundary      periodic
+grid          512 × 512
+generations   1,600
+boundary      periodic
 ```
 
 The published causal Outlier study used a substantially larger regime:
 
 ```text
-grid          1024 × 1024
-updates       20,000
-boundary      periodic
+grid          1024 × 1024
+updates       20,000
+boundary      periodic
 ```
 
 That difference matters.
@@ -292,8 +292,8 @@ After two updates it produces a small structure we call `c2`.
 In our simulation that structure had:
 
 ```text
-area          6
-bounding box  3 × 3
+area          6
+bounding box  3 × 3
 ```
 
 Instead of searching for arbitrary repeating shapes, we derived the actual `c2` signature directly from the known initial seed.
@@ -455,9 +455,9 @@ $$
 The result lies between `-1` and `+1`:
 
 ```text
-+1  = same direction
- 0  = no directional agreement
--1  = opposite directions
++1  = same direction
+ 0  = no directional agreement
+-1  = opposite directions
 ```
 
 Then we compare simultaneously moving structures at different spatial separations.
@@ -538,9 +538,9 @@ If the apparent flocking was really just expansion, the alignment should collaps
 Instead we found:
 
 ```text
-raw short-range alignment        = 0.7373
-radial-subtracted alignment      = 0.7427
-shuffled residual control        = 0.1933
+raw short-range alignment        = 0.7373
+radial-subtracted alignment      = 0.7427
+shuffled residual control        = 0.1933
 ```
 
 The alignment did not disappear.
@@ -577,7 +577,7 @@ might actually be:
 component A
 component B
 component C
-        ↓
+        ↓
 one distributed causal process
 ```
 
@@ -661,8 +661,8 @@ But causal history alone does not tell us whether that history explains current 
 When we compared nearby structures after subtracting a local background flow, we initially found:
 
 ```text
-same recent-c2 family         = 0.828
-different recent-c2 family    = -0.349
+same recent-c2 family         = 0.828
+different recent-c2 family    = -0.349
 ```
 
 That looked spectacular.
@@ -709,12 +709,12 @@ So the `-0.349` result was not trustworthy.
 
 ```mermaid
 flowchart TD
-    A["Object A velocity"] --> B["Background estimate for A uses B velocity"]
-    B --> C["Residual A ≈ vA - vB"]
-    D["Object B velocity"] --> E["Background estimate for B uses A velocity"]
-    E --> F["Residual B ≈ vB - vA"]
-    C --> G["Residuals artificially anti-correlated"]
-    F --> G
+    A["Object A velocity"] --> B["Background estimate for A uses B velocity"]
+    B --> C["Residual A ≈ vA - vB"]
+    D["Object B velocity"] --> E["Background estimate for B uses A velocity"]
+    E --> F["Residual B ≈ vB - vA"]
+    C --> G["Residuals artificially anti-correlated"]
+    F --> G
 ```
 
 This is exactly why experiments need controls.
@@ -734,11 +734,11 @@ Now neither member of the tested pair could create the other's residual.
 Using this stronger control we obtained:
 
 ```text
-Same recent c2 ancestor          0.746
-Very close c2 ancestry           0.101
-Close c2 ancestry                0.032
-Distant c2 ancestry              0.135
-Very distant c2 ancestry         0.081
+Same recent c2 ancestor          0.746
+Very close c2 ancestry           0.101
+Close c2 ancestry                0.032
+Distant c2 ancestry              0.135
+Very distant c2 ancestry         0.081
 ```
 
 {{< figure src="/images/books/digital-life/ch11-outlier-relatedness-coherence.png" caption="Motion coherence is extremely high for structures sharing the same recent c2 ancestor, while more distant genealogical relationships show much weaker coherence." >}}
@@ -748,8 +748,8 @@ This again looked spectacular.
 The apparent gap between:
 
 ```text
-same recent c2 ancestor    0.746
-very close ancestry        0.101
+same recent c2 ancestor    0.746
+very close ancestry        0.101
 ```
 
 was:
@@ -843,9 +843,9 @@ After matching distance, simulation time and local density, the same-family and 
 The earlier analysis gave approximately:
 
 ```text
-same-family         0.1515
-different-family    0.1588
-difference         -0.0073
+same-family         0.1515
+different-family    0.1588
+difference         -0.0073
 ```
 
 The matched-stratum bootstrap interval crossed zero.
@@ -927,9 +927,9 @@ Within the primary common-support interval:
 the raw descriptive data still showed an apparent family advantage:
 
 ```text
-same-family mean         0.1732
-different-family mean    0.1166
-raw difference          +0.0566
+same-family mean         0.1732
+different-family mean    0.1166
+raw difference          +0.0566
 ```
 
 That is important.
@@ -951,9 +951,9 @@ and takes equal numbers of same-family and different-family pairs within each ma
 The result becomes:
 
 ```text
-matched same-family mean        +0.150823
-matched different-family mean   +0.157890
-matched pooled effect           -0.007067
+matched same-family mean        +0.150823
+matched different-family mean   +0.157890
+matched pooled effect           -0.007067
 ```
 
 Across:
@@ -1069,9 +1069,9 @@ the support interval remained:
 and the matched result remained:
 
 ```text
-matched pooled effect     -0.0071
-equal-stratum effect      -0.0265
-upper bootstrap bound     +0.0122
+matched pooled effect     -0.0071
+equal-stratum effect      -0.0265
+upper bootstrap bound     +0.0122
 ```
 
 So the conclusion does not qualitatively depend on one arbitrary minimum-count threshold.
@@ -1127,7 +1127,7 @@ But the original observation was not worthless.
 We learned several things.
 
 1. **Outlier exhibits strong short-range velocity coherence.**
-   That is measurable.
+   That is measurable.
 
 2. **The coherence is not explained by simple global radial expansion.**
 
@@ -1203,6 +1203,168 @@ We simply should not give that phenomenon a stronger name than our measurements 
 
 ---
 
+**## What Survived the Hypothesis?**
+
+The strongest interpretation in this chapter did not survive.
+
+We began with:
+
+```text
+nearby structures move coherently
+↓
+shared c2 ancestry may explain that coherence
+```
+
+Inside the region where same-family and different-family pairs can actually be compared, that explanation failed.
+
+The matched pooled effect was approximately:
+
+```text
+-0.0071
+```
+
+and the upper bootstrap bound on a positive ancestry effect was only about:
+
+```text
++0.0122
+```
+
+roughly `1.9%` of the original apparent `0.645` family gap.
+
+So the ancestry explanation does not survive over the `4–64` cell common-support interval.
+
+But the observation that motivated it does.
+
+**### The surviving observation**
+
+Persistent moving structures exhibit strong short-range velocity coherence.
+
+The first measurements gave approximately:
+
+```text
+raw short-range alignment        0.7373
+radial-subtracted alignment      0.7427
+shuffled residual control        0.1933
+```
+
+Removing the global radial expansion field did not remove the effect.
+
+So the chapter leaves us with two separate statements:
+
+```text
+SHORT-RANGE MOTION COHERENCE
+MEASURED
+
+ANCESTRY EXPLAINS THAT COHERENCE
+FAILED OVER COMMON SUPPORT
+```
+
+Those are not contradictory.
+
+The experiment killed an explanation without killing the phenomenon.
+
+**### Phenomenon record**
+
+**Phenomenon:** Local coherent motion
+
+**Status:** **MEASURED**
+
+**Current bounded description:**
+
+> Persistent structures in this Outlier run exhibit strong short-range directional coherence that survives subtraction of the global radial expansion field.
+
+**Best current mechanistic description:**
+
+```text
+local geometry
++
+local cellular dynamics
++
+spatial organization
+↓
+coherent motion
+```
+
+This description does not require:
+
+```text
+flocking
+social interaction
+ancestry recognition
+a natural individual
+```
+
+**### Open cross-chapter hypothesis**
+
+There is a broader possibility that should remain separate from the measured result:
+
+> **Some of the local coherence may be part of a spatially propagating dynamical field rather than the motion of independent object-like structures.**
+
+For now this is only an **OPEN HYPOTHESIS**.
+
+The present chapter did not measure:
+
+```text
+phase propagation
+lag versus distance
+propagation velocity
+dispersion relation
+travelling-wave structure
+```
+
+So we should not call the phenomenon a wave.
+
+A future audit can test the literal signature using the existing motion data:
+
+```text
+activity at x,t
+↓ lag
+activity at x+d,t+τ
+```
+
+If the correlation peak moves systematically with distance, then a propagation velocity becomes measurable.
+
+If it does not, the propagating-field interpretation should be rejected.
+
+**### Important unresolved region**
+
+The shortest-distance regime remains special.
+
+```text
+0–4 cells
+```
+
+lies outside the declared common-support interval because suitable different-family controls are too sparse.
+
+Therefore:
+
+```text
+ANCESTRY EFFECT AT 0–4 CELLS
+UNRESOLVED
+```
+
+We should neither promote nor dismiss it.
+
+**### What this phenomenon does not establish**
+
+This surviving motion phenomenon does **not** establish:
+
+- classical flocking,
+- interaction between natural individuals,
+- a shared wave mechanism,
+- ancestry-dependent coordination,
+- organism-like units,
+- or life.
+
+It establishes something narrower and, for this project, more useful:
+
+> **Simple local cellular dynamics can generate strongly coherent short-range motion even after one of the most tempting biological explanations for that motion has been removed.**
+
+That phenomenon now belongs in the project-wide phenomenon record independently of the chapter's ancestry hypothesis.
+
+
+---
+
 ## The Most Important Result May Be Methodological
 
 This investigation began with five words:
@@ -1215,20 +1377,20 @@ Instead:
 
 ```mermaid
 flowchart TD
-    A["Visual impression: That looks like flocking"] --> B["Operational definition"]
-    B --> C["Tracking"]
-    C --> D["Velocity measurement"]
-    D --> E["Shuffled control"]
-    E --> F["Radial-flow control"]
-    F --> G["Causal-family hypothesis"]
-    G --> H["Local-flow control"]
-    H --> I["Discover estimator bug"]
-    I --> J["Pair-excluded control"]
-    J --> K["Discover spatial confound"]
-    K --> L["Distance/time/density matching"]
-    L --> M["Audit common support"]
-    M --> N["Bound positive effect"]
-    N --> O["Keep unresolved region unresolved"]
+    A["Visual impression: That looks like flocking"] --> B["Operational definition"]
+    B --> C["Tracking"]
+    C --> D["Velocity measurement"]
+    D --> E["Shuffled control"]
+    E --> F["Radial-flow control"]
+    F --> G["Causal-family hypothesis"]
+    G --> H["Local-flow control"]
+    H --> I["Discover estimator bug"]
+    I --> J["Pair-excluded control"]
+    J --> K["Discover spatial confound"]
+    K --> L["Distance/time/density matching"]
+    L --> M["Audit common support"]
+    M --> N["Bound positive effect"]
+    N --> O["Keep unresolved region unresolved"]
 ```
 
 This is exactly the process we need if we are going to talk seriously about digital life.
@@ -1273,16 +1435,16 @@ So the pipeline becomes:
 
 ```mermaid
 flowchart LR
-    A["Outlier run"] --> B["SQLite specimen"]
-    B --> C["clusters"]
-    B --> D["causal edges"]
-    B --> E["c2 occurrences"]
-    B --> F["motion observations"]
-    C & D & E & F --> G["pair-level evidence"]
-    G --> H["distance matching"]
-    G --> I["common-support analysis"]
-    G --> J["sensitivity analysis"]
-    H & I & J --> K["bounded claim"]
+    A["Outlier run"] --> B["SQLite specimen"]
+    B --> C["clusters"]
+    B --> D["causal edges"]
+    B --> E["c2 occurrences"]
+    B --> F["motion observations"]
+    C & D & E & F --> G["pair-level evidence"]
+    G --> H["distance matching"]
+    G --> I["common-support analysis"]
+    G --> J["sensitivity analysis"]
+    H & I & J --> K["bounded claim"]
 ```
 
 This matters beyond performance.
@@ -1383,20 +1545,20 @@ What we have shown is narrower.
 
 ## Evidence Ledger
 
-| Claim                                                             | Status                                       | Evidence / limitation                        |
+| Claim                                                             | Status                                       | Evidence / limitation                        |
 | ----------------------------------------------------------------- | -------------------------------------------- | -------------------------------------------- |
-| Later `c2` occurrences recur in our run                           | **SUPPORTED**                                | 144 occurrences from `t=2` to `t=1598`       |
-| Recurring `c2` structures participate in causal ancestry          | **SUPPORTED**                                | counterfactual causal graph                  |
-| The `c2` return graph branches                                    | **SUPPORTED**                                | 99 visible return edges                      |
-| Persistent structures exhibit short-range velocity coherence      | **SUPPORTED**                                | observed alignment ~0.74 vs shuffled control |
-| Global radial expansion explains the coherence                    | **FAILED**                                   | radial-subtracted alignment remains ~0.7427  |
-| Same-family ancestry produces the original dramatic coherence gap | **FAILED OVER COMMON SUPPORT**               | matched pooled effect `-0.0071`              |
-| Positive ancestry effect larger than `+0.0122` inside 4–64 cells  | **NOT SUPPORTED BY THIS BOOTSTRAP INTERVAL** | upper 95% bound                              |
-| `0–4` cell ancestry effect                                        | **UNRESOLVED**                               | inadequate different-family overlap          |
-| Observed motion constitutes flocking                              | **NOT ESTABLISHED**                          | interaction / unit criteria not demonstrated |
-| Causal family defines a natural individual                        | **UNTESTED**                                 | ancestry is not individuation                |
-| Result generalizes to full 1024² × 20,000 Outlier regime          | **UNTESTED**                                 | current run is smaller and shorter           |
-| Outlier is alive                                                  | **NOT CLAIMED**                              | evidence insufficient                        |
+| Later `c2` occurrences recur in our run                           | **SUPPORTED**                                | 144 occurrences from `t=2` to `t=1598`       |
+| Recurring `c2` structures participate in causal ancestry          | **SUPPORTED**                                | counterfactual causal graph                  |
+| The `c2` return graph branches                                    | **SUPPORTED**                                | 99 visible return edges                      |
+| Persistent structures exhibit short-range velocity coherence      | **SUPPORTED**                                | observed alignment ~0.74 vs shuffled control |
+| Global radial expansion explains the coherence                    | **FAILED**                                   | radial-subtracted alignment remains ~0.7427  |
+| Same-family ancestry produces the original dramatic coherence gap | **FAILED OVER COMMON SUPPORT**               | matched pooled effect `-0.0071`              |
+| Positive ancestry effect larger than `+0.0122` inside 4–64 cells  | **NOT SUPPORTED BY THIS BOOTSTRAP INTERVAL** | upper 95% bound                              |
+| `0–4` cell ancestry effect                                        | **UNRESOLVED**                               | inadequate different-family overlap          |
+| Observed motion constitutes flocking                              | **NOT ESTABLISHED**                          | interaction / unit criteria not demonstrated |
+| Causal family defines a natural individual                        | **UNTESTED**                                 | ancestry is not individuation                |
+| Result generalizes to full 1024² × 20,000 Outlier regime          | **UNTESTED**                                 | current run is smaller and shorter           |
+| Outlier is alive                                                  | **NOT CLAIMED**                              | evidence insufficient                        |
 
 ---
 

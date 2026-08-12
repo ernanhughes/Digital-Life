@@ -40,7 +40,7 @@ SAME VALUES
 DIFFERENT ORDER
 ↓
 NO RECOVERABLE TEMPORAL SIGNATURE
-````
+```
 
 The crystal had accumulated a state.
 

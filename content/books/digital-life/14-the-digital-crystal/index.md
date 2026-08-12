@@ -46,7 +46,7 @@ local computation
 repeated interaction
 ↓
 characteristic larger-scale structure
-````
+```
 
 That idea is much smaller than an organism.
 
@@ -258,7 +258,7 @@ It does not say:
 
 ```python
 if signal == "sine":
-    draw_sine_shape()
+    draw_sine_shape()
 ```
 
 That would merely be a strange plotting library.
@@ -269,10 +269,10 @@ The external signal only changes the conditions under which individual local att
 
 ```mermaid
 flowchart LR
-    E["Environmental signal E(t)"] --> G["Local growth dynamics G(C,E)"]
-    C["Current crystal state C(t)"] --> G
-    G --> C2["Next crystal state C(t+1)"]
-    C2 --> M["Final morphology"]
+    E["Environmental signal E(t)"] --> G["Local growth dynamics G(C,E)"]
+    C["Current crystal state C(t)"] --> G
+    G --> C2["Next crystal state C(t+1)"]
+    C2 --> M["Final morphology"]
 ```
 
 Different input.
@@ -293,12 +293,12 @@ Every cell has six immediate neighbors.
 
 ```python
 HEX_DIRECTIONS = (
-    (1, 0),
-    (1, -1),
-    (0, -1),
-    (-1, 0),
-    (-1, 1),
-    (0, 1),
+    (1, 0),
+    (1, -1),
+    (0, -1),
+    (-1, 0),
+    (-1, 1),
+    (0, 1),
 )
 ```
 
@@ -343,11 +343,11 @@ q
 $$
 
 where:
-- \(n\) is occupied-neighbor count,
-- \(E_t\) is the current signal,
-- \(A\) is a fixed local anisotropy term,
-- \(q\) is a crowding penalty,
-- \(\sigma\) maps the result into a probability.
+- (n) is occupied-neighbor count,
+- (E_t) is the current signal,
+- (A) is a fixed local anisotropy term,
+- (q) is a crowding penalty,
+- (\sigma) maps the result into a probability.
 
 For Digital Crystal v1 the growth parameters are frozen during the experiment.
 
@@ -380,9 +380,9 @@ It did.
 In the full baseline run the crystal reached approximately:
 
 ```text
-occupied cells        5,924
-maximum hex radius       44
-boundary edges          552
+occupied cells        5,924
+maximum hex radius       44
+boundary edges          552
 ```
 
 {{< figure
@@ -536,16 +536,16 @@ We measure them.
 
 ```mermaid
 flowchart TD
-    S1["Constant ×100"] --> G["Same fixed growth rule"]
-    S2["Sine ×100"] --> G
-    S3["Square ×100"] --> G
-    S4["Sawtooth ×100"] --> G
-    S5["White noise ×100"] --> G
-    S6["Random walk ×100"] --> G
-    G --> M["Morphology: 42 measured features"]
-    M --> H["Hide source labels"]
-    H --> C["Train on one subset"]
-    C --> T["Test on unseen crystals"]
+    S1["Constant ×100"] --> G["Same fixed growth rule"]
+    S2["Sine ×100"] --> G
+    S3["Square ×100"] --> G
+    S4["Sawtooth ×100"] --> G
+    S5["White noise ×100"] --> G
+    S6["Random walk ×100"] --> G
+    G --> M["Morphology: 42 measured features"]
+    M --> H["Hide source labels"]
+    H --> C["Train on one subset"]
+    C --> T["Test on unseen crystals"]
 ```
 
 ---
@@ -638,10 +638,10 @@ Test on crystals the model has never seen.
 The held-out result was:
 
 ```text
-chance                 16.7%
+chance                 16.7%
 
-random forest           52.2%
-logistic regression     53.9%
+random forest           52.2%
+logistic regression     53.9%
 ```
 
 {{< figure
@@ -737,11 +737,11 @@ Yet morphology-class centroids still differed substantially.
 Standardized distances from the constant population were approximately:
 
 ```text
-sine          4.45
-square       13.82
-saw           2.44
-white noise   2.40
-random walk   1.40
+sine          4.45
+square       13.82
+saw           2.44
+white noise   2.40
+random walk   1.40
 ```
 
 So mean forcing alone cannot explain the source-family result.
@@ -795,12 +795,12 @@ If the final crystal retains recoverable information about chronology, crystals 
 
 ```mermaid
 flowchart LR
-    O["Ordered signal"] --> G1["Same growth rule"]
-    S["Shuffled signal<br/>same values"] --> G2["Same growth rule"]
-    G1 --> M1["Final morphology"]
-    G2 --> M2["Final morphology"]
-    M1 --> C["Can morphology reveal order condition?"]
-    M2 --> C
+    O["Ordered signal"] --> G1["Same growth rule"]
+    S["Shuffled signal\<br/>same values"] --> G2["Same growth rule"]
+    G1 --> M1["Final morphology"]
+    G2 --> M2["Final morphology"]
+    M1 --> C["Can morphology reveal order condition?"]
+    M2 --> C
 ```
 
 ---
@@ -816,10 +816,10 @@ Binary chance is:
 The result:
 
 ```text
-chance                 50.0%
+chance                 50.0%
 
-random forest           51.3%
-logistic regression     51.7%
+random forest           51.3%
+logistic regression     51.7%
 ```
 
 {{< figure
@@ -1033,15 +1033,15 @@ So we varied the forcing strength while leaving the rest of the local growth mec
 Held-out random-forest source-classification accuracy was:
 
 ```text
-forcing         accuracy
+forcing         accuracy
 
-0.75             34.1%
-0.85             43.2%
-0.95             50.0%
-1.00             52.3%
-1.05             52.3%
-1.15             63.6%
-1.25             43.2%
+0.75             34.1%
+0.85             43.2%
+0.95             50.0%
+1.00             52.3%
+1.05             52.3%
+1.15             63.6%
+1.25             43.2%
 ```
 
 Chance remains:
@@ -1159,11 +1159,11 @@ So our current evidence supports:
 
 ```text
 SOURCE CHARACTERISTICS
-       ↓
+       ↓
 LOCAL DYNAMICS
-       ↓
+       ↓
 MORPHOLOGY
-       ↓
+       ↓
 PARTIAL SOURCE RECOVERY
 ```
 
@@ -1171,9 +1171,9 @@ but not:
 
 ```text
 COMPLETE TEMPORAL HISTORY
-       ↓
+       ↓
 MORPHOLOGY
-       ↓
+       ↓
 HISTORY RECOVERABLE
 ```
 
@@ -1332,10 +1332,10 @@ We have not yet demonstrated a **history**.
 
 ```mermaid
 flowchart LR
-    P["Past events"] -->|causal influence| S["Current state"]
-    S --> Q{"Can temporal order<br/>be reconstructed?"}
-    Q -- Yes --> H["History retained"]
-    Q -- No --> N["State without demonstrated history"]
+    P["Past events"] -->|causal influence| S["Current state"]
+    S --> Q{"Can temporal order\<br/>be reconstructed?"}
+    Q -- Yes --> H["History retained"]
+    Q -- No --> N["State without demonstrated history"]
 ```
 
 That gives us the next experimental problem.
@@ -1349,9 +1349,9 @@ That gives us the next experimental problem.
 Across 600 crystals, forcing-process family could be recovered from morphology substantially above six-way chance:
 
 ```text
-random forest           52.2%
-logistic regression     53.9%
-chance                   16.7%
+random forest           52.2%
+logistic regression     53.9%
+chance                   16.7%
 ```
 
 So we can support:
@@ -1395,9 +1395,9 @@ a scaling law
 Ordered-versus-shuffled classification gave:
 
 ```text
-random forest           51.3%
-logistic regression     51.7%
-chance                   50.0%
+random forest           51.3%
+logistic regression     51.7%
+chance                   50.0%
 ```
 
 A stronger experiment in which every condition contained exactly the same input multiset also failed to establish recoverable temporal organization.
@@ -1417,9 +1417,9 @@ That alone does not establish a recoverable history.
 So:
 
 ```text
-state                 SUPPORTED
+state                 SUPPORTED
 recoverable chronology NOT SUPPORTED
-history               NOT YET ESTABLISHED
+history               NOT YET ESTABLISHED
 ```
 
 ---
@@ -1482,6 +1482,160 @@ chronology recoverable
 did not survive.
 
 That distinction is now part of the definition.
+
+---
+
+## What Survived the Hypothesis?
+
+The stronger hypothesis in this chapter failed.
+
+We began with an idea close to:
+
+```text
+environmental history
+↓
+growth
+↓
+final morphology
+↓
+history recoverable
+```
+
+That was too strong.
+
+The source-family experiment succeeded:
+
+```text
+random forest          52.2%
+logistic regression    53.9%
+chance                  16.7%
+```
+
+So the final morphology retained substantial information about the **kind of forcing process** under which the crystal formed.
+
+But when temporal order was isolated, the signal disappeared.
+
+For ordered-versus-shuffled histories:
+
+```text
+random forest          51.3%
+logistic regression    51.7%
+chance                  50.0%
+```
+
+And when every condition received exactly the same value multiset and only temporal organization changed, the stronger temporal experiment failed as well.
+
+So Chapter 14 leaves us with a sharper distinction:
+
+```text
+COARSE SOURCE CHARACTERISTICS
+RECOVERABLE
+
+EXACT TEMPORAL ORDER
+NOT RECOVERED
+```
+
+The failed chronology claim does not erase the source-family result.
+
+It tells us what kind of information the substrate preferentially preserves.
+
+### Phenomenon record
+
+**Phenomenon:** Lossy history integration
+
+**Status:** **SUPPORTED**
+
+**Current bounded description:**
+
+> Digital Crystal v1 transforms external forcing into persistent morphology that preserves enough information for source-family recovery substantially above chance, while the tested final-state representation does not preserve temporal order in a recoverable form.
+
+The simplest mechanistic picture is:
+
+```text
+external forcing
+↓
+many irreversible local attachment events
+↓
+aggregate structural bias
+↓
+persistent morphology
+```
+
+The process integrates consequences of the past.
+
+But integration is lossy.
+
+It appears to preserve some broad statistics of the forcing process more readily than exact chronology.
+
+That gives us a provisional cross-chapter principle:
+
+> **Irreversible growth can preserve coarse historical structure while discarding fine temporal identity.**
+
+We should not yet treat this as a universal law of Digital Crystals.
+
+For now it is a substrate-level principle supported by this chapter and available for comparison with later experiments.
+
+### Information hierarchy exposed by this chapter
+
+Chapter 14 separates several different levels of historical information:
+
+```text
+past affected present
+        SUPPORTED
+
+source family recoverable
+        SUPPORTED
+
+mean alone explains source effect
+        FAILED
+
+exact temporal order recoverable
+        NOT SUPPORTED
+
+complete chronology retained
+        NOT ESTABLISHED
+```
+
+That hierarchy matters.
+
+A process can be history-dependent without being a history recorder.
+
+A final state can contain information about past conditions without preserving the sequence in which those conditions occurred.
+
+So:
+
+```text
+HISTORY-DEPENDENT
+≠
+HISTORY-READABLE
+```
+
+and:
+
+```text
+STATE
+≠
+CHRONOLOGY
+```
+
+### What this phenomenon does not establish
+
+The surviving phenomenon does **not** establish:
+
+- memory in the strong sense,
+- learning,
+- adaptation,
+- interpretation of the environment,
+- a stored event log,
+- sender identity,
+- exact chronology,
+- or life.
+
+It establishes something narrower:
+
+> **The substrate behaves as a lossy integrator of environmental history: broad characteristics of forcing can survive in morphology even when exact temporal ordering does not.**
+
+This phenomenon should now be tracked independently of the chapter's failed chronology hypothesis.
 
 ---
 
@@ -1565,11 +1719,11 @@ The stronger claims failed.
 
 ```mermaid
 flowchart TD
-    A["ENVIRONMENTAL INPUT"] --> B["FIXED LOCAL DYNAMICS"]
-    B --> C["DIGITAL CRYSTAL"]
-    C --> D["PERSISTENT MORPHOLOGY"]
-    D --> E["SOURCE-FAMILY INFORMATION RECOVERABLE"]
-    D --> F["TEMPORAL ORDER NOT RECOVERED"]
+    A["ENVIRONMENTAL INPUT"] --> B["FIXED LOCAL DYNAMICS"]
+    B --> C["DIGITAL CRYSTAL"]
+    C --> D["PERSISTENT MORPHOLOGY"]
+    D --> E["SOURCE-FAMILY INFORMATION RECOVERABLE"]
+    D --> F["TEMPORAL ORDER NOT RECOVERED"]
 ```
 
 The crystal can tell us something about the world that formed it.
