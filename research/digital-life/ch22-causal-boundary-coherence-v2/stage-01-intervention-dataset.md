@@ -1,0 +1,12 @@
+# Stage 1 — Run Fresh Paired Counterfactual Branches
+
+```json
+{
+  "role": "FRESH PAIRED CAUSAL INTERVENTION DATASET",
+  "requested_groups": 96,
+  "usable_groups": 25,
+  "skipped_groups": 71,
+  "usable_fraction": 0.2604166666666667,
+  "status": "MEASURED"
+}
+```

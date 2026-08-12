@@ -1,0 +1,36 @@
+# Stage 1 — Generate the Fresh Predictive Dataset
+
+```json
+{
+  "role": "FRESH OBSERVATIONAL DATASET",
+  "total_samples": 8160,
+  "by_scale": {
+    "0.3": {
+      "samples": 1632,
+      "groups": 96,
+      "checkpoints": 17
+    },
+    "0.45": {
+      "samples": 1632,
+      "groups": 96,
+      "checkpoints": 17
+    },
+    "0.6": {
+      "samples": 1632,
+      "groups": 96,
+      "checkpoints": 17
+    },
+    "0.75": {
+      "samples": 1632,
+      "groups": 96,
+      "checkpoints": 17
+    },
+    "0.9": {
+      "samples": 1632,
+      "groups": 96,
+      "checkpoints": 17
+    }
+  },
+  "status": "MEASURED"
+}
+```

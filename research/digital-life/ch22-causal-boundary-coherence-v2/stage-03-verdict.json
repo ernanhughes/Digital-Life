@@ -1,0 +1,28 @@
+{
+  "question": "Does the V1 carry-forward spatial boundary preferentially localize causal consequences relative to an ordinary interior pseudo-boundary?",
+  "candidate_positive_gate_passed": true,
+  "candidate_localization_mean": 0.03772178756967181,
+  "excess_mean": -0.007243587591765921,
+  "excess_ci95": [
+    -0.013993531551683654,
+    -0.0002032319044114538
+  ],
+  "primary_sei": 0.01,
+  "magnitude_gate_passed": false,
+  "paired_signflip_p_value": 0.9692576855786054,
+  "significance_gate_passed": false,
+  "status": "FAILED",
+  "bounded_claim": "Chapter 22 V2 did not establish all predeclared gates required for preferential causal localization at the V1 carry-forward boundary relative to the interior pseudo-boundary control.",
+  "forbidden_overclaims": [
+    "individual",
+    "individuality",
+    "autonomy",
+    "causal closure",
+    "self",
+    "agency",
+    "organism",
+    "life"
+  ],
+  "next_question_if_supported": "Does the same preferential causal boundary persist under a fresh starting-size and computational-budget robustness test without retuning the boundary?",
+  "next_question_if_failed": "Do not tune radii, intervention count, shell width, or response horizon. Close the Chapter 22 causal-boundary hypothesis and treat the Digital Crystal as a spatially structured field unless a qualitatively new individuation mechanism is introduced."
+}
