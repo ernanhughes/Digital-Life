@@ -2,20 +2,37 @@
 title = "15: The Crystal Gets a Past"
 date = "2026-08-11T21:52:00+01:00"
 draft = false
-description = "A Digital Crystal can preserve source statistics in its morphology, but not temporal order. We add exact state, event history, replay and branching to discover what a recoverable digital past actually requires."
+description = "A Digital Crystal can preserve source statistics in morphology but not temporal order. We add state, checkpointing, event history, replay and branching to discover what a recoverable digital past actually requires."
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "State", "History", "Checkpointing", "Replay", "Counterfactuals"]
+series = ["Digital Life From First Principles"]
 +++
 
-At the end of the last chapter, our Digital Crystal could tell us something about the world that formed it.  
+At the end of the last chapter, our Digital Crystal could tell us something about the world that formed it.
+
 But not enough.
 
-Different forcing processes produced different morphologies.  
-We could hide the source and recover its family substantially better than chance.  
-But then we asked a much harder question: *What happened first?*
+Different forcing processes produced different morphologies.
 
-We took exactly the same environmental values and rearranged them in time — smooth, bursting, periodic, alternating, random.  
-The final crystal could not reliably tell them apart.
+We could hide the source and recover its family substantially better than chance.
+
+Then we asked a harder question:
+
+> What happened first?
+
+We took exactly the same environmental values and rearranged them in time.
+
+Smooth.
+
+Bursting.
+
+Periodic.
+
+Alternating.
+
+Random.
+
+The final morphology could not reliably tell them apart.
 
 ```text
 SAME VALUES
@@ -23,13 +40,20 @@ SAME VALUES
 DIFFERENT ORDER
 ↓
 NO RECOVERABLE TEMPORAL SIGNATURE
-```
+````
 
-The crystal had accumulated a state.  
+The crystal had accumulated a state.
+
 It had not preserved a usable history.
 
-That gives us the next experiment.  
-Not intelligence. Not learning. Not adaptation.  
+That gives us the next experiment.
+
+Not intelligence.
+
+Not learning.
+
+Not adaptation.
+
 Something much smaller.
 
 > **What must a digital process preserve if we want its past to survive?**
@@ -38,272 +62,601 @@ Something much smaller.
 
 ## The Present Is Not the Past
 
-Our Digital Crystal already has a state.  
-At any moment, \(C_t\) contains the cells that currently exist.  
-Those cells are the accumulated consequence of earlier growth.  
-So the past clearly matters.
+Our Digital Crystal already has a present state.
 
-But Chapter 14 showed us an important distinction:
+At any moment, (C_t) contains the cells that currently exist.
 
-> *Past contributed to present* does not imply *present contains a recoverable record of the past*.
+Those cells are consequences of earlier growth.
 
-That distinction is easy to miss.  
-A footprint exists because someone walked there. The footprint is not the walk.  
-A crater exists because something struck the ground. The crater is not a complete trajectory of the object that made it.
+So the past clearly mattered.
 
-Our crystal is similar. Its current shape contains consequences.  
+But Chapter 14 taught us an important distinction:
+
+> **Past contributed to present does not imply present contains a recoverable record of the past.**
+
+A footprint exists because someone walked there.
+
+The footprint is not the walk.
+
+A crater exists because something struck the ground.
+
+The crater is not the complete trajectory of the object that made it.
+
+Our crystal is similar.
+
+Its current shape contains consequences.
+
 That does not mean it contains the sequence that produced them.
 
-So we need to separate two concepts.
+So we need to separate two ideas:
+
+```text
+STATE
+and
+HISTORY
+```
 
 ---
 
 ## State
 
-We begin with an operational definition.
+We begin with an operational definition:
 
-> **State is enough information to continue from here.**
+> **A state representation is sufficient if it contains enough information to continue the process faithfully from here.**
 
-That sounds simple. But what exactly counts as state?  
-Perhaps *current occupied cells* is enough. Maybe the picture is the state.
+That wording matters.
 
-We can test that.
+We are **not** claiming that we already know the mathematically smallest possible state.
 
-Our Digital Crystal is stochastic. Its future depends on random attachment decisions.  
-Its future also depends on where we currently are in the input stream.
+We are asking whether a particular stored representation is sufficient.
 
-So a candidate process state might include:
+Perhaps the picture itself is enough.
+
+Perhaps:
 
 ```text
 occupied cells
-birth times
+```
+
+is the complete state.
+
+We can test that.
+
+Digital Crystal v1 is stochastic.
+
+Its continuation depends on random attachment decisions.
+
+Its continuation also depends on where the process currently is in the environmental input.
+
+So a candidate checkpoint might contain:
+
+```text
+occupied cells
+birth-time metadata
 current timestep
 current signal position
 random-number-generator state
 model parameters
 ```
 
-But we should not define those as necessary because they sound reasonable.  
-We should discover what is necessary by removing them.
+But we should not declare all of those necessary merely because they sound plausible.
 
-First we need a reference.
+We should remove them.
+
+One at a time.
 
 ---
 
 ## Run the Crystal Continuously
 
-We take the frozen Digital Crystal v1 from Chapter 14.  
-No changes to its local growth rule.  
-The input is a composite signal containing several interacting temporal components.
+We take frozen Digital Crystal v1 from Chapter 14.
 
-We run for **96 steps** and save a checkpoint halfway through at **t = 48**.
+The local growth rule does not change.
 
-At the checkpoint: `occupied cells = 2,532`  
-At the end: `occupied cells = 9,553`
+The experiment runs for:
+
+```text
+96 steps
+```
+
+with a checkpoint halfway through:
+
+```text
+t = 48
+```
+
+In the full v3 experiment:
+
+```text
+population at checkpoint    2,702
+final population            9,574
+```
+
+The final morphology receives a hash:
+
+```text
+bc8e6d8c9783431f1459bf17
+```
+
+and the full process state receives another:
+
+```text
+bd33c9aa0a510803be6ce6bf
+```
 
 {{< figure
 src="/images/books/digital-life/ch15-01-reference-and-checkpoint.png"
 alt="The Chapter 15 Digital Crystal input signal with a checkpoint at step 48, together with the crystal at the checkpoint and its final state at step 96."
-caption="A continuous reference run. We save the complete process state halfway through and compare every later experiment against the uninterrupted trajectory."
+caption="The continuous reference trajectory. The midpoint checkpoint will be restored, damaged and replayed in later experiments."
+
 >}}
 
-The final morphology receives a hash: `2934f8715636efbcaaa9ec99`  
-The complete process state receives another: `6fb30c5aa8147112a7f94cb9`
+Now we can demand something much stronger than visual similarity.
 
-Now we can demand something much stronger than visual similarity.  
-If we restore the crystal correctly, we want **exactly the same future**.
+If the checkpoint is sufficient, then restoring it should produce:
+
+> **exactly the same future.**
+
+---
+
+## Before We Could Save the State, We Found a Hidden One
+
+Our first implementation failed this experiment.
+
+The checkpoint appeared complete.
+
+We saved:
+
+```text
+occupied cells
+birth metadata
+timestep
+signal cursor
+RNG state
+```
+
+Then we restored it.
+
+The future changed.
+
+At first that looked like evidence that something important was missing from our checkpoint.
+
+But another result contradicted that interpretation.
+
+When we reconstructed the same checkpoint **without passing through serialization**, continuation was exact.
+
+So something was happening at the implementation boundary.
+
+The culprit was surprisingly mundane.
+
+Candidate attachment sites were held in a Python `set`.
+
+The growth loop effectively did:
+
+```python
+for cell in frontier:
+    ...
+    rng.random()
+```
+
+A set has no scientific ordering.
+
+Its internal iteration order is an implementation detail.
+
+Two sets can contain exactly the same cells but iterate them in different orders after reconstruction.
+
+That meant:
+
+```text
+same mathematical cells
++
+same RNG state
++
+same signal
+```
+
+could still become:
+
+```text
+RNG draw #1 → different candidate
+RNG draw #2 → different candidate
+...
+```
+
+The simulation had accidentally acquired an undeclared state variable:
+
+```text
+PYTHON CONTAINER LAYOUT
+```
+
+That is not a property of the Digital Crystal.
+
+It is a property of the implementation.
+
+So we removed it.
+
+The growth rule now consumes stochastic decisions in a canonical order:
+
+```python
+for cell in sorted(frontier):
+```
+
+Then we reran the experiment.
+
+---
+
+## State Belonging to the Model vs State Belonging to the Program
+
+Before trusting checkpointing again, we added a stronger invariant.
+
+Take a checkpoint.
+
+Serialize and deserialize:
+
+```text
+occupied cells
+birth metadata
+RNG state
+```
+
+into fresh Python objects.
+
+Then compare the original state and reconstructed state.
+
+They must produce:
+
+```text
+same one-step continuation
+and
+same complete remaining continuation
+```
+
+The v3 reproducibility invariant passed:
+
+```text
+occupied state equal                   True
+birth metadata equal                   True
+signal cursor equal                    True
+RNG state equal                        True
+process hash equal                     True
+
+one-step continuation exact            True
+full remaining horizon exact           True
+remaining steps checked                48
+```
+
+The implementation no longer depends on accidental set layout.
+
+That gives us a methodological rule worth keeping:
+
+> **An experimental model must distinguish state belonging to the phenomenon from state accidentally belonging to its implementation.**
+
+Only after that did checkpointing become a meaningful experiment.
 
 ---
 
 ## Stop It
 
-At step 48 we serialize the process.  
-Not a screenshot. Not a rendered image.  
-The actual operating state.
+At step `48` we serialize the operating state.
 
-Then we kill the running simulation.  
-Load the saved state from SQLite.  
+Not a screenshot.
+
+Not a rendered image.
+
+The actual continuation representation.
+
+Then we terminate that runtime state.
+
+Load the checkpoint from SQLite.
+
 Continue.
 
-If our definition of state is complete, the restored crystal should not merely resemble the uninterrupted crystal.  
-It should become the same crystal — cell for cell, step for step, random decision for random decision.
+If our checkpoint representation is sufficient, the restored process should not merely resemble the uninterrupted one.
+
+It should become:
+
+```text
+the same cells
+the same attachment decisions
+the same population trajectory
+the same final process state
+```
 
 ---
 
 ## Save, Restore, Continue
 
-The result is exact.
+After the reproducibility fix:
 
 ```text
-exact final morphology           True
-exact final process state        True
-population trajectory identical  True
-attachment trajectory identical  True
-symmetric-difference cells       0
+exact final morphology            True
+exact final process state         True
+population trajectory identical   True
+attachment trajectory identical   True
+symmetric-difference cells        0
 ```
 
-The hashes match:
+The morphology hashes match:
 
 ```text
-REFERENCE   2934f8715636efbcaaa9ec99
-RESTORED    2934f8715636efbcaaa9ec99
+REFERENCE   bc8e6d8c9783431f1459bf17
+RESTORED    bc8e6d8c9783431f1459bf17
 ```
 
-And the full process-state hashes match too.
+The complete process hashes match too.
 
 {{< figure
 src="/images/books/digital-life/ch15-02-exact-restore.png"
-alt="The final continuously run Digital Crystal beside the final state produced after saving at the midpoint, restoring and continuing."
-caption="Continuous execution and checkpoint → restore → continue produce exactly the same final state."
+alt="The final continuously run Digital Crystal beside the final crystal produced after checkpoint, SQLite restore and continuation."
+caption="After canonicalizing stochastic candidate traversal, continuous execution and checkpoint → restore → continue produce the exact same trajectory."
+
 >}}
 
-This was not a one-run accident.  
-We repeated the checkpoint experiment across **30 independent runs**.
+And this was not a one-run accident.
 
-Result: `30 / 30 exact`
-
-So we have earned our first claim:
-
-> **A complete Digital Crystal state can be serialized and resumed without changing the future trajectory of the stochastic process.**
-
-That is a useful definition of digital state.  
-But now we make it harder.
-
----
-
-## What Actually Belongs to State?
-
-Suppose we save only what we can see — the current morphology.  
-Surely that is the crystal.
-
-Maybe not.
-
-We take the exact checkpoint and deliberately damage it in several ways.
-
----
-
-### Remove the Random State
-
-First we restore: same cells, same birth map, same timestep, same signal position — but replace the random-number-generator state.
-
-The crystal still looks identical at the restore point.  
-Then we continue.
-
-The final result differs:
+We repeated the checkpoint experiment across:
 
 ```text
-final population              9,569
-symmetric-difference cells       26
-normalized difference       0.002716
+30 independent runs
 ```
-
-A tiny change. But not zero.  
-The future has changed.
-
-So the random state is not merely implementation plumbing.  
-For exact continuation: **it is part of the process state**.
-
----
-
-### Move the Signal Cursor
-
-Next we restore everything correctly except the position in the environmental input.  
-We move it three steps backward.
-
-Again the checkpoint looks identical. Again the future changes.
-
-```text
-final population              9,577
-symmetric-difference cells       24
-normalized difference       0.002506
-```
-
-So current shape does not tell us where we are in the world.  
-The external sequence position is also part of continuation state.
-
----
-
-### Save Only the Morphology
-
-Now we become more brutal.  
-We preserve the occupied cells but discard the proper process details.  
-We reconstruct birth times crudely. Reset the random generator.  
-Then continue from the same visible shape.
 
 Result:
 
 ```text
-final population              9,576
-symmetric-difference cells       23
-normalized difference       0.002402
+30 / 30 exact
 ```
 
-{{< figure
-src="/images/books/digital-life/ch15-03-state-omission.png"
-alt="Comparison of final-state divergence after restoring the full checkpoint, omitting the RNG state, using the wrong signal cursor, or restoring morphology only."
-caption="The visible crystal is not the complete process state. Corrupting hidden continuation variables changes the future."
->}}
+So we have earned the first major claim:
 
-This gives us a result that reaches back through the entire book.  
-We have repeatedly learned not to confuse appearance with mechanism.
+> **The stored Digital Crystal checkpoint representation is sufficient for exact continuation of the stochastic process.**
 
-Now we have another version:
+Notice what we have **not** claimed.
 
-> **Appearance is not state.**
+We have not proven that this is the smallest possible state representation.
 
-A system can look identical and still possess a different future.
-
-```mermaid
-flowchart LR
-    subgraph "Visible (same appearance)"
-    A[Occupied cells<br/>identical morphology]
-    end
-    subgraph "Hidden"
-    B[RNG state?]
-    C[Signal position?]
-    D[Birth times?]
-    end
-    A --> E[Future trajectory A]
-    B & C & D --> F[Future trajectory B<br/>different from A]
-    E -.- F
-```
+That question remains open.
 
 ---
 
-## State Is Whatever the Future Needs
+## What Actually Matters for Continuation?
 
-This suggests a stronger operational definition:
+Now we deliberately damage the checkpoint.
 
-> **The process state is the minimum information required to continue the system faithfully from the present moment.**
+But this time the experiments are carefully isolated.
 
-For Digital Crystal v1, that includes more than geometry.  
-At least: morphology, birth information, current timestep, signal position, RNG state, growth parameters.
+Every variant receives exactly:
 
-Not because we declared these philosophically fundamental.  
-Because changing them changed the continuation.
+```text
+48 continuation updates
+```
 
-That is a much better reason.
+So altering the environmental cursor does not accidentally alter the length of the experiment.
+
+---
+
+## Remove the Random State
+
+First:
+
+```text
+same morphology
+same birth metadata
+same timestep
+same signal position
+different RNG continuation state
+```
+
+The final result becomes:
+
+```text
+final population                 9,550
+symmetric-difference cells          28
+normalized difference          0.002924
+```
+
+The difference is small.
+
+But it is not zero.
+
+Exact continuation fails.
+
+So:
+
+> **RNG continuation state matters for exact continuation of Digital Crystal v1.**
+
+That is not philosophical speculation.
+
+We removed it.
+
+The future changed.
+
+---
+
+## Move the Environmental Cursor
+
+Next:
+
+```text
+same morphology
+same RNG state
+same timestep
+same continuation horizon
+```
+
+but move the signal cursor:
+
+```text
+48 → 45
+```
+
+Both conditions still execute exactly `48` future updates.
+
+The result:
+
+```text
+final population                 9,549
+symmetric-difference cells          27
+normalized difference          0.002820
+```
+
+So we can now say:
+
+> **Where the process currently sits in the environmental sequence affects exact continuation.**
+
+The environment is not merely historical context.
+
+Its current position is part of the continuation conditions.
+
+---
+
+## Remove the Birth Times
+
+Now we perform a cleaner test.
+
+Preserve:
+
+```text
+occupied cells
+RNG state
+signal cursor
+timestep
+```
+
+but replace the birth-time metadata.
+
+What happens?
+
+```text
+final population                 9,574
+symmetric-difference cells           0
+normalized difference          0.000000
+```
+
+The final occupied set is exact.
+
+Only the birth-time metadata differs.
+
+That gives us an extremely useful distinction.
+
+Under the current Digital Crystal v1 growth rule:
+
+> **Birth times are part of the historical record, but they are not required for the same geometric continuation.**
+
+This is the first place where state and history begin to separate experimentally.
+
+Birth time tells us:
+
+```text
+how the current structure formed
+```
+
+but the growth mechanism does not consult it when deciding the next attachment.
+
+So birth time can matter to history without mattering to future growth.
+
+---
+
+## Save Only the Morphology
+
+Now perform the brutal test.
+
+Preserve only the visible occupied structure.
+
+Reconstruct other process details incorrectly.
+
+Continue.
+
+The result:
+
+```text
+final population                 9,548
+symmetric-difference cells          30
+normalized difference          0.003133
+```
+
+The visible shape at the checkpoint was identical.
+
+The future was not.
+
+{{< figure
+src="/images/books/digital-life/ch15-03-state-omission.png"
+alt="Comparison of final-state divergence after restoring the full checkpoint, changing RNG state, shifting the signal cursor, changing birth metadata, or restoring morphology only."
+caption="Visible morphology is insufficient for exact continuation. RNG state and environmental sequence position affect future growth, while birth-time metadata does not affect the occupied-set continuation under Digital Crystal v1."
+
+>}}
+
+This gives us another version of a lesson that has followed us through the book:
+
+> **Appearance is not state.**
+
+Two systems can look identical and still have different futures.
+
+---
+
+## What We Have Actually Identified
+
+We need to be careful here.
+
+We have not discovered:
+
+> the unique minimal state of Digital Crystal v1.
+
+We have discovered something narrower.
+
+The experiments establish:
+
+```text
+FULL CHECKPOINT
+→ sufficient
+
+VISIBLE MORPHOLOGY ALONE
+→ insufficient
+
+RNG CONTINUATION STATE
+→ causally relevant to exact continuation
+
+SIGNAL POSITION
+→ causally relevant to exact continuation
+
+BIRTH-TIME METADATA
+→ not required for geometric continuation
+```
+
+That is enough.
+
+The useful operational idea is:
+
+> **State is whatever information the future actually needs.**
+
+Not whatever information happens to exist in our data structures.
+
+And not whatever information sounds philosophically important.
 
 ---
 
 ## Now Give It History
 
-Checkpointing gives us a present we can resume.  
-But Chapter 14's problem remains: *How did we get here?*
+Checkpointing solves one problem:
 
-For that we record an event stream.
+> Where are we now, and what do we need to continue?
 
-At every step we preserve:
+It does not answer:
+
+> How did we get here?
+
+For that, we create an explicit event history.
+
+At every growth step we preserve:
 
 ```text
 step
 input value
 cells added
 population
-resulting state hash
+resulting morphology hash
 ```
 
-So the history becomes something like:
+So the history becomes:
 
 ```text
 STEP 1
@@ -320,123 +673,255 @@ STEP 3
 ...
 ```
 
-This is not yet memory in any cognitive sense.  
-The crystal does not inspect it. It does not learn from it.  
-It is simply an explicit formation record.
+This is not memory in any cognitive sense.
 
-Now we ask whether the record is sufficient.
+The crystal does not inspect this record.
+
+It does not learn from it.
+
+It does not use it to make decisions.
+
+It is an explicit formation history.
+
+Now we ask whether the record is sufficient to reconstruct what happened.
 
 ---
 
 ## Replay the Process
 
-There are two ways to reconstruct the past.
+There are two different ways to replay a past.
 
-The first is procedural: start from the original seed, use the same input, same local growth rule, same stochastic state, and run again.
-
-If the process is reproducible, we should end in exactly the same place.
-
-We do:
-
-```text
-exact final morphology    True
-exact process state       True
-```
-
-That proves the simulation itself is reproducible.  
-But it is not yet enough to prove that our stored history is complete.
-
-So we perform a second replay.
+The distinction matters.
 
 ---
 
-### Replay the Events
+## Procedural Replay
 
-This time we do not rerun the growth mechanism.  
-We take the recorded history itself.  
-At each recorded step, apply exactly the cells that were recorded as appearing.
+First:
 
-After every event we compute the state hash.  
-We compare it with the hash recorded during the original run.
+```text
+same initial seed
++
+same environmental signal
++
+same frozen growth rule
++
+same stochastic initialization
+↓
+run again
+```
 
-There are **96 steps**.
+The result:
 
-Result: `96 / 96 hashes match`  
-Final morphology: exact.
+```text
+exact final morphology     True
+exact final process state  True
+```
+
+That establishes reproducibility of the computational procedure.
+
+But it does not yet establish that the **stored event history** is sufficient.
+
+So we perform a stronger test.
+
+---
+
+## Replay the Events
+
+This time we do **not** rerun the stochastic growth rule.
+
+Instead, take the recorded event stream.
+
+At every step:
+
+```text
+read cells that appeared
+↓
+apply those additions
+↓
+recompute morphology hash
+↓
+compare with original recorded hash
+```
+
+There are:
+
+```text
+96 recorded steps
+```
+
+Result:
+
+```text
+96 / 96 morphology hashes match
+```
+
+Final morphology:
+
+```text
+exact
+```
 
 {{< figure
 src="/images/books/digital-life/ch15-04-history-replay.png"
-alt="Step-by-step comparison showing that every state hash produced by replaying the Digital Crystal event log matches the recorded original trajectory."
-caption="The event history reconstructs every recorded state exactly: 96 matching trajectory hashes out of 96."
+alt="Step-by-step comparison showing that every morphology hash produced by replaying the Digital Crystal event log matches the recorded original trajectory."
+caption="The event history reconstructs the recorded morphology trajectory exactly: 96 matching hashes out of 96."
+
 >}}
 
 Now we have earned a second claim:
 
-> **An explicit Digital Crystal history can reconstruct the exact trajectory by which the present morphology was formed.**
+> **The explicit event history is sufficient to reconstruct the exact recorded morphology trajectory.**
 
-And this finally gives us the distinction we needed.
+Not the hidden historical RNG state.
+
+Not every internal implementation detail.
+
+The formation trajectory.
+
+That is the correct scope.
 
 ---
 
 ## State Is Not History
 
-A checkpoint and a history log can both contain information about the same crystal.  
-But they serve different purposes.
+We can now make the distinction operational.
 
-```mermaid
-flowchart TD
-    S[STATE<br/>Checkpoint at t=48] --> C[Continue forward<br/>exact continuation]
-    H[HISTORY<br/>Event log from t=0] --> R[Reconstruct trajectory<br/>step-by-step replay]
-    C --> F1[Future]
-    R --> P[Present morphology<br/>at t=96]
-    P -.-> S
-    P -.-> H
-```
+A checkpoint and an event history both describe the same process.
 
-- The checkpoint answers: *Where are we now, and what do I need to continue?*
-- The history answers: *How did we reach here?*
-
-Our experiment makes this operational.
+But they answer different questions.
 
 ```text
-STATE   = enough information to continue from here
-HISTORY = enough information to reconstruct how here was reached
+STATE
+=
+enough information for faithful continuation
+
+HISTORY
+=
+enough information to reconstruct how the present morphology was formed
 ```
 
-The history can reconstruct the checkpoint morphology.  
-The checkpoint can continue exactly.  
-But the checkpoint does not contain an explicit ordered event sequence.  
-And history-reconstructed geometry without the original stochastic continuation state does not produce the exact same future.
+A checkpoint can continue forward exactly.
 
-So neither is merely another representation of the other.  
-They overlap. But they are different tools.
+An event log can reconstruct backward through the morphology trajectory.
+
+But those capabilities are not interchangeable.
+
+The history reconstructed from cell additions does **not** restore the historical RNG state.
+
+And if we take reconstructed geometry without the correct stochastic continuation state, exact future continuation fails.
+
+In the full experiment:
+
+```text
+history reconstructs checkpoint morphology    True
+checkpoint continues exactly                  True
+
+history-derived geometry without RNG
+continues exactly                             False
+```
+
+The final difference in that last condition was:
+
+```text
+0.003133
+```
+
+So:
+
+```text
+CHECKPOINT
+→ FUTURE
+
+EVENT HISTORY
+→ PAST MORPHOLOGY
+```
+
+They overlap.
+
+But they are different mechanisms.
 
 ---
 
-## A Strange Digital Advantage
+## The Digital Answer Was Not Biological
 
-Now something peculiar becomes possible.
+There is something important about how we solved this.
 
-In biology, the past is usually gone.  
-You may preserve records of it. You may infer it.  
-But you cannot ordinarily return an organism to its exact earlier complete physical state and ask: *What if the future had been different?*
+We could have tried to build a special region inside the crystal whose geometry somehow encoded its entire formation history.
 
-Digital systems can.  
+A biological analogy might tempt us toward:
+
+```text
+memory organ
+genome-like store
+special history structure
+```
+
+But computation gives us another possibility.
+
+```text
+serialization
+checkpoint
+event log
+replay
+branch
+```
+
+These are native computational affordances.
+
+We do not need to imitate a biological storage mechanism if the substrate gives us a different way to preserve the same capability.
+
+This is exactly the rule we established earlier:
+
+> **Do not import a biological mechanism unless the digital substrate actually requires it.**
+
+The crystal's past does not need to look biological.
+
+It only needs to be recoverable.
+
+---
+
+## A Digital Advantage
+
+Biological systems generally do not offer us cheap, exact, executable copies of an earlier complete physical state.
+
+Digital systems often can.
+
 Our checkpoint is executable.
 
-That means the past can become an experimental branch point.
+That changes what a saved past can be.
+
+It is not merely evidence that something happened.
+
+It can become:
+
+```text
+an experimental starting point
+```
+
+from which alternative futures are generated.
 
 ---
 
 ## Restore the Same Past Twice
 
-We take the exact checkpoint at step 48.  
-We restore it twice.
+Take the exact checkpoint at step `48`.
 
-Both copies begin with: same morphology, same birth times, same RNG state, same timestep, same signal cursor.  
+Restore it twice.
+
+Both copies begin with:
+
+```text
+same occupied cells
+same timestep
+same signal cursor
+same RNG state
+same continuation state
+```
+
 Nothing differs.
 
-Then we expose them to two different futures.
+Then deliberately provide different future environments.
 
 ```text
               ┌── FUTURE A
@@ -444,49 +929,149 @@ SAVED PAST ───┤
               └── FUTURE B
 ```
 
-Future A receives one forcing process.  
-Future B receives another.  
-That is the only intentional difference.
+The resulting morphologies diverge.
 
----
-
-### One Past, Two Futures
-
-At the end:
+In one illustrative branch:
 
 ```text
-Future A hash   42584efb0aa4e27bda19cc9a
-Future B hash   b4daa3b8155d04917b307c21
+final symmetric difference    35 cells
+normalized difference         0.003655
 ```
-
-Their final occupied sets differ by **48 cells**.  
-Normalized difference: `0.005012`.
 
 {{< figure
 src="/images/books/digital-life/ch15-06-counterfactual-branches.png"
-alt="One saved Digital Crystal checkpoint shown beside two different final crystals produced by restoring that checkpoint and supplying different future signals."
-caption="One exact saved past becomes two controlled futures. Everything before the branch is identical; only future forcing changes."
+alt="One saved Digital Crystal checkpoint shown beside two different final morphologies generated from different prescribed future forcing."
+caption="One exact checkpoint serves as a shared executable starting condition for two controlled future environments."
+
 >}}
 
-And we can watch that divergence develop over time.
+And we can watch that divergence develop.
 
 {{< figure
 src="/images/books/digital-life/ch15-06-counterfactual-divergence.png"
-alt="A line plot showing increasing normalized state difference between two Digital Crystal futures that begin from the same checkpoint but receive different future inputs."
-caption="After an identical saved past, different environments generate measurable counterfactual divergence."
+alt="A line plot showing morphology divergence through time between two Digital Crystal futures starting from the same checkpoint."
+caption="Alternative prescribed futures starting from the same saved state generate measurable divergence."
+
 >}}
 
-This changes what a saved state means.  
-It is not merely a backup.  
-It is an experimental branch point — a place from which alternative futures can be generated under controlled conditions.
+So one capability is clearly established:
 
-```mermaid
-flowchart LR
-    CP[Checkpoint<br/>t=48<br/>exact state] --> FA[Future A<br/>environment X]
-    CP --> FB[Future B<br/>environment Y]
-    FA --> FA_end[Morphology A<br/>hash differs]
-    FB --> FB_end[Morphology B<br/>hash differs]
+> **A complete digital checkpoint can act as an executable counterfactual branch point.**
+
+But there is a trap here.
+
+---
+
+## Different Futures Always Diverge — But Why?
+
+Suppose two continuations end differently.
+
+It is tempting to say:
+
+> The different environments caused the divergence.
+
+But Digital Crystal v1 is stochastic.
+
+Different random continuation states also produce different futures.
+
+So the number:
+
+```text
+35 different cells
 ```
+
+means nothing by itself.
+
+We need a null.
+
+---
+
+## The Stochastic Null
+
+We compare two experiments.
+
+### Environmental treatment
+
+```text
+same checkpoint
+same RNG state
+different future forcing
+```
+
+### Stochastic null
+
+```text
+same checkpoint
+same future forcing
+different valid RNG states
+```
+
+We run:
+
+```text
+60 replicates
+```
+
+for each condition.
+
+Now compare final normalized morphology divergence.
+
+---
+
+## The Environment Did Not Win
+
+Different future environments produced:
+
+```text
+mean divergence      0.003815
+median               0.003655
+```
+
+The stochastic null produced:
+
+```text
+mean divergence      0.005290
+median               0.004812
+```
+
+So:
+
+```text
+treatment - null mean    -0.001475
+```
+
+The environmental treatment was not larger.
+
+The pairwise superiority probability was:
+
+```text
+0.1975
+```
+
+and the treatment median did not exceed the stochastic-null 95th percentile.
+
+{{< figure
+src="/images/books/digital-life/ch15-06-counterfactual-null.png"
+alt="Comparison of final Digital Crystal divergence under different future environments versus divergence produced by ordinary stochastic continuation variation."
+caption="Changing future forcing produces alternative futures, but the resulting divergence is not larger than ordinary stochastic continuation divergence under this experiment."
+
+>}}
+
+This kills a stronger interpretation.
+
+We cannot say:
+
+> **Environmental differences dominate future divergence.**
+
+They did not.
+
+In fact, under this protocol ordinary stochastic variation produced somewhat greater divergence on average.
+
+That leaves a smaller, cleaner result:
+
+> **The checkpoint is an executable branch point, but branchability does not imply that one chosen environmental manipulation dominates the system's intrinsic stochastic variation.**
+
+That is exactly why the null matters.
 
 ---
 
@@ -494,13 +1079,17 @@ flowchart LR
 
 We should resist that word.
 
-We can restore the same checkpoint many times. That resembles copying.  
-But nothing in this experiment establishes autonomous reproduction.  
-The copying is performed by our experimental infrastructure.
+We can restore the same checkpoint many times.
+
+That resembles copying.
+
+But the copying is performed by our experimental infrastructure.
+
+Nothing here establishes autonomous reproduction.
 
 The useful property is narrower:
 
-> **Digital state can be duplicated as an exact starting condition for counterfactual futures.**
+> **Digital state can be duplicated as an exact starting condition for controlled counterfactual experiments.**
 
 That is already powerful enough.
 
@@ -511,14 +1100,18 @@ That is already powerful enough.
 Chapter 14 ended with:
 
 ```text
-PRESENT MORPHOLOGY → SOME SOURCE INFORMATION SURVIVES
-BUT TEMPORAL ORDER → LOST
+PRESENT MORPHOLOGY
+→ SOME SOURCE INFORMATION SURVIVES
+
+TEMPORAL ORDER
+→ NOT RECOVERABLE
 ```
 
-We did not repair that by changing the morphology.  
-We added a separate historical mechanism.
+We did not solve that by forcing more temporal information into morphology.
 
-Now:
+We introduced a separate historical mechanism.
+
+Now we have:
 
 ```text
 CURRENT PROCESS STATE
@@ -526,93 +1119,130 @@ CURRENT PROCESS STATE
 EVENT HISTORY
 ```
 
-gives us two complementary capabilities.
-
-- State → Continue  
-- History → Reconstruct
-
-Together: **past → present → alternative futures**
-
-That is something the Chapter 14 crystal did not possess.
-
-```mermaid
-flowchart TD
-    subgraph Capabilities
-    A[Process State<br/>Checkpoint] --> B[Continue exactly]
-    C[Event History<br/>Log] --> D[Reconstruct trajectory]
-    end
-    B --> E[Explore alternative futures<br/>from any checkpoint]
-    D --> F[Verify formation path]
-```
-
----
-
-## Evidence Ledger
-
-### What We Saw
-
-A Digital Crystal checkpoint saved at step 48 resumed to exactly the same final state as uninterrupted execution.  
-Across 30 independent runs: `30 / 30` restored exactly.
-
-The reference and restored runs matched in: final morphology, process-state hash, population trajectory, attachment trajectory, with 0 differing cells.
-
-### What Survived
-
-- A complete Digital Crystal state can be serialized and resumed without altering its future trajectory.  
-- An explicit event history can reconstruct the exact sequence of recorded crystal states (96/96 trajectory hashes matched).  
-- The same exact saved state can be used as a controlled branch point for different future environments.
-
-### What Did Not Survive
-
-- The idea that visible morphology is the complete state was false — removing hidden continuation information changed the future.  
-- History and state are not the same thing — the experiment separates them operationally.
-
-### What We Can Claim
-
-For Digital Crystal v1:
-
-> **State is sufficient information for faithful continuation.**  
-> **History is sufficient information for reconstruction of the formation trajectory.**  
-> **A complete checkpoint can act as an executable counterfactual branch point.**
-
-Together, these establish a recoverable digital past.
-
-### What We Cannot Claim
-
-We cannot claim:
+which provides two complementary capabilities:
 
 ```text
-the crystal understands its history
-the crystal uses its history
-the crystal learns from its history
-the crystal evaluates its past
-the crystal chooses between futures
-the crystal adapts
-the crystal is alive
+STATE
+→ CONTINUE
+
+HISTORY
+→ RECONSTRUCT
 ```
 
-Everything we have built remains passive with respect to the stored past.  
-The record exists. The process does not yet consult it.  
-That distinction will matter later.
+Together:
+
+```text
+PAST
+↓
+PRESENT
+↓
+POSSIBLE FUTURES
+```
+
+But those arrows mean different things.
+
+The past can be reconstructed.
+
+The present can be resumed.
+
+The future can be branched.
+
+That is something Digital Crystal v1 did not possess in Chapter 14.
 
 ---
 
 ## A Past Without Memory
 
-It is tempting to call this memory.  
+It is tempting to call this memory.
+
 I do not think we have earned that yet.
 
-We have certainly built storage.  
-We have built checkpointing, history, replay, restore, branching.
+We have built:
 
-But the crystal itself does not act differently because it remembers something.  
-The history is available. It is not yet part of the crystal's decision mechanism.
+```text
+storage
+checkpointing
+history
+replay
+restore
+branching
+```
+
+But the crystal itself does not inspect the record.
+
+It does not ask:
+
+> What happened before?
+
+It does not change its behavior because of an earlier event stored in the log.
+
+The history exists.
+
+The process does not yet consult it.
 
 So for now:
 
 > **The Digital Crystal has a recoverable past.**
 
+Not memory.
+
+Not learning.
+
+A past.
+
 That is enough.
+
+---
+
+## Evidence Ledger
+
+| Claim                                                             | Status            | Evidence                                              |
+| ----------------------------------------------------------------- | ----------------- | ----------------------------------------------------- |
+| Canonicalized model survives state serialization/reconstruction   | **SUPPORTED**     | one-step and 48-step invariant pass                   |
+| Complete checkpoint resumes exact trajectory                      | **SUPPORTED**     | identical process and morphology hashes               |
+| Exact restore generalizes across tested seeds                     | **SUPPORTED**     | `30/30` exact                                         |
+| Visible morphology alone is sufficient continuation state         | **FAILED**        | 30-cell divergence                                    |
+| RNG state matters for exact continuation                          | **SUPPORTED**     | 28-cell divergence                                    |
+| Signal cursor matters at fixed horizon                            | **SUPPORTED**     | 27-cell divergence                                    |
+| Birth-time metadata affects future occupied-set growth            | **FAILED**        | 0 differing occupied cells                            |
+| Birth times function as historical metadata in v1                 | **SUPPORTED**     | history differs while geometric continuation does not |
+| Event log reconstructs morphology trajectory                      | **SUPPORTED**     | `96/96` trajectory hashes                             |
+| Event log reconstructs historical RNG state                       | **NOT SUPPORTED** | additions alone do not contain RNG history            |
+| State and history are operationally distinct                      | **SUPPORTED**     | one continues; one reconstructs                       |
+| Checkpoint is an executable branch point                          | **SUPPORTED**     | controlled alternative continuations                  |
+| Different forcing produces divergence beyond stochastic variation | **NOT SUPPORTED** | treatment mean `<` stochastic-null mean               |
+| Checkpoint representation is mathematically minimal               | **UNTESTED**      | only sufficiency/ablations tested                     |
+| Stored history is cognitive memory                                | **NOT CLAIMED**   | process does not consult history                      |
+| Crystal learns or adapts from history                             | **NOT CLAIMED**   | no such mechanism                                     |
+| Crystal is alive                                                  | **NOT CLAIMED**   | evidence insufficient                                 |
+
+---
+
+## Bounded Claims
+
+From this chapter we can reasonably claim:
+
+1. **Exact continuation** — A complete Digital Crystal v1 checkpoint can be serialized, restored and continued without altering the stochastic trajectory.
+
+2. **Reproducibility across runs** — Exact restore succeeded in `30/30` independent validation runs.
+
+3. **Morphology is not complete state** — Identical visible structure can produce a different future if relevant hidden continuation variables differ.
+
+4. **RNG state matters** — Stochastic continuation state affects exact future growth.
+
+5. **Environmental position matters** — Signal position affects exact continuation even when the number of future updates is held fixed.
+
+6. **Birth time is history, not growth state in v1** — Changing birth metadata alone does not alter the future occupied-cell trajectory.
+
+7. **History can reconstruct morphology** — The explicit event log reconstructs the recorded formation trajectory exactly across `96/96` states.
+
+8. **State and history are operationally distinct** — The checkpoint supports continuation; the event log supports reconstruction.
+
+9. **A checkpoint is an executable counterfactual branch point** — One saved state can be reused to generate controlled alternative continuations.
+
+10. **Environmental branching did not exceed stochastic divergence** — Under the tested protocol, changing future forcing did not produce more divergence than ordinary stochastic continuation variation.
+
+That is where the evidence stops.
 
 ---
 
@@ -620,20 +1250,39 @@ That is enough.
 
 There is one more consequence.
 
-Our history is composed of events.  
-Until now those events remain inside the experimental record.  
-One crystal grows. One history accumulates.  
-Nothing outside the crystal needs to know.
+Our history is made from events.
 
-But events do not have to stay inside.
+Until now those events stay inside the experimental record.
 
-A process can emit one. Another process can receive it.  
-The event does not need to contain a sentence.  
-It may contain almost nothing: a pulse, a value, a few bits.
+```text
+CRYSTAL
+↓
+EVENT
+↓
+HISTORY
+```
 
-And if several Digital Crystals are allowed to affect one another through those events, something new becomes possible.
+But an event does not have to remain internal.
 
-The output of one crystal can become part of another crystal's environment.
+One process can emit one.
+
+Another process can receive it.
+
+The event does not need to contain language.
+
+It does not need semantics.
+
+It may contain almost nothing.
+
+```text
+one bit
+a pulse
+a number
+```
+
+And if one process can change the conditions experienced by another, then the environment no longer needs to come entirely from outside the system.
+
+Something generated inside one process can become part of another process's world.
 
 ```text
 CRYSTAL A
@@ -643,9 +1292,18 @@ EVENT
 CRYSTAL B
 ```
 
-For the first time, the environment does not have to come entirely from outside our system.  
-The crystals themselves can begin creating it.
+But Chapter 13 taught us to be careful with correlation.
 
-That is where we go next.
+Chapter 14 taught us that state is not history.
 
-**The crystal has a past. Next, we let the crystals hear each other.**
+And this chapter taught us that a branch can diverge without the environment being the dominant cause.
+
+So we should not call the next thing communication merely because we connect two systems.
+
+The next question has to be smaller:
+
+> **Can an event emitted by one Digital Crystal reliably change another?**
+
+The crystal has a past.
+
+**Next, we let the crystals hear each other.**
