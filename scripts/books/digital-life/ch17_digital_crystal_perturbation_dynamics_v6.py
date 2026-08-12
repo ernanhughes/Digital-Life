@@ -21,8 +21,8 @@ from tqdm import tqdm
 
 
 MODEL_VERSION = "digital-crystal-v1-frozen"
-EXPERIMENT_VERSION = "digital-crystal-perturbation-dynamics-v5"
-SCHEMA_VERSION = 5
+EXPERIMENT_VERSION = "digital-crystal-perturbation-dynamics-v6"
+SCHEMA_VERSION = 6
 
 Cell = Tuple[int, int]
 HEX_DIRECTIONS: Sequence[Cell] = (
@@ -386,57 +386,71 @@ The intended bounded output is a characterization of perturbation dynamics.
 
 PROFILES = {
     "quick": {
-        "groups": 24,
+        # Confirmatory sample size chosen before this v6 run.
+        "groups": 48,
         "radius": 64,
         "warmup_steps": 14,
         "horizon": 20,
-        "pulse_step": 4,
         "message_gain": 0.65,
-        "observation_steps": [1, 2, 4, 5, 6, 8, 10, 12, 16, 20],
+
+        # Frozen temporal-arrangement design.
+        "primary_endpoint": 8,
+        "secondary_endpoints": [9, 10, 12],
         "matched_observation_steps": [8, 9, 10, 12],
-        "bootstrap_reps": 500,
-        "permutations": 500,
-        "coupling_validation_groups": 48,
-        "calibration_reps": 200,
-        "calibration_permutations": 500,
-        "mde_strengths": [0.0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 2.0],
-        "mde_target_power": 0.80,
+
+        # Frozen analysis.
+        "primary_alpha": 0.05,
+        "permutations": 2000,
+        "bootstrap_reps": 1000,
+
+        # Independent preflight / marginal-compatibility audit.
+        "preflight_groups": 96,
+        "preflight_permutations": 2000,
+        "equivalence_margin_population_fraction": 0.05,
+        "equivalence_margin_max_radius_fraction": 0.05,
+        "equivalence_margin_attachment_rate_fraction": 0.10,
+        "equivalence_margin_cov_anisotropy": 0.10,
+
         "max_capacity_fraction": 0.85,
     },
     "standard": {
-        "groups": 60,
+        "groups": 96,
         "radius": 64,
         "warmup_steps": 14,
         "horizon": 20,
-        "pulse_step": 4,
         "message_gain": 0.65,
-        "observation_steps": [1, 2, 4, 5, 6, 8, 10, 12, 16, 20],
+        "primary_endpoint": 8,
+        "secondary_endpoints": [9, 10, 12],
         "matched_observation_steps": [8, 9, 10, 12],
-        "bootstrap_reps": 1000,
-        "permutations": 1000,
-        "coupling_validation_groups": 120,
-        "calibration_reps": 300,
-        "calibration_permutations": 1000,
-        "mde_strengths": [0.0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 2.0],
-        "mde_target_power": 0.80,
+        "primary_alpha": 0.05,
+        "permutations": 5000,
+        "bootstrap_reps": 2000,
+        "preflight_groups": 192,
+        "preflight_permutations": 5000,
+        "equivalence_margin_population_fraction": 0.05,
+        "equivalence_margin_max_radius_fraction": 0.05,
+        "equivalence_margin_attachment_rate_fraction": 0.10,
+        "equivalence_margin_cov_anisotropy": 0.10,
         "max_capacity_fraction": 0.85,
     },
     "full": {
-        "groups": 120,
+        "groups": 192,
         "radius": 64,
         "warmup_steps": 14,
         "horizon": 20,
-        "pulse_step": 4,
         "message_gain": 0.65,
-        "observation_steps": [1, 2, 4, 5, 6, 8, 10, 12, 16, 20],
+        "primary_endpoint": 8,
+        "secondary_endpoints": [9, 10, 12],
         "matched_observation_steps": [8, 9, 10, 12],
-        "bootstrap_reps": 2000,
-        "permutations": 2000,
-        "coupling_validation_groups": 240,
-        "calibration_reps": 500,
-        "calibration_permutations": 1000,
-        "mde_strengths": [0.0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 2.0],
-        "mde_target_power": 0.80,
+        "primary_alpha": 0.05,
+        "permutations": 10000,
+        "bootstrap_reps": 4000,
+        "preflight_groups": 384,
+        "preflight_permutations": 10000,
+        "equivalence_margin_population_fraction": 0.05,
+        "equivalence_margin_max_radius_fraction": 0.05,
+        "equivalence_margin_attachment_rate_fraction": 0.10,
+        "equivalence_margin_cov_anisotropy": 0.10,
         "max_capacity_fraction": 0.85,
     },
 }
@@ -1063,6 +1077,77 @@ def top_directional_features(X: np.ndarray, Y: np.ndarray, limit: int = 6) -> li
     ]
 
 
+
+# ---------------------------------------------------------------------------
+# V6 confirmatory preflight helpers
+# ---------------------------------------------------------------------------
+
+def mean_difference_bootstrap_ci(
+    x: Sequence[float],
+    y: Sequence[float],
+    reps: int,
+    seed: int,
+) -> dict:
+    """
+    Bootstrap the difference in means: CRN - sequential.
+
+    This is used as an equivalence-style practical compatibility check.
+    Passing means the entire bootstrap 95% CI lies inside the predeclared
+    practical margin. It is not a formal proof of identical stochastic laws.
+    """
+    xa = np.asarray(x, dtype=float)
+    ya = np.asarray(y, dtype=float)
+    if len(xa) == 0 or len(ya) == 0:
+        return {"n_x": int(len(xa)), "n_y": int(len(ya)), "passed": False}
+
+    observed = float(np.mean(ya) - np.mean(xa))
+    rng = np.random.default_rng(seed)
+    boot = np.empty(reps, dtype=float)
+    for i in range(reps):
+        xb = xa[rng.integers(0, len(xa), size=len(xa))]
+        yb = ya[rng.integers(0, len(ya), size=len(ya))]
+        boot[i] = np.mean(yb) - np.mean(xb)
+
+    return {
+        "n_x": int(len(xa)),
+        "n_y": int(len(ya)),
+        "difference_crn_minus_sequential": observed,
+        "ci95_low": float(np.quantile(boot, 0.025)),
+        "ci95_high": float(np.quantile(boot, 0.975)),
+    }
+
+
+def practical_equivalence_result(
+    x: Sequence[float],
+    y: Sequence[float],
+    margin: float,
+    reps: int,
+    seed: int,
+) -> dict:
+    out = mean_difference_bootstrap_ci(x, y, reps, seed)
+    out["predeclared_margin"] = float(margin)
+    if "ci95_low" not in out:
+        out["passed"] = False
+        return out
+    out["passed"] = bool(
+        out["ci95_low"] >= -float(margin)
+        and out["ci95_high"] <= float(margin)
+    )
+    return out
+
+
+def attachment_rate(state: CrystalState) -> float:
+    if len(state.attachments_by_step) <= 1:
+        return 0.0
+    return float(np.mean(state.attachments_by_step[1:]))
+
+
+def max_radius_fraction(state: CrystalState, radius: int) -> float:
+    if not state.occupied:
+        return 0.0
+    return float(max(hex_distance(c) for c in state.occupied)) / max(1.0, radius)
+
+
 # ---------------------------------------------------------------------------
 # Reporter
 # ---------------------------------------------------------------------------
@@ -1085,7 +1170,7 @@ class Reporter:
         self.sections.append(text)
 
     def full_report(self, metadata: dict) -> Path:
-        path = self.root / "ch17-perturbation-dynamics-v5-full-report.md"
+        path = self.root / "ch17-perturbation-dynamics-v6-full-report.md"
         header = (
             "# Chapter 17 — How Does the Crystal Respond to Perturbation?\n\n"
             "## Run metadata\n\n```json\n"
@@ -1138,409 +1223,283 @@ def summarize_scalar(values, bootstrap_reps, seed):
     )
 
 
-def stage_0_reproducibility_and_marginals(
-    reporter, profile, params, seed, image_dir
+def codeword_pulse_positions(bits: Sequence[int]) -> List[int]:
+    return [i for i, v in enumerate(bits) if int(v) != 0]
+
+
+def validate_matched_codewords(a: Sequence[int], b: Sequence[int]) -> dict:
+    pa = codeword_pulse_positions(a)
+    pb = codeword_pulse_positions(b)
+    if not pa or not pb:
+        raise RuntimeError("Matched codewords must contain at least one pulse.")
+
+    result = {
+        "pulse_count_A": len(pa),
+        "pulse_count_B": len(pb),
+        "first_pulse_A": pa[0],
+        "first_pulse_B": pb[0],
+        "last_pulse_A": pa[-1],
+        "last_pulse_B": pb[-1],
+        "same_pulse_count": len(pa) == len(pb),
+        "same_first_pulse": pa[0] == pb[0],
+        "same_last_pulse": pa[-1] == pb[-1],
+    }
+    if not (
+        result["same_pulse_count"]
+        and result["same_first_pulse"]
+        and result["same_last_pulse"]
+    ):
+        raise RuntimeError(f"Matched-codeword invariant failed: {result}")
+    return result
+
+
+def summarize_scalar(values, bootstrap_reps, seed):
+    return bootstrap_mean_ci(
+        list(map(float, values)), int(bootstrap_reps), int(seed)
+    )
+
+
+def stage_0_confirmatory_preflight(
+    reporter, profile, params, seed
 ):
+    """
+    Independent preflight before the confirmatory A/B sample is generated.
+
+    The canonical sequential-RNG implementation is not modified. The keyed-CRN
+    counterfactual runner must satisfy:
+
+      1. exact reproducibility for both runners;
+      2. no detected gross 24-feature marginal distribution mismatch;
+      3. practical-equivalence-style CI checks on four predeclared observables.
+
+    The preflight uses a seed namespace disjoint from the confirmatory sample.
+    Failure blocks scientific interpretation of Stage 1.
+    """
     radius = profile["radius"]
     warmup = profile["warmup_steps"]
     horizon = profile["horizon"]
-    groups = profile["coupling_validation_groups"]
+    groups = profile["preflight_groups"]
+    perms = profile["preflight_permutations"]
+    reps = profile["bootstrap_reps"]
 
-    env = make_environment(warmup + horizon, seed + 1)
+    # Exact reproducibility checks.
+    env0 = make_environment(warmup + horizon, seed + 1)
 
-    def run_seq():
+    def run_seq_once():
         s = initial_state(seed + 2)
-        adds = []
-        for x in env:
-            s, n = advance_one_step(s, float(x), radius, params)
-            adds.append(n)
-        return s, adds
+        for x in env0:
+            s, _ = advance_one_step(s, float(x), radius, params)
+        return s
 
-    def run_crn():
+    def run_crn_once():
         s = initial_state_crn(seed + 2)
-        adds = []
-        for x in env:
-            s, n = advance_one_step_crn(s, float(x), radius, params)
-            adds.append(n)
-        return s, adds
+        for x in env0:
+            s, _ = advance_one_step_crn(s, float(x), radius, params)
+        return s
 
-    sa, saa = run_seq()
-    sb, sbb = run_seq()
-    ca, caa = run_crn()
-    cb, cbb = run_crn()
+    sa, sb = run_seq_once(), run_seq_once()
+    ca, cb = run_crn_once(), run_crn_once()
 
     sequential_exact = (
         sa.occupied == sb.occupied
         and sa.rng_state == sb.rng_state
-        and saa == sbb
+        and sa.attachments_by_step == sb.attachments_by_step
     )
     crn_exact = (
         ca.occupied == cb.occupied
         and ca.rng_state == cb.rng_state
-        and caa == cbb
+        and ca.attachments_by_step == cb.attachments_by_step
     )
     if not sequential_exact or not crn_exact:
-        raise RuntimeError("Stage 0 reproducibility failed.")
+        raise RuntimeError("V6 preflight reproducibility failed.")
 
     seq_features, crn_features = [], []
-    seq_pop, crn_pop = [], []
+    observables = {
+        "population_fraction": {"seq": [], "crn": []},
+        "max_radius_fraction": {"seq": [], "crn": []},
+        "attachment_rate_fraction": {"seq": [], "crn": []},
+        "cov_anisotropy": {"seq": [], "crn": []},
+    }
 
-    for g in tqdm(range(groups), desc="Stage 0 marginal coupling audit"):
-        gseed = seed + 1_000 + g * 1009
-        genv = make_environment(warmup + horizon, gseed + 1)
+    capacity = float(hex_disk_capacity(radius))
+
+    for g in tqdm(range(groups), desc="Stage 0 v6 confirmatory preflight"):
+        # Separate namespace from Stage 1 confirmatory data.
+        gseed = seed + 1_000_000 + g * 1009
+        env = make_environment(warmup + horizon, gseed + 1)
 
         ss = initial_state(gseed + 2)
         cs = initial_state_crn(gseed + 2)
-        for x in genv:
+
+        for x in env:
             ss, _ = advance_one_step(ss, float(x), radius, params)
             cs, _ = advance_one_step_crn(cs, float(x), radius, params)
 
-        seq_features.append(morphology_features(ss, radius))
-        crn_features.append(morphology_features(cs, radius))
-        seq_pop.append(len(ss.occupied))
-        crn_pop.append(len(cs.occupied))
+        sf = morphology_features(ss, radius)
+        cf = morphology_features(cs, radius)
+        seq_features.append(sf)
+        crn_features.append(cf)
+
+        observables["population_fraction"]["seq"].append(len(ss.occupied) / capacity)
+        observables["population_fraction"]["crn"].append(len(cs.occupied) / capacity)
+
+        observables["max_radius_fraction"]["seq"].append(
+            max_radius_fraction(ss, radius)
+        )
+        observables["max_radius_fraction"]["crn"].append(
+            max_radius_fraction(cs, radius)
+        )
+
+        # Normalize attachment rate by final frontier-scale proxy:
+        # population count, keeping the quantity bounded and comparable.
+        observables["attachment_rate_fraction"]["seq"].append(
+            attachment_rate(ss) / max(1.0, len(ss.occupied))
+        )
+        observables["attachment_rate_fraction"]["crn"].append(
+            attachment_rate(cs) / max(1.0, len(cs.occupied))
+        )
+
+        observables["cov_anisotropy"]["seq"].append(float(sf[7]))
+        observables["cov_anisotropy"]["crn"].append(float(cf[7]))
 
     X = np.asarray(seq_features, dtype=float)
     Y = np.asarray(crn_features, dtype=float)
-    observed = energy_distance_statistic(X, Y)
+    observed_energy = energy_distance_statistic(X, Y)
 
     pooled = np.vstack([X, Y])
     n = len(X)
-    rng = np.random.default_rng(seed + 9_000)
-    null = np.empty(profile["permutations"])
-    for i in range(profile["permutations"]):
+    rng = np.random.default_rng(seed + 1_900_000)
+    null = np.empty(perms, dtype=float)
+    for i in range(perms):
         order = rng.permutation(len(pooled))
         null[i] = energy_distance_statistic(
             pooled[order[:n]], pooled[order[n:2*n]]
         )
 
-    p = (1 + float(np.sum(null >= observed))) / (len(null) + 1)
+    omnibus_p = (1 + float(np.sum(null >= observed_energy))) / (perms + 1)
+
+    margins = {
+        "population_fraction": profile["equivalence_margin_population_fraction"],
+        "max_radius_fraction": profile["equivalence_margin_max_radius_fraction"],
+        "attachment_rate_fraction": profile["equivalence_margin_attachment_rate_fraction"],
+        "cov_anisotropy": profile["equivalence_margin_cov_anisotropy"],
+    }
+
+    eq = {}
+    for i, name in enumerate(margins):
+        eq[name] = practical_equivalence_result(
+            observables[name]["seq"],
+            observables[name]["crn"],
+            margins[name],
+            reps,
+            seed + 1_910_000 + i * 100,
+        )
+
+    all_equivalence_passed = all(v["passed"] for v in eq.values())
+
+    # Omnibus is treated as a gross discrepancy screen.
+    preflight_passed = bool(
+        omnibus_p >= 0.05
+        and all_equivalence_passed
+    )
 
     result = {
+        "role": "CONFIRMATORY PREFLIGHT",
         "sequential_exact": sequential_exact,
         "crn_exact": crn_exact,
-        "canonical_runner": "sequential RNG over sorted(frontier)",
-        "counterfactual_runner": "cell-keyed CRN U(seed, step, q, r)",
         "canonical_substrate_modified": False,
-        "validation_groups_per_runner": groups,
-        "marginal_feature_test": {
-            "energy_distance": float(observed),
-            "p_value": float(p),
+        "preflight_groups_per_runner": groups,
+        "omnibus_marginal_feature_test": {
+            "energy_distance": float(observed_energy),
+            "p_value": float(omnibus_p),
             "null_q95": float(np.quantile(null, 0.95)),
-            "interpretation": (
-                "Failure to reject is compatibility evidence only; it does not "
-                "prove equality of the two stochastic laws."
-            ),
+            "gross_mismatch_screen_passed": bool(omnibus_p >= 0.05),
         },
-        "population": {
-            "sequential": summarize_scalar(
-                seq_pop, profile["bootstrap_reps"], seed + 9_100
-            ),
-            "crn": summarize_scalar(
-                crn_pop, profile["bootstrap_reps"], seed + 9_200
-            ),
-        },
-    }
-
-    reporter.json("stage-00-coupling-audit.json", result)
-    reporter.stage(
-        "stage-00-coupling-audit.md",
-        "Stage 0 — Canonical Sequential RNG vs Counterfactual CRN",
-        f"```json\n{json.dumps(result, indent=2)}\n```",
-    )
-    return result
-
-
-def stage_1_coupling_impulse_audit(
-    reporter, profile, params, seed, image_dir
-):
-    groups = profile["groups"]
-    radius = profile["radius"]
-    warmup = profile["warmup_steps"]
-    horizon = profile["horizon"]
-    pulse_idx = profile["pulse_step"]
-    observations = sorted(set(profile["observation_steps"] + [pulse_idx + 1]))
-    zero_bits = pulse_train(horizon, [])
-    pulse_bits = pulse_train(horizon, [pulse_idx])
-
-    fields = ("symdiff", "feature_distance", "abs_population_difference")
-    kinds = (
-        "sequential_causal",
-        "crn_causal",
-        "independent_reseed_reference",
-    )
-    data = {
-        kind: {t: {f: [] for f in fields} for t in observations}
-        for kind in kinds
-    }
-
-    def record(target, t, a, b):
-        d = state_difference(a, b, radius)
-        target[t]["symdiff"].append(d["normalized_symmetric_difference"])
-        target[t]["feature_distance"].append(d["feature_distance"])
-        target[t]["abs_population_difference"].append(
-            d["absolute_population_difference"]
-        )
-
-    for g in tqdm(range(groups), desc="Stage 1 coupling impulse audit"):
-        gseed = seed + 10_000 + g * 1013
-        env = make_environment(warmup + horizon, gseed + 1)
-        future = env[warmup:]
-
-        seq_cp = warm_checkpoint(env, warmup, gseed + 2, radius, params)
-        crn_cp = warm_checkpoint_crn(env, warmup, gseed + 2, radius, params)
-
-        seq0 = advance_with_pulses(
-            seq_cp, future, zero_bits, profile["message_gain"],
-            radius, params, observations, profile["max_capacity_fraction"],
-        )
-        seq1 = advance_with_pulses(
-            seq_cp, future, pulse_bits, profile["message_gain"],
-            radius, params, observations, profile["max_capacity_fraction"],
-        )
-        crn0 = advance_with_pulses_crn(
-            crn_cp, future, zero_bits, profile["message_gain"],
-            radius, params, observations, profile["max_capacity_fraction"],
-        )
-        crn1 = advance_with_pulses_crn(
-            crn_cp, future, pulse_bits, profile["message_gain"],
-            radius, params, observations, profile["max_capacity_fraction"],
-        )
-
-        r1cp = reseed_state_rng(seq_cp, gseed + 901)
-        r2cp = reseed_state_rng(seq_cp, gseed + 902)
-        r1 = advance_with_pulses(
-            r1cp, future, zero_bits, profile["message_gain"],
-            radius, params, observations, profile["max_capacity_fraction"],
-        )
-        r2 = advance_with_pulses(
-            r2cp, future, zero_bits, profile["message_gain"],
-            radius, params, observations, profile["max_capacity_fraction"],
-        )
-
-        for t in observations:
-            record(data["sequential_causal"], t, seq1[t], seq0[t])
-            record(data["crn_causal"], t, crn1[t], crn0[t])
-            record(data["independent_reseed_reference"], t, r1[t], r2[t])
-
-    summary = {}
-    for kind_i, kind in enumerate(kinds):
-        summary[kind] = {}
-        for t in observations:
-            summary[kind][str(t)] = {}
-            for metric_i, metric in enumerate(fields):
-                summary[kind][str(t)][metric] = summarize_scalar(
-                    data[kind][t][metric],
-                    profile["bootstrap_reps"],
-                    seed + 100_000 + kind_i * 10_000 + t * 101 + metric_i,
-                )
-
-    ratios = {}
-    for t in observations:
-        ref = summary["independent_reseed_reference"][str(t)]["symdiff"]["mean"]
-        seqv = summary["sequential_causal"][str(t)]["symdiff"]["mean"]
-        crnv = summary["crn_causal"][str(t)]["symdiff"]["mean"]
-        ratios[str(t)] = {
-            "sequential_to_independent": float(seqv / ref) if ref > 1e-12 else None,
-            "crn_to_independent": float(crnv / ref) if ref > 1e-12 else None,
-        }
-
-    result = {
-        "pulse_zero_index": pulse_idx,
-        "pulse_elapsed_step": pulse_idx + 1,
-        "observation_steps": observations,
-        "summary": summary,
-        "ratios": ratios,
+        "practical_equivalence_checks": eq,
+        "all_equivalence_checks_passed": all_equivalence_passed,
+        "preflight_passed": preflight_passed,
         "interpretation": (
-            "Pathwise divergence is compared under two declared couplings. A "
-            "difference between them is evidence that pathwise counterfactual "
-            "distance is coupling-dependent, not a coupling-invariant property."
+            "Passing is practical compatibility evidence for using the keyed-CRN "
+            "runner as the declared counterfactual coupling. It is not proof of "
+            "identical stochastic laws."
         ),
     }
 
-    reporter.json("stage-01-randomness-coupling-audit.json", result)
+    reporter.json("stage-00-confirmatory-preflight.json", result)
     reporter.stage(
-        "stage-01-randomness-coupling-audit.md",
-        "Stage 1 — Randomness Coupling Audit",
-        f"```json\n{json.dumps(result, indent=2)}\n```",
-    )
-
-    fig, ax = plt.subplots(figsize=(9, 5))
-    xs = observations
-    for key, label in (
-        ("sequential_causal", "pulse: sequential RNG"),
-        ("crn_causal", "pulse: keyed CRN"),
-        ("independent_reseed_reference", "independent reseeds"),
-    ):
-        ys = [summary[key][str(t)]["symdiff"]["mean"] for t in xs]
-        ax.plot(xs, ys, marker="o", label=label)
-    ax.axvline(pulse_idx + 1, linestyle="--", linewidth=1)
-    ax.set_xlabel("Elapsed step")
-    ax.set_ylabel("Mean normalized morphology symmetric difference")
-    ax.set_title("Pathwise divergence under alternative randomness couplings")
-    ax.legend()
-    fig.tight_layout()
-    fig.savefig(image_dir / "ch17-v5-01-randomness-coupling-audit.png", dpi=160)
-    plt.close(fig)
-
-    return result
-
-
-def stage_2_crn_superposition_with_floor(
-    reporter, profile, params, seed, image_dir
-):
-    groups = profile["groups"]
-    radius = profile["radius"]
-    warmup = profile["warmup_steps"]
-    horizon = profile["horizon"]
-    observations = profile["matched_observation_steps"]
-
-    patterns = {
-        "clustered": [0, 1, 2, 7],
-        "dispersed": [0, 4, 5, 7],
-    }
-    all_positions = sorted(set(sum(patterns.values(), [])))
-    baseline_bits = pulse_train(horizon, [])
-    single_bits = {p: pulse_train(horizon, [p]) for p in all_positions}
-    train_bits = {
-        name: pulse_train(horizon, positions)
-        for name, positions in patterns.items()
-    }
-
-    baseline_features = {t: [] for t in observations}
-    single_delta = {t: {p: [] for p in all_positions} for t in observations}
-    train_delta = {t: {name: [] for name in patterns} for t in observations}
-
-    for g in tqdm(range(groups), desc="Stage 2 CRN superposition"):
-        gseed = seed + 20_000 + g * 1019
-        env = make_environment(warmup + horizon, gseed + 1)
-        future = env[warmup:]
-        cp = warm_checkpoint_crn(env, warmup, gseed + 2, radius, params)
-
-        base = advance_with_pulses_crn(
-            cp, future, baseline_bits, profile["message_gain"],
-            radius, params, observations, profile["max_capacity_fraction"],
-        )
-        singles = {
-            p: advance_with_pulses_crn(
-                cp, future, bits_, profile["message_gain"],
-                radius, params, observations, profile["max_capacity_fraction"],
-            )
-            for p, bits_ in single_bits.items()
-        }
-        trains = {
-            name: advance_with_pulses_crn(
-                cp, future, bits_, profile["message_gain"],
-                radius, params, observations, profile["max_capacity_fraction"],
-            )
-            for name, bits_ in train_bits.items()
-        }
-
-        for t in observations:
-            f0 = morphology_features(base[t], radius)
-            baseline_features[t].append(f0)
-            for p in all_positions:
-                single_delta[t][p].append(
-                    morphology_features(singles[p][t], radius) - f0
-                )
-            for name in patterns:
-                train_delta[t][name].append(
-                    morphology_features(trains[name][t], radius) - f0
-                )
-
-    rng = np.random.default_rng(seed + 220_000)
-    out = {}
-
-    for t in observations:
-        base_arr = np.asarray(baseline_features[t], dtype=float)
-        floor_norms = []
-        floor_reps = max(100, min(500, profile["bootstrap_reps"]))
-        for _ in range(floor_reps):
-            order = rng.permutation(len(base_arr))
-            half = len(order) // 2
-            if half < 2:
-                continue
-            A = base_arr[order[:half]]
-            B = base_arr[order[half:2*half]]
-            floor_norms.append(
-                float(np.linalg.norm(np.mean(A, axis=0) - np.mean(B, axis=0)))
-            )
-
-        out[str(t)] = {
-            "zero_response_population_mean_noise_floor": summarize_scalar(
-                floor_norms,
-                profile["bootstrap_reps"],
-                seed + 221_000 + t,
-            )
-        }
-
-        single_arrays = {
-            p: np.asarray(single_delta[t][p], dtype=float)
-            for p in all_positions
-        }
-        for name, positions in patterns.items():
-            actual = np.asarray(train_delta[t][name], dtype=float)
-            out[str(t)][name] = bootstrap_superposition_summary(
-                single_arrays,
-                actual,
-                positions,
-                profile["bootstrap_reps"],
-                seed + 222_000 + t * 31
-                + (0 if name == "clustered" else 1),
-            )
-
-    result = {
-        "coupling": "cell-keyed CRN",
-        "patterns_zero_indexed": patterns,
-        "summary": out,
-        "interpretation": (
-            "Superposition residuals are compared with a finite-sample baseline "
-            "mean-difference floor before being described as non-additivity."
-        ),
-    }
-    reporter.json("stage-02-crn-superposition-with-floor.json", result)
-    reporter.stage(
-        "stage-02-crn-superposition-with-floor.md",
-        "Stage 2 — CRN Superposition With Mean-Estimation Floor",
+        "stage-00-confirmatory-preflight.md",
+        "Stage 0 — Confirmatory CRN Preflight",
         f"```json\n{json.dumps(result, indent=2)}\n```",
     )
     return result
-
-
-def ridge_stat_subset(X: np.ndarray, Y: np.ndarray, indices: Sequence[int]) -> float:
-    idx = np.asarray(indices, dtype=int)
-    return stat_paired_ridge_hotelling(X[:, idx], Y[:, idx])
 
 
 def paired_ridge_subset_test(
-    X, Y, indices, permutations, seed
-):
-    observed = ridge_stat_subset(X, Y, indices)
+    X: np.ndarray,
+    Y: np.ndarray,
+    indices: Sequence[int],
+    permutations: int,
+    seed: int,
+) -> dict:
+    idx = np.asarray(indices, dtype=int)
+
+    def stat(A, B):
+        return stat_paired_ridge_hotelling(A[:, idx], B[:, idx])
+
+    observed = stat(X, Y)
     rng = np.random.default_rng(seed)
     null = np.empty(permutations, dtype=float)
+
     for i in range(permutations):
         swap = rng.integers(0, 2, size=len(X)).astype(bool)
         Xp = X.copy()
         Yp = Y.copy()
         Xp[swap], Yp[swap] = Y[swap], X[swap]
-        null[i] = ridge_stat_subset(Xp, Yp, indices)
+        null[i] = stat(Xp, Yp)
+
+    p = (1 + float(np.sum(null >= observed))) / (permutations + 1)
+
     return {
         "statistic": float(observed),
-        "p_value": float((1 + np.sum(null >= observed)) / (len(null) + 1)),
-        "null_q95": float(np.quantile(null, 0.95)),
+        "p_value": float(p),
         "permutations": int(permutations),
+        "null_mean": float(np.mean(null)),
+        "null_q95": float(np.quantile(null, 0.95)),
+        "null_q99": float(np.quantile(null, 0.99)),
     }
 
 
-def stage_3_short_matched_arrangement(
-    reporter, profile, params, seed, image_dir
+def stage_1_confirmatory_matched_arrangement(
+    reporter, profile, params, seed
 ):
+    """
+    Frozen confirmatory experiment.
+
+    Counterfactual coupling:
+        cell-keyed CRN only
+
+    Codewords:
+        A = 11100001
+        B = 10001101
+
+    Primary endpoint:
+        elapsed step 8
+
+    Primary instrument:
+        paired ridge Hotelling on the frozen mechanism-derived angular9 subspace
+
+    Secondary instrument:
+        paired ridge Hotelling on all 24 morphology features
+
+    Secondary endpoints:
+        9, 10, 12 — descriptive / secondary only
+
+    No endpoint, feature-set, or statistic selection is allowed after seeing
+    this sample.
+    """
     invariants = validate_matched_codewords(
         MATCHED_CODEWORD_A, MATCHED_CODEWORD_B
     )
-    pa = codeword_pulse_positions(MATCHED_CODEWORD_A)
-    pb = codeword_pulse_positions(MATCHED_CODEWORD_B)
-    last_pulse_elapsed = pa[-1] + 1
 
     groups = profile["groups"]
     radius = profile["radius"]
@@ -1556,282 +1515,178 @@ def stage_3_short_matched_arrangement(
     )
 
     features = {
-        coupling: {t: {"A": [], "B": []} for t in observations}
-        for coupling in ("sequential", "crn")
+        t: {"A": [], "B": []}
+        for t in observations
     }
-    symdiff = {
-        coupling: {t: [] for t in observations}
-        for coupling in ("sequential", "crn")
-    }
+    symdiff = {t: [] for t in observations}
 
-    for g in tqdm(range(groups), desc="Stage 3 short matched timing"):
-        gseed = seed + 30_000 + g * 1021
+    for g in tqdm(range(groups), desc="Stage 1 v6 confirmatory matched timing"):
+        # Disjoint namespace from Stage 0 preflight and all v5 pilot seeds.
+        gseed = seed + 2_000_000 + g * 1019
         env = make_environment(warmup + horizon, gseed + 1)
         future = env[warmup:]
+        cp = warm_checkpoint_crn(env, warmup, gseed + 2, radius, params)
 
-        seq_cp = warm_checkpoint(env, warmup, gseed + 2, radius, params)
-        crn_cp = warm_checkpoint_crn(env, warmup, gseed + 2, radius, params)
-
-        seq_a = advance_with_pulses(
-            seq_cp, future, bits_a, profile["message_gain"],
+        A = advance_with_pulses_crn(
+            cp, future, bits_a, profile["message_gain"],
             radius, params, observations, profile["max_capacity_fraction"],
         )
-        seq_b = advance_with_pulses(
-            seq_cp, future, bits_b, profile["message_gain"],
-            radius, params, observations, profile["max_capacity_fraction"],
-        )
-        crn_a = advance_with_pulses_crn(
-            crn_cp, future, bits_a, profile["message_gain"],
-            radius, params, observations, profile["max_capacity_fraction"],
-        )
-        crn_b = advance_with_pulses_crn(
-            crn_cp, future, bits_b, profile["message_gain"],
+        B = advance_with_pulses_crn(
+            cp, future, bits_b, profile["message_gain"],
             radius, params, observations, profile["max_capacity_fraction"],
         )
 
         for t in observations:
-            for coupling, aa, bb in (
-                ("sequential", seq_a[t], seq_b[t]),
-                ("crn", crn_a[t], crn_b[t]),
-            ):
-                features[coupling][t]["A"].append(
-                    morphology_features(aa, radius)
+            features[t]["A"].append(morphology_features(A[t], radius))
+            features[t]["B"].append(morphology_features(B[t], radius))
+            symdiff[t].append(
+                normalized_symmetric_difference(
+                    A[t].occupied, B[t].occupied
                 )
-                features[coupling][t]["B"].append(
-                    morphology_features(bb, radius)
-                )
-                d = state_difference(aa, bb, radius)
-                symdiff[coupling][t].append(
-                    d["normalized_symmetric_difference"]
-                )
+            )
 
     results = {}
-    for coupling_i, coupling in enumerate(("sequential", "crn")):
-        results[coupling] = {}
-        for t in observations:
-            X = np.asarray(features[coupling][t]["A"], dtype=float)
-            Y = np.asarray(features[coupling][t]["B"], dtype=float)
-            results[coupling][str(t)] = {
-                "steps_since_last_pulse": int(t - last_pulse_elapsed),
-                "symdiff": summarize_scalar(
-                    symdiff[coupling][t],
-                    profile["bootstrap_reps"],
-                    seed + 330_000 + coupling_i * 10_000 + t,
-                ),
-                "ridge_all24": paired_ridge_subset_test(
-                    X, Y, range(len(FEATURE_NAMES)),
-                    profile["permutations"],
-                    seed + 331_000 + coupling_i * 10_000 + t,
-                ),
-                "ridge_angular9": paired_ridge_subset_test(
-                    X, Y, ANGULAR_FEATURE_INDICES,
-                    profile["permutations"],
-                    seed + 332_000 + coupling_i * 10_000 + t,
-                ),
-                "top_directional_features": top_directional_features(X, Y),
-            }
+    for t in observations:
+        X = np.asarray(features[t]["A"], dtype=float)
+        Y = np.asarray(features[t]["B"], dtype=float)
 
-    result = {
-        "codeword_A": "".join(map(str, MATCHED_CODEWORD_A)),
-        "codeword_B": "".join(map(str, MATCHED_CODEWORD_B)),
-        "pulse_positions_A_zero_indexed": pa,
-        "pulse_positions_B_zero_indexed": pb,
-        "codeword_invariants": invariants,
-        "last_pulse_elapsed_step": last_pulse_elapsed,
-        "observation_steps": observations,
-        "angular_subspace": {
-            "basis": "mechanism-derived before v5 data",
-            "feature_names": list(ANGULAR_FEATURE_NAMES),
-            "feature_indices": list(ANGULAR_FEATURE_INDICES),
-        },
-        "results": results,
-        "scientific_status": "EXPLORATORY ONLY",
-    }
-    reporter.json("stage-03-short-matched-arrangement.json", result)
-    reporter.stage(
-        "stage-03-short-matched-arrangement.md",
-        "Stage 3 — Short Matched Timing Under Sequential RNG and CRN",
-        f"```json\n{json.dumps(result, indent=2)}\n```",
-    )
-    return result, features
-
-
-def centered_symmetrized_noise(X: np.ndarray, Y: np.ndarray) -> np.ndarray:
-    D = np.asarray(X, dtype=float) - np.asarray(Y, dtype=float)
-    D = D - np.mean(D, axis=0, keepdims=True)
-    return np.vstack([D, -D])
-
-
-def synthetic_paired_sample(
-    base_pool, noise_pool, indices, shift_norm, rng
-):
-    n = len(base_pool) // 2
-    base = base_pool[rng.integers(0, len(base_pool), size=n)].copy()
-    noise = noise_pool[rng.integers(0, len(noise_pool), size=n)].copy()
-
-    idx = np.asarray(indices, dtype=int)
-    direction = np.ones(len(idx), dtype=float)
-    direction /= np.linalg.norm(direction)
-
-    sd = np.std(base[:, idx], axis=0)
-    sd = np.where(sd < 1e-12, 1.0, sd)
-    shift = np.zeros_like(base)
-    shift[:, idx] = float(shift_norm) * direction[None, :] * sd[None, :]
-
-    A = base + 0.5 * noise - 0.5 * shift
-    B = base - 0.5 * noise + 0.5 * shift
-    return A, B
-
-
-def stage_4_and_5_sham_mde(
-    reporter, profile, matched_features, seed
-):
-    endpoint = min(profile["matched_observation_steps"])
-    X = np.asarray(matched_features["crn"][endpoint]["A"], dtype=float)
-    Y = np.asarray(matched_features["crn"][endpoint]["B"], dtype=float)
-
-    noise_pool = centered_symmetrized_noise(X, Y)
-    base_pool = np.vstack([X, Y])
-
-    instruments = {
-        "ridge_all24": tuple(range(len(FEATURE_NAMES))),
-        "ridge_angular9": tuple(ANGULAR_FEATURE_INDICES),
-    }
-    reps = int(profile["calibration_reps"])
-    perms = int(profile["calibration_permutations"])
-    strengths = list(map(float, profile["mde_strengths"]))
-    target = float(profile["mde_target_power"])
-    rng = np.random.default_rng(seed + 400_000)
-
-    outputs = {}
-    for name, indices in instruments.items():
-        rows = []
-        for strength in strengths:
-            detections = 0
-            pvals = []
-            for rep in tqdm(
-                range(reps),
-                desc=f"Stage 4/5 {name} shift={strength:g}",
-                leave=False,
-            ):
-                A, B = synthetic_paired_sample(
-                    base_pool, noise_pool, indices, strength, rng
-                )
-                test = paired_ridge_subset_test(
-                    A, B, indices, perms,
-                    seed + 410_000 + rep * 101
-                    + int(strength * 1000)
-                    + (0 if name == "ridge_all24" else 20_000),
-                )
-                detections += int(test["p_value"] < 0.05)
-                pvals.append(test["p_value"])
-
-            rows.append({
-                "shift_norm": strength,
-                "detection_rate_alpha_0_05": float(detections / reps),
-                "mean_p_value": float(np.mean(pvals)),
-            })
-
-        zero = next(r for r in rows if r["shift_norm"] == 0.0)
-        mde80 = next(
-            (
-                r["shift_norm"]
-                for r in rows
-                if r["shift_norm"] > 0
-                and r["detection_rate_alpha_0_05"] >= target
+        results[str(t)] = {
+            "steps_since_last_pulse": int(t - 8),
+            "symdiff": summarize_scalar(
+                symdiff[t],
+                profile["bootstrap_reps"],
+                seed + 2_300_000 + t,
             ),
-            None,
-        )
-
-        outputs[name] = {
-            "feature_names": [FEATURE_NAMES[i] for i in indices],
-            "null_fpr": zero["detection_rate_alpha_0_05"],
-            "target_power": target,
-            "mde80_grid_estimate": mde80,
-            "power_curve": rows,
+            "primary_angular9": paired_ridge_subset_test(
+                X, Y,
+                ANGULAR_FEATURE_INDICES,
+                profile["permutations"],
+                seed + 2_310_000 + t,
+            ),
+            "secondary_all24": paired_ridge_subset_test(
+                X, Y,
+                range(len(FEATURE_NAMES)),
+                profile["permutations"],
+                seed + 2_320_000 + t,
+            ),
+            "top_directional_features_descriptive_only": (
+                top_directional_features(X, Y)
+            ),
         }
 
+    primary_t = str(profile["primary_endpoint"])
+    primary = results[primary_t]["primary_angular9"]
+    alpha = float(profile["primary_alpha"])
+
+    primary_positive = bool(primary["p_value"] < alpha)
+
     result = {
-        "endpoint": endpoint,
-        "calibration_role": "EXPLORATORY INSTRUMENT DEVELOPMENT",
-        "noise_model": (
-            "centered + sign-symmetrized CRN matched-pair deltas from this v5 "
-            "pilot; therefore this same pilot is not confirmatory evidence"
-        ),
-        "calibration_reps": reps,
-        "permutations_per_test": perms,
-        "instruments": outputs,
-        "interpretation": (
-            "MDE grid values describe instrument resolution for the declared "
-            "synthetic direction. They are not upper bounds on the real effect."
+        "role": "CONFIRMATORY MATCHED TEMPORAL-ARRANGEMENT TEST",
+        "groups": groups,
+        "coupling": "cell-keyed CRN",
+        "codeword_A": "".join(map(str, MATCHED_CODEWORD_A)),
+        "codeword_B": "".join(map(str, MATCHED_CODEWORD_B)),
+        "codeword_validation": invariants,
+        "primary_endpoint": int(profile["primary_endpoint"]),
+        "secondary_endpoints": list(profile["secondary_endpoints"]),
+        "primary_alpha": alpha,
+        "primary_instrument": {
+            "name": "paired_ridge_hotelling_angular9",
+            "feature_names": list(ANGULAR_FEATURE_NAMES),
+            "feature_indices": list(ANGULAR_FEATURE_INDICES),
+            "frozen_before_run": True,
+        },
+        "secondary_instrument": {
+            "name": "paired_ridge_hotelling_all24",
+            "frozen_before_run": True,
+        },
+        "results": results,
+        "primary_positive": primary_positive,
+        "decision_rule": (
+            "Primary angular9 paired-ridge test at t=8 only. "
+            "p < 0.05 => PROVISIONAL matched-arrangement signature. "
+            "p >= 0.05 => FAILED under this frozen calibrated protocol. "
+            "Secondary endpoints and all24 may not rescue or overturn the primary."
         ),
     }
-    reporter.json("stage-04-05-sham-and-mde.json", result)
+
+    reporter.json("stage-01-confirmatory-matched-arrangement.json", result)
     reporter.stage(
-        "stage-04-05-sham-and-mde.md",
-        "Stages 4–5 — End-to-End Paired Sham and MDE Calibration",
+        "stage-01-confirmatory-matched-arrangement.md",
+        "Stage 1 — Confirmatory Matched Temporal Arrangement",
         f"```json\n{json.dumps(result, indent=2)}\n```",
     )
     return result
 
 
-def stage_6_verdict(
-    reporter, stage0, stage1, stage2, stage3, calibration
+def stage_2_confirmatory_verdict(
+    reporter,
+    preflight,
+    confirmatory,
 ):
-    marginal_p = stage0["marginal_feature_test"]["p_value"]
-    crn_compatible = marginal_p >= 0.05
-    first_obs = str(min(stage3["observation_steps"]))
+    if not preflight["preflight_passed"]:
+        status = "UNTESTED"
+        statement = (
+            "The CRN practical-compatibility preflight failed, so the "
+            "confirmatory matched-arrangement result is not scientifically "
+            "interpreted."
+        )
+    elif confirmatory["primary_positive"]:
+        status = "PROVISIONAL"
+        statement = (
+            "Under the frozen CRN coupling, short matched codewords, t=8 "
+            "endpoint, angular9 feature set, and paired ridge statistic, the "
+            "independent v6 sample detected a systematic temporal-arrangement "
+            "signature. This supports a provisional receiver-history claim, "
+            "not memory, semantics, or information storage."
+        )
+    else:
+        status = "FAILED"
+        statement = (
+            "Under the frozen CRN coupling, short matched codewords, t=8 "
+            "endpoint, angular9 feature set, and paired ridge statistic, the "
+            "independent v6 sample did not establish a systematic temporal-"
+            "arrangement signature. Secondary endpoints or all24 results do "
+            "not alter this primary decision."
+        )
+
+    primary = confirmatory["results"][
+        str(confirmatory["primary_endpoint"])
+    ]["primary_angular9"]
 
     result = {
-        "experiment_role": "EXPLORATORY / RANDOMNESS-COUPLING AUDIT",
-        "canonical_substrate_modified": False,
-        "crn_is_separate_counterfactual_runner": True,
-        "marginal_compatibility_not_rejected_at_0_05": bool(crn_compatible),
-        "marginal_compatibility_p_value": float(marginal_p),
-        "short_codeword_first_observation": int(first_obs),
-        "short_codeword_sequential_symdiff_mean": float(
-            stage3["results"]["sequential"][first_obs]["symdiff"]["mean"]
+        "experiment_role": "CONFIRMATORY",
+        "preflight_passed": bool(preflight["preflight_passed"]),
+        "matched_arrangement_status": status,
+        "primary_endpoint": confirmatory["primary_endpoint"],
+        "primary_instrument": "paired_ridge_hotelling_angular9",
+        "primary_p_value": primary["p_value"],
+        "primary_alpha": confirmatory["primary_alpha"],
+        "bounded_statement": statement,
+        "secondary_results_cannot_change_primary_decision": True,
+        "chapter18_status": (
+            "ELIGIBLE_FOR_NEXT_DESIGN"
+            if status == "PROVISIONAL"
+            else "DEFERRED"
         ),
-        "short_codeword_crn_symdiff_mean": float(
-            stage3["results"]["crn"][first_obs]["symdiff"]["mean"]
-        ),
-        "matched_arrangement_status": "UNTESTED",
-        "chapter18_status": "DEFERRED",
-        "bounded_statement": (
-            "V5 audits how randomness coupling changes pathwise perturbation "
-            "response. The short matched-arrangement experiment remains an "
-            "exploratory instrument-development pilot, not a memory or "
-            "information-survival claim."
-        ),
-        "decision_logic": {
-            "if_crn_marginals_disagree": (
-                "Do not use CRN as a variance-reduction coupling until the "
-                "marginal discrepancy is understood."
-            ),
-            "if_crn_marginals_compatible_and_coherence_improves": (
-                "Freeze the CRN runner, short codewords, observation schedule "
-                "and chosen ridge instrument; choose N from MDE/power curves "
-                "before a new-seed confirmatory run."
-            ),
-            "if_crn_does_not_improve_coherence": (
-                "Treat rapid decorrelation as robust to coupling choice and "
-                "reconsider temporal-arrangement recoverability."
-            ),
-        },
         "nonclaims": [
             "memory",
             "information storage",
-            "sender-specific signalling",
             "semantics",
-            "Shannon channel capacity",
+            "sender identity",
+            "coordination",
+            "learning",
+            "agency",
+            "individuality",
             "life",
+            "Shannon channel capacity",
         ],
     }
 
-    reporter.json("stage-06-v5-verdict.json", result)
+    reporter.json("stage-02-confirmatory-verdict.json", result)
     reporter.stage(
-        "stage-06-v5-verdict.md",
-        "Stage 6 — Bounded V5 Verdict",
+        "stage-02-confirmatory-verdict.md",
+        "Stage 2 — Bounded V6 Confirmatory Verdict",
         f"```json\n{json.dumps(result, indent=2)}\n```",
     )
     return result
@@ -1846,23 +1701,21 @@ def stage_6_verdict(
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--profile", choices=sorted(PROFILES), default="quick")
-    parser.add_argument("--seed", type=int, default=20260812)
+
+    # New seed is deliberately different from the v5 exploratory pilot.
+    parser.add_argument("--seed", type=int, default=20260813)
+
     parser.add_argument(
         "--report-dir",
         type=Path,
-        default=Path("research/digital-life/ch17-perturbation-dynamics-v5"),
-    )
-    parser.add_argument(
-        "--image-dir",
-        type=Path,
-        default=Path("static/images/books/digital-life"),
+        default=Path("research/digital-life/ch17-perturbation-dynamics-v6"),
     )
     args = parser.parse_args()
 
     profile = dict(PROFILES[args.profile])
     params = CrystalParams()
+
     args.report_dir.mkdir(parents=True, exist_ok=True)
-    args.image_dir.mkdir(parents=True, exist_ok=True)
     reporter = Reporter(args.report_dir)
 
     codeword_check = validate_matched_codewords(
@@ -1875,79 +1728,77 @@ def main():
         "schema_version": SCHEMA_VERSION,
         "chapter": 17,
         "chapter_title": "How Does the Crystal Respond to Perturbation?",
-        "version_5_focus": (
-            "Randomness-coupling audit: preserve the canonical sequential-RNG "
-            "substrate, add a separate cell-keyed CRN counterfactual runner, "
-            "audit marginal compatibility, shorten the matched codewords, add "
-            "a mean-estimation noise floor, and report paired ridge MDE curves."
+        "run_type": "CONFIRMATORY",
+        "version_6_focus": (
+            "Independent confirmation of the frozen short matched temporal-"
+            "arrangement design under cell-keyed CRN. Primary endpoint t=8, "
+            "primary instrument paired ridge Hotelling on the predeclared "
+            "angular9 feature subspace. Secondary endpoints and all24 cannot "
+            "change the primary decision."
         ),
-        "run_type": "EXPLORATORY",
         "profile": args.profile,
         "profile_config": profile,
         "seed": args.seed,
+        "seed_note": (
+            "Different from v5 exploratory seed 20260812. Stage 0 and Stage 1 "
+            "also use disjoint internal seed namespaces."
+        ),
         "canonical_model_modified": False,
+        "counterfactual_coupling": "cell-keyed CRN",
         "matched_codeword_A": "".join(map(str, MATCHED_CODEWORD_A)),
         "matched_codeword_B": "".join(map(str, MATCHED_CODEWORD_B)),
         "matched_codeword_validation": codeword_check,
-        "angular_subspace": list(ANGULAR_FEATURE_NAMES),
+        "primary_endpoint": profile["primary_endpoint"],
+        "primary_alpha": profile["primary_alpha"],
+        "primary_feature_subspace": list(ANGULAR_FEATURE_NAMES),
         "scientific_boundary": (
-            "Perturbation-response and counterfactual-coupling characterization "
-            "only. Chapter 18 information-survival remains deferred."
+            "Confirmatory test of a systematic matched temporal-arrangement "
+            "morphology signature only. No memory, semantics, signalling, or "
+            "information-storage claim is licensed by this experiment alone."
         ),
         "started_at_unix": time.time(),
     }
 
     print("=" * 78)
-    print("CHAPTER 17 — HOW DOES THE CRYSTAL RESPOND TO PERTURBATION?")
+    print("CHAPTER 17 — CONFIRMATORY TEMPORAL-ARRANGEMENT TEST")
     print(f"profile={args.profile} version={EXPERIMENT_VERSION}")
+    print(f"seed={args.seed} groups={profile['groups']}")
     print("=" * 78)
 
-    s0 = stage_0_reproducibility_and_marginals(
-        reporter, profile, params, args.seed, args.image_dir
+    s0 = stage_0_confirmatory_preflight(
+        reporter, profile, params, args.seed
     )
-    s1 = stage_1_coupling_impulse_audit(
-        reporter, profile, params, args.seed, args.image_dir
+
+    # Run Stage 1 regardless, so computational artifacts exist even if the
+    # preflight later blocks scientific interpretation. Stage 2 enforces the gate.
+    s1 = stage_1_confirmatory_matched_arrangement(
+        reporter, profile, params, args.seed
     )
-    s2 = stage_2_crn_superposition_with_floor(
-        reporter, profile, params, args.seed, args.image_dir
+
+    s2 = stage_2_confirmatory_verdict(
+        reporter, s0, s1
     )
-    s3, matched_features = stage_3_short_matched_arrangement(
-        reporter, profile, params, args.seed, args.image_dir
-    )
-    s45 = stage_4_and_5_sham_mde(
-        reporter, profile, matched_features, args.seed
-    )
-    s6 = stage_6_verdict(reporter, s0, s1, s2, s3, s45)
 
     metadata.update({
         "finished_at_unix": time.time(),
         "reproducibility_passed": bool(
             s0["sequential_exact"] and s0["crn_exact"]
         ),
-        "marginal_compatibility_p_value": (
-            s0["marginal_feature_test"]["p_value"]
-        ),
-        "final_status": s6["matched_arrangement_status"],
-        "chapter18_status": s6["chapter18_status"],
+        "preflight_passed": bool(s0["preflight_passed"]),
+        "primary_p_value": s2["primary_p_value"],
+        "final_status": s2["matched_arrangement_status"],
+        "chapter18_status": s2["chapter18_status"],
     })
 
     reporter.json("run-metadata.json", metadata)
-    # reporter.metadata(metadata)
-    # reporter.assemble(
-    #     "ch17-perturbation-dynamics-v5-full-report.md",
-    #     metadata=metadata,
-    # )
     report_path = reporter.full_report(metadata)
 
     print("\n" + "=" * 78)
-    print("V5 COMPLETE")
-    print(
-        "marginal CRN compatibility p="
-        f"{s0['marginal_feature_test']['p_value']:.6g}"
-    )
-    print(f"matched arrangement status={s6['matched_arrangement_status']}")
-    print("Report path:")
-    print(f"{report_path}")
+    print("V6 COMPLETE")
+    print(f"preflight_passed={s0['preflight_passed']}")
+    print(f"primary_p={s2['primary_p_value']:.8g}")
+    print(f"final_status={s2['matched_arrangement_status']}")
+    print(f"report={report_path}")
     print("=" * 78)
 
 
