@@ -1,0 +1,35 @@
+{
+  "validity": {
+    "attachment_match": true,
+    "loss_match": true,
+    "capacity": true,
+    "collapse": true,
+    "conditional_loss_hazard": true,
+    "loss_to_reoccupation_positive_control": true
+  },
+  "all_validity_gates_passed": true,
+  "H1_local_depletion": "FAILED",
+  "H2_loss_source": "SUPPORTED",
+  "H3_non_recovery_window": "FAILED",
+  "propagation": "FAILED",
+  "overall_source_sink_status": "PARTIAL_SOURCE_SINK_SUPPORT",
+  "bounded_claim": "Only one of the two frozen source/sink directions was supported. Do not promote the full interface source/sink model.",
+  "important_separation": "Interface source/sink dynamics and long-range propagation are independent verdicts. Source/sink dynamics can be supported while propagation fails.",
+  "forbidden_overclaims": [
+    "refractory",
+    "permanent non-recovery",
+    "causally proven opportunity consumption",
+    "wave",
+    "wave equation",
+    "excitable medium",
+    "individual",
+    "individuality",
+    "autonomy",
+    "self",
+    "organism",
+    "agency",
+    "life"
+  ],
+  "next_if_source_sink_supported": "Run a direct cell-keyed counterfactual attachment intervention: force versus prevent the same eligible attachment and measure later local construction opportunity. That can distinguish causal opportunity consumption from residual trajectory confounding.",
+  "next_if_propagation_supported": "Confirm directed asymmetry on a fresh run and characterize distance-dependent velocity/dispersion before any wave language."
+}

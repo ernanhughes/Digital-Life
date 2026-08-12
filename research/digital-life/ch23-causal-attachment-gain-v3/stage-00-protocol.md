@@ -1,0 +1,40 @@
+# Stage 0 — Frozen V3 Causal-Gain Protocol
+
+```json
+{
+  "role": "FRESH COUNTERFACTUAL CAUSAL-GAIN EXPERIMENT",
+  "fresh_seed": 20260904,
+  "v2_interpretive_correction": "d=0 source/control effects are definitional and excluded. V3 tests the same frontier cell in force/prevent branches.",
+  "intervention": "Insert one eligible frontier cell into FORCE between completed updates; leave the same cell empty in PREVENT.",
+  "d0_rule": "Intervention site excluded from every causal-gain claim.",
+  "probe_quantiles": [
+    0.2,
+    0.4,
+    0.6,
+    0.8
+  ],
+  "probes_per_group": 4,
+  "horizon": 10,
+  "g_mech_1": "Exact branch-specific expected next-update ring-1 attachment difference under frozen probabilities and exact finite-budget evaluated sets.",
+  "g1": "Realized force-minus-prevent next-update ring-1 attachments.",
+  "G_H": "Finite-horizon force-minus-prevent attachments over d=1..H, lags=1..H. Not called a formal branching ratio.",
+  "G_H_global": "Whole-lattice attachment difference excluding intervention site; diagnostic for finite-budget substitutions.",
+  "H1_direct_causal_excitation": {
+    "minimum_mean_g1": 0.1,
+    "alpha": 0.05
+  },
+  "H2_mechanical_accounting": {
+    "comparison": "g1 - g_mech_1",
+    "consistency_tolerance": 0.1,
+    "requires_ci_include_zero": true
+  },
+  "H3_multistep_amplification": {
+    "quantity": "G_H - g1",
+    "minimum_mean_amplification": 0.2,
+    "alpha": 0.05
+  },
+  "H4_branching_critical_reference": "Compare 95% CI of G_H with 1.0 descriptively. G_H is not asserted to be a formal branching ratio.",
+  "scientific_boundary": "Causal construction gain only. No formal branching ratio, critical point, phase transition, directed percolation, Hawkes, excitable medium, wave, individuality, autonomy, organism, or life claim.",
+  "status": "FROZEN"
+}
+```

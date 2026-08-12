@@ -1,0 +1,59 @@
+{
+  "experiment_version": "digital-crystal-persistent-transient-causal-gain-v4",
+  "schema_version": 4,
+  "base_model_version": "digital-crystal-v1-frozen",
+  "parent_experiment_version": "digital-crystal-finite-update-budget-v3",
+  "chapter": 23,
+  "run_title": "Persistent State, Transient Cascade, and Local Gain",
+  "profile": "quick",
+  "profile_config": {
+    "groups": 96,
+    "probe_quantiles": [
+      0.2,
+      0.4,
+      0.6,
+      0.8
+    ],
+    "radius": 76,
+    "warmup_steps": 20,
+    "lossy_pre_steps": 20,
+    "horizon": 30,
+    "loss_rate": 0.08,
+    "budget": 96,
+    "interior_margin": 34,
+    "minimum_evaluated_candidates": 24,
+    "late_window_start": 21,
+    "persistent_offset_floor": 0.02,
+    "transient_tail_abs_floor": 0.02,
+    "transient_tail_ci_bound": 0.04,
+    "mechanical_tolerance": 0.1,
+    "bootstrap_reps": 3000,
+    "signflip_permutations": 8000,
+    "alpha": 0.05,
+    "max_capacity_fraction": 0.75,
+    "scientific": true
+  },
+  "seed": 20260905,
+  "previous_seeds": {
+    "v1": 20260902,
+    "v2": 20260903,
+    "v3": 20260904
+  },
+  "fresh_seed": true,
+  "frozen_model_parameters": {
+    "base_bias": -2.1,
+    "neighbor_gain": 0.78,
+    "signal_rate_gain": 0.28,
+    "anisotropy_gain": 0.95,
+    "signal_phase_gain": 1.15,
+    "crowding_penalty": 0.22,
+    "loss_rate": 0.08,
+    "budget": 96
+  },
+  "intervention_timing": "force/prevent inside canonical growth, then canonical loss",
+  "canonical_rules_modified": false,
+  "started_at_unix": 1786577302.80289,
+  "finished_at_unix": 1786577408.9026825,
+  "final_status": "TRANSIENT_CASCADE_CONVERGES_NO_PERSISTENT_OFFSET_ESTABLISHED",
+  "transient_reference": "TRANSIENT_GAIN_BELOW_ONE_REFERENCE"
+}

@@ -1,0 +1,73 @@
+{
+  "validity": {
+    "valid": true,
+    "capacity_gate": true,
+    "coverage_gate": true
+  },
+  "persistent_offset": {
+    "late_mean": {
+      "n": 96,
+      "mean": 0.005729166666666667,
+      "ci95_low": -0.015885416666666662,
+      "ci95_high": 0.028131510416666696,
+      "half_width": 0.02200846354166668
+    },
+    "fit_c": {
+      "n": 96,
+      "mean": -0.16536734157974134,
+      "ci95_low": -0.2799355697703264,
+      "ci95_high": -0.061032907514918,
+      "half_width": 0.10945133112770421
+    },
+    "floor": 0.02,
+    "status": "FAILED"
+  },
+  "transient_convergence": {
+    "late_mean": {
+      "n": 96,
+      "mean": -0.008072916666666667,
+      "ci95_low": -0.02005208333333333,
+      "ci95_high": 0.003912760416666693,
+      "half_width": 0.011982421875000012
+    },
+    "status": "SUPPORTED"
+  },
+  "transient_critical_reference": {
+    "G30": {
+      "n": 96,
+      "mean": 0.19791666666666666,
+      "ci95_low": -0.026106770833333313,
+      "ci95_high": 0.4401041666666667,
+      "half_width": 0.23310546875
+    },
+    "status": "TRANSIENT_GAIN_BELOW_ONE_REFERENCE",
+    "note": "Reference only. Transient G(30) is not asserted to be a formal branching ratio."
+  },
+  "one_step_mechanical_accounting": {
+    "discrepancy": {
+      "n": 96,
+      "mean": 0.013232860503908282,
+      "ci95_low": -0.016029638896523077,
+      "ci95_high": 0.04112592468939325,
+      "half_width": 0.028577781792958164
+    },
+    "status": "CONSISTENT_WITH_MECHANICS"
+  },
+  "overall_status": "TRANSIENT_CASCADE_CONVERGES_NO_PERSISTENT_OFFSET_ESTABLISHED",
+  "bounded_claim": "The transient causal cascade is practically consistent with convergence over the frozen late window, and V4 did not establish the predeclared persistent positive offset.",
+  "forbidden_overclaims": [
+    "formal branching ratio",
+    "supercritical neighbourhood",
+    "proof of subcriticality",
+    "critical point",
+    "phase transition",
+    "directed percolation",
+    "Hawkes process",
+    "excitable medium",
+    "wave",
+    "individuality",
+    "organism",
+    "life"
+  ],
+  "next_if_strata_remain_large": "Chapter 24 should map local causal-gain regimes as a function of frontier geometry and ask whether high-gain regions persist or connect through space-time before sweeping global parameters."
+}

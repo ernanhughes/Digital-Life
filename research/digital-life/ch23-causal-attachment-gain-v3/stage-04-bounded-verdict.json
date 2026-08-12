@@ -1,0 +1,21 @@
+{
+  "status": "DIRECT_CAUSAL_GAIN_WITH_MULTISTEP_AMPLIFICATION",
+  "bounded_claim": "Forcing one eligible Digital Crystal attachment caused a positive next-update increase in neighbouring construction and the causal effect accumulated additional positive gain over the frozen horizon. The finite-horizon gain must not yet be called a formal branching ratio.",
+  "critical_reference": "BELOW_ONE",
+  "critical_reference_note": "BELOW_ONE means only that the 95% CI of finite-horizon causal construction gain lies below 1. It does not establish a formal subcritical branching process.",
+  "what_this_does_not_establish": [
+    "formal branching ratio",
+    "critical point",
+    "phase transition",
+    "directed percolation",
+    "Hawkes process",
+    "excitable medium",
+    "wave",
+    "individuality",
+    "autonomy",
+    "organism",
+    "life"
+  ],
+  "next_if_gain_below_one": "Close Chapter 23 around measured local causal gain and rapid attenuation. Chapter 24 can then freeze a neighbor_gain sweep, with budget fixed, to ask whether a causal-gain transition exists.",
+  "next_if_gain_above_one": "Freshly confirm causal gain before any criticality language, then map spatial/temporal persistence and define direct descendant semantics."
+}

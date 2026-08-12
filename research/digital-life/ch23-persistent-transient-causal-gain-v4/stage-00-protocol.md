@@ -1,0 +1,36 @@
+# Stage 0 — Frozen V4 Decomposition Protocol
+
+```json
+{
+  "role": "PERSISTENT / TRANSIENT CAUSAL-GAIN DECOMPOSITION",
+  "fresh_seed": 20260905,
+  "previous_v3_seed": 20260904,
+  "horizon": 30,
+  "late_window": [
+    21,
+    30
+  ],
+  "probe_quantiles": [
+    0.2,
+    0.4,
+    0.6,
+    0.8
+  ],
+  "intervention_timing": "Force/prevent occurs inside the canonical intervention growth update; the ordinary loss step is then applied to every branch.",
+  "transient_timing": "Transient x remains for the first future causal update and is deleted immediately after lag 1 if still occupied.",
+  "persistent_offset_test": {
+    "late_mean_floor": 0.02,
+    "requires_late_ci_above_zero": true,
+    "requires_fit_c_ci_above_zero": true
+  },
+  "transient_convergence_test": {
+    "absolute_late_mean_floor": 0.02,
+    "ci_bound": 0.04
+  },
+  "descriptive_fit": "gain(tau)=A*exp(-tau/lambda)+c",
+  "critical_reference": "Only transient G(30) is compared descriptively with 1.",
+  "formal_branching_ratio_claim": false,
+  "primary_inference_uses": "group means; probes within one checkpoint are repeated measures",
+  "status": "FROZEN"
+}
+```

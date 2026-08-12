@@ -1,0 +1,59 @@
+{
+  "base_model_version": "digital-crystal-v1-frozen",
+  "parent_experiment_version": "digital-crystal-finite-update-budget-v3",
+  "experiment_version": "digital-crystal-causal-attachment-gain-v3",
+  "schema_version": 3,
+  "chapter": 23,
+  "chapter_title": "Does the Process Move?",
+  "run_title": "Causal Gain of One Attachment",
+  "run_type": "FRESH FORCE/PREVENT COUNTERFACTUAL CAUSAL-GAIN EXPERIMENT",
+  "profile": "quick",
+  "profile_config": {
+    "groups": 48,
+    "probes_per_group": 4,
+    "probe_quantiles": [
+      0.2,
+      0.4,
+      0.6,
+      0.8
+    ],
+    "radius": 72,
+    "initial_warmup_steps": 20,
+    "lossy_pre_steps": 20,
+    "horizon": 10,
+    "loss_rate": 0.08,
+    "budget": 96,
+    "interior_margin": 12,
+    "minimum_frontier_candidates": 24,
+    "minimum_direct_gain": 0.1,
+    "minimum_multistep_amplification": 0.2,
+    "mechanical_consistency_tolerance": 0.1,
+    "alpha": 0.05,
+    "bootstrap_reps": 2500,
+    "signflip_permutations": 5000,
+    "max_capacity_fraction": 0.75,
+    "scientific": true
+  },
+  "seed": 20260904,
+  "previous_seeds": {
+    "v1": 20260902,
+    "v2": 20260903
+  },
+  "fresh_seed": true,
+  "frozen_model_parameters": {
+    "base_bias": -2.1,
+    "neighbor_gain": 0.78,
+    "signal_rate_gain": 0.28,
+    "anisotropy_gain": 0.95,
+    "signal_phase_gain": 1.15,
+    "crowding_penalty": 0.22,
+    "loss_rate": 0.08,
+    "budget": 96
+  },
+  "canonical_rules_modified": false,
+  "intervention_only": "One frontier cell inserted in FORCE between completed updates; same checkpoint unchanged in PREVENT.",
+  "started_at_unix": 1786576397.9895563,
+  "finished_at_unix": 1786576411.1791916,
+  "final_status": "DIRECT_CAUSAL_GAIN_WITH_MULTISTEP_AMPLIFICATION",
+  "critical_reference": "BELOW_ONE"
+}

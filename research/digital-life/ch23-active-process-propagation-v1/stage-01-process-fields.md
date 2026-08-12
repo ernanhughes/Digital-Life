@@ -1,0 +1,18 @@
+# Stage 1 — Generate Active-Process Event Fields
+
+```json
+{
+  "groups": 48,
+  "total_material_events": 401203,
+  "matched_event_sources": 288313,
+  "unmatched_event_sources": 112890,
+  "match_fraction": 0.7186212466008479,
+  "minimum_match_fraction": 0.6,
+  "match_gate_passed": true,
+  "maximum_capacity_fraction": 0.043059166719512966,
+  "max_allowed_capacity_fraction": 0.75,
+  "capacity_gate_passed": true,
+  "collapsed_groups": 0,
+  "status": "MEASURED"
+}
+```

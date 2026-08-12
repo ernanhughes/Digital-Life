@@ -1,0 +1,236 @@
+# Stage 3 — Fresh-Seed Source/Sink Hypotheses
+
+```json
+{
+  "H1_attachment_associated_local_depletion": {
+    "direction": "negative",
+    "cells": [
+      {
+        "distance": 1,
+        "lag": 1
+      },
+      {
+        "distance": 1,
+        "lag": 2
+      },
+      {
+        "distance": 1,
+        "lag": 3
+      },
+      {
+        "distance": 1,
+        "lag": 4
+      },
+      {
+        "distance": 1,
+        "lag": 5
+      },
+      {
+        "distance": 2,
+        "lag": 2
+      },
+      {
+        "distance": 2,
+        "lag": 3
+      },
+      {
+        "distance": 2,
+        "lag": 4
+      },
+      {
+        "distance": 2,
+        "lag": 5
+      },
+      {
+        "distance": 2,
+        "lag": 6
+      }
+    ],
+    "minimum_effect": -0.0005,
+    "summary": {
+      "n": 48,
+      "mean": 0.006144298623554867,
+      "ci95_low": 0.005879459687302182,
+      "ci95_high": 0.0064161920652348586,
+      "half_width": 0.00026836618896633815
+    },
+    "signflip": {
+      "n": 48,
+      "observed_mean": 0.006144298623554867,
+      "p_value": 1.0,
+      "alternative": "less",
+      "permutations": 5000
+    },
+    "status": "FAILED",
+    "bounded_claim_if_supported": "On the fresh V2 seed, attachment events are followed by a scientifically meaningful short-range reduction in later attachment activity relative to matched non-attachment opportunities. Local opportunity consumption remains the candidate mechanism, not yet a causal mechanism claim."
+  },
+  "H2_loss_associated_interface_source": {
+    "direction": "positive",
+    "cells": [
+      {
+        "distance": 0,
+        "lag": 1
+      },
+      {
+        "distance": 0,
+        "lag": 2
+      },
+      {
+        "distance": 0,
+        "lag": 3
+      },
+      {
+        "distance": 0,
+        "lag": 4
+      },
+      {
+        "distance": 1,
+        "lag": 1
+      },
+      {
+        "distance": 1,
+        "lag": 2
+      },
+      {
+        "distance": 1,
+        "lag": 3
+      },
+      {
+        "distance": 1,
+        "lag": 4
+      },
+      {
+        "distance": 1,
+        "lag": 5
+      }
+    ],
+    "minimum_effect": 0.0005,
+    "summary": {
+      "n": 48,
+      "mean": 0.02413839448422539,
+      "ci95_low": 0.023642367709152425,
+      "ci95_high": 0.024627207669167213,
+      "half_width": 0.0004924199800073938
+    },
+    "signflip": {
+      "n": 48,
+      "observed_mean": 0.02413839448422539,
+      "p_value": 0.0001999600079984003,
+      "alternative": "greater",
+      "permutations": 5000
+    },
+    "status": "SUPPORTED"
+  },
+  "positive_control_loss_to_reoccupation": {
+    "cells": [
+      {
+        "distance": 0,
+        "lag": 1
+      },
+      {
+        "distance": 0,
+        "lag": 2
+      },
+      {
+        "distance": 1,
+        "lag": 1
+      },
+      {
+        "distance": 1,
+        "lag": 2
+      }
+    ],
+    "summary": {
+      "n": 48,
+      "mean": 0.03487503953006546,
+      "ci95_low": 0.034143482354088574,
+      "ci95_high": 0.03562441416241576,
+      "half_width": 0.0007404659041635939
+    },
+    "passed": true
+  },
+  "H3_non_recovery_over_frozen_window": {
+    "early_lags": [
+      2,
+      3,
+      4
+    ],
+    "late_lags": [
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "early_deficit": {
+      "n": 48,
+      "mean": 0.010504517571767236,
+      "ci95_low": 0.009916523163891041,
+      "ci95_high": 0.011070768652341481,
+      "half_width": 0.0005771227442252199
+    },
+    "late_deficit": {
+      "n": 48,
+      "mean": 0.0019716950253432946,
+      "ci95_low": 0.0016194942769578828,
+      "ci95_high": 0.0022953473081575694,
+      "half_width": 0.0003379265155998433
+    },
+    "retained_absolute_fraction": {
+      "n": 0,
+      "mean": NaN,
+      "ci95_low": NaN,
+      "ci95_high": NaN,
+      "half_width": NaN
+    },
+    "minimum_retained_fraction": 0.5,
+    "status": "FAILED",
+    "interpretation_boundary": "No recovery over the frozen observation window only; not permanent non-recovery and not 'refractory'."
+  },
+  "H4_conditional_loss_hazard_validity": {
+    "tolerance": 0.002,
+    "summary": {
+      "n": 48,
+      "mean": 2.7167765654234545e-05,
+      "ci95_low": -0.00015732443513178656,
+      "ci95_high": 0.00021044819949676081,
+      "half_width": 0.00018388631731427367
+    },
+    "passed": true,
+    "role": "VALIDITY CONTROL, not a scientific finding"
+  },
+  "propagation_forward_backward_asymmetry": {
+    "channel": "attachment_to_attachment",
+    "distances": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "real_minus_cross_run_null": {
+      "n": 48,
+      "mean": -4.61749348078728e-06,
+      "ci95_low": -0.00010388458704349396,
+      "ci95_high": 9.325637209147786e-05,
+      "half_width": 9.85704795674859e-05
+    },
+    "minimum_absolute_effect": 0.0005,
+    "signflip": {
+      "n": 48,
+      "observed_mean": -4.61749348078728e-06,
+      "p_value": 0.9280143971205759,
+      "alternative": "two-sided",
+      "permutations": 5000
+    },
+    "status": "FAILED",
+    "interpretation_boundary": "Propagation-like directed asymmetry only. No wave claim."
+  },
+  "achieved_precision": {
+    "H1_bootstrap_half_width": 0.00026836618896633815,
+    "H2_bootstrap_half_width": 0.0004924199800073938,
+    "target_directional_effect_floor": 0.0005
+  }
+}
+```

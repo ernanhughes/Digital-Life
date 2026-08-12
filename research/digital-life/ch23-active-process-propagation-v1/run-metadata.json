@@ -1,0 +1,67 @@
+{
+  "base_model_version": "digital-crystal-v1-frozen",
+  "parent_experiment_version": "digital-crystal-finite-update-budget-v3",
+  "experiment_version": "digital-crystal-active-process-propagation-v1",
+  "schema_version": 1,
+  "chapter": 23,
+  "chapter_title": "Does the Process Move?",
+  "run_type": "SPATIOTEMPORAL ACTIVE-PROCESS PROPAGATION SCREEN",
+  "profile": "quick",
+  "profile_config": {
+    "groups": 48,
+    "radius": 72,
+    "warmup_steps": 20,
+    "continuation_steps": 84,
+    "loss_rate": 0.08,
+    "budget": 96,
+    "distances": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      8
+    ],
+    "lags": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      8
+    ],
+    "near_distances": [
+      1,
+      2
+    ],
+    "far_distances": [
+      4,
+      6,
+      8
+    ],
+    "radial_bin_width": 3,
+    "minimum_match_fraction": 0.6,
+    "minimum_real_ridge_shift": 1.0,
+    "minimum_null_excess_shift": 0.5,
+    "minimum_ridge_slope": 0.15,
+    "minimum_spearman": 0.6,
+    "alpha": 0.05,
+    "signflip_permutations": 5000,
+    "bootstrap_reps": 2000,
+    "max_capacity_fraction": 0.75,
+    "scientific": true
+  },
+  "seed": 20260902,
+  "canonical_attachment_rule_modified": false,
+  "canonical_loss_rule_modified": false,
+  "canonical_budget_rule_modified": false,
+  "scientific_boundary": "Propagation-like spatiotemporal process organization only. No wave, phase, dispersion, individuality, autonomy, self, organism, agency, or life claim.",
+  "started_at_unix": 1786570222.45369,
+  "finished_at_unix": 1786570465.1812506,
+  "final_status": "FAILED",
+  "plot_manifest": {
+    "real_surface": "ch23-v1-01-real-lag-distance.png",
+    "cross_run_null_surface": "ch23-v1-02-cross-run-null.png",
+    "ridge_centers": "ch23-v1-03-ridge-centers.png"
+  }
+}

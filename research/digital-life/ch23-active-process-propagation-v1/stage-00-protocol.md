@@ -1,0 +1,70 @@
+# Stage 0 — Frozen Propagation Screen
+
+```json
+{
+  "role": "SPATIOTEMPORAL ACTIVE-PROCESS PROPAGATION SCREEN",
+  "question": "Does local Digital Crystal material-event activity show a reproducible lag-distance displacement beyond current geometry, radial position, opportunity class, and a cross-run future null?",
+  "active_process_field_v1": {
+    "material_event": [
+      "attachment",
+      "loss"
+    ],
+    "supporting_channels_recorded": [
+      "evaluated frontier",
+      "attachment",
+      "loss",
+      "reoccupation",
+      "first occupation"
+    ]
+  },
+  "source_control_design": {
+    "attachment_event_control": "evaluated-but-not-attached frontier candidate",
+    "loss_event_control": "occupied cell surviving the same loss step",
+    "matching": [
+      "occupied-neighbour count",
+      "radial-distance bin",
+      "same event opportunity class",
+      "one-to-one without replacement"
+    ]
+  },
+  "cross_run_future_null": "Sources and matched controls from group g are evaluated against future event frames from a different group at the same relative time, preserving target-frame event burden while destroying within-process space-time continuity.",
+  "distances": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    8
+  ],
+  "lags": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    8
+  ],
+  "near_distances": [
+    1,
+    2
+  ],
+  "far_distances": [
+    4,
+    6,
+    8
+  ],
+  "ridge_center": "positive-excess-weighted mean lag at each exact hex distance",
+  "primary_group_statistic": "mean ridge center over frozen far distances minus mean ridge center over frozen near distances",
+  "primary_success_gates": {
+    "minimum_match_fraction": 0.6,
+    "minimum_real_ridge_shift": 1.0,
+    "minimum_real_minus_null_shift": 0.5,
+    "minimum_population_ridge_slope": 0.15,
+    "minimum_population_spearman": 0.6,
+    "paired_signflip_alpha": 0.05
+  },
+  "new_sentence_if_successful": "Under the frozen Chapter 23 V1 measurement, local Digital Crystal material-event activity exhibits reproducible spatiotemporal lag-distance displacement beyond matched local opportunity and a cross-run future null.",
+  "scientific_boundary": "Propagation-like process organization only. No wave, phase, dispersion, individuality, autonomy, self, organism, agency, or life claim.",
+  "status": "FROZEN"
+}
+```

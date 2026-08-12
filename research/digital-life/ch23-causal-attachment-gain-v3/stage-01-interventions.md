@@ -1,0 +1,16 @@
+# Stage 1 — Force/Prevent Attachment Interventions
+
+```json
+{
+  "requested_groups": 48,
+  "groups_used": 48,
+  "skipped_groups": 0,
+  "total_probes": 192,
+  "probes_per_used_group": 4.0,
+  "maximum_capacity_fraction": 0.04350307565476568,
+  "max_allowed_capacity_fraction": 0.75,
+  "capacity_gate_passed": true,
+  "minimum_group_coverage_gate": true,
+  "status": "MEASURED"
+}
+```
