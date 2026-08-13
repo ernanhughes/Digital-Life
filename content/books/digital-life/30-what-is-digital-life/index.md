@@ -19,24 +19,15 @@ It was not.
 
 The word *life* arrived already loaded with answers.
 
-Reproduction.
-
-Metabolism.
-
-Homeostasis.
-
-Memory.
-
-Repair.
-
-Evolution.
-
-Individuals.
-
-Organisms.
-
-Boundaries.
-
+Reproduction.  
+Metabolism.  
+Homeostasis.  
+Memory.  
+Repair.  
+Evolution.  
+Individuals.  
+Organisms.  
+Boundaries.  
 Signals.
 
 We could have copied those words directly into software.
@@ -88,7 +79,7 @@ But by looking at what survived.
 
 ---
 
-# The wrong way to finish
+## The Wrong Way to Finish
 
 There is a tempting ending available to us.
 
@@ -142,7 +133,7 @@ We ask:
 
 ---
 
-# What survived the controls
+## What Survived the Controls
 
 Across the book, many biological interpretations failed.
 
@@ -174,9 +165,21 @@ It suggests that the most primitive object in digital life may not be an organis
 
 It may be a process.
 
+```mermaid
+flowchart LR
+    A[Continued construction] --> B[Turnover]
+    B --> C[Active frontier mediates change]
+    C --> D[Local causal structure]
+    D --> E[Finite computation creates non-local coupling]
+    E --> F[History alters sensitivity]
+    F --> G[Hidden state redirects trajectory]
+    G --> H[No privileged individual boundary yet]
+    H --> I[Process before organism]
+```
+
 ---
 
-# A process before an organism
+## A Process Before an Organism
 
 Biological thinking usually begins with the individual.
 
@@ -242,7 +245,7 @@ It may be a later specialization.
 
 ---
 
-# What the substrate actually gives us
+## What the Substrate Actually Gives Us
 
 A computational substrate is not made of cells.
 
@@ -284,7 +287,7 @@ We were trying to discover the aerodynamics.
 
 ---
 
-# The aerodynamics of digital life
+## The Aerodynamics of Digital Life
 
 The analogy is imperfect.
 
@@ -312,7 +315,7 @@ The experiments in this book suggest several candidates.
 
 ---
 
-# Continued process
+## Continued Process
 
 The Digital Crystal can continue changing without preserving a fixed body.
 
@@ -344,7 +347,7 @@ Not the substrate token occupying a location.
 
 ---
 
-# Interface-mediated construction
+## Interface-Mediated Construction
 
 Growth repeatedly concentrated around the active frontier.
 
@@ -378,9 +381,19 @@ That gives us another candidate principle:
 
 > **Digital living processes may be organized around active transition interfaces rather than fixed material boundaries.**
 
+```mermaid
+flowchart TD
+    A[Occupied state] --> B[Interface emerges]
+    B --> C[Candidate opportunity]
+    C --> D[Finite evaluation]
+    D --> E[Construction event]
+    E --> F[State changes]
+    F --> B
+```
+
 ---
 
-# Turnover without repair
+## Turnover Without Repair
 
 Once material loss was introduced, the crystal rapidly reused vacancies.
 
@@ -414,7 +427,7 @@ A digital living process may persist through continual replacement without posse
 
 ---
 
-# Local causal structure
+## Local Causal Structure
 
 Under unbounded evaluation, causal influence was sharply local.
 
@@ -436,7 +449,7 @@ But Chapter 25 complicated this.
 
 ---
 
-# Finite computation becomes part of the dynamics
+## Finite Computation Becomes Part of the Dynamics
 
 When evaluation capacity became limited, local changes altered which distant opportunities received computation.
 
@@ -476,9 +489,18 @@ That gives us another possible primitive:
 
 This may be one of the most substrate-specific discoveries in the book.
 
+```mermaid
+flowchart LR
+    A[Local frontier change] --> B[Global candidate pool changes]
+    B --> C[Fixed evaluation budget]
+    C --> D[Which distant opportunities receive execution shifts]
+    D --> E[Far-field construction difference]
+    E -.-> F[Non-local coupling without signal propagation]
+```
+
 ---
 
-# History without readable memory
+## History Without Readable Memory
 
 The crystal could preserve historical traces.
 
@@ -520,7 +542,7 @@ The past only has to matter.
 
 ---
 
-# Hidden state can redirect the future
+## Hidden State Can Redirect the Future
 
 Chapter 27 made this sharper.
 
@@ -564,9 +586,18 @@ Causal access is scarce.
 
 And trajectory may be the real memory-like object.
 
+```mermaid
+flowchart TD
+    A[Hidden material state] --> B[Immediate causal response changes]
+    B --> C[Early construction diverges]
+    C --> D[Later geometry and state diverge]
+    D --> E[Future causal consequences continue]
+    E -.->|trajectory carries history| F[No explicit readable memory required]
+```
+
 ---
 
-# Causal routing without amplification
+## Causal Routing Without Amplification
 
 Finite evaluation changed how perturbations were realized.
 
@@ -594,7 +625,7 @@ Mechanism can change before behavior does.
 
 ---
 
-# Containment without individuality
+## Containment Without Individuality
 
 Chapter 28 produced perhaps the most important negative result in the book.
 
@@ -628,7 +659,7 @@ A digital living process may exist before a digital individual does.
 
 ---
 
-# The evidence table
+## The Evidence Table
 
 The experimental record can now be summarized without biological promotion.
 
@@ -672,7 +703,7 @@ DIGITAL LIFE — PROVISIONAL SPECIFICATION
 
 ---
 
-# A provisional specification
+## A Provisional Specification
 
 The evidence suggests a candidate digital-life specification.
 
@@ -710,9 +741,21 @@ This is not a claim that any process meeting these conditions is alive.
 
 It is a specification of the region we now know is worth investigating.
 
+```mermaid
+flowchart TD
+    A[Provisional Digital Life Specification] --> B[Persists through state transition]
+    A --> C[Maintains structured causal interaction]
+    A --> D[Supports continued construction / turnover]
+    A --> E[Carries prior state into future state]
+    A --> F[Allows internal state to redirect trajectory]
+    A --> G[Operates under finite computation]
+    A --> H[Does not begin with privileged individual boundary]
+    B & C & D & E & F & G & H --> I[Process-level foundation<br/>for further attack]
+```
+
 ---
 
-# What is conspicuously absent
+## What Is Conspicuously Absent
 
 Notice what the provisional specification does not require.
 
@@ -770,7 +813,7 @@ It means they have not earned the right to be prerequisites.
 
 ---
 
-# Biology as one implementation
+## Biology as One Implementation
 
 This leads to a useful reversal.
 
@@ -819,7 +862,7 @@ So digital life, if it exists, may solve a different problem.
 
 ---
 
-# The importance of finite computation
+## The Importance of Finite Computation
 
 One of the most unexpected lessons was that computation itself became analogous to an environmental constraint.
 
@@ -856,7 +899,7 @@ Not rename it metabolism.
 
 ---
 
-# The process is the object
+## The Process Is the Object
 
 Across the experiments, one idea kept returning.
 
@@ -896,32 +939,23 @@ The individual could be something the process eventually discovers as a useful c
 
 ---
 
-# From object ontology to process ontology
+## From Object Ontology to Process Ontology
 
 Biological language encourages nouns.
 
-Organism.
-
-Cell.
-
-Gene.
-
-Body.
-
+Organism.  
+Cell.  
+Gene.  
+Body.  
 Boundary.
 
 Digital systems may force us toward verbs.
 
-Persisting.
-
-Updating.
-
-Redirecting.
-
-Evaluating.
-
-Constructing.
-
+Persisting.  
+Updating.  
+Redirecting.  
+Evaluating.  
+Constructing.  
 Selecting.
 
 Remembering becomes:
@@ -948,9 +982,28 @@ This is not a final philosophical claim.
 
 It is simply the ontology that best fits what survived our experiments.
 
+```mermaid
+flowchart LR
+    subgraph ObjectOntology
+    A[Organism] --> B[Cell]
+    B --> C[Gene]
+    C --> D[Body]
+    D --> E[Boundary]
+    end
+    subgraph ProcessOntology
+    F[Persisting] --> G[Updating]
+    G --> H[Redirecting]
+    H --> I[Evaluating]
+    I --> J[Constructing]
+    J --> K[Selecting]
+    end
+    E -.->|biological starting point| L[Individual]
+    K -.->|digital starting point| M[Causal process]
+```
+
 ---
 
-# The negative specification
+## The Negative Specification
 
 The book has also produced something like a negative specification.
 
@@ -986,7 +1039,7 @@ It must survive stronger causal tests.
 
 ---
 
-# Evidence before ambition
+## Evidence Before Ambition
 
 The methodological lesson from Chapter 29 now feeds directly into the final theory.
 
@@ -1022,7 +1075,7 @@ It is also the only reason the synthesis means anything.
 
 ---
 
-# What we did not discover
+## What We Did Not Discover
 
 We did not discover a digital organism.
 
@@ -1046,7 +1099,7 @@ They are the boundary of the evidence.
 
 ---
 
-# What we did discover
+## What We Did Discover
 
 We discovered that simple computational systems can exhibit surprisingly rich process-level behavior without most of the biological machinery we initially expected.
 
@@ -1078,7 +1131,7 @@ But because it appears earlier than many of the biological categories we assumed
 
 ---
 
-# A possible research program
+## A Possible Research Program
 
 If this book continued, the next research program would not be:
 
@@ -1106,21 +1159,27 @@ ask whether competing process organizations become selectable
 
 Only then might stronger concepts earn their names.
 
-Memory.
-
-Adaptation.
-
-Autonomy.
-
-Individuality.
-
+Memory.  
+Adaptation.  
+Autonomy.  
+Individuality.  
 Maybe life.
 
 The order matters.
 
+```mermaid
+flowchart TD
+    A[Persistent causal process] --> B[Allow internal state to alter future transition]
+    B --> C[Introduce finite computational pressure]
+    C --> D[Ask whether stable causal modules emerge]
+    D --> E[Ask whether modules regulate continuation]
+    E --> F[Ask whether process organizations become selectable]
+    F --> G[Then ask about memory, adaptation, autonomy, individuality, life]
+```
+
 ---
 
-# The aircraft again
+## The Aircraft Again
 
 At the beginning of the book, the aircraft analogy was a warning.
 
@@ -1136,16 +1195,11 @@ We did not even establish an individual.
 
 But we may have begun to identify some of the aerodynamics.
 
-Local causal flow.
-
-Turnover.
-
-Interface-mediated change.
-
-History-dependent trajectory redirection.
-
-Finite computational allocation.
-
+Local causal flow.  
+Turnover.  
+Interface-mediated change.  
+History-dependent trajectory redirection.  
+Finite computational allocation.  
 Process continuity without fixed material identity.
 
 These are not digital organs.
@@ -1156,7 +1210,7 @@ And principles are what we needed.
 
 ---
 
-# A provisional answer
+## A Provisional Answer
 
 So what is digital life?
 
@@ -1201,7 +1255,7 @@ A place from which life-like organization might emerge.
 
 ---
 
-# The final boundary
+## The Final Boundary
 
 There is one final temptation to resist.
 
@@ -1227,9 +1281,19 @@ Replace it.
 
 That is how it should work.
 
+```mermaid
+flowchart LR
+    A[Provisional specification] --> B[Build systems that violate it]
+    A --> C[Find processes that satisfy criteria but are not life]
+    A --> D[Find life-like systems that fail criteria]
+    B --> E[Break / narrow / replace specification]
+    C --> E
+    D --> E
+```
+
 ---
 
-# What the book actually achieved
+## What the Book Actually Achieved
 
 The original ambition was larger than the result.
 
@@ -1259,7 +1323,7 @@ It is also much more interesting.
 
 ---
 
-# Digital life, from first principles
+## Digital Life, From First Principles
 
 A first-principles approach does not mean starting from nothing.
 

@@ -51,7 +51,7 @@ As science.
 
 ---
 
-# Failure is not one thing
+## Failure Is Not One Thing
 
 The word *failure* compresses several very different situations.
 
@@ -97,9 +97,25 @@ The core rule was simple:
 
 Chapter 29 tested whether our own recent experiment history actually respected that distinction.
 
+```mermaid
+flowchart LR
+    subgraph FailureClasses
+    A[INVALID]
+    B[UNRESOLVED]
+    C[BOUNDED NEGATIVE]
+    D[SUPPORTED BUT NARROWED]
+    E[DESCRIPTIVE CLOSEOUT]
+    end
+    A -.->|not evidence against| F[Claim]
+    B -.->|insufficient precision| F
+    C -.->|effect bounded below SEI| F
+    D -.->|stronger control narrows| F
+    E -.->|explains only| F
+```
+
 ---
 
-# Building the failure ledger
+## Building the Failure Ledger
 
 The audit registered ten cases from Chapters 26 through 28.
 
@@ -156,7 +172,7 @@ The point was to make illegal moves visible.
 
 ---
 
-# The forbidden moves
+## The Forbidden Moves
 
 The Chapter 29 protocol explicitly banned six common forms of epistemic slippage.
 
@@ -202,9 +218,27 @@ It is also more important.
 
 Because without these rules, every later claim can be rewritten after the fact until the project appears cleaner than it really was.
 
+```mermaid
+flowchart LR
+    subgraph Forbidden
+    A[INVALID as negative evidence]
+    B[CI crosses zero as FAILED]
+    C[Bounded negative without SEI]
+    D[Erase valid sub-results]
+    E[Descriptive closeout as confirmatory rescue]
+    F[Post-hoc change of estimand/control]
+    end
+    A --> X[Epistemic error]
+    B --> X
+    C --> X
+    D --> X
+    E --> X
+    F --> X
+```
+
 ---
 
-# Chapter 26: when the reference is wrong
+## Chapter 26: When the Reference Is Wrong
 
 Chapter 26 began with a plausible question.
 
@@ -248,7 +282,7 @@ The lesson became:
 
 ---
 
-# Correcting Chapter 26
+## Correcting Chapter 26
 
 V2 rebuilt the comparison properly.
 
@@ -260,29 +294,29 @@ The frozen horizon remained twelve steps.
 
 The smallest meaningful difference was:
 
-$$
+\[
 \pm 0.15
-$$
+\]
 
 The result was:
 
-$$
+\[
 \Delta G
 \approx
 0.0013
-$$
+\]
 
 with confidence interval approximately:
 
-$$
+\[
 [-0.0898,\ 0.0885]
-$$
+\]
 
 The achieved MDE was approximately:
 
-$$
+\[
 0.115
-$$
+\]
 
 which was inside the frozen 0.15 meaningful threshold.
 
@@ -302,7 +336,7 @@ But something else survived.
 
 ---
 
-# A negative aggregate can hide a changed mechanism
+## A Negative Aggregate Can Hide a Changed Mechanism
 
 The Chapter 26 mechanism audit decomposed the immediate causal effect.
 
@@ -344,7 +378,7 @@ The ledger had to preserve all three.
 
 ---
 
-# Chapter 27: when the intervention itself is wrong
+## Chapter 27: When the Intervention Itself Is Wrong
 
 Chapter 27 made the distinction even sharper.
 
@@ -408,7 +442,7 @@ It is also more honest.
 
 ---
 
-# Correcting Chapter 27
+## Correcting Chapter 27
 
 V2 fixed the intervention.
 
@@ -422,15 +456,15 @@ The corrected primary used a Rao-Blackwellized downstream causal consequence.
 
 The mean accessible-versus-remote difference was approximately:
 
-$$
+\[
 -0.397
-$$
+\]
 
 with 95% confidence interval:
 
-$$
+\[
 [-0.679,\ -0.119]
-$$
+\]
 
 The interval excluded zero.
 
@@ -438,15 +472,15 @@ So the direction was supported.
 
 But the achieved MDE was approximately:
 
-$$
+\[
 0.357
-$$
+\]
 
 against a frozen meaningful threshold of:
 
-$$
+\[
 0.15
-$$
+\]
 
 That meant the experiment could support the sign without establishing the predeclared minimum magnitude.
 
@@ -476,7 +510,7 @@ So the magnitude question remained unresolved.
 
 ---
 
-# The closeout did not rescue the claim
+## The Closeout Did Not Rescue the Claim
 
 The Chapter 27 trajectory audit found something fascinating.
 
@@ -522,7 +556,7 @@ Chapter 29 forbids that.
 
 ---
 
-# Chapter 28: when a strong result is still the wrong construct
+## Chapter 28: When a Strong Result Is Still the Wrong Construct
 
 Chapter 28 was the most dangerous case because the first result was not weak.
 
@@ -530,21 +564,21 @@ It was extremely strong.
 
 The raw causal modularity score at radius 4 was approximately:
 
-$$
+\[
 0.440
-$$
+\]
 
 with confidence interval:
 
-$$
+\[
 [0.419,\ 0.461]
-$$
+\]
 
 against a frozen meaningful threshold of:
 
-$$
+\[
 0.15
-$$
+\]
 
 The result was precise.
 
@@ -580,7 +614,7 @@ Those are different claims.
 
 ---
 
-# The stronger control
+## The Stronger Control
 
 Chapter 28 V2 kept the same radius, same intervention, same causal-mass definition and same unbounded dynamics.
 
@@ -600,39 +634,39 @@ boundary occupancy
 
 The observed regions still showed a large module score:
 
-$$
+\[
 0.4436
-$$
+\]
 
 The matched controls showed:
 
-$$
+\[
 0.4559
-$$
+\]
 
 The excess was:
 
-$$
+\[
 -0.0123
-$$
+\]
 
 with 95% confidence interval:
 
-$$
+\[
 [-0.0327,\ 0.0072]
-$$
+\]
 
 The frozen meaningful excess threshold was:
 
-$$
+\[
 +0.10
-$$
+\]
 
 The achieved MDE was only:
 
-$$
+\[
 0.0265
-$$
+\]
 
 This was a precision-bounded negative result.
 
@@ -666,7 +700,7 @@ It did not erase the earlier measurement.
 
 ---
 
-# The audit
+## The Audit
 
 Chapter 29 then ran the ledger against the actual project artifacts.
 
@@ -716,7 +750,7 @@ And a much more useful one.
 
 ---
 
-# Construct separation
+## Construct Separation
 
 The failure ledger also made visible a pattern that had been accumulating throughout the book.
 
@@ -770,9 +804,33 @@ A useful experimental system does not merely tell us whether a phenomenon exists
 
 It tells us which concepts we had incorrectly bundled together.
 
+```mermaid
+flowchart TD
+    subgraph EarlierDistinctions
+    A[Marginal effect / average paired effect]
+    B[Average paired effect / pathwise divergence]
+    C[Causal difference / systematic signature]
+    D[Persistent trace / readable trace]
+    E[Attachment / new construction]
+    F[Reoccupation / repair]
+    end
+    subgraph RecentDistinctions
+    G[Causal routing / causal amplification]
+    H[Causal retention / causal individuation]
+    end
+    A --> I[Conceptual split discovered]
+    B --> I
+    C --> I
+    D --> I
+    E --> I
+    F --> I
+    G --> I
+    H --> I
+```
+
 ---
 
-# Invalid is not negative
+## Invalid Is Not Negative
 
 This deserves its own rule.
 
@@ -824,7 +882,7 @@ That is exactly what happened in Chapter 27.
 
 ---
 
-# Unresolved is not failed
+## Unresolved Is Not Failed
 
 Now consider a valid experiment.
 
@@ -862,7 +920,7 @@ The fact that another inferential layer was supported did not make the unresolve
 
 ---
 
-# A bounded negative is a real result
+## A Bounded Negative Is a Real Result
 
 The reverse mistake is equally common.
 
@@ -902,7 +960,7 @@ The threshold matters because zero is rarely the only scientifically interesting
 
 ---
 
-# Preserve the surviving phenomenon
+## Preserve the Surviving Phenomenon
 
 Perhaps the most important rule emerged from Chapters 27 and 28.
 
@@ -936,7 +994,7 @@ That leads to the central rule of the chapter.
 
 ---
 
-# Fail the smallest claim
+## Fail the Smallest Claim
 
 The final Chapter 29 principle is:
 
@@ -974,9 +1032,25 @@ If a descriptive audit explains the mechanism, label it descriptive.
 
 Do not use it as retroactive rescue.
 
+```mermaid
+flowchart TD
+    A[Claim weakens] --> B{What failed?}
+    B -- Implementation invalid --> C[Invalidate affected estimand only]
+    B -- Precision insufficient --> D[Mark unresolved]
+    B -- Effect bounded below SEI --> E[Record bounded negative]
+    B -- Stronger control narrows --> F[Preserve lower-level phenomenon]
+    B -- Descriptive mechanism --> G[Label descriptive only]
+    C --> H[Smallest claim fails]
+    D --> H
+    E --> H
+    F --> H
+    G --> H
+    H --> I[Preserve all surviving evidence]
+```
+
 ---
 
-# Why this matters for Digital Life
+## Why This Matters for Digital Life
 
 The project began with a risk.
 
@@ -1021,7 +1095,7 @@ They tell us where one concept stops and another begins.
 
 ---
 
-# What the audit does not prove
+## What the Audit Does Not Prove
 
 The Chapter 29 audit passed.
 

@@ -63,7 +63,7 @@ That last clause turned out to be the entire chapter.
 
 ---
 
-# A first operational definition
+## A First Operational Definition
 
 The most direct starting point was causal modularity.
 
@@ -91,21 +91,21 @@ That suggests two quantities.
 
 For an internal perturbation:
 
-$$
+\[
 \text{internal retention}
 =
 \frac{A_{\text{inside}}}
 {A_{\text{inside}}+A_{\text{outside}}}
-$$
+\]
 
 For an external perturbation:
 
-$$
+\[
 \text{external penetration}
 =
 \frac{A_{\text{inside}}}
 {A_{\text{inside}}+A_{\text{outside}}}
-$$
+\]
 
 where \(A\) is the summed **absolute expected causal mass**.
 
@@ -115,13 +115,13 @@ If one region contains positive and negative probability shifts that cancel nume
 
 The modularity score was therefore:
 
-$$
+\[
 M
 =
 \text{internal retention}
 -
 \text{external penetration}
-$$
+\]
 
 A high value would mean:
 
@@ -139,9 +139,24 @@ That sounds like a reasonable first approximation to an individual.
 
 It was also dangerous.
 
+```mermaid
+flowchart TD
+    subgraph InternalPerturbation
+    A[Perturb frontier cell inside R] --> B[Measure causal mass in R]
+    B --> C[Internal retention<br/>= inside / total]
+    end
+    subgraph ExternalPerturbation
+    D[Perturb frontier cell outside R] --> E[Measure causal mass in R]
+    E --> F[External penetration<br/>= inside / total]
+    end
+    C --> G[Module score = retention - penetration]
+    F --> G
+    G --> H[High score suggests causal module]
+```
+
 ---
 
-# Removing the global selector first
+## Removing the Global Selector First
 
 Chapter 25 had already established that finite global evaluation budget creates non-local coupling.
 
@@ -178,7 +193,7 @@ That became a structural validity assertion.
 
 ---
 
-# Predeclared spatial regions
+## Predeclared Spatial Regions
 
 We still needed candidate regions.
 
@@ -190,15 +205,15 @@ So V1 used simple fixed-radius hexagonal disks.
 
 The primary region radius was frozen at:
 
-$$
+\[
 r=4
-$$
+\]
 
 Secondary descriptive scales were:
 
-$$
+\[
 r \in \{2,3,4,5\}
-$$
+\]
 
 For each independent checkpoint, candidate regions were centered on occupied cells.
 
@@ -221,9 +236,17 @@ The first three were selected.
 
 No region was chosen because it had a high module score.
 
+```mermaid
+flowchart LR
+    A[All occupied-centered regions] --> B[Apply pre-outcome support rules]
+    B --> C[Rank by occupancy fraction, radial distance, axial coordinates]
+    C --> D[Select top three]
+    D --> E[No causal outcome used in selection]
+```
+
 ---
 
-# The intervention
+## The Intervention
 
 The perturbation reused the corrected transient intervention from Chapter 27.
 
@@ -250,13 +273,13 @@ The horizon was frozen at eight steps.
 
 At each lag, before realized stochastic attachment, the experiment calculated:
 
-$$
+\[
 \Delta p(y,t)
 =
 p_{\text{FORCE}}(y,t)
 -
 p_{\text{PREVENT}}(y,t)
-$$
+\]
 
 and accumulated the absolute causal mass inside and outside the candidate region.
 
@@ -264,35 +287,35 @@ This gave us a Rao-Blackwellized measure of where causal influence was expressed
 
 ---
 
-# V1 looked decisive
+## V1 Looked Decisive
 
 The V1 result was enormous.
 
 At the frozen radius-4 scale:
 
-$$
+\[
 M
 =
 0.4402
-$$
+\]
 
 with 95% confidence interval approximately:
 
-$$
+\[
 [0.419,\ 0.461]
-$$
+\]
 
 The predeclared meaningful threshold was:
 
-$$
+\[
 0.15
-$$
+\]
 
 and the achieved one-sided MDE was only:
 
-$$
+\[
 0.0268
-$$
+\]
 
 So the primary V1 result was formally:
 
@@ -304,15 +327,15 @@ The decomposition looked even more compelling.
 
 Mean internal retention was:
 
-$$
+\[
 0.7755
-$$
+\]
 
 Mean external penetration was:
 
-$$
+\[
 0.3353
-$$
+\]
 
 So the selected regions seemed to do exactly what a causal module should do.
 
@@ -326,7 +349,7 @@ We had not.
 
 ---
 
-# The scale sweep exposed the problem
+## The Scale Sweep Exposed the Problem
 
 The descriptive scale sweep showed:
 
@@ -380,9 +403,25 @@ The observer's boundary itself can manufacture apparent modularity.
 
 That meant V1 had established something real, but not what we first hoped.
 
+```mermaid
+flowchart LR
+    subgraph SmallRegion
+    A[Internal perturbation] --> B[Less cone contained]
+    C[External perturbation] --> D[More cone enters]
+    end
+    subgraph LargeRegion
+    E[Internal perturbation] --> F[More cone contained]
+    G[External perturbation] --> H[Less cone enters]
+    end
+    B & D --> I[Low module score]
+    F & H --> J[High module score]
+    I -.-> K[Score grows with radius]
+    J -.-> K
+```
+
 ---
 
-# The V1 phenomenon was real
+## The V1 Phenomenon Was Real
 
 It is important not to erase V1 just because its interpretation changed.
 
@@ -412,13 +451,13 @@ That became V2.
 
 ---
 
-# Geometry-matched null regions
+## Geometry-Matched Null Regions
 
 V2 preserved the frozen radius:
 
-$$
+\[
 r=4
-$$
+\]
 
 It preserved:
 
@@ -468,19 +507,28 @@ Two controls were sought for every selected region.
 
 The primary V2 quantity was now:
 
-$$
+\[
 M_{\text{excess}}
 =
 M_{\text{observed}}
 -
 M_{\text{matched control}}
-$$
+\]
 
 This is the question V1 had not answered.
 
+```mermaid
+flowchart TD
+    A[Selected region] --> B[Find matched same-checkpoint control region]
+    B --> C[Match on pre-outcome geometry]
+    C --> D[No causal outcome used]
+    D --> E[Compute excess module score]
+    E --> F[Test: observed exceeds matched arbitrary geometry?]
+```
+
 ---
 
-# A stronger meaningful threshold
+## A Stronger Meaningful Threshold
 
 The V1 threshold of 0.15 referred to raw modularity.
 
@@ -488,11 +536,11 @@ V2 measured a different quantity.
 
 So the excess-modularity threshold was frozen separately:
 
-$$
+\[
 \text{SEI}_{\text{excess}}
 =
 0.10
-$$
+\]
 
 To support a privileged causal region, the selected regions had to exceed matched arbitrary geometry by more than ten percentage points.
 
@@ -515,7 +563,7 @@ This would prevent us from turning a tiny residual into individuality.
 
 ---
 
-# V2 matched extremely well
+## V2 Matched Extremely Well
 
 The full V2 experiment used 192 independent groups.
 
@@ -527,43 +575,43 @@ The median observed region received two controls.
 
 There were:
 
-$$
+\[
 1151
-$$
+\]
 
 matched observed-control pairs.
 
 Mean standardized match distance was approximately:
 
-$$
+\[
 1.18
-$$
+\]
 
 Maximum was only:
 
-$$
+\[
 3.06
-$$
+\]
 
 below the frozen threshold of 4.
 
 Mean occupancy-fraction difference was:
 
-$$
+\[
 0.027
-$$
+\]
 
 Mean radial difference was:
 
-$$
+\[
 1.78
-$$
+\]
 
 The far causal effect under unbounded evaluation was exactly:
 
-$$
+\[
 0
-$$
+\]
 
 The experiment passed every validity gate.
 
@@ -571,37 +619,37 @@ Now the matched null could answer the real question.
 
 ---
 
-# The apparent individual disappeared
+## The Apparent Individual Disappeared
 
 The selected regions still reproduced the large V1 score:
 
-$$
+\[
 M_{\text{observed}}
 =
 0.4436
-$$
+\]
 
 The matched control regions scored:
 
-$$
+\[
 M_{\text{control}}
 =
 0.4559
-$$
+\]
 
 So:
 
-$$
+\[
 M_{\text{excess}}
 =
 -0.0123
-$$
+\]
 
 with 95% confidence interval:
 
-$$
+\[
 [-0.0327,\ 0.0072]
-$$
+\]
 
 The point estimate was slightly negative.
 
@@ -617,21 +665,21 @@ The meaningful-margin question, however, was completely resolved.
 
 The upper confidence bound was only:
 
-$$
+\[
 0.0072
-$$
+\]
 
 against a predeclared meaningful threshold of:
 
-$$
+\[
 0.10
-$$
+\]
 
 The achieved MDE was:
 
-$$
+\[
 0.0265
-$$
+\]
 
 far tighter than the threshold.
 
@@ -647,7 +695,7 @@ The selected regions did not exhibit meaningful excess causal modularity over ma
 
 ---
 
-# The decomposition did not hide a positive effect
+## The Decomposition Did Not Hide a Positive Effect
 
 Sometimes a combined metric can conceal two opposing mechanisms.
 
@@ -659,27 +707,27 @@ The V2 decomposition tested that.
 
 Excess internal retention was:
 
-$$
+\[
 -0.0066
-$$
+\]
 
 with 95% confidence interval:
 
-$$
+\[
 [-0.0222,\ 0.0093]
-$$
+\]
 
 Excess external penetration was:
 
-$$
+\[
 0.0057
-$$
+\]
 
 with 95% confidence interval:
 
-$$
+\[
 [-0.0101,\ 0.0216]
-$$
+\]
 
 Neither component supported a privileged region.
 
@@ -691,7 +739,7 @@ The apparent module had disappeared under the appropriate null.
 
 ---
 
-# Containment is not individuation
+## Containment Is Not Individuation
 
 This gives us one of the cleanest principles in the project.
 
@@ -722,9 +770,17 @@ The stronger requirement is:
 
 The Digital Crystal did not clear that requirement.
 
+```mermaid
+flowchart LR
+    A[Raw causal retention asymmetry] --> B[Large and reproducible]
+    B --> C[But also present in matched arbitrary geometry]
+    C --> D[No meaningful excess modularity]
+    D --> E[Containment is not individuation]
+```
+
 ---
 
-# What Chapter 28 actually established
+## What Chapter 28 Actually Established
 
 The evidence can now be stated cleanly.
 
@@ -750,7 +806,7 @@ The experiment did not discover a privileged individual boundary.
 
 ---
 
-# Another observer trap
+## Another Observer Trap
 
 This was not the first time a plausible biological interpretation collapsed under a stronger control.
 
@@ -792,7 +848,7 @@ And then build the control.
 
 ---
 
-# The observer can create an inside
+## The Observer Can Create an Inside
 
 This chapter also reveals something deeper about boundaries.
 
@@ -834,9 +890,30 @@ Chapter 28 found the first.
 
 It did not find the second.
 
+```mermaid
+flowchart TD
+    subgraph ObserverBoundary
+    A[Observer draws region R]
+    B[Classify events as inside / outside]
+    C[Measure retention and penetration]
+    D[Strong raw modularity appears]
+    end
+    subgraph SystemBoundary
+    E[Does system itself contain privileged boundary?]
+    F[Compare to matched null]
+    G[No meaningful excess]
+    end
+    A --> D
+    D -.->|tempting conclusion| H[Individual]
+    E --> F
+    F --> G
+    G -.->|actual result| I[No privileged individual]
+    H -.->|rejected| I
+```
+
 ---
 
-# A bounded negative result
+## A Bounded Negative Result
 
 The strongest sentence we can defend is:
 
@@ -858,7 +935,7 @@ That is exactly what a failed hypothesis should give us.
 
 ---
 
-# The principle
+## The Principle
 
 Chapter 28 leaves us with a compact rule:
 
