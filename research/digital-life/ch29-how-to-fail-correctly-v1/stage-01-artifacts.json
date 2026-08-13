@@ -1,0 +1,99 @@
+{
+  "cases": [
+    {
+      "case_id": "CH26_V1_PRIMARY",
+      "status": "FOUND",
+      "paths": [
+        "C:\\Projects\\working-book\\research\\digital-life\\ch26-matched-rate-causal-amplification-v1\\ch26-matched-rate-causal-amplification-v1-full-report.md",
+        "C:\\Projects\\working-book\\research\\digital-life\\ch26-v1-audit\\ch26-v1-audit-report.json",
+        "C:\\Projects\\working-book\\research\\digital-life\\ch26-v1-audit\\ch26-v1-audit-report.md"
+      ]
+    },
+    {
+      "case_id": "CH26_V2_PRIMARY",
+      "status": "FOUND",
+      "paths": [
+        "C:\\Projects\\working-book\\research\\digital-life\\ch26-dynamically-matched-rate-causal-amplification-v2\\ch26-dynamically-matched-rate-causal-amplification-v2-full-report.md",
+        "C:\\Projects\\working-book\\research\\digital-life\\ch26-v2-analytic-audit\\ch26-v2-analytic-audit-report.json",
+        "C:\\Projects\\working-book\\research\\digital-life\\ch26-v2-analytic-audit\\ch26-v2-analytic-audit-report.md",
+        "C:\\Projects\\working-book\\research\\digital-life\\ch26-v2-mechanism-audit\\ch26-v2-mechanism-audit-report.json",
+        "C:\\Projects\\working-book\\research\\digital-life\\ch26-v2-mechanism-audit\\ch26-v2-mechanism-audit-report.md"
+      ]
+    },
+    {
+      "case_id": "CH26_V2_MECHANISM",
+      "status": "FOUND",
+      "paths": [
+        "C:\\Projects\\working-book\\research\\digital-life\\ch26-v1-audit\\audit-a-true-unbounded-contrast.json",
+        "C:\\Projects\\working-book\\research\\digital-life\\ch26-v1-audit\\audit-b-per-lag-rate-drift.json",
+        "C:\\Projects\\working-book\\research\\digital-life\\ch26-v1-audit\\ch26-v1-audit-report.json",
+        "C:\\Projects\\working-book\\research\\digital-life\\ch26-v1-audit\\ch26-v1-audit-report.md",
+        "C:\\Projects\\working-book\\research\\digital-life\\ch26-v2-analytic-audit\\ch26-v2-analytic-audit-report.json",
+        "C:\\Projects\\working-book\\research\\digital-life\\ch26-v2-analytic-audit\\ch26-v2-analytic-audit-report.md",
+        "C:\\Projects\\working-book\\research\\digital-life\\ch26-v2-mechanism-audit\\ch26-v2-mechanism-audit-report.json",
+        "C:\\Projects\\working-book\\research\\digital-life\\ch26-v2-mechanism-audit\\ch26-v2-mechanism-audit-report.md"
+      ]
+    },
+    {
+      "case_id": "CH27_V1_PRIMARY",
+      "status": "FOUND",
+      "paths": [
+        "C:\\Projects\\working-book\\research\\digital-life\\ch27-decaying-material-history-causal-response-v1\\ch27-decaying-material-history-causal-response-v1-full-report.md",
+        "C:\\Projects\\working-book\\research\\digital-life\\ch27-v1-construct-validity-audit\\ch27-v1-construct-validity-audit-report.json",
+        "C:\\Projects\\working-book\\research\\digital-life\\ch27-v1-construct-validity-audit\\ch27-v1-construct-validity-audit-report.md"
+      ]
+    },
+    {
+      "case_id": "CH27_V1_IMMEDIATE",
+      "status": "FOUND",
+      "paths": [
+        "C:\\Projects\\working-book\\research\\digital-life\\ch27-v1-construct-validity-audit\\ch27-v1-construct-validity-audit-report.json",
+        "C:\\Projects\\working-book\\research\\digital-life\\ch27-v1-construct-validity-audit\\ch27-v1-construct-validity-audit-report.md"
+      ]
+    },
+    {
+      "case_id": "CH27_V2_DIRECTION",
+      "status": "FOUND",
+      "paths": [
+        "C:\\Projects\\working-book\\research\\digital-life\\ch27-decaying-material-history-causal-response-v2\\ch27-decaying-material-history-causal-response-v2-full-report.md",
+        "C:\\Projects\\working-book\\research\\digital-life\\ch27-v2-trajectory-closeout-audit\\ch27-v2-trajectory-closeout-audit.json"
+      ]
+    },
+    {
+      "case_id": "CH27_V2_MAGNITUDE",
+      "status": "FOUND",
+      "paths": [
+        "C:\\Projects\\working-book\\research\\digital-life\\ch27-decaying-material-history-causal-response-v2\\ch27-decaying-material-history-causal-response-v2-full-report.md",
+        "C:\\Projects\\working-book\\research\\digital-life\\ch27-v2-trajectory-closeout-audit\\ch27-v2-trajectory-closeout-audit.json"
+      ]
+    },
+    {
+      "case_id": "CH27_V2_CLOSEOUT",
+      "status": "FOUND",
+      "paths": [
+        "C:\\Projects\\working-book\\research\\digital-life\\ch27-v2-trajectory-closeout-audit\\ch27-v2-trajectory-closeout-audit.json",
+        "C:\\Projects\\working-book\\research\\digital-life\\ch27-v2-trajectory-closeout-audit\\ch27-v2-trajectory-closeout-audit.md"
+      ]
+    },
+    {
+      "case_id": "CH28_V1_RAW",
+      "status": "FOUND",
+      "paths": [
+        "C:\\Projects\\working-book\\research\\digital-life\\ch28-causal-modularity-v1\\ch28-causal-modularity-v1-full-report.md",
+        "C:\\Projects\\working-book\\research\\digital-life\\ch28-causal-modularity-v1\\stage-03-primary.json"
+      ]
+    },
+    {
+      "case_id": "CH28_V2_EXCESS",
+      "status": "FOUND",
+      "paths": [
+        "C:\\Projects\\working-book\\research\\digital-life\\ch28-causal-modularity-v2\\ch28-causal-modularity-v2-full-report.md",
+        "C:\\Projects\\working-book\\research\\digital-life\\ch28-causal-modularity-v2\\stage-04-primary.json"
+      ]
+    }
+  ],
+  "found_count": 10,
+  "manual_evidence_only_count": 0,
+  "missing_source_count": 0,
+  "rule": "Missing artifacts are never replaced with invented artifact-derived values."
+}

@@ -1,0 +1,18 @@
+# Stage 0 — Frozen Chapter 29 Protocol
+
+```json
+{
+  "status": "FROZEN",
+  "primary_question": "Can experiment failures be classified without conflating invalid runs, unresolved results, precision-bounded negatives, and supported results narrowed by stronger controls?",
+  "primary_gate": "Every registered evidence transition obeys the failure-ledger consistency rules.",
+  "forbidden_moves": [
+    "count INVALID as evidence against hypothesis",
+    "count CI-crossing-zero as FAILED",
+    "call bounded negative without explicit meaningful threshold",
+    "erase valid sub-results when a larger inference is invalid",
+    "promote descriptive closeout into confirmatory rescue",
+    "silently change estimand or control after seeing result"
+  ],
+  "stop_rule": "No new Digital Crystal simulation is added merely to rescue a weakened methodological example."
+}
+```

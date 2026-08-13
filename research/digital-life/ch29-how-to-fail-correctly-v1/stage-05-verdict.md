@@ -1,0 +1,71 @@
+# Stage 5 — Chapter 29 V1 Verdict
+
+```json
+{
+  "status": "FAILURE_LEDGER_CONSISTENT",
+  "primary_gate": {
+    "case_rule_pass_count": 10,
+    "case_rule_total": 10,
+    "all_case_rules_pass": true,
+    "cross_checks": [
+      {
+        "check_id": "X001",
+        "name": "Invalid primary preserves independent sub-result",
+        "pass": true,
+        "cases": [
+          "CH27_V1_PRIMARY",
+          "CH27_V1_IMMEDIATE"
+        ]
+      },
+      {
+        "check_id": "X002",
+        "name": "Direction separated from minimum magnitude",
+        "pass": true,
+        "cases": [
+          "CH27_V2_DIRECTION",
+          "CH27_V2_MAGNITUDE"
+        ]
+      },
+      {
+        "check_id": "X003",
+        "name": "Stronger control narrows claim without erasing raw phenomenon",
+        "pass": true,
+        "cases": [
+          "CH28_V1_RAW",
+          "CH28_V2_EXCESS"
+        ]
+      },
+      {
+        "check_id": "X004",
+        "name": "Bounded aggregate result preserves mechanistic rerouting",
+        "pass": true,
+        "cases": [
+          "CH26_V2_PRIMARY",
+          "CH26_V2_MECHANISM"
+        ]
+      },
+      {
+        "check_id": "X005",
+        "name": "Descriptive closeout does not rescue confirmatory magnitude claim",
+        "pass": true,
+        "cases": [
+          "CH27_V2_CLOSEOUT",
+          "CH27_V2_MAGNITUDE"
+        ]
+      }
+    ],
+    "all_cross_checks_pass": true,
+    "no_missing_required_sources": true,
+    "manual_evidence_only_is_allowed": true,
+    "primary_gate_pass": true
+  },
+  "bounded_claim": "Across the registered Chapter 26-28 case chains, invalid implementations, unresolved inferential questions, precision-bounded negative results, descriptive closeouts, and stronger-control claim narrowings can be represented without erasing surviving evidence or converting one evidence class into another.",
+  "what_this_does_not_establish": [
+    "that the project never made mistakes",
+    "that the registered taxonomy is universally complete",
+    "that these cases prove a general philosophy of science",
+    "that every future experiment can be classified without ambiguity"
+  ],
+  "chapter_principle": "Fail the smallest claim justified by the evidence. Preserve everything that still survives."
+}
+```

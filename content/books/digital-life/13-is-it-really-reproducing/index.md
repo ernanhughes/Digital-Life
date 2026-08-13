@@ -2,6 +2,7 @@
 date = '2026-08-11T12:48:00+01:00'
 draft = false
 title = '13: Is It Really Reproducing?'
+weight = 13
 categories = ['Programming', 'Artificial Life']
 tags = ['Digital Life', 'Artificial Life', 'Cellular Automata', 'Outlier', 'Causality', 'Collective Motion', 'Experiments']
 series = ['Digital Life From First Principles']

@@ -3,6 +3,7 @@ title = "15: The Crystal Gets a Past"
 date = "2026-08-11T21:52:00+01:00"
 draft = false
 description = "A Digital Crystal can preserve source statistics in morphology but not temporal order. We add state, checkpointing, event history, replay and branching to discover what a recoverable digital past actually requires."
+weight = 15
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "State", "History", "Checkpointing", "Replay", "Counterfactuals"]
 series = ["Digital Life From First Principles"]

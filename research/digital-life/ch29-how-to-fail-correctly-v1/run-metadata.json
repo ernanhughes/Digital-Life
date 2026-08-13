@@ -1,0 +1,12 @@
+{
+  "experiment_version": "digital-life-how-to-fail-correctly-v1",
+  "schema_version": 1,
+  "chapter": 29,
+  "chapter_title": "How to Fail Correctly",
+  "repo_root": "C:\\Projects\\working-book",
+  "registered_cases": 10,
+  "registered_identities": 8,
+  "started_at_unix": 1786662583.4070964,
+  "finished_at_unix": 1786662583.629123,
+  "final_status": "FAILURE_LEDGER_CONSISTENT"
+}

@@ -3,6 +3,7 @@ title = "10: Properties of Digital Life"
 date = "2026-08-11T10:36:00+01:00"
 draft = false
 description = "If digital life does not inhabit the same world as biological life, why should it inherit the same limits?"
+weight = 10
 series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Artificial Life", "Digital Organisms", "Information", "Growth", "Computation"]

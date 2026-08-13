@@ -1,0 +1,234 @@
+{
+  "metadata": {
+    "experiment_version": "digital-life-how-to-fail-correctly-v1",
+    "schema_version": 1,
+    "chapter": 29,
+    "chapter_title": "How to Fail Correctly",
+    "repo_root": "C:\\Projects\\working-book",
+    "registered_cases": 10,
+    "registered_identities": 8,
+    "started_at_unix": 1786662583.4070964
+  },
+  "artifacts": {
+    "cases": [
+      {
+        "case_id": "CH26_V1_PRIMARY",
+        "status": "FOUND",
+        "paths": [
+          "C:\\Projects\\working-book\\research\\digital-life\\ch26-matched-rate-causal-amplification-v1\\ch26-matched-rate-causal-amplification-v1-full-report.md",
+          "C:\\Projects\\working-book\\research\\digital-life\\ch26-v1-audit\\ch26-v1-audit-report.json",
+          "C:\\Projects\\working-book\\research\\digital-life\\ch26-v1-audit\\ch26-v1-audit-report.md"
+        ]
+      },
+      {
+        "case_id": "CH26_V2_PRIMARY",
+        "status": "FOUND",
+        "paths": [
+          "C:\\Projects\\working-book\\research\\digital-life\\ch26-dynamically-matched-rate-causal-amplification-v2\\ch26-dynamically-matched-rate-causal-amplification-v2-full-report.md",
+          "C:\\Projects\\working-book\\research\\digital-life\\ch26-v2-analytic-audit\\ch26-v2-analytic-audit-report.json",
+          "C:\\Projects\\working-book\\research\\digital-life\\ch26-v2-analytic-audit\\ch26-v2-analytic-audit-report.md",
+          "C:\\Projects\\working-book\\research\\digital-life\\ch26-v2-mechanism-audit\\ch26-v2-mechanism-audit-report.json",
+          "C:\\Projects\\working-book\\research\\digital-life\\ch26-v2-mechanism-audit\\ch26-v2-mechanism-audit-report.md"
+        ]
+      },
+      {
+        "case_id": "CH26_V2_MECHANISM",
+        "status": "FOUND",
+        "paths": [
+          "C:\\Projects\\working-book\\research\\digital-life\\ch26-v1-audit\\audit-a-true-unbounded-contrast.json",
+          "C:\\Projects\\working-book\\research\\digital-life\\ch26-v1-audit\\audit-b-per-lag-rate-drift.json",
+          "C:\\Projects\\working-book\\research\\digital-life\\ch26-v1-audit\\ch26-v1-audit-report.json",
+          "C:\\Projects\\working-book\\research\\digital-life\\ch26-v1-audit\\ch26-v1-audit-report.md",
+          "C:\\Projects\\working-book\\research\\digital-life\\ch26-v2-analytic-audit\\ch26-v2-analytic-audit-report.json",
+          "C:\\Projects\\working-book\\research\\digital-life\\ch26-v2-analytic-audit\\ch26-v2-analytic-audit-report.md",
+          "C:\\Projects\\working-book\\research\\digital-life\\ch26-v2-mechanism-audit\\ch26-v2-mechanism-audit-report.json",
+          "C:\\Projects\\working-book\\research\\digital-life\\ch26-v2-mechanism-audit\\ch26-v2-mechanism-audit-report.md"
+        ]
+      },
+      {
+        "case_id": "CH27_V1_PRIMARY",
+        "status": "FOUND",
+        "paths": [
+          "C:\\Projects\\working-book\\research\\digital-life\\ch27-decaying-material-history-causal-response-v1\\ch27-decaying-material-history-causal-response-v1-full-report.md",
+          "C:\\Projects\\working-book\\research\\digital-life\\ch27-v1-construct-validity-audit\\ch27-v1-construct-validity-audit-report.json",
+          "C:\\Projects\\working-book\\research\\digital-life\\ch27-v1-construct-validity-audit\\ch27-v1-construct-validity-audit-report.md"
+        ]
+      },
+      {
+        "case_id": "CH27_V1_IMMEDIATE",
+        "status": "FOUND",
+        "paths": [
+          "C:\\Projects\\working-book\\research\\digital-life\\ch27-v1-construct-validity-audit\\ch27-v1-construct-validity-audit-report.json",
+          "C:\\Projects\\working-book\\research\\digital-life\\ch27-v1-construct-validity-audit\\ch27-v1-construct-validity-audit-report.md"
+        ]
+      },
+      {
+        "case_id": "CH27_V2_DIRECTION",
+        "status": "FOUND",
+        "paths": [
+          "C:\\Projects\\working-book\\research\\digital-life\\ch27-decaying-material-history-causal-response-v2\\ch27-decaying-material-history-causal-response-v2-full-report.md",
+          "C:\\Projects\\working-book\\research\\digital-life\\ch27-v2-trajectory-closeout-audit\\ch27-v2-trajectory-closeout-audit.json"
+        ]
+      },
+      {
+        "case_id": "CH27_V2_MAGNITUDE",
+        "status": "FOUND",
+        "paths": [
+          "C:\\Projects\\working-book\\research\\digital-life\\ch27-decaying-material-history-causal-response-v2\\ch27-decaying-material-history-causal-response-v2-full-report.md",
+          "C:\\Projects\\working-book\\research\\digital-life\\ch27-v2-trajectory-closeout-audit\\ch27-v2-trajectory-closeout-audit.json"
+        ]
+      },
+      {
+        "case_id": "CH27_V2_CLOSEOUT",
+        "status": "FOUND",
+        "paths": [
+          "C:\\Projects\\working-book\\research\\digital-life\\ch27-v2-trajectory-closeout-audit\\ch27-v2-trajectory-closeout-audit.json",
+          "C:\\Projects\\working-book\\research\\digital-life\\ch27-v2-trajectory-closeout-audit\\ch27-v2-trajectory-closeout-audit.md"
+        ]
+      },
+      {
+        "case_id": "CH28_V1_RAW",
+        "status": "FOUND",
+        "paths": [
+          "C:\\Projects\\working-book\\research\\digital-life\\ch28-causal-modularity-v1\\ch28-causal-modularity-v1-full-report.md",
+          "C:\\Projects\\working-book\\research\\digital-life\\ch28-causal-modularity-v1\\stage-03-primary.json"
+        ]
+      },
+      {
+        "case_id": "CH28_V2_EXCESS",
+        "status": "FOUND",
+        "paths": [
+          "C:\\Projects\\working-book\\research\\digital-life\\ch28-causal-modularity-v2\\ch28-causal-modularity-v2-full-report.md",
+          "C:\\Projects\\working-book\\research\\digital-life\\ch28-causal-modularity-v2\\stage-04-primary.json"
+        ]
+      }
+    ],
+    "found_count": 10,
+    "manual_evidence_only_count": 0,
+    "missing_source_count": 0,
+    "rule": "Missing artifacts are never replaced with invented artifact-derived values."
+  },
+  "consistency": {
+    "case_rule_pass_count": 10,
+    "case_rule_total": 10,
+    "all_case_rules_pass": true,
+    "cross_checks": [
+      {
+        "check_id": "X001",
+        "name": "Invalid primary preserves independent sub-result",
+        "pass": true,
+        "cases": [
+          "CH27_V1_PRIMARY",
+          "CH27_V1_IMMEDIATE"
+        ]
+      },
+      {
+        "check_id": "X002",
+        "name": "Direction separated from minimum magnitude",
+        "pass": true,
+        "cases": [
+          "CH27_V2_DIRECTION",
+          "CH27_V2_MAGNITUDE"
+        ]
+      },
+      {
+        "check_id": "X003",
+        "name": "Stronger control narrows claim without erasing raw phenomenon",
+        "pass": true,
+        "cases": [
+          "CH28_V1_RAW",
+          "CH28_V2_EXCESS"
+        ]
+      },
+      {
+        "check_id": "X004",
+        "name": "Bounded aggregate result preserves mechanistic rerouting",
+        "pass": true,
+        "cases": [
+          "CH26_V2_PRIMARY",
+          "CH26_V2_MECHANISM"
+        ]
+      },
+      {
+        "check_id": "X005",
+        "name": "Descriptive closeout does not rescue confirmatory magnitude claim",
+        "pass": true,
+        "cases": [
+          "CH27_V2_CLOSEOUT",
+          "CH27_V2_MAGNITUDE"
+        ]
+      }
+    ],
+    "all_cross_checks_pass": true,
+    "no_missing_required_sources": true,
+    "manual_evidence_only_is_allowed": true,
+    "primary_gate_pass": true
+  },
+  "verdict": {
+    "status": "FAILURE_LEDGER_CONSISTENT",
+    "primary_gate": {
+      "case_rule_pass_count": 10,
+      "case_rule_total": 10,
+      "all_case_rules_pass": true,
+      "cross_checks": [
+        {
+          "check_id": "X001",
+          "name": "Invalid primary preserves independent sub-result",
+          "pass": true,
+          "cases": [
+            "CH27_V1_PRIMARY",
+            "CH27_V1_IMMEDIATE"
+          ]
+        },
+        {
+          "check_id": "X002",
+          "name": "Direction separated from minimum magnitude",
+          "pass": true,
+          "cases": [
+            "CH27_V2_DIRECTION",
+            "CH27_V2_MAGNITUDE"
+          ]
+        },
+        {
+          "check_id": "X003",
+          "name": "Stronger control narrows claim without erasing raw phenomenon",
+          "pass": true,
+          "cases": [
+            "CH28_V1_RAW",
+            "CH28_V2_EXCESS"
+          ]
+        },
+        {
+          "check_id": "X004",
+          "name": "Bounded aggregate result preserves mechanistic rerouting",
+          "pass": true,
+          "cases": [
+            "CH26_V2_PRIMARY",
+            "CH26_V2_MECHANISM"
+          ]
+        },
+        {
+          "check_id": "X005",
+          "name": "Descriptive closeout does not rescue confirmatory magnitude claim",
+          "pass": true,
+          "cases": [
+            "CH27_V2_CLOSEOUT",
+            "CH27_V2_MAGNITUDE"
+          ]
+        }
+      ],
+      "all_cross_checks_pass": true,
+      "no_missing_required_sources": true,
+      "manual_evidence_only_is_allowed": true,
+      "primary_gate_pass": true
+    },
+    "bounded_claim": "Across the registered Chapter 26-28 case chains, invalid implementations, unresolved inferential questions, precision-bounded negative results, descriptive closeouts, and stronger-control claim narrowings can be represented without erasing surviving evidence or converting one evidence class into another.",
+    "what_this_does_not_establish": [
+      "that the project never made mistakes",
+      "that the registered taxonomy is universally complete",
+      "that these cases prove a general philosophy of science",
+      "that every future experiment can be classified without ambiguity"
+    ],
+    "chapter_principle": "Fail the smallest claim justified by the evidence. Preserve everything that still survives."
+  }
+}

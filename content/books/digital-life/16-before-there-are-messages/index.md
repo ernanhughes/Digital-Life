@@ -3,6 +3,7 @@ title = "16: Before There Are Messages"
 date = "2026-08-12T02:38:00+01:00"
 draft = false
 description = "A Digital Crystal can causally alter another through a one-bit event, but causal transmission is not yet sender-specific signalling."
+weight = 16
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Signalling", "Causality", "Information", "Experiments"]
 series = ["Digital Life From First Principles"]

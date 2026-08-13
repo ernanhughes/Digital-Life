@@ -3,6 +3,7 @@ title = "14: The Digital Crystal"
 date = "2026-08-11T20:36:00+01:00"
 draft = false
 description = "Can a local computational growth process turn an external signal into persistent morphology? We build a Digital Crystal, hide the signal that formed it, and test what the final structure actually preserves."
+weight = 14
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Cellular Automata", "Morphology", "Information", "Simulation", "Experiment"]
 series = ["Digital Life From First Principles"]

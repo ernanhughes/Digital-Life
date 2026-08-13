@@ -3,6 +3,7 @@ title = "17: How Does the Crystal Respond to Perturbation"
 date = "2026-08-13T12:38:00+01:00"
 draft = false
 description = "A Digital Crystal has a causal past. Chapter 17 asks whether that past remains legible, and discovers that even the way randomness is held fixed changes the answer."
+weight = 17
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Causality", "Stochastic Systems", "Counterfactuals", "Memory", "Experiments"]
 series = ["Digital Life From First Principles"]
