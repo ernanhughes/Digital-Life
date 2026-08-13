@@ -1,0 +1,23 @@
+{
+  "experiment_version": "digital-crystal-decaying-material-history-causal-response-v2",
+  "schema_version": 2,
+  "chapter": 27,
+  "chapter_title": "Can Stored Material History Change Downstream Causal Consequence?",
+  "profile": "full",
+  "seed": 20260915,
+  "fresh_seed": true,
+  "horizon": 12,
+  "primary_SEI": 0.15,
+  "history_k": 2,
+  "local_history_radius": 3,
+  "remote_min_distance": 15,
+  "remote_influence_mass_tolerance": 0.05,
+  "history_half_life": 6.0,
+  "history_age": 3.0,
+  "material_gain": 0.3,
+  "primary_estimator": "lag-wise Rao-Blackwellized expected local causal consequence",
+  "realized_secondary": true,
+  "started_at_unix": 1786644336.8968437,
+  "finished_at_unix": 1786647787.7911239,
+  "final_status": "DOWNSTREAM_MATERIAL_HISTORY_EFFECT_UNRESOLVED"
+}

@@ -1,0 +1,516 @@
+{
+  "placements": [
+    {
+      "group": 0,
+      "probe_index": 0,
+      "q": -11,
+      "r": 2,
+      "accessible_cells": [
+        [
+          -11,
+          3
+        ],
+        [
+          -13,
+          2
+        ]
+      ],
+      "remote_cells": [
+        [
+          16,
+          -15
+        ],
+        [
+          11,
+          6
+        ]
+      ],
+      "sole_occupied_neighbor": [
+        -11,
+        3
+      ],
+      "initial_material_mass_each_history": 1.4142135623730951,
+      "min_remote_distance": 26
+    },
+    {
+      "group": 0,
+      "probe_index": 1,
+      "q": 13,
+      "r": -19,
+      "accessible_cells": [
+        [
+          12,
+          -18
+        ],
+        [
+          11,
+          -17
+        ]
+      ],
+      "remote_cells": [
+        [
+          -13,
+          15
+        ],
+        [
+          -12,
+          14
+        ]
+      ],
+      "sole_occupied_neighbor": [
+        12,
+        -18
+      ],
+      "initial_material_mass_each_history": 1.4142135623730951,
+      "min_remote_distance": 33
+    },
+    {
+      "group": 1,
+      "probe_index": 0,
+      "q": -9,
+      "r": 8,
+      "accessible_cells": [
+        [
+          -8,
+          7
+        ],
+        [
+          -11,
+          8
+        ]
+      ],
+      "remote_cells": [
+        [
+          17,
+          -8
+        ],
+        [
+          17,
+          -3
+        ]
+      ],
+      "sole_occupied_neighbor": [
+        -8,
+        7
+      ],
+      "initial_material_mass_each_history": 1.4142135623730951,
+      "min_remote_distance": 26
+    },
+    {
+      "group": 1,
+      "probe_index": 1,
+      "q": 18,
+      "r": -9,
+      "accessible_cells": [
+        [
+          17,
+          -8
+        ],
+        [
+          16,
+          -8
+        ]
+      ],
+      "remote_cells": [
+        [
+          -14,
+          9
+        ],
+        [
+          -14,
+          10
+        ]
+      ],
+      "sole_occupied_neighbor": [
+        17,
+        -8
+      ],
+      "initial_material_mass_each_history": 1.4142135623730951,
+      "min_remote_distance": 32
+    },
+    {
+      "group": 2,
+      "probe_index": 0,
+      "q": 10,
+      "r": 2,
+      "accessible_cells": [
+        [
+          10,
+          1
+        ],
+        [
+          8,
+          2
+        ]
+      ],
+      "remote_cells": [
+        [
+          -19,
+          9
+        ],
+        [
+          -19,
+          10
+        ]
+      ],
+      "sole_occupied_neighbor": [
+        10,
+        1
+      ],
+      "initial_material_mass_each_history": 1.4142135623730951,
+      "min_remote_distance": 29
+    },
+    {
+      "group": 2,
+      "probe_index": 1,
+      "q": -20,
+      "r": 11,
+      "accessible_cells": [
+        [
+          -19,
+          10
+        ],
+        [
+          -19,
+          9
+        ]
+      ],
+      "remote_cells": [
+        [
+          15,
+          -16
+        ],
+        [
+          14,
+          -15
+        ]
+      ],
+      "sole_occupied_neighbor": [
+        -19,
+        10
+      ],
+      "initial_material_mass_each_history": 1.4142135623730951,
+      "min_remote_distance": 34
+    },
+    {
+      "group": 3,
+      "probe_index": 0,
+      "q": -13,
+      "r": 3,
+      "accessible_cells": [
+        [
+          -12,
+          2
+        ],
+        [
+          -12,
+          1
+        ]
+      ],
+      "remote_cells": [
+        [
+          16,
+          -13
+        ],
+        [
+          16,
+          -11
+        ]
+      ],
+      "sole_occupied_neighbor": [
+        -12,
+        2
+      ],
+      "initial_material_mass_each_history": 1.4142135623730951,
+      "min_remote_distance": 29
+    },
+    {
+      "group": 3,
+      "probe_index": 1,
+      "q": -20,
+      "r": 9,
+      "accessible_cells": [
+        [
+          -19,
+          8
+        ],
+        [
+          -18,
+          9
+        ]
+      ],
+      "remote_cells": [
+        [
+          16,
+          -13
+        ],
+        [
+          16,
+          -11
+        ]
+      ],
+      "sole_occupied_neighbor": [
+        -19,
+        8
+      ],
+      "initial_material_mass_each_history": 1.4142135623730951,
+      "min_remote_distance": 36
+    },
+    {
+      "group": 4,
+      "probe_index": 0,
+      "q": 4,
+      "r": 0,
+      "accessible_cells": [
+        [
+          3,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "remote_cells": [
+        [
+          -19,
+          8
+        ],
+        [
+          -19,
+          13
+        ]
+      ],
+      "sole_occupied_neighbor": [
+        3,
+        0
+      ],
+      "initial_material_mass_each_history": 1.4142135623730951,
+      "min_remote_distance": 23
+    },
+    {
+      "group": 4,
+      "probe_index": 1,
+      "q": -20,
+      "r": 9,
+      "accessible_cells": [
+        [
+          -19,
+          8
+        ],
+        [
+          -18,
+          7
+        ]
+      ],
+      "remote_cells": [
+        [
+          19,
+          -14
+        ],
+        [
+          17,
+          -13
+        ]
+      ],
+      "sole_occupied_neighbor": [
+        -19,
+        8
+      ],
+      "initial_material_mass_each_history": 1.4142135623730951,
+      "min_remote_distance": 37
+    },
+    {
+      "group": 5,
+      "probe_index": 0,
+      "q": -12,
+      "r": 11,
+      "accessible_cells": [
+        [
+          -13,
+          11
+        ],
+        [
+          -13,
+          10
+        ]
+      ],
+      "remote_cells": [
+        [
+          2,
+          -16
+        ],
+        [
+          6,
+          -16
+        ]
+      ],
+      "sole_occupied_neighbor": [
+        -13,
+        11
+      ],
+      "initial_material_mass_each_history": 1.4142135623730951,
+      "min_remote_distance": 27
+    },
+    {
+      "group": 5,
+      "probe_index": 1,
+      "q": -3,
+      "r": 18,
+      "accessible_cells": [
+        [
+          -3,
+          17
+        ],
+        [
+          -4,
+          17
+        ]
+      ],
+      "remote_cells": [
+        [
+          2,
+          -16
+        ],
+        [
+          6,
+          -16
+        ]
+      ],
+      "sole_occupied_neighbor": [
+        -3,
+        17
+      ],
+      "initial_material_mass_each_history": 1.4142135623730951,
+      "min_remote_distance": 34
+    },
+    {
+      "group": 6,
+      "probe_index": 0,
+      "q": -11,
+      "r": 11,
+      "accessible_cells": [
+        [
+          -11,
+          10
+        ],
+        [
+          -10,
+          9
+        ]
+      ],
+      "remote_cells": [
+        [
+          21,
+          -11
+        ],
+        [
+          6,
+          -20
+        ]
+      ],
+      "sole_occupied_neighbor": [
+        -11,
+        10
+      ],
+      "initial_material_mass_each_history": 1.4142135623730951,
+      "min_remote_distance": 31
+    },
+    {
+      "group": 6,
+      "probe_index": 1,
+      "q": 7,
+      "r": -21,
+      "accessible_cells": [
+        [
+          6,
+          -20
+        ],
+        [
+          6,
+          -19
+        ]
+      ],
+      "remote_cells": [
+        [
+          -8,
+          16
+        ],
+        [
+          -8,
+          15
+        ]
+      ],
+      "sole_occupied_neighbor": [
+        6,
+        -20
+      ],
+      "initial_material_mass_each_history": 1.4142135623730951,
+      "min_remote_distance": 36
+    },
+    {
+      "group": 7,
+      "probe_index": 0,
+      "q": -14,
+      "r": 7,
+      "accessible_cells": [
+        [
+          -13,
+          6
+        ],
+        [
+          -14,
+          5
+        ]
+      ],
+      "remote_cells": [
+        [
+          18,
+          -15
+        ],
+        [
+          18,
+          -13
+        ]
+      ],
+      "sole_occupied_neighbor": [
+        -13,
+        6
+      ],
+      "initial_material_mass_each_history": 1.4142135623730951,
+      "min_remote_distance": 32
+    },
+    {
+      "group": 7,
+      "probe_index": 1,
+      "q": 13,
+      "r": -18,
+      "accessible_cells": [
+        [
+          12,
+          -17
+        ],
+        [
+          11,
+          -16
+        ]
+      ],
+      "remote_cells": [
+        [
+          -13,
+          16
+        ],
+        [
+          -12,
+          16
+        ]
+      ],
+      "sole_occupied_neighbor": [
+        12,
+        -17
+      ],
+      "initial_material_mass_each_history": 1.4142135623730951,
+      "min_remote_distance": 34
+    }
+  ]
+}

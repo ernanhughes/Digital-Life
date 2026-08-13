@@ -1,0 +1,21 @@
+{
+  "status": "FROZEN",
+  "primary_contrast": "RB_G_local(accessible) - RB_G_local(remote)",
+  "SEI_abs": 0.15,
+  "construct_validity_fixes": [
+    "PREVENT explicitly blocks x during lag 1",
+    "FORCE contains x for exactly lag-1 growth exposure",
+    "remote carrier influence matched to accessible carriers",
+    "Rao-Blackwellized local expected consequence is primary"
+  ],
+  "frozen_from_v1": {
+    "history_k": 2,
+    "half_life": 6.0,
+    "age": 3.0,
+    "material_gain": 0.3,
+    "horizon": 12,
+    "allocation": "true_unbounded",
+    "dynamic_prevent_matching": true
+  },
+  "stop_rule": "No parameter changes after full run. Increase groups only if unresolved solely from MDE."
+}

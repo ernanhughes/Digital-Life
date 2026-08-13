@@ -1,0 +1,42 @@
+{
+  "role": "DECOUPLED PRESENT-GEOMETRY / MATERIAL-HISTORY CAUSAL RESPONSE TEST",
+  "question": "At matched present occupancy geometry and dynamically matched background construction, can a decaying persistent material trace change the causal response to the same perturbation?",
+  "primary_contrast": "G_T(accessible_history) - G_T(remote_history)",
+  "primary_SEI_abs": 0.15,
+  "two_sided": true,
+  "history_arms": {
+    "accessible": "2 trace cells within radius 3; includes sole occupied neighbour",
+    "remote": "2 matched trace cells beyond distance 15",
+    "erased": "secondary no-material reference"
+  },
+  "history_state": {
+    "half_life_updates": 6.0,
+    "age_at_test_updates": 3.0,
+    "initial_strength_per_cell": 0.7071067811865476,
+    "material_neighbor_gain": 0.3,
+    "transmission": false,
+    "new_cell_inheritance": false
+  },
+  "visible_geometry_identical_at_t0": true,
+  "intervention_survival": "guaranteed by insertion immediately before first causal growth update",
+  "allocation_policy": "true_unbounded, all current frontier cells evaluated",
+  "dynamic_matching": {
+    "reference": "dedicated erased PREVENT trajectory with offset 0",
+    "target": "lag-specific expected attachments",
+    "arm_calibration": "solve offset on arm PREVENT every lag; apply same offset to FORCE",
+    "relative_tolerance": 0.02
+  },
+  "stop_rule": "No parameter rescue after full scientific run.",
+  "forbidden_overclaims": [
+    "memory",
+    "learning",
+    "adaptation",
+    "homeostasis",
+    "formal branching ratio",
+    "criticality",
+    "individuality",
+    "organism",
+    "life"
+  ],
+  "status": "ENGINEERING_SMOKE_ONLY"
+}

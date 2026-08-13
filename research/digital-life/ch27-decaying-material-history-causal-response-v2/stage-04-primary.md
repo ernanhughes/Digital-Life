@@ -1,0 +1,18 @@
+# Stage 4 — Primary Rao-Blackwellized History Effect
+
+```json
+{
+  "contrast": "RB_G_local(accessible) - RB_G_local(remote)",
+  "SEI_abs": 0.15,
+  "result": {
+    "n": 192,
+    "mean": -0.397245252755372,
+    "sd": 1.9897764490744279,
+    "se": 0.14359974606253734,
+    "ci95_low": -0.678591722502727,
+    "ci95_high": -0.11921972580277079,
+    "achieved_mde80_one_sided": 0.3570571585621848
+  },
+  "status": "UNRESOLVED"
+}
+```

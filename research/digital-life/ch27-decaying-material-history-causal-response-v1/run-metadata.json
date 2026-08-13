@@ -1,0 +1,30 @@
+{
+  "experiment_version": "digital-crystal-decaying-material-history-causal-response-v1",
+  "schema_version": 1,
+  "chapter": 27,
+  "chapter_title": "Can Stored Material History Change a Causal Response?",
+  "profile": "smoke",
+  "profile_config": {
+    "groups": 8,
+    "source_profile": "smoke",
+    "probes_per_group": 2,
+    "bootstrap_reps": 500,
+    "scientific": false
+  },
+  "seed": 20260914,
+  "fresh_seed": true,
+  "horizon": 12,
+  "primary_SEI": 0.15,
+  "history_k": 2,
+  "local_history_radius": 3,
+  "remote_min_distance": 15,
+  "history_half_life": 6.0,
+  "history_age": 3.0,
+  "initial_history_strength": 0.7071067811865476,
+  "decay_factor_per_update": 0.8908987181403393,
+  "material_gain": 0.3,
+  "allocation_policy": "true_unbounded",
+  "started_at_unix": 1786644258.808011,
+  "finished_at_unix": 1786644302.7314408,
+  "final_status": "ENGINEERING_SMOKE_ONLY"
+}

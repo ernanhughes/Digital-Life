@@ -1,78 +1,610 @@
 {{- $seriesName := partial "series_name.html" . -}}
+
 {{- if $seriesName -}}
+
   {{- $pages := partial "series_pages.html" (dict "site" .Site "series" $seriesName) -}}
+
   {{- $currentIndex := -1 -}}
   {{- range $i, $p := $pages -}}
-    {{- if eq $p.RelPermalink $.RelPermalink -}}{{- $currentIndex = $i -}}{{- end -}}
+    {{- if eq $p.RelPermalink $.RelPermalink -}}
+      {{- $currentIndex = $i -}}
+    {{- end -}}
   {{- end -}}
+
   {{- if ge $currentIndex 0 -}}
+
     {{- $total := len $pages -}}
     {{- $position := add $currentIndex 1 -}}
     {{- $progress := div (mul $position 100.0) $total -}}
-    {{- $hub := "" -}}
-    {{- if eq $seriesName "PyTorch: Zero to Hero" -}}{{- $hub = "/learn/pytorch/" -}}{{- end -}}
-    {{- if eq $seriesName "Models From First Principles" -}}{{- $hub = "/learn/models/" -}}{{- end -}}
-    {{- if eq $seriesName "Agents From First Principles" -}}{{- $hub = "/learn/agents/" -}}{{- end -}}
-    {{- if eq $seriesName "Advanced Agents From First Principles" -}}{{- $hub = "/learn/advanced-agents/" -}}{{- end -}}
-    {{- $chapterKey := .File.BaseFileName -}}
-    {{- $promptPages := where .Site.RegularPages "Section" "prompts" -}}
-    {{- $relatedPrompts := where $promptPages "Params.related_chapter" "eq" $chapterKey -}}
 
-    <aside class="series-reader" aria-label="Series navigation">
+    {{/* -----------------------------------------------------------
+         Curriculum / series hub
+         Existing mappings are retained, but new books can simply
+         fall back to their parent book page.
+       ----------------------------------------------------------- */}}
+
+    {{- $hub := "" -}}
+
+    {{- with .Params.curriculum -}}
+      {{- $hub = . -}}
+    {{- end -}}
+
+    {{- if not $hub -}}
+      {{- if eq $seriesName "PyTorch: Zero to Hero" -}}
+        {{- $hub = "/learn/pytorch/" -}}
+      {{- else if eq $seriesName "Models From First Principles" -}}
+        {{- $hub = "/learn/models/" -}}
+      {{- else if eq $seriesName "Agents From First Principles" -}}
+        {{- $hub = "/learn/agents/" -}}
+      {{- else if eq $seriesName "Advanced Agents From First Principles" -}}
+        {{- $hub = "/learn/advanced-agents/" -}}
+      {{- else -}}
+        {{- with .Parent -}}
+          {{- $hub = .RelPermalink -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{/* -----------------------------------------------------------
+         Work out book + chapter slugs automatically.
+
+         /books/digital-life/00-what-is-digital-life/
+                    ↓                  ↓
+               digital-life    00-what-is-digital-life
+       ----------------------------------------------------------- */}}
+
+    {{- $segments := split (strings.Trim .RelPermalink "/") "/" -}}
+    {{- $bookSlug := "" -}}
+
+    {{- if and (ge (len $segments) 3) (eq (index $segments 0) "books") -}}
+      {{- $bookSlug = index $segments 1 -}}
+    {{- end -}}
+
+    {{- $chapterSlug := path.Base (strings.TrimSuffix "/" .RelPermalink) -}}
+
+    {{/* -----------------------------------------------------------
+         Look for a notebook automatically.
+
+         static/notebooks/digital-life/00-what-is-digital-life.ipynb
+       ----------------------------------------------------------- */}}
+
+    {{- $notebookPath := "" -}}
+    {{- $hasNotebook := false -}}
+
+    {{- if $bookSlug -}}
+      {{- $notebookPath = printf "static/notebooks/%s/%s.ipynb" $bookSlug $chapterSlug -}}
+      {{- $hasNotebook = fileExists $notebookPath -}}
+    {{- end -}}
+
+    {{/* -----------------------------------------------------------
+         Colab repository.
+
+         Configure these once in hugo.toml:
+           notebookGithubRepo = "ernanhughes/programmer.ie"
+           notebookGithubBranch = "main"
+       ----------------------------------------------------------- */}}
+
+    {{- $githubRepo := .Site.Params.notebookGithubRepo | default "ernanhughes/programmer.ie" -}}
+    {{- $githubBranch := .Site.Params.notebookGithubBranch | default "main" -}}
+
+    {{- $colabURL := "" -}}
+
+    {{- if $hasNotebook -}}
+      {{- $colabURL = printf
+            "https://colab.research.google.com/github/%s/blob/%s/%s"
+            $githubRepo
+            $githubBranch
+            $notebookPath
+      -}}
+    {{- end -}}
+
+    {{/* -----------------------------------------------------------
+         Existing chapter-specific application prompts.
+
+         Use the real chapter slug rather than index.md.
+       ----------------------------------------------------------- */}}
+
+    {{- $promptPages := where .Site.RegularPages "Section" "prompts" -}}
+    {{- $relatedPrompts := where $promptPages "Params.related_chapter" "eq" $chapterSlug -}}
+
+    {{- $relatedPrompt := false -}}
+    {{- if gt (len $relatedPrompts) 0 -}}
+      {{- $relatedPrompt = index $relatedPrompts 0 -}}
+    {{- end -}}
+
+
+    <aside
+      class="series-reader"
+      aria-label="Chapter learning tools and series navigation"
+    >
+
       <div class="series-reader__topline">
-        <span class="series-reader__continue">Continue this learning path</span>
-        <a class="series-reader__series" href="{{ $hub | relURL }}">View curriculum</a>
+        <span class="series-reader__continue">
+          Continue this learning path
+        </span>
+
+        {{- if $hub -}}
+          <a
+            class="series-reader__series"
+            href="{{ $hub | relURL }}"
+          >
+            View curriculum
+          </a>
+        {{- end -}}
       </div>
+
 
       <div class="series-reader__progress" aria-hidden="true">
         <span style="width: {{ printf "%.2f" $progress }}%"></span>
       </div>
 
-      {{- if gt (len $relatedPrompts) 0 -}}
-        {{- $relatedPrompt := index $relatedPrompts 0 -}}
-        <div class="series-reader__apply">
-          <div>
-            <span class="series-reader__apply-label">Use this chapter</span>
-            <strong>Apply this mechanism to your own repository with AI.</strong>
+
+      {{/* =========================================================
+           CHAPTER ACTIONS
+           ========================================================= */}}
+
+      <div
+        class="series-reader__actions"
+        data-page-title="{{ .Title }}"
+        data-page-url="{{ .Permalink }}"
+        {{- with $relatedPrompt }}
+        data-apply-url="{{ .Permalink }}"
+        {{- end }}
+      >
+
+        {{/* ---------------- RUN ---------------- */}}
+
+        {{- if $hasNotebook -}}
+
+          <a
+            class="series-reader__action"
+            href="{{ $colabURL }}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span
+              class="series-reader__action-icon"
+              aria-hidden="true"
+            >
+              🧪
+            </span>
+
+            <span class="series-reader__action-copy">
+              <strong>Run</strong>
+              <small>Google Colab</small>
+            </span>
+          </a>
+
+        {{- end -}}
+
+
+        {{/* ---------------- UNDERSTAND ---------------- */}}
+
+        <details class="series-reader__action-menu">
+
+          <summary class="series-reader__action">
+
+            <span
+              class="series-reader__action-icon series-reader__action-icon--ai"
+              aria-hidden="true"
+            >
+              ✦
+            </span>
+
+            <span class="series-reader__action-copy">
+              <strong>Understand</strong>
+              <small>Learn with AI</small>
+            </span>
+
+          </summary>
+
+          <div class="series-reader__menu">
+
+            <span class="series-reader__menu-label">
+              Explain with
+            </span>
+
+            <button
+              type="button"
+              data-ai-mode="understand"
+              data-ai-provider="chatgpt"
+            >
+              ChatGPT
+            </button>
+
+            <button
+              type="button"
+              data-ai-mode="understand"
+              data-ai-provider="claude"
+            >
+              Claude
+            </button>
+
+            <button
+              type="button"
+              data-ai-mode="understand"
+              data-ai-provider="gemini"
+            >
+              Gemini
+            </button>
+
+            <button
+              type="button"
+              data-ai-mode="understand"
+              data-ai-provider="copy"
+            >
+              Copy prompt
+            </button>
+
           </div>
-          <a href="{{ $relatedPrompt.RelPermalink }}">Apply this to my repo →</a>
-        </div>
-      {{- end -}}
+
+        </details>
+
+
+        {{/* ---------------- APPLY ---------------- */}}
+
+        <details class="series-reader__action-menu">
+
+          <summary class="series-reader__action">
+
+            <span
+              class="series-reader__action-icon series-reader__action-icon--apply"
+              aria-hidden="true"
+            >
+              &lt;/&gt;
+            </span>
+
+            <span class="series-reader__action-copy">
+              <strong>Apply</strong>
+              <small>To your code</small>
+            </span>
+
+          </summary>
+
+          <div class="series-reader__menu">
+
+            <span class="series-reader__menu-label">
+              Apply with
+            </span>
+
+            {{- with $relatedPrompt -}}
+              <a
+                class="series-reader__guided-prompt"
+                href="{{ .RelPermalink }}"
+              >
+                Guided repository prompt →
+              </a>
+            {{- end -}}
+
+            <button
+              type="button"
+              data-ai-mode="apply"
+              data-ai-provider="chatgpt"
+            >
+              ChatGPT
+            </button>
+
+            <button
+              type="button"
+              data-ai-mode="apply"
+              data-ai-provider="claude"
+            >
+              Claude
+            </button>
+
+            <button
+              type="button"
+              data-ai-mode="apply"
+              data-ai-provider="gemini"
+            >
+              Gemini
+            </button>
+
+            <button
+              type="button"
+              data-ai-mode="apply"
+              data-ai-provider="copy"
+            >
+              Copy prompt
+            </button>
+
+          </div>
+
+        </details>
+
+      </div>
+
+
+      <div
+        class="series-reader__status"
+        aria-live="polite"
+      ></div>
+
+
+      {{/* =========================================================
+           PREVIOUS / NEXT
+           ========================================================= */}}
 
       <div class="series-reader__links">
+
         <div class="series-reader__prev">
+
           {{- if gt $currentIndex 0 -}}
+
             {{- $prev := index $pages (sub $currentIndex 1) -}}
             {{- $prevTitle := $prev.Title -}}
+
             {{- if eq $seriesName "PyTorch: Zero to Hero" -}}
-              {{- $prevTitle = replaceRE `^PyTorch Zero to Hero [0-9]+:\s*` "" $prev.Title -}}
+              {{- $prevTitle = replaceRE
+                    `^PyTorch Zero to Hero [0-9]+:\s*`
+                    ""
+                    $prev.Title
+              -}}
             {{- else -}}
-              {{- $prevTitle = replaceRE (printf `^%s [0-9]+:\s*` $seriesName) "" $prev.Title -}}
+              {{- $prevTitle = replaceRE
+                    (printf `^%s [0-9]+:\s*` $seriesName)
+                    ""
+                    $prev.Title
+              -}}
             {{- end -}}
+
             <span>Previous</span>
-            <a href="{{ $prev.RelPermalink }}">← {{ $prevTitle }}</a>
+
+            <a href="{{ $prev.RelPermalink }}">
+              ← {{ $prevTitle }}
+            </a>
+
           {{- else -}}
+
             <span>Series</span>
-            <a href="{{ $hub | relURL }}">← View curriculum</a>
+
+            {{- if $hub -}}
+              <a href="{{ $hub | relURL }}">
+                ← View curriculum
+              </a>
+            {{- end -}}
+
           {{- end -}}
+
         </div>
+
+
         <div class="series-reader__next">
+
           {{- if lt $position $total -}}
+
             {{- $next := index $pages $position -}}
             {{- $nextTitle := $next.Title -}}
+
             {{- if eq $seriesName "PyTorch: Zero to Hero" -}}
-              {{- $nextTitle = replaceRE `^PyTorch Zero to Hero [0-9]+:\s*` "" $next.Title -}}
+              {{- $nextTitle = replaceRE
+                    `^PyTorch Zero to Hero [0-9]+:\s*`
+                    ""
+                    $next.Title
+              -}}
             {{- else -}}
-              {{- $nextTitle = replaceRE (printf `^%s [0-9]+:\s*` $seriesName) "" $next.Title -}}
+              {{- $nextTitle = replaceRE
+                    (printf `^%s [0-9]+:\s*` $seriesName)
+                    ""
+                    $next.Title
+              -}}
             {{- end -}}
+
             <span>Next</span>
-            <a href="{{ $next.RelPermalink }}">{{ $nextTitle }} →</a>
+
+            <a href="{{ $next.RelPermalink }}">
+              {{ $nextTitle }} →
+            </a>
+
           {{- else -}}
+
             <span>Complete</span>
-            <a href="{{ $hub | relURL }}">Back to curriculum →</a>
+
+            {{- if $hub -}}
+              <a href="{{ $hub | relURL }}">
+                Back to curriculum →
+              </a>
+            {{- end -}}
+
           {{- end -}}
+
         </div>
+
       </div>
+
     </aside>
+
+
+    {{/* ===========================================================
+         AI ACTION SCRIPT
+
+         Prompt is copied first; chosen AI opens in another tab.
+       =========================================================== */}}
+
+    <script>
+    (() => {
+      const providerUrls = {
+        chatgpt: "https://chatgpt.com/",
+        claude: "https://claude.ai/",
+        gemini: "https://gemini.google.com/"
+      };
+
+      function buildPrompt(mode, actions) {
+        const title = actions.dataset.pageTitle;
+        const url = actions.dataset.pageUrl;
+        const guidedApplyUrl = actions.dataset.applyUrl || "";
+
+        if (mode === "understand") {
+          return `I am studying this chapter:
+
+${title}
+${url}
+
+Teach it to me from first principles.
+
+1. Explain the central question.
+2. Explain the mechanism or idea being introduced.
+3. Walk through any experiment, implementation, or demonstration.
+4. Explain the important measurements and controls.
+5. Separate what the evidence supports from what it does not support.
+6. Give me a smaller worked example I can modify myself.
+7. Point out common misunderstandings.
+8. Ask me questions to check that I understand it.
+
+Do not merely summarize the prose. Help me understand how and why it works.
+
+If you cannot access the page directly, ask me to paste the relevant chapter or notebook.`;
+        }
+
+        let prompt = `I want to apply the method or idea from this chapter to my own software project:
+
+${title}
+${url}
+
+Help me turn the chapter into something useful in my own codebase.
+
+1. Identify the reusable idea or mechanism.
+2. Separate the general technique from the chapter-specific example.
+3. Ask me for the relevant repository, code, architecture, data, or constraints.
+4. Map the technique onto my project.
+5. Propose the smallest useful implementation or experiment.
+6. Define measurements and controls before changing the code.
+7. Help me implement it step by step.
+8. Check the result against the original hypothesis.
+9. Explain what conclusions the result does and does not justify.
+
+Do not simply reproduce the chapter's example. Adapt the underlying method to my problem.`;
+
+        if (guidedApplyUrl) {
+          prompt += `
+
+There is also a chapter-specific application prompt here:
+${guidedApplyUrl}
+
+Use it where helpful.`;
+        }
+
+        return prompt;
+      }
+
+
+      function fallbackCopy(text) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+
+        document.body.appendChild(textarea);
+        textarea.select();
+
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+      }
+
+
+      async function copyPrompt(text) {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(text);
+        } else {
+          fallbackCopy(text);
+        }
+      }
+
+
+      document.addEventListener("click", async (event) => {
+
+        const button = event.target.closest("[data-ai-mode]");
+
+        if (!button) {
+          return;
+        }
+
+        const actions = button.closest(".series-reader__actions");
+
+        if (!actions) {
+          return;
+        }
+
+        const mode = button.dataset.aiMode;
+        const provider = button.dataset.aiProvider;
+
+        const prompt = buildPrompt(mode, actions);
+
+        /*
+         * Open the destination synchronously from the click so
+         * browsers are less likely to treat it as a popup.
+         */
+        if (provider !== "copy" && providerUrls[provider]) {
+          const newWindow = window.open(
+            providerUrls[provider],
+            "_blank",
+            "noopener,noreferrer"
+          );
+
+          if (newWindow) {
+            newWindow.opener = null;
+          }
+        }
+
+        try {
+          await copyPrompt(prompt);
+
+          const reader = actions.closest(".series-reader");
+          const status = reader?.querySelector(".series-reader__status");
+
+          if (status) {
+            status.textContent =
+              provider === "copy"
+                ? "Prompt copied to clipboard."
+                : "Prompt copied — paste it into the AI window that just opened.";
+
+            window.setTimeout(() => {
+              status.textContent = "";
+            }, 5000);
+          }
+
+        } catch (error) {
+          console.error("Unable to copy AI prompt:", error);
+        }
+
+        /*
+         * Close the dropdown after choosing an action.
+         */
+        const menu = button.closest("details");
+
+        if (menu) {
+          menu.removeAttribute("open");
+        }
+      });
+
+
+      /*
+       * Only keep one AI dropdown open at once.
+       */
+      document.addEventListener("toggle", (event) => {
+        const opened = event.target;
+
+        if (
+          !(opened instanceof HTMLDetailsElement) ||
+          !opened.open ||
+          !opened.classList.contains("series-reader__action-menu")
+        ) {
+          return;
+        }
+
+        document
+          .querySelectorAll(".series-reader__action-menu[open]")
+          .forEach((details) => {
+            if (details !== opened) {
+              details.removeAttribute("open");
+            }
+          });
+      }, true);
+
+    })();
+    </script>
+
   {{- end -}}
+
 {{- end -}}

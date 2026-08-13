@@ -39,6 +39,23 @@ But don't trust it.
 
 ---
 
+---
+
+<div class="programmers-notebook">
+  <strong>🧪 Programmer's Notebook</strong><br>
+  Reproduce the experiments, inspect the controls, and run the code yourself.
+  <br><br>
+  <a
+    href="https://colab.research.google.com/github/ernanhughes/programmer.ie.notebooks/blob/main/notebooks/digital-life/01-look-at-this-thing.ipynb"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Open in Google Colab ↗
+  </a>
+</div>
+
+---
+
 ## Your Brain Has Already Invented an Object
 
 Before we know anything about the mechanism, we have probably done something like this:
