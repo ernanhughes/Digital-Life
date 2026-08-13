@@ -1,0 +1,12 @@
+{
+  "requested_groups": 192,
+  "groups_with_probes": 192,
+  "coverage_fraction": 1.0,
+  "total_probes": 768,
+  "probe_count_distribution": {
+    "min": 4,
+    "median": 4.0,
+    "max": 4
+  },
+  "supported_scope": "occupied_neighbors = 1"
+}
