@@ -1,0 +1,26 @@
+{
+  "pair_distribution_by_occupied_neighbors": {
+    "1": 467
+  },
+  "dominant_n": "1",
+  "dominant_n_fraction": 1.0,
+  "baseline_p_by_n": {
+    "1": {
+      "interventions": 934,
+      "pairs": 467,
+      "high_baseline_p_mean": 0.38041146423796446,
+      "low_baseline_p_mean": 0.38041146423796446,
+      "raw_pair_baseline_p_difference": {
+        "n": 467,
+        "mean": 3.358008613025768e-17,
+        "sd": 5.275744418057095e-16,
+        "se": 2.4413233661889024e-17,
+        "ci95_low": -1.5038232377183094e-17,
+        "ci95_high": 8.166201476632575e-17,
+        "half_width": 4.835012357175443e-17,
+        "achieved_mde80_one_sided": 6.070289176439476e-17
+      }
+    }
+  },
+  "scope_warning": "If one n stratum dominates, scientific prose must explicitly scope the extreme-FCP result to that supported stratum."
+}

@@ -1,0 +1,82 @@
+{
+  "H1_primary_exact_expected_lag1_gain": {
+    "sei": 0.1,
+    "summary": {
+      "n": 275,
+      "mean": -0.002580487051053025,
+      "sd": 0.3115915739447761,
+      "se": 0.01878967888383822,
+      "ci95_low": -0.0395016984122971,
+      "ci95_high": 0.03327085181727841,
+      "half_width": 0.03638627511478776,
+      "achieved_mde80_one_sided": 0.04672006418198964
+    },
+    "signflip_greater": {
+      "n": 275,
+      "observed_mean": -0.002580487051053025,
+      "p_value": 0.5549722513874307,
+      "permutations": 20000
+    },
+    "status": "BOUNDED_BELOW_SEI"
+  },
+  "H2_realized_lag1_gain": {
+    "sei": 0.1,
+    "summary": {
+      "n": 275,
+      "mean": -0.028181818181818176,
+      "sd": 0.5423458471458873,
+      "se": 0.03270468511982454,
+      "ci95_low": -0.09242424242424241,
+      "ci95_high": 0.03515151515151515,
+      "half_width": 0.06378787878787878,
+      "achieved_mde80_one_sided": 0.0813193773718097
+    },
+    "signflip_greater": {
+      "n": 275,
+      "observed_mean": -0.028181818181818176,
+      "p_value": 0.8084595770211489,
+      "permutations": 20000
+    },
+    "status": "BOUNDED_BELOW_SEI"
+  },
+  "H3_model_implied_lag1_divergence_probability": {
+    "sei": 0.05,
+    "summary": {
+      "n": 275,
+      "mean": 0.04981839455556556,
+      "sd": 0.29083334328012184,
+      "se": 0.017537910476087163,
+      "ci95_low": 0.015929152658155924,
+      "ci95_high": 0.08414020015922713,
+      "half_width": 0.034105523750535605,
+      "achieved_mde80_one_sided": 0.043607573504918
+    },
+    "signflip_greater": {
+      "n": 275,
+      "observed_mean": 0.04981839455556556,
+      "p_value": 0.0031998400079996,
+      "permutations": 20000
+    },
+    "status": "UNRESOLVED"
+  },
+  "H4_finite_horizon_transient_gain": {
+    "sei": 0.15,
+    "summary": {
+      "n": 275,
+      "mean": 0.059090909090909076,
+      "sd": 1.3904538481045023,
+      "se": 0.0838475218630628,
+      "ci95_low": -0.10484848484848484,
+      "ci95_high": 0.22424999999999992,
+      "half_width": 0.16454924242424238,
+      "achieved_mde80_one_sided": 0.2084847552297745
+    },
+    "signflip_greater": {
+      "n": 275,
+      "observed_mean": 0.059090909090909076,
+      "p_value": 0.2382880855957202,
+      "permutations": 20000
+    },
+    "status": "UNRESOLVED"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "prediction": "predicted_far = -(DeltaF/F_prevent) * (B/F_prevent) * sum_far_frontier p_prevent",
+  "raw_intervention_count": 934,
+  "correlation_predicted_vs_exact_swap": 0.3325872638115836,
+  "slope_through_origin": 0.8822278459344334,
+  "mean_residual_exact_swap_minus_prediction": {
+    "n": 281,
+    "mean": 0.014042167858383659,
+    "sd": 0.18013750188460934,
+    "se": 0.010746102427631691,
+    "ci95_low": -0.006811488039742103,
+    "ci95_high": 0.03528118096976141,
+    "half_width": 0.021046334504751758,
+    "achieved_mde80_one_sided": 0.02671991353492628
+  },
+  "frozen_residual_tolerance": 0.05,
+  "status": "CONSISTENT_WITH_SIMPLE_DILUTION_LAW",
+  "note": "Correlation/slope are descriptive model checks. The frozen practical criterion is the group-level residual interval."
+}

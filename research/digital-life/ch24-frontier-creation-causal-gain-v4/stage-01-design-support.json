@@ -1,0 +1,30 @@
+{
+  "requested_groups": 384,
+  "groups_with_extreme_pairs": 275,
+  "coverage_fraction": 0.7161458333333334,
+  "minimum_coverage_fraction": 0.5,
+  "coverage_gate_passed": true,
+  "total_evaluated_usable_sites": 36864,
+  "FCP_site_counts": {
+    "-1": 23996,
+    "0": 5261,
+    "1": 4058,
+    "2": 3549
+  },
+  "total_extreme_pairs": 471,
+  "pair_count_distribution": {
+    "min": 0,
+    "median": 1.0,
+    "max": 4
+  },
+  "achieved_pair_delta_FCP": {
+    "mean": 3.0,
+    "min": 3,
+    "max": 3
+  },
+  "unmatched_possible_mediator_diagnostics": {
+    "baseline_p_high_minus_low_mean": 6.116833861788283e-17,
+    "frontier_density_high_minus_low_mean": -0.22672924349089285
+  },
+  "note": "No causal outcome data are used in this stage. No weaker FCP contrast is substituted if coverage fails."
+}
