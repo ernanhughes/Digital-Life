@@ -1,0 +1,14 @@
+{
+  "contrast": "G_T(f=0.10) - G_T(unbounded)",
+  "SEI_abs": 0.15,
+  "result": {
+    "n": 192,
+    "mean": 0.0013020833333333333,
+    "sd": 0.6428713992833865,
+    "se": 0.046395246928821826,
+    "ci95_low": -0.08984375,
+    "ci95_high": 0.08854166666666667,
+    "achieved_mde80_one_sided": 0.1153606151363367
+  },
+  "status": "BOUNDED_NEAR_ZERO"
+}

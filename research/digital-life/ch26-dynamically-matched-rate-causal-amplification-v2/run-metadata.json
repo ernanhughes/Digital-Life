@@ -1,0 +1,30 @@
+{
+  "experiment_version": "digital-crystal-dynamically-matched-rate-causal-amplification-v2",
+  "schema_version": 2,
+  "chapter": 26,
+  "chapter_title": "Does Candidate Subsampling Change Causal Amplification?",
+  "profile": "full",
+  "profile_config": {
+    "groups": 192,
+    "source_profile": "full",
+    "probes_per_group": 4,
+    "bootstrap_reps": 7000,
+    "scientific": true
+  },
+  "seed": 20260913,
+  "fresh_seed": true,
+  "fractions": [
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "reference_fraction": 0.1,
+  "horizon": 12,
+  "primary_SEI": 0.15,
+  "match_tolerance": 0.02,
+  "started_at_unix": 1786622049.485707,
+  "finished_at_unix": 1786626679.8811185,
+  "final_status": "CAUSAL_AMPLIFICATION_BOUNDED_NEAR_ZERO_AT_MATCHED_RATE"
+}
