@@ -364,11 +364,17 @@ Adapt the underlying method to my problem.` .Title $publicURL -}}
       id="{{ $dialogIDBase }}-explain"
       class="series-reader__dialog"
       aria-labelledby="{{ $dialogIDBase }}-explain-title"
+      hidden
     >
       <form method="dialog" class="series-reader__dialog-panel">
         <div class="series-reader__dialog-header">
           <h2 id="{{ $dialogIDBase }}-explain-title">Explain this chapter with AI</h2>
-          <button class="series-reader__dialog-close" type="submit" aria-label="Close dialog">×</button>
+          <button
+            class="series-reader__dialog-close"
+            type="button"
+            data-series-dialog-close
+            aria-label="Close dialog"
+          >×</button>
         </div>
 
         <p>Copy this prompt into ChatGPT, Claude, Gemini, a local model, or another AI.</p>
@@ -378,7 +384,7 @@ Adapt the underlying method to my problem.` .Title $publicURL -}}
 
         <div class="series-reader__dialog-actions">
           <button type="button" data-series-copy="{{ $dialogIDBase }}-explain-prompt">Copy prompt</button>
-          <button type="submit">Close</button>
+          <button type="button" data-series-dialog-close>Close</button>
         </div>
       </form>
     </dialog>
@@ -387,11 +393,17 @@ Adapt the underlying method to my problem.` .Title $publicURL -}}
       id="{{ $dialogIDBase }}-apply"
       class="series-reader__dialog"
       aria-labelledby="{{ $dialogIDBase }}-apply-title"
+      hidden
     >
       <form method="dialog" class="series-reader__dialog-panel">
         <div class="series-reader__dialog-header">
           <h2 id="{{ $dialogIDBase }}-apply-title">Apply this chapter with AI</h2>
-          <button class="series-reader__dialog-close" type="submit" aria-label="Close dialog">×</button>
+          <button
+            class="series-reader__dialog-close"
+            type="button"
+            data-series-dialog-close
+            aria-label="Close dialog"
+          >×</button>
         </div>
 
         <p>Copy this prompt into ChatGPT, Claude, Gemini, a local model, or another AI.</p>
@@ -401,7 +413,7 @@ Adapt the underlying method to my problem.` .Title $publicURL -}}
 
         <div class="series-reader__dialog-actions">
           <button type="button" data-series-copy="{{ $dialogIDBase }}-apply-prompt">Copy prompt</button>
-          <button type="submit">Close</button>
+          <button type="button" data-series-dialog-close>Close</button>
         </div>
       </form>
     </dialog>
@@ -432,7 +444,12 @@ Adapt the underlying method to my problem.` .Title $publicURL -}}
           const dialog = document.getElementById(openButton.dataset.seriesDialogOpen);
 
           if (dialog && typeof dialog.showModal === "function") {
+            dialog.hidden = false;
             dialog.showModal();
+            dialog.querySelector("textarea")?.focus();
+          } else if (dialog) {
+            dialog.hidden = false;
+            dialog.setAttribute("open", "");
             dialog.querySelector("textarea")?.focus();
           }
 
@@ -461,6 +478,21 @@ Adapt the underlying method to my problem.` .Title $publicURL -}}
             console.error("Unable to copy AI prompt:", error);
           }
         }
+
+        const closeButton = event.target.closest("[data-series-dialog-close]");
+
+        if (closeButton) {
+          const dialog = closeButton.closest(".series-reader__dialog");
+
+          if (dialog) {
+            if (typeof dialog.close === "function" && dialog.open) {
+              dialog.close();
+            }
+
+            dialog.removeAttribute("open");
+            dialog.hidden = true;
+          }
+        }
       });
 
       document.addEventListener("click", (event) => {
@@ -481,6 +513,17 @@ Adapt the underlying method to my problem.` .Title $publicURL -}}
           dialog.close();
         }
       });
+
+      document.addEventListener("close", (event) => {
+        const dialog = event.target;
+
+        if (
+          dialog instanceof HTMLDialogElement &&
+          dialog.classList.contains("series-reader__dialog")
+        ) {
+          dialog.hidden = true;
+        }
+      }, true);
 
     })();
     </script>
