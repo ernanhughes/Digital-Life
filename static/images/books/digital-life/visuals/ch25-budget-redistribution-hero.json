@@ -1,0 +1,28 @@
+{
+  "chapter": "25: How Does Finite Computation Create Non-Local Coupling?",
+  "chapter_file": "content/books/digital-life/25-how-does-finite-computation-create-non-local-coupling/index.md",
+  "research_scripts": [
+    "ch25_digital_crystal_finite_budget_redistribution_v1.py"
+  ],
+  "artifacts": [
+    "research/digital-life/ch25-finite-budget-redistribution-v1/stage-03-class-summaries.json",
+    "stage-04-low-budget-linearity.json",
+    "stage-08-full-evaluation-hard-zero.json",
+    "stage-09-verdict.json"
+  ],
+  "source": "representative frozen-substrate state plus canonical artifact values",
+  "measured_values": {
+    "f_025_E_far_FCP_plus_2": -0.26141535457075316,
+    "f_025_actual_deltaF_plus_2": 1.8389756944444444,
+    "low_budget_status": "SUPPORTED",
+    "full_zero_status": "PASS",
+    "overall_status": "LOW_BUDGET_SCALING_SUPPORTED_EXTREME_RATIO_UNRESOLVED"
+  },
+  "representative_seed": 2502,
+  "visual_encoding": "green/orange far cells are actual selector swaps in a representative finite-budget branch comparison; full-evaluation zero uses canonical hard-zero artifact",
+  "outputs": [
+    "ch25-budget-redistribution-hero.png",
+    "ch25-budget-redistribution-filmstrip.png",
+    "ch25-budget-redistribution.gif"
+  ]
+}

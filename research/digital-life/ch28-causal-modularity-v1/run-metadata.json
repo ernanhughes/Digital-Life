@@ -1,0 +1,22 @@
+{
+  "experiment_version": "digital-crystal-causal-modularity-v1",
+  "schema_version": 1,
+  "chapter": 28,
+  "chapter_title": "Does a Causal Individual Emerge?",
+  "profile": "smoke",
+  "seed": 20260916,
+  "fresh_seed": true,
+  "horizon": 8,
+  "region_radii": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "primary_region_radius": 4,
+  "module_SEI": 0.15,
+  "allocation_policy": "true_unbounded",
+  "started_at_unix": 1786652391.0207157,
+  "finished_at_unix": 1786652417.4293861,
+  "final_status": "ENGINEERING_SMOKE_ONLY"
+}

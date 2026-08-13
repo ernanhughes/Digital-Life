@@ -1,0 +1,452 @@
+{
+  "regions": [
+    {
+      "group": 0,
+      "region_index": 0,
+      "region_radius": 2,
+      "center": [
+        -10,
+        14
+      ],
+      "occupied_count": 13,
+      "occupancy_fraction": 0.6842105263157895,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 14
+    },
+    {
+      "group": 0,
+      "region_index": 0,
+      "region_radius": 3,
+      "center": [
+        0,
+        10
+      ],
+      "occupied_count": 19,
+      "occupancy_fraction": 0.5135135135135135,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 10
+    },
+    {
+      "group": 0,
+      "region_index": 0,
+      "region_radius": 4,
+      "center": [
+        8,
+        1
+      ],
+      "occupied_count": 30,
+      "occupancy_fraction": 0.4918032786885246,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 9
+    },
+    {
+      "group": 0,
+      "region_index": 0,
+      "region_radius": 5,
+      "center": [
+        8,
+        0
+      ],
+      "occupied_count": 46,
+      "occupancy_fraction": 0.5054945054945055,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 8
+    },
+    {
+      "group": 1,
+      "region_index": 0,
+      "region_radius": 2,
+      "center": [
+        -10,
+        1
+      ],
+      "occupied_count": 12,
+      "occupancy_fraction": 0.631578947368421,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 10
+    },
+    {
+      "group": 1,
+      "region_index": 0,
+      "region_radius": 3,
+      "center": [
+        9,
+        -11
+      ],
+      "occupied_count": 18,
+      "occupancy_fraction": 0.4864864864864865,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 11
+    },
+    {
+      "group": 1,
+      "region_index": 0,
+      "region_radius": 4,
+      "center": [
+        -12,
+        8
+      ],
+      "occupied_count": 30,
+      "occupancy_fraction": 0.4918032786885246,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 12
+    },
+    {
+      "group": 1,
+      "region_index": 0,
+      "region_radius": 5,
+      "center": [
+        11,
+        -10
+      ],
+      "occupied_count": 46,
+      "occupancy_fraction": 0.5054945054945055,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 11
+    },
+    {
+      "group": 2,
+      "region_index": 0,
+      "region_radius": 2,
+      "center": [
+        13,
+        -9
+      ],
+      "occupied_count": 12,
+      "occupancy_fraction": 0.631578947368421,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 13
+    },
+    {
+      "group": 2,
+      "region_index": 0,
+      "region_radius": 3,
+      "center": [
+        -10,
+        10
+      ],
+      "occupied_count": 19,
+      "occupancy_fraction": 0.5135135135135135,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 10
+    },
+    {
+      "group": 2,
+      "region_index": 0,
+      "region_radius": 4,
+      "center": [
+        -10,
+        10
+      ],
+      "occupied_count": 31,
+      "occupancy_fraction": 0.5081967213114754,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 10
+    },
+    {
+      "group": 2,
+      "region_index": 0,
+      "region_radius": 5,
+      "center": [
+        6,
+        4
+      ],
+      "occupied_count": 45,
+      "occupancy_fraction": 0.4945054945054945,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 10
+    },
+    {
+      "group": 3,
+      "region_index": 0,
+      "region_radius": 2,
+      "center": [
+        9,
+        2
+      ],
+      "occupied_count": 12,
+      "occupancy_fraction": 0.631578947368421,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 11
+    },
+    {
+      "group": 3,
+      "region_index": 0,
+      "region_radius": 3,
+      "center": [
+        -2,
+        -8
+      ],
+      "occupied_count": 19,
+      "occupancy_fraction": 0.5135135135135135,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 10
+    },
+    {
+      "group": 3,
+      "region_index": 0,
+      "region_radius": 4,
+      "center": [
+        -1,
+        -9
+      ],
+      "occupied_count": 30,
+      "occupancy_fraction": 0.4918032786885246,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 10
+    },
+    {
+      "group": 3,
+      "region_index": 0,
+      "region_radius": 5,
+      "center": [
+        4,
+        -12
+      ],
+      "occupied_count": 46,
+      "occupancy_fraction": 0.5054945054945055,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 12
+    },
+    {
+      "group": 4,
+      "region_index": 0,
+      "region_radius": 2,
+      "center": [
+        6,
+        -10
+      ],
+      "occupied_count": 12,
+      "occupancy_fraction": 0.631578947368421,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 10
+    },
+    {
+      "group": 4,
+      "region_index": 0,
+      "region_radius": 3,
+      "center": [
+        -1,
+        -10
+      ],
+      "occupied_count": 18,
+      "occupancy_fraction": 0.4864864864864865,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 11
+    },
+    {
+      "group": 4,
+      "region_index": 0,
+      "region_radius": 4,
+      "center": [
+        -1,
+        -10
+      ],
+      "occupied_count": 31,
+      "occupancy_fraction": 0.5081967213114754,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 11
+    },
+    {
+      "group": 4,
+      "region_index": 0,
+      "region_radius": 5,
+      "center": [
+        -12,
+        12
+      ],
+      "occupied_count": 46,
+      "occupancy_fraction": 0.5054945054945055,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 12
+    },
+    {
+      "group": 5,
+      "region_index": 0,
+      "region_radius": 2,
+      "center": [
+        -11,
+        1
+      ],
+      "occupied_count": 12,
+      "occupancy_fraction": 0.631578947368421,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 11
+    },
+    {
+      "group": 5,
+      "region_index": 0,
+      "region_radius": 3,
+      "center": [
+        11,
+        -6
+      ],
+      "occupied_count": 19,
+      "occupancy_fraction": 0.5135135135135135,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 11
+    },
+    {
+      "group": 5,
+      "region_index": 0,
+      "region_radius": 4,
+      "center": [
+        7,
+        3
+      ],
+      "occupied_count": 30,
+      "occupancy_fraction": 0.4918032786885246,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 10
+    },
+    {
+      "group": 5,
+      "region_index": 0,
+      "region_radius": 5,
+      "center": [
+        8,
+        1
+      ],
+      "occupied_count": 45,
+      "occupancy_fraction": 0.4945054945054945,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 9
+    },
+    {
+      "group": 6,
+      "region_index": 0,
+      "region_radius": 2,
+      "center": [
+        2,
+        -11
+      ],
+      "occupied_count": 12,
+      "occupancy_fraction": 0.631578947368421,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 11
+    },
+    {
+      "group": 6,
+      "region_index": 0,
+      "region_radius": 3,
+      "center": [
+        -9,
+        12
+      ],
+      "occupied_count": 18,
+      "occupancy_fraction": 0.4864864864864865,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 12
+    },
+    {
+      "group": 6,
+      "region_index": 0,
+      "region_radius": 4,
+      "center": [
+        7,
+        -10
+      ],
+      "occupied_count": 30,
+      "occupancy_fraction": 0.4918032786885246,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 10
+    },
+    {
+      "group": 6,
+      "region_index": 0,
+      "region_radius": 5,
+      "center": [
+        1,
+        10
+      ],
+      "occupied_count": 45,
+      "occupancy_fraction": 0.4945054945054945,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 11
+    },
+    {
+      "group": 7,
+      "region_index": 0,
+      "region_radius": 2,
+      "center": [
+        -13,
+        3
+      ],
+      "occupied_count": 12,
+      "occupancy_fraction": 0.631578947368421,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 13
+    },
+    {
+      "group": 7,
+      "region_index": 0,
+      "region_radius": 3,
+      "center": [
+        -9,
+        -2
+      ],
+      "occupied_count": 19,
+      "occupancy_fraction": 0.5135135135135135,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 11
+    },
+    {
+      "group": 7,
+      "region_index": 0,
+      "region_radius": 4,
+      "center": [
+        -12,
+        0
+      ],
+      "occupied_count": 31,
+      "occupancy_fraction": 0.5081967213114754,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 12
+    },
+    {
+      "group": 7,
+      "region_index": 0,
+      "region_radius": 5,
+      "center": [
+        -13,
+        2
+      ],
+      "occupied_count": 46,
+      "occupancy_fraction": 0.5054945054945055,
+      "internal_frontier_count": 2,
+      "external_frontier_count": 2,
+      "center_radial_distance": 13
+    }
+  ]
+}

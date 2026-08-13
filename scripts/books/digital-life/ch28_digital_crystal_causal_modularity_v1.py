@@ -595,7 +595,6 @@ from tqdm import tqdm
 import ch18_digital_crystal_persistent_material_state_v7 as ch18
 import ch21_digital_crystal_finite_update_budget_v3 as ch21
 import ch24_digital_crystal_frontier_creation_causal_gain_v4 as v4
-import ch26_digital_crystal_dynamically_matched_rate_causal_amplification_v2 as ch26
 import ch27_digital_crystal_decaying_material_history_causal_response_v2 as ch27
 
 
@@ -2017,45 +2016,33 @@ def prepare_groups(
     source_profile: dict,
     crystal_params: ch18.CrystalParams,
     seed: int,
-) -> List[
-    GroupCheckpoint
-]:
-    # Reuse Chapter 26/27 probe preparation only to obtain deterministic
-    # independent checkpoints + future environments. Deduplicate by group.
-    raw_probes, _support = (
-        ch26.prepare_probes(
-            profile,
+) -> List[GroupCheckpoint]:
+    groups = []
+
+    total_groups = int(
+        profile["groups"]
+    )
+
+    for group in tqdm(
+        range(total_groups),
+        desc="Chapter 28 checkpoints",
+    ):
+        checkpoint, future_env, _max_capacity = v4.build_checkpoint(
             source_profile,
             crystal_params,
             seed,
+            group,
         )
-    )
 
-    by_group = {}
-
-    for p in raw_probes:
-        if p.group not in by_group:
-            by_group[
-                int(
-                    p.group
-                )
-            ] = GroupCheckpoint(
-                group=int(
-                    p.group
-                ),
-                checkpoint=p.checkpoint,
-                future_env=p.future_env,
+        groups.append(
+            GroupCheckpoint(
+                group=int(group),
+                checkpoint=checkpoint,
+                future_env=future_env,
             )
-
-    return [
-        by_group[
-            g
-        ]
-        for g
-        in sorted(
-            by_group
         )
-    ]
+
+    return groups
 
 
 # ============================================================================
