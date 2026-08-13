@@ -1,0 +1,1149 @@
+{
+  "metadata": {
+    "audit_version": "chapter27-v2-trajectory-closeout-audit-v1",
+    "scientific_role": "ANALYSIS_ONLY_EXISTING_V2_SAMPLE",
+    "source_seed": 20260915,
+    "complete_paired_groups": 192,
+    "initial_material_mass": 1.4142135623730951,
+    "formal_V2_primary_status_unchanged": "UNRESOLVED"
+  },
+  "correctness_reconciliation": {
+    "n_groups": 192,
+    "max_abs_group_reconciliation_error": 6.439293542825908e-15,
+    "mean_error": 7.273189573756926e-17,
+    "status": "PASS",
+    "role": "CORRECTNESS_ASSERTION_NOT_FINDING"
+  },
+  "per_lag": {
+    "1": {
+      "delta_RB_increment": {
+        "n": 192,
+        "mean": -0.014985094948856631,
+        "sd": 0.015943333723453842,
+        "se": 0.0011506110021270144,
+        "ci95_low": -0.01728495321507668,
+        "ci95_high": -0.012732387778142173,
+        "achieved_mde80_one_sided": 0.0028609653310315924
+      },
+      "cumulative_delta_RB": {
+        "n": 192,
+        "mean": -0.014985094948856631,
+        "sd": 0.015943333723453842,
+        "se": 0.0011506110021270144,
+        "ci95_low": -0.017222978260557173,
+        "ci95_high": -0.012736418187788595,
+        "achieved_mde80_one_sided": 0.0028609653310315924
+      },
+      "accessible_prevent_material_mass": {
+        "n": 192,
+        "mean": 1.1541073679701084,
+        "sd": 0.15368572429764182,
+        "se": 0.011091311786730765,
+        "ci95_low": 1.1325071589983864,
+        "ci95_high": 1.1748873158416382,
+        "achieved_mde80_one_sided": 0.02757826792794386
+      },
+      "remote_prevent_material_mass": {
+        "n": 192,
+        "mean": 1.1562947309039535,
+        "sd": 0.16368396327352935,
+        "se": 0.011812872532249625,
+        "ci95_low": 1.1325071589983864,
+        "ci95_high": 1.178441780609137,
+        "achieved_mde80_one_sided": 0.02937241058201774
+      },
+      "delta_prevent_material_mass": {
+        "n": 192,
+        "mean": -0.0021873629338452633,
+        "sd": 0.22707662313865334,
+        "se": 0.01638784368697159,
+        "ci95_low": -0.034450966208062934,
+        "ci95_high": 0.030083075849540585,
+        "achieved_mde80_one_sided": 0.040747961345858126
+      },
+      "delta_offset": {
+        "n": 192,
+        "mean": 0.0003834350826110722,
+        "sd": 8.461816217869994e-05,
+        "se": 6.106789839025478e-06,
+        "ci95_low": 0.00037169487033950803,
+        "ci95_high": 0.0003954541139211528,
+        "achieved_mde80_one_sided": 1.5184379413242614e-05
+      },
+      "delta_realized_total_increment_DIAGNOSTIC": {
+        "n": 192,
+        "mean": -0.0434027777777762,
+        "sd": 0.31377599683166746,
+        "se": 0.022644832029500798,
+        "ci95_low": -0.08854166666666519,
+        "ci95_high": 8.95579906530852e-16,
+        "achieved_mde80_one_sided": 0.05630580556215115
+      }
+    },
+    "2": {
+      "delta_RB_increment": {
+        "n": 192,
+        "mean": -0.05298000352301788,
+        "sd": 0.24377620217259768,
+        "se": 0.01759303199329674,
+        "ci95_low": -0.08817669359192874,
+        "ci95_high": -0.018983715542773928,
+        "achieved_mde80_one_sided": 0.04374463177173357
+      },
+      "cumulative_delta_RB": {
+        "n": 192,
+        "mean": -0.0679650984718745,
+        "sd": 0.24575720368416398,
+        "se": 0.01773599846279272,
+        "ci95_low": -0.10239609976750257,
+        "ci95_high": -0.033786179022814625,
+        "achieved_mde80_one_sided": 0.04410011430403326
+      },
+      "accessible_prevent_material_mass": {
+        "n": 192,
+        "mean": 0.9609619749523604,
+        "sd": 0.17725659657688156,
+        "se": 0.012792392968662435,
+        "ci95_low": 0.9353850402578109,
+        "ci95_high": 0.9858081400842084,
+        "achieved_mde80_one_sided": 0.031807963522528064
+      },
+      "remote_prevent_material_mass": {
+        "n": 192,
+        "mean": 0.9665645415997378,
+        "sd": 0.17960212372466325,
+        "se": 0.01296166680993285,
+        "ci95_low": 0.9407440170509546,
+        "ci95_high": 0.9914107067315859,
+        "achieved_mde80_one_sided": 0.03222885867339135
+      },
+      "delta_prevent_material_mass": {
+        "n": 192,
+        "mean": -0.005602566647377515,
+        "sd": 0.25006320737105264,
+        "se": 0.018046757511262307,
+        "ci95_low": -0.04067950565704542,
+        "ci95_high": 0.03093591148769322,
+        "achieved_mde80_one_sided": 0.04487280886573337
+      },
+      "delta_offset": {
+        "n": 192,
+        "mean": 0.00012264374511220902,
+        "sd": 0.004261675584730322,
+        "se": 0.0003075599432553634,
+        "ci95_low": -0.00046531503763720395,
+        "ci95_high": 0.0007349916025349992,
+        "achieved_mde80_one_sided": 0.0007647400670087679
+      },
+      "delta_realized_total_increment_DIAGNOSTIC": {
+        "n": 192,
+        "mean": -0.059461805555554616,
+        "sd": 0.3302235386866211,
+        "se": 0.023831831119183935,
+        "ci95_low": -0.10460069444444436,
+        "ci95_high": -0.013454861111112193,
+        "achieved_mde80_one_sided": 0.0592572489581136
+      }
+    },
+    "3": {
+      "delta_RB_increment": {
+        "n": 192,
+        "mean": -0.03149266495245431,
+        "sd": 0.305508679808945,
+        "se": 0.022048189815932703,
+        "ci95_low": -0.07491954973375596,
+        "ci95_high": 0.011222422898814463,
+        "achieved_mde80_one_sided": 0.05482226969738646
+      },
+      "cumulative_delta_RB": {
+        "n": 192,
+        "mean": -0.09945776342432881,
+        "sd": 0.3904090726257969,
+        "se": 0.028175347896822,
+        "ci95_low": -0.15724523132755258,
+        "ci95_high": -0.045175723550683305,
+        "achieved_mde80_one_sided": 0.07005729423197654
+      },
+      "accessible_prevent_material_mass": {
+        "n": 192,
+        "mean": 0.800998263888889,
+        "sd": 0.1706379451228833,
+        "se": 0.012314732943832658,
+        "ci95_low": 0.7766927083333334,
+        "ci95_high": 0.8246527777777777,
+        "achieved_mde80_one_sided": 0.030620273878911374
+      },
+      "remote_prevent_material_mass": {
+        "n": 192,
+        "mean": 0.785373263888889,
+        "sd": 0.19277931730405162,
+        "se": 0.01391264884246081,
+        "ci95_low": 0.7578070746527777,
+        "ci95_high": 0.8118543836805555,
+        "achieved_mde80_one_sided": 0.03459345159008251
+      },
+      "delta_prevent_material_mass": {
+        "n": 192,
+        "mean": 0.015624999999999995,
+        "sd": 0.2521900870836706,
+        "se": 0.018200251833089046,
+        "ci95_low": -0.01996527777777778,
+        "ci95_high": 0.05056423611111111,
+        "achieved_mde80_one_sided": 0.04525446863818879
+      },
+      "delta_offset": {
+        "n": 192,
+        "mean": -0.0013078987616399473,
+        "sd": 0.008522723762089582,
+        "se": 0.0006150746072839051,
+        "ci95_low": -0.0025343730840294842,
+        "ci95_high": -0.00010265411488448206,
+        "achieved_mde80_one_sided": 0.0015293675483583396
+      },
+      "delta_realized_total_increment_DIAGNOSTIC": {
+        "n": 192,
+        "mean": -0.015625000000000593,
+        "sd": 0.42445812904912267,
+        "se": 0.030632626883279487,
+        "ci95_low": -0.07552083333333245,
+        "ci95_high": 0.043836805555554643,
+        "achieved_mde80_one_sided": 0.07616725665709793
+      }
+    },
+    "4": {
+      "delta_RB_increment": {
+        "n": 192,
+        "mean": -0.020619723930875033,
+        "sd": 0.29500736448121906,
+        "se": 0.021290322662019235,
+        "ci95_low": -0.061658605562097006,
+        "ci95_high": 0.022555678476100283,
+        "achieved_mde80_one_sided": 0.05293785207156346
+      },
+      "cumulative_delta_RB": {
+        "n": 192,
+        "mean": -0.12007748735520385,
+        "sd": 0.5171784161023963,
+        "se": 0.03732413721947286,
+        "ci95_low": -0.195489125696143,
+        "ci95_high": -0.04857700550302092,
+        "achieved_mde80_one_sided": 0.09280552888698182
+      },
+      "accessible_prevent_material_mass": {
+        "n": 192,
+        "mean": 0.6374333927319226,
+        "sd": 0.16789600035666002,
+        "se": 0.012116850125222397,
+        "ci95_low": 0.6124928687214833,
+        "ci95_high": 0.6610205549743533,
+        "achieved_mde80_one_sided": 0.03012824322510725
+      },
+      "remote_prevent_material_mass": {
+        "n": 192,
+        "mean": 0.6509670104120057,
+        "sd": 0.18021496179620228,
+        "se": 0.01300589458812944,
+        "ci95_low": 0.6254464742152773,
+        "ci95_high": 0.6764875466087341,
+        "achieved_mde80_one_sided": 0.03233882993201402
+      },
+      "delta_prevent_material_mass": {
+        "n": 192,
+        "mean": -0.013533617680083274,
+        "sd": 0.23511755784306249,
+        "se": 0.016968148163987444,
+        "ci95_low": -0.04717432448486172,
+        "ci95_high": 0.020107089124695162,
+        "achieved_mde80_one_sided": 0.042190873839407804
+      },
+      "delta_offset": {
+        "n": 192,
+        "mean": -0.0016209215751956663,
+        "sd": 0.013281456198586105,
+        "se": 0.0009585065389354889,
+        "ci95_low": -0.003533695105302733,
+        "ci95_high": 0.0002503281457136451,
+        "achieved_mde80_one_sided": 0.002383302412711332
+      },
+      "delta_realized_total_increment_DIAGNOSTIC": {
+        "n": 192,
+        "mean": -0.029513888888889877,
+        "sd": 0.4174911853661642,
+        "se": 0.030129831031931356,
+        "ci95_low": -0.08810763888888931,
+        "ci95_high": 0.02907986111111072,
+        "achieved_mde80_one_sided": 0.07491706741274484
+      }
+    },
+    "5": {
+      "delta_RB_increment": {
+        "n": 192,
+        "mean": -0.02701572404651707,
+        "sd": 0.3037398721335153,
+        "se": 0.021920537117488446,
+        "ci95_low": -0.07151895311850481,
+        "ci95_high": 0.015224776291977002,
+        "achieved_mde80_one_sided": 0.05450486447182672
+      },
+      "cumulative_delta_RB": {
+        "n": 192,
+        "mean": -0.1470932114017209,
+        "sd": 0.668150553766232,
+        "se": 0.04821961275951645,
+        "ci95_low": -0.24399040726972931,
+        "ci95_high": -0.055767431676613057,
+        "achieved_mde80_one_sided": 0.11989685491075859
+      },
+      "accessible_prevent_material_mass": {
+        "n": 192,
+        "mean": 0.5224161665168782,
+        "sd": 0.15465538334603185,
+        "se": 0.011161290900807032,
+        "ci95_low": 0.5005411737217434,
+        "ci95_high": 0.5444634033497698,
+        "achieved_mde80_one_sided": 0.027752269235856268
+      },
+      "remote_prevent_material_mass": {
+        "n": 192,
+        "mean": 0.528100219762858,
+        "sd": 0.161904061345254,
+        "se": 0.01168441917507201,
+        "ci95_low": 0.5051917627411816,
+        "ci95_high": 0.5506641887090207,
+        "achieved_mde80_one_sided": 0.02905301453864564
+      },
+      "delta_prevent_material_mass": {
+        "n": 192,
+        "mean": -0.00568405324597988,
+        "sd": 0.21865253019595055,
+        "se": 0.015779887145953103,
+        "ci95_low": -0.035999003891205916,
+        "ci95_high": 0.02463089739924615,
+        "achieved_mde80_one_sided": 0.0392362926903243
+      },
+      "delta_offset": {
+        "n": 192,
+        "mean": -0.0022267653581113933,
+        "sd": 0.011323034315211835,
+        "se": 0.0008171696137413654,
+        "ci95_low": -0.0038450763160438935,
+        "ci95_high": -0.000642766346650304,
+        "achieved_mde80_one_sided": 0.002031871701352328
+      },
+      "delta_realized_total_increment_DIAGNOSTIC": {
+        "n": 192,
+        "mean": -0.023871527777776496,
+        "sd": 0.4183319597532553,
+        "se": 0.03019050869677071,
+        "ci95_low": -0.08550347222222084,
+        "ci95_high": 0.03343098958333516,
+        "achieved_mde80_one_sided": 0.07506794090096322
+      }
+    },
+    "6": {
+      "delta_RB_increment": {
+        "n": 192,
+        "mean": -0.047965654925658296,
+        "sd": 0.27234238445503095,
+        "se": 0.019654618622107083,
+        "ci95_low": -0.08754732490756191,
+        "ci95_high": -0.01080574781069321,
+        "achieved_mde80_one_sided": 0.04887071509706371
+      },
+      "cumulative_delta_RB": {
+        "n": 192,
+        "mean": -0.1950588663273792,
+        "sd": 0.7785379766646398,
+        "se": 0.05618613880020955,
+        "ci95_low": -0.30593532319853034,
+        "ci95_high": -0.08701007918881794,
+        "achieved_mde80_one_sided": 0.13970542163665484
+      },
+      "accessible_prevent_material_mass": {
+        "n": 192,
+        "mean": 0.4328880706873373,
+        "sd": 0.1459481253468523,
+        "se": 0.010532898682090803,
+        "ci95_low": 0.41171169572992766,
+        "ci95_high": 0.45345063767496696,
+        "achieved_mde80_one_sided": 0.026189787781469222
+      },
+      "remote_prevent_material_mass": {
+        "n": 192,
+        "mean": 0.4402537663246971,
+        "sd": 0.1435224188024027,
+        "se": 0.010357838391289178,
+        "ci95_low": 0.4203050073068475,
+        "ci95_high": 0.4606628813198818,
+        "achieved_mde80_one_sided": 0.02575450476931489
+      },
+      "delta_prevent_material_mass": {
+        "n": 192,
+        "mean": -0.007365695637359868,
+        "sd": 0.1968705128670438,
+        "se": 0.014207905449910928,
+        "ci95_low": -0.03544741025479437,
+        "ci95_high": 0.0207198552798857,
+        "achieved_mde80_one_sided": 0.03532759972191094
+      },
+      "delta_offset": {
+        "n": 192,
+        "mean": -0.0017634636367075036,
+        "sd": 0.013384718915070318,
+        "se": 0.0009659588835804156,
+        "ci95_low": -0.0036822618620650765,
+        "ci95_high": 0.00010752647280449728,
+        "achieved_mde80_one_sided": 0.0024018324803229056
+      },
+      "delta_realized_total_increment_DIAGNOSTIC": {
+        "n": 192,
+        "mean": -0.06987847222222143,
+        "sd": 0.39622614346491186,
+        "se": 0.02859515882367927,
+        "ci95_low": -0.12630208333333273,
+        "ci95_high": -0.015624999999999108,
+        "achieved_mde80_one_sided": 0.07110114354778059
+      }
+    },
+    "7": {
+      "delta_RB_increment": {
+        "n": 192,
+        "mean": -0.06080794639714817,
+        "sd": 0.3182858420480015,
+        "se": 0.022970302073207546,
+        "ci95_low": -0.10677120929461735,
+        "ci95_high": -0.016871911960601317,
+        "achieved_mde80_one_sided": 0.05711507864368175
+      },
+      "cumulative_delta_RB": {
+        "n": 192,
+        "mean": -0.2558668127245273,
+        "sd": 0.9298930886988647,
+        "se": 0.06710925313473276,
+        "ci95_low": -0.3871666779593097,
+        "ci95_high": -0.12889608662896695,
+        "achieved_mde80_one_sided": 0.16686547082808037
+      },
+      "accessible_prevent_material_mass": {
+        "n": 192,
+        "mean": 0.35394266473283703,
+        "sd": 0.14018517624544738,
+        "se": 0.010116993655213022,
+        "ci95_low": 0.3342563983282296,
+        "ci95_high": 0.3743124820542711,
+        "achieved_mde80_one_sided": 0.0251556503877719
+      },
+      "remote_prevent_material_mass": {
+        "n": 192,
+        "mean": 0.3577705498670662,
+        "sd": 0.12902065877313335,
+        "se": 0.009311264009211425,
+        "ci95_low": 0.3397248056628428,
+        "ci95_high": 0.37608971443802036,
+        "achieved_mde80_one_sided": 0.023152223878609716
+      },
+      "delta_prevent_material_mass": {
+        "n": 192,
+        "mean": -0.003827885134229212,
+        "sd": 0.19172145977346536,
+        "se": 0.01383630455120478,
+        "ci95_low": -0.031169921807295036,
+        "ci95_high": 0.022557180255279297,
+        "achieved_mde80_one_sided": 0.03440362342912984
+      },
+      "delta_offset": {
+        "n": 192,
+        "mean": -0.0026713485606541334,
+        "sd": 0.015791638161383743,
+        "se": 0.001139663317927509,
+        "ci95_low": -0.004916539860698866,
+        "ci95_high": -0.000470665203518373,
+        "achieved_mde80_one_sided": 0.002833744189488562
+      },
+      "delta_realized_total_increment_DIAGNOSTIC": {
+        "n": 192,
+        "mean": -0.02690972222222232,
+        "sd": 0.42619895415905773,
+        "se": 0.03075826011400862,
+        "ci95_low": -0.08725043402777834,
+        "ci95_high": 0.031249999999999414,
+        "achieved_mde80_one_sided": 0.07647964052695239
+      }
+    },
+    "8": {
+      "delta_RB_increment": {
+        "n": 192,
+        "mean": -0.0219709759158191,
+        "sd": 0.3301707931797081,
+        "se": 0.02382802454010709,
+        "ci95_low": -0.07003650613658419,
+        "ci95_high": 0.02401810001104752,
+        "achieved_mde80_one_sided": 0.05924778399493443
+      },
+      "cumulative_delta_RB": {
+        "n": 192,
+        "mean": -0.2778377886403465,
+        "sd": 1.1068914593213113,
+        "se": 0.0798830102503571,
+        "ci95_low": -0.43991976555407314,
+        "ci95_high": -0.12050099075118804,
+        "achieved_mde80_one_sided": 0.19862709677052479
+      },
+      "accessible_prevent_material_mass": {
+        "n": 192,
+        "mean": 0.28670525843318834,
+        "sd": 0.1294942797937695,
+        "se": 0.009345444662181193,
+        "ci95_low": 0.268436019365653,
+        "ci95_high": 0.3048527025736068,
+        "achieved_mde80_one_sided": 0.023237213212935353
+      },
+      "remote_prevent_material_mass": {
+        "n": 192,
+        "mean": 0.2901155163924616,
+        "sd": 0.11825389824450772,
+        "se": 0.008534239998023644,
+        "ci95_low": 0.2731860215232122,
+        "ci95_high": 0.30680142140747724,
+        "achieved_mde80_one_sided": 0.021220173208767477
+      },
+      "delta_prevent_material_mass": {
+        "n": 192,
+        "mean": -0.003410257959273272,
+        "sd": 0.174584336246583,
+        "se": 0.012599539191032105,
+        "ci95_low": -0.027038473819952336,
+        "ci95_high": 0.02119231731834102,
+        "achieved_mde80_one_sided": 0.03132843745269309
+      },
+      "delta_offset": {
+        "n": 192,
+        "mean": -0.0003867846419852346,
+        "sd": 0.017066380389000924,
+        "se": 0.0012316599139602794,
+        "ci95_low": -0.002723425031684235,
+        "ci95_high": 0.0019862856555655393,
+        "achieved_mde80_one_sided": 0.003062491412777863
+      },
+      "delta_realized_total_increment_DIAGNOSTIC": {
+        "n": 192,
+        "mean": -0.029079861111110716,
+        "sd": 0.45681844650282216,
+        "se": 0.03296803163239888,
+        "ci95_low": -0.0950520833333332,
+        "ci95_high": 0.035167100694444814,
+        "achieved_mde80_one_sided": 0.08197418185493255
+      }
+    },
+    "9": {
+      "delta_RB_increment": {
+        "n": 192,
+        "mean": -0.04688725667529515,
+        "sd": 0.3667323294722364,
+        "se": 0.026466626142666778,
+        "ci95_low": -0.09756310610159129,
+        "ci95_high": 0.005600270832702014,
+        "achieved_mde80_one_sided": 0.06580860054663845
+      },
+      "cumulative_delta_RB": {
+        "n": 192,
+        "mean": -0.3247250453156416,
+        "sd": 1.3291125789647698,
+        "se": 0.09592043815607845,
+        "ci95_low": -0.5166756390155702,
+        "ci95_high": -0.13909963129226272,
+        "achieved_mde80_one_sided": 0.2385037580855732
+      },
+      "accessible_prevent_material_mass": {
+        "n": 192,
+        "mean": 0.2411024305555555,
+        "sd": 0.11419823800048387,
+        "se": 0.00824154793132004,
+        "ci95_low": 0.22536892361111108,
+        "ci95_high": 0.25759548611111105,
+        "achieved_mde80_one_sided": 0.02049240174303404
+      },
+      "remote_prevent_material_mass": {
+        "n": 192,
+        "mean": 0.23708767361111108,
+        "sd": 0.10921706260505605,
+        "se": 0.007882062561891166,
+        "ci95_low": 0.22167697482638887,
+        "ci95_high": 0.2526041666666666,
+        "achieved_mde80_one_sided": 0.019598550409222825
+      },
+      "delta_prevent_material_mass": {
+        "n": 192,
+        "mean": 0.004014756944444445,
+        "sd": 0.15941828402288605,
+        "se": 0.011505023649295185,
+        "ci95_low": -0.017686631944444444,
+        "ci95_high": 0.02625868055555555,
+        "achieved_mde80_one_sided": 0.02860695207371101
+      },
+      "delta_offset": {
+        "n": 192,
+        "mean": -0.0014334235589898252,
+        "sd": 0.018612871595345155,
+        "se": 0.0013432683032455581,
+        "ci95_low": -0.004057144613425197,
+        "ci95_high": 0.00114272316982847,
+        "achieved_mde80_one_sided": 0.003340002866959328
+      },
+      "delta_realized_total_increment_DIAGNOSTIC": {
+        "n": 192,
+        "mean": -0.035156250000000146,
+        "sd": 0.43509960733467945,
+        "se": 0.03140060942737221,
+        "ci95_low": -0.09853515625000081,
+        "ci95_high": 0.02560763888888796,
+        "achieved_mde80_one_sided": 0.07807682594630605
+      }
+    },
+    "10": {
+      "delta_RB_increment": {
+        "n": 192,
+        "mean": -0.04644191902211708,
+        "sd": 0.39300466052786864,
+        "se": 0.028362668318567808,
+        "ci95_low": -0.10355639363993109,
+        "ci95_high": 0.008231419846020258,
+        "achieved_mde80_one_sided": 0.07052306175151032
+      },
+      "cumulative_delta_RB": {
+        "n": 192,
+        "mean": -0.37116696433775864,
+        "sd": 1.513562648921127,
+        "se": 0.10923197534874696,
+        "ci95_low": -0.59104910271096,
+        "ci95_high": -0.16404362626149993,
+        "achieved_mde80_one_sided": 0.27160256067007876
+      },
+      "accessible_prevent_material_mass": {
+        "n": 192,
+        "mean": 0.1972041433383563,
+        "sd": 0.098971536923638,
+        "se": 0.007142655435621674,
+        "ci95_low": 0.1832838508674135,
+        "ci95_high": 0.21093351513131217,
+        "achieved_mde80_one_sided": 0.01776003317806115
+      },
+      "remote_prevent_material_mass": {
+        "n": 192,
+        "mean": 0.18995399100974028,
+        "sd": 0.09360939136573501,
+        "se": 0.006755675912960518,
+        "ci95_low": 0.1769013001007885,
+        "ci95_high": 0.203100933898964,
+        "achieved_mde80_one_sided": 0.01679781832342646
+      },
+      "delta_prevent_material_mass": {
+        "n": 192,
+        "mean": 0.007250152328616041,
+        "sd": 0.1390989290539591,
+        "se": 0.010038600516661493,
+        "ci95_low": -0.012180255912074946,
+        "ci95_high": 0.026777229267021908,
+        "achieved_mde80_one_sided": 0.024960727819525918
+      },
+      "delta_offset": {
+        "n": 192,
+        "mean": -0.0023191892281904103,
+        "sd": 0.018823770668607766,
+        "se": 0.0013584886328355595,
+        "ci95_low": -0.005063889196636465,
+        "ci95_high": 0.00028320736238890675,
+        "achieved_mde80_one_sided": 0.003377847833853762
+      },
+      "delta_realized_total_increment_DIAGNOSTIC": {
+        "n": 192,
+        "mean": -0.008680555555557431,
+        "sd": 0.5660913780677698,
+        "se": 0.040854126189169136,
+        "ci95_low": -0.08985460069444733,
+        "ci95_high": 0.06901041666666417,
+        "achieved_mde80_one_sided": 0.10158275771806001
+      }
+    },
+    "11": {
+      "delta_RB_increment": {
+        "n": 192,
+        "mean": -0.017775781182638794,
+        "sd": 0.3859662370875927,
+        "se": 0.02785471386007857,
+        "ci95_low": -0.07153607039293436,
+        "ci95_high": 0.035064614163268594,
+        "achieved_mde80_one_sided": 0.06926004576018556
+      },
+      "cumulative_delta_RB": {
+        "n": 192,
+        "mean": -0.38894274552039754,
+        "sd": 1.68756263347775,
+        "se": 0.1217893425890916,
+        "ci95_low": -0.6275125200069662,
+        "ci95_high": -0.15928410664912215,
+        "achieved_mde80_one_sided": 0.30282613862756824
+      },
+      "accessible_prevent_material_mass": {
+        "n": 192,
+        "mean": 0.16156490741603413,
+        "sd": 0.08832704025416194,
+        "se": 0.006374455058432913,
+        "ci95_low": 0.1491633366975326,
+        "ci95_high": 0.17422484419117112,
+        "achieved_mde80_one_sided": 0.015849922252335946
+      },
+      "remote_prevent_material_mass": {
+        "n": 192,
+        "mean": 0.1532110715848213,
+        "sd": 0.08410582730400668,
+        "se": 0.006069815254298054,
+        "ci95_low": 0.14106786692295517,
+        "ci95_high": 0.1653542762466874,
+        "achieved_mde80_one_sided": 0.015092443037839546
+      },
+      "delta_prevent_material_mass": {
+        "n": 192,
+        "mean": 0.008353835831212854,
+        "sd": 0.11910649927177368,
+        "se": 0.008595771177099063,
+        "ci95_low": -0.008095469774577403,
+        "ci95_high": 0.02506150749363856,
+        "achieved_mde80_one_sided": 0.021373168938676933
+      },
+      "delta_offset": {
+        "n": 192,
+        "mean": -0.00034234259002374756,
+        "sd": 0.022047062765914494,
+        "se": 0.0015911097028426637,
+        "ci95_low": -0.0034957325799910063,
+        "ci95_high": 0.0028587720328963045,
+        "achieved_mde80_one_sided": 0.00395625427645471
+      },
+      "delta_realized_total_increment_DIAGNOSTIC": {
+        "n": 192,
+        "mean": -0.006944444444443014,
+        "sd": 0.4367609550539153,
+        "se": 0.03152050687148701,
+        "ci95_low": -0.0668402777777771,
+        "ci95_high": 0.054687500000000895,
+        "achieved_mde80_one_sided": 0.07837494792693862
+      }
+    },
+    "12": {
+      "delta_RB_increment": {
+        "n": 192,
+        "mean": -0.008302507234974449,
+        "sd": 0.5462493430910031,
+        "se": 0.039422150659780865,
+        "ci95_low": -0.078841048565871,
+        "ci95_high": 0.07330160884871534,
+        "achieved_mde80_one_sided": 0.09802218656334996
+      },
+      "cumulative_delta_RB": {
+        "n": 192,
+        "mean": -0.39724525275537187,
+        "sd": 1.9897764490744279,
+        "se": 0.14359974606253734,
+        "ci95_low": -0.6861120819082008,
+        "ci95_high": -0.12198510230195425,
+        "achieved_mde80_one_sided": 0.3570571585621848
+      },
+      "accessible_prevent_material_mass": {
+        "n": 192,
+        "mean": 0.13143163152914014,
+        "sd": 0.0765527002415728,
+        "se": 0.005524715261458099,
+        "ci95_low": 0.12068999205799032,
+        "ci95_high": 0.14194309301162245,
+        "achieved_mde80_one_sided": 0.013737065609170974
+      },
+      "remote_prevent_material_mass": {
+        "n": 192,
+        "mean": 0.12690479775201272,
+        "sd": 0.07692027916579262,
+        "se": 0.005551242985313942,
+        "ci95_low": 0.11647006226575289,
+        "ci95_high": 0.13772316321938502,
+        "achieved_mde80_one_sided": 0.013803026127645461
+      },
+      "delta_prevent_material_mass": {
+        "n": 192,
+        "mean": 0.004526833777127416,
+        "sd": 0.10788977880176914,
+        "se": 0.007786274104251325,
+        "ci95_low": -0.011048543456039802,
+        "ci95_high": 0.019565129036737145,
+        "achieved_mde80_one_sided": 0.019360374817372954
+      },
+      "delta_offset": {
+        "n": 192,
+        "mean": -0.000216894547672671,
+        "sd": 0.0184661048856965,
+        "se": 0.0013326763283300922,
+        "ci95_low": -0.002788314710951548,
+        "ci95_high": 0.0024870811086153133,
+        "achieved_mde80_one_sided": 0.003313666187608717
+      },
+      "delta_realized_total_increment_DIAGNOSTIC": {
+        "n": 192,
+        "mean": -0.008680555555555358,
+        "sd": 0.6948638931041761,
+        "se": 0.050147481966730925,
+        "ci95_low": -0.10156249999999943,
+        "ci95_high": 0.09331597222222074,
+        "achieved_mde80_one_sided": 0.12469045322887645
+      }
+    }
+  },
+  "epochs": {
+    "early": {
+      "lags": [
+        1,
+        4
+      ],
+      "RB_contribution": {
+        "n": 192,
+        "mean": -0.12007748735520385,
+        "sd": 0.5171784161023963,
+        "se": 0.03732413721947286,
+        "ci95_low": -0.19227053466870642,
+        "ci95_high": -0.04795028056910878,
+        "achieved_mde80_one_sided": 0.09280552888698182
+      },
+      "mean_RB_increment": {
+        "n": 192,
+        "mean": -0.030019371838800962,
+        "sd": 0.12929460402559909,
+        "se": 0.009331034304868214,
+        "ci95_low": -0.04864436060574488,
+        "ci95_high": -0.0114961352635626,
+        "achieved_mde80_one_sided": 0.023201382221745455
+      },
+      "accessible_material_mass": {
+        "n": 192,
+        "mean": 0.8883752498858201,
+        "sd": 0.1457916671215619,
+        "se": 0.01052160728227976,
+        "ci95_low": 0.8672876438700705,
+        "ci95_high": 0.9083471305977999,
+        "achieved_mde80_one_sided": 0.026161711999698935
+      },
+      "remote_material_mass": {
+        "n": 192,
+        "mean": 0.8897998867011466,
+        "sd": 0.16084688537904712,
+        "se": 0.011608124071488217,
+        "ci95_low": 0.8663563028941255,
+        "ci95_high": 0.9126401776779218,
+        "achieved_mde80_one_sided": 0.028863308681603438
+      },
+      "delta_offset": {
+        "n": 192,
+        "mean": -0.0006056853772780831,
+        "sd": 0.004835824362765944,
+        "se": 0.00034899556219958355,
+        "ci95_low": -0.0012818743532573469,
+        "ci95_high": 7.412496167331971e-05,
+        "achieved_mde80_one_sided": 0.0008677686918438393
+      }
+    },
+    "middle": {
+      "lags": [
+        5,
+        8
+      ],
+      "RB_contribution": {
+        "n": 192,
+        "mean": -0.15776030128514262,
+        "sd": 0.8677675142972958,
+        "se": 0.06262572599669453,
+        "ci95_low": -0.28271348972812366,
+        "ci95_high": -0.03865942074829475,
+        "achieved_mde80_one_sided": 0.15571729331286946
+      },
+      "mean_RB_increment": {
+        "n": 192,
+        "mean": -0.039440075321285656,
+        "sd": 0.21694187857432395,
+        "se": 0.01565643149917363,
+        "ci95_low": -0.07041587211038174,
+        "ci95_high": -0.009967340457989292,
+        "achieved_mde80_one_sided": 0.038929323328217365
+      },
+      "accessible_material_mass": {
+        "n": 192,
+        "mean": 0.3989880400925602,
+        "sd": 0.13480129456638892,
+        "se": 0.009728445463126836,
+        "ci95_low": 0.3803248553701424,
+        "ci95_high": 0.41805793481263864,
+        "achieved_mde80_one_sided": 0.0241895350760474
+      },
+      "remote_material_mass": {
+        "n": 192,
+        "mean": 0.4040600130867707,
+        "sd": 0.12844241472176815,
+        "se": 0.0092695328393723,
+        "ci95_low": 0.3859058682115635,
+        "ci95_high": 0.42209488113321936,
+        "achieved_mde80_one_sided": 0.023048460373904456
+      },
+      "delta_offset": {
+        "n": 192,
+        "mean": -0.0017620905493645662,
+        "sd": 0.009792914112593571,
+        "se": 0.000706742699882098,
+        "ci95_low": -0.0031939995186992826,
+        "ci95_high": -0.0004096472712935056,
+        "achieved_mde80_one_sided": 0.001757297956115968
+      }
+    },
+    "late": {
+      "lags": [
+        9,
+        12
+      ],
+      "RB_contribution": {
+        "n": 192,
+        "mean": -0.11940746411502544,
+        "sd": 1.3468749973493148,
+        "se": 0.09720233028555043,
+        "ci95_low": -0.3001852009882858,
+        "ci95_high": 0.07126846253903617,
+        "achieved_mde80_one_sided": 0.24169115063940935
+      },
+      "mean_RB_increment": {
+        "n": 192,
+        "mean": -0.02985186602875636,
+        "sd": 0.3367187493373287,
+        "se": 0.02430058257138761,
+        "ci95_low": -0.07459850335764623,
+        "ci95_high": 0.018184770501645492,
+        "achieved_mde80_one_sided": 0.06042278765985234
+      },
+      "accessible_material_mass": {
+        "n": 192,
+        "mean": 0.18282577820977153,
+        "sd": 0.08993816750362862,
+        "se": 0.006490728152330205,
+        "ci95_low": 0.17026939667828286,
+        "ci95_high": 0.19539575205221077,
+        "achieved_mde80_one_sided": 0.016139032377266955
+      },
+      "remote_material_mass": {
+        "n": 192,
+        "mean": 0.17678938348942133,
+        "sd": 0.08659001840847191,
+        "se": 0.006249096304658239,
+        "ci95_low": 0.165026593425276,
+        "ci95_high": 0.18886421011591434,
+        "achieved_mde80_one_sided": 0.015538220862528552
+      },
+      "delta_offset": {
+        "n": 192,
+        "mean": -0.0010779624812191635,
+        "sd": 0.01444673458881943,
+        "se": 0.001042603262970747,
+        "ci95_low": -0.0031669218917959522,
+        "ci95_high": 0.001041786439657584,
+        "achieved_mde80_one_sided": 0.0025924068028774583
+      }
+    }
+  },
+  "decay_relative_closeout": {
+    "initial_material_mass": 1.4142135623730951,
+    "half_mass_threshold": 0.7071067811865476,
+    "quarter_mass_threshold": 0.3535533905932738,
+    "first_half_mass_or_lower": {
+      "reached": true,
+      "first_lag": 4,
+      "effect_before_threshold": -0.09945776342432881,
+      "effect_accrued_after_threshold": -0.29778748933104304,
+      "absolute_fraction_of_final": 0.749631335467271
+    },
+    "first_quarter_mass_or_lower": {
+      "reached": true,
+      "first_lag": 8,
+      "effect_before_threshold": -0.2558668127245273,
+      "effect_accrued_after_threshold": -0.14137844003084454,
+      "absolute_fraction_of_final": 0.355897116580288
+    },
+    "final_cumulative_delta_RB": -0.39724525275537187,
+    "late_mean_delta_RB_increment": -0.029851866028756367,
+    "suggested_descriptive_mechanism": "TRAJECTORY_PERSISTENCE",
+    "descriptor_role": "DESCRIPTIVE_CLOSEOUT_HEURISTIC_NOT_CONFIRMATORY_STATUS"
+  },
+  "material_tracking_models": {
+    "pooled_group_lag": {
+      "correlation_accessible_material_mass_vs_delta_RB_increment": -0.0009816848134378863,
+      "model": "Delta_RB_increment = intercept + beta_mass * accessible_material_mass + beta_lag * lag",
+      "intercept": -0.05489281336307672,
+      "beta_mass": 0.01706475744251933,
+      "beta_lag": 0.002065574720877589,
+      "intercept_HC1_SE": 0.04849030937832914,
+      "beta_mass_HC1_SE": 0.03998275328901991,
+      "beta_lag_HC1_SE": 0.004923866023329966,
+      "role": "DESCRIPTIVE_ONLY_ROWS_NOT_INDEPENDENT"
+    },
+    "group_final_effect": {
+      "corr_final_delta_RB_vs_mean_accessible_mass": 0.008872612360942545,
+      "corr_final_delta_RB_vs_mean_delta_material_mass": 0.05333641146810325,
+      "model": "final_Delta_RB = intercept + beta_mean_accessible_mass * mean_accessible_mass + beta_delta_mass * mean_delta_mass",
+      "intercept": 0.09878906048908581,
+      "beta_mean_accessible_mass": -1.0118065893830606,
+      "beta_delta_mass": 1.2080284082763137,
+      "intercept_HC1_SE": 0.8228833298013075,
+      "beta_mean_accessible_mass_HC1_SE": 1.695896530046023,
+      "beta_delta_mass_HC1_SE": 2.1290577909308706,
+      "role": "DESCRIPTIVE_ONLY"
+    }
+  },
+  "directional_summary": {
+    "final_mean": -0.39724525275537187,
+    "ci95_low": -0.6861120819082008,
+    "ci95_high": -0.12198510230195425,
+    "direction": "NEGATIVE",
+    "formal_frozen_magnitude_status": "UNRESOLVED"
+  },
+  "chapter_closeout": {
+    "suggested_descriptive_mechanism": "TRAJECTORY_PERSISTENCE",
+    "suggested_sentence": "A substantial share of the accessible-history causal difference continued to accumulate after the material trace had fallen below half its initial mass, while late expected increments retained the same direction. The V2 trajectory is therefore most consistent with early material-state modulation redirecting later construction, rather than merely acting as a contemporaneous attachment bias.",
+    "formal_magnitude_status_remains": "UNRESOLVED",
+    "interpretation_boundary": [
+      "This audit does not change the frozen V2 primary magnitude status.",
+      "The mechanism descriptor is descriptive, not a new confirmatory hypothesis.",
+      "The material state was experimentally written; this does not establish self-generated memory.",
+      "Per-lag realized attachment increments are total/global diagnostics because local realized increments were not stored."
+    ]
+  },
+  "source_verdict": {
+    "validity": {
+      "record_level_match_pass_fraction": 1.0,
+      "required_record_level_fraction": 0.95,
+      "population_mean_every_arm_lag_within_2pct": true,
+      "intervention_assertions_pass": true,
+      "remote_matching_pass": true,
+      "group_coverage_fraction": 1.0,
+      "required_group_coverage": 0.9,
+      "per_arm_lag": {
+        "accessible": {
+          "1": {
+            "mean_relative_error": -5.040894383451536e-15,
+            "within_2pct": true
+          },
+          "2": {
+            "mean_relative_error": 4.592919462642848e-15,
+            "within_2pct": true
+          },
+          "3": {
+            "mean_relative_error": 4.180602240342749e-15,
+            "within_2pct": true
+          },
+          "4": {
+            "mean_relative_error": -5.574980745561663e-15,
+            "within_2pct": true
+          },
+          "5": {
+            "mean_relative_error": 3.5386936786193317e-15,
+            "within_2pct": true
+          },
+          "6": {
+            "mean_relative_error": -1.1365222794989272e-14,
+            "within_2pct": true
+          },
+          "7": {
+            "mean_relative_error": -3.601283785370351e-15,
+            "within_2pct": true
+          },
+          "8": {
+            "mean_relative_error": -3.469471613852763e-15,
+            "within_2pct": true
+          },
+          "9": {
+            "mean_relative_error": 5.528061180389841e-15,
+            "within_2pct": true
+          },
+          "10": {
+            "mean_relative_error": 9.290359472816345e-15,
+            "within_2pct": true
+          },
+          "11": {
+            "mean_relative_error": 5.45111151918441e-15,
+            "within_2pct": true
+          },
+          "12": {
+            "mean_relative_error": -1.2237955122988991e-14,
+            "within_2pct": true
+          }
+        },
+        "remote": {
+          "1": {
+            "mean_relative_error": 3.272568879285024e-15,
+            "within_2pct": true
+          },
+          "2": {
+            "mean_relative_error": 2.623256890033701e-15,
+            "within_2pct": true
+          },
+          "3": {
+            "mean_relative_error": -1.9024780094380018e-14,
+            "within_2pct": true
+          },
+          "4": {
+            "mean_relative_error": -1.7805481624669827e-15,
+            "within_2pct": true
+          },
+          "5": {
+            "mean_relative_error": -2.3658255428321325e-16,
+            "within_2pct": true
+          },
+          "6": {
+            "mean_relative_error": -2.464687010308767e-15,
+            "within_2pct": true
+          },
+          "7": {
+            "mean_relative_error": 6.7144670057806025e-15,
+            "within_2pct": true
+          },
+          "8": {
+            "mean_relative_error": -8.96832161137192e-15,
+            "within_2pct": true
+          },
+          "9": {
+            "mean_relative_error": 1.1863840554142322e-14,
+            "within_2pct": true
+          },
+          "10": {
+            "mean_relative_error": 1.3541799710910834e-14,
+            "within_2pct": true
+          },
+          "11": {
+            "mean_relative_error": 1.486716909264722e-14,
+            "within_2pct": true
+          },
+          "12": {
+            "mean_relative_error": -4.2534926008167266e-15,
+            "within_2pct": true
+          }
+        }
+      },
+      "scientific_valid": true,
+      "status": "PASS"
+    },
+    "primary_status": "UNRESOLVED",
+    "overall_status": "DOWNSTREAM_MATERIAL_HISTORY_EFFECT_UNRESOLVED",
+    "bounded_claim": "The corrected experiment did not resolve the finite-horizon expected local causal consequence at the frozen +/-0.15 scale.",
+    "V1_immediate_result_role": "Prior valid evidence; not re-promoted by V2.",
+    "not_established": [
+      "self-generated memory",
+      "learning",
+      "adaptation",
+      "semantic memory",
+      "individuality",
+      "organism",
+      "life"
+    ],
+    "stop_rule": "No parameter rescue. Increase groups only if unresolved solely because achieved MDE exceeds the frozen SEI."
+  }
+}

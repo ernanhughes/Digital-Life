@@ -99,18 +99,70 @@
     {{- end -}}
 
     {{/* -----------------------------------------------------------
-         Existing chapter-specific application prompts.
+         Prompt resources.
 
-         Use the real chapter slug rather than index.md.
+         Page bundles can override these with:
+           explain-prompt.txt
+           apply-prompt.txt
        ----------------------------------------------------------- */}}
 
-    {{- $promptPages := where .Site.RegularPages "Section" "prompts" -}}
-    {{- $relatedPrompts := where $promptPages "Params.related_chapter" "eq" $chapterSlug -}}
+    {{- $publicURL := .Permalink -}}
 
-    {{- $relatedPrompt := false -}}
-    {{- if gt (len $relatedPrompts) 0 -}}
-      {{- $relatedPrompt = index $relatedPrompts 0 -}}
+    {{- $defaultExplainPrompt := printf `Read this chapter:
+
+%s
+%s
+
+Teach me the ideas in this chapter from first principles.
+
+Explain:
+- the central question,
+- the mechanism or technique,
+- the important code, experiment, or demonstration,
+- the evidence and controls,
+- what the result supports,
+- what it does not support.
+
+Then give me a smaller worked example I can modify myself and help me explore the idea interactively.
+
+Do not merely summarize the article. Help me understand how and why it works.
+
+If you cannot access the page, ask me to paste the relevant material.` .Title $publicURL -}}
+
+    {{- $defaultApplyPrompt := printf `Read this chapter:
+
+%s
+%s
+
+Help me apply the underlying idea or technique to my own software/project.
+
+Do not simply copy the chapter example.
+
+First identify the reusable mechanism or method and separate it from chapter-specific details.
+
+Then:
+- ask me for the relevant project/repository/code/data/context,
+- map the idea onto my situation,
+- propose the smallest useful implementation or experiment,
+- define measurements and controls before changing anything,
+- help me implement it,
+- evaluate the result,
+- explain what conclusions the result does and does not justify.
+
+Adapt the underlying method to my problem.` .Title $publicURL -}}
+
+    {{- $explainPrompt := $defaultExplainPrompt -}}
+    {{- with .Resources.GetMatch "explain-prompt.txt" -}}
+      {{- $explainPrompt = .Content -}}
     {{- end -}}
+
+    {{- $applyPrompt := $defaultApplyPrompt -}}
+    {{- with .Resources.GetMatch "apply-prompt.txt" -}}
+      {{- $applyPrompt = .Content -}}
+    {{- end -}}
+
+    {{- .Scratch.Add "seriesReaderInstance" 1 -}}
+    {{- $dialogIDBase := printf "series-reader-%s-%d" $chapterSlug (.Scratch.Get "seriesReaderInstance") -}}
 
 
     <aside
@@ -143,14 +195,7 @@
            CHAPTER ACTIONS
            ========================================================= */}}
 
-      <div
-        class="series-reader__actions"
-        data-page-title="{{ .Title }}"
-        data-page-url="{{ .Permalink }}"
-        {{- with $relatedPrompt }}
-        data-apply-url="{{ .Permalink }}"
-        {{- end }}
-      >
+      <div class="series-reader__actions">
 
         {{/* ---------------- RUN ---------------- */}}
 
@@ -170,155 +215,56 @@
             </span>
 
             <span class="series-reader__action-copy">
-              <strong>Run</strong>
-              <small>Google Colab</small>
+              <strong>Run in Colab</strong>
+              <small>Execute this chapter</small>
             </span>
           </a>
 
         {{- end -}}
 
 
-        {{/* ---------------- UNDERSTAND ---------------- */}}
+        {{/* ---------------- EXPLAIN ---------------- */}}
 
-        <details class="series-reader__action-menu">
+        <button
+          type="button"
+          class="series-reader__action"
+          data-series-dialog-open="{{ $dialogIDBase }}-explain"
+        >
+          <span
+            class="series-reader__action-icon series-reader__action-icon--ai"
+            aria-hidden="true"
+          >
+            ✦
+          </span>
 
-          <summary class="series-reader__action">
-
-            <span
-              class="series-reader__action-icon series-reader__action-icon--ai"
-              aria-hidden="true"
-            >
-              ✦
-            </span>
-
-            <span class="series-reader__action-copy">
-              <strong>Understand</strong>
-              <small>Learn with AI</small>
-            </span>
-
-          </summary>
-
-          <div class="series-reader__menu">
-
-            <span class="series-reader__menu-label">
-              Explain with
-            </span>
-
-            <button
-              type="button"
-              data-ai-mode="understand"
-              data-ai-provider="chatgpt"
-            >
-              ChatGPT
-            </button>
-
-            <button
-              type="button"
-              data-ai-mode="understand"
-              data-ai-provider="claude"
-            >
-              Claude
-            </button>
-
-            <button
-              type="button"
-              data-ai-mode="understand"
-              data-ai-provider="gemini"
-            >
-              Gemini
-            </button>
-
-            <button
-              type="button"
-              data-ai-mode="understand"
-              data-ai-provider="copy"
-            >
-              Copy prompt
-            </button>
-
-          </div>
-
-        </details>
+          <span class="series-reader__action-copy">
+            <strong>Explain with AI</strong>
+            <small>Learn this chapter</small>
+          </span>
+        </button>
 
 
         {{/* ---------------- APPLY ---------------- */}}
 
-        <details class="series-reader__action-menu">
+        <button
+          type="button"
+          class="series-reader__action"
+          data-series-dialog-open="{{ $dialogIDBase }}-apply"
+        >
+          <span
+            class="series-reader__action-icon series-reader__action-icon--apply"
+            aria-hidden="true"
+          >
+            &lt;/&gt;
+          </span>
 
-          <summary class="series-reader__action">
-
-            <span
-              class="series-reader__action-icon series-reader__action-icon--apply"
-              aria-hidden="true"
-            >
-              &lt;/&gt;
-            </span>
-
-            <span class="series-reader__action-copy">
-              <strong>Apply</strong>
-              <small>To your code</small>
-            </span>
-
-          </summary>
-
-          <div class="series-reader__menu">
-
-            <span class="series-reader__menu-label">
-              Apply with
-            </span>
-
-            {{- with $relatedPrompt -}}
-              <a
-                class="series-reader__guided-prompt"
-                href="{{ .RelPermalink }}"
-              >
-                Guided repository prompt →
-              </a>
-            {{- end -}}
-
-            <button
-              type="button"
-              data-ai-mode="apply"
-              data-ai-provider="chatgpt"
-            >
-              ChatGPT
-            </button>
-
-            <button
-              type="button"
-              data-ai-mode="apply"
-              data-ai-provider="claude"
-            >
-              Claude
-            </button>
-
-            <button
-              type="button"
-              data-ai-mode="apply"
-              data-ai-provider="gemini"
-            >
-              Gemini
-            </button>
-
-            <button
-              type="button"
-              data-ai-mode="apply"
-              data-ai-provider="copy"
-            >
-              Copy prompt
-            </button>
-
-          </div>
-
-        </details>
+          <span class="series-reader__action-copy">
+            <strong>Apply with AI</strong>
+            <small>Use it in your code</small>
+          </span>
+        </button>
 
       </div>
-
-
-      <div
-        class="series-reader__status"
-        aria-live="polite"
-      ></div>
 
 
       {{/* =========================================================
@@ -414,193 +360,127 @@
 
     </aside>
 
+    <dialog
+      id="{{ $dialogIDBase }}-explain"
+      class="series-reader__dialog"
+      aria-labelledby="{{ $dialogIDBase }}-explain-title"
+    >
+      <form method="dialog" class="series-reader__dialog-panel">
+        <div class="series-reader__dialog-header">
+          <h2 id="{{ $dialogIDBase }}-explain-title">Explain this chapter with AI</h2>
+          <button class="series-reader__dialog-close" type="submit" aria-label="Close dialog">×</button>
+        </div>
+
+        <p>Copy this prompt into ChatGPT, Claude, Gemini, a local model, or another AI.</p>
+
+        <label for="{{ $dialogIDBase }}-explain-prompt">Prompt</label>
+        <textarea id="{{ $dialogIDBase }}-explain-prompt" readonly>{{ $explainPrompt }}</textarea>
+
+        <div class="series-reader__dialog-actions">
+          <button type="button" data-series-copy="{{ $dialogIDBase }}-explain-prompt">Copy prompt</button>
+          <button type="submit">Close</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog
+      id="{{ $dialogIDBase }}-apply"
+      class="series-reader__dialog"
+      aria-labelledby="{{ $dialogIDBase }}-apply-title"
+    >
+      <form method="dialog" class="series-reader__dialog-panel">
+        <div class="series-reader__dialog-header">
+          <h2 id="{{ $dialogIDBase }}-apply-title">Apply this chapter with AI</h2>
+          <button class="series-reader__dialog-close" type="submit" aria-label="Close dialog">×</button>
+        </div>
+
+        <p>Copy this prompt into ChatGPT, Claude, Gemini, a local model, or another AI.</p>
+
+        <label for="{{ $dialogIDBase }}-apply-prompt">Prompt</label>
+        <textarea id="{{ $dialogIDBase }}-apply-prompt" readonly>{{ $applyPrompt }}</textarea>
+
+        <div class="series-reader__dialog-actions">
+          <button type="button" data-series-copy="{{ $dialogIDBase }}-apply-prompt">Copy prompt</button>
+          <button type="submit">Close</button>
+        </div>
+      </form>
+    </dialog>
+
 
     {{/* ===========================================================
-         AI ACTION SCRIPT
-
-         Prompt is copied first; chosen AI opens in another tab.
+         AI PROMPT DIALOG SCRIPT
        =========================================================== */}}
 
     <script>
     (() => {
-      const providerUrls = {
-        chatgpt: "https://chatgpt.com/",
-        claude: "https://claude.ai/",
-        gemini: "https://gemini.google.com/"
-      };
+      async function copyPrompt(textarea) {
+        const text = textarea.value;
 
-      function buildPrompt(mode, actions) {
-        const title = actions.dataset.pageTitle;
-        const url = actions.dataset.pageUrl;
-        const guidedApplyUrl = actions.dataset.applyUrl || "";
-
-        if (mode === "understand") {
-          return `I am studying this chapter:
-
-${title}
-${url}
-
-Teach it to me from first principles.
-
-1. Explain the central question.
-2. Explain the mechanism or idea being introduced.
-3. Walk through any experiment, implementation, or demonstration.
-4. Explain the important measurements and controls.
-5. Separate what the evidence supports from what it does not support.
-6. Give me a smaller worked example I can modify myself.
-7. Point out common misunderstandings.
-8. Ask me questions to check that I understand it.
-
-Do not merely summarize the prose. Help me understand how and why it works.
-
-If you cannot access the page directly, ask me to paste the relevant chapter or notebook.`;
-        }
-
-        let prompt = `I want to apply the method or idea from this chapter to my own software project:
-
-${title}
-${url}
-
-Help me turn the chapter into something useful in my own codebase.
-
-1. Identify the reusable idea or mechanism.
-2. Separate the general technique from the chapter-specific example.
-3. Ask me for the relevant repository, code, architecture, data, or constraints.
-4. Map the technique onto my project.
-5. Propose the smallest useful implementation or experiment.
-6. Define measurements and controls before changing the code.
-7. Help me implement it step by step.
-8. Check the result against the original hypothesis.
-9. Explain what conclusions the result does and does not justify.
-
-Do not simply reproduce the chapter's example. Adapt the underlying method to my problem.`;
-
-        if (guidedApplyUrl) {
-          prompt += `
-
-There is also a chapter-specific application prompt here:
-${guidedApplyUrl}
-
-Use it where helpful.`;
-        }
-
-        return prompt;
-      }
-
-
-      function fallbackCopy(text) {
-        const textarea = document.createElement("textarea");
-        textarea.value = text;
-        textarea.setAttribute("readonly", "");
-        textarea.style.position = "fixed";
-        textarea.style.opacity = "0";
-
-        document.body.appendChild(textarea);
-        textarea.select();
-
-        document.execCommand("copy");
-        document.body.removeChild(textarea);
-      }
-
-
-      async function copyPrompt(text) {
         if (navigator.clipboard && window.isSecureContext) {
           await navigator.clipboard.writeText(text);
         } else {
-          fallbackCopy(text);
+          textarea.focus();
+          textarea.select();
+          document.execCommand("copy");
         }
       }
 
-
       document.addEventListener("click", async (event) => {
+        const openButton = event.target.closest("[data-series-dialog-open]");
 
-        const button = event.target.closest("[data-ai-mode]");
+        if (openButton) {
+          const dialog = document.getElementById(openButton.dataset.seriesDialogOpen);
 
-        if (!button) {
-          return;
-        }
-
-        const actions = button.closest(".series-reader__actions");
-
-        if (!actions) {
-          return;
-        }
-
-        const mode = button.dataset.aiMode;
-        const provider = button.dataset.aiProvider;
-
-        const prompt = buildPrompt(mode, actions);
-
-        /*
-         * Open the destination synchronously from the click so
-         * browsers are less likely to treat it as a popup.
-         */
-        if (provider !== "copy" && providerUrls[provider]) {
-          const newWindow = window.open(
-            providerUrls[provider],
-            "_blank",
-            "noopener,noreferrer"
-          );
-
-          if (newWindow) {
-            newWindow.opener = null;
+          if (dialog && typeof dialog.showModal === "function") {
+            dialog.showModal();
+            dialog.querySelector("textarea")?.focus();
           }
+
+          return;
         }
 
-        try {
-          await copyPrompt(prompt);
+        const copyButton = event.target.closest("[data-series-copy]");
 
-          const reader = actions.closest(".series-reader");
-          const status = reader?.querySelector(".series-reader__status");
+        if (copyButton) {
+          const textarea = document.getElementById(copyButton.dataset.seriesCopy);
 
-          if (status) {
-            status.textContent =
-              provider === "copy"
-                ? "Prompt copied to clipboard."
-                : "Prompt copied — paste it into the AI window that just opened.";
+          if (!textarea) {
+            return;
+          }
 
+          try {
+            await copyPrompt(textarea);
+            const original = copyButton.textContent;
+            copyButton.textContent = "Copied ✓";
             window.setTimeout(() => {
-              status.textContent = "";
-            }, 5000);
+              copyButton.textContent = original;
+            }, 1800);
+          } catch (error) {
+            textarea.focus();
+            textarea.select();
+            console.error("Unable to copy AI prompt:", error);
           }
-
-        } catch (error) {
-          console.error("Unable to copy AI prompt:", error);
-        }
-
-        /*
-         * Close the dropdown after choosing an action.
-         */
-        const menu = button.closest("details");
-
-        if (menu) {
-          menu.removeAttribute("open");
         }
       });
 
+      document.addEventListener("click", (event) => {
+        const dialog = event.target;
 
-      /*
-       * Only keep one AI dropdown open at once.
-       */
-      document.addEventListener("toggle", (event) => {
-        const opened = event.target;
-
-        if (
-          !(opened instanceof HTMLDetailsElement) ||
-          !opened.open ||
-          !opened.classList.contains("series-reader__action-menu")
-        ) {
+        if (!(dialog instanceof HTMLDialogElement)) {
           return;
         }
 
-        document
-          .querySelectorAll(".series-reader__action-menu[open]")
-          .forEach((details) => {
-            if (details !== opened) {
-              details.removeAttribute("open");
-            }
-          });
-      }, true);
+        const rect = dialog.getBoundingClientRect();
+        const clickedBackdrop =
+          event.clientX < rect.left ||
+          event.clientX > rect.right ||
+          event.clientY < rect.top ||
+          event.clientY > rect.bottom;
+
+        if (clickedBackdrop) {
+          dialog.close();
+        }
+      });
 
     })();
     </script>
