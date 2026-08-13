@@ -3,6 +3,7 @@ title = "04: When Does a Pattern Become a Thing?"
 date = "2026-08-11T01:26:00+01:00"
 draft = false
 description = "Use Conway's Game of Life to ask when a recurring localized pattern becomes useful to treat as an entity."
+series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Cellular Automata", "Conway's Game of Life", "Glider", "Emergence", "Pattern Identity"]
 +++

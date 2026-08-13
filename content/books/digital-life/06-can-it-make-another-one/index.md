@@ -3,6 +3,7 @@ title = "06: Can It Make Another One?"
 date = "2026-08-11T01:46:00+01:00"
 draft = false
 description = "Ask what digital reproduction actually requires, from simple copying to causal reproduction, inheritance and lineage."
+series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Cellular Automata", "Self-Replication", "Self-Reproduction", "Evoloops", "Outlier", "Inheritance"]
 +++

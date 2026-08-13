@@ -3,6 +3,7 @@ title = "12: The Closest Thing We Have"
 date = "2026-08-11T10:43:00+01:00"
 draft = false
 description = "We examine Outlier, an unusually minimal artificial-life system in which causally verified self-replicating structures emerge from local cellular-automaton dynamics."
+series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Artificial Life", "Outlier", "Cellular Automata", "Self-Replication", "Causality"]
 +++

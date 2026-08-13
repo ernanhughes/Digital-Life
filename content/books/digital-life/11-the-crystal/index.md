@@ -3,6 +3,7 @@ title = "11: The Crystal"
 date = "2026-08-11T15:18:00+01:00"
 draft = false
 description = "Begin with one seed on a hexagonal lattice and ask how far growth, damage, defects and history can take us before anything resembling life is required."
+series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Cellular Automata", "Crystal Growth", "Hexagonal Grid", "Growth", "Repair", "Emergence"]
 +++

@@ -1,0 +1,53 @@
+{
+  "experiment_version": "digital-crystal-matched-rate-causal-amplification-v1",
+  "schema_version": 1,
+  "chapter": 26,
+  "chapter_title": "Does Candidate Subsampling Change Causal Amplification?",
+  "profile": "full",
+  "profile_config": {
+    "groups": 192,
+    "source_profile": "full",
+    "probes_per_group": 4,
+    "bootstrap_reps": 7000,
+    "scientific": true
+  },
+  "source_checkpoint_profile": {
+    "groups": 192,
+    "radius": 110,
+    "warmup_steps": 24,
+    "lossy_pre_steps": 28,
+    "horizon": 12,
+    "loss_rate": 0.08,
+    "budget": 96,
+    "radial_bin_width": 4,
+    "high_fcp_min": 2,
+    "low_fcp_max": -1,
+    "minimum_fcp_difference": 3,
+    "minimum_group_coverage_fraction": 0.5,
+    "max_pairs_per_group": 10,
+    "sei_E1": 0.1,
+    "sei_g1": 0.1,
+    "sei_divergence_probability": 0.05,
+    "sei_GT": 0.15,
+    "bootstrap_reps": 7000,
+    "signflip_permutations": 20000,
+    "alpha": 0.05,
+    "max_capacity_fraction": 0.75,
+    "scientific": true
+  },
+  "seed": 20260912,
+  "fractions": [
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "reference_fraction": 0.1,
+  "construction_match_tolerance": 0.02,
+  "primary_SEI": 0.15,
+  "fresh_seed": true,
+  "started_at_unix": 1786615938.7978883,
+  "finished_at_unix": 1786616662.0975566,
+  "final_status": "CAUSAL_AMPLIFICATION_INVARIANT_WITHIN_SEI"
+}

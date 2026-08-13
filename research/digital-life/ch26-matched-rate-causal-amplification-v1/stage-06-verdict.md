@@ -1,0 +1,28 @@
+# Stage 6 — Bounded Chapter 26 V1 Verdict
+
+```json
+{
+  "validity": {
+    "scientific_valid": true,
+    "construction_match_valid": true,
+    "probe_coverage_fraction": 1.0
+  },
+  "primary_status": "BOUNDED_NEAR_ZERO",
+  "overall_status": "CAUSAL_AMPLIFICATION_INVARIANT_WITHIN_SEI",
+  "bounded_claim": "At matched expected construction rate, the f=0.10 versus full evaluation difference in finite-horizon causal amplification was bounded within the predeclared \u00b10.15 attachment equivalence region.",
+  "what_this_does_not_establish": [
+    "formal branching ratio",
+    "criticality",
+    "supercriticality",
+    "phase transition",
+    "coherent structure",
+    "individuality",
+    "organism",
+    "life"
+  ],
+  "stop_rule": "Do not alter budget fractions, horizon, construction target, calibration method or SEI to rescue the primary result.",
+  "next_if_supported": "Map causal amplification over matched-rate selection concentration and test whether any regime approaches sustained amplification.",
+  "next_if_bounded": "Treat finite-budget redistribution as a spatial allocation law rather than an amplification mechanism, then move to persistent material memory or individuation.",
+  "next_if_unresolved": "Increase independent groups only if achieved MDE exceeds the frozen SEI; otherwise preserve the unresolved result."
+}
+```

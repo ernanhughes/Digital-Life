@@ -445,8 +445,7 @@ For two velocity vectors (v_i) and (v_j), we normalize them and take their dot p
 
 $$
 A_{ij}
-======
-
+=
 \frac{v_i}{|v_i|}
 \cdot
 \frac{v_j}{|v_j|}
@@ -518,8 +517,7 @@ For each position (x_i), we calculate its radial direction relative to the centr
 
 $$
 r_i
-===
-
+=
 \frac{x_i-c}{|x_i-c|}
 $$
 

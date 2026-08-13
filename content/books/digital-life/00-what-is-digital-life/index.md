@@ -2,6 +2,7 @@
 title = "00: What Would Digital Life Mean?"
 date = "2026-08-11T00:31:00+01:00"
 draft = false
+series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Cellular Automata", "Artificial Life", "Emergence"]
 +++

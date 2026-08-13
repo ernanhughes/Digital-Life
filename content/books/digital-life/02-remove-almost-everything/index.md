@@ -3,6 +3,7 @@ title = "02: Remove Almost Everything"
 date = "2026-08-11T01:08:00+01:00"
 draft = false
 description = "Strip digital life down to a line of binary cells, a three-cell neighborhood and one tiny deterministic rule."
+series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Cellular Automata", "Elementary Cellular Automata", "Emergence", "Python"]
 +++

@@ -3,6 +3,7 @@ title = "05: Kill It"
 date = "2026-08-11T01:34:00+01:00"
 draft = false
 description = "Damage persistent digital patterns and separate survival, robustness and regeneration into experimentally distinct claims."
+series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Cellular Automata", "Robustness", "Regeneration", "Perturbation", "Game of Life"]
 +++

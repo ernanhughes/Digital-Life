@@ -3,6 +3,7 @@ title = "08: Now Prove It"
 date = "2026-08-11T14:49:00+01:00"
 draft = false
 description = "Turn appealing observations into experiments by defining properties, measurements, interventions, controls, confounds and bounded claims."
+series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Experimental Method", "Evidence", "Controls", "Causality", "Artificial Life"]
 +++

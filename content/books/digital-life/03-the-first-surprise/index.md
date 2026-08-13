@@ -3,6 +3,7 @@ title = "03: The First Surprise"
 date = "2026-08-11T01:19:00+01:00"
 draft = false
 description = "Change one rule number and watch a tiny deterministic system become unexpectedly difficult to predict."
+series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Cellular Automata", "Rule 30", "Emergence", "Complexity"]
 +++
@@ -459,7 +460,7 @@ define:
 
 $$
 D(t)
-
+=
 \sum_i
 \mathbf{1}
 \left[

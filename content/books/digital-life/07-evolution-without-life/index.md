@@ -3,6 +3,7 @@ title = "07: Evolution Without Life?"
 date = "2026-08-11T09:48:00+01:00"
 draft = false
 description = "Variation, inheritance and differential reproduction can produce evolution in digital systems. But evolution is not the same thing as progress."
+series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Evolution", "Artificial Life", "Cellular Automata", "Selection", "Open-Ended Evolution", "Cumulative Improvement"]
 +++

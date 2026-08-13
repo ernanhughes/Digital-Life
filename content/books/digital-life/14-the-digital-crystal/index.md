@@ -326,28 +326,18 @@ One convenient form is:
 
 $$
 P(\text{attach})
-================
-
-\sigma(
-a
-+
-bn
-+
-cE_t
-+
-dA
---
-
-q
-)
+=
+\sigma\left(
+a + bn + cE_t + dA - q
+\right)
 $$
 
 where:
-- (n) is occupied-neighbor count,
-- (E_t) is the current signal,
-- (A) is a fixed local anisotropy term,
-- (q) is a crowding penalty,
-- (\sigma) maps the result into a probability.
+- \(n\) is occupied-neighbor count,
+- \(E_t\) is the current signal,
+- \(A\) is a fixed local anisotropy term,
+- \(q\) is a crowding penalty,
+- \(\sigma\) maps the result into a probability.
 
 For Digital Crystal v1 the growth parameters are frozen during the experiment.
 

@@ -3,6 +3,7 @@ title = "09: Don't Build an Animal"
 date = "2026-08-11T14:58:00+01:00"
 draft = false
 description = "Stop treating biological life as the specification. Remove biological constraints and ask what organization actually requires in a digital substrate."
+series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Artificial Life", "Digital Substrate", "Life", "Computation", "Experimental Method"]
 +++

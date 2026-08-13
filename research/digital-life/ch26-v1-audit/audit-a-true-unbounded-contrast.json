@@ -1,0 +1,73 @@
+{
+  "role": "POST-HOC SECONDARY AUDIT; does not replace frozen V1 primary",
+  "original_frozen_primary": "G_T(f=0.10) - G_T(f=1.00)",
+  "audited_true_unbounded_contrast": "G_T(f=0.10) - G_T(unbounded)",
+  "original_SEI_abs": 0.15,
+  "G_local_0p10_minus_unbounded": {
+    "n": 192,
+    "mean": 0.05078125,
+    "sd": 0.598065742645554,
+    "se": 0.04316167718868801,
+    "ci95_low": -0.032552083333333336,
+    "ci95_high": 0.13671875,
+    "achieved_mde80_one_sided": 0.1073204252677416
+  },
+  "posthoc_status": "POSTHOC_BOUNDED_WITHIN_ORIGINAL_SEI",
+  "E1_ring1_0p10_minus_unbounded": {
+    "n": 192,
+    "mean": -0.0033535755222918466,
+    "sd": 0.10075809108499763,
+    "se": 0.007271588876369527,
+    "ci95_low": -0.017425765126259245,
+    "ci95_high": 0.010697656421589407,
+    "achieved_mde80_one_sided": 0.0180806229371616
+  },
+  "E1_far_0p10_minus_unbounded": {
+    "n": 192,
+    "mean": -0.04687754701502791,
+    "sd": 0.1178899303810071,
+    "se": 0.008507972880027586,
+    "ci95_low": -0.06357836817859885,
+    "ci95_high": -0.030258668475654917,
+    "achieved_mde80_one_sided": 0.021154860680211853
+  },
+  "lag1_realized_divergence_0p10_minus_unbounded": {
+    "n": 192,
+    "mean": 0.032552083333333336,
+    "sd": 0.24252219069588293,
+    "se": 0.017502531510340723,
+    "ci95_low": -0.0013020833333333333,
+    "ci95_high": 0.06640625,
+    "achieved_mde80_one_sided": 0.04351960459599812
+  },
+  "G_nonzero_rate_0p10_minus_unbounded": {
+    "n": 192,
+    "mean": 0.03515625,
+    "sd": 0.2339082394088562,
+    "se": 0.01688087312354682,
+    "ci95_low": 0.0013020833333333333,
+    "ci95_high": 0.06770833333333333,
+    "achieved_mde80_one_sided": 0.04197386664540094
+  },
+  "f1p00_minus_unbounded_diagnostic": {
+    "E1_far": {
+      "n": 192,
+      "mean": -0.05312912277081333,
+      "sd": 0.04391918028783393,
+      "se": 0.0031695938202210786,
+      "ci95_low": -0.05973918965862163,
+      "ci95_high": -0.047208217323870115,
+      "achieved_mde80_one_sided": 0.007881115352053164
+    },
+    "G_local": {
+      "n": 192,
+      "mean": -0.01171875,
+      "sd": 0.12607927391731888,
+      "se": 0.009098987841924578,
+      "ci95_low": -0.029947916666666668,
+      "ci95_high": 0.005208333333333333,
+      "achieved_mde80_one_sided": 0.0226244045251625
+    },
+    "interpretation": "A non-zero f=1.00 minus unbounded E1_far confirms that f=1.00 is not operationally identical to dynamic full-frontier evaluation throughout continuation."
+  }
+}

@@ -3,6 +3,7 @@ title = "01: Look at This Thing"
 date = "2026-08-11T01:06:00+01:00"
 draft = false
 description = "Before we learn how artificial life works, look at what a few local rules can already produce."
+series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Artificial Life", "Lenia", "Flow-Lenia", "Cellular Automata", "Emergence"]
 +++
