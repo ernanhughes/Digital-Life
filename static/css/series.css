@@ -495,6 +495,105 @@
   text-align: right;
 }
 
+.book-visual {
+  margin: 0 0 1.6rem;
+  padding: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.05);
+}
+
+.book-visual__header {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.book-visual__eyebrow {
+  margin: 0 0 0.15rem;
+  color: #75818c;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.book-visual h2 {
+  margin: 0;
+  color: #1f2a33;
+  font-size: 1.12rem;
+  line-height: 1.2;
+}
+
+.book-visual__badge {
+  flex: 0 0 auto;
+  padding: 0.28rem 0.5rem;
+  border-radius: 999px;
+  background: #eef5fc;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.book-visual__image-link {
+  display: block;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #17202a;
+}
+
+.book-visual__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.book-visual__footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 0.85rem;
+}
+
+.book-visual__caption {
+  margin: 0;
+  color: #53616d;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.book-visual__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.book-visual__action {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0.45rem 0.65rem;
+  border: 1px solid rgba(57, 120, 197, 0.22);
+  border-radius: 9px;
+  background: #eef5fc;
+  color: var(--accent) !important;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none !important;
+}
+
+.book-visual__action:hover,
+.book-visual__action:focus-visible {
+  border-color: var(--accent);
+  background: #fff;
+  outline: none;
+}
+
 @media (max-width: 768px) {
   .series-hub__hero {
     padding: 1.6rem;
@@ -548,5 +647,19 @@
 
   .series-reader__links a {
     white-space: normal;
+  }
+
+  .book-visual {
+    padding: 0.85rem;
+  }
+
+  .book-visual__header,
+  .book-visual__footer {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .book-visual__actions {
+    justify-content: flex-start;
   }
 }

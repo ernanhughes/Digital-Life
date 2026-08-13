@@ -3,28 +3,28 @@
 ```json
 {
   "2": {
-    "groups_with_regions": 8,
-    "coverage_fraction": 1.0,
-    "regions": 8,
-    "mean_regions_per_requested_group": 1.0
+    "groups_with_regions": 170,
+    "coverage_fraction": 0.8854166666666666,
+    "regions": 406,
+    "mean_regions_per_requested_group": 2.1145833333333335
   },
   "3": {
-    "groups_with_regions": 8,
+    "groups_with_regions": 192,
     "coverage_fraction": 1.0,
-    "regions": 8,
-    "mean_regions_per_requested_group": 1.0
+    "regions": 576,
+    "mean_regions_per_requested_group": 3.0
   },
   "4": {
-    "groups_with_regions": 8,
+    "groups_with_regions": 192,
     "coverage_fraction": 1.0,
-    "regions": 8,
-    "mean_regions_per_requested_group": 1.0
+    "regions": 576,
+    "mean_regions_per_requested_group": 3.0
   },
   "5": {
-    "groups_with_regions": 8,
+    "groups_with_regions": 192,
     "coverage_fraction": 1.0,
-    "regions": 8,
-    "mean_regions_per_requested_group": 1.0
+    "regions": 576,
+    "mean_regions_per_requested_group": 3.0
   }
 }
 ```

@@ -1,0 +1,68 @@
+{{- $parts := split (strings.TrimPrefix "/" .RelPermalink) "/" -}}
+{{- $bookSlug := "" -}}
+{{- $chapterSlug := "" -}}
+{{- if and (ge (len $parts) 3) (eq (index $parts 0) "books") -}}
+  {{- $bookSlug = index $parts 1 -}}
+  {{- $chapterSlug = index $parts 2 -}}
+{{- end -}}
+
+{{- $chapterNumber := "" -}}
+{{- if findRE `^[0-9]+-` $chapterSlug -}}
+  {{- $chapterNumber = replaceRE `^([0-9]+)-.*$` `$1` $chapterSlug -}}
+{{- end -}}
+
+{{- $visualRoot := printf "images/books/%s/visuals" $bookSlug -}}
+{{- $staticVisualRoot := printf "static/%s" $visualRoot -}}
+{{- $hero := "" -}}
+{{- $filmstrip := "" -}}
+{{- $animation := "" -}}
+
+{{- if and $chapterNumber (fileExists $staticVisualRoot) -}}
+  {{- $assetPrefix := printf "ch%s-" $chapterNumber -}}
+  {{- range readDir $staticVisualRoot -}}
+    {{- $name := .Name -}}
+    {{- if and (hasPrefix $name $assetPrefix) (hasSuffix $name "-hero.png") -}}
+      {{- $hero = printf "/%s/%s" $visualRoot $name -}}
+    {{- else if and (hasPrefix $name $assetPrefix) (hasSuffix $name "-filmstrip.png") -}}
+      {{- $filmstrip = printf "/%s/%s" $visualRoot $name -}}
+    {{- else if and (hasPrefix $name $assetPrefix) (hasSuffix $name ".gif") -}}
+      {{- $animation = printf "/%s/%s" $visualRoot $name -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $captions := dict
+  "23" "One attachment produces an immediate local causal effect and separates into transient and persistent consequences."
+  "25" "A local intervention changes distant evaluation opportunities when computation is finite."
+  "27" "Identical visible geometry can hide different internal material state and produce different responses."
+  "28" "A research-grounded engineering visualization of causal modularity and internal/outward/inward influence."
+-}}
+{{- $caption := index $captions $chapterNumber | default "A generated visual companion for this chapter." -}}
+
+{{- if $hero -}}
+  <aside class="book-visual" aria-labelledby="book-visual-title">
+    <div class="book-visual__header">
+      <div>
+        <p class="book-visual__eyebrow">Chapter visualization</p>
+        <h2 id="book-visual-title">See the mechanism</h2>
+      </div>
+      {{- if eq $chapterNumber "28" -}}
+        <span class="book-visual__badge">Research preview</span>
+      {{- end -}}
+    </div>
+    <a class="book-visual__image-link" href="{{ $hero | relURL }}" target="_blank" rel="noopener">
+      <img class="book-visual__image" src="{{ $hero | relURL }}" alt="Generated visualization for {{ .Title }}">
+    </a>
+    <div class="book-visual__footer">
+      <p class="book-visual__caption">{{ $caption }}</p>
+      <div class="book-visual__actions" aria-label="Visualization artifacts">
+        {{- with $filmstrip -}}
+          <a class="book-visual__action" href="{{ . | relURL }}" target="_blank" rel="noopener">View filmstrip</a>
+        {{- end -}}
+        {{- with $animation -}}
+          <a class="book-visual__action" href="{{ . | relURL }}" target="_blank" rel="noopener">Watch animation</a>
+        {{- end -}}
+      </div>
+    </div>
+  </aside>
+{{- end -}}

@@ -8,7 +8,7 @@
   "schema_version": 1,
   "chapter": 28,
   "chapter_title": "Does a Causal Individual Emerge?",
-  "profile": "smoke",
+  "profile": "full",
   "seed": 20260916,
   "fresh_seed": true,
   "horizon": 8,
@@ -21,9 +21,9 @@
   "primary_region_radius": 4,
   "module_SEI": 0.15,
   "allocation_policy": "true_unbounded",
-  "started_at_unix": 1786652391.0207157,
-  "finished_at_unix": 1786652417.4293861,
-  "final_status": "ENGINEERING_SMOKE_ONLY"
+  "started_at_unix": 1786652449.8744862,
+  "finished_at_unix": 1786657561.3276806,
+  "final_status": "CAUSAL_MODULARITY_SUPPORTED"
 }
 ```
 
@@ -33,7 +33,7 @@
 
 ```json
 {
-  "status": "ENGINEERING_SMOKE_ONLY",
+  "status": "FROZEN",
   "question": "Does a predeclared spatial region exhibit stronger internal causal retention than penetration from an equivalently local external perturbation?",
   "primary_radius": 4,
   "primary_metric": "internal_retention - external_penetration",
@@ -60,28 +60,28 @@
 ```json
 {
   "2": {
-    "groups_with_regions": 8,
-    "coverage_fraction": 1.0,
-    "regions": 8,
-    "mean_regions_per_requested_group": 1.0
+    "groups_with_regions": 170,
+    "coverage_fraction": 0.8854166666666666,
+    "regions": 406,
+    "mean_regions_per_requested_group": 2.1145833333333335
   },
   "3": {
-    "groups_with_regions": 8,
+    "groups_with_regions": 192,
     "coverage_fraction": 1.0,
-    "regions": 8,
-    "mean_regions_per_requested_group": 1.0
+    "regions": 576,
+    "mean_regions_per_requested_group": 3.0
   },
   "4": {
-    "groups_with_regions": 8,
+    "groups_with_regions": 192,
     "coverage_fraction": 1.0,
-    "regions": 8,
-    "mean_regions_per_requested_group": 1.0
+    "regions": 576,
+    "mean_regions_per_requested_group": 3.0
   },
   "5": {
-    "groups_with_regions": 8,
+    "groups_with_regions": 192,
     "coverage_fraction": 1.0,
-    "regions": 8,
-    "mean_regions_per_requested_group": 1.0
+    "regions": 576,
+    "mean_regions_per_requested_group": 3.0
   }
 }
 ```
@@ -95,14 +95,14 @@
   "primary_radius": 4,
   "group_coverage_fraction": 1.0,
   "required_group_coverage": 0.9,
-  "mean_regions_per_covered_group": 1.0,
+  "mean_regions_per_covered_group": 3.0,
   "required_mean_regions_per_covered_group": 2.0,
   "far_expected_effect_max_abs": 0.0,
   "far_assertion_tolerance": 1e-12,
   "far_zero_assertion_pass": true,
   "outcome_dependent_region_selection": false,
-  "scientific_valid": false,
-  "status": "FAIL"
+  "scientific_valid": true,
+  "status": "PASS"
 }
 ```
 
@@ -114,32 +114,32 @@
 {
   "primary_radius": 4,
   "module_score": {
-    "n": 8,
-    "mean": 0.23246999769379778,
-    "sd": 0.3282495070525104,
-    "se": 0.11605372617898577,
-    "ci95_low": 0.03735984641632997,
-    "ci95_high": 0.45890564557611824,
-    "achieved_mde80_one_sided": 0.28856467261422897
+    "n": 192,
+    "mean": 0.4402085598899139,
+    "sd": 0.14924454599771653,
+    "se": 0.010770797350858142,
+    "ci95_low": 0.4193782331581624,
+    "ci95_high": 0.4614487176025127,
+    "achieved_mde80_one_sided": 0.026781316840711427
   },
-  "status": "ENGINEERING_SMOKE_ONLY",
+  "status": "SUPPORTED",
   "internal_retention": {
-    "n": 8,
-    "mean": 0.5125296682425597,
-    "sd": 0.27385766642574716,
-    "se": 0.09682330650478466,
-    "ci95_low": 0.3415982623985618,
-    "ci95_high": 0.710826872503087,
-    "achieved_mde80_one_sided": 0.24074871753699434
+    "n": 192,
+    "mean": 0.7755433652328604,
+    "sd": 0.12484573806310367,
+    "se": 0.009009965059738802,
+    "ci95_low": 0.7578066618727277,
+    "ci95_high": 0.7934937962507193,
+    "achieved_mde80_one_sided": 0.022403051615243634
   },
   "external_penetration": {
-    "n": 8,
-    "mean": 0.280059670548762,
-    "sd": 0.12227576868703968,
-    "se": 0.04323101260670173,
-    "ci95_low": 0.2102938261471885,
-    "ci95_high": 0.36354608787294673,
-    "achieved_mde80_one_sided": 0.10749282604157667
+    "n": 192,
+    "mean": 0.3353348053429466,
+    "sd": 0.1133706106424294,
+    "se": 0.008181819071574859,
+    "ci95_low": 0.3191772603099483,
+    "ci95_high": 0.35127384969474257,
+    "achieved_mde80_one_sided": 0.02034388743482986
   },
   "SEI": 0.15
 }
@@ -153,118 +153,118 @@
 {
   "2": {
     "internal_retention": {
-      "n": 8,
-      "mean": 0.38467209424227966,
-      "sd": 0.17436726334855426,
-      "se": 0.06164813716535163,
-      "ci95_low": 0.2784673383360166,
-      "ci95_high": 0.4850613468716746,
-      "achieved_mde80_one_sided": 0.15328654325980592
+      "n": 170,
+      "mean": 0.3984547752041692,
+      "sd": 0.14585972065904798,
+      "se": 0.01118692990285473,
+      "ci95_low": 0.37663462981611884,
+      "ci95_high": 0.4203769377585047,
+      "achieved_mde80_one_sided": 0.027816019969896803
     },
     "external_penetration": {
-      "n": 8,
-      "mean": 0.1728692562015241,
-      "sd": 0.08653472629024861,
-      "se": 0.0305946458839783,
-      "ci95_low": 0.11434030839173533,
-      "ci95_high": 0.22165857030025554,
-      "achieved_mde80_one_sided": 0.07607281785715793
+      "n": 170,
+      "mean": 0.20130247549431216,
+      "sd": 0.12157968772844799,
+      "se": 0.009324736384271589,
+      "ci95_low": 0.18333941588067562,
+      "ci95_high": 0.22026190316233485,
+      "achieved_mde80_one_sided": 0.023185722600508368
     },
     "module_score": {
-      "n": 8,
-      "mean": 0.21180283804075556,
-      "sd": 0.11407442366161456,
-      "se": 0.0403313992655374,
-      "ci95_low": 0.14144432837510948,
-      "ci95_high": 0.28194330923796584,
-      "achieved_mde80_one_sided": 0.10028301036353045
+      "n": 170,
+      "mean": 0.19715229970985704,
+      "sd": 0.1404191138386659,
+      "se": 0.010769654407923003,
+      "ci95_low": 0.17582658318816458,
+      "ci95_high": 0.21878676957297435,
+      "achieved_mde80_one_sided": 0.02677847494183619
     }
   },
   "3": {
     "internal_retention": {
-      "n": 8,
-      "mean": 0.47811348528091624,
-      "sd": 0.28861140981355193,
-      "se": 0.10203954250348612,
-      "ci95_low": 0.3105747334919042,
-      "ci95_high": 0.6628596462772309,
-      "achieved_mde80_one_sided": 0.25371875721432785
+      "n": 192,
+      "mean": 0.6838484947804119,
+      "sd": 0.12242081577408676,
+      "se": 0.008834961367697822,
+      "ci95_low": 0.6669048214702409,
+      "ci95_high": 0.7009524395852288,
+      "achieved_mde80_one_sided": 0.021967909334484784
     },
     "external_penetration": {
-      "n": 8,
-      "mean": 0.2517544577017452,
-      "sd": 0.16988144712044612,
-      "se": 0.060062161628325665,
-      "ci95_low": 0.1418538034086901,
-      "ci95_high": 0.3600185328682294,
-      "achieved_mde80_one_sided": 0.1493430549575842
+      "n": 192,
+      "mean": 0.30982028059792044,
+      "sd": 0.1028695582426854,
+      "se": 0.007423970892854038,
+      "ci95_low": 0.295444203794049,
+      "ci95_high": 0.3248798537178577,
+      "achieved_mde80_one_sided": 0.01845951699034635
     },
     "module_score": {
-      "n": 8,
-      "mean": 0.226359027579171,
-      "sd": 0.16580818472962452,
-      "se": 0.058622045899274625,
-      "ci95_low": 0.12343659163588193,
-      "ci95_high": 0.3450421036407349,
-      "achieved_mde80_one_sided": 0.14576224340105304
+      "n": 192,
+      "mean": 0.3740282141824915,
+      "sd": 0.14708291869468443,
+      "se": 0.010614795337696487,
+      "ci95_low": 0.3533099990849779,
+      "ci95_high": 0.3943330841136429,
+      "achieved_mde80_one_sided": 0.026393421756793777
     }
   },
   "4": {
     "internal_retention": {
-      "n": 8,
-      "mean": 0.5125296682425597,
-      "sd": 0.27385766642574716,
-      "se": 0.09682330650478466,
-      "ci95_low": 0.3414211590909111,
-      "ci95_high": 0.7023431221971603,
-      "achieved_mde80_one_sided": 0.24074871753699434
+      "n": 192,
+      "mean": 0.7755433652328604,
+      "sd": 0.12484573806310367,
+      "se": 0.009009965059738802,
+      "ci95_low": 0.7575914707550887,
+      "ci95_high": 0.7933186125377293,
+      "achieved_mde80_one_sided": 0.022403051615243634
     },
     "external_penetration": {
-      "n": 8,
-      "mean": 0.280059670548762,
-      "sd": 0.12227576868703968,
-      "se": 0.04323101260670173,
-      "ci95_low": 0.20696564095880823,
-      "ci95_high": 0.36682762756785936,
-      "achieved_mde80_one_sided": 0.10749282604157667
+      "n": 192,
+      "mean": 0.3353348053429466,
+      "sd": 0.1133706106424294,
+      "se": 0.008181819071574859,
+      "ci95_low": 0.31963853883338667,
+      "ci95_high": 0.351695901700746,
+      "achieved_mde80_one_sided": 0.02034388743482986
     },
     "module_score": {
-      "n": 8,
-      "mean": 0.23246999769379778,
-      "sd": 0.3282495070525104,
-      "se": 0.11605372617898577,
-      "ci95_low": 0.018724526477825975,
-      "ci95_high": 0.4515510780913731,
-      "achieved_mde80_one_sided": 0.28856467261422897
+      "n": 192,
+      "mean": 0.4402085598899139,
+      "sd": 0.14924454599771653,
+      "se": 0.010770797350858142,
+      "ci95_low": 0.4192057325475149,
+      "ci95_high": 0.46091907739061455,
+      "achieved_mde80_one_sided": 0.026781316840711427
     }
   },
   "5": {
     "internal_retention": {
-      "n": 8,
-      "mean": 0.6119024440609631,
-      "sd": 0.2259992559084821,
-      "se": 0.0799028031980008,
-      "ci95_low": 0.4616112213268374,
-      "ci95_high": 0.7624201304011129,
-      "achieved_mde80_one_sided": 0.19867631143725653
+      "n": 192,
+      "mean": 0.8064391225565278,
+      "sd": 0.12210958936103435,
+      "se": 0.008812500536028481,
+      "ci95_low": 0.7884477392553441,
+      "ci95_high": 0.8240648939673977,
+      "achieved_mde80_one_sided": 0.021912061041192497
     },
     "external_penetration": {
-      "n": 8,
-      "mean": 0.17754725490674,
-      "sd": 0.10418400401005852,
-      "se": 0.03683460786333942,
-      "ci95_low": 0.11349165241258619,
-      "ci95_high": 0.24398508781621125,
-      "achieved_mde80_one_sided": 0.09158832644946735
+      "n": 192,
+      "mean": 0.30260936280937184,
+      "sd": 0.10003910184651625,
+      "se": 0.007219700297571819,
+      "ci95_low": 0.28866762180305633,
+      "ci95_high": 0.31671314906090015,
+      "achieved_mde80_one_sided": 0.017951603290432758
     },
     "module_score": {
-      "n": 8,
-      "mean": 0.4343551891542231,
-      "sd": 0.1875523315777048,
-      "se": 0.06630976274297146,
-      "ci95_low": 0.2952674074897825,
-      "ci95_high": 0.556317268169343,
-      "achieved_mde80_one_sided": 0.1648775580677351
+      "n": 192,
+      "mean": 0.503829759747156,
+      "sd": 0.1482116503175301,
+      "se": 0.010696254525983087,
+      "ci95_low": 0.4826599066148461,
+      "ci95_high": 0.5243023194499038,
+      "achieved_mde80_one_sided": 0.026595967980627133
     }
   }
 }
@@ -300,18 +300,18 @@
     "primary_radius": 4,
     "group_coverage_fraction": 1.0,
     "required_group_coverage": 0.9,
-    "mean_regions_per_covered_group": 1.0,
+    "mean_regions_per_covered_group": 3.0,
     "required_mean_regions_per_covered_group": 2.0,
     "far_expected_effect_max_abs": 0.0,
     "far_assertion_tolerance": 1e-12,
     "far_zero_assertion_pass": true,
     "outcome_dependent_region_selection": false,
-    "scientific_valid": false,
-    "status": "FAIL"
+    "scientific_valid": true,
+    "status": "PASS"
   },
-  "primary_status": "ENGINEERING_SMOKE_ONLY",
-  "overall_status": "ENGINEERING_SMOKE_ONLY",
-  "bounded_claim": "Engineering smoke profile only.",
+  "primary_status": "SUPPORTED",
+  "overall_status": "CAUSAL_MODULARITY_SUPPORTED",
+  "bounded_claim": "At the frozen radius-4 scale, internally initiated perturbations were retained inside predeclared regions more strongly than equivalently local externally initiated perturbations penetrated those regions, by more than the frozen 0.15 module-score margin.",
   "claim_boundary": {
     "supported_if_positive": "causally modular spatial region under this operational test",
     "not_established": [
