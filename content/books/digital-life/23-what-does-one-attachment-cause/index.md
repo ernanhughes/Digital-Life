@@ -8,11 +8,10 @@ tags = ["Digital Life", "Digital Crystal", "Causality", "Cellular Automata", "Ex
 series = ["Digital Life From First Principles"]
 +++
 
-# 23: What Does One Attachment Cause?
-
 At the end of Chapter 22, the Digital Crystal had stopped looking like a simple bounded thing.
 
-We had looked for a privileged region whose future belonged especially to itself. We had not found one.
+We had looked for a privileged region whose future belonged especially to itself.  
+We had not found one.
 
 What survived instead was locality.
 
@@ -50,12 +49,9 @@ The question is how much.
 
 The previous chapters had gradually changed what counted as interesting.
 
-Chapter 18 found that persistent state mattered only while it remained coupled to active construction.
-
-Chapter 20 found that loss manufactured new construction opportunity.
-
-Chapter 21 found that finite computation rationed which opportunities could even be evaluated.
-
+Chapter 18 found that persistent state mattered only while it remained coupled to active construction.  
+Chapter 20 found that loss manufactured new construction opportunity.  
+Chapter 21 found that finite computation rationed which opportunities could even be evaluated.  
 Chapter 22 found spatial causal locality, but no privileged enclosing boundary.
 
 A common object was beginning to appear:
@@ -77,6 +73,16 @@ NEW OPPORTUNITIES
 The material mattered.
 
 But mostly because it changed what could happen next.
+
+```mermaid
+flowchart LR
+    A[Current material] --> B[Active construction opportunities]
+    B --> C[Finite evaluation]
+    C --> D[Attachment or loss]
+    D --> E[New material]
+    E --> F[New opportunities]
+    F --> B
+```
 
 So Chapter 23 began with a process-first hypothesis.
 
@@ -104,7 +110,7 @@ That was Experiment V1.
 
 ---
 
-# V1 — Does Active Process Propagate?
+## V1 — Does Active Process Propagate?
 
 We defined an active process field from material-changing events.
 
@@ -206,9 +212,19 @@ We closed the propagation claim as failed.
 
 Then we asked what that signed short-range structure meant.
 
+```mermaid
+flowchart TD
+    A[Event at x, t] --> B[Measure future event density by distance and lag]
+    B --> C{Positive-weighted lag centroid moves with distance?}
+    C -- Yes --> D[Travelling ridge]
+    C -- No --> E[No propagation]
+    E --> F[Check estimator: positive weighting<br/>can manufacture apparent movement]
+    F --> G[Short-range signed structure remains]
+```
+
 ---
 
-# V2 — Is the Interface a Source/Sink Field?
+## V2 — Is the Interface a Source/Sink Field?
 
 One tempting interpretation was that attachment consumed local interface while loss created it.
 
@@ -382,7 +398,7 @@ It intervened.
 
 ---
 
-# V3 — Force One Attachment
+## V3 — Force One Attachment
 
 The new experiment began from the same checkpoint and the same eligible frontier cell.
 
@@ -411,6 +427,16 @@ That mattered.
 We were no longer asking whether two different states at `x` remained different.
 
 We were asking what happened around `x` because the state had been changed.
+
+```mermaid
+flowchart TD
+    A[Same checkpoint<br/>same cell x<br/>same environment<br/>same keyed randomness] --> B[Force x attaches]
+    A --> C[Prevent x from attaching]
+    B --> D[Future A]
+    C --> E[Future B]
+    D --> F[Measure gain around x]
+    E --> F
+```
 
 Before observing the realized first future update, we also calculated what the frozen rule mechanically predicted.
 
@@ -524,7 +550,7 @@ We needed one final decomposition.
 
 ---
 
-# V4 — Persistent State Versus Transient Cascade
+## V4 — Persistent State Versus Transient Cascade
 
 V4 repeated the force/prevent experiment on a fresh seed.
 
@@ -534,7 +560,7 @@ All 96 passed the coverage gates.
 
 There were 384 interventions across four predeclared frontier-probability strata.
 
-Capacity remained far from the hard lattice boundary. fileciteturn183file0L112-L120
+Capacity remained far from the hard lattice boundary.
 
 The intervention timing was also corrected.
 
@@ -542,7 +568,7 @@ Force and prevent now occurred inside the canonical growth update.
 
 Then the ordinary loss step was applied to every branch.
 
-The forced cell therefore faced the same background loss rule as an ordinary newly attached cell. fileciteturn183file0L58-L59
+The forced cell therefore faced the same background loss rule as an ordinary newly attached cell.
 
 Each probe created three futures:
 
@@ -571,6 +597,16 @@ If the downstream process could sustain itself, the transient branch should cont
 If not, its gain should die away.
 
 The observation window was extended to thirty updates.
+
+```mermaid
+flowchart TD
+    A[Same checkpoint, same cell x] --> PREVENT[Prevent: x does not attach]
+    A --> PERSISTENT[Persistent: x attaches,<br/>then remains under normal dynamics]
+    A --> TRANSIENT[Transient: x attaches,<br/>gets one causal update,<br/>then x is removed]
+    PREVENT --> B[Compare cumulative gains]
+    PERSISTENT --> B
+    TRANSIENT --> B
+```
 
 ---
 
@@ -609,15 +645,13 @@ The frozen accounting verdict remained:
 CONSISTENT WITH MECHANICS
 ```
 
-fileciteturn183file0L130-L149 fileciteturn183file0L242-L247
-
 So the direct local causal effect had now replicated on a fresh experiment.
 
 That part of the story was no longer tentative.
 
 ---
 
-# The Transient Cascade Was Small
+## The Transient Cascade Was Small
 
 After thirty updates, the transient arm had accumulated:
 
@@ -627,8 +661,6 @@ G_transient(30)
 95% CI
 [-0.026, 0.440]
 ```
-
-fileciteturn186file0L112-L121
 
 More important than the cumulative number was the late-time behaviour.
 
@@ -642,7 +674,7 @@ transient late gain
 [-0.0201, 0.0039]
 ```
 
-That passed the frozen practical-convergence criterion. fileciteturn186file0L102-L110
+That passed the frozen practical-convergence criterion.
 
 The transient trajectory did not continue accumulating positive construction at a meaningful late rate.
 
@@ -660,13 +692,13 @@ The experiment records that result as:
 TRANSIENT_GAIN_BELOW_ONE_REFERENCE
 ```
 
-but deliberately does not call it a branching ratio or proof of subcriticality. fileciteturn186file0L112-L121
+but deliberately does not call it a branching ratio or proof of subcriticality.
 
 That distinction stays.
 
 ---
 
-# Persistent State Was Different
+## Persistent State Was Different
 
 The persistent arm told a very different story.
 
@@ -687,8 +719,6 @@ G_transient(30)
 = 0.198
 ```
 
-fileciteturn183file0L151-L163
-
 The cumulative difference between the two arms was:
 
 ```text
@@ -702,8 +732,6 @@ G_transient(30)
 [0.612, 1.333]
 ```
 
-fileciteturn184file4L405-L410
-
 The continuing state difference therefore contributed much more to the thirty-step causal consequence than the free-running transient cascade.
 
 That gives us a distinction worth keeping:
@@ -712,6 +740,21 @@ That gives us a distinction worth keeping:
 PERSISTENT STATE CHANGE
 ≠
 TRANSIENT CAUSAL CASCADE
+```
+
+```mermaid
+flowchart LR
+    subgraph Transient
+    A[Forced attachment] --> B[One causal update]
+    B --> C[x removed]
+    C --> D[Small downstream cascade<br/>G ≈ 0.198]
+    end
+    subgraph Persistent
+    E[Forced attachment] --> F[Remains under dynamics]
+    F --> G[Persistent state difference<br/>G ≈ 1.164]
+    end
+    D -.-> H[Most causal consequence comes<br/>from persistent state, not cascade]
+    G -.-> H
 ```
 
 But V4 also killed another attractive interpretation.
@@ -742,7 +785,7 @@ The frozen late-window persistent gain was:
 [-0.0159, 0.0281]
 ```
 
-far below the predeclared positive-offset threshold and with an interval spanning zero. fileciteturn186file0L84-L100
+far below the predeclared positive-offset threshold and with an interval spanning zero.
 
 The cumulative persistent trajectory instead rose early and then flattened into noisy variation:
 
@@ -754,8 +797,6 @@ H=17     1.008
 H=22     1.190
 H=30     1.164
 ```
-
-fileciteturn184file1L139-L170
 
 So the persistent effect was neither:
 
@@ -781,11 +822,9 @@ PERSISTENT POSITIVE LATE OFFSET
 NOT ESTABLISHED
 ```
 
-fileciteturn186file0L102-L134
-
 ---
 
-# Opportunity Is Not One Thing
+## Opportunity Is Not One Thing
 
 V3 had contained one more striking clue.
 
@@ -817,7 +856,7 @@ The total frontier changed by approximately:
 +1.23
 ```
 
-sites. fileciteturn185file4L343-L380
+sites.
 
 At the highest-probability probe, the geometry was almost the opposite.
 
@@ -847,7 +886,7 @@ And total frontier changed by approximately:
 -0.969
 ```
 
-sites. fileciteturn185file3L268-L303
+sites.
 
 The same action therefore meant different things in different local geometry.
 
@@ -880,6 +919,18 @@ from frontier
 little new frontier is created
 ```
 
+```mermaid
+flowchart TD
+    subgraph Sparse
+    A1[One frontier site attaches] --> A2[Unsupported empty neighbours gain support]
+    A2 --> A3[New frontier created<br/>+1.23 total frontier]
+    end
+    subgraph Dense
+    B1[One frontier site attaches] --> B2[Most nearby cells already occupied]
+    B2 --> B3[Site disappears from frontier<br/>-0.969 total frontier]
+    end
+```
+
 The paired difference was enormous.
 
 Low-probability probes created about:
@@ -902,7 +953,7 @@ with:
 p = 0.000125
 ```
 
-The same difference appeared in newly promoted neighbouring frontier sites. fileciteturn186file0L9-L36
+The same difference appeared in newly promoted neighbouring frontier sites.
 
 This is now established.
 
@@ -912,7 +963,7 @@ But one stronger idea did not survive.
 
 ---
 
-# Geometry Did Not Yet Predict Long-Run Gain Reliably
+## Geometry Did Not Yet Predict Long-Run Gain Reliably
 
 The low-probability transient probe had a larger point estimate:
 
@@ -926,8 +977,6 @@ while the high-probability probe was:
 ```text
 ≈ 0.073
 ```
-
-fileciteturn185file4L389-L412 fileciteturn185file5L440-L466
 
 That looks dramatic.
 
@@ -954,8 +1003,6 @@ p
 = 0.810
 ```
 
-fileciteturn186file0L38-L65
-
 So the chapter must stop here.
 
 We have established:
@@ -980,7 +1027,7 @@ They do not make it true.
 
 ---
 
-# Local Gain Is Not Global Gain
+## Local Gain Is Not Global Gain
 
 The finite evaluation budget also leaves a weak system-wide footprint.
 
@@ -1016,7 +1063,7 @@ transient
 -0.154
 ```
 
-but their intervals still overlapped zero. fileciteturn183file0L165-L191
+but their intervals still overlapped zero.
 
 The candidate-selection sets nevertheless remained extremely similar between branches, typically overlapping by more than 99 percent.
 
@@ -1026,7 +1073,7 @@ Most of the measurable effect remains local.
 
 ---
 
-# What Survived the Hypothesis?
+## What Survived the Hypothesis?
 
 Chapter 23 began with a hypothesis about motion.
 
@@ -1034,7 +1081,7 @@ That hypothesis failed.
 
 What survived was more useful.
 
-## Predeclared claim
+### Predeclared claim
 
 > Local process activity propagates through space-time as a reproducible distance-lag structure beyond ordinary geometry and developmental progression.
 
@@ -1044,9 +1091,7 @@ V1 did not establish a travelling process ridge.
 
 The estimator itself was shown capable of turning a strong local signed feature plus far-field noise into apparent displacement.
 
----
-
-## Stronger interpretation
+### Stronger interpretation
 
 > The active interface behaves as a simple source/sink field in which loss creates interface and attachment consumes it.
 
@@ -1054,9 +1099,7 @@ The estimator itself was shown capable of turning a strong local signed feature 
 
 After zero-distance eligibility effects were separated, the neighbourhood signs were opposite to that interpretation.
 
----
-
-## Surviving causal phenomenon
+### Surviving causal phenomenon
 
 > Forcing one eligible Digital Crystal frontier attachment causes additional neighbouring construction during the next update.
 
@@ -1064,9 +1107,7 @@ After zero-distance eligibility effects were separated, the neighbourhood signs 
 
 The direct result replicated across V3 and V4.
 
----
-
-## Mechanistic accounting
+### Mechanistic accounting
 
 > The immediate neighbouring causal gain is quantitatively consistent, at the tested precision, with the attachment probability changes mechanically implied by the frozen local rule.
 
@@ -1086,21 +1127,15 @@ discrepancy
 CI includes zero
 ```
 
-fileciteturn183file0L130-L149 fileciteturn183file0L242-L247
-
----
-
-## Transient causal cascade
+### Transient causal cascade
 
 > After the initiating occupancy is removed following one causal update, the remaining construction cascade is small and practically converges over the frozen thirty-update observation window.
 
 **Status: SUPPORTED**
 
-The late transient rate was indistinguishable from zero under the frozen criterion. fileciteturn186file0L102-L110
+The late transient rate was indistinguishable from zero under the frozen criterion.
 
----
-
-## Persistent-state consequence
+### Persistent-state consequence
 
 > Keeping the intervention-induced occupancy difference produces a substantially larger accumulated construction consequence than removing it after one causal update.
 
@@ -1114,41 +1149,33 @@ The thirty-update persistent-minus-transient difference was:
 [0.612, 1.333]
 ```
 
-fileciteturn184file4L405-L410
-
----
-
-## Persistent positive late-rate offset
+### Persistent positive late-rate offset
 
 > The persistent branch retains a scientifically meaningful positive construction-rate offset at late times.
 
 **Status: FAILED**
 
-The frozen late-window mean was too small and its interval included zero. fileciteturn186file0L84-L100
+The frozen late-window mean was too small and its interval included zero.
 
----
-
-## Frontier-geometry heterogeneity
+### Frontier-geometry heterogeneity
 
 > Sparse and dense intervention sites differ strongly in how much frontier geometry one attachment creates or consumes.
 
 **Status: SUPPORTED**
 
-The paired low-versus-high frontier difference was about `2.20` sites with a narrow interval and `p = 0.000125`. fileciteturn186file0L9-L36
+The paired low-versus-high frontier difference was about `2.20` sites with a narrow interval and `p = 0.000125`.
 
----
-
-## Geometry determines long-run gain
+### Geometry determines long-run gain
 
 > Sparse frontier geometry produces reliably greater thirty-update causal gain than dense frontier geometry.
 
 **Status: FAILED / NOT ESTABLISHED**
 
-The transient point estimate was larger in sparse regions, but the frozen paired comparison did not clear the significance gate. fileciteturn186file0L38-L50
+The transient point estimate was larger in sparse regions, but the frozen paired comparison did not clear the significance gate.
 
 ---
 
-# The Causal Opportunity Principle
+## The Causal Opportunity Principle
 
 The Digital Crystal now suggests a refinement of the Interface Principle.
 
@@ -1204,11 +1231,22 @@ A dense site can consume frontier.
 
 And a locally strong immediate causal effect can still fail to sustain a free-running cascade.
 
+```mermaid
+flowchart TD
+    A[Local attachment] --> B{Local geometry?}
+    B -- Sparse --> C[Creates frontier<br/>increases opportunity count]
+    B -- Dense --> D[Consumes frontier<br/>reduces opportunity count]
+    C --> E[Immediate causal gain may be high]
+    D --> F[Immediate causal gain may be low]
+    E -.-> G[Long-run gain not reliably predictable<br/>from geometry alone]
+    F -.-> G
+```
+
 This is a much richer object than the static boundary we went looking for in Chapter 22.
 
 ---
 
-# The Crystal Does Not Carry the Event Forward
+## The Crystal Does Not Carry the Event Forward
 
 The most important negative result may be the simplest.
 
@@ -1262,7 +1300,7 @@ Something else would be required.
 
 ---
 
-# Maybe the Important State Is Opportunity
+## Maybe the Important State Is Opportunity
 
 The crystal began this book as occupied cells.
 
@@ -1327,7 +1365,7 @@ And unlike the boundaries we drew first, this one can be derived from interventi
 
 ---
 
-# What This Does Not Establish
+## What This Does Not Establish
 
 Chapter 23 does not establish:
 
@@ -1347,7 +1385,7 @@ an organism
 life
 ```
 
-The experiment explicitly records those as forbidden overclaims. fileciteturn186file0L135-L147
+The experiment explicitly records those as forbidden overclaims.
 
 It also does not establish that sparse geometry causes larger long-run gain.
 
@@ -1359,7 +1397,7 @@ The result is conditional on this model, these parameters, this intervention, th
 
 ---
 
-# What We Have Earned
+## What We Have Earned
 
 We have earned something narrower and more useful.
 
@@ -1377,7 +1415,7 @@ A measured causal leverage of local state.
 
 ---
 
-# Next: Where Is Causal Gain Created?
+## Next: Where Is Causal Gain Created?
 
 The obvious next experiment is no longer a search for a boundary.
 
@@ -1409,23 +1447,15 @@ Only after that would it make sense to ask whether a change in global neighbour 
 
 The research path has changed again:
 
-```text
-MATERIAL
-↓
-INTERFACE
-↓
-OPPORTUNITY
-↓
-LOCAL CAUSAL GAIN
-↓
-HIGH-GAIN REGIONS?
-↓
-PERSISTENT HIGH-GAIN REGIONS?
-↓
-CONNECTED CAUSAL ORGANIZATION?
-↓
-ONLY THEN:
-A NATURAL INDIVIDUAL?
+```mermaid
+flowchart TD
+    A[MATERIAL] --> B[INTERFACE]
+    B --> C[OPPORTUNITY]
+    C --> D[LOCAL CAUSAL GAIN]
+    D --> E[HIGH-GAIN REGIONS?]
+    E --> F[PERSISTENT HIGH-GAIN REGIONS?]
+    F --> G[CONNECTED CAUSAL ORGANIZATION?]
+    G --> H[ONLY THEN:<br/>A NATURAL INDIVIDUAL?]
 ```
 
 Chapter 23 began by asking whether the process moved.

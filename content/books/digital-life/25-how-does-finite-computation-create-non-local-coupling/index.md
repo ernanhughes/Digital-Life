@@ -81,7 +81,7 @@ That turns Chapter 25 into a control-parameter experiment.
 
 ---
 
-# The Digital Resource Is an Evaluation Slot
+## The Digital Resource Is an Evaluation Slot
 
 It is tempting to compare finite computation to biological energy.
 
@@ -127,9 +127,22 @@ The local transition rule remains local.
 
 The allocation constraint does not.
 
+```mermaid
+flowchart LR
+    subgraph Local
+    A[Local rule] --> B[Changes nearby probabilities]
+    end
+    subgraph Global
+    C[Fixed evaluation budget] --> D[Which frontier sites are evaluated?]
+    D --> E[Distant regions compete for slots]
+    E --> F[Non-local coupling without signal exchange]
+    end
+    B --> D
+```
+
 ---
 
-# The Frozen Experiment
+## The Frozen Experiment
 
 For each independent checkpoint we selected supported single-contact frontier sites:
 
@@ -193,7 +206,7 @@ It created different computational allocations over the same crystal state.
 
 ---
 
-# The Region That Cannot Be Reached Locally
+## The Region That Cannot Be Reached Locally
 
 The primary measurement was taken outside the ordinary one-step causal cone.
 
@@ -244,7 +257,7 @@ It was the exact expected construction difference induced by the changed selecto
 
 ---
 
-# The Hardest Control in the Book
+## The Hardest Control in the Book
 
 The strongest part of the experiment was also the simplest.
 
@@ -309,7 +322,7 @@ That turns a correlation with budget into a mechanistic identification.
 
 ---
 
-# The Full Run
+## The Full Run
 
 The full experiment used:
 
@@ -339,7 +352,7 @@ Now we could ask what happened under partial evaluation.
 
 ---
 
-# The Low-Budget Law
+## The Low-Budget Law
 
 Chapter 24 suggested a first-order relationship:
 
@@ -397,7 +410,7 @@ using the actual lag-one frontier difference rather than the earlier checkpoint-
 
 ---
 
-# The Aggregate Test Passed
+## The Aggregate Test Passed
 
 The frozen aggregate criterion required the weighted mean residual to remain within:
 
@@ -443,7 +456,7 @@ That relation became tighter as the evaluation fraction increased from `0.05` to
 
 ---
 
-# Recovering the Probability Scale
+## Recovering the Probability Scale
 
 The fitted coefficient carries more information.
 
@@ -497,7 +510,7 @@ The sweep recovered the expected scaling.
 
 ---
 
-# One Result Did Not Generalize
+## One Result Did Not Generalize
 
 Chapter 24 had produced a striking extreme-class ratio.
 
@@ -550,7 +563,7 @@ The failure taught us something important about the control variable.
 
 ---
 
-# FCP Is Not the Same as the Frontier Seen by the Selector
+## FCP Is Not the Same as the Frontier Seen by the Selector
 
 FCP is measured from checkpoint geometry.
 
@@ -608,7 +621,7 @@ But Chapter 25 tells us to stop treating FCP as the final control parameter.
 
 ---
 
-# The Negative-ΔF Class Is Less Clean
+## The Negative-ΔF Class Is Less Clean
 
 The aggregate low-budget scaling test passed.
 
@@ -636,7 +649,7 @@ The next quantity is more exact.
 
 ---
 
-# Selection Slots Are Conserved
+## Selection Slots Are Conserved
 
 When both branches are budget limited:
 
@@ -719,9 +732,22 @@ Local frontier changes alter how many of those slots are used nearby.
 
 The far field receives the exact opposite slot imbalance.
 
+```mermaid
+flowchart TD
+    subgraph SelectionBudgets
+    A[FORCE branch] -->|"|S_force| = B"| C[Selected cells]
+    B[PREVENT branch] -->|"|S_prevent| = B"| C
+    end
+    C --> D[Near selection difference]
+    C --> E[Far selection difference]
+    D --> F[ΔN_near = -ΔN_far]
+    E --> F
+    F --> G[Slot conservation identity]
+```
+
 ---
 
-# Why Candidate Churn Is Not Enough
+## Why Candidate Churn Is Not Enough
 
 The `FCP = 0` arm gives us a beautiful control.
 
@@ -772,7 +798,7 @@ Two interventions can move nearly the same number of slots while producing very 
 
 ---
 
-# Partial Evaluation Is a Coupling Regime
+## Partial Evaluation Is a Coupling Regime
 
 Across the fraction sweep, the far-field effect grew in magnitude as more of the frontier was evaluated.
 
@@ -810,7 +836,7 @@ The interesting part is what happens near exhaustive evaluation.
 
 ---
 
-# We Did Not Resolve the Saturation Layer
+## We Did Not Resolve the Saturation Layer
 
 The coarse budget grid jumped from:
 
@@ -842,7 +868,7 @@ That boundary is now experimentally interesting in its own right.
 
 ---
 
-# The Better Coordinate Near Saturation
+## The Better Coordinate Near Saturation
 
 Fractions are convenient when the budget is small.
 
@@ -906,7 +932,7 @@ Now we can see the mechanism at integer resolution.
 
 ---
 
-# The Saturation Law Should Be Piecewise
+## The Saturation Law Should Be Piecewise
 
 Suppose FORCE has a larger frontier.
 
@@ -956,7 +982,7 @@ A narrow integer-slot experiment.
 
 ---
 
-# What Chapter 25 Has Established
+## What Chapter 25 Has Established
 
 The strongest bounded claim is now:
 
@@ -972,11 +998,11 @@ The non-locality appears in the allocation of computation.
 
 ---
 
-# P005 — Finite-Budget Redistribution
+## P005 — Finite-Budget Redistribution
 
 The phenomenon ledger can now strengthen its entry.
 
-## **Finite-Budget Redistribution**
+### Finite-Budget Redistribution
 
 **Status: SUPPORTED**
 
@@ -1031,7 +1057,7 @@ effect on individuation
 
 ---
 
-# A Digital-Native Coupling
+## A Digital-Native Coupling
 
 This result matters because it is not an imported biological metaphor.
 
@@ -1065,7 +1091,7 @@ That is exactly the kind of property we hoped a substrate-first approach would r
 
 ---
 
-# The Cost of a Slot
+## The Cost of a Slot
 
 There is another subtle point.
 
@@ -1128,7 +1154,7 @@ into one number.
 
 ---
 
-# The Next Question Changes Again
+## The Next Question Changes Again
 
 Chapter 24 asked:
 
@@ -1169,7 +1195,7 @@ So Chapter 26 needs a stricter design.
 
 ---
 
-# Match Construction Rate, Vary Allocation
+## Match Construction Rate, Vary Allocation
 
 The next experiment should separate:
 
@@ -1208,33 +1234,17 @@ Either answer would matter.
 
 ---
 
-# What We Learned by Varying the Constraint
+## What We Learned by Varying the Constraint
 
 The progression now looks like this:
 
-```text
-CHAPTER 21
-FINITE COMPUTATION EXISTS
-↓
-
-CHAPTER 23
-LOCAL CAUSAL EFFECT EXISTS
-↓
-
-CHAPTER 24
-LOCAL INTERVENTION CAN REDISTRIBUTE
-DISTANT EXPECTED CONSTRUCTION
-↓
-
-CHAPTER 25
-FINITE CANDIDATE SELECTION
-IS THE CONTROL MECHANISM
-
-PARTIAL EVALUATION
-→ NON-LOCAL COUPLING
-
-FULL EVALUATION
-→ EXACT ZERO
+```mermaid
+flowchart TD
+    A[CHAPTER 21<br/>FINITE COMPUTATION EXISTS] --> B[CHAPTER 23<br/>LOCAL CAUSAL EFFECT EXISTS]
+    B --> C[CHAPTER 24<br/>LOCAL INTERVENTION CAN REDISTRIBUTE<br/>DISTANT EXPECTED CONSTRUCTION]
+    C --> D[CHAPTER 25<br/>FINITE CANDIDATE SELECTION<br/>IS THE CONTROL MECHANISM]
+    D --> E[PARTIAL EVALUATION<br/>→ NON-LOCAL COUPLING]
+    D --> F[FULL EVALUATION<br/>→ EXACT ZERO]
 ```
 
 The experimental object has become much clearer.

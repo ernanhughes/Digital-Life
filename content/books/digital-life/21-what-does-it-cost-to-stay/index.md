@@ -159,6 +159,20 @@ That distinction remained observer-only.
 
 So if high-support scheduling happened to favour reoccupation, it would be an emergent consequence of local geometry rather than an explicit repair instruction.
 
+```mermaid
+flowchart LR
+    subgraph "Same Budget B"
+    A[Many possible frontier sites] --> B{Limited evaluations}
+    B --> C[Select subset]
+    C --> D1[High-support scheduling]
+    C --> D2[Neutral scheduling]
+    C --> D3[Low-support scheduling]
+    D1 --> E1[More reoccupation]
+    D2 --> E2[Balanced outcome]
+    D3 --> E3[More first occupation]
+    end
+```
+
 ---
 
 ## The First Question
@@ -203,12 +217,12 @@ Before looking at the policies, the neutral budget sweep already showed somethin
 Approximate late populations were:
 
 ```text
-B = 64        ~381
-B = 128       ~829
-B = 256      ~1717
-B = 512      ~3092
-B = 1024     ~3513
-unlimited    ~3462
+B = 64        ~381
+B = 128       ~829
+B = 256      ~1717
+B = 512      ~3092
+B = 1024     ~3513
+unlimited    ~3462
 ```
 
 The amount of computational opportunity strongly constrained how large the lossy crystal became.
@@ -254,28 +268,28 @@ Approximate late behaviour:
 ```text
 HIGH SUPPORT
 
-late population                  ~1923
-reoccupation / loss               0.959
-first occupations / 1000 evals    188
-late net growth                   +24.3
+late population                  ~1923
+reoccupation / loss               0.959
+first occupations / 1000 evals    188
+late net growth                   +24.3
 ```
 
 ```text
 NEUTRAL
 
-late population                  ~1723
-reoccupation / loss               0.844
-first occupations / 1000 evals    212
-late net growth                   +10.0
+late population                  ~1723
+reoccupation / loss               0.844
+first occupations / 1000 evals    212
+late net growth                   +10.0
 ```
 
 ```text
 LOW SUPPORT
 
-late population                  ~1131
-reoccupation / loss               0.534
-first occupations / 1000 evals    249
-late net growth                    -1.5
+late population                  ~1131
+reoccupation / loss               0.534
+first occupations / 1000 evals    249
+late net growth                    -1.5
 ```
 
 The differences were large.
@@ -288,13 +302,26 @@ So finite computation had created a real allocation tension:
 
 ```text
 REUSE LOST MATERIAL
-        versus
+        versus
 OCCUPY NEW MATERIAL
 ```
 
 The crystal still did not know which was which.
 
 Geometry created the bias.
+
+```mermaid
+flowchart TD
+    A[Same budget B=256] --> B[High support]
+    A --> C[Neutral]
+    A --> D[Low support]
+    B --> B1[High reoccupation<br/>largest population]
+    C --> C1[Moderate mix]
+    D --> D1[High first occupation<br/>smallest population]
+    B1 -.-> E[Allocation tension emerged]
+    C1 -.-> E
+    D1 -.-> E
+```
 
 ---
 
@@ -443,11 +470,11 @@ late normalized population slope
 The approximate slopes were:
 
 ```text
-B=48     -0.00319
-B=64     -0.00271
-B=80     -0.00252
-B=96     -0.00268
-B=128    -0.00280
+B=48     -0.00319
+B=64     -0.00271
+B=80     -0.00252
+B=96     -0.00268
+B=128    -0.00280
 ```
 
 The frozen threshold was:
@@ -557,11 +584,11 @@ Then we changed not only computational budget, but starting size.
 The frozen start conditions were:
 
 ```text
-SMALL      warmup = 8
+SMALL      warmup = 8
 
-MEDIUM     warmup = 14
+MEDIUM     warmup = 14
 
-LARGE      warmup = 20
+LARGE      warmup = 20
 ```
 
 Crossed with:
@@ -581,11 +608,11 @@ The most striking result was gross turnover.
 Mean late gross turnover fractions across budgets were approximately:
 
 ```text
-B=48     0.17229
-B=64     0.17150
-B=80     0.17066
-B=96     0.17147
-B=128    0.17132
+B=48     0.17229
+B=64     0.17150
+B=80     0.17066
+B=96     0.17147
+B=128    0.17132
 ```
 
 The coefficient of variation across those budget means was only:
@@ -639,9 +666,9 @@ Take `B=48`.
 Gross turnover by starting condition was roughly:
 
 ```text
-small     0.17330
-medium    0.17267
-large     0.17089
+small     0.17330
+medium    0.17267
+large     0.17089
 ```
 
 Loss fraction was also tightly clustered.
@@ -673,9 +700,9 @@ first occupation / population
 At `B=48`:
 
 ```text
-small     0.01806
-medium    0.01689
-large     0.01356
+small     0.01806
+medium    0.01689
+large     0.01356
 ```
 
 The coefficient of variation was:
@@ -695,10 +722,10 @@ So that gate failed.
 At larger budgets, the start-size dependence weakened:
 
 ```text
-B=64     CV ~0.092
-B=80     CV ~0.077
-B=96     CV ~0.074
-B=128    CV ~0.063
+B=64     CV ~0.092
+B=80     CV ~0.077
+B=96     CV ~0.074
+B=128    CV ~0.063
 ```
 
 Those passed.
@@ -853,6 +880,13 @@ And it required no biological metaphor to define.
 
 Chapter 21 can be summarized as a sequence of rejected simplifications.
 
+```mermaid
+flowchart TD
+    V1[V1: Scheduling creates full two-sided allocation tradeoff] -->|FAILED| F1[Strong reoccupation side,<br/>weak first-occupation side]
+    V2[V2: Some budget gives stationary population] -->|FAILED| F2[Turnover continues,<br/>but slope criterion missed]
+    V3[V3: Full normalized process vector invariant] -->|FAILED| F3[Gross turnover stable,<br/>first occupation sensitive at B=48]
+```
+
 ### V1
 
 We predicted a strong two-sided allocation tradeoff.
@@ -984,17 +1018,7 @@ WHERE COMPUTATION IS SPENT
 MATTERS
 ```
 
-The crystal does not know whether it is servicing:
-
-```text
-old territory
-```
-
-or:
-
-```text
-new territory
-```
+The crystal does not know whether it is servicing old territory or new territory.
 
 Yet geometry makes different scheduling rules allocate evaluation opportunity differently across those categories.
 
@@ -1036,6 +1060,21 @@ That gives us the strongest version yet of the **Flux Principle**:
 
 > **The Digital Crystal can exhibit highly stable normalized material traffic even while absolute population and spatial scale remain different or drifting.**
 
+```mermaid
+flowchart TD
+    subgraph Stable Flows
+    A[Loss / population] --> E[Stable]
+    B[Attachment / population] --> E
+    C[Reoccupation / population] --> E
+    D[Gross turnover / population] --> E
+    end
+    subgraph Sensitive Flow
+    F[First occupation / population] --> G[Sensitive to starting size<br/>and severe scarcity]
+    end
+    E --> H[Stable process traffic<br/>not stable body size]
+    G --> H
+```
+
 So:
 
 ```text
@@ -1060,17 +1099,7 @@ This is narrower than calling the system homeostatic.
 
 But it is also more precise.
 
-The stable object may be:
-
-```text
-process traffic
-```
-
-rather than:
-
-```text
-body size
-```
+The stable object may be process traffic rather than body size.
 
 ### Continuation and expansion separated
 
@@ -1139,17 +1168,7 @@ These are operational distinctions, not biological ones.
 
 This result could become important later because it tells us not to treat every attachment as one undifferentiated activity.
 
-Chapter 20 already separated:
-
-```text
-first occupation
-```
-
-from:
-
-```text
-reoccupation
-```
+Chapter 20 already separated first occupation from reoccupation.
 
 Chapter 21 shows that those categories respond differently to scarcity.
 
@@ -1211,29 +1230,15 @@ Chapter 21 now shows that finite computation determines which frontier opportuni
 
 So the interface story becomes:
 
-```text
-LOSS
-↓
-CREATES FRONTIER
-
-FRONTIER
-↓
-CREATES OPPORTUNITY
-
-FINITE BUDGET
-↓
-SELECTS WHICH OPPORTUNITIES ARE EVALUATED
-
-SCHEDULING
-↓
-CHANGES WHICH MATERIAL FUTURE OCCURS
+```mermaid
+flowchart LR
+    A[LOSS] --> B[CREATES FRONTIER]
+    B --> C[FRONTIER CREATES OPPORTUNITY]
+    C --> D[FINITE BUDGET SELECTS OPPORTUNITIES]
+    D --> E[SCHEDULING CHANGES MATERIAL FUTURE]
 ```
 
-That is a much stronger substrate picture than simply saying:
-
-```text
-the crystal has a boundary
-```
+That is a much stronger substrate picture than simply saying the crystal has a boundary.
 
 The relevant object is increasingly:
 
@@ -1354,11 +1359,7 @@ So we stop.
 
 The chapter has already done its job.
 
-It showed us that the Digital Crystal under loss and scarcity is not well described by a single scalar such as:
-
-```text
-population
-```
+It showed us that the Digital Crystal under loss and scarcity is not well described by a single scalar such as population.
 
 The more stable object may be the flow itself.
 

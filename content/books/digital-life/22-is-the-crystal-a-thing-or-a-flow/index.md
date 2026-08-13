@@ -38,12 +38,9 @@ And in Chapter 21, normalized gross turnover became strikingly stable even while
 
 That made the question harder, not easier.
 
-A stable process is not automatically an individual.
-
-A connected shape is not automatically an individual.
-
-A region that persists is not automatically an individual.
-
+A stable process is not automatically an individual.  
+A connected shape is not automatically an individual.  
+A region that persists is not automatically an individual.  
 And a system with local causal relationships is not automatically an individual.
 
 So Chapter 22 began with a very cautious question:
@@ -70,12 +67,9 @@ We have a strong habit of looking for boundaries.
 
 If something is alive, we expect an inside and an outside.
 
-A bacterium has a membrane.
-
-A cell has a boundary.
-
-An animal has skin.
-
+A bacterium has a membrane.  
+A cell has a boundary.  
+An animal has skin.  
 Even a machine usually has a chassis.
 
 So when the Digital Crystal began to exhibit:
@@ -101,14 +95,11 @@ It assumes there is a privileged spatial boundary to discover.
 
 The crystal may not work that way.
 
-Chapter 18 had already shown that causally useful historical state lives near the active construction frontier.
-
-Chapter 20 showed that loss can create new frontier inside previously occupied material.
-
+Chapter 18 had already shown that causally useful historical state lives near the active construction frontier.  
+Chapter 20 showed that loss can create new frontier inside previously occupied material.  
 Chapter 21 showed that finite computation determines which frontier opportunities are actually serviced.
 
-So the active region is not a fixed shell.
-
+So the active region is not a fixed shell.  
 It is dynamically generated.
 
 A site can be:
@@ -207,6 +198,16 @@ Then we compared that with an observer-only spatial null.
 The hope was simple.
 
 If one scale contained unusually strong information about its own future, perhaps we had found a candidate process boundary.
+
+```mermaid
+flowchart TD
+    A[Candidate region S(t)] --> B[Predict future state of S]
+    C[Environment E(t)] --> B
+    B --> D[Prediction using S + E]
+    C --> E[Prediction using E alone]
+    D - E --> F[Excess self-coherence Δ_self]
+    F --> G[Compare with spatial null]
+```
 
 ---
 
@@ -442,6 +443,25 @@ interior pseudo-boundary
 ```
 
 If the outer candidate boundary was privileged, its causal localization should be stronger.
+
+```mermaid
+flowchart LR
+    subgraph CandidateBoundary
+    C1[Inside perturbation] --> C2[Inner response]
+    C1 --> C3[Outer response]
+    C4[Outside perturbation] --> C5[Inner response]
+    C4 --> C6[Outer response]
+    end
+    subgraph PseudoBoundary
+    P1[Inside perturbation] --> P2[Inner response]
+    P1 --> P3[Outer response]
+    P4[Outside perturbation] --> P5[Inner response]
+    P4 --> P6[Outer response]
+    end
+    C2 & C6 --> Calc1[Compute localization score]
+    P2 & P6 --> Calc2[Compute localization score]
+    Calc1 & Calc2 --> Compare[Compare candidate vs control]
+```
 
 ---
 
@@ -714,6 +734,16 @@ inside a vacancy created by loss
 
 It cares whether the process can act there.
 
+```mermaid
+flowchart TD
+    A[Occupied material] -->|loss| B[New empty site]
+    B --> C[Local frontier opportunity]
+    C -->|finite computation| D[Evaluation selection]
+    D --> E[Construction event]
+    E --> F[Interface changes again]
+    F --> A
+```
+
 ---
 
 ## The Flux Principle
@@ -871,6 +901,20 @@ persistent material identity
 ```
 
 That is exactly the distinction Chapter 22 now forces us to consider.
+
+```mermaid
+flowchart LR
+    subgraph MaterialView
+    A[Occupied cells at t] --> B[Occupied cells at t+1]
+    B --> C[Material identity may differ]
+    end
+    subgraph ProcessView
+    D[Active events at t] --> E[Active events at t+1]
+    E --> F[Coherent process may persist]
+    end
+    C -.->|not sufficient| G[Individuality]
+    F -.->|potential object| H[Process coherence]
+```
 
 ---
 
@@ -1173,14 +1217,12 @@ Then ask whether the active field at one time predicts or causes the active fiel
 
 Conceptually:
 
-```text
-ACTIVE REGION at t
-↓
-ACTIVE REGION at t+1
-↓
-ACTIVE REGION at t+2
-↓
-ACTIVE REGION at t+3
+```mermaid
+flowchart LR
+    A[ACTIVE REGION at t] --> B[ACTIVE REGION at t+1]
+    B --> C[ACTIVE REGION at t+2]
+    C --> D[ACTIVE REGION at t+3]
+    D -.-> E[Coherent process path?]
 ```
 
 The scientific question becomes:
@@ -1217,6 +1259,18 @@ local future becomes conditionally independent
 or some combination of those.
 
 The important reversal is:
+
+```mermaid
+flowchart TD
+    subgraph Old
+    O1[Choose region] --> O2[Ask if it behaves like a thing]
+    O2 --> O3[Impose boundary]
+    end
+    subgraph New
+    N1[Measure causal process] --> N2[Find coherent organization]
+    N2 --> N3[Ask if boundary emerges]
+    end
+```
 
 ```text
 OLD APPROACH
@@ -1288,18 +1342,14 @@ Not even necessarily one coherent entity.
 
 But finally, perhaps, the right experimental object.
 
-```text
-MATERIAL
-↓
-INTERFACE
-↓
-EVENTS
-↓
-FLUX
-↓
-CAUSAL LOCALITY
-↓
-SPATIOTEMPORAL PROCESS?
+```mermaid
+flowchart TD
+    A[MATERIAL] --> B[INTERFACE]
+    B --> C[EVENTS]
+    C --> D[FLUX]
+    D --> E[CAUSAL LOCALITY]
+    E --> F[SPATIOTEMPORAL PROCESS?]
+    F -.-> G[?]
 ```
 
 That final question mark stays.

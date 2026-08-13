@@ -10,12 +10,9 @@ series = ["Digital Life From First Principles"]
 
 Chapter 23 ended with a controlled causal effect.
 
-Take the same Digital Crystal checkpoint.
-
-Take the same eligible frontier cell.
-
-Give both futures the same environment and the same cell-keyed randomness.
-
+Take the same Digital Crystal checkpoint.  
+Take the same eligible frontier cell.  
+Give both futures the same environment and the same cell-keyed randomness.  
 Then force the cell to attach in one future and prevent it from attaching in the other.
 
 ```text
@@ -81,7 +78,7 @@ That is the chapter.
 
 ---
 
-# The First Mistake: Treating Gain as One Number
+## The First Mistake: Treating Gain as One Number
 
 Chapter 23 had already warned us that several causal quantities were different.
 
@@ -127,21 +124,18 @@ And under a finite evaluation budget, changing one part of the frontier can chan
 
 So before asking where gain was stored, we needed to separate:
 
-```text
-CAUSAL SENSITIVITY
-≠
-PATH DIVERGENCE
-≠
-SPATIAL REDISTRIBUTION
-≠
-NET CONSTRUCTION GAIN
+```mermaid
+flowchart LR
+    A[CAUSAL SENSITIVITY] -.->|≠| B[PATH DIVERGENCE]
+    B -.->|≠| C[SPATIAL REDISTRIBUTION]
+    C -.->|≠| D[NET CONSTRUCTION GAIN]
 ```
 
 It took four versions of the experiment to get there.
 
 ---
 
-# V1 — Frontier Creation Potential
+## V1 — Frontier Creation Potential
 
 The first attempt introduced a simple geometric observer.
 
@@ -155,33 +149,11 @@ FCP(x)
 |frontier before forcing x|
 ```
 
-We called it:
+We called it **Frontier Creation Potential**.
 
-# **Frontier Creation Potential**
-
-If:
-
-```text
-FCP > 0
-```
-
-then occupying `x` created more frontier opportunities than it consumed.
-
-If:
-
-```text
-FCP = 0
-```
-
-then the frontier count stayed unchanged.
-
-If:
-
-```text
-FCP < 0
-```
-
-then the intervention consumed more frontier opportunity than it created.
+If `FCP > 0`, occupying `x` created more frontier opportunities than it consumed.  
+If `FCP = 0`, the frontier count stayed unchanged.  
+If `FCP < 0`, the intervention consumed more frontier opportunity than it created.
 
 The original hypothesis was:
 
@@ -206,8 +178,7 @@ while the declared smallest meaningful effect was:
 
 The interval was far too wide to distinguish an effect at that scale.
 
-That is not a scientific failure of the hypothesis.
-
+That is not a scientific failure of the hypothesis.  
 It is an inconclusive experiment.
 
 There was another problem.
@@ -222,15 +193,11 @@ promoted_frontier - 1
 
 identically.
 
-The original analysis treated the agreement between those quantities as construct validation.
-
-It was not.
-
+The original analysis treated the agreement between those quantities as construct validation.  
+It was not.  
 It was a consistency check between two expressions of the same geometry.
 
-That belongs in an assertion.
-
-Not in the evidence ledger.
+That belongs in an assertion, not in the evidence ledger.
 
 The first lesson of Chapter 24 was methodological:
 
@@ -238,12 +205,11 @@ The first lesson of Chapter 24 was methodological:
 
 ---
 
-# V2 — Exact Local Motifs
+## V2 — Exact Local Motifs
 
 The second attempt asked whether FCP was simply too compressed.
 
-A frontier cell on the hexagonal lattice has six immediate neighbours.
-
+A frontier cell on the hexagonal lattice has six immediate neighbours.  
 Each can be occupied or empty.
 
 So its ring can be represented as six bits:
@@ -256,41 +222,12 @@ There are 64 raw patterns and far fewer once rotation and reflection are treated
 
 Perhaps exact local arrangement mattered.
 
-The experiment compared:
+The experiment compared **cross-motif pairs** against **same-motif pairs** while matching several scalar properties.
 
-```text
-CROSS-MOTIF PAIRS
-```
+That experiment was even less precise than V1.  
+Its primary confidence interval had a half-width of roughly `0.50 attachments` against a declared meaningful effect of `0.20`.
 
-against:
-
-```text
-SAME-MOTIF PAIRS
-```
-
-while matching several scalar properties.
-
-That experiment was even less precise than V1.
-
-Its primary confidence interval had a half-width of roughly:
-
-```text
-0.50 attachments
-```
-
-against a declared meaningful effect of:
-
-```text
-0.20
-```
-
-So again:
-
-> **inconclusive**
-
-not:
-
-> failed.
+So again: **inconclusive**, not **failed**.
 
 The experiment did teach us something else.
 
@@ -316,7 +253,7 @@ That was not the broad geometric question we thought we were asking.
 
 ---
 
-# V3 — Recent Process History
+## V3 — Recent Process History
 
 The third attempt moved from geometry to process.
 
@@ -362,8 +299,7 @@ The positive side of that interval genuinely excluded the predeclared `+0.15` ef
 
 But there was a deeper problem.
 
-The substrate used for V3 had no independent causal memory state.
-
+The substrate used for V3 had no independent causal memory state.  
 Persistent material modification was disabled.
 
 The operative dynamics were Markov in current occupancy, current input and keyed randomness.
@@ -378,13 +314,12 @@ It tested:
 
 > Does recent turnover proxy for something about current state that our matching failed to capture?
 
-That is a useful calibration test.
-
+That is a useful calibration test.  
 It is not evidence that history-dependent digital substrates cannot exist.
 
 ---
 
-# Reset
+## Reset
 
 At this point Chapter 24 could have become an endless feature search.
 
@@ -408,17 +343,15 @@ So we stopped.
 
 Then we rebuilt the experiment from zero.
 
-The reset kept the frozen Digital Crystal.
-
-It kept the FORCE/PREVENT intervention.
-
+The reset kept the frozen Digital Crystal.  
+It kept the FORCE/PREVENT intervention.  
 But it changed the measurement stack.
 
 Instead of beginning with the noisy realized cascade, V4 began with the rule itself.
 
 ---
 
-# V4 — Measure the Mechanism Before the Outcome
+## V4 — Measure the Mechanism Before the Outcome
 
 The reset used an extreme frontier-geometry contrast.
 
@@ -440,10 +373,8 @@ Every pair therefore differed by at least:
 ΔFCP = 3
 ```
 
-The pair design retained the same occupied-neighbour count and radial band.
-
-It deliberately stopped matching baseline attachment probability or local frontier density.
-
+The pair design retained the same occupied-neighbour count and radial band.  
+It deliberately stopped matching baseline attachment probability or local frontier density.  
 Those quantities could be part of the pathway.
 
 The full run used:
@@ -464,7 +395,7 @@ The result was precise enough to test the declared effects.
 
 ---
 
-# Exact Expected Construction
+## Exact Expected Construction
 
 Before drawing any lag-one Bernoulli outcomes, V4 calculated:
 
@@ -534,7 +465,7 @@ But something else was happening.
 
 ---
 
-# The Wrong Comparison
+## The Wrong Comparison
 
 V4 initially tempted us toward another story.
 
@@ -548,7 +479,7 @@ The breakthrough came from decomposing the expected effect rather than comparing
 
 ---
 
-# V5 — Causal Accounting
+## V5 — Causal Accounting
 
 For every lag-one intervention, expected construction can be split into three terms:
 
@@ -562,29 +493,29 @@ FORCE-ONLY SELECTOR CONTRIBUTION
 PREVENT-ONLY SELECTOR CONTRIBUTION
 ```
 
-The first term comes from cells evaluated in both branches.
-
+The first term comes from cells evaluated in both branches.  
 Their probability can change because local occupancy changed.
 
 The other two terms come from candidate substitution.
 
-A cell evaluated only in FORCE contributes:
+A cell evaluated only in FORCE contributes `+p_force`.  
+A cell evaluated only in PREVENT contributes `-p_prevent`.
 
-```text
-+p_force
-```
-
-A cell evaluated only in PREVENT contributes:
-
-```text
--p_prevent
+```mermaid
+flowchart TD
+    E1[E1<br/>Expected construction difference] --> A[Shared-cell probability shift<br/>cells evaluated in both branches]
+    E1 --> B[Force-only selector contribution<br/>+p_force]
+    E1 --> C[Prevent-only selector contribution<br/>-p_prevent]
+    A --> MECH[Changes local occupancy<br/>mechanically predicted]
+    B --> SEL[Candidate substitution<br/>due to frontier change]
+    C --> SEL
 ```
 
 This decomposition exposed the actual mechanism.
 
 ---
 
-# The Supported Regime Was Narrower Than We Thought
+## The Supported Regime Was Narrower Than We Thought
 
 Every extreme V5 pair had:
 
@@ -602,15 +533,8 @@ were single-contact frontier sites.
 
 That immediately narrows the claim.
 
-Chapter 24 is not establishing a universal law over every frontier geometry.
-
-It is establishing a mechanism in the supported:
-
-```text
-n = 1
-```
-
-regime.
+Chapter 24 is not establishing a universal law over every frontier geometry.  
+It is establishing a mechanism in the supported `n = 1` regime.
 
 The baseline probability of the focal site was also identical across the two classes:
 
@@ -623,13 +547,12 @@ This is explained by the hexagonal symmetry of the frozen rule for single-contac
 
 So we obtained an unusually clean contrast.
 
-The focal site itself had the same immediate attachment probability.
-
+The focal site itself had the same immediate attachment probability.  
 What differed was what occupying it did to the surrounding frontier.
 
 ---
 
-# Two Geometries, Similar Local Effect
+## Two Geometries, Similar Local Effect
 
 The absolute lag-one expected local effects were:
 
@@ -641,37 +564,18 @@ LOW FCP
 local E1 ≈ +0.128
 ```
 
-Their difference was only about:
-
-```text
-+0.031
-```
-
-with an interval crossing zero.
+Their difference was only about `+0.031`, with an interval crossing zero.
 
 This is the real compensation result.
 
-The two geometry classes produced broadly similar positive local expected construction.
-
+The two geometry classes produced broadly similar positive local expected construction.  
 But they produced it through radically different computational pathways.
 
-For HIGH FCP:
-
-```text
-shared-cell shift     ≈ +0.017
-selector-swap term    ≈ +0.141
-──────────────────────────────
-local expected effect ≈ +0.159
-```
-
-For LOW FCP:
-
-```text
-shared-cell shift     ≈ +0.123
-selector-swap term    ≈ +0.005
-──────────────────────────────
-local expected effect ≈ +0.128
-```
+| Term | HIGH FCP | LOW FCP |
+|------|----------|---------|
+| Shared-cell shift | ≈ +0.017 | ≈ +0.123 |
+| Selector-swap term | ≈ +0.141 | ≈ +0.005 |
+| **Local expected effect** | **≈ +0.159** | **≈ +0.128** |
 
 The contrast is not:
 
@@ -692,7 +596,7 @@ That is much more interesting.
 
 ---
 
-# Some Things Are Assertions, Not Findings
+## Some Things Are Assertions, Not Findings
 
 The reset also forced us to separate code identities from scientific measurements.
 
@@ -706,8 +610,7 @@ Therefore:
 shared_shift_far = 0
 ```
 
-is not an empirical discovery.
-
+is not an empirical discovery.  
 It follows from the rule.
 
 Likewise:
@@ -720,10 +623,8 @@ swap_total_far
 
 because the shared far-field term is zero and the accounting decomposition is exact.
 
-Those are excellent correctness controls.
-
-They would catch a bug.
-
+Those are excellent correctness controls.  
+They would catch a bug.  
 But they do not belong in the scientific findings.
 
 A useful standing rule emerges:
@@ -732,7 +633,7 @@ A useful standing rule emerges:
 
 ---
 
-# The Strong Result: Far-Field Redistribution
+## The Strong Result: Far-Field Redistribution
 
 Now look at the lag-one far field.
 
@@ -756,15 +657,11 @@ far-field expected effect
 
 Both are outside the local nearest-neighbour causal cone.
 
-No signal propagated there.
-
-No wave travelled across the lattice.
-
+No signal propagated there.  
+No wave travelled across the lattice.  
 The coupling came from the selector.
 
-The evaluation budget remained fixed.
-
-Exactly:
+The evaluation budget remained fixed:
 
 ```text
 B = 96
@@ -774,19 +671,26 @@ frontier opportunities could be evaluated.
 
 If a local intervention changed the frontier, the selector had to choose a different set of candidates.
 
-Some distant opportunities were dropped.
-
+Some distant opportunities were dropped.  
 Others were added.
 
 The local action changed the global candidate population.
 
 That is the mechanism.
 
+```mermaid
+flowchart LR
+    A[Local intervention<br/>changes frontier size ΔF] --> B[Global candidate population changes]
+    B --> C[Fixed budget B selects different candidates]
+    C --> D[Far-field expected construction changes]
+    D --> E[Redistribution outside causal cone]
+```
+
 ![Finite-budget redistribution in the Digital Crystal](/images/books/digital-life/ch24-finite-budget-redistribution.png)
 
 ---
 
-# The Parameter-Free Ratio
+## The Parameter-Free Ratio
 
 The sharpest quantitative result of V5 does not require fitting a free coefficient.
 
@@ -843,25 +747,21 @@ predicted ratio
 
 This is the cleanest evidence in the chapter.
 
-No fitted slope is needed to obtain the ratio.
-
-No post-hoc threshold is required.
-
-The sign flips exactly as predicted.
-
+No fitted slope is needed to obtain the ratio.  
+No post-hoc threshold is required.  
+The sign flips exactly as predicted.  
 The magnitude ratio is close to the parameter-free expectation.
 
 The core empirical statement is therefore:
 
 > **Within the supported single-contact frontier regime at `B = 96`, the selector-mediated far-field effect follows the sign and approximate magnitude expected from the change in frontier size: creating two frontier opportunities produces roughly twice the opposite far-field effect of removing one.**
 
-That is stronger than saying only that a far-field effect exists.
-
+That is stronger than saying only that a far-field effect exists.  
 It says the effect carries the quantitative signature of frontier dilution under fixed computational capacity.
 
 ---
 
-# What the Budget Actually Conserves
+## What the Budget Actually Conserves
 
 It is tempting to say the budget conserves construction.
 
@@ -927,7 +827,7 @@ That is a very different kind of conservation law.
 
 ---
 
-# Selector Dilution
+## Selector Dilution
 
 A first-order approximation follows naturally.
 
@@ -993,7 +893,7 @@ Chapter 25 will test the approximation as a general law.
 
 ---
 
-# The FCP = 0 Control We Have Not Yet Used
+## The FCP = 0 Control We Have Not Yet Used
 
 The Digital Crystal also contains frontier sites with:
 
@@ -1020,16 +920,14 @@ while candidate composition can still produce substitutions.
 
 That gives us a powerful next control:
 
-```text
-FCP = 0
-↓
-SIZE EFFECT REMOVED
-↓
-COMPOSITION SUBSTITUTION REMAINS
+```mermaid
+flowchart LR
+    A[FCP = 0] --> B[SIZE EFFECT REMOVED]
+    B --> C[COMPOSITION SUBSTITUTION REMAINS]
+    C --> D[Separate size dilution<br/>from composition substitution]
 ```
 
-This is not needed to close Chapter 24.
-
+This is not needed to close Chapter 24.  
 It belongs in the next budget experiment.
 
 But it tells us exactly how to separate:
@@ -1048,7 +946,7 @@ without inventing a new observer.
 
 ---
 
-# What Happened to the Divergence Story?
+## What Happened to the Divergence Story?
 
 V4 suggested that high-FCP interventions might mainly change:
 
@@ -1103,7 +1001,7 @@ That pathway is both cleaner and more reproducible.
 
 ---
 
-# The Scientific Result
+## The Scientific Result
 
 We can now state the Chapter 24 result without pretending we found a causal-gain field.
 
@@ -1136,11 +1034,11 @@ That distinction matters.
 
 ---
 
-# P005 — Finite-Budget Redistribution
+## P005 — Finite-Budget Redistribution
 
 The phenomenon ledger can now promote a new entry.
 
-# **Finite-Budget Redistribution**
+**Finite-Budget Redistribution**
 
 **Status: SUPPORTED**
 
@@ -1195,7 +1093,7 @@ Those are now experimentally accessible.
 
 ---
 
-# What Chapter 24 Did Not Find
+## What Chapter 24 Did Not Find
 
 The chapter began looking for:
 
@@ -1209,8 +1107,7 @@ But the reason is now more interesting than a null result.
 
 The local causal consequence is partly determined by a computational allocation process that is not local.
 
-A cell can matter not only because it changes its neighbours.
-
+A cell can matter not only because it changes its neighbours.  
 It can matter because it changes the set from which the entire system spends its finite computational budget.
 
 That means:
@@ -1232,13 +1129,11 @@ waves
 hidden signals
 ```
 
-The non-locality is in resource allocation.
-
-Not in the transition rule.
+The non-locality is in resource allocation, not in the transition rule.
 
 ---
 
-# This Is a Digital-Native Constraint
+## This Is a Digital-Native Constraint
 
 Biological systems force us to think about:
 
@@ -1271,7 +1166,7 @@ It is not biological resource competition.
 
 It is a substrate-specific computational constraint.
 
-And it emerged because we refused to call the budget "energy" merely because it behaved like scarcity.
+And it emerged because we refused to call the budget “energy” merely because it behaved like scarcity.
 
 The correct object was already there:
 
@@ -1281,11 +1176,11 @@ FINITE COMPUTATION
 
 ---
 
-# What We Learned From Getting Chapter 24 Wrong
+## What We Learned From Getting Chapter 24 Wrong
 
 The V1→V5 sequence is worth keeping because it demonstrates the experimental method under pressure.
 
-We made several mistakes.
+We made several mistakes:
 
 ```text
 weak contrast
@@ -1326,26 +1221,19 @@ That is exactly the scientific discipline this book is supposed to practice.
 
 ---
 
-# The New Causal Ladder
+## The New Causal Ladder
 
 Chapter 23 and Chapter 24 now give us a cleaner causal decomposition:
 
-```text
-INTERVENTION
-↓
-LOCAL RULE CHANGES PROBABILITIES
-↓
-FRONTIER MEMBERSHIP CHANGES
-↓
-GLOBAL SELECTOR CHANGES
-↓
-EVALUATION LOCATIONS CHANGE
-↓
-EXPECTED CONSTRUCTION REDISTRIBUTES
-↓
-REALIZED FUTURES MAY DIVERGE
-↓
-DOWNSTREAM CASCADE MAY FOLLOW
+```mermaid
+flowchart TD
+    A[INTERVENTION] --> B[LOCAL RULE CHANGES PROBABILITIES]
+    B --> C[FRONTIER MEMBERSHIP CHANGES]
+    C --> D[GLOBAL SELECTOR CHANGES]
+    D --> E[EVALUATION LOCATIONS CHANGE]
+    E --> F[EXPECTED CONSTRUCTION REDISTRIBUTES]
+    F --> G[REALIZED FUTURES MAY DIVERGE]
+    G --> H[DOWNSTREAM CASCADE MAY FOLLOW]
 ```
 
 Those stages should never again be compressed into one word like:
@@ -1354,17 +1242,14 @@ Those stages should never again be compressed into one word like:
 gain
 ```
 
-They are different objects.
-
-They have different estimators.
-
-They require different controls.
-
+They are different objects.  
+They have different estimators.  
+They require different controls.  
 And some of them are much easier to identify than others.
 
 ---
 
-# Next: Vary the Constraint, Not the Crystal
+## Next: Vary the Constraint, Not the Crystal
 
 The next question is now obvious.
 
@@ -1472,7 +1357,7 @@ That is a real control-parameter experiment.
 
 ---
 
-# From Gain to Constraint
+## From Gain to Constraint
 
 Chapter 24 began with:
 
@@ -1484,24 +1369,18 @@ We expected to find a local property.
 
 Instead we found a coupling.
 
-The local intervention changes the frontier.
-
-The frontier changes the candidate population.
-
-The candidate population competes for a fixed number of evaluations.
-
+The local intervention changes the frontier.  
+The frontier changes the candidate population.  
+The candidate population competes for a fixed number of evaluations.  
 And distant expected construction changes immediately.
 
 So the chapter ends somewhere different from where it began.
 
-```text
-LOCAL CAUSAL EFFECT
-↓
-NOT A SIMPLE LOCAL GAIN FIELD
-↓
-FINITE COMPUTATIONAL ALLOCATION
-↓
-FAR-FIELD REDISTRIBUTION
+```mermaid
+flowchart LR
+    A[LOCAL CAUSAL EFFECT] --> B[NOT A SIMPLE LOCAL GAIN FIELD]
+    B --> C[FINITE COMPUTATIONAL ALLOCATION]
+    C --> D[FAR-FIELD REDISTRIBUTION]
 ```
 
 The most important sentence is no longer:
