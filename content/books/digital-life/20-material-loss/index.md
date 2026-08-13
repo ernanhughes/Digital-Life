@@ -67,15 +67,15 @@ Suppose the crystal has an effective radius \(r\).
 
 If new construction happens mainly around the outside boundary, then construction opportunity should scale roughly like perimeter:
 
-\[
+$$
 \text{construction} \sim r
-\]
+$$
 
 But if every occupied cell can disappear, then total expected loss should scale roughly like occupied area:
 
-\[
+$$
 \text{loss} \sim r^2
-\]
+$$
 
 That gives a natural prediction.
 

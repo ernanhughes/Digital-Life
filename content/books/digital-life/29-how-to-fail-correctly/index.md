@@ -260,29 +260,29 @@ The frozen horizon remained twelve steps.
 
 The smallest meaningful difference was:
 
-\[
+$$
 \pm 0.15
-\]
+$$
 
 The result was:
 
-\[
+$$
 \Delta G
 \approx
 0.0013
-\]
+$$
 
 with confidence interval approximately:
 
-\[
+$$
 [-0.0898,\ 0.0885]
-\]
+$$
 
 The achieved MDE was approximately:
 
-\[
+$$
 0.115
-\]
+$$
 
 which was inside the frozen 0.15 meaningful threshold.
 
@@ -422,15 +422,15 @@ The corrected primary used a Rao-Blackwellized downstream causal consequence.
 
 The mean accessible-versus-remote difference was approximately:
 
-\[
+$$
 -0.397
-\]
+$$
 
 with 95% confidence interval:
 
-\[
+$$
 [-0.679,\ -0.119]
-\]
+$$
 
 The interval excluded zero.
 
@@ -438,15 +438,15 @@ So the direction was supported.
 
 But the achieved MDE was approximately:
 
-\[
+$$
 0.357
-\]
+$$
 
 against a frozen meaningful threshold of:
 
-\[
+$$
 0.15
-\]
+$$
 
 That meant the experiment could support the sign without establishing the predeclared minimum magnitude.
 
@@ -530,21 +530,21 @@ It was extremely strong.
 
 The raw causal modularity score at radius 4 was approximately:
 
-\[
+$$
 0.440
-\]
+$$
 
 with confidence interval:
 
-\[
+$$
 [0.419,\ 0.461]
-\]
+$$
 
 against a frozen meaningful threshold of:
 
-\[
+$$
 0.15
-\]
+$$
 
 The result was precise.
 
@@ -600,39 +600,39 @@ boundary occupancy
 
 The observed regions still showed a large module score:
 
-\[
+$$
 0.4436
-\]
+$$
 
 The matched controls showed:
 
-\[
+$$
 0.4559
-\]
+$$
 
 The excess was:
 
-\[
+$$
 -0.0123
-\]
+$$
 
 with 95% confidence interval:
 
-\[
+$$
 [-0.0327,\ 0.0072]
-\]
+$$
 
 The frozen meaningful excess threshold was:
 
-\[
+$$
 +0.10
-\]
+$$
 
 The achieved MDE was only:
 
-\[
+$$
 0.0265
-\]
+$$
 
 This was a precision-bounded negative result.
 

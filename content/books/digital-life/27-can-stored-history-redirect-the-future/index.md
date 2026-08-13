@@ -11,20 +11,14 @@ series = ["Digital Life From First Principles"]
 
 By the end of the previous chapters, the Digital Crystal had become harder to describe with ordinary biological language.
 
-It could grow.
-
-It could lose material.
-
-It could rapidly reuse vacated sites.
-
-Finite computation could couple distant regions by redistributing evaluation slots.
-
+It could grow.  
+It could lose material.  
+It could rapidly reuse vacated sites.  
+Finite computation could couple distant regions by redistributing evaluation slots.  
 Local causal influence could be measured directly.
 
-But none of those results required an organism.
-
-None required an individual.
-
+But none of those results required an organism.  
+None required an individual.  
 And none required memory.
 
 That distinction mattered.
@@ -35,8 +29,7 @@ Chapter 19 had already shown why that would be too fast.
 
 Two different pasts could leave persistent, spatially distinguishable traces, yet those traces did not produce a scientifically meaningful common-challenge response beyond the erasure control.
 
-A trace could persist without being usefully read.
-
+A trace could persist without being usefully read.  
 A past could leave structure without that structure functioning as a causal history channel.
 
 So Chapter 27 asked a narrower question.
@@ -49,26 +42,20 @@ But:
 
 > **Can two states with the same visible geometry respond differently to the same perturbation because they contain different hidden material state?**
 
-That question is much more primitive.
-
+That question is much more primitive.  
 And much more testable.
 
 ---
 
-## Same shape, different state
+## Same Shape, Different State
 
 The experiment introduced a second kind of state into the crystal.
 
-Visible occupancy remained the same.
-
-The occupied cells were identical.
-
-The probe geometry was identical.
-
-The future environment was identical.
-
-The random-number stream was identical.
-
+Visible occupancy remained the same.  
+The occupied cells were identical.  
+The probe geometry was identical.  
+The future environment was identical.  
+The random-number stream was identical.  
 The allocation policy was identical.
 
 But some occupied cells carried a decaying internal material value.
@@ -89,13 +76,13 @@ For a frontier candidate \(y\), attachment probability depended not only on the 
 
 Conceptually:
 
-\[
+$$
 \text{score}(y)
 =
 \text{ordinary crystal score}(y)
 +
 g_m \sum_{z \in N(y)} m(z)
-\]
+$$
 
 where:
 
@@ -105,28 +92,27 @@ where:
 
 The material was not permanent.
 
-Its half-life was frozen at six updates.
-
+Its half-life was frozen at six updates.  
 The trace had already aged three updates before the test began.
 
 Each stored cell therefore started the experiment with strength:
 
-\[
+$$
 2^{-3/6}
 =
 2^{-1/2}
 \approx 0.707
-\]
+$$
 
 Two cells carried the trace.
 
 The total starting material mass was therefore approximately:
 
-\[
+$$
 2 \times 0.707
 =
 1.414
-\]
+$$
 
 Newly attached cells did not inherit it.
 
@@ -142,7 +128,7 @@ We were giving the crystal one hidden state variable and asking whether that var
 
 ---
 
-# Accessible and remote history
+## Accessible and Remote History
 
 The experiment used three material-state conditions.
 
@@ -164,11 +150,11 @@ No material state was present.
 
 The primary comparison was:
 
-\[
+$$
 \text{ACCESSIBLE}
 -
 \text{REMOTE}
-\]
+$$
 
 not accessible versus erased.
 
@@ -180,9 +166,23 @@ from:
 
 > material is causally positioned to affect the probe.
 
+```mermaid
+flowchart LR
+    subgraph Accessible
+    A[Probe x] --> B[Sole occupied neighbour<br/>carries material]
+    B --> C[Locally exposed<br/>to perturbation]
+    end
+    subgraph Remote
+    D[Probe x] --> E[No local material carrier]
+    F[Material cells<br/>far beyond 12-step reach] --> G[Only global calibration<br/>pathway possible]
+    end
+    A & D --> H[Same visible geometry]
+    B & F --> I[Same material mass<br/>different spatial placement]
+```
+
 ---
 
-# What went wrong in V1
+## What Went Wrong in V1
 
 The first full experiment looked promising.
 
@@ -230,10 +230,8 @@ That contaminated the twelve-step intervention.
 
 The formal V1 downstream result was therefore invalid.
 
-This was not a statistical problem.
-
-It was not lack of power.
-
+This was not a statistical problem.  
+It was not lack of power.  
 It was not an inconvenient confidence interval.
 
 It was an intervention that did not implement the experiment we thought we were running.
@@ -244,7 +242,7 @@ That distinction is worth preserving.
 
 ---
 
-# Something survived V1
+## Something Survived V1
 
 The V1 failure did not destroy everything.
 
@@ -254,13 +252,13 @@ It therefore did not depend on whether \(x\) later attached in PREVENT.
 
 That immediate quantity was:
 
-\[
+$$
 E_1
 =
 \text{expected FORCE attachment}
 -
 \text{expected PREVENT attachment}
-\]
+$$
 
 over the local ring around the probe.
 
@@ -268,10 +266,10 @@ Accessible material reduced that immediate causal response.
 
 The accessible-minus-remote difference was approximately:
 
-\[
+$$
 \Delta E_1
 \approx -0.0182
-\]
+$$
 
 with a narrow confidence interval entirely below zero.
 
@@ -279,8 +277,7 @@ That effect was real.
 
 But why would a positive material term reduce causal response?
 
-The material gain was positive.
-
+The material gain was positive.  
 Material increased attachment probability.
 
 It seemed at first that the response should therefore increase.
@@ -289,7 +286,7 @@ The mechanism audit showed the opposite.
 
 ---
 
-# Stored state can reduce sensitivity
+## Stored State Can Reduce Sensitivity
 
 The attachment function is logistic.
 
@@ -297,9 +294,9 @@ A candidate's probability does not increase linearly with score.
 
 The derivative is:
 
-\[
+$$
 p(1-p)
-\]
+$$
 
 which means the same score increment produces different probability changes depending on where the candidate already sits on the sigmoid.
 
@@ -310,6 +307,14 @@ Those candidates were therefore pushed toward a flatter part of the response cur
 Then the FORCE intervention added its own local causal input.
 
 But because the candidate was already further along the sigmoid, the additional probability increase caused by FORCE became smaller.
+
+```mermaid
+flowchart TD
+    A[Accessible material] --> B[Higher baseline attachment probability]
+    B --> C[Shared candidate moves toward saturation]
+    C --> D[Same FORCE intervention produces smaller Δp]
+    D --> E[Reduced immediate causal response]
+```
 
 So:
 
@@ -325,15 +330,15 @@ The candidate-level accounting made this mechanism unusually clean.
 
 For accessible versus erased history, the shared-candidate saturation contribution was approximately:
 
-\[
+$$
 -0.01814
-\]
+$$
 
 while the total immediate difference was approximately:
 
-\[
+$$
 -0.01930
-\]
+$$
 
 Almost the entire immediate effect was explained by reduced sensitivity on the shared frontier opportunities.
 
@@ -355,7 +360,7 @@ But it is hidden-state causal modulation.
 
 ---
 
-# Remote state was not automatically a clean null
+## Remote State Was Not Automatically a Clean Null
 
 The V1 audit uncovered another problem.
 
@@ -399,18 +404,14 @@ For V2, the remote control therefore needed to be better matched.
 
 ---
 
-# Correcting the experiment
+## Correcting the Experiment
 
 Chapter 27 V2 kept the material parameters frozen.
 
-No gain was changed.
-
-No half-life was changed.
-
-No history age was changed.
-
-No horizon was changed.
-
+No gain was changed.  
+No half-life was changed.  
+No history age was changed.  
+No horizon was changed.  
 No effect threshold was changed.
 
 The changes were construct-validity corrections.
@@ -443,15 +444,15 @@ This produced a much cleaner remote control.
 
 The remote-minus-erased immediate effect fell to approximately:
 
-\[
+$$
 8.2 \times 10^{-5}
-\]
+$$
 
 effectively removing the calibration leakage that had complicated V1.
 
 ---
 
-# The primary estimator changed too
+## The Primary Estimator Changed Too
 
 The realized twelve-step attachment difference was noisy.
 
@@ -461,7 +462,7 @@ So V2 used a Rao-Blackwellized estimator as the primary quantity.
 
 At every lag, before realized Bernoulli attachment decisions were drawn, the experiment calculated the expected local causal difference:
 
-\[
+$$
 \Delta_t
 =
 \sum_{y \in L}
@@ -469,37 +470,47 @@ p_{\text{FORCE}}(y,t)
 -
 \sum_{y \in L}
 p_{\text{PREVENT}}(y,t)
-\]
+$$
 
 where \(L\) was the same local spatial support used for the realized outcome, and the intervention cell itself was always excluded.
 
 The cumulative expected causal consequence was then:
 
-\[
+$$
 G_{\mathrm{RB}}
 =
 \sum_{t=1}^{12} \Delta_t
-\]
+$$
 
 This did not freeze the trajectory into expectation.
 
 The FORCE and PREVENT branches still evolved through realized stochastic events.
 
-Their states could diverge.
-
-Material could decay.
-
-Cells could be lost.
-
+Their states could diverge.  
+Material could decay.  
+Cells could be lost.  
 Geometry could change.
 
 The estimator merely removed the extra Bernoulli noise from measuring each lag's consequence.
 
 The realized twelve-step result remained as a secondary outcome.
 
+```mermaid
+flowchart LR
+    subgraph RB Estimator
+    A[At each lag, compute expected local difference Δt] --> B[Sum Δt over 12 lags]
+    B --> C[G_RB: expected cumulative causal consequence]
+    end
+    subgraph Realized
+    D[Actual Bernoulli draws at each lag] --> E[Realized attachment differences]
+    E --> F[G_realized: secondary noisy outcome]
+    end
+    C -.->|compare| F
+```
+
 ---
 
-# V2 passed
+## V2 Passed
 
 The corrected experiment used 192 independent groups.
 
@@ -521,21 +532,21 @@ The corrected experiment was valid.
 
 ---
 
-# The immediate effect replicated
+## The Immediate Effect Replicated
 
 The immediate accessible-minus-remote causal difference was:
 
-\[
+$$
 \Delta E_1
 =
 -0.01499
-\]
+$$
 
 with 95% confidence interval approximately:
 
-\[
+$$
 [-0.01725,\,-0.01281]
-\]
+$$
 
 The sign matched V1.
 
@@ -553,11 +564,11 @@ The hidden material state genuinely changed the immediate causal response of ide
 
 ---
 
-# The downstream effect was negative too
+## The Downstream Effect Was Negative Too
 
 The primary twelve-step Rao-Blackwellized comparison was:
 
-\[
+$$
 \Delta G_{\mathrm{RB}}
 =
 G_{\mathrm{accessible}}
@@ -565,26 +576,26 @@ G_{\mathrm{accessible}}
 G_{\mathrm{remote}}
 =
 -0.397
-\]
+$$
 
 with 95% confidence interval approximately:
 
-\[
+$$
 [-0.679,\,-0.119]
-\]
+$$
 
 The realized secondary result pointed in the same direction:
 
-\[
+$$
 \Delta G_{\mathrm{realized}}
 \approx -0.357
-\]
+$$
 
 with 95% confidence interval approximately:
 
-\[
+$$
 [-0.673,\,-0.040]
-\]
+$$
 
 So both estimators agreed.
 
@@ -594,17 +605,17 @@ But the frozen decision rule contained another requirement.
 
 The predeclared smallest effect of interest was:
 
-\[
+$$
 \pm 0.15
-\]
+$$
 
 To call the magnitude **SUPPORTED**, the experiment required not only a confidence interval excluding zero, but enough precision to resolve the predeclared threshold.
 
 The achieved MDE was still around:
 
-\[
+$$
 0.357
-\]
+$$
 
 So the formal minimum-magnitude claim remained:
 
@@ -631,7 +642,7 @@ And keeping them separate is important.
 
 ---
 
-# Did the effect simply track the material?
+## Did the Effect Simply Track the Material?
 
 At this point Chapter 27 still had one unresolved mechanistic question.
 
@@ -649,40 +660,40 @@ No new experiment was needed.
 
 ---
 
-# The material weakened. The causal difference kept growing.
+## The Material Weakened. The Causal Difference Kept Growing.
 
 The material began with total mass:
 
-\[
+$$
 M_0
 \approx 1.414
-\]
+$$
 
 Half that value was:
 
-\[
+$$
 0.707
-\]
+$$
 
 The accessible material mass fell below that threshold at lag 4.
 
 By the previous lag, cumulative expected causal difference was only:
 
-\[
+$$
 -0.0995
-\]
+$$
 
 The final twelve-step difference was:
 
-\[
+$$
 -0.3972
-\]
+$$
 
 Therefore approximately:
 
-\[
+$$
 75\%
-\]
+$$
 
 of the final causal difference accumulated after the material had already fallen below half of its initial mass.
 
@@ -690,17 +701,17 @@ The trace fell below one quarter of its starting mass around lag 8.
 
 Even after that point, another approximately:
 
-\[
+$$
 -0.141
-\]
+$$
 
 of cumulative causal difference accrued.
 
 That was about:
 
-\[
+$$
 36\%
-\]
+$$
 
 of the final effect.
 
@@ -708,9 +719,20 @@ The material was disappearing.
 
 The causal consequence was still accumulating.
 
+```mermaid
+flowchart LR
+    subgraph Timeline
+    T0[Start<br/>material mass 1.414] --> T1[Lag 4<br/>mass below half<br/>cumulative diff -0.0995]
+    T1 --> T2[Lag 8<br/>mass below quarter<br/>additional diff -0.141]
+    T2 --> T3[Lag 12<br/>final diff -0.3972]
+    end
+    T1 -.->|75% of final effect<br/>occurs after this point| T3
+    T2 -.->|36% of final effect<br/>occurs after this point| T3
+```
+
 ---
 
-# Early, middle and late
+## Early, Middle and Late
 
 Dividing the twelve-step continuation into three descriptive epochs made the pattern even clearer.
 
@@ -726,9 +748,9 @@ The middle epoch contributed more than the early epoch.
 
 Even the late epoch, when mean accessible material mass had fallen to roughly:
 
-\[
+$$
 0.183
-\]
+$$
 
 still contributed an average negative increment.
 
@@ -740,7 +762,7 @@ The system had already been redirected.
 
 ---
 
-# Material amount did not predict the causal increment
+## Material Amount Did Not Predict the Causal Increment
 
 The closeout analysis also asked whether more surviving material simply produced a larger causal effect.
 
@@ -748,9 +770,9 @@ It did not.
 
 The pooled correlation between accessible material mass and the accessible-minus-remote causal increment was approximately:
 
-\[
+$$
 r \approx -0.001
-\]
+$$
 
 essentially zero.
 
@@ -785,14 +807,12 @@ It only needed to alter the path.
 
 ---
 
-# Material-State Trajectory Redirection
+## Material-State Trajectory Redirection
 
 This gives us a new phenomenon.
 
-Not memory.
-
-Not learning.
-
+Not memory.  
+Not learning.  
 Not adaptation.
 
 A more primitive property.
@@ -801,9 +821,7 @@ We can state it operationally:
 
 > **A locally accessible decaying material state can alter the causal sensitivity of otherwise identical visible geometry, and the resulting construction differences can redirect later system evolution so that additional causal consequences accumulate after the original material trace has substantially weakened.**
 
-Call this:
-
-## **Material-State Trajectory Redirection**
+Call this **Material-State Trajectory Redirection**.
 
 The name matters less than the distinction it captures.
 
@@ -815,16 +833,24 @@ Once that happens, the consequences may continue after much of the original hidd
 
 This is one way a past can matter without the present containing a complete record of that past.
 
+```mermaid
+flowchart TD
+    A[Hidden material state] --> B[Changes immediate response function]
+    B --> C[Changes local construction events]
+    C --> D[Changes later geometry and state]
+    D --> E[Later causal response changes]
+    E --> F[Consequences accumulate after original material decays]
+    F -.->|not memory| G[Trajectory redirection]
+```
+
 ---
 
-# What this is not
+## What This Is Not
 
 The temptation now is obvious.
 
-The system has hidden state.
-
-The hidden state changes later response.
-
+The system has hidden state.  
+The hidden state changes later response.  
 Its consequences outlive much of the original trace.
 
 Why not call that memory?
@@ -833,14 +859,10 @@ Because the material was experimentally written.
 
 The crystal did not acquire it from an endogenous experience encoder.
 
-It did not decide what to store.
-
-It did not reconstruct past events.
-
-It did not use the state to choose among remembered alternatives.
-
-It did not demonstrate learning.
-
+It did not decide what to store.  
+It did not reconstruct past events.  
+It did not use the state to choose among remembered alternatives.  
+It did not demonstrate learning.  
 It did not demonstrate adaptation.
 
 What we have shown is more basic:
@@ -859,7 +881,7 @@ But this result does not yet earn the word.
 
 ---
 
-# What survived the hypothesis?
+## What Survived the Hypothesis?
 
 The Chapter 27 evidence can be separated cleanly.
 
@@ -889,7 +911,7 @@ The stored material state was experimentally written.
 
 ---
 
-# The broader lesson
+## The Broader Lesson
 
 Chapter 27 began with a small question.
 

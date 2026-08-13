@@ -41,7 +41,7 @@ And the eventual answer was more interesting than either alternative alone.
 
 ---
 
-# Redistribution Is Not Amplification
+## Redistribution Is Not Amplification
 
 The obvious experiment would have been to vary the evaluation budget.
 
@@ -81,7 +81,7 @@ The stronger mechanistic question emerged only later:
 
 ---
 
-# The Perturbation
+## The Perturbation
 
 As in the previous chapters, we started from the same checkpoint and the same frontier probe `x`.
 
@@ -136,7 +136,7 @@ No criticality claim follows from it.
 
 ---
 
-# The Allocation Arms
+## The Allocation Arms
 
 The continuation compared:
 
@@ -157,11 +157,24 @@ It evaluates the complete current frontier of each branch.
 
 That distinction turned out to matter.
 
+```mermaid
+flowchart LR
+    subgraph Finite
+    A[PREVENT frontier F_PREVENT] --> B[Budget B = f × F_PREVENT]
+    B --> C[Same B used by FORCE]
+    C --> D[Evaluation count matched across branches]
+    end
+    subgraph Unbounded
+    E[PREVENT evaluates F_PREVENT] --> F[FORCE evaluates F_FORCE]
+    F --> G[Coverage matched, not count]
+    end
+```
+
 But before we could interpret any amplification result, we first had to solve a harder control problem.
 
 ---
 
-# V1 — We Matched a State, Not a Process
+## V1 — We Matched a State, Not a Process
 
 The first version of the experiment calibrated each allocation arm to the same expected construction rate at lag 1.
 
@@ -224,7 +237,7 @@ So we built V2.
 
 ---
 
-# V2 — Match the Trajectory
+## V2 — Match the Trajectory
 
 V2 recalibrated the background process at every continuation lag.
 
@@ -247,19 +260,15 @@ the expected background construction target.
 
 Then every allocation arm solved a fresh offset on its own current PREVENT state:
 
-```text
-FOR EACH LAG τ
-↓
-reference PREVENT defines C_target(τ)
-↓
-arm PREVENT state chooses its candidate set
-↓
-solve offset so:
-E[attachments_PREVENT] = C_target(τ)
-↓
-apply SAME offset to FORCE
-↓
-execute both branches
+```mermaid
+flowchart TD
+    A[For each lag τ] --> B[Reference PREVENT defines C_target(τ)]
+    B --> C[Arm PREVENT state chooses its candidate set]
+    C --> D[Solve offset such that expected PREVENT attachments = C_target(τ)]
+    D --> E[Apply same offset to FORCE]
+    E --> F[Execute both branches]
+    F --> G[Next lag]
+    G --> A
 ```
 
 FORCE was deliberately **not** calibrated independently.
@@ -281,7 +290,7 @@ This gave us the control we actually wanted.
 
 ---
 
-# The Calibration Itself Became Part of the Experiment
+## The Calibration Itself Became Part of the Experiment
 
 The manipulation was not merely:
 
@@ -335,7 +344,7 @@ That is another reminder that:
 
 ---
 
-# The Validity Gate Passed
+## The Validity Gate Passed
 
 The full V2 run used:
 
@@ -387,7 +396,7 @@ So V2 really did compare different allocation regimes under dynamically matched 
 
 ---
 
-# The Frozen Amplification Test
+## The Frozen Amplification Test
 
 The primary contrast was:
 
@@ -466,7 +475,7 @@ The scientifically bounded sentence is:
 
 ---
 
-# The Same Mean Outcome Does Not Mean the Same Computation
+## The Same Mean Outcome Does Not Mean the Same Computation
 
 The primary arm means were:
 
@@ -483,7 +492,7 @@ To understand why, we had to look inside the immediate ring-one causal effect.
 
 ---
 
-# First Filter: Did the Perturbation Survive?
+## First Filter: Did the Perturbation Survive?
 
 The FORCE intervention can disappear before the continuation even begins.
 
@@ -526,7 +535,7 @@ That is the first source of structural zero inflation.
 
 ---
 
-# Second Filter: Did the Selector Expose the Difference?
+## Second Filter: Did the Selector Expose the Difference?
 
 Even when `x` survives, a finite selector may fail to evaluate any ring-one opportunity affected by the intervention.
 
@@ -580,14 +589,14 @@ not because the causal system is simply noisy, but because the protocol often pr
 
 That gives us a new hierarchy:
 
-```text
-PERTURBATION DELIVERED
-≠
-PERTURBATION SURVIVES
-≠
-IMMEDIATE CAUSAL DIFFERENCE EXPRESSED
-≠
-DOWNSTREAM CONSEQUENCE REALIZED
+```mermaid
+flowchart LR
+    A[PERTURBATION DELIVERED] --> B[PERTURBATION SURVIVES]
+    B --> C[IMMEDIATE CAUSAL DIFFERENCE EXPRESSED]
+    C --> D[DOWNSTREAM CONSEQUENCE REALIZED]
+    A -.->|≠| B
+    B -.->|≠| C
+    C -.->|≠| D
 ```
 
 The primary `f=.10` arm had:
@@ -602,7 +611,7 @@ So most delivered perturbations did not produce a realized twelve-step construct
 
 ---
 
-# Why the Immediate Mean Stayed Nearly Flat
+## Why the Immediate Mean Stayed Nearly Flat
 
 Before the mechanism audit, the arm-level ring-one means looked almost invariant:
 
@@ -629,7 +638,7 @@ There were **two causal channels** whose relative weights changed in opposite di
 
 ---
 
-# Two Ways the Same Local Intervention Can Matter
+## Two Ways the Same Local Intervention Can Matter
 
 For an `n=1` frontier probe, `x` has one occupied neighbour and five empty neighbours.
 
@@ -681,7 +690,7 @@ The scientific result is how the channel weights change.
 
 ---
 
-# The Causal Pathway Rotates with Evaluation Breadth
+## The Causal Pathway Rotates with Evaluation Breadth
 
 Conditioning on the 702 probes where `x` survived, the mean contributions were:
 
@@ -714,6 +723,21 @@ The two compensate.
 
 The total immediate causal input stays near the same arm-level scale even though the computational route changes substantially.
 
+```mermaid
+flowchart LR
+    subgraph StrongSubsampling
+    A[Finite selector] --> B[FORCE-only promotion dominates]
+    A --> C[Shared probability shift weaker]
+    end
+    subgraph BroadEvaluation
+    D[Broad selector] --> E[Shared probability shift dominates]
+    D --> F[FORCE-only promotion weaker]
+    end
+    B & C --> G[Similar total E1]
+    E & F --> G
+    G --> H[Arm-level mean nearly stable]
+```
+
 So the correct conclusion is not:
 
 ```text
@@ -734,7 +758,7 @@ That is a genuine mechanistic finding.
 
 ---
 
-# Strong Subsampling Makes Selection Matter More
+## Strong Subsampling Makes Selection Matter More
 
 A compressed two-term model reinforces the same picture.
 
@@ -787,7 +811,7 @@ Finite selection changes the mixture.
 
 ---
 
-# Redistribution Still Exists
+## Redistribution Still Exists
 
 None of this removes the Chapter 25 result.
 
@@ -832,7 +856,7 @@ The non-local allocation effect remains real.
 
 ---
 
-# But Redistribution Did Not Become Additional Mean Amplification
+## But Redistribution Did Not Become Additional Mean Amplification
 
 Now we can interpret the frozen primary result more precisely.
 
@@ -875,13 +899,17 @@ And it points in the same direction.
 
 So the stronger distinction is now:
 
-# **CAUSAL REDISTRIBUTION ≠ ADDITIONAL DOWNSTREAM AMPLIFICATION**
+```text
+CAUSAL REDISTRIBUTION
+≠
+ADDITIONAL DOWNSTREAM AMPLIFICATION
+```
 
 Finite selection can reroute causal influence without producing a scientifically meaningful additional mean downstream consequence at the tested scale.
 
 ---
 
-# `f=1.00` and Unbounded Mean Different Things
+## `f=1.00` and Unbounded Mean Different Things
 
 In V2:
 
@@ -951,7 +979,7 @@ matches evaluation coverage
 
 ---
 
-# What Happened to Common Random Numbers?
+## What Happened to Common Random Numbers?
 
 Every arm used the same keyed random numbers.
 
@@ -993,7 +1021,7 @@ not:
 
 ---
 
-# What Finite Selection Actually Controls
+## What Finite Selection Actually Controls
 
 The picture is now more specific than the original Chapter 26 question.
 
@@ -1033,7 +1061,7 @@ That gives us a much better substrate statement:
 
 ---
 
-# Chapter 26 Status
+## Chapter 26 Status
 
 ```text
 CHAPTER 26
@@ -1092,7 +1120,7 @@ No further Chapter 26 audit.
 
 ---
 
-# What Survived the Hypothesis?
+## What Survived the Hypothesis?
 
 The original hypothesis asked whether candidate subsampling amplified causality.
 
@@ -1100,22 +1128,13 @@ At the tested scale, it did not.
 
 But the experiment revealed more than a null.
 
-```text
-FINITE SELECTION
-↓
-changes which opportunities receive computation
-↓
-changes whether the perturbation becomes expressible
-↓
-changes the mixture of local causal pathways
-↓
-creates non-local redistribution
-
-BUT
-
-does not produce additional mean
-12-step causal consequence
-above the frozen ±0.15 scale
+```mermaid
+flowchart TD
+    A[FINITE SELECTION] --> B[Changes which opportunities receive computation]
+    B --> C[Changes whether perturbation becomes expressible]
+    C --> D[Changes mixture of local causal pathways]
+    D --> E[Creates non-local redistribution]
+    E --> F[Does not produce additional mean<br/>12-step causal consequence<br/>above ±0.15 scale]
 ```
 
 That gives us a clearer distinction than the chapter began with:
@@ -1144,7 +1163,7 @@ They came from the computational substrate itself.
 
 ---
 
-# The Next Missing Ingredient Is History
+## The Next Missing Ingredient Is History
 
 Chapter 18 showed that persistent material state can alter later construction while it remains causally accessible.
 
@@ -1194,7 +1213,7 @@ That is Chapter 27.
 
 ---
 
-# Where We Are Now
+## Where We Are Now
 
 The path from Chapters 24 through 26 has become unexpectedly coherent.
 

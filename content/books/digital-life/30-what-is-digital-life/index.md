@@ -7,10 +7,7 @@ weight = 30
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Causality", "Finite Computation", "Experimental Method", "Cellular Automata"]
 series = ["Digital Life From First Principles"]
-
 +++
-
-# 30: What Is Digital Life?
 
 We began with a dangerous question.
 
