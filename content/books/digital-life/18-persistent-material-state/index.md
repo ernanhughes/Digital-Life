@@ -73,18 +73,12 @@ A pulse could modify some cells near the active boundary.
 
 That was all.
 
-There was no history list.
-
-No global memory register.
-
-No timestamp saying when the pulse happened.
-
-No stored copy of the signal.
-
-No target morphology.
-
-No learned weight.
-
+There was no history list.  
+No global memory register.  
+No timestamp saying when the pulse happened.  
+No stored copy of the signal.  
+No target morphology.  
+No learned weight.  
 No module called `memory`.
 
 The modification simply changed one local fact about the material.
@@ -93,20 +87,16 @@ A modified occupied neighbour could slightly increase the attachment probability
 
 The proposed mechanism was therefore:
 
-```text
-experience
-↓
-local material change
-↓
-change persists
-↓
-later growth encounters changed material
-↓
-future attachment probability changes
+```mermaid
+flowchart LR
+    A[Experience<br/>pulse] --> B[Local material change<br/>modified cell]
+    B --> C[Change persists]
+    C --> D[Later growth encounters<br/>modified material]
+    D --> E[Future attachment<br/>probability changes]
+    E --> F[Future crystal changes]
 ```
 
-If even this failed, that would be useful.
-
+If even this failed, that would be useful.  
 If it succeeded, we would still have to ask exactly what had succeeded.
 
 ---
@@ -141,11 +131,10 @@ Then continue both versions under the same future conditions.
 
 ```text
 experienced + labels retained
-                \
-                 → continue
-
+                \
+                 → continue
 experienced + labels erased
-                /
+                /
 ```
 
 The result was brutal.
@@ -226,6 +215,20 @@ The apparent mystery from the first experiment disappeared.
 The state had persisted exactly as designed.
 
 It simply no longer occupied the crystal's **causal aperture**.
+
+```mermaid
+flowchart TD
+    subgraph "Active Region"
+    A[Modified cell near frontier] --> B[Changes attachment probability]
+    B --> C[Realized construction difference]
+    end
+    subgraph "Buried Region"
+    D[Modified cell buried deeper] --> E[No current growth reaches it]
+    E --> F[No causal effect despite persistence]
+    end
+    A -.-> G[Causal aperture moves outward over time]
+    D -.-> G
+```
 
 The active frontier is not merely the edge of a shape.
 
@@ -379,16 +382,12 @@ That is a realized causal flip.
 
 The whole local chain is therefore:
 
-```text
-MODIFIED STATE PRESENT
-↓
-STATE REACHES ACTIVE FRONTIER
-↓
-LOCAL ATTACHMENT PROBABILITY CHANGES
-↓
-RANDOM DRAW CROSSES DECISION BOUNDARY
-↓
-ACTUAL CONSTRUCTION EVENT CHANGES
+```mermaid
+flowchart TD
+    A[MODIFIED STATE PRESENT] --> B[STATE REACHES ACTIVE FRONTIER]
+    B --> C[LOCAL ATTACHMENT PROBABILITY CHANGES]
+    C --> D[RANDOM DRAW CROSSES DECISION BOUNDARY]
+    D --> E[ACTUAL CONSTRUCTION EVENT CHANGES]
 ```
 
 We measured every level.
@@ -572,25 +571,25 @@ SURFACE
 The mean integrated frontier-access fraction was approximately:
 
 ```text
-interior     0.515
-random       0.847
-surface      1.293
+interior     0.515
+random       0.847
+surface      1.293
 ```
 
 Integrated local probability leverage was approximately:
 
 ```text
-interior      3.87
-random        7.33
-surface      12.26
+interior      3.87
+random        7.33
+surface      12.26
 ```
 
 And the mean number of realized causal attachment flips over the window was approximately:
 
 ```text
-interior      4.06
-random        7.52
-surface      12.39
+interior      4.06
+random        7.52
+surface      12.39
 ```
 
 Crucially, the amount of propagated state remained exactly matched.
@@ -612,6 +611,19 @@ That earned the strongest claim in this chapter:
 The crystal did not need more history.
 
 It needed history in the right place.
+
+```mermaid
+flowchart LR
+    subgraph PlacementPolicies
+    A[Interior-biased] --> B[State buried quickly]
+    C[Random] --> D[Intermediate exposure]
+    E[Surface-biased] --> F[State remains accessible longer]
+    end
+    B --> G[Smaller integrated causal effect]
+    D --> H[Intermediate causal effect]
+    F --> I[Larger integrated causal effect]
+    G & H & I -.-> J[Same total propagated state<br/>27.1875 transmissions]
+```
 
 ---
 
@@ -1033,18 +1045,13 @@ That means the project-wide history hierarchy is no longer only about what survi
 
 It is also about what remains **accessible**:
 
-```text
-PAST EVENT
-↓
-TRACE
-↓
-PERSISTENT TRACE
-↓
-ACCESSIBLE TRACE
-↓
-CAUSAL LEVERAGE
-↓
-REALIZED FUTURE DIFFERENCE
+```mermaid
+flowchart TD
+    A[PAST EVENT] --> B[TRACE]
+    B --> C[PERSISTENT TRACE]
+    C --> D[ACCESSIBLE TRACE]
+    D --> E[CAUSAL LEVERAGE]
+    E --> F[REALIZED FUTURE DIFFERENCE]
 ```
 
 Every arrow is a separate property.
@@ -1208,7 +1215,7 @@ Now ask:
 
 ```text
 history A ─┐
-           ├──→ same later condition ──→ same response?
+           ├──→ same later condition ──→ same response?
 history B ─┘
 ```
 

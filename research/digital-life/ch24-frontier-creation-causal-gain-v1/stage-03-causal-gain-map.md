@@ -1,0 +1,37 @@
+# Stage 3 — Descriptive Local Causal-Gain Map
+
+```json
+{
+  "n_intervention_sites": 712,
+  "spearman_correlations_descriptive": {
+    "FCP_vs_gain": 0.04302610755645206,
+    "promoted_frontier_vs_gain": 0.04302610755645206,
+    "occupied_neighbors_vs_gain": -0.0678966294764339,
+    "baseline_probability_vs_gain": -0.021212355810904866,
+    "local_frontier_density_vs_gain": -0.07684601606056014
+  },
+  "gain_by_FCP": [
+    {
+      "FCP": -1,
+      "n": 147,
+      "mean_transient_gain": 0.013605442176870748
+    },
+    {
+      "FCP": 0,
+      "n": 186,
+      "mean_transient_gain": 0.14516129032258066
+    },
+    {
+      "FCP": 1,
+      "n": 220,
+      "mean_transient_gain": 0.17272727272727273
+    },
+    {
+      "FCP": 2,
+      "n": 159,
+      "mean_transient_gain": 0.5345911949685535
+    }
+  ],
+  "scope": "Descriptive only. Sites within checkpoints are repeated measures and are not treated as independent confirmatory replicates."
+}
+```

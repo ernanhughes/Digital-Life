@@ -92,14 +92,11 @@ That is the question here.
 
 The experiment must therefore separate four different claims:
 
-```text
-different experiences occur
-↓
-different traces are written
-↓
-different traces remain distinguishable
-↓
-different traces alter later response
+```mermaid
+flowchart LR
+    A[Different experiences occur] --> B[Different traces are written]
+    B --> C[Different traces remain distinguishable]
+    C --> D[Different traces alter later response]
 ```
 
 We had evidence only for the first two in a very weak sense.
@@ -283,8 +280,8 @@ We got:
 And against the seed-noise scale:
 
 ```text
-observed effect     0.383 SD
-required            0.500 SD
+observed effect     0.383 SD
+required            0.500 SD
 ```
 
 So the formal result was:
@@ -305,17 +302,12 @@ There was another interesting pattern in V1.
 
 The challenge-step attachment counts looked like this:
 
-```text
-             A          B
-
-step 1      76.79      71.13
-
-step 2      71.51      72.34
-
-step 3      74.81      75.50
-
-step 4      78.00      78.22
-```
+| Step | A | B |
+|------|-----|-----|
+| 1 | 76.79 | 71.13 |
+| 2 | 71.51 | 72.34 |
+| 3 | 74.81 | 75.50 |
+| 4 | 78.00 | 78.22 |
 
 Most of the difference occurred immediately.
 
@@ -360,10 +352,10 @@ In other words:
 
 ```text
 if A:
-    increase probability
+    increase probability
 
 if B:
-    decrease probability
+    decrease probability
 ```
 
 That proved something about retained symbolic labels.
@@ -416,18 +408,21 @@ So the two histories differed in spatial organization, not in how much historica
 
 Conceptually:
 
-```text
-experience A
-↓
-same material state
-↓
-spatial organization A
-
-experience B
-↓
-same material state
-↓
-spatial organization B
+```mermaid
+flowchart LR
+    subgraph Experience A
+    A1[Experience A] --> A2[Write modified cells<br/>in region A]
+    A2 --> A3[Same material state<br/>same quantity]
+    A3 --> A4[Spatial organization A]
+    end
+    subgraph Experience B
+    B1[Experience B] --> B2[Write modified cells<br/>in region B]
+    B2 --> B3[Same material state<br/>same quantity]
+    B3 --> B4[Spatial organization B]
+    end
+    A4 --> C[Both receive identical later challenge]
+    B4 --> C
+    C --> D[Measure response difference]
 ```
 
 Then both received one identical later challenge.
@@ -486,14 +481,14 @@ or more explicitly:
 
 ```text
 [(A challenge - A no-challenge)
- -
- (B challenge - B no-challenge)]
+ -
+ (B challenge - B no-challenge)]
 
 MINUS
 
 [(A-erased challenge - A-erased no-challenge)
- -
- (B-erased challenge - B-erased no-challenge)]
+ -
+ (B-erased challenge - B-erased no-challenge)]
 ```
 
 That is a demanding test.
@@ -536,18 +531,14 @@ But spatial organization remained different.
 
 A secondary angular diagnostic tracked the mean orientation of the modified material.
 
-Across the retention period:
-
-```text
-          A angle       B angle
-
-t1       -0.063         +0.331
-t2       -0.073         +0.329
-t4       -0.097         +0.318
-t6       -0.107         +0.330
-t8       -0.119         +0.326
-t10      -0.132         +0.330
-```
+| Time | A angle | B angle |
+|------|---------|---------|
+| t1   | -0.063  | +0.331  |
+| t2   | -0.073  | +0.329  |
+| t4   | -0.097  | +0.318  |
+| t6   | -0.107  | +0.330  |
+| t8   | -0.119  | +0.326  |
+| t10  | -0.132  | +0.330  |
 
 The traces did not simply collapse into one indistinguishable distribution.
 
@@ -600,14 +591,12 @@ The common challenge was applied.
 
 The mean attachment trajectories were:
 
-```text
-          A       B
-
-step 1   77.02   77.25
-step 2   73.29   73.76
-step 3   75.56   76.19
-step 4   80.47   81.15
-```
+| Step | A | B |
+|------|-----|-----|
+| 1 | 77.02 | 77.25 |
+| 2 | 73.29 | 73.76 |
+| 3 | 75.56 | 76.19 |
+| 4 | 80.47 | 81.15 |
 
 They were almost on top of each other.
 
@@ -729,14 +718,14 @@ Under this protocol, that arrow did not hold.
 
 This gives us the central distinction of Chapter 19:
 
-```text
-PERSISTENT TRACE
-≠
-ACCESSIBLE TRACE
-≠
-DISTINGUISHABLE TRACE
-≠
-READABLE TRACE
+```mermaid
+flowchart LR
+    A[PERSISTENT TRACE] --> B[ACCESSIBLE TRACE]
+    B --> C[DISTINGUISHABLE TRACE]
+    C --> D[READABLE TRACE]
+    A -.->|≠| B
+    B -.->|≠| C
+    C -.->|≠| D
 ```
 
 Chapter 18 had already separated the first two.
@@ -922,18 +911,19 @@ It needs a new question.
 
 At this point our historical-material ladder looks like this:
 
-```text
-EXTERNAL EVENT
-↓
-LOCAL MATERIAL CHANGE
-↓
-PERSISTENT TRACE
-↓
-CAUSAL ACCESS
-↓
-DISTINGUISHABLE MATERIAL ORGANIZATION
-↓
-READOUT INTO LATER RESPONSE
+```mermaid
+flowchart TD
+    A[EXTERNAL EVENT] --> B[LOCAL MATERIAL CHANGE]
+    B --> C[PERSISTENT TRACE]
+    C --> D[CAUSAL ACCESS]
+    D --> E[DISTINGUISHABLE MATERIAL ORGANIZATION]
+    E --> F[READOUT INTO LATER RESPONSE]
+    style A fill:#ccffcc,stroke:#333
+    style B fill:#ccffcc,stroke:#333
+    style C fill:#ccffcc,stroke:#333
+    style D fill:#ccffcc,stroke:#333
+    style E fill:#ccffcc,stroke:#333
+    style F fill:#ffcccc,stroke:#333,stroke-dasharray: 5 5
 ```
 
 The experiments support the ladder only up to:
@@ -968,63 +958,15 @@ Yet their spatial organizations remained measurably different.
 
 At the same time, roughly one fifth of the active frontier still remained in contact with modified material at the end of the retention window.
 
-So the histories were not:
+So the histories were not gone and not buried beyond causal reach.
 
-```text
-gone
-```
-
-and they were not:
-
-```text
-buried beyond causal reach
-```
-
-They were still:
-
-```text
-persistent
-spatially distinguishable
-causally accessible
-```
+They were still persistent, spatially distinguishable, and causally accessible.
 
 Then the common challenge arrived.
 
-The material-mediated history effect was:
+The material-mediated history effect was `0.000431`, about `0.043%` of crystal population, with confidence interval `[-0.000380, +0.001235]` and `p ≈ 0.163`.
 
-```text
-0.000431
-```
-
-or about:
-
-```text
-0.043% of crystal population
-```
-
-with confidence interval:
-
-```text
--0.000380 ... +0.001235
-```
-
-and:
-
-```text
-p ≈ 0.163
-```
-
-Against seed noise, the effect was only:
-
-```text
-0.033 SD
-```
-
-versus the frozen requirement:
-
-```text
-0.500 SD
-```
+Against seed noise, the effect was only `0.033 SD`, versus the frozen requirement `0.500 SD`.
 
 So the final readout arrow failed decisively.
 
@@ -1038,25 +980,11 @@ So the final readout arrow failed decisively.
 
 > Two different prior experiences can leave persistent, spatially distinguishable organizations of the same altered material while that material remains substantially coupled to the active growth interface, yet those differences need not produce a scientifically meaningful difference under a common later challenge.
 
-This is stronger than merely saying:
+This is stronger than merely saying history was lost.
 
-```text
-history was lost
-```
+The history was not lost; the distinction was still physically present and accessible.
 
-The history was not lost.
-
-The distinction was still physically present.
-
-The distinction was still accessible.
-
-What failed was:
-
-```text
-DIFFERENT ACCESSIBLE TRACE
-↓
-DIFFERENT LATER RESPONSE
-```
+What failed was the arrow from different accessible trace to different later response.
 
 So Chapter 19 adds another rung to the project-wide history hierarchy:
 
@@ -1084,24 +1012,19 @@ Chapter 19 now shows something still stronger:
 
 > **Even a persistent, accessible and measurably different historical trace can remain functionally inert with respect to a later probe.**
 
-So the Lossy-History Principle is no longer only about loss of chronology.
+So the Lossy-History Principle is no longer only about loss of chronology; it now has several possible failure points:
 
-It now has several possible failure points:
-
-```text
-history may fail to persist
-
-or
-
-history may persist but lose access
-
-or
-
-history may remain accessible but lose distinction
-
-or
-
-history may remain distinct but fail readout
+```mermaid
+flowchart TD
+    A[History] --> B{Persist?}
+    B -- Yes --> C{Accessible?}
+    B -- No --> X[Lost]
+    C -- Yes --> D{Distinguishable?}
+    C -- No --> Y[Persistent but inaccessible]
+    D -- Yes --> E{Readable?}
+    D -- No --> Z[Accessible but indistinguishable]
+    E -- Yes --> F[Functional history]
+    E -- No --> W[Distinguishable but inert]
 ```
 
 Those are different mechanisms.
@@ -1112,79 +1035,35 @@ The chapter's wave analogy is useful only as an analogy.
 
 Two states can differ in a degree of freedom that the chosen probe does not measure.
 
-So a failed challenge means:
+So a failed challenge means this probe did not extract a meaningful history-dependent response.
 
-```text
-THIS PROBE
-did not extract
-a meaningful history-dependent response
-```
-
-It does **not** establish:
-
-```text
-NO POSSIBLE FUTURE INTERACTION
-could ever distinguish the traces
-```
+It does not establish that no possible future interaction could ever distinguish the traces.
 
 But that does not justify searching indefinitely for a probe that works.
 
-The mechanism family was frozen and tested.
+The mechanism family was frozen and tested, and the primary effect was tiny.
 
-The primary effect was tiny.
-
-So the correct action remains:
-
-```text
-NO V3
-```
-
-That is a strength of the result.
+So the correct action remains: **NO V3**.
 
 ### Connection to the Interface Principle
 
 Chapter 19 also sharpens the Interface Principle.
 
-Chapter 18 showed:
+Chapter 18 showed: state must remain accessible to the active interface.
 
-```text
-state must remain accessible to the active interface
-```
-
-Chapter 19 shows:
-
-```text
-accessibility is necessary
-but not sufficient
-```
+Chapter 19 shows: accessibility is necessary but not sufficient.
 
 The active interface can still encounter a historical difference without the later dynamics producing a meaningful differential response.
 
 So the revised relationship is:
 
 ```text
-PERSISTENCE
-↓
-ACCESSIBILITY
-↓
-DISTINGUISHABILITY
-↓
-READOUT
+PERSISTENCE → ACCESSIBILITY → DISTINGUISHABILITY → READOUT
 ```
 
 and each arrow must be earned separately.
 
-This prevents us from collapsing:
-
-```text
-accessible
-```
-
-into:
-
-```text
-usable
-```
+This prevents us from collapsing *accessible* into *usable*.
 
 ### Open propagating-field question
 
@@ -1192,14 +1071,7 @@ The persistent directional material organizations also resemble a moving spatial
 
 That resemblance is worth preserving as an observation.
 
-But the chapter does not establish:
-
-```text
-wave
-phase
-propagation velocity
-dispersion
-```
+But the chapter does not establish wave, phase, propagation velocity, or dispersion.
 
 So the correct status remains:
 
@@ -1242,11 +1114,7 @@ V1 showed that an explicit symbolic material decoder can produce a small, reprod
 
 V2 removed the symbolic decoder and allowed two experiences to create different spatial organizations of the same material state.
 
-Those organizations remained measurably distinct.
-
-They remained causally accessible.
-
-But they did not produce a meaningful difference under the common later challenge.
+Those organizations remained measurably distinct and causally accessible, but they did not produce a meaningful difference under the common later challenge.
 
 So:
 
@@ -1264,9 +1132,7 @@ DIFFERENT TRACE
 READABLE HISTORY
 ```
 
-We now know that storing history is easier than using it.
-
-Again.
+We now know that storing history is easier than using it. Again.
 
 But this time the reason is not simply that the trace was buried.
 
@@ -1319,6 +1185,23 @@ Construction will have to compete with loss.
 The crystal may acquire a finite sustainable scale.
 
 And properties that were impossible to distinguish under irreversible growth may finally separate.
+
+```mermaid
+flowchart LR
+    subgraph Irreversible
+    A[Occupied] -->|grows| B[Occupied]
+    B --> C[Frontier moves outward]
+    C --> D[Buried state never re-exposed]
+    end
+    subgraph Reversible
+    E[Occupied] -->|grows| F[Occupied]
+    F -->|loss| G[Empty]
+    G -->|regrowth| H[Occupied]
+    H --> I[Buried state may become exposed]
+    end
+    D -.-> J[History readout constrained]
+    I -.-> K[New possibilities for readout]
+```
 
 Chapter 19 ends with an inaccessible word still hanging in front of us:
 

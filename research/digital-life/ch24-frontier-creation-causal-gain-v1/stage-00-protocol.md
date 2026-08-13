@@ -1,0 +1,38 @@
+# Stage 0 — Frozen Chapter 24 V1 Protocol
+
+```json
+{
+  "role": "FRONTIER CREATION POTENTIAL / TRANSIENT CAUSAL GAIN TEST",
+  "fresh_seed": 20260906,
+  "target": "transient causal gain G_T(H), force x then remove after one causal update",
+  "horizon": 12,
+  "FCP_definition": "|frontier after forcing x occupied| - |frontier before forcing x|",
+  "matching": {
+    "same_occupied_neighbor_count": true,
+    "same_radial_bin_width": 3,
+    "max_baseline_probability_difference": 0.05,
+    "max_local_frontier_density_difference": 0.1,
+    "minimum_fcp_difference": 1
+  },
+  "H1": {
+    "quantity": "G_T(high-FCP) - G_T(low-FCP), averaged to one value/group",
+    "minimum_effect": 0.15,
+    "requires_ci_low_above_zero": true,
+    "alpha": 0.05
+  },
+  "H2": {
+    "quantity": "ring1 newly promoted frontier(high) - low",
+    "minimum_effect": 1.0,
+    "requires_ci_low_above_zero": true
+  },
+  "coverage_gate": 0.7,
+  "descriptive_only": [
+    "Spearman correlations",
+    "scatter plots",
+    "binned means"
+  ],
+  "no_classifier": true,
+  "scientific_boundary": "Local frontier geometry as a causal predictor of transient construction gain only.",
+  "status": "FROZEN"
+}
+```

@@ -1,0 +1,64 @@
+{
+  "validity": {
+    "valid": true,
+    "coverage_gate": true,
+    "capacity_gate": true
+  },
+  "H1": {
+    "status": "FAILED",
+    "result": {
+      "cross_minus_same_abs_gain_difference": {
+        "n": 45,
+        "mean": -0.22518518518518513,
+        "ci95_low": -0.6915,
+        "ci95_high": 0.3071574074074079,
+        "half_width": 0.49932870370370397
+      },
+      "minimum_effect": 0.2,
+      "signflip": {
+        "n": 45,
+        "observed_mean": -0.22518518518518513,
+        "p_value": 0.8018997625296838,
+        "permutations": 8000
+      }
+    }
+  },
+  "H2": {
+    "status": "FAILED",
+    "result": {
+      "cross_minus_same_abs_promoted_frontier_difference": {
+        "n": 45,
+        "mean": 0.03962962962962964,
+        "ci95_low": -0.09224074074074072,
+        "ci95_high": 0.17039814814814824,
+        "half_width": 0.1313194444444445
+      },
+      "minimum_effect": 0.5,
+      "signflip": {
+        "n": 45,
+        "observed_mean": 0.03962962962962964,
+        "p_value": 0.2723409573803275,
+        "permutations": 8000
+      }
+    }
+  },
+  "overall_status": "LOCAL_MOTIF_HYPOTHESIS_FAILED",
+  "bounded_claim": "V2 did not establish that exact six-neighbour motif contributes scientifically meaningful causal-gain or opportunity differences beyond the matched scalar summaries.",
+  "what_this_does_not_establish": [
+    "which motif is high-gain",
+    "motif is the only determinant of gain",
+    "causal-gain field",
+    "high-gain regions",
+    "spatial clustering",
+    "temporal persistence",
+    "coherent structure",
+    "criticality",
+    "percolation",
+    "natural boundary",
+    "individuality",
+    "organism",
+    "life"
+  ],
+  "next_if_supported": "Freshly confirm specific predeclared motif contrasts before mapping motif-derived high-gain regions in space-time.",
+  "next_if_failed": "Do not add a classifier. Treat immediate motif geometry as insufficient and move toward larger local state/history features only if they earn a qualitatively new hypothesis."
+}

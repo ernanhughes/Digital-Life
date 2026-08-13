@@ -1,0 +1,30 @@
+{
+  "role": "RECENT LOCAL PROCESS HISTORY / TRANSIENT CAUSAL GAIN TEST",
+  "fresh_seed": 20260908,
+  "history_window": 6,
+  "history_radius": 2,
+  "primary_history_variable": "recent_turnover = recent_attachments + recent_losses",
+  "target": "transient causal gain G_T(H)",
+  "horizon": 12,
+  "present_state_matching": {
+    "same_canonical_motif": true,
+    "same_radial_bin_width": 3,
+    "max_baseline_p_difference": 0.05,
+    "max_local_frontier_density_difference": 0.1,
+    "max_FCP_difference": 1
+  },
+  "H1": {
+    "quantity": "G_T(high recent turnover) - G_T(low recent turnover), one mean per independent group",
+    "minimum_effect": 0.15,
+    "alpha": 0.05,
+    "minimum_group_coverage_fraction": 0.7
+  },
+  "H2": {
+    "quantity": "recent_turnover(high) - recent_turnover(low)",
+    "minimum_effect": 2.0,
+    "role": "construct validity gate"
+  },
+  "stop_rule": "If H1 fails on a valid run, do not tune history radius/window or select another history component from the same run.",
+  "classifier_used": false,
+  "status": "FROZEN"
+}

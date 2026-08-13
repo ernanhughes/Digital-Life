@@ -66,15 +66,15 @@ Suppose the crystal has an effective radius \(r\).
 
 If new construction happens mainly around the outside boundary, then construction opportunity should scale roughly like perimeter:
 
-```text
-construction ~ r
-```
+\[
+\text{construction} \sim r
+\]
 
 But if every occupied cell can disappear, then total expected loss should scale roughly like occupied area:
 
-```text
-loss ~ r²
-```
+\[
+\text{loss} \sim r^2
+\]
 
 That gives a natural prediction.
 
@@ -232,17 +232,15 @@ It exploded.
 
 Late averages looked approximately like this:
 
-```text
-δ       attachments       losses       net growth
-
-0.00       152               0            +152
-0.02       227              81            +146
-0.04       299             158            +141
-0.06       358             227            +131
-0.08       430             303            +127
-0.12       530             420            +110
-0.16       632             531            +101
-```
+| δ | attachments | losses | net growth |
+|---|-------------|--------|------------|
+| 0.00 | 152 | 0 | +152 |
+| 0.02 | 227 | 81 | +146 |
+| 0.04 | 299 | 158 | +141 |
+| 0.06 | 358 | 227 | +131 |
+| 0.08 | 430 | 303 | +127 |
+| 0.12 | 530 | 420 | +110 |
+| 0.16 | 632 | 531 | +101 |
 
 At `δ = 0.16`, the crystal was losing more than five hundred cells per update.
 
@@ -272,6 +270,14 @@ Every time an occupied site disappears, it can create a new empty location surro
 
 That location becomes part of the set that ordinary growth can potentially fill.
 
+```mermaid
+flowchart LR
+    A[Loss removes<br/>occupied cell] --> B[New empty site<br/>in occupied region]
+    B --> C[Site becomes<br/>local boundary]
+    C --> D[Ordinary growth sees<br/>attachment opportunity]
+    D --> E[Construction rate increases]
+```
+
 So:
 
 ```text
@@ -290,15 +296,15 @@ And the boundary measurements showed it dramatically.
 
 Approximate late mean boundary counts were:
 
-```text
-δ=0.00      372
-δ=0.02      807
-δ=0.04     1167
-δ=0.06     1430
-δ=0.08     1695
-δ=0.12     1940
-δ=0.16     2068
-```
+| δ | boundary count |
+|---|----------------|
+| 0.00 | 372 |
+| 0.02 | 807 |
+| 0.04 | 1167 |
+| 0.06 | 1430 |
+| 0.08 | 1695 |
+| 0.12 | 1940 |
+| 0.16 | 2068 |
 
 So our original statement:
 
@@ -352,8 +358,8 @@ That cleared the predeclared 10% effect threshold.
 And the hole counts were dramatically different:
 
 ```text
-surface loss      ~2.7 late holes
-interior loss    ~29.8 late holes
+surface loss      ~2.7 late holes
+interior loss    ~29.8 late holes
 ```
 
 So equal loss did not have equal consequences.
@@ -413,6 +419,14 @@ a site is occupied for the first time ever
 REOCCUPATION
 a previously occupied site was lost
 and later becomes occupied again
+```
+
+```mermaid
+flowchart TD
+    A[Attachment event] --> B{Was site ever occupied before?}
+    B -- No --> C[First occupation]
+    B -- Yes --> D[Reoccupation]
+    D --> E[Site was previously lost]
 ```
 
 This distinction immediately changes how we should read the V1 numbers.
@@ -504,8 +518,8 @@ Another way to measure the same phenomenon is to ask what fraction of unique los
 Again:
 
 ```text
-surface     ≈ 93.6%
-interior    ≈ 95.7%
+surface     ≈ 93.6%
+interior    ≈ 95.7%
 ```
 
 That is the central mechanistic result of Chapter 20.
@@ -519,8 +533,8 @@ And usually quickly.
 Mean reoccupation delay:
 
 ```text
-surface     ≈ 1.56 updates
-interior    ≈ 1.09 updates
+surface     ≈ 1.56 updates
+interior    ≈ 1.09 updates
 ```
 
 So a typical lost site was often empty for only one or two steps.
@@ -578,8 +592,8 @@ V2 also measured how much new frontier was created per removed cell.
 The numbers were:
 
 ```text
-surface     ~0.995 new frontier sites per loss
-interior    ~1.000 new frontier sites per loss
+surface     ~0.995 new frontier sites per loss
+interior    ~1.000 new frontier sites per loss
 ```
 
 That is almost one-for-one.
@@ -716,6 +730,19 @@ They are not.
 
 System B is undergoing enormous internal turnover.
 
+```mermaid
+flowchart TD
+    subgraph A[System A]
+    A1[+100 new cells] --> A2[Net +100]
+    end
+    subgraph B[System B]
+    B1[+600 attachments] --> B2[-500 losses]
+    B2 --> B3[Net +100]
+    end
+    A2 -.->|same net population| B3
+    B1 -.->|huge gross turnover| B2
+```
+
 So another distinction joins our evidence ladder:
 
 ```text
@@ -745,8 +772,8 @@ There was one result that initially looked contradictory.
 Interior-biased loss produced many more visible holes:
 
 ```text
-surface     ~3.2
-interior    ~37.6
+surface     ~3.2
+interior    ~37.6
 ```
 
 Yet interior lost sites were reoccupied slightly more often and much faster.
@@ -872,6 +899,16 @@ Not because it prefers preservation.
 
 But because the geometry of removal feeds directly into the geometry of construction.
 
+```mermaid
+flowchart LR
+    A[Loss] --> B[Empty site]
+    B --> C[New frontier]
+    C --> D[Ordinary attachment]
+    D --> E[Reoccupation]
+    E --> F[State changes again]
+    F --> A
+```
+
 That is a substrate-level feedback.
 
 The word `feedback` is justified here only in the mechanistic sense:
@@ -916,24 +953,13 @@ loss
 
 That picture failed because material loss changes the very geometry that determines where growth can occur.
 
-A removed cell becomes:
+A removed cell becomes empty, and if occupied neighbours remain around it, that location becomes an ordinary attachment opportunity.
 
-```text
-empty
-```
-
-and if occupied neighbours remain around it, that location becomes an ordinary attachment opportunity.
-
-So:
-
-```text
-LOSS
-↓
-NEW EMPTY SITE
-↓
-NEW LOCAL FRONTIER
-↓
-NEW ATTACHMENT OPPORTUNITY
+```mermaid
+flowchart TD
+    A[LOSS] --> B[NEW EMPTY SITE]
+    B --> C[NEW LOCAL FRONTIER]
+    C --> D[NEW ATTACHMENT OPPORTUNITY]
 ```
 
 The experiment measured this almost one-for-one:
@@ -1364,7 +1390,7 @@ For the first time:
 
 ```text
 OUTWARD CONSTRUCTION
-        competes with
+        competes with
 REOCCUPATION
 ```
 
@@ -1375,6 +1401,20 @@ And then a genuinely new question appears:
 That is no longer a question about loss alone.
 
 It is a question about allocation under scarcity.
+
+```mermaid
+flowchart LR
+    subgraph Unlimited
+    U1[Unlimited updates] --> U2[All frontier sites evaluated]
+    U2 --> U3[Rebuilding lost material is almost free]
+    end
+    subgraph Limited
+    L1[Limited construction budget B] --> L2[Must choose where to act]
+    L2 --> L3[Outward growth vs reoccupation]
+    L3 --> L4[Opportunity cost emerges]
+    end
+    U3 -.->|remove luxury| L1
+```
 
 The crystal did not learn to repair itself.
 

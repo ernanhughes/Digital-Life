@@ -1,0 +1,28 @@
+{
+  "requested_groups": 48,
+  "groups_with_cross_and_same_pairs": 45,
+  "coverage_fraction": 0.9375,
+  "minimum_coverage_fraction": 0.7,
+  "coverage_gate_passed": true,
+  "total_sites": 1536,
+  "total_cross_pairs": 95,
+  "total_same_pairs": 145,
+  "motif_counts": {
+    "000001": 169,
+    "000011": 161,
+    "000101": 138,
+    "000111": 152,
+    "001001": 70,
+    "001011": 146,
+    "001111": 144,
+    "010101": 49,
+    "010111": 140,
+    "011011": 117,
+    "011111": 136,
+    "111111": 114
+  },
+  "number_of_observed_canonical_motifs": 12,
+  "maximum_capacity_fraction": 0.03799054508173378,
+  "capacity_gate_passed": true,
+  "status": "MEASURED"
+}

@@ -1,0 +1,25 @@
+{
+  "role": "EXACT LOCAL FRONTIER MOTIF / TRANSIENT CAUSAL GAIN TEST",
+  "fresh_seed": 20260907,
+  "motif": "six-neighbour occupancy pattern canonicalized under D6 rotation/reflection symmetry",
+  "target": "transient causal gain G_T(H)",
+  "horizon": 12,
+  "pair_matching": {
+    "same_occupied_neighbor_count": true,
+    "same_radial_bin_width": 3,
+    "max_baseline_p_difference": 0.05,
+    "max_local_frontier_density_difference": 0.1
+  },
+  "H1": {
+    "statistic": "mean abs gain difference cross-motif minus same-motif, one value per group",
+    "minimum_effect": 0.2,
+    "coverage": 0.7
+  },
+  "H2": {
+    "statistic": "mean abs promoted-frontier difference cross-motif minus same-motif",
+    "minimum_effect": 0.5
+  },
+  "classifier_used": false,
+  "motif_specific_outcomes": "descriptive only in V2",
+  "status": "FROZEN"
+}

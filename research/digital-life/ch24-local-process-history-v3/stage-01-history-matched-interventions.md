@@ -1,0 +1,21 @@
+# Stage 1 — Present-State-Matched Process-History Interventions
+
+```json
+{
+  "requested_groups": 48,
+  "groups_with_pairs": 48,
+  "coverage_fraction": 1.0,
+  "minimum_coverage_fraction": 0.7,
+  "coverage_gate_passed": true,
+  "total_pairs": 384,
+  "mean_pairs_per_group_with_pairs": 8.0,
+  "pair_count_distribution": {
+    "min": 8,
+    "median": 8.0,
+    "max": 8
+  },
+  "maximum_capacity_fraction": 0.03726943257424136,
+  "capacity_gate_passed": true,
+  "status": "MEASURED"
+}
+```
