@@ -1,0 +1,90 @@
+{
+  "fractions": {
+    "f=0.05": {
+      "beta_through_origin": 0.025090131345602402,
+      "R2_through_origin": 0.977997543537707,
+      "weighted_mean_absolute_residual": 0.0037287341836898173,
+      "weighted_mean_absolute_predicted_magnitude": 0.029677809083552355,
+      "relative_residual": 0.1256404801713044,
+      "passes_25_percent_relative_residual": true,
+      "classes": {
+        "-1": {
+          "minus_mean_deltaF": 0.7784552845528455,
+          "observed_E_far": 0.011694082764280554,
+          "predicted_E_far": 0.019531545336109186,
+          "relative_residual": 0.401272015959691
+        },
+        "1": {
+          "minus_mean_deltaF": -0.9125,
+          "observed_E_far": -0.023461030601911338,
+          "predicted_E_far": -0.022894744852862192,
+          "relative_residual": 0.02473431141899583
+        },
+        "2": {
+          "minus_mean_deltaF": -1.8389756944444444,
+          "observed_E_far": -0.04905015097664067,
+          "predicted_E_far": -0.0461401417149815,
+          "relative_residual": 0.06306892769499892
+        }
+      }
+    },
+    "f=0.10": {
+      "beta_through_origin": 0.05710454463812957,
+      "R2_through_origin": 0.9867245379325175,
+      "weighted_mean_absolute_residual": 0.006698334630762875,
+      "weighted_mean_absolute_predicted_magnitude": 0.06754599050238304,
+      "relative_residual": 0.0991670205876477,
+      "passes_25_percent_relative_residual": true,
+      "classes": {
+        "-1": {
+          "minus_mean_deltaF": 0.7784552845528455,
+          "observed_E_far": 0.030609922645323397,
+          "predicted_E_far": 0.04445333454553582,
+          "relative_residual": 0.3114144763658148
+        },
+        "1": {
+          "minus_mean_deltaF": -0.9125,
+          "observed_E_far": -0.05377229109648131,
+          "predicted_E_far": -0.052107896982293234,
+          "relative_residual": 0.0319413027693989
+        },
+        "2": {
+          "minus_mean_deltaF": -1.8389756944444444,
+          "observed_E_far": -0.10982773521018312,
+          "predicted_E_far": -0.1050138696318381,
+          "relative_residual": 0.045840283718918816
+        }
+      }
+    },
+    "f=0.25": {
+      "beta_through_origin": 0.14219886777379342,
+      "R2_through_origin": 0.9991290071747312,
+      "weighted_mean_absolute_residual": 0.004351873710953869,
+      "weighted_mean_absolute_predicted_magnitude": 0.16819963162239968,
+      "relative_residual": 0.025873265410733017,
+      "passes_25_percent_relative_residual": true,
+      "classes": {
+        "-1": {
+          "minus_mean_deltaF": 0.7784552845528455,
+          "observed_E_far": 0.11795462409633418,
+          "predicted_E_far": 0.11069546007594082,
+          "relative_residual": 0.06557779348324977
+        },
+        "1": {
+          "minus_mean_deltaF": -0.9125,
+          "observed_E_far": -0.12391584293158382,
+          "predicted_E_far": -0.1297564668435865,
+          "relative_residual": 0.04501219903778042
+        },
+        "2": {
+          "minus_mean_deltaF": -1.8389756944444444,
+          "observed_E_far": -0.26141535457075316,
+          "predicted_E_far": -0.26150026161352546,
+          "relative_residual": 0.00032469199934413007
+        }
+      }
+    }
+  },
+  "relative_residual_tolerance": 0.25,
+  "status": "SUPPORTED"
+}

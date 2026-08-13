@@ -1,32 +1,22 @@
 +++
 title = "24: Where Is Causal Gain Created?"
-date = "2026-08-13T01:10:00+01:00"
+date = "2026-08-13T10:03:00+01:00"
 draft = false
-description = "Chapter 24 tests whether causal gain can be localized to frontier geometry, exact motif, or recent process history—and finds that causal effect exists without becoming a stable local property."
+description = "A reset of Chapter 24 reveals that local causal effects are redistributed through a finite global evaluation budget. The strongest result is not a local gain field, but a selector-mediated far-field effect that follows frontier change."
 categories = ["Programming", "Artificial Life"]
-tags = ["Digital Life", "Digital Crystal", "Causality", "Cellular Automata", "Experimental Method"]
+tags = ["Digital Life", "Digital Crystal", "Causality", "Finite Computation", "Cellular Automata", "Experimental Method"]
 series = ["Digital Life From First Principles"]
 +++
 
-Chapter 23 ended with a result that looked promising.
+Chapter 23 ended with a controlled causal effect.
 
-One forced frontier attachment could change what happened next.
+Take the same Digital Crystal checkpoint.
 
-The immediate neighbouring effect was measurable.
+Take the same eligible frontier cell.
 
-It was consistent with the local rule.
+Give both futures the same environment and the same cell-keyed randomness.
 
-And after the initiating cell was removed, a small transient cascade remained before fading away.
-
-That gave us a real causal quantity.
-
-Not a metaphor.
-
-Not a visual impression.
-
-Not a classifier score.
-
-A controlled intervention:
+Then force the cell to attach in one future and prevent it from attaching in the other.
 
 ```text
 SAME CHECKPOINT
@@ -41,99 +31,121 @@ PREVENT x
 MEASURE DIFFERENCE
 ```
 
-The obvious next question was:
+The intervention changed subsequent construction.
 
-> **Where in the crystal is that causal gain created?**
+The immediate neighbouring effect was measurable.
 
-If some parts of the active interface were more causally potent than others, perhaps we could map them.
+A small downstream consequence could survive after the initiating cell was removed.
 
-Perhaps the crystal contained high-gain and low-gain regions.
+That gave us something real:
 
-Perhaps those regions persisted.
+> **A local intervention can causally change the future of the Digital Crystal.**
 
-Perhaps they connected.
+Chapter 24 began with what seemed like the obvious next question.
 
-And perhaps, much later, a stable organization could emerge from them.
+> **Where is that causal gain created?**
 
-That was the hope.
+Perhaps some frontier locations were intrinsically high-gain.
 
-Chapter 24 tested it three different ways.
+Perhaps sparse interface geometry amplified a perturbation while dense geometry suppressed it.
 
-Each time, the local description became richer.
+Perhaps the crystal contained a hidden causal field that could be mapped.
 
-Each time, the gain relationship failed.
+We spent several experiments trying to find it.
 
-What survived was not a causal-gain field.
+The first versions of Chapter 24 were built around that idea.
 
-It was a more uncomfortable result:
+They were useful.
 
-> **Causal effect exists without becoming a stable local property under the representations we tested.**
+They were also wrong in important ways.
+
+The final experiments changed the question.
+
+The strongest result of Chapter 24 is no longer:
+
+```text
+WHERE IS THE GAIN?
+```
+
+It is:
+
+```text
+WHERE DOES THE CAUSAL DIFFERENCE GO?
+```
+
+And the answer leads directly to a digital-native constraint:
+
+> **A finite global evaluation budget couples otherwise local construction processes by changing which frontier opportunities are allowed to be evaluated.**
 
 That is the chapter.
 
 ---
 
-# From Causal Effect to Causal Location
+# The First Mistake: Treating Gain as One Number
 
-Chapter 23 had already warned us not to confuse several different quantities.
+Chapter 23 had already warned us that several causal quantities were different.
 
-A local intervention could produce:
-
-```text
-IMMEDIATE MECHANICAL EFFECT
-```
-
-then:
+A local intervention could change:
 
 ```text
-SHORT-RANGE DOWNSTREAM CONSEQUENCE
+expected construction
+realized construction
+probability of path divergence
+where construction occurs
+total construction
 ```
 
-while finite computational budget could redistribute construction elsewhere.
+Those are not the same measurement.
 
-So even before Chapter 24 began, we knew:
+But the first Chapter 24 experiments compressed them into one noisy quantity:
 
 ```text
-LOCAL GAIN
-≠
-GLOBAL GAIN
+G_T(H)
 ```
 
-and:
+the finite-horizon FORCE-minus-PREVENT attachment difference.
 
-```text
-TRANSIENT CASCADE
-≠
-PERSISTENT STATE EFFECT
-```
-
-But the Chapter 23 experiments had also shown something striking.
-
-Sparse and dense frontier locations reacted very differently to the same forced attachment.
-
-A sparse frontier cell could create new construction opportunity.
-
-A dense frontier cell could consume an existing frontier position while creating almost nothing new.
-
-That suggested a possible causal substrate law:
+That gave us a seductive picture:
 
 ```text
 LOCAL GEOMETRY
 ↓
-OPPORTUNITY TRANSFORMATION
+LOCAL CAUSAL GAIN
 ↓
-CAUSAL GAIN
+DOWNSTREAM CASCADE
 ```
 
-Chapter 24 began there.
+The problem was that `G_T(H)` mixes several mechanisms.
+
+A perturbation can change the probability distribution without changing the signed expected count.
+
+Two futures can diverge while their net attachment counts cancel.
+
+A local increase can be offset by a distant decrease.
+
+And under a finite evaluation budget, changing one part of the frontier can change which completely different cells are evaluated elsewhere.
+
+So before asking where gain was stored, we needed to separate:
+
+```text
+CAUSAL SENSITIVITY
+≠
+PATH DIVERGENCE
+≠
+SPATIAL REDISTRIBUTION
+≠
+NET CONSTRUCTION GAIN
+```
+
+It took four versions of the experiment to get there.
 
 ---
 
 # V1 — Frontier Creation Potential
 
-The first experiment introduced a deliberately simple observer quantity.
+The first attempt introduced a simple geometric observer.
 
-For an eligible frontier site `x`, define:
+For an eligible frontier site `x`:
 
 ```text
 FCP(x)
@@ -143,11 +155,9 @@ FCP(x)
 |frontier before forcing x|
 ```
 
-We called this:
+We called it:
 
 # **Frontier Creation Potential**
-
-The interpretation was direct.
 
 If:
 
@@ -155,7 +165,7 @@ If:
 FCP > 0
 ```
 
-then forcing `x` expanded the set of currently available construction opportunities.
+then occupying `x` created more frontier opportunities than it consumed.
 
 If:
 
@@ -163,7 +173,7 @@ If:
 FCP = 0
 ```
 
-then the intervention rearranged opportunity without changing its total count.
+then the frontier count stayed unchanged.
 
 If:
 
@@ -171,512 +181,158 @@ If:
 FCP < 0
 ```
 
-then occupying `x` consumed more frontier opportunity than it created.
+then the intervention consumed more frontier opportunity than it created.
 
-This was not a claim about energy.
+The original hypothesis was:
 
-Not metabolism.
+> **Sites that create more frontier opportunity will produce greater transient causal gain.**
 
-Not fitness.
+The first run looked promising but was badly designed for the effect size it claimed to test.
 
-Just a count of how one local state change altered the next available construction surface.
+It used only 48 independent groups.
+
+The achieved confidence interval around the high-minus-low transient gain was roughly:
+
+```text
++0.167
+95% CI [-0.078, +0.431]
+```
+
+while the declared smallest meaningful effect was:
+
+```text
++0.15
+```
+
+The interval was far too wide to distinguish an effect at that scale.
+
+That is not a scientific failure of the hypothesis.
+
+It is an inconclusive experiment.
+
+There was another problem.
+
+For a frontier intervention:
+
+```text
+FCP
+=
+promoted_frontier - 1
+```
+
+identically.
+
+The original analysis treated the agreement between those quantities as construct validation.
+
+It was not.
+
+It was a consistency check between two expressions of the same geometry.
+
+That belongs in an assertion.
+
+Not in the evidence ledger.
+
+The first lesson of Chapter 24 was methodological:
+
+> **A failed significance gate does not become a negative result unless the experiment had enough precision to resolve the effect it claimed mattered.**
 
 ---
 
-## The Frozen Question
+# V2 — Exact Local Motifs
 
-The experiment did not simply correlate FCP with later growth.
+The second attempt asked whether FCP was simply too compressed.
 
-That would have been too weak.
+A frontier cell on the hexagonal lattice has six immediate neighbours.
 
-High-FCP and low-FCP sites were matched within the same independent checkpoint on:
+Each can be occupied or empty.
 
-```text
-same occupied-neighbour count
-same radial bin
-baseline attachment probability within 0.05
-local frontier density within 0.10
-```
-
-and required to differ by at least one unit of FCP.
-
-Each site then received the same transient intervention used at the end of Chapter 23:
-
-```text
-FORCE x
-vs
-PREVENT x
-
-↓
-one full causal update
-
-↓
-remove x from FORCE
-
-↓
-continue ordinary dynamics
-```
-
-The primary target was:
-
-```text
-G_T(12)
-```
-
-the cumulative local transient construction gain over twelve future updates.
-
-The frozen hypothesis was:
-
-> **Among locally comparable frontier sites, forcing a site that creates more frontier opportunity will produce greater transient causal gain.**
-
-The required mean effect was:
-
-```text
-+0.15 attachments
-```
-
-with a bootstrap interval entirely above zero and a one-sided group-level sign-flip test below `0.05`.
-
----
-
-# The Geometry Manipulation Worked
-
-The run was exceptionally clean.
-
-All:
-
-```text
-48 / 48
-```
-
-groups produced matched pairs.
-
-There were:
-
-```text
-356 matched high/low pairs
-```
-
-with roughly:
-
-```text
-7.4 pairs per group
-```
-
-and the lattice remained far from its hard capacity boundary.
-
-The construct-validity result was strong.
-
-High-FCP sites promoted:
-
-```text
-+1.259
-```
-
-more ring-one frontier cells than matched low-FCP sites.
-
-The 95% interval was:
-
-```text
-[1.196, 1.325]
-```
-
-and the sign-flip probability was approximately:
-
-```text
-0.000125
-```
-
-So Frontier Creation Potential was not empty bookkeeping.
-
-It identified a real and reproducible difference in how an attachment transformed immediate construction opportunity.
-
-That claim survived.
-
----
-
-# But the Gain Link Failed
-
-The primary result was:
-
-```text
-G_T(high FCP)
--
-G_T(low FCP)
-
-mean
-= +0.167
-```
-
-The point estimate was just above the frozen minimum effect of `+0.15`.
-
-But the uncertainty was large:
-
-```text
-95% CI
-[-0.078, +0.431]
-```
-
-and:
-
-```text
-p = 0.105
-```
-
-The hypothesis failed.
-
-That distinction matters.
-
-We did not say:
-
-> The effect was nearly significant.
-
-We said:
-
-> **The frozen experiment did not establish the claim.**
-
-The manipulation succeeded.
-
-The predicted causal consequence did not.
-
-That is exactly what a useful experiment should be able to show.
-
----
-
-## The Descriptive Map Looked Tempting
-
-The descriptive FCP bins looked much more exciting:
-
-```text
-FCP     mean transient gain
-
--1      0.014
- 0      0.145
-+1      0.173
-+2      0.535
-```
-
-At first glance, that looked like a strong gradient.
-
-But the rank correlation across sites was almost zero:
-
-```text
-Spearman(FCP, gain)
-≈ 0.043
-```
-
-The same pattern appeared in the other simple local variables.
-
-None provided a strong monotonic map of transient gain.
-
-So the descriptive result suggested something more irregular.
-
-Perhaps FCP was not a continuously meaningful field.
-
-Perhaps particular local geometries mattered.
-
-That led to V2.
-
----
-
-# V2 — Exact Local Frontier Motifs
-
-A frontier cell on a hexagonal lattice has six immediate neighbours.
-
-Each neighbour can be:
-
-```text
-occupied
-or
-empty
-```
-
-so the ring around the cell can be represented as six bits:
+So its ring can be represented as six bits:
 
 ```text
 b0 b1 b2 b3 b4 b5
 ```
 
-There are:
+There are 64 raw patterns and far fewer once rotation and reflection are treated as equivalent.
 
-```text
-2^6 = 64
-```
+Perhaps exact local arrangement mattered.
 
-raw patterns.
-
-After accounting for rotation and reflection, far fewer distinct local motifs remain.
-
-The idea was simple.
-
-Two frontier sites could have the same number of occupied neighbours but arrange them differently.
-
-For example, two occupied neighbours could be:
-
-```text
-adjacent
-```
-
-or:
-
-```text
-separated by one gap
-```
-
-or:
-
-```text
-opposite
-```
-
-Those geometries can transform frontier opportunity differently even when the occupied-neighbour count is identical.
-
-So perhaps the scalar summaries in V1 had compressed away the real causal object.
-
----
-
-## The V2 Question
-
-V2 again avoided asking which motif happened to have the largest average gain.
-
-Instead it used an omnibus test.
-
-Sites were matched on:
-
-```text
-same occupied-neighbour count
-same radial bin
-baseline attachment probability within 0.05
-local frontier density within 0.10
-```
-
-Then two pair families were built.
-
-One pair family contained:
-
-```text
-SAME-MOTIF PAIRS
-```
-
-The other contained:
+The experiment compared:
 
 ```text
 CROSS-MOTIF PAIRS
 ```
 
-The primary statistic was:
+against:
 
 ```text
-mean |gain difference| across cross-motif pairs
-
-minus
-
-mean |gain difference| across same-motif pairs
+SAME-MOTIF PAIRS
 ```
 
-If exact local arrangement mattered beyond the matched scalar state, cross-motif pairs should diverge more strongly.
+while matching several scalar properties.
 
-The frozen minimum effect was:
+That experiment was even less precise than V1.
+
+Its primary confidence interval had a half-width of roughly:
 
 ```text
-+0.20 attachments
+0.50 attachments
 ```
+
+against a declared meaningful effect of:
+
+```text
+0.20
+```
+
+So again:
+
+> **inconclusive**
+
+not:
+
+> failed.
+
+The experiment did teach us something else.
+
+Matching on baseline attachment probability could condition away part of the very mechanism geometry was allowed to influence.
+
+The frozen attachment rule depends on local exposure geometry.
+
+So:
+
+```text
+LOCAL MOTIF
+↓
+ATTACHMENT PROBABILITY
+```
+
+can itself be part of the causal path.
+
+Conditioning tightly on that probability asks a narrower question:
+
+> Does motif have an additional residual effect after one of its consequences has been held fixed?
+
+That was not the broad geometric question we thought we were asking.
 
 ---
 
-# V2 Failed Harder Than V1
+# V3 — Recent Process History
 
-The run was again valid.
+The third attempt moved from geometry to process.
 
-Out of 48 groups:
+Two frontier sites can look the same now while having experienced different recent histories.
 
-```text
-45
-```
-
-contained both same-motif and cross-motif pairs.
-
-Coverage was:
+So V3 measured six recent updates of:
 
 ```text
-93.75%
+attachments
+losses
+reoccupations
+first occupations
+evaluations
 ```
 
-The experiment measured:
-
-```text
-1,536 intervention sites
-95 cross-motif pairs
-145 same-motif pairs
-```
-
-across:
-
-```text
-12 observed canonical motif classes
-```
-
-The primary result was:
-
-```text
-cross-motif |Δ gain|
--
-same-motif |Δ gain|
-
-mean
-= -0.225
-```
-
-with:
-
-```text
-95% CI
-[-0.692, +0.307]
-
-p
-= 0.802
-```
-
-The predicted effect did not merely fail to clear the threshold.
-
-The point estimate went in the opposite direction.
-
-The opportunity-transformation test also failed:
-
-```text
-cross-motif |Δ promoted frontier|
--
-same-motif |Δ promoted frontier|
-
-mean
-= +0.040
-```
-
-with:
-
-```text
-95% CI
-[-0.092, +0.170]
-
-p
-= 0.272
-```
-
-So the exact six-neighbour motif did not add detectable information beyond the scalar state variables we had already matched.
-
----
-
-# But V2 Taught Us Something About Conditioning
-
-The descriptive motif atlas looked more interesting than the omnibus result.
-
-For the three `n = 2` arrangements:
-
-```text
-motif type       FCP       promoted     transient G
-
-adjacent        +0.174      1.174         0.391
-one-gap         -0.580      0.420         0.094
-opposite        -1.000      0.000         0.043
-```
-
-That looked almost exactly like the motif story.
-
-But there was a catch.
-
-Their baseline attachment probabilities were very different.
-
-The adjacent configuration had a mean probability near:
-
-```text
-0.212
-```
-
-while the one-gap and opposite configurations were both near:
-
-```text
-0.57
-```
-
-The exact geometry was already influencing the frozen attachment rule.
-
-That meant our V2 matching did something very specific.
-
-It did not ask:
-
-> Does local motif affect the system?
-
-It asked:
-
-> **Does motif add a residual effect after holding tightly fixed a quantity that motif itself may already help determine?**
-
-That is still a valid causal question.
-
-But it is narrower.
-
-The answer was:
-
-> **No detectable residual effect under this protocol.**
-
-We had not discovered that geometry was irrelevant.
-
-We had discovered that exact motif was not an independent local gain variable once the measured present-state summaries were controlled.
-
-That left one qualitatively different possibility.
-
-Perhaps the present snapshot itself was insufficient.
-
----
-
-# V3 — Recent Local Process History
-
-Two frontier sites can look the same now while having arrived there differently.
-
-One region may have recently experienced:
-
-```text
-attachment
-loss
-reoccupation
-evaluation
-turnover
-```
-
-while another geometrically similar region may have been quiet.
-
-If causal leverage depended on active process rather than instantaneous geometry, then present-state matching could erase the evidence.
-
-So V3 stopped adding more spatial features.
-
-It added time.
-
----
-
-## The Process-History Variable
-
-For every evaluated frontier site, V3 looked backward over the previous:
-
-```text
-6 updates
-```
-
-within a local hex radius of:
-
-```text
-2 cells
-```
-
-It measured:
-
-```text
-recent attachments
-recent losses
-recent reoccupations
-recent first occupations
-recent evaluations
-```
-
-The predeclared primary history variable was:
+and defined:
 
 ```text
 RECENT TURNOVER
@@ -686,705 +342,1176 @@ recent attachments
 recent losses
 ```
 
-No classifier was allowed.
+High-turnover and low-turnover sites were matched tightly on present local state.
 
-No post-hoc selection of whichever history feature worked best.
+The manipulation was large:
 
-No changing the time window after seeing the result.
+```text
+high - low recent turnover
+≈ +7.73 events
+```
+
+Yet the transient gain difference was:
+
+```text
+-0.065
+95% CI [-0.221, +0.096]
+```
+
+The positive side of that interval genuinely excluded the predeclared `+0.15` effect.
+
+But there was a deeper problem.
+
+The substrate used for V3 had no independent causal memory state.
+
+Persistent material modification was disabled.
+
+The operative dynamics were Markov in current occupancy, current input and keyed randomness.
+
+So recent history could influence the future only through the present state it had already created.
+
+V3 therefore did not test:
+
+> Does history itself matter?
+
+It tested:
+
+> Does recent turnover proxy for something about current state that our matching failed to capture?
+
+That is a useful calibration test.
+
+It is not evidence that history-dependent digital substrates cannot exist.
 
 ---
 
-## Present State Was Matched Even More Tightly
+# Reset
 
-High-turnover and low-turnover sites had to share:
-
-```text
-the same canonical six-neighbour motif
-the same radial bin
-baseline attachment probability within 0.05
-current local frontier density within 0.10
-FCP within 1
-```
-
-and they had to differ by at least:
+At this point Chapter 24 could have become an endless feature search.
 
 ```text
-2 recent material events
+FCP
+↓
+motif
+↓
+history
+↓
+bigger motif?
+↓
+classifier?
+↓
+another window?
 ```
 
-The causal intervention remained unchanged:
+That would have violated the method of the book.
 
-```text
-FORCE
-vs
-PREVENT
+So we stopped.
 
-one causal update
+Then we rebuilt the experiment from zero.
 
-remove x
+The reset kept the frozen Digital Crystal.
 
-continue to H = 12
-```
+It kept the FORCE/PREVENT intervention.
 
-The primary hypothesis was:
+But it changed the measurement stack.
 
-> **Among sites with comparable present geometry, regions with greater recent material turnover will produce greater transient causal gain.**
-
-Again, the frozen minimum effect was:
-
-```text
-+0.15 attachments
-```
+Instead of beginning with the noisy realized cascade, V4 began with the rule itself.
 
 ---
 
-# The History Manipulation Was Enormous
+# V4 — Measure the Mechanism Before the Outcome
+
+The reset used an extreme frontier-geometry contrast.
+
+Only sites satisfying:
+
+```text
+HIGH:
+FCP >= +2
+
+LOW:
+FCP <= -1
+```
+
+were eligible.
+
+Every pair therefore differed by at least:
+
+```text
+ΔFCP = 3
+```
+
+The pair design retained the same occupied-neighbour count and radial band.
+
+It deliberately stopped matching baseline attachment probability or local frontier density.
+
+Those quantities could be part of the pathway.
+
+The full run used:
+
+```text
+384 independent groups
+```
+
+and produced:
+
+```text
+275 usable groups
+471 extreme pairs
+71.6% coverage
+```
+
+The result was precise enough to test the declared effects.
+
+---
+
+# Exact Expected Construction
+
+Before drawing any lag-one Bernoulli outcomes, V4 calculated:
+
+```text
+E1
+=
+Σ p_force(candidate)
+-
+Σ p_prevent(candidate)
+```
+
+using the actual branch-specific evaluated candidate sets.
+
+This is the conditional expected construction difference before thresholding probabilities into realized attachments.
+
+That distinction matters.
+
+A realized attachment is a single bit:
+
+```text
+attach
+or
+do not attach
+```
+
+But the rule gives us the full probability shift.
+
+Why throw that information away?
+
+The primary V4 result was the high-minus-low difference in expected local construction.
+
+It was approximately:
+
+```text
+ΔE1
+= -0.0026
+
+95% CI
+[-0.0395, +0.0333]
+```
+
+The achieved one-sided 80% minimum detectable effect was about:
+
+```text
+0.047
+```
+
+against a frozen smallest meaningful effect of:
+
+```text
++0.10
+```
+
+This time the experiment really had the precision.
+
+So we could finally say:
+
+> **The extreme FCP contrast does not produce a scientifically meaningful positive difference of +0.10 or more in expected lag-one local construction under this protocol.**
+
+That is a bounded negative.
+
+The original V1 question was now properly resolved.
+
+More frontier creation did not mean more net expected local construction.
+
+But something else was happening.
+
+---
+
+# The Wrong Comparison
+
+V4 initially tempted us toward another story.
+
+High-FCP interventions appeared more likely to make the FORCE and PREVENT futures diverge.
+
+But a fresh-seed V5 did not cleanly replicate that class difference.
+
+The important result survived elsewhere.
+
+The breakthrough came from decomposing the expected effect rather than comparing only its total.
+
+---
+
+# V5 — Causal Accounting
+
+For every lag-one intervention, expected construction can be split into three terms:
+
+```text
+E1
+=
+SHARED-CELL PROBABILITY SHIFT
++
+FORCE-ONLY SELECTOR CONTRIBUTION
++
+PREVENT-ONLY SELECTOR CONTRIBUTION
+```
+
+The first term comes from cells evaluated in both branches.
+
+Their probability can change because local occupancy changed.
+
+The other two terms come from candidate substitution.
+
+A cell evaluated only in FORCE contributes:
+
+```text
++p_force
+```
+
+A cell evaluated only in PREVENT contributes:
+
+```text
+-p_prevent
+```
+
+This decomposition exposed the actual mechanism.
+
+---
+
+# The Supported Regime Was Narrower Than We Thought
+
+Every extreme V5 pair had:
+
+```text
+occupied neighbours n = 1
+```
 
 All:
 
 ```text
-48 / 48
+467 / 467 pairs
 ```
 
-groups produced pairs.
+were single-contact frontier sites.
 
-There were:
+That immediately narrows the claim.
+
+Chapter 24 is not establishing a universal law over every frontier geometry.
+
+It is establishing a mechanism in the supported:
 
 ```text
-384 matched pairs
+n = 1
 ```
 
-exactly:
+regime.
+
+The baseline probability of the focal site was also identical across the two classes:
 
 ```text
-8 per group
+HIGH p ≈ 0.38041
+LOW  p ≈ 0.38041
 ```
 
-The high-turnover sites exceeded the low-turnover sites by:
+This is explained by the hexagonal symmetry of the frozen rule for single-contact sites.
 
-```text
-7.734 recent events
-```
+So we obtained an unusually clean contrast.
 
-on average.
+The focal site itself had the same immediate attachment probability.
 
-The 95% interval was:
-
-```text
-[7.365, 8.102]
-```
-
-with:
-
-```text
-p ≈ 0.000125
-```
-
-This was not a subtle history contrast.
-
-It was large.
-
-The components showed the same separation.
-
-High-turnover sites had approximately:
-
-```text
-+3.77 recent attachments
-+3.97 recent losses
-+3.18 recent reoccupations
-+0.59 recent first occupations
-+3.28 recent evaluations
-```
-
-relative to the matched low-turnover sites.
-
-The construct-validity test passed decisively.
-
-Then H1 failed.
+What differed was what occupying it did to the surrounding frontier.
 
 ---
 
-# Recent Process History Did Not Predict Gain
+# Two Geometries, Similar Local Effect
 
-The primary result was:
-
-```text
-G_T(high turnover)
--
-G_T(low turnover)
-
-mean
-= -0.065
-```
-
-with:
+The absolute lag-one expected local effects were:
 
 ```text
-95% CI
-[-0.221, +0.096]
+HIGH FCP
+local E1 ≈ +0.159
 
-p
-= 0.791
+LOW FCP
+local E1 ≈ +0.128
 ```
 
-The point estimate was again in the wrong direction.
+Their difference was only about:
 
-This was not a weak manipulation failing to produce a measurable consequence.
+```text
++0.031
+```
 
-The recent histories differed dramatically.
+with an interval crossing zero.
 
-The gain did not.
+This is the real compensation result.
+
+The two geometry classes produced broadly similar positive local expected construction.
+
+But they produced it through radically different computational pathways.
+
+For HIGH FCP:
+
+```text
+shared-cell shift     ≈ +0.017
+selector-swap term    ≈ +0.141
+──────────────────────────────
+local expected effect ≈ +0.159
+```
+
+For LOW FCP:
+
+```text
+shared-cell shift     ≈ +0.123
+selector-swap term    ≈ +0.005
+──────────────────────────────
+local expected effect ≈ +0.128
+```
+
+The contrast is not:
+
+```text
+one class has causal gain
+the other does not
+```
+
+It is:
+
+```text
+SIMILAR LOCAL EFFECT
+↓
+DIFFERENT COMPUTATIONAL PATHWAYS
+```
+
+That is much more interesting.
 
 ---
 
-## The Descriptive Results Were Almost Flat
+# Some Things Are Assertions, Not Findings
 
-Across:
+The reset also forced us to separate code identities from scientific measurements.
 
-```text
-768 intervention sites
-```
+At lag one, FORCE and PREVENT differ locally around `x`.
 
-the descriptive rank correlation between recent turnover and transient gain was:
+For any shared evaluated cell farther than one lattice step from `x`, the frozen local rule sees exactly the same ring-one occupancy in both branches.
 
-```text
-0.0023
-```
-
-Essentially zero.
-
-The other history components were also tiny:
+Therefore:
 
 ```text
-recent attachments       +0.0046
-recent losses            -0.0020
-recent reoccupations     -0.0205
-recent first occupation  +0.0592
-recent evaluations       +0.0638
+shared_shift_far = 0
 ```
 
-The binned turnover means bounced above and below zero without a coherent trend.
+is not an empirical discovery.
 
-For example:
+It follows from the rule.
+
+Likewise:
 
 ```text
-turnover 2   → +0.447
-turnover 3   → -0.147
-turnover 4   → +0.361
-turnover 5   → -0.259
-turnover 12  → -0.079
-turnover 15  → +0.220
-turnover 17  → +0.429
-turnover 18  → -0.032
+E1_far_exact
+=
+swap_total_far
 ```
 
-There was no monotonic process-history law hiding underneath the failed matched test.
+because the shared far-field term is zero and the accounting decomposition is exact.
+
+Those are excellent correctness controls.
+
+They would catch a bug.
+
+But they do not belong in the scientific findings.
+
+A useful standing rule emerges:
+
+> **If a quantity has exactly zero variance across hundreds of independent groups because of the program structure, it belongs in an `assert`, not in a bootstrap confidence interval.**
 
 ---
 
-# The Stop Rule Fired
+# The Strong Result: Far-Field Redistribution
 
-Before V3 ran, the rule was explicit.
+Now look at the lag-one far field.
 
-If recent turnover failed on a valid run:
+For HIGH FCP:
 
 ```text
-do not change the history radius
-do not change the history window
-do not drop motif matching
-do not select another history component
-do not add a classifier
+ΔF = +2
+
+far-field expected effect
+≈ -0.117
 ```
 
-That rule now applies.
+For LOW FCP:
 
-No V4.
+```text
+ΔF = -1
 
-Chapter 24 is complete.
+far-field expected effect
+≈ +0.063
+```
+
+Both are outside the local nearest-neighbour causal cone.
+
+No signal propagated there.
+
+No wave travelled across the lattice.
+
+The coupling came from the selector.
+
+The evaluation budget remained fixed.
+
+Exactly:
+
+```text
+B = 96
+```
+
+frontier opportunities could be evaluated.
+
+If a local intervention changed the frontier, the selector had to choose a different set of candidates.
+
+Some distant opportunities were dropped.
+
+Others were added.
+
+The local action changed the global candidate population.
+
+That is the mechanism.
+
+![Finite-budget redistribution in the Digital Crystal](/images/books/digital-life/ch24-finite-budget-redistribution.png)
 
 ---
 
-# Three Ways to Localize Gain
+# The Parameter-Free Ratio
 
-We have now tried three increasingly rich local descriptions.
+The sharpest quantitative result of V5 does not require fitting a free coefficient.
 
-## V1 — Scalar Opportunity Geometry
+The extreme classes have:
 
 ```text
-Frontier Creation Potential
+HIGH:
+ΔF = +2
+
+LOW:
+ΔF = -1
 ```
 
-Question:
+If the far-field selector effect follows:
 
-> Does creating more frontier opportunity produce greater transient causal gain?
+```text
+far-field effect ∝ -ΔF
+```
 
-**FAILED**
+then the predicted ratio is:
 
-The geometry contrast itself was strongly supported.
+```text
+HIGH : LOW
+=
+-2 : +1
+```
 
-The gain link was not.
+The observed far-field effects were:
+
+```text
+HIGH
+-0.117
+
+LOW
++0.063
+```
+
+So:
+
+```text
+observed ratio
+=
+-0.117 / +0.063
+≈ -1.86
+```
+
+against:
+
+```text
+predicted ratio
+=
+-2.00
+```
+
+This is the cleanest evidence in the chapter.
+
+No fitted slope is needed to obtain the ratio.
+
+No post-hoc threshold is required.
+
+The sign flips exactly as predicted.
+
+The magnitude ratio is close to the parameter-free expectation.
+
+The core empirical statement is therefore:
+
+> **Within the supported single-contact frontier regime at `B = 96`, the selector-mediated far-field effect follows the sign and approximate magnitude expected from the change in frontier size: creating two frontier opportunities produces roughly twice the opposite far-field effect of removing one.**
+
+That is stronger than saying only that a far-field effect exists.
+
+It says the effect carries the quantitative signature of frontier dilution under fixed computational capacity.
 
 ---
 
-## V2 — Exact Present Motif
+# What the Budget Actually Conserves
+
+It is tempting to say the budget conserves construction.
+
+It does not.
+
+What remains fixed is:
 
 ```text
-canonical six-neighbour arrangement
+NUMBER OF EVALUATIONS
+=
+B
 ```
 
-Question:
+not:
 
-> Does exact local arrangement add gain information beyond matched scalar state?
+```text
+NUMBER OF ATTACHMENTS
+```
 
-**FAILED**
+Expected attachments are:
 
-Neither transient gain nor immediate opportunity transformation showed the frozen cross-motif excess.
+```text
+Σ p(candidate)
+```
+
+over whichever `B` cells happen to be selected.
+
+Change the candidate set and that sum can change.
+
+So the correct statement is:
+
+> **Finite budget conserves evaluation capacity, not attachment count.**
+
+That distinction explains the V5 local/global accounting.
+
+For HIGH FCP:
+
+```text
+local E1     ≈ +0.159
+far E1       ≈ -0.117
+──────────────────────
+global E1    ≈ +0.042
+```
+
+Most of the positive local effect is offset by far-field suppression.
+
+For LOW FCP:
+
+```text
+local E1     ≈ +0.128
+far E1       ≈ +0.063
+──────────────────────
+global E1    ≈ +0.191
+```
+
+Here the local and far-field effects reinforce.
+
+A fixed number of evaluations does not imply zero net expected construction.
+
+It implies competition over **which opportunities receive those evaluations**.
+
+That is a very different kind of conservation law.
 
 ---
 
-## V3 — Recent Local Process History
+# Selector Dilution
+
+A first-order approximation follows naturally.
+
+Let:
 
 ```text
-six-step local material turnover
+F
 ```
 
-Question:
+be frontier size and:
 
-> Does recent local process history add gain information beyond matched present state?
+```text
+B
+```
 
-**FAILED**
+the fixed evaluation budget.
 
-The history contrast was enormous.
+Then an arbitrary frontier opportunity is evaluated at roughly:
 
-The gain difference was slightly negative.
+```text
+B / F
+```
+
+when:
+
+```text
+B < F
+```
+
+If a local intervention changes frontier size by:
+
+```text
+ΔF
+```
+
+then the global evaluation probability of distant opportunities shifts.
+
+A first-order far-field approximation is:
+
+```text
+E_far
+≈
+-(ΔF / F)
+×
+(B / F)
+×
+Σ p_far
+```
+
+The V5 approximation cleared its frozen aggregate residual tolerance.
+
+But its per-intervention correlation was only moderate.
+
+So we should not pretend the formula predicts every individual intervention.
+
+The stronger claim is narrower:
+
+> **The aggregate far-field effect is consistent with the expected sign and scale of fixed-budget selector dilution, and the parameter-free `-2:1` ratio provides the clearest confirmation in the tested extreme-FCP classes.**
+
+That is enough.
+
+Chapter 25 will test the approximation as a general law.
 
 ---
 
-# What Survived the Hypothesis?
+# The FCP = 0 Control We Have Not Yet Used
 
-The chapter did not end empty.
+The Digital Crystal also contains frontier sites with:
 
-Several claims survived.
+```text
+FCP = 0
+```
 
-## Frontier geometry changes immediate opportunity
+There, the local intervention does not change total frontier size.
 
-> **Matched frontier sites can differ strongly in how one attachment transforms the immediate construction frontier.**
+It can still change frontier composition:
+
+```text
+x leaves
+one other opportunity enters
+```
+
+So the size-dilution term predicts:
+
+```text
+0
+```
+
+while candidate composition can still produce substitutions.
+
+That gives us a powerful next control:
+
+```text
+FCP = 0
+↓
+SIZE EFFECT REMOVED
+↓
+COMPOSITION SUBSTITUTION REMAINS
+```
+
+This is not needed to close Chapter 24.
+
+It belongs in the next budget experiment.
+
+But it tells us exactly how to separate:
+
+```text
+frontier-size dilution
+```
+
+from:
+
+```text
+frontier-composition substitution
+```
+
+without inventing a new observer.
+
+---
+
+# What Happened to the Divergence Story?
+
+V4 suggested that high-FCP interventions might mainly change:
+
+```text
+P(PATH DIVERGES)
+```
+
+rather than:
+
+```text
+CASCADE SIZE GIVEN DIVERGENCE
+```
+
+A fresh-seed V5 did not confirm that cleanly.
+
+The realized lag-one divergence rates were approximately:
+
+```text
+HIGH  0.212
+LOW   0.206
+```
+
+with a high-minus-low difference close to zero relative to the planned effect size.
+
+Likewise:
+
+```text
+P(G_T != 0)
+```
+
+did not establish the expected class difference.
+
+The conditional magnitude among nonzero cases also changed dramatically between seeds.
+
+That is a calibration result.
+
+Rare-event conditional summaries can look extremely compelling and still be unstable.
+
+So Chapter 24 does not use them as the mechanism.
+
+The mechanism is identified one level earlier:
+
+```text
+FRONTIER CHANGE
+↓
+GLOBAL SELECTOR CHANGE
+↓
+EXPECTED FAR-FIELD REDISTRIBUTION
+```
+
+That pathway is both cleaner and more reproducible.
+
+---
+
+# The Scientific Result
+
+We can now state the Chapter 24 result without pretending we found a causal-gain field.
+
+> **Within the tested single-contact Digital Crystal frontier regime at a fixed evaluation budget of `B = 96`, a local attachment can immediately change expected construction outside its nearest-neighbour causal cone by altering the globally selected set of frontier candidates.**
+
+More specifically:
+
+```text
+ΔF = +2
+→
+far-field expected effect ≈ -0.117
+
+ΔF = -1
+→
+far-field expected effect ≈ +0.063
+```
+
+giving:
+
+```text
+observed ratio ≈ -1.86
+predicted ratio = -2 : 1
+```
+
+The local mechanism is local.
+
+The coupling mechanism is global.
+
+That distinction matters.
+
+---
+
+# P005 — Finite-Budget Redistribution
+
+The phenomenon ledger can now promote a new entry.
+
+# **Finite-Budget Redistribution**
 
 **Status: SUPPORTED**
 
-V1 showed a large, reproducible difference in promoted frontier opportunity.
+Operational statement:
 
----
+> **Under a fixed global evaluation budget, a local change in frontier geometry can immediately alter which distant construction opportunities are evaluated, producing expected far-field construction differences outside the nearest-neighbour causal cone.**
 
-## Exact motif adds residual gain information
-
-> **Exact six-neighbour motif predicts transient causal gain beyond matched present-state summaries.**
-
-**Status: FAILED**
-
-V2 produced no such effect.
-
----
-
-## Recent turnover adds gain information
-
-> **Recent local material turnover predicts transient causal gain beyond matched present geometry.**
-
-**Status: FAILED**
-
-V3 produced no such effect.
-
----
-
-## Local causal effect exists
-
-This claim comes from Chapter 23 and remains intact:
-
-> **Forcing one frontier attachment changes subsequent local construction.**
-
-**Status: SUPPORTED**
-
-Chapter 24 did not undo that.
-
-It changed what we can say about where that causal leverage belongs.
-
----
-
-# Causal Effect Is Not a Local Property
-
-This is the central distinction Chapter 24 earned:
+Mechanism:
 
 ```text
-A LOCAL CAUSAL EFFECT EXISTS
+LOCAL FRONTIER CHANGE
+↓
+FIXED-SIZE GLOBAL EVALUATION
+↓
+CANDIDATE SUBSTITUTION
+↓
+FAR-FIELD REDISTRIBUTION
 ```
 
-does not imply:
+Current scope:
 
 ```text
-THERE EXISTS A STABLE LOCAL
-CAUSAL-GAIN PROPERTY
+Digital Crystal v1
+single-contact frontier sites
+extreme FCP +2 versus -1
+B = 96
+lag 1
 ```
 
-The first is interventional.
-
-The second is representational.
-
-Chapter 23 established the intervention.
-
-Chapter 24 tried to construct the representation.
-
-It failed.
-
-That failure matters.
-
-We cannot currently point at a frontier site and say:
+Stronger approximation:
 
 ```text
-this is a high-gain location
+far-field effect
+∝
+-ΔF
 ```
 
-using:
+**Status: SUPPORTED APPROXIMATION IN TESTED REGIME**
+
+Not yet established:
 
 ```text
-how much frontier it would create
-its exact six-neighbour motif
-its recent local turnover
+generality across B
+generality across n
+linearity over all FCP values
+behaviour near B ≈ F
+unbounded-limit behaviour
+long-term system organization
 ```
 
-with the level of evidence required by this project.
-
-That does not mean gain is random in some metaphysical sense.
-
-It means the local descriptions we tested do not carry a stable enough relationship to transient causal consequence.
-
-The future depends on more than the present local label.
+Those are now experimentally accessible.
 
 ---
 
-# Perhaps Gain Is Not Stored Anywhere
+# What Chapter 24 Did Not Find
 
-The wording of the chapter title now looks suspicious.
+The chapter began looking for:
 
-> Where is causal gain created?
+```text
+HIGH-GAIN LOCATIONS
+```
 
-Maybe that assumes too much.
+It did not establish a stable local causal-gain field.
 
-The experiment increasingly suggests:
+But the reason is now more interesting than a null result.
+
+The local causal consequence is partly determined by a computational allocation process that is not local.
+
+A cell can matter not only because it changes its neighbours.
+
+It can matter because it changes the set from which the entire system spends its finite computational budget.
+
+That means:
+
+```text
+LOCAL RULE
++
+GLOBAL COMPUTATIONAL CONSTRAINT
+↓
+NON-LOCAL CAUSAL COUPLING
+```
+
+without requiring:
+
+```text
+non-local physics
+message passing
+waves
+hidden signals
+```
+
+The non-locality is in resource allocation.
+
+Not in the transition rule.
+
+---
+
+# This Is a Digital-Native Constraint
+
+Biological systems force us to think about:
+
+```text
+energy
+matter
+transport
+space
+```
+
+The Digital Crystal has another scarce quantity:
+
+```text
+evaluation
+```
+
+Only a finite number of possible construction events are allowed to receive computation on each update.
+
+So two spatially distant regions can interact without exchanging a signal.
+
+They interact because:
+
+```text
+both want access to the same B evaluations
+```
+
+This is not metabolism.
+
+It is not biological resource competition.
+
+It is a substrate-specific computational constraint.
+
+And it emerged because we refused to call the budget "energy" merely because it behaved like scarcity.
+
+The correct object was already there:
+
+```text
+FINITE COMPUTATION
+```
+
+---
+
+# What We Learned From Getting Chapter 24 Wrong
+
+The V1→V5 sequence is worth keeping because it demonstrates the experimental method under pressure.
+
+We made several mistakes.
+
+```text
+weak contrast
+underpowered SEI
+identity treated as evidence
+conditioning on a possible mediator
+history tested in a memoryless substrate
+rare-event mean used as one noisy outcome
+```
+
+Then the reset changed the result.
+
+The solution was not:
+
+```text
+run more prompts
+add more features
+use a classifier
+```
+
+It was:
+
+```text
+identify the mechanism
+↓
+measure the expectation directly
+↓
+separate identities from findings
+↓
+decompose the causal pathway
+↓
+use a parameter-free prediction where possible
+↓
+retain bounded conclusions
+```
+
+That is exactly the scientific discipline this book is supposed to practice.
+
+---
+
+# The New Causal Ladder
+
+Chapter 23 and Chapter 24 now give us a cleaner causal decomposition:
 
 ```text
 INTERVENTION
 ↓
-enters a stochastic finite-budget process
+LOCAL RULE CHANGES PROBABILITIES
 ↓
-changes local opportunity
+FRONTIER MEMBERSHIP CHANGES
 ↓
-changes which candidates are evaluated
+GLOBAL SELECTOR CHANGES
 ↓
-changes some attachments
+EVALUATION LOCATIONS CHANGE
 ↓
-changes later opportunity
+EXPECTED CONSTRUCTION REDISTRIBUTES
 ↓
-effect dissipates or redistributes
+REALIZED FUTURES MAY DIVERGE
+↓
+DOWNSTREAM CASCADE MAY FOLLOW
 ```
 
-The causal consequence may be generated through that unfolding interaction rather than residing in a stable local state beforehand.
-
-In that picture, asking:
+Those stages should never again be compressed into one word like:
 
 ```text
-where is the gain?
+gain
 ```
 
-is like asking where a traffic jam is stored before the cars meet.
+They are different objects.
 
-The ingredients may exist locally.
+They have different estimators.
 
-The consequence emerges from their interaction under shared constraints.
+They require different controls.
 
-That is not yet a claim about emergence.
-
-It is simply a warning against reifying an observer quantity that the experiments have not recovered.
+And some of them are much easier to identify than others.
 
 ---
 
-# A Recurring Pattern: Local Gain, Far-Field Compensation
+# Next: Vary the Constraint, Not the Crystal
 
-One phenomenon kept appearing while the local-predictor hypotheses failed.
+The next question is now obvious.
 
-Some interventions showed:
+If the far-field effect really comes from finite candidate selection, then varying the budget should change the effect predictably.
+
+But there is an important experimental requirement.
+
+We must **not** grow a different crystal at each budget.
+
+That would confound:
 
 ```text
-positive local construction difference
+budget
+morphology
+population
+frontier size
+history
 ```
 
-together with:
+Instead:
 
 ```text
-negative far-field construction difference
-```
+SAME CHECKPOINT
+SAME INTERVENTION
+SAME FRONTIER
 
-In V1, for example, the high-versus-low FCP comparison produced approximately:
-
-```text
-local difference      +0.167
-far-field difference  -0.213
-global difference     -0.046
-```
-
-The intervals were wide.
-
-So that particular contrast did not establish a new quantitative law.
-
-But the pattern had appeared before.
-
-Several sparse motifs in V2 showed the same structure.
-
-For the one-neighbour motif:
-
-```text
-local gain      ≈ +0.335
-far-field gain  ≈ -0.252
-global gain     ≈ +0.083
-```
-
-For one adjacent two-neighbour motif:
-
-```text
-local gain      ≈ +0.431
-far-field gain  ≈ -0.333
-global gain     ≈ +0.097
-```
-
-A local intervention can apparently change where construction happens much more strongly than it changes total construction.
-
-That points away from a local gain reservoir.
-
-And toward a shared resource.
-
----
-
-# Finite Computation Is a Global Constraint
-
-The Digital Crystal does not evaluate every available frontier cell at every update.
-
-Chapter 21 introduced a finite evaluation budget.
-
-At each step, only a bounded number of candidate opportunities are considered.
-
-That means distant locations are coupled even if the attachment rule itself is local.
-
-Not because a signal travels between them.
-
-Because they compete for access to the same finite computational process.
-
-Schematically:
-
-```text
-LOCAL OPPORTUNITY A
-        ↓
-FINITE EVALUATION BUDGET
-        ↑
-LOCAL OPPORTUNITY B
-```
-
-If one intervention creates more attractive or more numerous nearby opportunities, those opportunities can consume evaluations that would otherwise occur elsewhere.
-
-Then:
-
-```text
-LOCAL POSITIVE EFFECT
-```
-
-can coexist with:
-
-```text
-FAR-FIELD NEGATIVE EFFECT
-```
-
-without requiring any travelling influence between the two regions.
-
-That is a substrate-level coupling.
-
-And it may be much more important than the local gain map we originally went looking for.
-
----
-
-# A New Candidate Phenomenon
-
-The phenomenon ledger should now carry a new candidate:
-
-# **Finite-Budget Redistribution**
-
-Operational form:
-
-> **Local interventions can alter where construction occurs without producing a corresponding increase in total construction, because spatially separated opportunities compete for a finite global evaluation budget.**
-
-For now, this should remain bounded.
-
-The repeated local/far-field pattern motivates it.
-
-But Chapter 24 did not freeze a dedicated redistribution hypothesis.
-
-So we should not upgrade it into a law yet.
-
-The chapter has earned the question.
-
-Not the answer.
-
----
-
-# What Chapter 24 Does Not Establish
-
-It does not establish:
-
-```text
-a causal-gain field
-high-gain regions
-stable gain states
-coherent structures
-criticality
-percolation
-a phase transition
-a natural boundary
-autonomy
-individuality
-an organism
-life
-```
-
-It also does not establish that gain is fundamentally unpredictable.
-
-We tested specific local representations.
-
-Those representations failed.
-
-That boundary must remain explicit.
-
-The correct statement is:
-
-> **Under the tested Digital Crystal protocol, transient causal gain was not reliably localized by Frontier Creation Potential, exact six-neighbour motif, or recent local material turnover after the corresponding controls were applied.**
-
-Nothing larger is required.
-
----
-
-# What We Have Earned
-
-Chapter 23 gave us:
-
-```text
-LOCAL CAUSAL EFFECT
-```
-
-Chapter 24 tried to turn that into:
-
-```text
-LOCAL CAUSAL PROPERTY
-```
-
-and failed.
-
-That gives us a new progression:
-
-```text
-LOCAL INTERVENTION
 ↓
-MEASURABLE LOCAL CONSEQUENCE
-↓
-NO STABLE LOCAL GAIN VARIABLE FOUND
-↓
-CONSEQUENCE DEPENDS ON UNFOLDING PROCESS
-AND SHARED COMPUTATIONAL CONSTRAINT
+RECOMPUTE LAG-1 EXPECTATION
+UNDER DIFFERENT B
 ```
 
-This may be more useful than the high-gain-region story we expected.
+That isolates the computational constraint itself.
 
-Because now the next question changes scale.
+The useful control parameter is not a fixed list of arbitrary budgets.
 
-Not upward toward an organism.
+It is:
 
-Sideways toward constraint.
+```text
+B / F
+```
+
+the fraction of the current frontier that can be evaluated.
+
+A meaningful sweep is therefore approximately:
+
+```text
+B/F =
+0.05
+0.10
+0.25
+0.50
+0.75
+1.00
+```
+
+plus:
+
+```text
+UNBOUNDED
+```
+
+At:
+
+```text
+B >= F
+```
+
+there is no candidate subsampling.
+
+Every frontier opportunity is evaluated.
+
+Therefore selector-mediated outside-cone displacement must be:
+
+```text
+exactly zero
+```
+
+If it is not, the implementation is wrong.
+
+That is a hard correctness control.
+
+The linear dilution approximation should work best when:
+
+```text
+B << F
+```
+
+and must break as:
+
+```text
+B → F
+```
+
+because at full evaluation there is nothing left to dilute.
+
+So Chapter 25 does not merely ask:
+
+> Does redistribution get weaker with more computation?
+
+It asks:
+
+> **Where does finite-budget redistribution disappear, and how does the mechanism depart from the linear approximation as evaluation capacity approaches the whole frontier?**
+
+That is a real control-parameter experiment.
 
 ---
 
-# Next: Where Does the Causal Effect Go?
+# From Gain to Constraint
 
-If local construction can increase while distant construction decreases, then the next experiment should stop asking:
-
-> Which location has more gain?
-
-and ask:
-
-> **When one region gains construction, where is the corresponding difference expressed elsewhere?**
-
-That is a new causal question.
-
-The experiment should partition the crystal into spatial bands around an intervention:
+Chapter 24 began with:
 
 ```text
-INTERVENTION SITE
-↓
-RING 1–2
-RING 3–5
-RING 6–10
-FAR FIELD
+WHERE IS CAUSAL GAIN CREATED?
 ```
 
-and separately measure:
+We expected to find a local property.
 
-```text
-attachment difference
-evaluation difference
-loss difference
-reoccupation difference
-net population difference
-```
+Instead we found a coupling.
 
-Then vary the global evaluation budget:
+The local intervention changes the frontier.
 
-```text
-B = 24
-B = 48
-B = 96
-B = 192
-unbounded reference
-```
+The frontier changes the candidate population.
 
-The key question becomes:
+The candidate population competes for a fixed number of evaluations.
 
-> **Does finite computation induce long-range competition between otherwise local construction processes?**
+And distant expected construction changes immediately.
 
-If the redistribution weakens as the budget rises and disappears in the unbounded reference, that would identify a genuine substrate mechanism.
-
-Not a metaphorical energy.
-
-Not biological metabolism.
-
-A computational constraint creating non-local coupling.
-
-The path forward is now:
+So the chapter ends somewhere different from where it began.
 
 ```text
 LOCAL CAUSAL EFFECT
 ↓
-NO STABLE LOCAL GAIN STATE
+NOT A SIMPLE LOCAL GAIN FIELD
 ↓
-FINITE GLOBAL COMPUTATIONAL CONSTRAINT
+FINITE COMPUTATIONAL ALLOCATION
 ↓
-DO LOCAL PROCESSES COMPETE?
-↓
-DOES COMPETITION CREATE
-SYSTEM-LEVEL ORGANIZATION?
+FAR-FIELD REDISTRIBUTION
 ```
 
-Chapter 24 began by asking where causal gain was created.
+The most important sentence is no longer:
 
-The answer is not that we found the wrong place.
+> The effect exists but the location does not.
 
-The stronger result is:
+It is:
 
-> **We did not find evidence that transient causal gain belongs to a stable local place at all.**
+> **The effect is partly local, but the constraint that distributes it is global.**
 
-The effect exists.
+And that gives us something better than the high-gain map we went looking for.
 
-The location does not yet.
+It gives us a measurable law of the substrate.

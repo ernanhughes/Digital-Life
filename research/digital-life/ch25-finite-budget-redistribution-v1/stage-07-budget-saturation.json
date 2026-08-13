@@ -1,0 +1,128 @@
+{
+  "-1": {
+    "reference_E_far_at_0.10": 0.030609922645323397,
+    "first_fraction_exceeding_25_percent_error": 0.25,
+    "points": [
+      {
+        "fraction": 0.05,
+        "observed_E_far": 0.011694082764280554,
+        "linear_extrapolation_from_0.10": 0.015304961322661698,
+        "relative_error": 0.23592863008641526
+      },
+      {
+        "fraction": 0.1,
+        "observed_E_far": 0.030609922645323397,
+        "linear_extrapolation_from_0.10": 0.030609922645323397,
+        "relative_error": 0.0
+      },
+      {
+        "fraction": 0.25,
+        "observed_E_far": 0.11795462409633418,
+        "linear_extrapolation_from_0.10": 0.07652480661330849,
+        "relative_error": 0.5413906851457577
+      },
+      {
+        "fraction": 0.5,
+        "observed_E_far": 0.21272089879725478,
+        "linear_extrapolation_from_0.10": 0.15304961322661698,
+        "relative_error": 0.38988197560671994
+      },
+      {
+        "fraction": 0.75,
+        "observed_E_far": 0.29354403154531816,
+        "linear_extrapolation_from_0.10": 0.22957441983992546,
+        "relative_error": 0.2786443356798922
+      },
+      {
+        "fraction": 1.0,
+        "observed_E_far": 0.0,
+        "linear_extrapolation_from_0.10": 0.30609922645323395,
+        "relative_error": 1.0
+      }
+    ]
+  },
+  "1": {
+    "reference_E_far_at_0.10": -0.05377229109648131,
+    "first_fraction_exceeding_25_percent_error": 1.0,
+    "points": [
+      {
+        "fraction": 0.05,
+        "observed_E_far": -0.023461030601911338,
+        "linear_extrapolation_from_0.10": -0.026886145548240654,
+        "relative_error": 0.12739330523163986
+      },
+      {
+        "fraction": 0.1,
+        "observed_E_far": -0.05377229109648131,
+        "linear_extrapolation_from_0.10": -0.05377229109648131,
+        "relative_error": 0.0
+      },
+      {
+        "fraction": 0.25,
+        "observed_E_far": -0.12391584293158382,
+        "linear_extrapolation_from_0.10": -0.13443072774120327,
+        "relative_error": 0.0782178671967169
+      },
+      {
+        "fraction": 0.5,
+        "observed_E_far": -0.2577732195288693,
+        "linear_extrapolation_from_0.10": -0.26886145548240653,
+        "relative_error": 0.04124144881103209
+      },
+      {
+        "fraction": 0.75,
+        "observed_E_far": -0.3480616256861702,
+        "linear_extrapolation_from_0.10": -0.4032921832236098,
+        "relative_error": 0.1369492388768081
+      },
+      {
+        "fraction": 1.0,
+        "observed_E_far": 0.0,
+        "linear_extrapolation_from_0.10": -0.5377229109648131,
+        "relative_error": 1.0
+      }
+    ]
+  },
+  "2": {
+    "reference_E_far_at_0.10": -0.10982773521018312,
+    "first_fraction_exceeding_25_percent_error": 1.0,
+    "points": [
+      {
+        "fraction": 0.05,
+        "observed_E_far": -0.04905015097664067,
+        "linear_extrapolation_from_0.10": -0.05491386760509156,
+        "relative_error": 0.10678025213265453
+      },
+      {
+        "fraction": 0.1,
+        "observed_E_far": -0.10982773521018312,
+        "linear_extrapolation_from_0.10": -0.10982773521018312,
+        "relative_error": 0.0
+      },
+      {
+        "fraction": 0.25,
+        "observed_E_far": -0.26141535457075316,
+        "linear_extrapolation_from_0.10": -0.2745693380254578,
+        "relative_error": 0.04790769264077484
+      },
+      {
+        "fraction": 0.5,
+        "observed_E_far": -0.49232224710933226,
+        "linear_extrapolation_from_0.10": -0.5491386760509156,
+        "relative_error": 0.10346462818859144
+      },
+      {
+        "fraction": 0.75,
+        "observed_E_far": -0.7145365420954978,
+        "linear_extrapolation_from_0.10": -0.8237080140763734,
+        "relative_error": 0.13253661505684142
+      },
+      {
+        "fraction": 1.0,
+        "observed_E_far": 0.0,
+        "linear_extrapolation_from_0.10": -1.0982773521018312,
+        "relative_error": 1.0
+      }
+    ]
+  }
+}

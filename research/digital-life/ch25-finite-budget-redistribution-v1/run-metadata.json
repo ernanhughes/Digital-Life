@@ -1,0 +1,57 @@
+{
+  "experiment_version": "digital-crystal-finite-budget-redistribution-v1",
+  "schema_version": 1,
+  "chapter": 25,
+  "chapter_title": "How Does Finite Computation Create Non-Local Coupling?",
+  "profile": "full",
+  "profile_config": {
+    "groups": 384,
+    "source_profile": "full",
+    "max_sites_per_fcp_per_group": 4,
+    "bootstrap_reps": 7000,
+    "scientific": true
+  },
+  "source_checkpoint_profile": {
+    "groups": 384,
+    "radius": 110,
+    "warmup_steps": 24,
+    "lossy_pre_steps": 28,
+    "horizon": 12,
+    "loss_rate": 0.08,
+    "budget": 96,
+    "radial_bin_width": 4,
+    "high_fcp_min": 2,
+    "low_fcp_max": -1,
+    "minimum_fcp_difference": 3,
+    "minimum_group_coverage_fraction": 0.5,
+    "max_pairs_per_group": 10,
+    "sei_E1": 0.1,
+    "sei_g1": 0.1,
+    "sei_divergence_probability": 0.05,
+    "sei_GT": 0.15,
+    "bootstrap_reps": 7000,
+    "signflip_permutations": 20000,
+    "alpha": 0.05,
+    "max_capacity_fraction": 0.75,
+    "scientific": true
+  },
+  "seed": 20260911,
+  "fresh_seed": true,
+  "fractions": [
+    0.05,
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "low_budget_fractions": [
+    0.05,
+    0.1,
+    0.25
+  ],
+  "supported_n": 1,
+  "started_at_unix": 1786613024.8582716,
+  "finished_at_unix": 1786613322.7212508,
+  "final_status": "LOW_BUDGET_SCALING_SUPPORTED_EXTREME_RATIO_UNRESOLVED"
+}

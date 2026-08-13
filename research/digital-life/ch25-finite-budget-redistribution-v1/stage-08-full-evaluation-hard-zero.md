@@ -1,0 +1,181 @@
+# Stage 8 — Full-Evaluation Hard-Zero Correctness Control
+
+```json
+{
+  "f=1.00": {
+    "-1": {
+      "groups": 369,
+      "E_far": {
+        "n": 369,
+        "mean": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      },
+      "actual_deltaF": {
+        "n": 369,
+        "mean": -0.7784552845528455,
+        "ci95_low": -0.8089430894308943,
+        "ci95_high": -0.7450316169828364
+      },
+      "far_symdiff": {
+        "n": 369,
+        "mean": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      }
+    },
+    "0": {
+      "groups": 375,
+      "E_far": {
+        "n": 375,
+        "mean": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      },
+      "actual_deltaF": {
+        "n": 375,
+        "mean": 0.08044444444444446,
+        "ci95_low": 0.03666666666666667,
+        "ci95_high": 0.12511111111111112
+      },
+      "far_symdiff": {
+        "n": 375,
+        "mean": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      }
+    },
+    "1": {
+      "groups": 380,
+      "E_far": {
+        "n": 380,
+        "mean": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      },
+      "actual_deltaF": {
+        "n": 380,
+        "mean": 0.9125,
+        "ci95_low": 0.8730263157894737,
+        "ci95_high": 0.9528508771929824
+      },
+      "far_symdiff": {
+        "n": 380,
+        "mean": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      }
+    },
+    "2": {
+      "groups": 384,
+      "E_far": {
+        "n": 384,
+        "mean": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      },
+      "actual_deltaF": {
+        "n": 384,
+        "mean": 1.8389756944444444,
+        "ci95_low": 1.791232638888889,
+        "ci95_high": 1.8856391059027777
+      },
+      "far_symdiff": {
+        "n": 384,
+        "mean": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      }
+    }
+  },
+  "unbounded": {
+    "-1": {
+      "groups": 369,
+      "E_far": {
+        "n": 369,
+        "mean": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      },
+      "actual_deltaF": {
+        "n": 369,
+        "mean": -0.7784552845528455,
+        "ci95_low": -0.8091689250225835,
+        "ci95_high": -0.7459349593495935
+      },
+      "far_symdiff": {
+        "n": 369,
+        "mean": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      }
+    },
+    "0": {
+      "groups": 375,
+      "E_far": {
+        "n": 375,
+        "mean": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      },
+      "actual_deltaF": {
+        "n": 375,
+        "mean": 0.08044444444444446,
+        "ci95_low": 0.03755555555555556,
+        "ci95_high": 0.12644444444444447
+      },
+      "far_symdiff": {
+        "n": 375,
+        "mean": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      }
+    },
+    "1": {
+      "groups": 380,
+      "E_far": {
+        "n": 380,
+        "mean": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      },
+      "actual_deltaF": {
+        "n": 380,
+        "mean": 0.9125,
+        "ci95_low": 0.8730263157894737,
+        "ci95_high": 0.9517543859649124
+      },
+      "far_symdiff": {
+        "n": 380,
+        "mean": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      }
+    },
+    "2": {
+      "groups": 384,
+      "E_far": {
+        "n": 384,
+        "mean": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      },
+      "actual_deltaF": {
+        "n": 384,
+        "mean": 1.8389756944444444,
+        "ci95_low": 1.7925347222222223,
+        "ci95_high": 1.8856336805555554
+      },
+      "far_symdiff": {
+        "n": 384,
+        "mean": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      }
+    }
+  },
+  "assertion": "Every intervention passed exact outside-cone zero controls.",
+  "tolerance": 1e-12,
+  "status": "PASS"
+}
+```

@@ -1,0 +1,49 @@
+{
+  "role": "FINITE-BUDGET CONTROL-PARAMETER EXPERIMENT",
+  "same_checkpoint_across_budget_arms": true,
+  "same_intervention_state_across_budget_arms": true,
+  "budget_varies_only_at_lag1": true,
+  "control_parameter": "B / max(F_force, F_prevent)",
+  "fractions": [
+    0.05,
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "unbounded_arm": true,
+  "primary_region": "outside nearest-neighbour causal cone: d > 1 at lag 1",
+  "supported_scope": "occupied_neighbors = 1",
+  "FCP_levels": [
+    -1,
+    0,
+    1,
+    2
+  ],
+  "H1": {
+    "claim": "Low-budget outside-cone E_far scales with -DeltaF",
+    "fractions": [
+      0.05,
+      0.1,
+      0.25
+    ],
+    "relative_residual_tolerance": 0.25
+  },
+  "extreme_ratio": {
+    "FCP_levels": [
+      2,
+      -1
+    ],
+    "target": -2.0,
+    "relative_tolerance": 0.25
+  },
+  "FCP0_control": "composition substitution with size change removed",
+  "full_evaluation_control": {
+    "f=1.00": "hard outside-cone zero",
+    "unbounded": "hard outside-cone zero",
+    "tolerance": 1e-12
+  },
+  "scientific": true,
+  "status": "FROZEN"
+}
