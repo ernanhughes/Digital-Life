@@ -3,6 +3,7 @@ title = "20: What Happens When the Crystal Can Lose Material?"
 date = "2026-08-12T18:49:00+01:00"
 draft = false
 description = "The Digital Crystal had always lived in a world where occupied material lasted forever. Chapter 20 removes that assumption and discovers that loss creates new construction opportunity."
+weight = 20
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Causality", "Material Loss", "Reoccupation", "Experiments"]
 series = ["Digital Life From First Principles"]

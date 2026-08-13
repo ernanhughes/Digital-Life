@@ -3,6 +3,7 @@ title = "Appendix: Phenomenon Ledger"
 date = "2026-08-12T22:01:00+01:00"
 draft = false
 description = "A cross-chapter ledger of recurring phenomena discovered during the Digital Life experiments, including what survived failed hypotheses, where each phenomenon recurred, what mechanisms may explain it, and what remains unearned."
+weight = 99
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Phenomena", "Evidence", "Experimental Method"]
 series = ["Digital Life From First Principles"]

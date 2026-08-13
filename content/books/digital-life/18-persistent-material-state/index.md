@@ -3,6 +3,7 @@ title = "18: Can Experience Change the Material?"
 date = "2026-08-12T16:40:00+01:00"
 draft = false
 description = "A pulse can leave a permanent mark in a Digital Crystal. Chapter 18 asks the harder question: when does a persistent mark remain causally usable?"
+weight = 18
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Causality", "Material State", "Path Dependence", "Experiments"]
 series = ["Digital Life From First Principles"]

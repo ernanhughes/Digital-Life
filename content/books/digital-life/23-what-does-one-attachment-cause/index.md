@@ -3,6 +3,7 @@ title = "23: What Does One Attachment Cause?"
 date = "2026-08-13T00:35:00+01:00"
 draft = false
 description = "After failing to find a propagating process field, Chapter 23 replaces correlation with intervention and asks what one additional Digital Crystal attachment actually causes."
+weight = 23
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Causality", "Cellular Automata", "Experimental Method"]
 series = ["Digital Life From First Principles"]

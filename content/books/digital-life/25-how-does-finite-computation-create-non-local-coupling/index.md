@@ -3,6 +3,7 @@ title = "25: How Does Finite Computation Create Non-Local Coupling?"
 date = "2026-08-13T10:49:00+01:00"
 draft = false
 description = "Chapter 25 isolates finite candidate selection as a control parameter for non-local causal redistribution in the Digital Crystal."
+weight = 25
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Finite Computation", "Causality", "Cellular Automata", "Experimental Method"]
 series = ["Digital Life From First Principles"]

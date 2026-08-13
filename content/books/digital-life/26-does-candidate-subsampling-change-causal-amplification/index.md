@@ -3,6 +3,7 @@ title = "26: How Does Finite Selection Route Causality?"
 date = "2026-08-13T15:46:00+01:00"
 draft = false
 description = "Chapter 26 tests how finite candidate selection changes the computational pathway of a local causal perturbation, while dynamically matching expected background construction."
+weight = 26
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Causality", "Finite Computation", "Experimental Method", "Cellular Automata"]
 series = ["Digital Life From First Principles"]

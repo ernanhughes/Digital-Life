@@ -3,6 +3,7 @@ title = "21: What Does It Cost to Stay?"
 date = "2026-08-12T19:26:00+01:00"
 draft = false
 description = "Once material can disappear, the Digital Crystal can rebuild what is lost. Chapter 21 asks what happens when computation itself becomes scarce."
+weight = 21
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Scarcity", "Turnover", "Computation", "Experiments"]
 series = ["Digital Life From First Principles"]

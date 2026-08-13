@@ -3,6 +3,7 @@ title = "19: Can the Crystal Tell Two Pasts Apart?"
 date = "2026-08-12T18:28:00+01:00"
 draft = false
 description = "Two different experiences can leave different material traces in the Digital Crystal. Chapter 19 asks whether those differences actually matter when the future arrives."
+weight = 19
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Causality", "Material State", "History", "Experiments"]
 series = ["Digital Life From First Principles"]

@@ -3,6 +3,7 @@ title = "24: Where Is Causal Gain Created?"
 date = "2026-08-13T10:03:00+01:00"
 draft = false
 description = "A reset of Chapter 24 reveals that local causal effects are redistributed through a finite global evaluation budget. The strongest result is not a local gain field, but a selector-mediated far-field effect that follows frontier change."
+weight = 24
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Causality", "Finite Computation", "Cellular Automata", "Experimental Method"]
 series = ["Digital Life From First Principles"]

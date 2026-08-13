@@ -4,6 +4,9 @@ date = "2026-08-13T20:38:00+01:00"
 draft = false
 description = "Chapter 27 tests whether hidden material state can change the causal response of identical visible geometry, and whether that effect persists after the original trace has decayed."
 weight = 27
+categories = ["Programming", "Artificial Life"]
+tags = ["Digital Life", "Digital Crystal", "Causality", "Finite Computation", "Experimental Method", "Cellular Automata"]
+series = ["Digital Life From First Principles"]
 +++
 
 By the end of the previous chapters, the Digital Crystal had become harder to describe with ordinary biological language.

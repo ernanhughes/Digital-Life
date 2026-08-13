@@ -88,21 +88,6 @@ That is where this book begins.
 
 ---
 
-<div class="programmers-notebook">
-  <strong>🧪 Programmer's Notebook</strong><br>
-  Reproduce the experiments, inspect the controls, and run the code yourself.
-  <br><br>
-  <a
-    href="https://colab.research.google.com/github/ernanhughes/programmer.ie.notebooks/blob/main/notebooks/digital-life/00-what-is-digital-life.ipynb"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Open in Google Colab ↗
-  </a>
-</div>
-
----
-
 ## The Cargo Cult of Life
 
 A cargo cult copies the visible form of something without reproducing the mechanism that made the original thing work.

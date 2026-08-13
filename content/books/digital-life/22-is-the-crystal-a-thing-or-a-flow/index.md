@@ -3,6 +3,7 @@ title = "22: Is the Crystal a Thing or a Flow?"
 date = "2026-08-12T21:47:00+01:00"
 draft = false
 description = "After finding stable turnover, causal locality and dynamically generated interfaces, Chapter 22 asks whether the Digital Crystal is best understood as a bounded thing or as a coherent process in space and time."
+weight = 22
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Causality", "Process", "Interfaces", "Flux", "Experiments"]
 series = ["Digital Life From First Principles"]
