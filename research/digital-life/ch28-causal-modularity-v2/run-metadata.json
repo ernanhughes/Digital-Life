@@ -1,0 +1,16 @@
+{
+  "experiment_version": "digital-crystal-causal-modularity-v2",
+  "schema_version": 2,
+  "chapter": 28,
+  "chapter_title": "Does Causal Modularity Exceed a Geometry-Matched Null?",
+  "profile": "full",
+  "seed": 20260917,
+  "fresh_seed": true,
+  "horizon": 8,
+  "region_radius": 4,
+  "excess_SEI": 0.1,
+  "allocation_policy": "true_unbounded",
+  "started_at_unix": 1786658387.812737,
+  "finished_at_unix": 1786660811.8207638,
+  "final_status": "EXCESS_CAUSAL_MODULARITY_BOUNDED_BELOW_SEI"
+}

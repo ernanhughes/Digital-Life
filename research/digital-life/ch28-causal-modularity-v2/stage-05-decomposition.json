@@ -1,0 +1,25 @@
+{
+  "excess_internal_retention": {
+    "n": 192,
+    "mean": -0.006571643933766518,
+    "sd": 0.10950487733140293,
+    "se": 0.007902833800607804,
+    "ci95_low": -0.02218523544540807,
+    "ci95_high": 0.009264216769893927,
+    "achieved_mde80_one_sided": 0.019650197572113694
+  },
+  "excess_external_penetration": {
+    "n": 192,
+    "mean": 0.005693257178286668,
+    "sd": 0.10953024950694316,
+    "se": 0.007904664879655065,
+    "ci95_low": -0.010104673132818766,
+    "ci95_high": 0.021587943405820407,
+    "achieved_mde80_one_sided": 0.019654750504132342
+  },
+  "identity": "excess_module = excess_internal_retention - excess_external_penetration",
+  "interpretation": {
+    "positive_excess_internal_retention": "observed regions retain more internally generated causal mass",
+    "negative_excess_external_penetration": "observed regions admit less externally generated causal mass"
+  }
+}

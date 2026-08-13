@@ -1,0 +1,36 @@
+{
+  "validity": {
+    "group_coverage_fraction": 1.0,
+    "required_group_coverage": 0.9,
+    "median_matched_observed_regions_per_covered_group": 3.0,
+    "required_median_matched_observed_regions_per_group": 2.0,
+    "median_controls_per_matched_observed": 2.0,
+    "required_median_controls_per_observed": 1.0,
+    "far_expected_effect_max_abs": 0.0,
+    "far_assertion_tolerance": 1e-12,
+    "far_zero_assertion_pass": true,
+    "matching_outcome_blind": true,
+    "same_checkpoint_matching": true,
+    "control_reuse_within_group": false,
+    "scientific_valid": true,
+    "status": "PASS"
+  },
+  "primary_status": "BOUNDED_BELOW_SEI",
+  "directional_substatus": "DIRECTION_UNRESOLVED",
+  "overall_status": "EXCESS_CAUSAL_MODULARITY_BOUNDED_BELOW_SEI",
+  "bounded_claim": "At frozen radius 4, any excess causal modularity of V1-selected regions over same-checkpoint geometry-matched controls was bounded below the predeclared +0.10 meaningful margin.",
+  "V1_status_preserved": "RAW_CAUSAL_MODULARITY_SUPPORTED",
+  "claim_boundary": {
+    "supported_if_positive": "privileged causal region relative to this matched spatial null",
+    "not_established": [
+      "organism",
+      "self",
+      "agent",
+      "autonomy",
+      "biological individual",
+      "homeostasis",
+      "life"
+    ]
+  },
+  "stop_rule": "No metric/radius/matching rescue. Increase independent groups only if unresolved solely because MDE exceeds 0.10."
+}

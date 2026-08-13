@@ -349,25 +349,45 @@
   line-height: 1.25;
 }
 
+/* =========================================================
+   Series Reader — AI prompt dialog
+   Native <dialog> element
+   ========================================================= */
+
 .series-reader__dialog {
   width: min(760px, calc(100vw - 2rem));
   max-height: min(760px, calc(100vh - 2rem));
   padding: 0;
+
   border: 1px solid rgba(0, 0, 0, 0.14);
   border-radius: 14px;
+
   background: #fff;
   color: #27323c;
+
   box-shadow: 0 24px 80px rgba(15, 23, 42, 0.28);
 }
 
-.series-reader__dialog[hidden],
+/*
+ * Critical:
+ * closed native dialogs must not participate in page layout.
+ *
+ * This is also a defensive override against older theme resets
+ * that may incorrectly declare dialog { display: block; }.
+ */
 .series-reader__dialog:not([open]) {
-  display: none;
+  display: none !important;
 }
 
-.series-reader__dialog[open] {
-  display: block;
-}
+/*
+ * Do NOT add:
+ *
+ *   .series-reader__dialog[open] {
+ *     display: block;
+ *   }
+ *
+ * Let the browser manage the native dialog's open state.
+ */
 
 .series-reader__dialog::backdrop {
   background: rgba(15, 23, 42, 0.48);
@@ -377,6 +397,7 @@
   display: grid;
   gap: 0.85rem;
   padding: 1.1rem;
+  margin: 0;
 }
 
 .series-reader__dialog-header {
@@ -407,14 +428,27 @@
 }
 
 .series-reader__dialog textarea {
+  display: block;
   width: 100%;
   min-height: 320px;
   padding: 0.85rem;
+
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 10px;
+
   background: #f8fafc;
   color: #25313b;
-  font: 0.9rem/1.5 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+
+  font:
+    0.9rem/1.5
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Liberation Mono",
+    monospace;
+
   resize: vertical;
 }
 
@@ -429,8 +463,10 @@
 .series-reader__dialog-close {
   border: 1px solid rgba(57, 120, 197, 0.22);
   border-radius: 9px;
+
   background: #eef5fc;
   color: var(--accent);
+
   cursor: pointer;
   font: inherit;
   font-weight: 800;
@@ -447,9 +483,11 @@
 
 .series-reader__dialog-close {
   flex: 0 0 auto;
+
   width: 34px;
   height: 34px;
   padding: 0;
+
   font-size: 1.25rem;
   line-height: 1;
 }
@@ -459,7 +497,7 @@
 .series-reader__dialog-close:hover,
 .series-reader__dialog-close:focus-visible {
   border-color: var(--accent);
-  outline: none;
+  outline: 2px solid transparent;
 }
 
 .series-reader__links {

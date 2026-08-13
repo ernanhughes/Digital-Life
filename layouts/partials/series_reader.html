@@ -364,7 +364,6 @@ Adapt the underlying method to my problem.` .Title $publicURL -}}
       id="{{ $dialogIDBase }}-explain"
       class="series-reader__dialog"
       aria-labelledby="{{ $dialogIDBase }}-explain-title"
-      hidden
     >
       <form method="dialog" class="series-reader__dialog-panel">
         <div class="series-reader__dialog-header">
@@ -393,7 +392,6 @@ Adapt the underlying method to my problem.` .Title $publicURL -}}
       id="{{ $dialogIDBase }}-apply"
       class="series-reader__dialog"
       aria-labelledby="{{ $dialogIDBase }}-apply-title"
-      hidden
     >
       <form method="dialog" class="series-reader__dialog-panel">
         <div class="series-reader__dialog-header">
@@ -444,11 +442,9 @@ Adapt the underlying method to my problem.` .Title $publicURL -}}
           const dialog = document.getElementById(openButton.dataset.seriesDialogOpen);
 
           if (dialog && typeof dialog.showModal === "function") {
-            dialog.hidden = false;
             dialog.showModal();
             dialog.querySelector("textarea")?.focus();
           } else if (dialog) {
-            dialog.hidden = false;
             dialog.setAttribute("open", "");
             dialog.querySelector("textarea")?.focus();
           }
