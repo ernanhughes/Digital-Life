@@ -1,0 +1,52 @@
+{
+  "chapter": "30: What Is Digital Life?",
+  "chapter_file": "content/books/digital-life/30-what-is-digital-life/index.md",
+  "generator_script": "scripts/books/digital-life/ch30_digital_life_synthesis_visual.py",
+  "research_scripts": [
+    "scripts/books/digital-life/ch20_digital_crystal_material_loss_v1.py",
+    "scripts/books/digital-life/ch25_digital_crystal_finite_budget_redistribution_v1.py",
+    "scripts/books/digital-life/ch26_digital_crystal_dynamically_matched_rate_causal_amplification_v2.py",
+    "scripts/books/digital-life/ch27_digital_crystal_decaying_material_history_causal_response_v2.py",
+    "scripts/books/digital-life/ch28_digital_crystal_causal_modularity_v1.py",
+    "scripts/books/digital-life/ch28_digital_crystal_causal_modularity_v2.py",
+    "scripts/books/digital-life/ch29_how_to_fail_correctly_v1.py"
+  ],
+  "artifacts": [
+    "research/digital-life/ch20-material-loss-v1/stage-02-loss-sweep.json",
+    "research/digital-life/ch25-finite-budget-redistribution-v1/stage-09-verdict.json",
+    "research/digital-life/ch26-dynamically-matched-rate-causal-amplification-v2/stage-04-primary-test.json",
+    "research/digital-life/ch27-decaying-material-history-causal-response-v2/stage-04-primary.json",
+    "research/digital-life/ch28-causal-modularity-v1/stage-03-primary.json",
+    "research/digital-life/ch28-causal-modularity-v2/stage-04-primary.json",
+    "research/digital-life/ch29-how-to-fail-correctly-v1/stage-05-verdict.json"
+  ],
+  "source": "evidence-grounded synthesis montage using representative Digital Crystal states and canonical artifact statuses",
+  "measured_values": {
+    "ch20_loss_sweep_keys": [
+      "groups_per_rate",
+      "loss_rates",
+      "by_rate",
+      "classifications",
+      "qualifying_nonzero_rates"
+    ],
+    "ch25_status": "LOW_BUDGET_SCALING_SUPPORTED_EXTREME_RATIO_UNRESOLVED",
+    "ch26_status": "BOUNDED_NEAR_ZERO",
+    "ch27_status": "UNRESOLVED",
+    "ch28_raw_status": "SUPPORTED",
+    "ch28_excess_status": "BOUNDED_BELOW_SEI",
+    "ch29_status": "FAILURE_LEDGER_CONSISTENT"
+  },
+  "states": "synthesis montage; frames combine representative simulation states with artifact-backed phenomena from different chapter protocols, not one literal continuous experiment",
+  "visual_encoding": "occupied/current cells, frontier, finite evaluation slots, hidden-history overlay, causal coupling and soft containment are shown together to summarize process-level evidence",
+  "scientific_caveats": [
+    "The visual does not claim that the Digital Crystal is alive.",
+    "The visual does not encode causal containment as individuality.",
+    "The visual does not encode path dependence as readable memory, turnover as repair, finite computation as metabolism, or causal transmission as signalling."
+  ],
+  "profile": "quick",
+  "outputs": [
+    "ch30-what-is-digital-life-hero.png",
+    "ch30-what-is-digital-life-filmstrip.png",
+    "ch30-what-is-digital-life.gif"
+  ]
+}
