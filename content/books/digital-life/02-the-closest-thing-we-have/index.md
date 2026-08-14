@@ -581,42 +581,6 @@ We should be equally careful with the vocabulary Outlier invites. Words like *or
 
 ---
 
-## And Then We Noticed Something Else
-
-We had just earned our strongest positive result.
-
-The obvious interpretation had survived the stronger test.
-
-That matters psychologically as well as scientifically. Once one exciting claim survives, the next exciting claim becomes easier to believe.
-
-That is where the trouble starts.
-
-Watching the same simulation, another pattern became difficult to ignore.
-
-Structures seemed to move together.
-
-Not simply as fragments carried by one expanding front, but with an apparent directional coherence that seemed especially strong among structures sharing recent causal history.
-
-The biological noun arrived almost immediately.
-
-**Flocking.**
-
-We knew better than to trust it.
-
-Unfortunately, we also had reasons to think it might be real.
-
-So we did what the method requires:
-
-```text
-observation
-↓
-hypothesis
-↓
-measurement
-↓
-control
-```
-
 ## Why We Will Eventually Need a Smaller Laboratory
 
 There is one more thing to take from Outlier, and it is a problem rather than a lesson.
@@ -653,6 +617,44 @@ we can preserve the full experimental history
 Not because Outlier is inadequate — as evidence it is close to ideal — but because evidence that something is possible is a different instrument from a system in which we can find out *why*.
 
 That need is going to become considerably more acute in the next chapter.
+
+---
+
+## And Then We Noticed Something Else
+
+We had just earned our strongest positive result.
+
+The obvious interpretation had survived the stronger test.
+
+That matters psychologically as well as scientifically. Once one exciting claim survives, the next exciting claim becomes easier to believe.
+
+That is where the trouble starts.
+
+Watching the same simulation, another pattern became difficult to ignore.
+
+Structures seemed to move together.
+
+Not simply as fragments carried by one expanding front, but with an apparent directional coherence that seemed especially strong among structures sharing recent causal history.
+
+The biological noun arrived almost immediately.
+
+**Flocking.**
+
+We knew better than to trust it.
+
+Unfortunately, we also had reasons to think it might be real.
+
+So we did what the method requires:
+
+```text
+observation
+↓
+hypothesis
+↓
+measurement
+↓
+control
+```
 
 ---
 

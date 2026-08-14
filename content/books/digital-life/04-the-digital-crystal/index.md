@@ -763,4 +763,3 @@ Just preserve enough internal consequence that two different histories remain di
 Because before the past can change the future, some distinction from that past has to survive.
 
 That is the next experiment.
-

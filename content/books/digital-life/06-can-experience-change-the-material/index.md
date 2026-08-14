@@ -9,13 +9,13 @@ tags = ["Digital Life", "Digital Crystal", "Material State", "Causality", "Path 
 series = ["Digital Life From First Principles"]
 +++
 
-At the end of the last chapter the Digital Crystal had a past with real consequences and nowhere to keep it.
+At the end of the last chapter the Digital Crystal had a past with real consequences and nowhere inside itself to keep it.
 
 A checkpoint could continue it exactly, but the checkpoint belonged to us. An event log could reconstruct how it formed, but the growth rule never read the log. A single received bit could redirect a later trajectory, and two matched pulse histories produced measurably different futures — yet nothing about those futures let us recover which history had occurred.
 
 The consequences propagated forward through construction itself. An altered attachment changed a frontier; the changed frontier changed what could happen next. That is a genuine causal past. It is not a stored one. Nothing was written down anywhere inside the process, because the process had nowhere to write.
 
-A cell in this substrate has exactly one property: it exists.
+As material, an occupied cell has carried almost no internal distinction beyond the fact that it exists.
 
 So the question that ends Chapter 5 is the question that opens this one:
 
@@ -69,7 +69,11 @@ flowchart LR
     E --> F["Future construction may differ"]
 ```
 
-That chain is the hypothesis. Every arrow in it is a separate claim, and by the end of this chapter three of them will have held and one will have turned out to be much more fragile than it looks.
+That chain is the hypothesis.
+
+Every arrow is a separate empirical claim.
+
+We should not assume that persistence, accessibility and later causal effect arrive together merely because we implemented one material state.
 
 If the mechanism fails outright, that is useful. If it succeeds, we still have to ask precisely what succeeded.
 
@@ -77,13 +81,23 @@ If the mechanism fails outright, that is useful. If it succeeds, we still have t
 
 ## The Mark Persists
 
-It works immediately.
+The first requirement is easy to satisfy.
 
-The pulse arrives. Cells near the boundary become modified. The pulse ends. The modified cells stay modified — indefinitely, since nothing in the substrate erases them and nothing makes them decay.
+The pulse arrives. Cells near the boundary become modified. The pulse ends. The modified cells remain modified because this model contains no rule that erases or decays that state.
 
 We have produced a persistent internal consequence of experience. Not a record in our database, not a checkpoint on our disk: a difference inside the material of the crystal itself, written by something that happened to it.
 
-After five chapters of carefully refusing to call things memory, this is the first mechanism that looks like it might deserve the word. The past happened, the material changed, and the change is still there.
+This is the first mechanism that makes the word *memory* genuinely tempting.
+
+The event is over.
+
+The material is different because it happened.
+
+And the difference remains.
+
+Good.
+
+Now ask whether the future can still reach it.
 
 So we do the obvious thing and check whether it matters.
 
@@ -97,9 +111,11 @@ experienced, labels retained ─┐
 experienced, labels erased ───┘
 ```
 
-The two futures were identical.
+At the late ablation point, removing the retained material state produced no downstream difference.
 
-Not approximately identical. For the late ablation we tested, removing the entire retained material state made no detectable difference to what the crystal built next.
+The trace was still present.
+
+Its removal no longer changed the future.
 
 ---
 
@@ -117,13 +133,19 @@ PERSISTENCE
 CAUSAL ACCESSIBILITY
 ```
 
-The crystal had not forgotten because its trace disappeared. Its trace had become irrelevant.
+The trace had not disappeared.
 
-The reason is geometric, and once seen it is obvious.
+It had become causally irrelevant.
+
+The clue was geometric.
 
 The Digital Crystal grows outward. Attachment decisions happen at the frontier, among candidate sites adjacent to existing material. A cell that sits on the boundary today is surrounded by newer cells tomorrow and buried under several layers of them a few steps later. It remains in the lattice forever. It stops being anywhere near a place where anything is being decided.
 
-Paint a mark on a brick, then keep building the wall outward. The mark does not fade. The bricklayer simply never passes it again.
+Paint a mark on a brick and keep building outward.
+
+The mark does not fade.
+
+It simply moves behind the surface where new construction happens.
 
 So we stopped counting how many modified cells survived and started measuring where they were: how many remained on the boundary, how many current frontier sites had a modified neighbour, what fraction of active construction could still encounter modified material at all.
 
@@ -147,13 +169,27 @@ The bounded result:
 
 This deserves to be stated as more than a debugging note, because it inverts the intuition we brought to the problem.
 
-We had assumed that the hard part of keeping a past would be *keeping* it. That assumption comes from the physical world, where records are fragile: bits rot, ink fades, tissue degrades, and a trace has to survive long enough to be useful. Design for memory in that world and you are designing against decay.
+We had assumed that the hard part of keeping a past would be keeping it.
 
-In this substrate decay is not the problem. Our material state could survive forever at no cost. It survived, and it stopped mattering anyway.
+In this model, that assumption was wrong.
+
+The modified state does not decay unless we explicitly introduce a mechanism that removes it. Persistence therefore became almost trivial.
+
+And yet the state stopped mattering.
+
+The bottleneck was not retention.
+
+It was access.
 
 > **The crystal did not run out of storage. Its past fell behind the moving surface where the future was being decided.**
 
-The active frontier is not merely the outer edge of a shape. It is the region from which existing material can still influence what gets built. Call it the crystal's **causal aperture**: a window that moves outward with growth, inside which stored state can act, and behind which stored state is merely present.
+The active frontier is not merely the geometric edge of the crystal. It is the interface through which existing material can still participate in the next construction decisions.
+
+Call this the crystal's **causal aperture**.
+
+State inside that aperture can affect future transitions.
+
+State left behind it may remain perfectly preserved while losing any route into the computation that comes next.
 
 ```mermaid
 flowchart TD
@@ -177,7 +213,13 @@ state → nothing currently reads it
 
 The storage survived. The read path disappeared.
 
-That is a substrate-native result. We did not import it from biology, and it does not have a natural biological analogue — organisms mostly face the opposite problem, spending energy to maintain traces that would otherwise degrade. Here the trace is free and the access is scarce.
+That is a substrate-native result.
+
+We did not need a biological theory of memory to discover it. It emerged from the interaction between irreversible growth, local state and a moving computational interface.
+
+Within this model, persistence is cheap.
+
+Causal access is scarce.
 
 ---
 
@@ -228,7 +270,9 @@ STATE PROPAGATES
 STATE REMAINS ACCESSIBLE
 ```
 
-Propagation is not maintenance. A process can copy a historical state faithfully, repeatedly, and copy it into places where it stops meaning anything.
+Propagation is not continued accessibility.
+
+A process can copy a historical state faithfully and repeatedly while still allowing those copies to fall behind the region where future decisions are made.
 
 ---
 
@@ -246,7 +290,7 @@ SURFACE-BIASED
 
 The surface policy produced a striking result on the first run. Modified state stayed near active construction much longer, generated more frontier exposure, more probability leverage, and more realized construction differences.
 
-For about an hour that looked like the answer.
+At first, that looked like the answer.
 
 Then we found the confound, and it is a good one. Keeping modified state near the frontier does not merely place the same material better. It creates more opportunities for new cells to acquire the modified condition, which places more material near the frontier, which creates more opportunities again:
 
@@ -262,7 +306,12 @@ more actual propagation
 still more accessible material
 ```
 
-The surface branch was not only putting its copies in better places. It was making more copies. And a policy that produces more historical material should produce more historical effect for entirely uninteresting reasons.
+The surface branch was changing two variables at once:
+
+```text
+where modified state was placed
++
+how much modified state existed
 
 So the exciting run was not yet evidence for the claim we wanted. This is the recurring shape of the book: the first version of a positive result usually contains a cheaper explanation than the one we hoped for.
 
@@ -278,11 +327,15 @@ Now the intervention is clean:
 
 > **Where does the same amount of historical state go?**
 
-The first version of this experiment failed. Its predeclared endpoint was a single late snapshot, and at that snapshot the predicted ordering did not appear. We did not quietly move the endpoint; that experiment stands as a failure.
+The first matched-quantity experiment failed.
 
-But its trajectories showed something the snapshot could not. Earlier in the run the ordering had been clearly visible, and by the time of the late measurement all three branches were converging on the same place — the point where the material had lost contact with the frontier entirely. Measuring after a mechanism is exhausted tells you very little about how long it was active on the way there.
+Its predeclared endpoint was a single late snapshot, and the predicted ordering was not present there. That result stays failed.
 
-That is a real distinction rather than an excuse, and it generated a new hypothesis with a new experiment rather than a rescued endpoint:
+The trajectories suggested a different question: perhaps placement affects **how long** state remains causally available rather than guaranteeing a difference at one arbitrarily late moment.
+
+That observation did not rescue the failed endpoint.
+
+It generated a new hypothesis, tested in a new experiment with a frozen observation window:
 
 > **Placement may control causal lifetime rather than any one late state.**
 
@@ -320,35 +373,42 @@ That earns the strongest claim of the chapter:
 
 > **With propagated-state quantity held constant, spatial placement changes how long and how strongly that state remains causally available to subsequent growth.**
 
-The crystal did not need more past. It needed its past in the right place.
+More stored past was not the answer.
 
-Which is a stranger conclusion than it first appears. In most storage systems we ask how much can be kept and for how long. Here the quantity was fixed by construction, the durability was infinite by construction, and the causal outcome still varied by a factor of three — entirely because of geometry relative to a moving interface.
+The same amount of stored state had a different causal lifetime depending on where it was placed.
+
+The quantity was fixed.
+
+Persistence was guaranteed by the model.
+
+Yet causal accessibility and realized influence still differed substantially.
+
+The variable that remained was geometry relative to the moving interface.
+
+Storage capacity had ceased to be the interesting quantity.
 
 ---
 
 ## Stop Digging
 
-We did not stop there immediately, and the reason we eventually did is part of the result.
+We pushed the mechanism further.
 
-There was a further mechanism hiding inside the surface-biased runs. If staying accessible creates more opportunities to propagate, perhaps accessibility could help maintain itself — a small self-sustaining loop, which would be a genuinely new property. We tested it directly against an externally frozen propagation schedule. The natural branch did produce stronger integrated accessibility and more realized flips, but the predeclared mechanism required it to reliably increase total transmissions, and it did not. Failed.
+Could accessibility reinforce itself by creating more propagation opportunities?
 
-Then we asked whether the temporal arrangement of transmissions mattered, replaying the same budget aligned, shuffled and shifted. Aligned timing moved some downstream quantities, particularly probability leverage. It did not reliably improve accessibility. The broad claim failed.
+Could the timing of otherwise matched transmissions increase causal access?
 
-Then we normalized causal effect by contact and by transmission, looking for an efficiency advantage. One narrow quantity looked interesting. The broad predeclared claim failed again.
+Could some propagation schedules produce more causal effect per contact?
 
-At that point the problem had changed shape. We were no longer discovering a mechanism; we were subdividing one we already understood — amount, placement, opportunity, timing, leverage, efficiency — and the subdivisions had stopped changing what we knew.
+Each produced narrower observations worth retaining in the experimental record.
 
-There is a seductive way to continue from here. Keep whichever secondary metric survived in each failed experiment, and the story becomes *feedback failed, but timing looked promising; timing failed, but efficiency looked promising; efficiency failed, but here is another normalization*. A sufficiently complicated experiment always contains another denominator. That process has no natural end and produces no knowledge.
+None satisfied its broader predeclared claim.
 
-So the failed claims stay failed:
+At that point the scientific picture had stopped changing:
 
 ```text
-endogenous opportunity feedback     did not establish its transmission claim
-temporal alignment                  did not establish broad accessibility gain
-temporal causal efficiency          did not establish a general advantage
-```
-
-Three consecutive broad failures after one clean positive result is not a sign that a chapter has gone wrong. It is a sign that a chapter has finished.
+amount matters
+placement matters
+frontier access matters
 
 ---
 
@@ -358,9 +418,9 @@ Strip out the words *experience* and *memory* and describe the object plainly.
 
 A past event writes a persistent local state. That state changes construction probabilities in its immediate neighbourhood. Some of those probability changes cross the stochastic decision boundary and alter which cells actually get built. Propagation can carry the state outward. Placement determines how long it stays reachable. Once it falls behind the aperture it can persist forever while affecting nothing.
 
-The compact description:
+A useful operational description is:
 
-> **state-dependent construction with a bounded causal window**
+> **state-dependent construction through a moving causal aperture**
 
 That is more than passive storage and considerably less than memory. Nothing recognizes anything. Nothing is represented. The material does not know what happened to it; it is merely, locally, different — and the difference has consequences for as long as the future can still touch it.
 
@@ -380,7 +440,13 @@ Everything above concerns a single binary condition. The material can answer exa
 DID SOMETHING HAPPEN HERE?
 ```
 
-A system whose future depends on *whether* something happened is very different from one whose future depends on *which* thing happened. The second is the first thing in this book that would start to resemble a usable past.
+A future that depends on **whether** something happened is weaker than a future that depends on **which** thing happened.
+
+That is the next boundary.
+
+The first gives us a retained consequence.
+
+The second would give us history-dependent differentiation.
 
 So:
 
@@ -388,7 +454,9 @@ So:
 
 The design follows directly. Give two crystals two different histories. Stop the histories. Let both continue under identical conditions. Then hit both with an identical later challenge and ask whether their responses differ — and whether the difference is caused by the retained material rather than by whatever geometry the histories happened to leave behind.
 
-If that holds, the *identity* of the past has become a causal variable in the future. Not memory. Something narrower, which deserves its own name: **history discrimination**.
+If that holds, then past identity—not merely the presence of a past event—has become a causal variable in the later response.
+
+Call the narrower property **history discrimination**.
 
 ---
 
@@ -402,7 +470,8 @@ HISTORY_A
 HISTORY_B
 ```
 
-Two otherwise identical histories, one writing A and one writing B, to exactly the same locations. Immediately before the challenge the two crystals matched on everything we could match:
+Two branches were made identical in geometry, material quantity and write locations, differing only in whether the retained label was `HISTORY_A` or `HISTORY_B`.
+ Immediately before the challenge the two crystals matched on everything we could match:
 
 ```text
 occupied cells          identical
@@ -422,7 +491,8 @@ During retention both labels were inert — they did nothing at all. During the 
 (A challenge − A no-challenge) − (B challenge − B no-challenge)
 ```
 
-The controls behaved perfectly. Without the challenge, A and B futures were identical. Erase the labels immediately before the challenge and A and B futures were identical again. So any difference in the retained-label challenge condition had to come from the labels.
+The controls behaved as required.
+ Without the challenge, A and B futures were identical. Erase the labels immediately before the challenge and A and B futures were identical again. So any difference in the retained-label challenge condition had to come from the labels.
 
 And before running it, we froze something the book had been missing: a smallest effect worth interpreting. The interaction had to clear a directional statistical test **and** be at least 1% of the pre-challenge population **and** at least 0.5 standard deviations of ordinary seed-to-seed noise.
 
@@ -446,7 +516,13 @@ bootstrap interval         0.00331 ... 0.00548
 directional test           p ≈ 0.00025
 ```
 
-By the reflex that governs a great deal of published science, that is a result. The interval excludes zero comfortably. The p-value is two orders of magnitude below the conventional threshold. This is the point in the process where a paper gets written.
+By a conventional significance-only rule, this would be easy to call positive.
+
+The interval excludes zero comfortably.
+
+The p-value is tiny.
+
+But significance was only one of the criteria we had declared before running the experiment.
 
 But the effect was 0.44% of the pre-challenge population, against a declared requirement of 1.00%. Against the seed-noise scale it was 0.383 standard deviations, against a declared requirement of 0.500.
 
@@ -454,7 +530,13 @@ But the effect was 0.44% of the pre-challenge population, against a declared req
 FAILED
 ```
 
-It is worth sitting with how uncomfortable that is. The effect is real. It is reproducible. The statistical test is not being fooled; there genuinely is something there. And the experiment still fails, because we said in advance how large *something there* would have to be before we were willing to call it the phenomenon we were testing for.
+The statistical effect is detectable.
+
+The scientific claim still fails.
+
+Before seeing the result, we had specified not merely that the effect must differ from zero, but that it must be large enough relative to ordinary crystal-to-crystal variation to count as the phenomenon under investigation.
+
+It was not.
 
 The reason to insist on this is mechanical rather than moral. A p-value answers one question: could this effect plausibly be zero? With enough replicates, effects that are far too small to matter produce spectacularly small p-values. The question we actually care about is different:
 
@@ -472,9 +554,11 @@ We had also noticed, in passing, that most of the difference appeared in the ver
 
 ---
 
-## And the Decoder Was the Problem Anyway
+## Remove the Decoder
 
-Even if the effect had cleared the gate, this design deserved suspicion.
+The failed magnitude gate was already enough to reject the claim.
+
+But the design also exposed a deeper problem with the question we had built.
 
 We created two labels and then explicitly told the challenge how to interpret each one:
 
@@ -485,13 +569,21 @@ elif history == "B":
     decrease probability
 ```
 
-That is a symbolic decoder, written by us, wired directly into the physics. It can demonstrate that a retained symbolic label can be read by a rule built to read it. It cannot demonstrate that different pasts leave differences the ordinary dynamics would respond to — which is the claim we actually care about, and precisely the sort of claim this book keeps refusing to buy on credit.
+That is a decoder we supplied.
+
+The experiment can test whether an engineered A/B state remains available to a later rule explicitly designed to distinguish A from B.
+
+It cannot answer the stronger question:
+
+> **Can different pasts leave material differences that ordinary later dynamics distinguish without being told what those histories mean?**
+
+So the next experiment removed the symbolic distinction entirely.
 
 So rather than tuning the failed experiment, we removed the decoder.
 
 ---
 
-## Remove the Decoder
+## Two Pasts Without Names
 
 The second design returns to a single altered state:
 
@@ -520,7 +612,7 @@ That isolates the question properly:
 
 ---
 
-## The Traces Stayed Different, and Nothing Happened
+## The Traces Stayed Different. The Response Did Not.
 
 The mechanism audit came back well. Both histories wrote the same amount of material and propagated identical quantities:
 
@@ -532,7 +624,12 @@ cumulative material B       78.5
 
 Their spatial organizations remained measurably different throughout retention — a directional diagnostic separated them cleanly and kept them separated, rather than letting them collapse into one indistinguishable distribution. And crucially, given everything the first half of this chapter established, the material had not been buried: at the end of the retention window roughly one fifth of the active frontier was still in contact with modified material in both conditions.
 
-So when the challenge arrived, the histories were persistent, spatially distinguishable, and inside the causal aperture. Every precondition this chapter had identified was satisfied.
+So when the challenge arrived, three things were already established:
+
+```text
+the material distinction persisted
+the two spatial histories remained distinguishable
+both remained exposed to the causal aperture
 
 ```text
 primary material-mediated interaction     0.000431
@@ -547,7 +644,13 @@ FAILED
 
 This is not a near miss. The interval straddles zero and the effect is a few hundredths of the scale on which crystals differ from each other for no reason at all. There is nothing here to rescue and nothing worth tuning.
 
-We could keep going, of course. Change the angles. Increase the material gain. Move the challenge earlier or later. Use only the first challenge step. Try a different challenge shape, a different denominator, more groups. Every one of those is another experiment, and running them in sequence until one succeeds would convert the project into a search for significance. So this mechanism family stops here.
+Many additional probes are possible: different spatial organizations, different challenge geometries, different timings.
+
+But each would be a new experiment.
+
+The frozen experiment failed, and searching variations until one succeeds would answer a different question from the one we declared.
+
+So this mechanism family stops here.
 
 One caveat has to be stated precisely, because it is the honest limit of the negative result. Our challenge is one particular probe. Two states can differ in a degree of freedom that a given probe simply does not measure — a detector sensitive only to total amplitude responds identically to two signals differing in phase. So what failed is this:
 
@@ -568,23 +671,47 @@ What failed is the promotion of that mechanism into something that carries the *
 The two together give a ladder in which every rung is a separate empirical property:
 
 ```text
-WRITE                    cheap
-PERSIST                  free
-REMAIN ACCESSIBLE        hard, and geometrically constrained
-CAUSAL EFFECT            demonstrated, while accessible
-DISTINGUISHABLE TRACE    demonstrated
-READABLE BY LATER DYNAMICS   not established
+WRITE
+↓
+PERSIST
+↓
+REMAIN ACCESSIBLE
+↓
+ALTER LATER CONSTRUCTION
+↓
+DISTINGUISH BETWEEN PASTS
+
 ```
 
 The chapter's two sentences:
 
 > **Persistent does not mean accessible.**
 
-> **Accessible does not mean distinguishable — and distinguishable does not mean read.**
+> **Accessible and distinguishable does not mean differentially used.**
 
-The second failure is the more interesting of the two, because it is not the failure we had learned to expect. In the first half, history stopped mattering because it had been buried; the diagnosis was access, and access was fixable. In the second half, the history was *not* buried. It persisted, it stayed distinguishable, it stayed in contact with the frontier — and the later dynamics still did not care which of the two it was.
+The second failure is more interesting because the first explanation is no longer available.
 
-A stored distinction is not automatically a functional distinction. That is a harder constraint than losing the trace, and it is one any eventual claim about digital memory will have to answer.
+Earlier, stored state stopped mattering because growth buried it.
+
+Here the two histories remained:
+
+```text
+persistent
+distinct
+accessible
+
+A stored distinction is not automatically a distinction the future dynamics use.
+
+That gives us a stronger hierarchy:
+
+```text
+stored
+≠
+accessible
+≠
+causally leveraged
+≠
+differentially read
 
 ---
 
@@ -615,11 +742,16 @@ A stored distinction is not automatically a functional distinction. That is a ha
 
 We spent this chapter trying to give the past somewhere inside the process to live, and we found the place. We also found what happens to it: growth builds over it, the aperture moves on, and a perfectly preserved history becomes a perfectly irrelevant one.
 
-Every attempt to fix that was an attempt to keep the trace near the moving surface. Propagate it. Bias it outward. Match its quantity and optimize its placement. All of that treats the surface as something the material inevitably falls behind.
+Every solution in this chapter tried to keep stored state close to a frontier that only moved outward.
 
-But the surface only moves in one direction because of an assumption we have never once questioned. Since the crystal was first defined, occupied material has been permanent. Cells appear and never leave. The frontier advances and never retreats. The interior grows monotonically and nothing has ever exposed it again.
+That exposes an assumption we have not yet challenged.
 
-That single assumption has shaped every result in the last three chapters. Burial is permanent only because construction is irreversible. A trace falls out of the causal aperture and stays out because nothing can remove the material covering it.
+Since the Digital Crystal was introduced:
+
+```text
+occupied
+→
+occupied forever
 
 So the next experiment does not add another mechanism for preserving history. It removes a guarantee:
 
@@ -631,8 +763,18 @@ empty
 
 with some small probability. No repair. No maintenance. No energy. No metabolism. Just loss.
 
-That one change makes the frontier non-monotone. Buried material may become exposed again. Construction has to compete with disappearance. The crystal may acquire a size it cannot exceed. And a process that has always been able to assume its own material would still be there tomorrow will have to do without that assumption for the first time.
+That one change removes an assumption every Crystal experiment so far has been allowed to rely on:
 
-We had spent six chapters asking what the crystal could keep.
+> **material permanence**
 
-> **What happens when the substrate can lose the material carrying the process?**
+We do not yet know what follows from removing it.
+
+That is precisely why the experiment is worth running.
+
+We have spent this chapter asking how the past can remain causally available.
+
+The next experiment makes the question more basic.
+
+What if the material carrying the process is no longer guaranteed to remain at all?
+
+> **What survives material loss?**
