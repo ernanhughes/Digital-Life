@@ -9,25 +9,32 @@ categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Crystal Growth", "Hexagonal Lattice", "Morphology", "Information", "Experimental Method"]
 +++
 
-Outlier was the wrong laboratory.
+Outlier was the wrong laboratory for the question we now wanted to ask.
 
-Not a wrong choice — the last two chapters were worth every page, and nothing in them is retracted. But by the end of the flocking investigation the problem was unmistakable. Geometry, ancestry, distance, expansion, local environment and interaction all arrive together in that world, arising from the same 512 bits, moving together, entangled beyond separation. Every control we built was an attempt to statistically undo an entanglement we could not experimentally prevent, and one entire regime stayed unresolved because the comparison we needed simply did not exist in the data.
+Not a wrong system. The last two chapters were worth every page, and nothing in them is retracted. Outlier showed us what computation can support.
 
-Matching is what you do when you cannot intervene.
+But by the end of the flocking investigation, another problem had become unmistakable: it was much better at producing phenomena than at isolating them.
+ Geometry, ancestry, distance, expansion, local environment and interaction all arrive together in that world, arising from the same 512 bits, moving together, entangled beyond separation. Every control we built was an attempt to statistically undo an entanglement we could not experimentally prevent, and one entire regime stayed unresolved because the comparison we needed simply did not exist in the data.
 
-So we are going to build something we can intervene on. A world where the comparison is constructed rather than discovered — where we can run a system, run it again with exactly one thing changed, and attribute the difference to that thing.
+Matching is one way to recover a comparison when the experiment did not create one for you.
+
+Now we want the opposite situation.
+
+We want to construct the comparison before the world runs: hold everything we can fixed, change one mechanism deliberately, and measure what changes with it.
 
 There is one idea worth carrying across from Outlier, and it is much smaller than an organism:
 
-```text
 local computation
 ↓
 repeated interaction
 ↓
-characteristic larger-scale structure
-```
+larger-scale organization
 
-That is the whole import. No reproduction, no individuality, no hierarchy. Just the observation that repeated local computation can produce persistent large-scale form.
+That is all we need to import.
+
+Not Outlier's reproduction. Not its causal families. Not its geometry.
+
+Only the demonstrated possibility that local rules can generate organization we did not explicitly represent.
 
 What we want from the new system is a short list:
 
@@ -41,16 +48,18 @@ the full history can be preserved
 
 And an equally important list of what we refuse to build:
 
-```text
 organism
 memory
 repair
 reproduction
 metabolism
 individual
-```
 
-Not because those are uninteresting. Because implementing them and then discovering them is the cargo cult, and it would make everything downstream worthless.
+Not because those questions are uninteresting.
+
+Because if those concepts appear explicitly in the machinery, we lose the ability to discover whether anything resembling them arises from something simpler.
+
+The laboratory must not contain the answer.
 
 The result is going to be almost embarrassingly small.
 
@@ -72,7 +81,14 @@ The rule:
 
 > **An empty location becomes occupied if at least one neighbouring location is occupied. Once occupied, it stays occupied.**
 
-That is the entire system. There is no organism, no genome, no stored target shape, no energy, no resources, no reproduction, no death, no memory variable, no objective.
+That is the entire system.
+
+One seed.
+One local attachment condition.
+Irreversible occupancy.
+Time.
+
+There is no target morphology and no higher-level object directing the growth.
 
 Hexagonal geometry is a convenience rather than a claim: six equidistant neighbours make local reasoning cleaner than a square grid's awkward mix of edge and corner adjacency. Represent locations as axial coordinates `(q, r)` and the six directions are just six offsets. The world is a set of occupied coordinates, and one update collects every empty location adjacent to something occupied and fills it.
 
@@ -86,9 +102,15 @@ Run it and the structure grows in expanding hexagonal shells.
 
 Nothing anywhere says *make a hexagon*. After `t` updates, every location within hexagonal graph distance `t` of the seed is occupied, and the global shape follows from the neighbourhood topology plus uniform local propagation. No cell holds a blueprint. No controller measures the radius. Nobody draws the six sides.
 
-That is the first small result, and it is worth naming precisely:
+Nothing surprising has happened yet, and that is useful.
 
-> **A single seed under a uniform local irreversible rule produces ordered growth whose global geometry is determined by the topology of the neighbourhood.**
+The bounded result is simply:
+
+> **Under this rule, one seed produces ordered expanding geometry through repeated local attachment alone.**
+
+The hexagon is not evidence of sophistication.
+
+It is the baseline against which later deviations will become measurable.
 
 ---
 
@@ -118,21 +140,23 @@ more complex
 
 Which is useful to establish early, because size is the cheapest possible impressive-looking result.
 
-There is a second observation here that matters more than it appears to. This system can grow indefinitely. No mature size appears, no reproduction becomes necessary, no ageing emerges, nothing dies. In this toy world, at least:
+A second distinction appears almost for free:
 
-```text
 continued construction
 ≠
 reproduction
-```
 
-A structure can persist and extend from one seed forever without producing anything resembling offspring. Chapter 00 asked whether reproduction might be a solution to a biological constraint rather than a requirement for organized persistence, and here is the smallest possible existence proof that continued process does not need it.
+The structure can keep extending from one seed without producing a second independent copy.
+
+That does not tell us whether reproduction matters to digital life.
+
+It tells us only that growth and reproduction are separate computational possibilities, and therefore deserve separate experiments.
 
 That is a substrate-first move, and it is the reason this laboratory is built around growth rather than around anything more ambitious. We get to study **continued process before reproduction** instead of assuming the biological ordering.
 
 ---
 
-## The Laboratory Immediately Starts Lying to Us
+## The First Temptation
 
 Before adding anything, it is worth noting how quickly even this system tempts biological language — because it happens within one experiment.
 
@@ -148,27 +172,38 @@ It looks like healing. It is not.
 
 The rule says any empty location adjacent to occupied structure becomes occupied, and that rule operates identically outside the structure and inside a hole. The system does not distinguish damage from ordinary frontier — there is no target morphology anywhere, nothing that could represent what the structure is supposed to look like. The hole closes because continued growth plus available empty space closes holes.
 
-The control is straightforward: create a hole inside the structure and a matched empty region just outside it, with comparable occupied boundaries, and compare their filling rates. If the two are treated identically, there is no evidence of a damage response. Under this rule they are.
+But nothing in the rule distinguishes damage from ordinary empty space.
 
-The observation survives; the interpretation does not:
+The same attachment rule that advances the exterior frontier also fills an interior hole.
 
-> **The same local growth dynamics that expand the exterior also refill newly emptied interior regions.**
+So the stronger interpretation disappears:
+
+> **The structure refills missing space through ordinary growth.**
+
+That is not yet repair.
+
+We will return to material loss later with a system and controls designed specifically for that question.
 
 Less exciting, more informative, and a good reminder that a laboratory built specifically to avoid biological assumptions will still generate biological-sounding descriptions within about five minutes of being switched on.
 
-Two other things this prototype showed, in passing, which later chapters will do properly. Permanent obstacles leave persistent structural traces while temporary ones get erased by continued growth — so a growing structure can be history-dependent without anything resembling memory. And when two seeds grow until their fronts meet, the merged binary state retains no record of which seed produced which region: multiple growth histories can produce a geometry that no longer reveals those histories.
+The prototype generated other questions too: obstacles could leave traces, multiple seeds could merge, and finite worlds eventually imposed limits.
 
-Both of those get dedicated experiments later, with far better controls than a prototype deserves. What matters here is the third thing, which we are going to leave alone deliberately.
+We are going to resist following those branches here.
 
-Growth that never stops eventually meets a limit. Put the structure in a bounded world and it fills it. Beyond space, our own implementation cost rises with the number of active locations, which hints at something less obvious — that a growing computational organization might run out of *attention* before it runs out of room. That question turns out to matter enormously.
+Each becomes a much better experiment later.
 
-We are not going to answer it here. Just note that continued growth will eventually force us to ask what becomes scarce, and move on.
+For now, the prototype has done its job: it gives us a transparent process that grows, can be perturbed, and contains almost nothing we did not deliberately put there.
 
 ---
 
 ## Can the Environment Leave a Mark?
 
-The prototype answers its own question and then stops being interesting, which is the correct behaviour for a control. What we want next is genuinely different:
+The prototype is almost too predictable.
+
+Good.
+
+A laboratory should begin with a baseline we understand.
+ What we want next is genuinely different:
 
 > **Can changing external conditions influence growth strongly enough to leave a persistent, measurable signature in the finished structure?**
 
@@ -200,9 +235,20 @@ These mechanisms are introduced *for* this experiment. They are not discoveries 
 
 The hole-filling result above tells us nothing about how this stochastic model responds to damage. Different model, different claims, and everything from here has to be earned again.
 
-The name arrives here as a label rather than an achievement. **Digital Crystal.** It cannot mean *a thing that looks like quartz*, and it cannot mean *anything arranged on a hexagonal grid* — those are visual definitions, and we know what happens when appearance substitutes for mechanism. A physical crystal acquires structure through repeated local interactions during formation, with the large-scale structure following from those interactions. So try the analogous idea computationally, as a provisional working definition:
+This is where the name **Digital Crystal** becomes useful.
 
-> **A Digital Crystal is a local computational growth process in which characteristics of an external input become expressed as persistent, measurable morphology.**
+Not because the structure resembles quartz, and not because it sits on a hexagonal lattice.
+
+The analogy is mechanistic: local interactions during formation accumulate into persistent larger-scale structure.
+
+So we can state a hypothesis rather than a definition:
+
+> **Can a local computational growth process turn characteristics of an external input into persistent, measurable morphology?**
+
+If the answer is no, the name has earned nothing.
+
+If the answer is yes, we can decide what the name is worth afterwards.
+ morphology.**
 
 Deliberately narrow. It says nothing about life, memory, learning, adaptation, reproduction, intelligence or agency. Its only virtue is that it can be tested, and might be false.
 
@@ -261,7 +307,13 @@ The Digital Crystal does:
 value → local attachment conditions → many stochastic interactions → persistent morphology
 ```
 
-The picture is not drawn from the signal. It is **grown under its influence**, through thousands of local events, none of which knows anything about the signal beyond the single scalar presented at that moment.
+The picture is not drawn from the signal.
+
+It is **grown under its influence**.
+
+No local attachment event receives the source label, the future sequence or the desired final form. It receives only the current local state and the environmental value available at that step.
+
+Whatever source information survives has to survive through the growth process.
 
 First, the least interesting possible check: does the generalized model still grow? Give it a constant signal, `E(t) = 0`, and run it. The baseline reached approximately 5,924 occupied cells at a maximum hex radius of 44, with 552 boundary edges.
 
@@ -355,9 +407,15 @@ alt="Held-out classification accuracy for recovering the source process from Dig
 caption="Source-process family can be recovered from held-out Digital Crystal morphology substantially above the 16.7% chance baseline."
 >}}
 
-Roughly three times chance, on structures the model has never encountered.
+Substantially above chance on held-out structures.
 
-Two things about this deserve attention. First, two very different classifier families land in the same region, which means we are not relying on one unusual model finding one unusual boundary. Second, the confusion matrix shows the retained information is uneven — some forcing families leave far more distinctive morphological signatures than others.
+The environment has left a readable morphological signature.
+
+Two different classifier families produce similar held-out accuracy, which makes the result less dependent on one particular decision boundary.
+
+That is reassuring, but not magical. The important result is simpler: unseen crystals contain enough morphological information for source family to be recovered substantially above the six-way chance baseline.
+
+The confusion matrix also shows that the information is uneven. Some forcing families leave much more distinctive signatures than others.
 
 {{< figure
 src="/images/books/digital-life/ch14-06-source-confusion.png"
@@ -377,7 +435,11 @@ Not *the crystal remembers its history*. Not *the crystal understands the enviro
 
 The obvious deflation is that the classifier is not detecting anything about the *process* at all — merely some trivial aggregate. Square waves might spend more time at high values, raise mean attachment probability, and produce larger structures. Then all we would have discovered is that bigger signals make bigger crystals.
 
-So normalize the varying signals to approximately the same mean, leave the constant control at zero, and check whether the morphology populations still separate. Standardized distances of each class centroid from the constant population:
+So remove the simplest aggregate explanation among the varying signals: normalize them to approximately the same mean and ask whether their resulting morphology still differs.
+
+The constant-zero condition remains a separate baseline.
+
+Standardized distances from that baseline were:
 
 ```text
 sine          4.45
@@ -387,7 +449,15 @@ white noise   2.40
 random walk   1.40
 ```
 
-They remain measurably distinct. Mean forcing alone cannot explain the source-family result — variation matters, not just level.
+The variable-source populations remain morphologically distinct after their means are approximately aligned.
+
+So differences in mean forcing are not sufficient to explain the separation among those source families.
+
+Something about the distribution or temporal structure of the forcing is also contributing.
+
+Which one?
+
+That is now the interesting question.
 
 One more obvious worry: perhaps recovery works only at one carefully chosen forcing strength, and we happened to find it. Varying the forcing strength while leaving the rest of the growth mechanism untouched, held-out random-forest accuracy was:
 
@@ -421,7 +491,15 @@ Here is where it becomes tempting.
 
 We have a fixed local process, an external environment, and a finished structure from which the character of that environment can be recovered well above chance. The mean does not explain it. The result holds across forcing strengths. It survives on structures the classifier has never seen.
 
-The available sentence is *the crystal has recorded its environmental history*, and it is not an absurd thing to think. Something about what happened during formation is still present in the finished object. That is what a record is.
+The tempting sentence is:
+
+> *the crystal has recorded its environmental history.*
+
+And this time the temptation is not merely visual.
+
+Something about the conditions during formation really is recoverable from the final structure.
+
+But **information about past conditions** and **a recoverable history** are not the same claim.
 
 Notice how little distance there is between the result we have and the claim we want. The result says information about the *kind* of environment survives. The claim says the *history* survives. Those feel like the same statement, and the whole book so far suggests they are not.
 
@@ -460,7 +538,9 @@ alt="Classification accuracy for distinguishing crystals grown from ordered sign
 caption="Ordered-versus-shuffled source histories cannot be recovered above chance in this experiment."
 >}}
 
-Nothing. Neither classifier reaches beyond roughly 52%, and the confusion matrix tells the same story with no useful separation anywhere in it.
+The result sits essentially at chance under both tested classifiers.
+
+Whatever allowed us to recover source family did not provide a usable ordered-versus-shuffled signal under this morphology representation and protocol.
 
 Be precise about what this does and does not establish. It does not prove that no conceivable measurement could ever recover temporal information from this model. It establishes:
 
@@ -499,9 +579,13 @@ caption="The temporal forcing histories differ radically, but their final morpho
 
 One safeguard matters enough to state. All temporal arrangements built from a single value set stay together during the train/test split, so the classifier cannot train on one ordering of a value set and then be tested on a different ordering of that same set. Held-out value sets are genuinely unseen. Without that, a subtle leakage path would let the model recognize the values rather than the ordering.
 
-With the multiset held exactly constant, temporal organization is not recoverable above chance under the tested classifiers.
+With the value multiset held exactly constant, the tested morphology representation and classifiers still do not recover temporal organization above chance.
 
-The stronger experiment fails as well.
+The stronger interpretation fails again.
+
+The values mattered.
+
+Their exact ordering, under this test, did not remain readable.
 
 ---
 
@@ -529,11 +613,15 @@ local dynamics
 persistent morphology
 ```
 
-The exact sequence is largely lost under the measurements and classifiers we tested. Some broader characteristics survive.
+Under the measurements and classifiers we tested, exact temporal organization is not recoverable.
+
+Broader characteristics of the forcing are.
+
+That is a more precise result than saying the sequence was simply "lost," because unmeasured information may still exist in the state.
 
 Which is, when you look at it, strangely appropriate. Inspect a physical crystal and its structure may reveal a great deal about the conditions under which it formed — temperature regime, rate, impurities, pressure. It does not contain a frame-by-frame movie of formation. Nobody expects to read Tuesday off a quartz sample.
 
-Our Digital Crystal turns out to be closer to that than to a recording device. A morphological statistic, not a tape recorder.
+Our Digital Crystal turns out to be closer to that than to a recording device. The morphology behaves less like a tape recording and more like a compressed consequence of formation.
 
 Which means the failure has told us something the success could not: what *kind* of information this substrate preferentially preserves.
 
@@ -541,9 +629,15 @@ Which means the failure has told us something the success could not: what *kind*
 
 ## State Is Not History
 
-The crystal obviously has state. At time `t`, the structure depends on earlier attachment events; a cell added at step 10 may still be there at step 70; past events contributed causally to the present in the most direct way possible.
+The crystal has state.
 
-None of that implies the present is a useful record of the past.
+Its present configuration is a consequence of earlier attachment events. A cell added at step 10 can still be present at step 70, and changing earlier events can change the final structure.
+
+But:
+
+> **the past affecting the present is not the same as the past remaining recoverable from the present.**
+
+That is the distinction this experiment has finally forced us to make.
 
 Consider two sequences, `A B C D` and `D B A C`. Both influence the process. Both alter the final state. But if the final state contains no recoverable information distinguishing which ordering occurred, then the process has accumulated consequences without retaining chronology.
 
@@ -569,14 +663,17 @@ complete chronology retained
 So:
 
 ```text
-HISTORY-DEPENDENT
+PAST-DEPENDENT
 ≠
-HISTORY-READABLE
+PAST-READABLE
+≠
+RECOVERABLE HISTORY
+
 ```
 
 A process can be thoroughly shaped by its past without being a record of it.
 
-The best current description of what this substrate does is *lossy integration*:
+A useful working description is **lossy integration**:
 
 ```text
 external forcing
@@ -588,9 +685,15 @@ aggregate structural bias
 persistent morphology
 ```
 
-The process integrates the consequences of the past, and the integration discards information — apparently preserving broad statistics of the forcing more readily than exact chronology. Which suggests a provisional principle, offered for comparison with later experiments rather than as a law:
+The process integrates consequences of earlier forcing into persistent form, while our measurements recover broad source characteristics more readily than temporal arrangement.
 
-> **Irreversible growth can preserve coarse historical structure while discarding fine temporal identity.**
+That suggests a hypothesis worth carrying forward:
+
+> **Irreversible growth may preserve coarse information about formation conditions while making temporal order difficult to recover.**
+
+Not a law.
+
+A result from this substrate, waiting to be attacked by a better experiment.
 
 One boundary statement, once, and then we trust the reader with it: nothing here establishes memory in the strong sense, learning, adaptation, interpretation of the environment, a stored event log, reproduction, individuality, or life. What it establishes is that a fixed local growth process can turn differences in environment into persistent, measurable, recoverable differences in form.
 
@@ -613,7 +716,13 @@ flowchart TD
     D --> F["TEMPORAL ORDER NOT RECOVERED"]
 ```
 
-The definition is small because the stronger version failed, and the failure is what makes the small version trustworthy. We tried to establish that the crystal records its temporal history, ran the strongest test we could construct, and did not get it.
+The definition is small because the stronger interpretation failed.
+
+We established that formation conditions can leave recoverable morphological information.
+
+We did **not** establish that the final morphology preserves a recoverable chronology of those conditions.
+
+Keeping those statements separate is the result.
 
 It is worth noticing what just happened procedurally, because it is the thing Outlier could not offer. We wanted to know whether temporal order mattered. So we built two worlds identical in every respect except temporal order, and looked at the difference. No matching. No searching a complicated world for naturally occurring comparisons. No unresolved regime where the data happened not to contain what we needed.
 
@@ -625,16 +734,32 @@ That is what the laboratory is for, and it worked on its first serious question.
 
 We asked the crystal what happened to it.
 
-It could answer something weaker: *I can tell you something about the kind of conditions under which I formed.*
+The morphology could answer something like:
 
-So we asked what happened first, and under every experiment we ran the answer was effectively: *I don't know.*
+> *I can tell you something about the conditions under which I formed.*
 
-That is not a disappointing end to the Digital Crystal. It identifies the next missing capability with unusual precision. The crystal has a present, and the present carries information about the conditions that produced it. What it does not have is a past that can be distinguished from another possible past.
+Then we asked a harder question:
+
+> *Can you tell us in what order those conditions occurred?*
+
+Under the tests we ran, the morphology could not.
+
+That is not a disappointing end to the Digital Crystal. It identifies the next missing capability with unusual precision. The crystal has a present, and that present carries information about the conditions that produced it.
+
+What we have not yet given it is a **recoverable past**: enough preserved state that two different histories can remain distinguishable even when their current visible morphology is otherwise comparable.
 
 So the next step is not to make it intelligent. Not to give it goals. Not reproduction. Not learning.
 
 Something much smaller.
 
-Give it a way to **keep what happened**. Not to interpret it, not to learn from it, not to decide what it means — merely to preserve enough that one history remains distinguishable from another.
+Give the process a way to **keep what happened**.
 
-Because before a process can do anything with its past, there has to be a past left to do anything with.
+Not to interpret the past.
+Not to learn from it.
+Not to call it memory.
+
+Just preserve enough internal consequence that two different histories remain different later.
+
+Because before the past can change the future, some distinction from that past has to survive.
+
+That is the next experiment.
