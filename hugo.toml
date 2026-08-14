@@ -69,8 +69,9 @@ theme = 'mainroad'
   postSections = ["post"]
   mathjax = true
   mathjaxPath = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-  notebookGithubRepo = "ernanhughes/programmer.ie"
+  notebookGithubRepo = "ernanhughes/programmer.ie.notebooks"
   notebookGithubBranch = "main"
+  notebookRoot = "notebooks"
   customCSS = ["css/custom.css", "css/series.css", "css/prompts.css", "css/prompt-library.css", "css/chapter-ai.css", "css/home.css", "css/archive.css", "css/search.css", "css/solutions.css", "css/books.css", "css/visual-system.css"]
   customJS = ["js/prompts.js", "js/search.js"]
   

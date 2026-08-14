@@ -63,28 +63,35 @@
     {{- $chapterSlug := path.Base (strings.TrimSuffix "/" .RelPermalink) -}}
 
     {{/* -----------------------------------------------------------
-         Look for a notebook automatically.
+         Notebook publication path.
 
-         static/notebooks/digital-life/00-what-is-digital-life.ipynb
+         /books/digital-life/00-what-is-digital-life/
+                    ↓
+         notebooks/digital-life/00-what-is-digital-life.ipynb
+
+         Notebook files live in the public notebook repository, not
+         in static/notebooks in this website repository.
        ----------------------------------------------------------- */}}
 
     {{- $notebookPath := "" -}}
     {{- $hasNotebook := false -}}
+    {{- $notebookRoot := .Site.Params.notebookRoot | default "notebooks" -}}
 
-    {{- if $bookSlug -}}
-      {{- $notebookPath = printf "static/notebooks/%s/%s.ipynb" $bookSlug $chapterSlug -}}
-      {{- $hasNotebook = fileExists $notebookPath -}}
+    {{- if and $bookSlug $chapterSlug -}}
+      {{- $notebookPath = printf "%s/%s/%s.ipynb" $notebookRoot $bookSlug $chapterSlug -}}
+      {{- $hasNotebook = true -}}
     {{- end -}}
 
     {{/* -----------------------------------------------------------
          Colab repository.
 
          Configure these once in hugo.toml:
-           notebookGithubRepo = "ernanhughes/programmer.ie"
+           notebookGithubRepo = "ernanhughes/programmer.ie.notebooks"
            notebookGithubBranch = "main"
+           notebookRoot = "notebooks"
        ----------------------------------------------------------- */}}
 
-    {{- $githubRepo := .Site.Params.notebookGithubRepo | default "ernanhughes/programmer.ie" -}}
+    {{- $githubRepo := .Site.Params.notebookGithubRepo | default "ernanhughes/programmer.ie.notebooks" -}}
     {{- $githubBranch := .Site.Params.notebookGithubBranch | default "main" -}}
 
     {{- $colabURL := "" -}}
