@@ -33,7 +33,11 @@ The crystal had accumulated a state. It had not preserved a usable history.
 
 So Chapter 4 ended with an instruction rather than a conclusion: give the process a way to keep what happened.
 
-That sounds like a software problem. It is not. Before we can build storage we have to know what is worth storing, and we do not yet know what a digital past is made of.
+That sounds like a storage problem.
+
+But storing more information would be easy. The difficult question is deciding which information actually constitutes a computational past.
+
+Before we build memory, we need to discover what a future can still depend on.
 
 So the question for this chapter is deliberately small:
 
@@ -41,7 +45,7 @@ So the question for this chapter is deliberately small:
 
 Notice that this is not the same as asking how to build memory. We have not earned that word, and we do not yet know what it would mean here. What we can do is take the words that ordinary language collapses into one — state, history, record, influence, signal, message, memory — and pull them apart until each of them names a different computational property.
 
-By the end of this chapter they will be different properties. Some of them the crystal will have. Most of them it will not.
+The experiments will force those words apart.
 
 ---
 
@@ -57,9 +61,9 @@ But Chapter 4 taught us a distinction that is easy to state and easy to forget:
 
 A footprint exists because someone walked there. The footprint is not the walk.
 
-A crater exists because something struck the ground. The crater is not the trajectory of the object that made it.
+Likewise, the crystal's current shape contains consequences of earlier events without necessarily preserving the sequence of those events.
 
-The crystal's current shape contains consequences. It does not contain the sequence that produced them.
+A consequence of the past is not yet a record of the past.
 
 Two ideas are tangled together here, and the rest of the chapter depends on separating them:
 
@@ -85,7 +89,7 @@ Begin with state, because state has an operational definition available:
 
 That wording is careful. We are not claiming to know the smallest possible state of a Digital Crystal. We are asking whether a particular stored representation is sufficient — a question an experiment can answer.
 
-Take the frozen Digital Crystal from Chapter 4. Do not change the growth rule. Run it for 96 steps, and halfway through, at step 48, serialize whatever we think the running process consists of:
+Take the frozen Digital Crystal from Chapter 4 and run it for 96 steps. At step 48, save everything we currently believe the process needs in order to continue:
 
 ```text
 occupied cells
@@ -96,7 +100,9 @@ random-number-generator state
 model parameters
 ```
 
-Not a screenshot. Not a rendered image. The actual continuation representation, written to a database and read back into a fresh process.
+Not a screenshot. Not merely the visible crystal.
+
+Save the process, destroy the running instance, reconstruct it from the saved state, and continue.
 
 {{< figure
 src="/images/books/digital-life/ch15-01-reference-and-checkpoint.png"
@@ -124,7 +130,9 @@ Exact continuation, or the representation was incomplete.
 
 The first attempt failed.
 
-We saved the checkpoint, restored it, continued — and the future changed.
+The checkpoint restored a crystal that looked identical.
+
+Then its future diverged.
 
 The obvious reading was that something important was missing from the checkpoint. But a second result contradicted that. When the same state was rebuilt *without* passing through serialization, continuation was exact. Whatever was going wrong was happening at the implementation boundary, not in the model.
 
@@ -142,13 +150,18 @@ same signal
 
 could still send random draw #1 to a different candidate in each run, and every draw after it to a different candidate again.
 
-The simulation had quietly acquired an undeclared state variable: the memory layout of a container. That is not a property of the Digital Crystal. It is a property of the program. We removed it by canonicalizing the traversal — candidates are visited in sorted order — and added an invariant that serializing and reconstructing a state must produce both the same one-step continuation and the same complete remaining continuation before any experiment is allowed to run.
+The experiment had quietly acquired an undeclared variable: implementation order.
+
+That was not part of the Digital Crystal we intended to study. It was an accidental property of the program running it.
+ We removed it by canonicalizing the traversal — candidates are visited in sorted order — and added an invariant that serializing and reconstructing a state must produce both the same one-step continuation and the same complete remaining continuation before any experiment is allowed to run.
 
 The debugging detail belongs to the research layer. The lesson does not:
 
 > **If future behaviour depends on hidden implementation state, that state belongs in the experimental definition whether or not it appears in the visualization.**
 
-Either promote it into the declared model or eliminate it. What you cannot do is leave it hovering between the two, invisible in every figure and decisive in every result.
+Either declare such state as part of the model or remove its influence.
+
+What cannot remain is a variable that is absent from the scientific description and decisive in the result.
 
 ---
 
@@ -181,9 +194,17 @@ So we have earned the first claim of the chapter:
 
 Note what is *not* claimed. We have not shown this is the minimal such representation. Sufficiency is what the experiment tested, so sufficiency is what we get.
 
-It is worth pausing on how strange this would be anywhere else. We stopped a growing thing, wrote it down, deleted it, rebuilt it from the writing, and it grew into precisely the thing it would have grown into. Not approximately. Not statistically. The same cells, in the same order, with the same stochastic decisions.
+There is something distinctly computational about this result.
 
-That is not a biological capability that we have imitated. It is a native property of the substrate we happen to be working in.
+We stopped the process, wrote down its state, destroyed the running instance, restored it, and recovered exactly the future it would otherwise have had.
+
+Not approximately.
+
+Not statistically.
+
+Exactly.
+
+That is not a biological mechanism copied into software. It is an affordance of the computational substrate itself.
 
 ---
 
@@ -232,7 +253,7 @@ caption="Visible morphology is insufficient for exact continuation. Stochastic s
 
 >}}
 
-Two distinctions come out of this, and both of them will still be doing work twenty chapters from now.
+Two distinctions fall out immediately.
 
 The first:
 
@@ -254,11 +275,11 @@ CAUSALLY ACTIVE CONTINUATION STATE
 
 Birth times are real information about the past. They are stored, they are accurate, and the future is entirely indifferent to them. Information about history can sit inside a process without being part of what the process does next.
 
-Hold onto that one. Almost every premature claim about memory in this book will turn out to be a version of forgetting it.
+That distinction will matter when we eventually ask whether stored history has causal leverage.
 
 So the useful operational idea is:
 
-> **State is whatever information the future actually needs.**
+> **Continuation state is the information required to reproduce the process's future under the same later conditions.**
 
 Not whatever information happens to exist in our data structures, and not whatever information sounds philosophically important.
 
@@ -324,9 +345,13 @@ HISTORY
 
 They overlap. They are not interchangeable. A process can preserve enough information to reconstruct its past without preserving what it would need to regenerate its exact future from that reconstruction — and, as the birth-time result showed, the reverse holds too.
 
-There is also something worth noticing about *how* we solved this. A biological instinct would have sent us looking for a memory organ: some region of the crystal whose geometry encodes its own formation. We did not build one. We used serialization, logging and replay — affordances the substrate already had.
+Notice what we have *not* done.
 
-That is the rule from the beginning of the book doing its job. Do not import a biological mechanism unless the digital substrate actually requires it. The crystal's past does not need to look biological. It needs to be recoverable.
+We have not invented a memory organ or searched for a special geometric region containing the past. We used computational affordances — checkpointing, event recording and replay — to separate continuation from reconstruction.
+
+That is useful instrumentation.
+
+It is not yet a property of the crystal itself.
 
 ---
 
@@ -352,7 +377,13 @@ ITS PAST IS CAUSALLY AVAILABLE TO IT
 
 Those are different claims, and only the first is supported. What we have built is instrumentation. Excellent instrumentation — it will carry the next six chapters — but instrumentation is a property of the laboratory, not of the specimen.
 
-So the crystal has a recoverable past. Not memory. Not learning. A past. That is enough for now, and it is more than it had a chapter ago.
+So **we** now have a recoverable account of the crystal's past.
+
+The distinction in that pronoun matters.
+
+The laboratory can recover it.
+
+The crystal cannot yet use it.
 
 ---
 
@@ -370,26 +401,19 @@ Restore the same saved state twice. Both copies begin with identical occupied ce
      FUTURE A         FUTURE B
 ```
 
-Biology rarely offers cheap, exact, executable copies of an earlier complete physical state. Digital systems can. That means counterfactual worlds do not have to be searched for or approximated by matching. They can be constructed.
+Here the computational substrate gives us something experimentally unusual: an exact executable branch point.
+
+From one saved state we can construct alternative futures directly rather than search the world for approximately matched cases.
 
 This is the single most valuable thing the checkpoint gives us, and everything in the second half of this chapter depends on it.
 
-But the first time we used it, it also taught us something we should have expected. We restored one checkpoint into two different prescribed future environments and measured how far the resulting morphologies diverged. They diverged. It was tempting to attribute that divergence to the change in environment.
+The branch point gives us control, but stochasticity immediately adds a warning.
 
-So we built the null: restore the same checkpoint under the *same* future forcing, but with different valid stochastic states, and see how far ordinary randomness moves the crystal on its own.
+Two futures can diverge even when we do not manipulate the mechanism we care about.
 
-```text
-different future environments    mean divergence 0.003815
-different stochastic states      mean divergence 0.005290
-```
+So from this point onward, every measure of counterfactual divergence needs a stochastic baseline.
 
-Ordinary stochastic variation produced *more* divergence than our environmental manipulation did, with a pairwise superiority of only 0.1975 in favour of the treatment.
-
-The branching capability survives. The interpretation that our chosen manipulation dominates the crystal's intrinsic variability does not.
-
-That is a small result with a large moral, and it arrives exactly when we need it: in a stochastic system, a number describing how much two futures differ means nothing until we know how much two futures differ anyway.
-
-We will need that moral twice more before the chapter ends.
+That problem will become considerably more important later in the chapter.
 
 ---
 
@@ -438,15 +462,26 @@ Then every receiver responds to a programmer-supplied metronome, and the experim
 
 Instead the pulse comes out of the sender's own dynamics. At each step we count how many cells the sender attached and compare that against its recent attachment history. When current growth is unusually high relative to its own recent past, it emits a bit.
 
-The pulse means only:
+The pulse means only, operationally:
 
-> an endogenous growth event occurred.
+> an event generated from the sender's own growth dynamics occurred.
 
-It does not mean danger. It does not mean food. It does not even mean *I grew* — that would already be a semantic claim. At this stage a `1` is a detectable event generated by the sender's own changing state, and nothing more.
+We assign it no semantics.
 
-One methodological note before the result, because it nearly cost us the experiment. Early runs let the crystals grow until they filled most of the available lattice, and once two very different trajectories both converge on a filled hexagonal disk, the endpoint stops carrying information. The experiment had not discovered convergence; the boundary had erased the differences. So the protocol now computes the capacity of the region, predeclares that endpoint morphology becomes invalid past 85% of it, and finds the longest safe horizon rather than running for a round number of steps. For the sender/receiver run, 90 steps were requested and 76 were valid.
+It is not danger, food, identity or instruction.
 
-> **The requested horizon is not necessarily the experimentally valid horizon.**
+It is merely an endogenous event that another process can receive.
+ At this stage a `1` is a detectable event generated by the sender's own changing state, and nothing more.
+
+A practical confound appeared immediately: if both branches are allowed to approach lattice saturation, different trajectories collapse toward the same filled boundary.
+
+That is not convergence of the process. It is information loss caused by the container.
+
+So the experiment predeclared a saturation guard and stopped before the endpoint became boundary-dominated.
+
+The detailed horizon calculation belongs in the reproducibility record. The principle is enough here:
+
+> **Do not let the container erase the effect you are trying to measure.**
 
 ---
 
@@ -466,7 +501,13 @@ flowchart TD
     FUT_B --> COMP
 ```
 
-This is not a correlation. It is an intervention, and it removes nearly every alternative explanation available. If the two futures differ, the difference was caused by the bit.
+This is an intervention rather than a correlation.
+
+The bit is the only deliberately changed input between the paired branches.
+
+If their outcome distributions differ, the intervention has causal effect.
+
+How large the pathwise difference should be credited to that bit will turn out to require more care.
 
 Repeated 120 times:
 
@@ -476,9 +517,10 @@ produced morphology divergence  95.8%
 mean normalized difference     0.1633
 ```
 
-The average symmetric difference was around 158 cells, and saturation played no part — the crystals never exceeded about 13.5% of lattice capacity.
+Five of the 120 interventions produced no final morphological difference.
 
-Five of the 120 interventions ended with no morphology difference at all, which is worth stating because it constrains the claim. The result is not *every received bit changes the receiver*. It is:
+That constrains the result usefully: the claim is not that every bit deterministically changes the receiver.
+ The result is not *every received bit changes the receiver*. It is:
 
 > **Changing one received bit, while holding receiver state, stochastic state and external forcing fixed, usually altered the receiver's subsequent morphology.**
 
@@ -554,7 +596,9 @@ It would be lazy to summarize that as *communication failed*.
 
 Look at what the control ladder actually mapped. The receiver is demonstrably sensitive to some coarse property of the pulse stream — its density, its burstiness, the general shape of its interval distribution — because shuffled and rate-matched controls both lose. And it is demonstrably insensitive to which same-class crystal produced that stream, and to the exact order in which the intervals occurred, because those controls both tie.
 
-The channel has a resolution. We just measured roughly where it sits.
+The receiver appears sensitive to some coarse temporal structure while losing the distinctions required to identify the particular sender or exact interval chronology.
+
+The channel is lossy.
 
 And it rhymes with the chapter before it:
 
@@ -568,7 +612,11 @@ broad pulse-stream structure matters
 sender identity and exact chronology do not
 ```
 
-Twice now, in two quite different experimental settings, the same substrate has preserved coarse process structure while discarding fine temporal identity. That is worth naming as a recurring observation — call it the lossy-history behaviour of this substrate — as long as we remember that two instances is not a law.
+Twice now, different experiments have produced the same suggestive pattern:
+
+```text
+coarse temporal structure survives
+fine temporal identity does not
 
 ---
 
@@ -584,7 +632,11 @@ Here is the mechanism. At each step the process builds a frontier of candidate c
 
 Imagine two identical card tables, each being dealt from an identically ordered deck. Remove one player from one table. That table does not merely lose a player: every card after the gap now lands in a different hand. Compare the two tables afterwards and you will measure an enormous difference — but much of it is not the consequence of the missing player. It is the consequence of the reshuffle you caused by removing them.
 
-That is what our first perturbation experiments were partly measuring. A pulse branch that appeared to be racing toward the divergence level of a completely independent run may have been racing there because its random opportunities had been reassigned, not because the crystal was amplifying the pulse.
+So some of the dramatic pathwise divergence in our early perturbation experiments could come from reassigned stochastic opportunities rather than from downstream amplification of the intervention itself.
+
+The causal effect remained real.
+
+Its apparent cascade had become suspect.
 
 ```text
 SAME RANDOM STREAM
@@ -635,7 +687,14 @@ CAUSAL EFFECT
 COUPLING-INVARIANT PATHWISE DIVERGENCE
 ```
 
-Two treatment distributions may be identical however you pair their randomness. But the distance between one particular treated world and one particular untreated world can depend enormously on that pairing. Which means the honest form of any such measurement names its coupling, and three things that we had been treating as one now have to be kept apart: the marginal effect between distributions, the paired effect under a declared coupling, and the pathwise distance between particular trajectories.
+This forces another separation.
+
+```text
+difference between outcome distributions
+≠
+paired difference under a declared stochastic coupling
+≠
+distance between two particular trajectories
 
 A related correction belongs here too. Before the coupling was fixed, four-pulse sequences appeared to produce a response that was substantially different from the sum of the individually measured pulse responses — an attractive result, since nonlinear integration of input history would be a genuinely interesting property. After the coupling fix we added a measurement-noise floor: how large a mean feature difference appears when you compare two finite samples drawn from the *same* unperturbed population? The floor came out around 0.045. The superposition residual was around 0.007.
 
@@ -647,7 +706,9 @@ OBSERVED DISCREPANCY
 RESOLVED MECHANISTIC NONLINEARITY
 ```
 
-Within the resolution of this experiment, the multi-pulse response stayed compatible with the sum of the isolated responses. Another interesting hypothesis removed by a control, which is the cheapest way to lose one.
+Within the resolution of this experiment, the multi-pulse response stayed compatible with the sum of the isolated responses. The discrepancy existed.
+
+The experiment could not resolve it as a mechanistic effect.
 
 ---
 
@@ -668,9 +729,11 @@ B = 10001101      pulses at {0, 4, 5, 7}
 
 Same number of pulses. Same first pulse. Same last pulse. Only the interior arrangement differs.
 
-Everything else was frozen in advance. The stochastic coupling was the cell-keyed runner that had passed its preflight. The codewords were fixed. The primary endpoint was fixed immediately after the final pulse, inside the coherent response window rather than after the trajectories had decorrelated. The primary measurement was fixed as a regularized paired multivariate statistic on a nine-feature angular morphology subspace. Secondary endpoints and a wider 24-feature measurement were recorded, and were explicitly not permitted to rescue the primary test.
+The confirmatory experiment was frozen before the result was inspected: codewords, stochastic coupling, primary endpoint and primary morphology measurement.
 
-That last rule is the one that makes the result mean anything. Without it, every negative outcome becomes an invitation to keep looking until something turns up.
+Secondary measurements were recorded but were not allowed to rescue a failed primary test.
+
+That matters because otherwise every negative result becomes permission to keep searching until some alternative statistic succeeds.
 
 Forty-eight independently generated receiver checkpoints. Two histories each. One question:
 
@@ -695,7 +758,9 @@ primary angular test (9 features)     p = 0.7366
 secondary test (24 features)          p = 0.9320
 ```
 
-The primary statistic was not hovering just short of a threshold. It fell below the average statistic produced by the permutation null. The later secondary endpoints showed no delayed effect either; there is no plausible reading in which we simply measured one step too early.
+This was not a near miss.
+
+The predeclared primary statistic showed no evidence of a stable history signature, and the wider secondary measurement did not recover one either.
 
 The predeclared experiment failed. Not the software, not the preflight, not the coupling. The hypothesis.
 
@@ -703,7 +768,9 @@ The scope of that failure needs stating precisely, because a sloppy version of i
 
 > Under the frozen protocol, changing the interior timing of four pulses while holding pulse count, onset and offset fixed did not produce a reproducible population-level morphology signature detectable by the predeclared angular measurement at the primary endpoint.
 
-Status: **FAILED**. Not untested. Not inconclusive. Failed, within a scope we declared before looking.
+Within the predeclared scope, the hypothesis failed.
+
+That is stronger than saying we did not find enough evidence, because the experiment was built specifically to test this claim and passed its validity checks.
 
 What we did *not* establish is that temporal arrangement can never matter, or that these histories had no consequences. They plainly had consequences. What we could not do was read back which history had occurred from the shape it produced.
 
@@ -727,58 +794,52 @@ Put the three experiments side by side and a hierarchy appears that was not visi
 
 ```text
 CAUSAL CONSEQUENCE
-        cheap
-
+        ↓
 PERSISTENT CONSEQUENCE
-        harder
-
+        ↓
 SYSTEMATIC SIGNATURE
-        harder still
-
+        ↓
 RECOVERABLE INFORMATION
-        harder still
+
 ```
 
-Every step up that ladder is a separate empirical claim. The Digital Crystal has comfortably reached the first. It has not reached the last, and nothing about reaching the first implies it ever will.
+Every arrow is a new empirical claim.
+
+The Crystal has crossed the first threshold repeatedly.
+
+The experiments in this chapter show why none of the later thresholds follows automatically.
 
 That is the shape of the chapter, and it is worth being clear that this is a chapter with a great deal in it. Several strong interpretations died. The phenomena underneath them did not.
 
-**What survived:**
+The strongest surviving progression is:
 
 ```text
-exact executable continuation from a complete saved state
-exact reconstruction of recorded morphology from an event history
-continuation-relevant state hidden from the visible form
-counterfactual branchability from one saved past
-primitive causal transmission between processes
-coarse sensitivity to temporal structure
-history-dependent particular futures
-```
+complete state
+→ exact continuation
 
-**What did not:**
+recorded events
+→ exact reconstruction
 
-```text
-sender-specific signalling
-chain- or board-topology-specific propagation
-environmental manipulation dominating stochastic variation
-nonlinear integration of multi-pulse history
-a stable readable population-level history signature
-memory
-```
+earlier intervention
+→ later causal consequence
 
-And the distinctions we can now use as tools rather than intuitions:
+different histories
+→ different particular futures
+
+Three distinctions now matter more than the rest:
 
 ```text
-VISIBLE FORM          ≠  EXECUTABLE STATE
-STATE                 ≠  HISTORY
-RECORDED HISTORY      ≠  POSSESSED HISTORY
-PAST AFFECTS FUTURE   ≠  PAST IS REPRESENTED
-CAUSAL TRANSMISSION   ≠  SENDER-SPECIFIC SIGNALLING
-PARTICULAR DIVERGENCE ≠  STABLE SIGNATURE
-CAUSAL EFFECT         ≠  PATHWISE DIVERGENCE
-SHARED RNG STREAM     ≠  SHARED RANDOM WORLD
-CAUSAL PAST           ≠  MEMORY
-```
+VISIBLE FORM
+≠
+EXECUTABLE STATE
+
+RECORDED PAST
+≠
+CAUSALLY AVAILABLE PAST
+
+CAUSAL CONSEQUENCE
+≠
+MEMORY
 
 The single sentence the chapter has earned:
 
@@ -820,15 +881,32 @@ So where, exactly, is the crystal's past?
 
 Not in our checkpoint — that belongs to the laboratory. Not in our event log — the growth rule never reads it. Not in the morphology, which turned out to be a projection of the state rather than the state itself, and which could not be made to give up the arrangement of the pulses that shaped it.
 
-And yet the past is unmistakably doing something. One bit, delivered eight steps ago, produced a different crystal. Two histories with the same pulse count, the same onset and the same offset produced measurably different futures. Something was carried forward.
+And yet the past is unmistakably doing something.
 
-It was carried forward by the ordinary forward motion of the process: a perturbation changed an attachment, that attachment changed a frontier, that frontier changed what could happen next. Consequence propagating through construction. That is a real mechanism and it is enough to produce a causal past — but it is not a mechanism for *keeping* anything. Nothing was stored. Nothing was written. Nothing was available to be read later, by us or by the crystal.
+A pulse changes an attachment.
+That attachment changes the frontier.
+The changed frontier alters later opportunities.
+The process follows a different trajectory.
+
+```text
+event
+↓
+local consequence
+↓
+changed possibility
+↓
+later consequence
 
 Which suggests the next experiment, and it is smaller than memory and more concrete than history.
 
-The Digital Crystal is made of cells, and so far a cell has exactly one property: it exists. It cannot be marked. It cannot be worn. It cannot hold a state that says *something happened here*.
+So far, an occupied Crystal cell has almost no internal state.
 
-So suppose we let it.
+It cannot be changed by experience and remain changed afterwards.
+
+It cannot carry a persistent local distinction between:
+
+```text
+this happened here
 
 ```text
 not in our checkpoint
@@ -839,8 +917,18 @@ what if experience
 changed the material itself?
 ```
 
-Change the material. Then wait. If the change is still there after the event that caused it is gone, and if the growth rule has to consult it in order to decide what happens next, then the past will finally have somewhere inside the system to live.
+Change the material.
 
-That would not be memory either. But it would be the first place a past could be kept by the thing that had it.
+Then remove the event that changed it.
+
+If the material difference persists, remains accessible to later computation, and changes what the process does next, then the past will have acquired something it has not had anywhere in this chapter:
+
+**an internal carrier.**
+
+Not memory.
+
+Not yet.
+
+But finally a place inside the process where experience can remain causally available after the original event is gone.
 
 > **Can experience change the material itself?**
