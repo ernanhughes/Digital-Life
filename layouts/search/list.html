@@ -8,10 +8,10 @@
   (dict "path" "/learn/advanced-agents/" "series" "Advanced Agents From First Principles")
 -}}
 
-{{- range $key, $book := .Site.Data.books.books -}}
+{{- range $book := .Site.Data.books.books -}}
   {{- $records = $records | append (dict
     "title" $book.title
-    "url" (printf "/books/#book-%s" $key | relURL)
+    "url" (printf "/books/#book-%s" $book.id | relURL)
     "type" "Book"
     "series" $book.level
     "description" $book.description

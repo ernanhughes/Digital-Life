@@ -1,0 +1,14 @@
+{{- if .Param "toc" }}
+{{- $toc := .TableOfContents -}}
+{{- $toc = replaceRE `(?s)<li><a href="#[^"]+">\$\$.*?</a></li>` "" $toc -}}
+{{- $toc = replaceRE `(?s)<li><a href="#[^"]+">\\.*?</a></li>` "" $toc -}}
+{{- $toc = replaceRE `(?s)<li><a href="#[^"]+">[^<]*(?:\\|_|\{|\})[^<]*</a></li>` "" $toc -}}
+{{- if gt (len $toc) 32 }}
+<div class="post__toc toc">
+	<div class="toc__title">{{ T "toc_title" }}</div>
+	<div class="toc__menu">
+		{{ $toc | safeHTML }}
+	</div>
+</div>
+{{- end }}
+{{- end }}

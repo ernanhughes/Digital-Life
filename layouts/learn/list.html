@@ -1,4 +1,5 @@
 {{ define "main" }}
+{{- $books := .Site.Data.books.books -}}
 <section class="learn-hub">
   <header class="learn-hub__hero">
     <span class="learn-hub__eyebrow">Learn by building</span>
@@ -7,28 +8,20 @@
     {{ with .Content }}<div class="learn-hub__copy">{{ . }}</div>{{ end }}
   </header>
 
-  {{ $paths := slice
-    (dict "name" "PyTorch: Zero to Hero" "label" "01" "title" "PyTorch: Zero to Hero" "level" "Foundations" "slug" "pytorch" "summary" "Learn the machinery: tensors, autograd, neural networks, data pipelines, attention, training and a small language model from scratch.")
-    (dict "name" "Models From First Principles" "label" "02" "title" "Models From First Principles" "level" "Model Architecture" "slug" "models" "summary" "Move beyond APIs and understand how learned components, scorers, policies, hierarchical models and compact reasoning systems are constructed.")
-    (dict "name" "Agents From First Principles" "label" "03" "title" "Agents From First Principles" "level" "Agent Systems" "slug" "agents" "summary" "Turn models into systems that can plan, use tools, maintain state, search, revise work and verify outcomes.")
-    (dict "name" "Advanced Agents From First Principles" "label" "04" "title" "Advanced Agents From First Principles" "level" "Production AI" "slug" "advanced-agents" "summary" "Engineer autonomous systems for production: evidence, reliability, authority, distributed execution, durable workflows, security and control planes.")
-  }}
-
   <div class="learn-paths">
-    {{ range $paths }}
-      {{ $seriesName := .name }}
-      {{ $pages := partial "series_pages.html" (dict "site" $.Site "series" $seriesName) }}
+    {{ range $index, $book := $books }}
+      {{- $readURL := $book.learn_url | default $book.book_url -}}
       <article class="learn-path-card">
-        <div class="learn-path-card__number">{{ .label }}</div>
+        <div class="learn-path-card__number">{{ printf "%02d" (add $index 1) }}</div>
         <div class="learn-path-card__body">
           <div class="learn-path-card__meta">
-            <span>{{ .level }}</span>
-            <span>{{ len $pages }} chapters</span>
+            <span>{{ $book.level }}</span>
+            <span>{{ $book.expected_chapters }} chapters</span>
           </div>
-          <h2>{{ .title }}</h2>
-          <p>{{ .summary }}</p>
+          <h2>{{ $book.title }}</h2>
+          <p>{{ $book.description }}</p>
           <div class="learn-path-card__actions">
-            <a class="learn-path-card__primary" href="{{ printf "/learn/%s/" .slug | relURL }}">View learning path</a>
+            <a class="learn-path-card__primary" href="{{ $readURL | relURL }}">Open book</a>
           </div>
         </div>
       </article>
@@ -36,8 +29,8 @@
   </div>
 
   <aside class="learn-hub__next">
-    <strong>Four paths, one progression.</strong>
-    <p>Start with the machinery, move through model construction and agent systems, then finish with production autonomy. Each path now has its own curriculum page while the original article URLs remain unchanged.</p>
+    <strong>{{ len $books }} books, one growing library.</strong>
+    <p>The newest books appear first. Each book remains readable on the web while the same catalog drives the wider Programmer.ie publishing system.</p>
   </aside>
 </section>
 {{ end }}

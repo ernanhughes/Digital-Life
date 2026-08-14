@@ -64,7 +64,7 @@
 {{ range .Site.Params.customJS -}}
 <script src="{{ . | relURL }}"></script>
 {{- end }}
-{{- partial "mathjax.html" . -}}
+{{- partial "math.html" . -}}
 {{ if .Store.Get "hasMermaid" }}
   <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';

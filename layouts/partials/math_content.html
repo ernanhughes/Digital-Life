@@ -1,0 +1,12 @@
+{{- $content := .RawContent -}}
+{{- $content = replaceRE `(?ms)^\$\$\r?\n(.*?)\r?\n\$\$\s*$` `<div class="math-display">
+$$$$
+$1
+$$$$
+</div>` $content -}}
+{{- $content = replaceRE `(?ms)^\\\[\r?\n(.*?)\r?\n\\\]\s*$` `<div class="math-display">
+\[
+$1
+\]
+</div>` $content -}}
+{{- .RenderString $content -}}

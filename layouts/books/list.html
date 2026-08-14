@@ -9,8 +9,8 @@
   </header>
 
   <div class="books-hub__grid">
-    {{ range $key, $book := $books }}
-      <article class="book-card" id="book-{{ $key }}">
+    {{ range $book := $books }}
+      <article class="book-card" id="book-{{ $book.id }}">
         <div class="book-card__meta">
           <span>{{ $book.level }}</span>
           <span>{{ $book.expected_chapters }} chapters</span>
