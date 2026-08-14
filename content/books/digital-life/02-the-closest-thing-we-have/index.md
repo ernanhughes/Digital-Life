@@ -617,6 +617,43 @@ measurement
 control
 ```
 
+## Why We Will Eventually Need a Smaller Laboratory
+
+There is one more thing to take from Outlier, and it is a problem rather than a lesson.
+
+Outlier is extraordinary evidence precisely because it is rich. Structures interact, recombine, produce debris, build hierarchies. That richness is what makes it convincing.
+
+The same richness makes mechanistic questions very hard to isolate.
+
+Our modest run already contained 138,891 detected clusters and 196,466 causal edges.
+
+That richness is evidence of possibility.
+
+It is also a terrible place to isolate a mechanism.
+
+Suppose we want to ask why one process continues while another stops. Or whether stored history changes a later response. Or what finite computational scarcity does to interaction. Outlier gives us no clean dial for any of those questions.
+
+Everything is entangled in the same local rule.
+
+To answer questions like that, we would need to change one mechanism at a time. Outlier does not offer separable mechanisms. It offers 512 bits that either produce this universe or a different one; there is no dial marked *coupling*, no parameter governing how far influence travels, nothing to hold fixed while varying something else. We can observe its states and reconstruct a great deal of local causal structure.
+
+What we cannot easily do is vary one higher-level mechanism while holding the others fixed.
+
+That requires a different kind of laboratory.
+
+So there is a laboratory we are eventually going to need. One where:
+
+```text
+we know every rule
+we control every intervention
+we can change one mechanism at a time
+we can preserve the full experimental history
+```
+
+Not because Outlier is inadequate — as evidence it is close to ideal — but because evidence that something is possible is a different instrument from a system in which we can find out *why*.
+
+That need is going to become considerably more acute in the next chapter.
+
 ---
 
 ## References
