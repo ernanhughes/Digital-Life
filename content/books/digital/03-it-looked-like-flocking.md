@@ -474,6 +474,7 @@ Even after removing the extreme short-range regime, the raw comparison still app
 
 ```text
 +0.0566
+```
 
 Applying the matching procedure within this region — exact matching on time bin, distance bin and density bin, with equal numbers from each group per stratum:
 
@@ -766,7 +767,8 @@ Even careful matching left the most interesting very-short-range regime unresolv
 There is another way to work:
 
 > **build the comparison into the experiment before the world runs.**
- Where we can hold expansion fixed and vary coupling. Where we can run a system, then run it again with one mechanism removed and everything else identical, and attribute the difference to the mechanism. Where the question *does history matter here?* can be asked by constructing two histories rather than by searching a run for pairs that happen to differ in the right way.
+
+Where we can hold expansion fixed and vary coupling. Where we can run a system, then run it again with one mechanism removed and everything else identical, and attribute the difference to the mechanism. Where the question *does history matter here?* can be asked by constructing two histories rather than by searching a run for pairs that happen to differ in the right way.
 
 That is not Outlier, and it is not a criticism of Outlier. It is a different instrument for a different job.
 
@@ -780,6 +782,7 @@ memory
 reproduction
 individuality
 collective motion
+```
 
 Outlier showed us something important:
 
