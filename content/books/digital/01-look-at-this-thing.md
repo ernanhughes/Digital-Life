@@ -87,11 +87,19 @@ next field
 
 Again, and again, and again.
 
-The family of systems this figure comes from is called **Lenia** — a continuous cellular automaton, where a location holds not `0` or `1` but any value in between, and where the neighbourhood is a smooth weighted region rather than a handful of adjacent cells. The original work catalogued hundreds of recurring forms found by exploring the parameter space, and described them as lifeforms.
+The family of systems this figure comes from is called **Lenia** — a continuous cellular automaton in which each location holds a value between `0` and `1`, and interacts with a smooth weighted neighbourhood.
 
-We are going to be more careful than that. For now they are:
+Lenia is famous precisely because many of the resulting patterns are extraordinarily easy to describe in biological language.
 
-> **persistent localized patterns**
+We will resist that language for now.
+
+What we have actually observed is:
+
+> **a persistent localized pattern**
+
+That description is less exciting.
+
+It is also something we can test.
 
 They occupy regions of space. They change. Some persist, some move, some deform, some disappear. Those are observations, and we can make more of them whenever we like.
 
@@ -109,7 +117,11 @@ localized organization appears
 we decide whether "object" is a useful description
 ```
 
-That reversal is a large part of why artificial life is so compelling. It is also exactly why it is dangerous. The object shows up in our perception long before we have any idea whether our object boundary corresponds to anything in the mechanism.
+That reversal is a large part of why artificial life is so compelling.
+
+It is also why it is so easy to fool ourselves.
+
+The object appears first in our perception. Only afterwards do we begin asking whether anything in the mechanism justifies treating that apparent boundary as a real unit of organization.
 
 ---
 
@@ -125,7 +137,11 @@ Look at the pattern travelling left to right.
 
 The grid does not move. The individual locations do not travel. Location (40, 17) is exactly where it always was, holding whatever value the update rule most recently assigned it. Nothing is transported.
 
-What happens instead is closer to this: state at one place changes the state nearby; a recognizable organization appears slightly to the right; that organization changes the state nearby; the organization appears further right again. The pattern advances the way a rumour advances through a room — nobody walks anywhere.
+What happens instead is a chain of local reconstruction. State at one location influences nearby updates; a recognizable organization appears slightly farther over; those states influence the next updates; the recognizable organization appears farther over again.
+
+Nothing corresponding to the visible creature has travelled through the grid.
+
+The organization has propagated.
 
 So when we say *the creature moved*, the operational description is:
 
@@ -151,7 +167,17 @@ The word **it** is carrying an enormous amount of unearned weight. Before saying
 
 We do not have that rule yet. Visual continuity is enough to raise the question. It is nowhere near enough to settle it.
 
-This matters more than it currently looks like it does. Later in the book we will meet cases where a connected shape is not the right boundary for the continuing organization, where several disconnected structures participate in one causal process, and where two identical-looking structures have entirely unrelated histories. Our first intuition about "the thing" is therefore deliberately provisional. We are holding it loosely on purpose.
+This matters more than it currently appears to.
+
+What if connected geometry eventually turns out not to be the correct boundary?
+
+What if two identical-looking structures have different histories?
+
+What if one continuing process occupies several disconnected regions?
+
+We do not know yet.
+
+So our first definition of "the thing" will remain deliberately provisional. We will use geometry while it works, and replace it if the experiments force us to.
 
 A discipline that helps: keep two descriptions of the same event side by side.
 
@@ -168,20 +194,17 @@ It flocks.
 
 **The operational description**
 
-```text
-Its centroid changes.
-State transfers between localized regions.
-Similarity to an earlier morphology increases after perturbation.
-One pattern changes the future persistence of another.
-A second pattern satisfying a defined similarity criterion appears.
-Nearby velocity vectors show directional correlation.
-```
-
 The left-hand column is how we notice phenomena worth investigating, and abandoning it would make us worse scientists, not better ones. The right-hand column is what we can actually test. Neither should quietly replace the other, and the failure mode of this entire field is the moment the first column starts getting reported as though it were the second.
 
-One more note before we move on, because it will matter later. Ordinary Lenia does not conserve the quantity in the field: state can appear and disappear as the update runs. A later system, **Flow-Lenia**, changes that by transporting the field while conserving total mass — so instead of *nothing → something*, the only available move is *something here → something somewhere else*. That single constraint changes the questions we are able to ask. If a structure grows, we can now ask where the material came from. If two collide, we can ask where it went.
+Flow-Lenia makes the example even more interesting by adding a conservation constraint: rather than allowing field quantity simply to appear or disappear, it redistributes it through the system.
 
-But conservation is not biology arriving by the back door. Mass conservation is interesting because it is a measurable constraint that closes off sloppy interpretations, not because it earns the word metabolism. One constraint changing what questions are askable is a pattern we will see repeatedly — and it is quite different from a constraint making something more alive.
+That changes what we can ask. If a structure grows, there is now something meaningful to trace. If two structures collide, redistribution can be measured.
+
+But conservation does not make the system more alive.
+
+It makes the experiment better constrained.
+
+That distinction — between adding a constraint that improves what we can measure and adding a property we wish to call life-like — will matter throughout the book.
 
 ---
 
@@ -208,51 +231,17 @@ elaborate seed         →  a single active cell
 
 Each of those removals is deliberate. The states become binary, so nothing can hide in the decimals — and we will avoid calling them *alive* and *dead*, because those names smuggle in the conclusion. The world becomes a single line, so there is no north, no south, no morphology, none of the geometry that made the previous section feel organism-like. Each location can see only its left neighbour, itself, and its right neighbour: that is its entire universe, and anything it ever learns about the wider world has to arrive through repeated local interaction.
 
-With three binary neighbours there are only eight possible local situations. So the entire law of physics for this universe is a choice of output for each:
+With three binary neighbours there are only eight possible local situations. The entire law of this universe is therefore eight output bits.
 
-```text
-111 → 0
-110 → 0
-101 → 0
-100 → 1
-011 → 0
-010 → 1
-001 → 1
-000 → 0
-```
+One example is:
 
-Read the outputs in order and you get `00010110`, which as a binary number is 22. So this is Rule 22, and the naming convention is useful precisely because it is so aggressively unromantic. There are eight bits of freedom here, and therefore exactly 256 possible rules of this kind. Not a sample of the possibility space — the whole thing, enumerable, testable, with nowhere for an explanation to hide.
+Now give it almost nothing to work with.
 
-The complete update step is short enough to read in one go:
+One active cell in an otherwise empty line.
 
-```python
-def step(state, rule):
-    next_state = [0] * len(state)
+No population. No agent. No memory. No objective. No fitness function. No hidden machinery waiting to unfold.
 
-    for i in range(len(state)):
-        left = state[(i - 1) % len(state)]
-        centre = state[i]
-        right = state[(i + 1) % len(state)]
-
-        neighborhood = (left << 2) | (centre << 1) | right
-        next_state[i] = (rule >> neighborhood) & 1
-
-    return next_state
-```
-
-There are only two tricks in it. The first line packs three bits into a number from 0 to 7; the second extracts the corresponding bit from the rule number. That is genuinely all of it. The number 22 really does encode the complete transition law.
-
-Now give it the emptiest world we can build:
-
-```python
-width = 81
-state = [0] * width
-state[width // 2] = 1
-```
-
-One active cell. No noise, no environment, no population, no agent, no memory, no objective, no fitness. One bit, alone, in an otherwise empty line.
-
-Then let time run, and stack each generation underneath the last:
+Then let the same tiny rule repeat through time, stacking each successive state underneath the last.
 
 ![Rule 22 spacetime diagram](/images/books/digital-life/ch02-rule22-spacetime.png)
 
@@ -264,9 +253,23 @@ Structure appears.
 
 Before we react to it, two corrections — both of which are small here and will be large later.
 
-**The picture is not a two-dimensional object.** It is a picture of history. Horizontal position is space; vertical position is time; each row is the entire world at one moment. The pattern seems to fall down the page, but nothing is moving downward, because the world has no downward direction. A temporal process has been flattened into a spatial image so that we can inspect it. That is a representational convenience we introduced, and confusing it with the mechanism is the same error as confusing the animation with the creature.
+Two cautions matter.
 
-**The behaviour does not belong to the rule alone.** Our implementation wraps at the edges — `(i - 1) % len(state)` quietly makes the line into a ring. We could instead have chosen fixed-zero boundaries, or reflective ones, or an effectively unbounded world, and eventually obtained different behaviour. The update is synchronous: every cell at *t+1* is computed from the world at *t*, so every location sees the same moment of history. Updating cells one at a time, each seeing its already-updated neighbour, would give a different system entirely.
+First, this is not a two-dimensional object. Horizontal position is space; vertical position is time. We have turned a history into a picture. Nothing is moving downward.
+
+Second, the rule number does not specify the entire experiment. Initial state, boundary conditions, world size and update procedure all matter.
+
+So instead of saying:
+
+> Rule 22 does this.
+
+the more honest description is:
+
+> **Under this experimental configuration, Rule 22 produced this history.**
+
+That qualification seems fussy now.
+
+Later it will become essential.
 
 So whenever we are tempted to write *Rule X does Y*, the honest statement is:
 
@@ -288,17 +291,33 @@ There is regular structure on the left. Irregularity on the right. Repeating fra
 
 And every pixel of that history is fully determined by the row above it. No random numbers are involved anywhere. Rule 30 does not roll dice; its transition table is fixed, and starting from the same state gives exactly the same history every time.
 
-This is the first genuine surprise of the book, and it is worth being precise about what the surprise consists of. It is not that the picture is complicated — pictures are easy to make complicated. It is this:
+This is the first genuine surprise of the book, and it is worth being precise about what is surprising.
 
-> **the global behaviour is vastly harder to anticipate than the local rule that produces it.**
+Not merely that the picture looks complicated.
 
-Determinism means that given the current state, the next state is fixed. It does not mean the long-run trajectory is predictable by inspection. Those are different claims, and Rule 30 separates them cleanly. Locally the mechanism is trivial: three inputs, one output bit, eight cases you could check by hand in a minute. Globally, the only reliable way to find out what happens on step 400 is to run 400 steps.
+It is that:
 
-Where is the apparent complexity stored? Not in the rule, which is eight bits. Not in the initial condition, which was one active cell. Not in any individual cell, which holds one bit and no history, no age, no direction, no parent, no purpose. The structure exists in:
+> **a locally trivial rule can produce global behaviour that is difficult to anticipate from inspection of the rule itself.**
+
+Determinism guarantees that the next state is fixed by the current one. It does not guarantee that a human looking at eight transition cases can intuit the long trajectory they generate.
+
+The mechanism is tiny.
+
+Its consequences are not correspondingly obvious.
+
+Where, then, is the apparent complexity?
+
+No individual cell contains it. The rule contains no picture of the future. The initial condition contains almost nothing.
+
+What we see exists in the unfolding:
 
 > **the trajectory produced by repeated interaction between rule and state**
 
-That statement is worth more than the word it is competing with.
+That is already an important shift.
+
+The interesting object may not be something stored anywhere.
+
+It may be something that exists only by continuing to happen.
 
 ---
 
@@ -337,19 +356,25 @@ Run both worlds forward and record that number at every step:
 
 ![Measured growth of the perturbation](/images/books/digital-life/ch03-rule30-difference-growth.png)
 
-Now we are no longer saying *the disturbance seems to spread*. We are asking how much of the world becomes different, and how quickly — which is a question with a number attached.
+Now *the disturbance seems to spread* has become something measurable:
 
-Two disciplines apply immediately, and they are the same two that will apply for the next twenty-nine chapters.
+> How much of the later world changes because one earlier cell was different?
+
+That is a much more useful question.
+
+And it immediately brings back the two disciplines established in the introduction: compared with what, and what is the smallest description the measurement actually earns?
 
 **Compared with what?** A rapidly growing difference count is not evidence that Rule 30 is unusually sensitive until we have run the same perturbation protocol on other rules. The single-rule result is a measurement. The comparison is what makes it a claim.
 
 **Don't reach for the bigger word.** It is tempting to say *chaotic*, but chaos has technical meanings in dynamical systems, and irregular, random, chaotic, complex and emergent are not synonyms. What we can safely say is that Rule 30 is deterministic, its history contains visually irregular regions, small changes to the initial state can spread through later states, and the divergence can be measured. If a stronger word requires a stronger definition, we should earn it later rather than borrow it now.
 
-And one thing genuinely worth keeping from this section, because it is more than a pretty pattern:
+One result is worth carrying forward:
 
-> **A local perturbation can acquire a large future footprint through repeated interaction.**
+> **A small local difference can acquire a much larger future footprint through repeated interaction.**
 
-That is the first faint outline of causal structure. It will come back, in far more precise form, much later.
+We should not call that a theory of causation yet.
+
+But it gives us something better than appearance: a difference we can create deliberately and then follow through time.
 
 ---
 
@@ -375,7 +400,9 @@ Nothing in that configuration says *move diagonally*. There is no velocity, no d
 
 ![A Game of Life glider moving across a fixed lattice](/images/books/digital-life/ch04-glider.gif)
 
-And yet a recognizable organization travels diagonally across the grid, indefinitely, until it hits something.
+And yet a recognizable organization translates diagonally across the grid, repeating the same four-step cycle as it goes.
+
+Now the word *thing* becomes much harder to dismiss.
 
 ---
 
@@ -414,13 +441,23 @@ What persisted was a recurring sequence of local configurations, a stable transf
 
 This gives us the first genuinely useful distinction of the book.
 
-**Material identity** says *same components, same thing*. It works well for a rock. It is a poor description of a glider, which shares almost no cells with itself four steps ago.
+Two notions of identity have separated.
 
-**Organizational identity** says *the same organization, up to some allowed transformation, is usefully treated as the same thing*. The glider invites this description strongly.
+**Material identity** asks whether the same components persist.
 
-Be careful about what that buys us. We have not shown that every persistent pattern is an entity, and we certainly have not found an organism. We have shown something narrower and sturdier:
+**Organizational identity** asks whether a recognizable pattern of relations persists through permitted changes.
 
-> **Material continuity is not necessary for a useful operational notion of identity in this system.**
+The glider has almost no material identity across its motion. The active cells continually change.
+
+But its organization recurs with extraordinary precision.
+
+So we have earned a narrower claim:
+
+> **In this system, recognizable organization can persist without persistent material identity.**
+
+We have not found an organism.
+
+We have found a kind of continuity that does not require one fixed body.
 
 That is a small claim. It is also one of the load-bearing results of the entire book, and when it returns — in a very different system, under much more aggressive tests — it will not have changed.
 
@@ -451,7 +488,15 @@ This is the shape of most progress in this book. One word that felt like a singl
 
 There is a further subtlety hiding in the glider case. Compare the grid at t=0 and t=4 directly and they are not equal; compensate for the translation first and they match exactly. So identity here depends on which transformations we have decided to treat as irrelevant. Position? Orientation? Phase? Scale? The exact cells involved?
 
-That is not idle philosophy. It is the specification of the detection algorithm. Whatever we decide to ignore determines what our software will report as the same object, which means our measurement is partly constructing the objects it claims to find. We will meet that problem again in a much less comfortable setting.
+That is not merely philosophy.
+
+It is an engineering decision.
+
+Whatever transformations our detector is allowed to ignore — translation, rotation, phase, perhaps something else — determine what the detector will report as the same continuing pattern.
+
+So even here, at the level of five cells, measurement and ontology are beginning to touch.
+
+We should remember that before trusting any future boundary too quickly.
 
 For now the operational definition is clean enough to test:
 
@@ -471,9 +516,15 @@ One word: localization.
 
 Most of the world is not part of the glider. Activity stays concentrated in a bounded region, so we can draw a box around it, count its cells, compute its area and orientation and period, and follow it. Rule 30's structure fills the space it occupies and offers nothing to draw a box around.
 
-That gives us a candidate operational boundary — and the word to mark is *candidate*. Localized connected geometry works beautifully here, and it is not the universal definition of a digital individual. Later we will meet disconnected components participating in one continuing causal process, and identical geometries belonging to entirely different causal histories. When that happens, geometry will stop being sufficient and something causal will have to replace it.
+That gives us a candidate operational boundary — and the word to mark is *candidate*.
 
-The glider gives us a working definition. It does not give us an ontology.
+Localized geometry works beautifully for the glider.
+
+But we have not established that geometry is the universal boundary of a computational thing. It is simply the first definition that works well enough to measure.
+
+The glider gives us a working instrument.
+
+It does not yet tell us what an individual ultimately is.
 
 ---
 
@@ -487,7 +538,9 @@ We will use the names. We should also remember what they are:
 
 > **Naming compresses description. It does not establish mechanism.**
 
-Which is the same rule we set out in the introduction, arriving three chapters early and considerably cheaper than expected.
+Which is the same rule we set out in the introduction, now demonstrated with five cells:
+
+> **Naming compresses description. It does not establish mechanism.**
 
 ---
 
@@ -505,20 +558,7 @@ it is complicated
 it might be alive
 ```
 
-Here is what we can actually establish:
-
-```text
-a recognizable organization is repeatedly reconstructed at changing coordinates
-
-no creature is represented anywhere in the mechanism
-
-a localized configuration recurs after a fixed period, up to translation
-
-an eight-bit rule and one active cell are sufficient to produce structure
-that is not predictable by inspection
-
-nothing so far bears on the question of life at all
-```
+Here is what survived:
 
 The gap between those two columns is the subject of this book.
 
@@ -532,9 +572,21 @@ Motion is not material transport — but organization really does propagate acro
 
 Persistence is not material identity — and the fact that these come apart is the most interesting thing in the chapter, because it means a computational substrate permits a kind of continuity that has no requirement of a stable body.
 
-We went looking for a creature. The creature was not there. Something smaller and stranger was: **persistent higher-order organization without persistent material identity**, produced by mechanisms small enough to print on a business card.
+We began with something that looked like a creature.
 
-That is the pattern to get used to. The stronger interpretation fails, and a smaller phenomenon survives — and the smaller phenomenon is usually the one worth the next experiment.
+By the time we stripped away the interpretation, the creature had disappeared.
+
+But the phenomenon had not.
+
+Something smaller and stranger remained:
+
+> **persistent organization without persistent material identity**
+
+That is the pattern to get used to.
+
+We will repeatedly ask for one thing, lose the explanation that made it look familiar, and discover that something more precise survived underneath.
+
+Those surviving pieces are what this book is really collecting.
 
 ---
 
@@ -544,24 +596,20 @@ Up to this point we have been extremely kind to these systems. We initialized th
 
 That is a poor way to understand a mechanism. A structure that persists under precisely the conditions that produce it has told us something, but not much. If we want to know what is actually maintaining the organization, we have to interfere with it.
 
-The glider is the first thing we have found that is coherent enough to attack. Remove one of its five cells and run it. It may vanish, it may collapse into debris, it may settle into some other Life pattern, or some activity may survive in an unrecognizable form. One outcome matters especially: the original organization may fail to reconstruct itself.
+The glider is now coherent enough that another question becomes possible:
 
-That single possibility splits a word we have been using as if it were one thing:
+> What happens if we hurt it?
 
-```text
-persistence
-≠
-robustness
-≠
-regeneration
-```
+Removing one of its five cells immediately separates three ideas we might otherwise have collapsed:
 
-Persisting when undisturbed, continuing to satisfy a defined property after a perturbation, and returning toward a previous organization after disruption are three separate claims requiring three separate experiments. A system can have any one without the others, and confusing them is how a modest result gets reported as healing.
+Everything in this chapter has been calibration.
 
-We will run those experiments properly.
+We now have a microscope, a few simple measurements, and one useful habit: distrust the first noun that comes to mind without discarding the phenomenon that produced it.
 
-But first there is a more interesting target. Everything in this chapter has been calibration: we now have a microscope, several instruments, and a well-founded distrust of our own first interpretation. The obvious next move is to point all of that at a system that looks far more convincingly life-like than a glider — one where structures appear to compete, to leave descendants, to form populations with histories.
+So let us point the microscope at something much harder.
 
-The temptation there will be enormously stronger.
+Not five cells moving across an empty lattice, but a computational world in which structures appear to produce descendants, form lineages and interact as a population.
 
-So will the need for the method.
+If the glider tempted us to invent an object, the next system will tempt us to invent an organism.
+
+That is exactly why we need to look at it.
