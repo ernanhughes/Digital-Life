@@ -414,3 +414,5 @@ a failed measurement
 and
 a real measurement attached to the wrong claim
 ```
+
+How do you fail correctly?

@@ -4,7 +4,7 @@ books:
     subtitle: "From emergence to inheritance and cumulative improvement."
     description: "An evidence-first exploration of emergence, persistence, computation, artificial life, learning, inheritance, evolution and cumulative improvement in computational systems."
     content_root: "books/digital-life"
-    expected_chapters: 30
+    expected_chapters: 16
     book_url: "/books/digital-life/"
     solutions_domain: "digital-life"
     level: "Digital life and artificial life"
