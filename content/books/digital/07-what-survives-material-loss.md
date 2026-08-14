@@ -21,7 +21,9 @@ Since the Digital Crystal was first defined, one transition has existed:
 EMPTY → OCCUPIED
 ```
 
-and its reverse has not. Cells appear and never leave. The frontier advances and never retreats. Material accumulates behind it and nothing ever exposes it again. That assumption is so basic that it has never appeared in an evidence ledger, and it has silently shaped every result in this book since the crystal was built.
+and its reverse has not. Cells appear and never leave. The frontier advances and never retreats. Material accumulates behind it and nothing ever exposes it again. That assumption is so basic that we barely treated it as an assumption at all.
+
+And yet it has shaped every Crystal experiment since the substrate was introduced.
 
 So this chapter adds exactly one rule:
 
@@ -63,7 +65,11 @@ larger crystal   →  loss catches up
 some scale       →  balance
 ```
 
-Which predicts something genuinely interesting: a **finite sustainable size**. Not a size we imposed, not a boundary condition, but a scale at which two independent processes happen to cancel. That would be the first quantity in this book that the substrate chose for itself.
+Which predicts something genuinely interesting: a finite sustainable size.
+
+Not a size imposed by the simulation boundary, but a scale emerging from the interaction between construction and loss.
+
+If it existed, it would be one of the first characteristic scales in the Crystal produced by the dynamics rather than specified directly by us.
 
 Because the argument is so plausible, we fixed the conditions for believing it in advance. A finite dynamic regime had to satisfy all of the following:
 
@@ -102,7 +108,11 @@ Loss did have an effect on scale: at `δ = 0.16` the late mean population was ab
 FAILED
 ```
 
-The perimeter-versus-area argument did not survive contact with the substrate. Which is more interesting than being right would have been, because the argument is not obviously wrong. Something in it is false, and finding out which part is the actual experiment.
+The perimeter-versus-area prediction failed.
+
+But the reasoning was not absurd. One of its assumptions about how construction opportunity scales had become wrong once loss was introduced.
+
+Finding that assumption is now the experiment.
 
 ---
 
@@ -130,9 +140,17 @@ So we looked at the gross rates, expecting to see the subtraction. The late aver
 
 Read the first column again. The construction rate is not holding at 152 while losses eat into it. It has more than quadrupled.
 
-At `δ = 0.16` the crystal is losing over five hundred cells per update and attaching over six hundred. We removed material from the process, and the process responded by building four times as fast.
+At `δ = 0.16` the crystal is losing over five hundred cells per update and attaching over six hundred. We increased material loss, and gross construction rose by more than fourfold.
 
-It is worth being clear about how odd that sentence is. We did not give the crystal a response. Nothing in the growth rule changed between the first row of that table and the last. Nothing in the crystal noticed that anything had been removed, because nothing in it can notice anything. The word *responded* is doing no work at all — and yet the construction rate rose monotonically with the destruction rate across every step of the sweep.
+Nothing in the growth rule changed across that sweep.
+
+There is no damage response and no mechanism that detects loss.
+
+Yet increasing loss systematically changed the geometry on which the unchanged growth rule operated, and gross construction rose with it.
+
+So the explanation cannot be a new behaviour added to the Crystal.
+
+It has to be a consequence of the state transitions already present.
 
 Meanwhile the net column, which is the only column a population graph would ever have shown us, declines gently and unremarkably from +152 to +101. Had we plotted population and moved on, the entire phenomenon would have been invisible, and the finite-regime hypothesis would simply have looked like a hypothesis that failed for no reason.
 
@@ -144,7 +162,13 @@ The mechanism, once you look for it, is almost too simple.
 
 The scaling argument imagined a solid interior with an outer perimeter, and asked how each term scaled with radius. That geometry is only correct in a world where material never disappears.
 
-Remove an occupied cell from the middle of existing material and you do not get a smaller crystal. You get an empty site surrounded by occupied neighbours — which is precisely the configuration the growth rule was written to act on. The vacancy is not damage. It is an attachment opportunity, indistinguishable from any other.
+Remove an occupied cell from the interior and two things happen at once:
+
+```text
+occupied material decreases
++
+an empty site with occupied neighbours appears
+ The vacancy is not damage. It is an attachment opportunity, indistinguishable from any other.
 
 ```text
 MATERIAL LOST
@@ -156,7 +180,7 @@ NEW LOCAL INTERFACE
 NEW ATTACHMENT OPPORTUNITY
 ```
 
-> **Loss does not merely remove material. It changes where the process can act.**
+> **Loss removes material and creates new places where construction can occur.**
 
 The boundary measurements show this directly. Late mean boundary counts across the sweep:
 
@@ -167,7 +191,11 @@ The boundary measurements show this directly. Late mean boundary counts across t
 δ = 0.16     2068
 ```
 
-The crystal at high loss has more than five times as much active interface as the crystal at zero loss — not because it is larger (it is smaller) but because it is riddled with vacancies, each one carrying its own local frontier.
+The high-loss crystal has more than five times as much measured active interface despite being smaller overall.
+
+The difference is internal vacancy structure.
+
+Loss has created interface throughout material that previously contributed none.
 
 So the failed premise was never the loss term. It was this:
 
@@ -175,9 +203,22 @@ So the failed premise was never the loss term. It was this:
 construction opportunity  ~  outer perimeter
 ```
 
-Once material can disappear, construction opportunity is not a perimeter at all. Vacancies are generated wherever occupied material exists, which is to say throughout the area — so the quantity of places available for construction now scales with the same thing the loss rate scales with. Both terms of the original argument sit on the same footing, and the prediction that one must eventually overtake the other simply dissolves. There is no crossing point because the curves were never diverging.
+Once material can disappear, construction opportunity is no longer determined only by the outer perimeter.
 
-That also explains why the slope was so insensitive to the loss rate. Raising δ removes more material *and* manufactures proportionally more places to rebuild it, and the two effects largely track each other. What changes is the amount of traffic; what stays roughly fixed is the rate at which the crystal advances into new territory.
+Loss generates additional attachment opportunities throughout occupied material.
+
+That destroys the key assumption behind the original scaling argument:
+
+```text
+construction opportunity
+~
+outer perimeter only
+
+This gives us a mechanism consistent with the surprisingly similar late slopes.
+
+Increasing `δ` removes more material while simultaneously generating more internal attachment opportunities.
+
+The gross traffic changes dramatically even though the measured normalized expansion rate changes much less.
 
 ---
 
@@ -185,13 +226,20 @@ That also explains why the slope was so insensitive to the loss rate. Raising δ
 
 This is worth stopping on, because it changes a concept the previous chapter depended on.
 
-Chapter 6 treated the causal aperture as the outer surface of a growing object: a window that moves outward and leaves everything behind it inert. That description was accurate for the world it described, and it was accurate for the wrong reason. The aperture was on the outside because the outside was the only place a state transition could occur.
+Chapter 6 treated the causal aperture as the outer surface of the growing Crystal.
+
+That worked because, under irreversible growth, the outer surface was almost the only place where new occupation could occur.
+
+Material loss exposes the more general concept.
+ The aperture was on the outside because the outside was the only place a state transition could occur.
 
 The better definition is not geometric at all:
 
-> **The active interface is the dynamically generated set of locations where the process currently has an opportunity to change state.**
+> **The active interface is the dynamically generated set of locations at which the process currently has an available state transition.**
 
-Under irreversible growth those two definitions coincide, which is why the distinction never mattered. Once material can vanish, they come apart completely. The interface can now appear in the middle of solid material, split, multiply, and close again. It is a property of available transitions, not of shape.
+Under irreversible growth those two definitions coincide, which is why the distinction never mattered. Once material can vanish, they come apart completely. The interface can now appear internally, split into many disconnected regions and disappear again as vacancies are filled.
+
+It is defined by available transitions rather than by the visible outline of the Crystal.
 
 That has a striking implication for the previous chapter. Buried material became causally inert because construction moved past it and nothing could ever bring it back into contact with a decision. In a world with loss, that is no longer permanent. A vacancy opening near old material puts old material back on an active interface.
 
@@ -199,7 +247,7 @@ Be careful with what that does and does not mean. It does not mean we have recov
 
 > **The active interface is dynamically re-creatable.**
 
-Burial is a consequence of irreversibility, not a law of the substrate.
+Permanent burial was a consequence of the irreversible-growth rule, not a necessary property of the Crystal substrate.
 
 ---
 
@@ -209,14 +257,24 @@ If vacancies are what matter, then it should matter where they appear.
 
 So hold the number of removed cells exactly equal on every update and change only their placement: one branch removes cells preferentially from the surface, the other preferentially from the interior. Same loss budget, different geometry.
 
-The result was strong. Late population under interior-biased loss ran about 11.1% higher than under surface-biased loss, clearing the predeclared 10% threshold. And the visible structure differed enormously:
+The first result looked strong.
+
+Late population under interior-biased loss was about 11.1% higher than under surface-biased loss, clearing the predeclared population-difference threshold.
+ And the visible structure differed enormously:
 
 ```text
 surface loss     ~2.7 late holes
 interior loss   ~29.8 late holes
 ```
 
-Equal loss, unequal consequences. The interpretation offered itself immediately: a vacancy in the interior is surrounded on all sides by occupied material, a vacancy at the surface is not, and the growth rule cares about exactly that. Interior loss should therefore produce vacancies that are unusually easy to fill — which would explain both the higher population and, indirectly, the higher hole count.
+Equal loss produced unequal population outcomes.
+
+The obvious explanation was reoccupation: interior vacancies generally have more occupied neighbours and therefore might be easier for the ordinary growth rule to fill.
+
+Plausible.
+
+Still unmeasured.
+ Interior loss should therefore produce vacancies that are unusually easy to fill — which would explain both the higher population and, indirectly, the higher hole count.
 
 That is a plausible story about a mechanism nobody had yet measured. Note what it is really claiming: that a large fraction of the population difference comes from vacancies being *refilled*, an event that the population curve cannot distinguish from ordinary growth and that our instruments, at this point in the chapter, could not see at all.
 
@@ -246,7 +304,16 @@ a location was occupied, became empty, and is occupied again
 
 So we added an **observer-only occupancy ledger**: a record, kept outside the simulation, of whether each lattice position has ever been occupied before. It changes nothing about the crystal's behaviour, adds no state the growth rule can read, and exists solely so that we can classify events the crystal cannot distinguish.
 
-That distinction immediately reframes the earlier numbers. `632 attachments per update` does not mean 632 new places added to the crystal. It means first occupations plus reoccupations, in an unknown ratio — and the population curve cannot tell us which.
+That distinction changes the meaning of every attachment count in this chapter.
+
+`632 attachments per update` no longer means 632 previously unused locations entered the Crystal.
+
+It means:
+
+```text
+first occupations
++
+reoccupations
 
 Before trusting the ledger we checked its null. With loss switched off, reoccupation is structurally impossible, since nothing ever becomes empty. Across 96 no-loss runs the reoccupation count was zero, exactly. Every attachment was a first occupation. The instrument reads zero when the phenomenon cannot occur.
 
@@ -270,9 +337,16 @@ surface   ≈ 1.56 updates
 interior  ≈ 1.09 updates
 ```
 
-Over ninety-three percent of everything the crystal lost came back, typically after being empty for one or two steps.
+More than 93% of unique tested lost locations were subsequently occupied again, typically after only one or two updates.
 
-This is the point in the experiment where a word arrives uninvited and starts trying to explain everything. The crystal is damaged. The damage is repaired. Almost completely, almost immediately.
+This result makes the biological interpretation almost irresistible:
+
+```text
+material disappears
+↓
+the vacancy closes
+↓
+repair
 
 ---
 
@@ -290,7 +364,15 @@ REOCCUPATION
 REPAIR
 ```
 
-We have been here before, at the very beginning of this book, when a hole was cut out of an early deterministic crystal and closed up again within a few generations. It looked like healing, and we declined to call it healing on the grounds that the same rule fills interiors and exteriors alike. That was an argument from the source code. This is the same conclusion reached from measurement, in a much harder setting — with stochastic growth, continuous background loss, and matched controls — and it now comes with a quantity attached rather than an assertion.
+We encountered an early version of this temptation when a hole cut from the prototype Crystal closed again.
+
+Then, our reason for refusing the word *healing* was mechanistic: the same rule filled exterior and interior empty space.
+
+Now the stronger experiment reaches the same boundary quantitatively.
+
+Under stochastic background loss and matched controls, previously occupied sites are indeed reused rapidly.
+
+What still does not appear is a special mechanism that treats them as damage.
 
 The bounded claim:
 
@@ -310,7 +392,8 @@ The predeclared minimum meaningful difference was 0.15 additional reoccupations 
 0.0198
 ```
 
-Statistically clear, with a narrow interval and a tiny directional p-value, and roughly an order of magnitude below the effect size we had committed to in advance. The same shape as the failures in the last chapter, and the same verdict:
+The difference was statistically detectable but far below the magnitude we had declared scientifically meaningful in advance.
+ The same shape as the failures in the last chapter, and the same verdict:
 
 ```text
 FAILED
@@ -318,7 +401,12 @@ FAILED
 
 Two primary hypotheses, two failures, in one chapter. Neither was foolish. Both were the obvious inference from the geometry, and the substrate simply answered a different question than the one we asked.
 
-Because the reason this one failed is that the shared effect had almost nowhere left to go. Interior vacancies were not special; they were marginally faster in a process where nearly every vacancy was already being refilled. The frontier-creation measurement makes the point exactly:
+The failure redirected attention from the small difference between the groups to the much larger phenomenon they shared.
+
+Interior vacancies were reoccupied somewhat faster.
+
+But both conditions were already reoccupying almost everything.
+ The frontier-creation measurement makes the point exactly:
 
 ```text
 surface loss    ≈ 0.995 new frontier sites per lost cell
@@ -331,7 +419,11 @@ Essentially one-for-one, in both conditions. The general mechanism is not *inter
 LOCAL MATERIAL LOSS → NEW ATTACHMENT OPPORTUNITY
 ```
 
-everywhere, almost without exception. The specific hypothesis failed because the shared phenomenon was already close to saturation — which is a much larger result than the one we were testing for.
+everywhere, almost without exception. The specific interior-advantage hypothesis failed.
+
+What survived was broader:
+
+> **under both tested loss placements, material removal generated attachment opportunities that were reused at very high rates.**
 
 ---
 
@@ -339,7 +431,8 @@ everywhere, almost without exception. The specific hypothesis failed because the
 
 The most consequential thing in this chapter is not about loss at all. It is about measurement.
 
-For six chapters, population has been our summary statistic: occupied cells at time $t$, plotted against time. That number is a **stock**. Once material can both appear and disappear, a stock is compatible with wildly different underlying traffic.
+Population has been one of our simplest summary measurements: the number of occupied cells at time `t`.
+ That number is a **stock**. Once material can both appear and disappear, a stock is compatible with wildly different underlying traffic.
 
 Consider two systems finishing an update at the same net figure:
 
@@ -348,7 +441,7 @@ System A     +100 first occupations,     0 losses     →  +100
 System B     +600 attachments,        -500 losses     →  +100
 ```
 
-A population curve draws the same line through both. Dynamically they are not remotely the same system. System A is building. System B is churning, and would empty and refill most of itself given enough time.
+A population curve draws the same line through both. Dynamically they are not remotely the same system. System A is building. System B is undergoing far more material traffic despite producing the same net change.
 
 Our crystal at high loss is System B, more extremely than the illustration:
 
@@ -359,7 +452,10 @@ Our crystal at high loss is System B, more extremely than the illustration:
 +101 net
 ```
 
-The population graph records a change of 101. The process executed 1,163 material events to produce it. More than ninety percent of the crystal's activity is invisible in the quantity we had been using to describe it.
+The population graph records:
+
+```text
++101
 
 ```text
 NET POPULATION CHANGE
@@ -367,9 +463,11 @@ NET POPULATION CHANGE
 GROSS MATERIAL TURNOVER
 ```
 
-The distinction between a stock and a flow is ancient outside this book — national accounts, hydrology, and physiology all learned to separate the level in the reservoir from the volume passing through it, and every one of them learned it the hard way. What matters here is that the Digital Crystal has just crossed the line where the distinction becomes mandatory. Before this chapter, population and activity were the same measurement. After it, they never are again.
+The distinction between a stock and a flow is ancient outside this book — national accounts, hydrology, and physiology all learned to separate the level in the reservoir from the volume passing through it, and every one of them learned it the hard way. What matters here is that the Digital Crystal has just crossed the line where the distinction becomes mandatory. Before material loss, population change tracked construction much more directly.
 
-The old chapter gave this a name — the **Flux Principle** — and it is worth keeping as a working label for a phenomenon we will meet repeatedly:
+After material turnover appears, it no longer does.
+
+A useful working label for this observation is the **Flux Principle**:
 
 > **Static population or morphology can conceal large ongoing construction, loss and reoccupation flows.**
 
@@ -398,7 +496,13 @@ refill C
 ...
 ```
 
-A process generating vacancies faster than it closes them will display many vacancies at every instant while every individual vacancy is short-lived. The hole count is a stock. The reoccupation delay is a flow. They can move in opposite directions without any contradiction at all.
+A process can continuously create short-lived vacancies and therefore display many holes at any particular moment.
+
+Hole count measures how many vacancies exist now.
+
+Reoccupation delay measures how long individual vacancies tend to persist.
+
+Those quantities can move in apparently opposite directions without contradiction.
 
 > **State is not dynamics.**
 
@@ -431,46 +535,50 @@ ordinary construction acts on them
 some loss is reversed
 ```
 
-That loop is genuine feedback in the strict mechanistic sense: an output of the system alters the conditions that generate its own inputs. It requires no sensing, no goal, and no representation of the loss it counteracts. Call it **structural compensation** — with emphasis on *structural*, because the compensation is done by geometry rather than by anything resembling intent.
+This creates a local dynamical feedback:
 
-The crystal does not want to stay intact. Nothing in it prefers occupation to vacancy. The rule that fills a hole is the same rule that would have expanded outward, spending its attention on the nearest available opportunity — and loss keeps producing nearby opportunities.
+```text
+loss
+→
+new attachment opportunity
+→
+construction
+ It requires no sensing, no goal, and no representation of the loss it counteracts. Call it **structural compensation** — with emphasis on *structural*, because the compensation is done by geometry rather than by anything resembling intent.
+
+The crystal does not want to stay intact. Nothing in it prefers occupation to vacancy. The rule that fills a vacancy is the same rule that would otherwise act on any eligible attachment site.
+
+Loss simply changes the set of opportunities available to that rule.
 
 ---
 
 ## Turnover Without Repair
 
-Both primary hypotheses in this chapter failed, and the chapter is one of the most productive in the book.
+Both primary hypotheses failed.
 
-What survived:
-
-```text
-material loss creates new local construction interfaces        ≈ 1 per lost cell
-ordinary growth reuses them rapidly                            >93% reoccupied
-reoccupation typically occurs within one or two updates
-gross construction rises steeply with loss rate
-loss and construction are dynamically coupled
-large material turnover hides beneath modest net population change
-```
-
-What did not:
+But underneath them a cleaner process became visible:
 
 ```text
-a finite sustainable size under background loss
-a scientifically large interior-over-surface reoccupation advantage
-repair, healing, maintenance, homeostasis, metabolism, death
-```
+material loss
+↓
+new transition opportunity
+↓
+ordinary construction
+↓
+rapid reoccupation
+↓
+continued turnover
 
-And the distinctions this chapter forced into existence, none of which could even be stated in a world of permanent material:
+The growth rule did not become more sophisticated.
+
+We removed one guarantee.
+
+That was enough to change the meaning of several quantities we had treated as straightforward:
 
 ```text
-MATERIAL LOSS      ≠  PERMANENT LOSS
-ATTACHMENT         ≠  FIRST OCCUPATION
-REOCCUPATION       ≠  REPAIR
-NET POPULATION     ≠  GROSS TURNOVER
-STATE              ≠  DYNAMICS
-```
-
-There is something worth noticing about the direction of that list. The crystal did not become more capable in this chapter; the growth rule is exactly what it was six chapters ago. What changed is that a single removed guarantee exposed how much of our description had been resting on it. Our summary statistic stopped summarizing. Our word for a construction event stopped naming one thing. Our concept of an interface stopped being geometric.
+attachment
+population
+interface
+persistence
 
 ---
 
@@ -496,9 +604,11 @@ There is something worth noticing about the direction of that list. The crystal 
 
 ## Rebuilding Has Been Free
 
-There is one more thing wrong with the world we just built, and it has been sitting quietly under every result in this chapter.
+There is one more assumption underneath every result in this chapter.
 
-Every update, the crystal evaluates every eligible frontier site. All of them. When loss carved two thousand vacancies into its interior, it did not have to decide which of them were worth attending to. It attempted all of them, and also continued expanding outward, at no cost.
+Every update, the crystal evaluates every eligible frontier site. All of them. When loss created thousands of eligible sites, the process never had to choose which opportunities to evaluate.
+
+It could consider reoccupation opportunities and outward-growth opportunities in the same update.
 
 So the crystal has never once faced this choice:
 
@@ -508,12 +618,21 @@ EXPAND OUTWARD
 REOCCUPY WHAT WAS LOST
 ```
 
-It has never had to trade one against the other, because nothing has ever limited how much construction it can consider in a single step. Under unlimited computational opportunity, rebuilding what disappeared is nearly free — and the impressive reoccupation figures in this chapter are, in part, a measurement of that freedom rather than of anything the crystal does.
+It has never had to trade one against the other, because nothing has ever limited how much construction it can consider in a single step. Under unlimited evaluation, reoccupation never has to compete with outward construction for computational opportunity.
+
+That means the extraordinarily high reoccupation rates are partly properties of the computational regime in which we measured them.
+
+We have not yet asked what happens when opportunities must compete.
 
 That is why this chapter must not end with the word repair. It ends with an unexamined luxury.
 
 Suppose the process can evaluate only a limited number of construction opportunities per update. Nothing else changes: same growth rule, same loss rule, no new state, no energy, no maintenance controller. Just a ceiling on how many of the available opportunities can be considered at all.
 
-Then, for the first time, an attachment somewhere has a cost measured in an attachment somewhere else. Outward construction competes with reoccupation. The crystal cannot have both, and nothing in it knows the difference between them.
+Then, for the first time, evaluating one construction opportunity can mean not evaluating another.
 
-> **When computational action is limited, what gets built and what gets preserved?**
+```text
+OUTWARD CONSTRUCTION
+        competes with
+REOCCUPATION
+
+> **When computation becomes scarce, what gets built — and what gets left undone?**
