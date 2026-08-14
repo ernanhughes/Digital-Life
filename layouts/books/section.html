@@ -23,7 +23,7 @@
     <h2>Chapters</h2>
 
     <div class="book-chapter-list">
-      {{ range .Pages.ByTitle }}
+      {{ range .Pages.ByWeight }}
         <article class="book-chapter-card">
           <h3>
             <a href="{{ .RelPermalink }}">
