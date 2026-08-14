@@ -1,5 +1,5 @@
 +++
-title = "7: What Survives Material Loss?"
+title = "07: What Survives Material Loss?"
 date = "2026-08-14T14:00:00+01:00"
 draft = false
 description = "Remove the guarantee that occupied material stays occupied, and the Digital Crystal does not slow down. It builds faster — because every lost cell manufactures a new place to build."

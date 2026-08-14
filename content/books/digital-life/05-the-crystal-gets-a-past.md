@@ -1,5 +1,5 @@
 +++
-title = "5: The Crystal Gets a Past"
+title = "05: The Crystal Gets a Past"
 date = "2026-08-14T10:00:00+01:00"
 draft = false
 description = "A saved state can continue the Digital Crystal exactly, an event history can reconstruct how it formed, and a single received bit can redirect its future. None of that is memory yet."
