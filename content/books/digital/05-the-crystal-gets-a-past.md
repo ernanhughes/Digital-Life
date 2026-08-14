@@ -617,6 +617,7 @@ Twice now, different experiments have produced the same suggestive pattern:
 ```text
 coarse temporal structure survives
 fine temporal identity does not
+```
 
 ---
 
@@ -695,6 +696,7 @@ difference between outcome distributions
 paired difference under a declared stochastic coupling
 ≠
 distance between two particular trajectories
+```
 
 A related correction belongs here too. Before the coupling was fixed, four-pulse sequences appeared to produce a response that was substantially different from the sum of the individually measured pulse responses — an attractive result, since nonlinear integration of input history would be a genuinely interesting property. After the coupling fix we added a measurement-noise floor: how large a mean feature difference appears when you compare two finite samples drawn from the *same* unperturbed population? The floor came out around 0.045. The superposition residual was around 0.007.
 
@@ -825,6 +827,7 @@ earlier intervention
 
 different histories
 → different particular futures
+```
 
 Three distinctions now matter more than the rest:
 
@@ -840,6 +843,7 @@ CAUSALLY AVAILABLE PAST
 CAUSAL CONSEQUENCE
 ≠
 MEMORY
+```
 
 The single sentence the chapter has earned:
 
@@ -896,6 +900,7 @@ local consequence
 changed possibility
 ↓
 later consequence
+```
 
 Which suggests the next experiment, and it is smaller than memory and more concrete than history.
 
@@ -907,6 +912,7 @@ It cannot carry a persistent local distinction between:
 
 ```text
 this happened here
+```
 
 ```text
 not in our checkpoint

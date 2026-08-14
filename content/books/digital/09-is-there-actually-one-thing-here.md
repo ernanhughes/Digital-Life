@@ -307,6 +307,7 @@ FAILED
 
 no natural boundary exists
 NOT ESTABLISHED
+```
 
 ---
 
@@ -327,6 +328,7 @@ Read together, they point toward the same dynamical question:
 where are transitions available?
 which receive computation?
 where do their consequences remain local?
+```
 
 There is another recurring pattern further back.
 
@@ -386,6 +388,7 @@ draw candidate region
 ask whether it is special
 
 Reverse it.
+```
 
 ```text
 OLD                                  NEW

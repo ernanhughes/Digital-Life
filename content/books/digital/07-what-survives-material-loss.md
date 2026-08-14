@@ -168,7 +168,9 @@ Remove an occupied cell from the interior and two things happen at once:
 occupied material decreases
 +
 an empty site with occupied neighbours appears
- The vacancy is not damage. It is an attachment opportunity, indistinguishable from any other.
+```
+
+The vacancy is not damage. It is an attachment opportunity, indistinguishable from any other.
 
 ```text
 MATERIAL LOST
@@ -213,6 +215,7 @@ That destroys the key assumption behind the original scaling argument:
 construction opportunity
 ~
 outer perimeter only
+```
 
 This gives us a mechanism consistent with the surprisingly similar late slopes.
 
@@ -314,6 +317,7 @@ It means:
 first occupations
 +
 reoccupations
+```
 
 Before trusting the ledger we checked its null. With loss switched off, reoccupation is structurally impossible, since nothing ever becomes empty. Across 96 no-loss runs the reoccupation count was zero, exactly. Every attachment was a first occupation. The instrument reads zero when the phenomenon cannot occur.
 
@@ -347,6 +351,7 @@ material disappears
 the vacancy closes
 ↓
 repair
+```
 
 ---
 
@@ -456,6 +461,7 @@ The population graph records:
 
 ```text
 +101
+```
 
 ```text
 NET POPULATION CHANGE
@@ -543,7 +549,9 @@ loss
 new attachment opportunity
 →
 construction
- It requires no sensing, no goal, and no representation of the loss it counteracts. Call it **structural compensation** — with emphasis on *structural*, because the compensation is done by geometry rather than by anything resembling intent.
+```
+
+It requires no sensing, no goal, and no representation of the loss it counteracts. Call it **structural compensation** — with emphasis on *structural*, because the compensation is done by geometry rather than by anything resembling intent.
 
 The crystal does not want to stay intact. Nothing in it prefers occupation to vacancy. The rule that fills a vacancy is the same rule that would otherwise act on any eligible attachment site.
 
@@ -567,6 +575,7 @@ ordinary construction
 rapid reoccupation
 ↓
 continued turnover
+```
 
 The growth rule did not become more sophisticated.
 
@@ -579,6 +588,7 @@ attachment
 population
 interface
 persistence
+```
 
 ---
 

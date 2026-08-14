@@ -62,6 +62,7 @@ position
 velocity
 time
 causal identity
+```
 
 Comparing directions is simpler. For two velocity vectors, normalize both and take their dot product:
 
@@ -311,6 +312,7 @@ radial-expansion control
 a discovered estimator bug
 +
 a corrected estimator
+```
 
 ---
 
@@ -627,6 +629,7 @@ coherent motion
 → ancestry-dependent coherence
 → coordinated causal family
 → flock
+```
 
 Three things that initially looked like one thing are now separable:
 
@@ -698,6 +701,7 @@ is not enough
 
 causal ancestry
 is not enough
+```
 
 ---
 

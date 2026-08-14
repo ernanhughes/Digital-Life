@@ -80,6 +80,7 @@ The new distinction is:
 eligible to happen
 ≠
 given computational opportunity to happen
+```
 
 So the realized dynamics are no longer determined only by:
 
@@ -206,7 +207,9 @@ same budget + different scheduling
 
 high-support scheduling
 → strongly increases reoccupation
- What fails is the tidy symmetric picture in which pushing computation toward reuse pushes it away from expansion by a comparable amount.
+```
+
+What fails is the tidy symmetric picture in which pushing computation toward reuse pushes it away from expansion by a comparable amount.
 
 That asymmetry is a hint, though we did not recognize it as one until much later in the chapter.
 
@@ -421,6 +424,7 @@ The cleanest asymmetry is between:
 
 ```text
 REOCCUPATION
+```
 
 Call them **continuation** and **expansion**, with the caveat that continuation here means nothing more than ongoing turnover and reuse within existing structure. It is not self-maintenance, and nothing is being maintained on purpose.
 
@@ -474,11 +478,13 @@ finite computation
 
 normalized process
 ↛ complete invariance
+```
 
 One honest caution before this becomes a principle. The near-constant turnover fraction may be less mysterious than it looks. The loss rate is frozen at `δ = 0.08`, and Chapter 7 established that lost sites are reoccupied rapidly and almost universally. A system losing a fixed fraction of itself and putting most of it back promptly will produce a turnover fraction in the neighbourhood of that loss rate more or less mechanically. The stability is real and measured. Its explanation is open, and the audit that would settle it — comparing observed turnover against the turnover mechanically expected from the loss rate and the known replacement dynamics — has not been run.
 
 That distinction matters more here than almost anywhere else in the book. A stable measurement is scientifically interesting only to the extent that its stability is not already forced by the parameters used to generate it.
- Until that subtraction is done, `0.171` is a strikingly stable measurement and not yet a law.
+
+Until that subtraction is done, `0.171` is a strikingly stable measurement and not yet a law.
 
 ---
 
@@ -512,6 +518,7 @@ allocation changes the material future
 material turns over continuously
 population does not settle
 some normalized process rates remain surprisingly stable
+```
 
 We have been calling this *the crystal* since Chapter 4.
 

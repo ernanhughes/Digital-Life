@@ -312,6 +312,7 @@ The surface branch was changing two variables at once:
 where modified state was placed
 +
 how much modified state existed
+```
 
 So the exciting run was not yet evidence for the claim we wanted. This is the recurring shape of the book: the first version of a positive result usually contains a cheaper explanation than the one we hoped for.
 
@@ -409,6 +410,7 @@ At that point the scientific picture had stopped changing:
 amount matters
 placement matters
 frontier access matters
+```
 
 ---
 
@@ -630,6 +632,7 @@ So when the challenge arrived, three things were already established:
 the material distinction persisted
 the two spatial histories remained distinguishable
 both remained exposed to the causal aperture
+```
 
 ```text
 primary material-mediated interaction     0.000431
@@ -699,6 +702,7 @@ Here the two histories remained:
 persistent
 distinct
 accessible
+```
 
 A stored distinction is not automatically a distinction the future dynamics use.
 
@@ -712,6 +716,7 @@ accessible
 causally leveraged
 ≠
 differentially read
+```
 
 ---
 
@@ -752,6 +757,7 @@ Since the Digital Crystal was introduced:
 occupied
 →
 occupied forever
+```
 
 So the next experiment does not add another mechanism for preserving history. It removes a guarantee:
 
