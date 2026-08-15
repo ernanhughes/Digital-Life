@@ -1,0 +1,20 @@
+{{- if .Param "authorbox" }}
+{{- $author := .Site.Params.Author -}}
+{{- if or $author.name $author.bio $author.avatar }}
+<section class="authorbox clearfix" aria-label="About the author">
+  {{- with $author.avatar }}
+  <figure class="authorbox__avatar">
+    <img alt="{{ $author.name }}" src="{{ . | relURL }}" class="avatar" height="72" width="72">
+  </figure>
+  {{- end }}
+  {{- with $author.name }}
+  <div class="authorbox__header">
+    <span class="authorbox__name">{{ . }}</span>
+  </div>
+  {{- end }}
+  {{- with $author.bio }}
+  <div class="authorbox__description">{{ . | markdownify }}</div>
+  {{- end }}
+</section>
+{{- end }}
+{{- end }}

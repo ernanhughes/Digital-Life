@@ -1,0 +1,16 @@
+{{- $logoTitle := .Site.Params.logo.title | default .Site.Title -}}
+{{- $logoSubtitle := .Site.Params.logo.subtitle | default .Site.Params.subtitle -}}
+{{- $logoImage := .Site.Params.logo.image -}}
+<div class="logo{{ if and $logoImage $logoTitle }} logo--mixed{{ end }}">
+  <a class="logo__link" href="{{ "" | relLangURL }}" rel="home" aria-label="{{ $logoTitle }} home">
+    {{- with $logoImage }}
+    <span class="logo__item logo__imagebox">
+      <img class="logo__img" src="{{ . | relURL }}" alt="">
+    </span>
+    {{- end }}
+    <span class="logo__item logo__text">
+      <span class="logo__title">{{ $logoTitle }}</span>
+      {{- with $logoSubtitle }}<span class="logo__tagline">{{ . }}</span>{{ end }}
+    </span>
+  </a>
+</div>

@@ -1,0 +1,12 @@
+{{- with .Params.tags }}
+<div class="post__tags tags clearfix">
+  <span class="tags__label">Tags</span>
+  <ul class="tags__list">
+    {{- range . }}
+    <li class="tags__item">
+      <a class="tags__link btn" href="{{ (printf "/tags/%s/" (. | urlize)) | relURL }}" rel="tag">{{ . }}</a>
+    </li>
+    {{- end }}
+  </ul>
+</div>
+{{- end }}

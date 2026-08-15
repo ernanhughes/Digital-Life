@@ -1,0 +1,19 @@
+{{- $fields := .Param "post_meta" -}}
+{{- if $fields -}}
+  {{- range $field := $fields -}}
+    {{- if eq $field "categories" -}}
+      {{- with $.Params.categories -}}
+      <span class="meta__item meta__item-categories">
+        {{- range $index, $category := . -}}
+          {{- if $index }}, {{ end -}}
+          <a href="{{ (printf "/categories/%s/" ($category | urlize)) | relURL }}" rel="category">{{ $category }}</a>
+        {{- end -}}
+      </span>
+      {{- end -}}
+    {{- else if eq $field "date" -}}
+      {{- if not $.Date.IsZero -}}
+      <time class="meta__item meta__item-date" datetime="{{ $.Date.Format "2006-01-02" }}">{{ $.Date.Format "2 January 2006" }}</time>
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

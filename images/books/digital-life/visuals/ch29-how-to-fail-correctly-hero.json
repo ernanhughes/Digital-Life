@@ -1,0 +1,48 @@
+{
+  "chapter": "29: How to Fail Correctly",
+  "chapter_file": "content/books/digital-life/29-how-to-fail-correctly/index.md",
+  "generator_script": "scripts/books/digital-life/ch29_fail_correctly_visual.py",
+  "research_scripts": [
+    "scripts/books/digital-life/ch29_how_to_fail_correctly_v1.py"
+  ],
+  "artifacts": [
+    "research/digital-life/ch29-how-to-fail-correctly-v1/ch29-failure-ledger.json",
+    "research/digital-life/ch29-how-to-fail-correctly-v1/ch29-artifact-audit.json",
+    "research/digital-life/ch29-how-to-fail-correctly-v1/stage-01-artifacts.json",
+    "research/digital-life/ch29-how-to-fail-correctly-v1/stage-02-ledger.json",
+    "research/digital-life/ch29-how-to-fail-correctly-v1/stage-03-consistency.json",
+    "research/digital-life/ch29-how-to-fail-correctly-v1/stage-05-verdict.json"
+  ],
+  "source": "evidence-ledger-derived epistemic audit representation; not a new Digital Crystal simulation",
+  "measured_values": {
+    "registered_cases": 10,
+    "artifact_cases": 10,
+    "case_rule_pass_count": 10,
+    "case_rule_total": 10,
+    "cross_check_pass_count": 5,
+    "cross_check_total": 5,
+    "status": "FAILURE_LEDGER_CONSISTENT",
+    "status_counts": {
+      "INVALID": 2,
+      "BOUNDED_NEAR_ZERO": 1,
+      "DESCRIPTIVE_ONLY": 2,
+      "SUPPORTED": 2,
+      "DIRECTION_SUPPORTED": 1,
+      "UNRESOLVED": 1,
+      "BOUNDED_BELOW_SEI": 1
+    }
+  },
+  "states": "representative Digital Crystal states provide chapter anchors only; statuses and transitions are actual ledger entries",
+  "visual_encoding": "ledger statuses are color-coded; invalid inferences are removed while surviving evidence remains highlighted",
+  "scientific_caveats": [
+    "Chapter 29 is an epistemic audit representation, not a new behavior experiment.",
+    "INVALID is not encoded as negative evidence.",
+    "DESCRIPTIVE_ONLY is not encoded as confirmatory rescue."
+  ],
+  "profile": "quick",
+  "outputs": [
+    "ch29-how-to-fail-correctly-hero.png",
+    "ch29-how-to-fail-correctly-filmstrip.png",
+    "ch29-how-to-fail-correctly.gif"
+  ]
+}

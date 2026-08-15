@@ -1,0 +1,12 @@
+<footer class="footer">
+  <div class="container footer__container">
+    <div class="footer__copyright">&copy; {{ now.Format "2006" }} {{ .Site.Title }}</div>
+    <ul class="footer__links" aria-label="Footer navigation">
+      <li><a href="{{ "/books/" | relURL }}">Books</a></li>
+      <li><a href="{{ "/learn/" | relURL }}">Learn</a></li>
+      <li><a href="{{ "/solutions/" | relURL }}">Solutions</a></li>
+      <li><a href="{{ "/prompts/" | relURL }}">Prompts</a></li>
+      <li><a href="{{ "/post/" | relURL }}">Articles</a></li>
+    </ul>
+  </div>
+</footer>

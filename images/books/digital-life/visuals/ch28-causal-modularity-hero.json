@@ -1,0 +1,27 @@
+{
+  "chapter": "28: causal modularity / internal vs external influence",
+  "chapter_file": "no current local chapter directory found during generation; visual is research-artifact based",
+  "research_scripts": [
+    "ch28_digital_crystal_causal_modularity_v1.py"
+  ],
+  "artifacts": [
+    "research/digital-life/ch28-causal-modularity-v1/stage-03-primary.json",
+    "stage-04-scale-sweep.json",
+    "stage-06-verdict.json"
+  ],
+  "source": "representative frozen-substrate state plus canonical engineering-smoke artifact values",
+  "measured_values": {
+    "module_score": 0.23246999769379778,
+    "internal_retention": 0.5125296682425597,
+    "external_penetration": 0.280059670548762,
+    "primary_status": "ENGINEERING_SMOKE_ONLY",
+    "overall_status": "ENGINEERING_SMOKE_ONLY",
+    "scientific_valid": false
+  },
+  "visual_encoding": "candidate region is shown as a soft measured region, not a hard organism-like boundary",
+  "outputs": [
+    "ch28-causal-modularity-hero.png",
+    "ch28-causal-modularity-filmstrip.png",
+    "ch28-causal-modularity.gif"
+  ]
+}

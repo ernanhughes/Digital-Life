@@ -1,7 +1,6 @@
 baseURL = 'http://programmer.ie/'
 languageCode = 'en-us'
 title = 'Programmer.ie: Modern AI programming'
-theme = 'mainroad'
 
 [taxonomies]
   category = "categories"
@@ -80,20 +79,6 @@ theme = 'mainroad'
   bio = "I believe AI will be how we interact with information and technology. This blog is my exploration of this transformation, where I dive into the latest trends, advancements, and research in AI. Along the way, I’ll share practical examples and code snippets to help you understand and implement these technologies yourself. Join me on this journey as we navigate the ever-evolving landscape of AI together."
   avatar = "img/avatar.png"
 
-[Params.sidebar]
-  home = "right"
-  list = "left"
-  single = false
-  widgets = ["search", "recent", "categories", "taglist", "social"]
-
-[Params.widgets]
-  recent_num = 25
-  tags_counter = false
-
-[Params.widgets.social]
-  github = "ernanhughes"
-  email = "ernanhughes@gmail.com"
-
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
@@ -102,5 +87,5 @@ theme = 'mainroad'
       [markup.goldmark.extensions.passthrough]
         enable = true
         [markup.goldmark.extensions.passthrough.delimiters]
-          block = [['\[', '\]'], ['$$', '$$']]
-          inline = [['\(', '\)']]
+          block = [['\\[', '\\]'], ['$$', '$$']]
+          inline = [['\\(', '\\)']]

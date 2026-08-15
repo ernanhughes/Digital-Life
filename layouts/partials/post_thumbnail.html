@@ -1,0 +1,15 @@
+{{- $thumbnail := .page.Params.thumbnail -}}
+{{- if $thumbnail -}}
+  {{- $src := $thumbnail -}}
+  {{- $valueType := printf "%T" $thumbnail -}}
+  {{- if in $valueType "map" -}}
+    {{- $src = $thumbnail.src -}}
+  {{- end -}}
+  {{- if $src -}}
+  <figure class="{{ with .class }}{{ . }}__thumbnail {{ end }}thumbnail">
+    {{- if eq .class "list" }}<a class="thumbnail__link" href="{{ .page.RelPermalink }}">{{ end -}}
+    <img class="thumbnail__image" src="{{ $src | relURL }}" alt="{{ .page.Title }}">
+    {{- if eq .class "list" }}</a>{{ end -}}
+  </figure>
+  {{- end -}}
+{{- end -}}
