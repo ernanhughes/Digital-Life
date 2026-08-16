@@ -35,11 +35,7 @@ inheritance
 evolution
 ```
 
-Those words are useful.
-
-They are also dangerous.
-
-Because the easiest way to build something that looks like digital life is to put the vocabulary of life directly into the program. We can write:
+Those words are useful. They are also a trap. Because the easiest way to build something that looks like digital life is to put the vocabulary of life directly into the program. We can write:
 
 ```python
 class Metabolism:
@@ -85,21 +81,19 @@ So we will work under a stricter rule.
 
 > **We do not get to claim a life-like property merely because we implemented something with the same name.**
 
-If we claim persistence, we must measure persistence.
+Persistence has to be measured.
 
-If we claim regeneration, we must damage the system and measure what returns.
+Regeneration requires damage: disturb the system, then measure what returns.
 
-If we claim learning, some measurable performance must change because of experience.
+Learning requires experience to produce a measurable change in performance.
 
-If we claim inheritance, something useful must pass from one continuation or successor to another.
+Inheritance means that something useful survives into a continuation or successor.
 
-If we claim reproduction, visual resemblance between an earlier structure and a later one is not enough. We need evidence that the earlier organization participated causally in producing the later one.
+Reproduction demands more than visual resemblance between an earlier structure and a later one. There must be evidence that the earlier organization played a causal role in producing the later one.
 
-And if we claim evolution, we will have to be precise about what varies, what persists, what is selected, and what actually changes through time.
+Evolution imposes the hardest standard. We need to identify what varies, what persists, what is selected, and what changes across generations or through time.
 
-The goal is not to make software sound alive.
-
-The goal is to discover which descriptions the system can actually earn.
+Naming these properties is easy. Demonstrating them is the work.
 
 ---
 
@@ -240,21 +234,21 @@ Biological evolution is one answer.
 
 We do not yet know what the other answers are.
 
-Behind all of these sit questions the book keeps returning to, and does not resolve early:
+Behind that question sit several others the book will keep returning to.
 
-What if the visible object is not the important unit?
+Is the visible object even the important unit?
 
-What if digital scarcity is nothing like biological energy?
+Digital scarcity may turn out to have little in common with biological energy.
 
-What if history matters without anything we would recognize as memory?
+History might matter without anything we would recognize as memory.
 
-What if reproduction is not fundamental?
+Reproduction may not be fundamental at all.
 
-What if computation offers primitives that biology never had available?
+And what if computation makes possible forms of persistence and change for which biology offers no precedent?
 
-For now, every one of those questions remains open.
+For now, these remain open questions.
 
-The point of the book is to resist closing them with vocabulary before the experiments close them with evidence.
+We should not settle them by choosing the right vocabulary. The experiments have to do that.
 
 ---
 
