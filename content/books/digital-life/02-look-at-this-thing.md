@@ -135,9 +135,7 @@ The word **it** is carrying an enormous amount of unearned weight. Before saying
 
 We do not have that rule yet. Visual continuity is enough to raise the question. It is nowhere near enough to settle it.
 
-And the question has teeth. What if connected geometry turns out not to be the correct boundary? What if two identical-looking structures have different histories? What if one continuing process occupies several disconnected regions?
-
-So our first definition of *the thing* will remain deliberately provisional. We will use geometry while it works, and replace it if the experiments force us to.
+So we will use geometry while it works, and replace it if the experiments force us to.
 
 A discipline that helps: keep two descriptions of the same event side by side.
 
@@ -186,6 +184,8 @@ Conway's Game of Life is a binary lattice governed entirely by a local update ru
 Nothing in the rule says *move diagonally*. There is no velocity variable and no object being transported. Yet the pattern repeatedly reconstructs itself one cell farther across the lattice.
 
 Ask what persisted and the answer is striking. Not the same active cells. Not the same coordinates. Not even the same shape at every intermediate step.
+
+But every four generations the configuration is exactly the original again, displaced one cell diagonally.
 
 What persisted was the organization.
 
@@ -247,6 +247,8 @@ There is only the loop.
 
 > **The agents alter the conditions that determine their own future behaviour.**
 
+This kind of coordination through traces left in a shared environment is often called **stigmergy**.[4]
+
 That is the feature we need. What happens now can leave something behind that changes what happens later.
 
 ---
@@ -293,9 +295,9 @@ Twenty-five steps later, similarity to the old network is **0.897**, against **0
 
 The network comes back.
 
-Why? Because the agents were already standing in the channels they had helped create. Their spatial arrangement was itself a trace of the earlier network. Once they began depositing again, they redrew much of it.
+The natural explanation is that the agents were already standing in the channels they had helped create. Their spatial arrangement may itself have carried part of the earlier network, allowing them to redraw much of it once deposition resumed.
 
-So the history was not only in the field.
+That mechanism has not yet been isolated. What the intervention establishes is narrower: the field was not the sole carrier of the history.
 
 Reverse the intervention.
 
@@ -303,7 +305,11 @@ Keep the field, delete the entire population, and replace all twenty thousand ag
 
 They inherit only a world shaped before any of them existed.
 
-The new population reconstructs substantially more of that old network than an equivalent population starting from an empty field: **0.658 against 0.304** after twenty-five steps. A specificity control shows that populations are drawn back toward the particular historical network they inherit, not merely toward any old network.
+The new population reconstructs substantially more of that old network than an equivalent population starting from an empty field: **0.658 against 0.304** after twenty-five steps.
+
+The specificity control matters. A naive population placed into network A scored **0.658** against the network it inherited and **0.297** against an independently grown network; the mirror experiment with network B scored **0.619** and **0.339**.
+
+The effect is therefore specific to the historical network the population was given, not merely to receiving any mature field.
 
 The tempting sentence is that the new agents remembered.
 
@@ -313,7 +319,9 @@ The smaller statement is stranger:
 
 > **The behaviour of a population depended on structure produced before any member of it existed.**
 
-Erase both the field and the population and the advantage disappears. So the history is not nowhere. But neither intervention that removed only one subsystem localized it to that subsystem alone.
+Erase both and the advantage disappears, as it should: the field and the agents together constitute the state of this model. Resetting both is effectively a fresh start.
+
+The informative result is that removing either candidate carrier alone was not enough. Neither intervention localized the historical effect to one subsystem by itself.
 
 The agents can partly reconstruct the field.
 
@@ -331,7 +339,7 @@ It is history dependence: something produced earlier measurably changes what hap
 
 A complete population swap is dramatic but artificial. So replace the material slowly instead.
 
-Once the network has formed, continually delete small groups of agents and introduce naive replacements at random positions.
+Once the network has formed, every five steps delete 2% of the agents and introduce the same number of naive replacements at random positions. Continue for two thousand steps.
 
 The original population drains away.
 
@@ -353,7 +361,9 @@ So stop replacing agents.
 
 Most of the deficit reverses.
 
-The network recovers substantially once the continuous influx of naive agents ends. In this run, most of the degradation was therefore a standing cost of replacement rather than accumulated damage.
+Concentration rises from **0.490** to **0.581** within a hundred steps, **0.724** within five hundred, and **0.798** within a thousand. It does not regain the undisturbed value inside the observation window.
+
+In this run, most of the degradation was therefore a standing cost of continued replacement rather than accumulated damage.
 
 The important result is smaller than “the network is unaffected by turnover.” It plainly is affected.
 
@@ -367,7 +377,7 @@ Something else continued.
 
 ---
 
-## What Survived
+## What Would We Have to Destroy?
 
 Nothing in this chapter gives us a reason to call any of these systems alive.
 
@@ -375,19 +385,15 @@ We did not establish an organism, memory, intelligence or individuality.
 
 But removing those interpretations did not remove the phenomena.
 
-A pattern really can propagate without its material travelling with it.
+Some of what survived was visible directly in the mechanism. A pattern can propagate without its material travelling with it. A glider can return to exactly the same configuration while its active cells change.
 
-Organization really can persist while its components change.
+The stronger results survived intervention. In the writable-world system, later behaviour remained dependent on earlier activity after we removed either of the two obvious places that history might reside. And organized structure persisted while more than 99.9% of the population that created it was replaced.
 
-A writable environment really can make later behaviour depend on earlier activity.
+Those are different kinds of evidence, and we should not blur them.
 
-And in the final system, organized structure persisted while almost the entire population that created it was replaced.
+None of them is evidence of life.
 
-Those are reproducible phenomena. They are not evidence of life.
-
-That distinction matters.
-
-If we merely say *it looked alive*, we have learned almost nothing. But if we respond by saying *it was only a pattern*, we may throw away the interesting part with the bad explanation.
+But *only a pattern* is not much of an explanation either.
 
 There is something here.
 
@@ -397,31 +403,15 @@ The explanation kept shrinking.
 
 The phenomenon kept not going away.
 
----
-
-## What Would We Have to Destroy?
-
-We began with something that looked like a creature.
-
-Then we looked closer.
-
-The Lenia pattern did not carry its material with it. The glider persisted while its active cells changed. In the final system, almost the entire population was replaced and organized structure remained.
-
-None of that makes any of these systems alive.
-
-But neither does the failure of the biological interpretation make the underlying phenomenon disappear.
-
-And the interventions leave us with a better question.
-
-Erasing the field alone was not enough. Replacing the population alone was not enough. Erasing both did reduce the system to a fresh start, so the continuity is not magical and it is not nowhere. But it was not localized to either obvious component.
+The interventions leave us with a better question. Erasing the field alone was not enough. Replacing the population alone was not enough. The historical effect was not localized to either obvious subsystem by itself.
 
 So instead of asking where the thing is, ask:
 
 > **What would we have to destroy for it to stop being the same thing?**
 
-That is now an experimental question.
+This system can only take that question so far. It maintains an organization; it does not give us a clean second individual whose ancestry we can follow.
 
-The next system will let us attack it directly.
+The next system changes that.
 
 It will not merely tempt us to invent an object.
 
