@@ -1,0 +1,2167 @@
+{
+  "method": {
+    "candidate_minimal_method": "all inclusion-minimal live-only sufficient submasks; union contributors across multiple minimal sets",
+    "current_method": "single live-predecessor removal from observed neighbourhood",
+    "paper_validation_target": "paper reports minimal causal subsets and states that no multiple minimal causal sets were found in Outlier"
+  },
+  "truth_table": {
+    "rule_entries": 512,
+    "live_output_entries": 220,
+    "multiple_minimal_set_codes": 115,
+    "methods_agree_exactly": 105,
+    "minimal_union_has_extra_inputs": 115,
+    "but_for_has_extra_inputs": 16,
+    "multiple_minimal_codes": [
+      23,
+      55,
+      63,
+      79,
+      89,
+      91,
+      99,
+      103,
+      109,
+      110,
+      122,
+      123,
+      143,
+      157,
+      165,
+      173,
+      179,
+      183,
+      186,
+      188,
+      189,
+      191,
+      199,
+      205,
+      206,
+      207,
+      215,
+      219,
+      222,
+      223,
+      227,
+      230,
+      233,
+      236,
+      238,
+      241,
+      243,
+      245,
+      246,
+      251,
+      253,
+      255,
+      271,
+      286,
+      295,
+      299,
+      301,
+      302,
+      303,
+      308,
+      315,
+      317,
+      319,
+      327,
+      330,
+      331,
+      333,
+      335,
+      343,
+      349,
+      350,
+      357,
+      358,
+      359,
+      361,
+      362,
+      364,
+      370,
+      371,
+      373,
+      377,
+      378,
+      382,
+      391,
+      395,
+      396,
+      398,
+      410,
+      413,
+      414,
+      415,
+      419,
+      421,
+      425,
+      427,
+      436,
+      438,
+      441,
+      444,
+      446,
+      447,
+      451,
+      453,
+      454,
+      457,
+      460,
+      461,
+      464,
+      469,
+      470,
+      472,
+      474,
+      481,
+      482,
+      484,
+      485,
+      486,
+      489,
+      499,
+      502,
+      504,
+      505,
+      506,
+      507,
+      510
+    ],
+    "examples": [
+      {
+        "code": 23,
+        "code_binary": "000010111",
+        "live_inputs": 4,
+        "minimal_sets": [
+          {
+            "mask": 3,
+            "binary": "000000011",
+            "size": 2
+          },
+          {
+            "mask": 22,
+            "binary": "000010110",
+            "size": 3
+          }
+        ],
+        "minimal_union_mask": 23,
+        "minimal_union_binary": "000010111",
+        "but_for_mask": 2,
+        "but_for_binary": "000000010"
+      },
+      {
+        "code": 55,
+        "code_binary": "000110111",
+        "live_inputs": 5,
+        "minimal_sets": [
+          {
+            "mask": 3,
+            "binary": "000000011",
+            "size": 2
+          },
+          {
+            "mask": 36,
+            "binary": "000100100",
+            "size": 2
+          },
+          {
+            "mask": 22,
+            "binary": "000010110",
+            "size": 3
+          }
+        ],
+        "minimal_union_mask": 55,
+        "minimal_union_binary": "000110111",
+        "but_for_mask": 17,
+        "but_for_binary": "000010001"
+      },
+      {
+        "code": 63,
+        "code_binary": "000111111",
+        "live_inputs": 6,
+        "minimal_sets": [
+          {
+            "mask": 3,
+            "binary": "000000011",
+            "size": 2
+          },
+          {
+            "mask": 36,
+            "binary": "000100100",
+            "size": 2
+          },
+          {
+            "mask": 22,
+            "binary": "000010110",
+            "size": 3
+          },
+          {
+            "mask": 25,
+            "binary": "000011001",
+            "size": 3
+          },
+          {
+            "mask": 58,
+            "binary": "000111010",
+            "size": 4
+          }
+        ],
+        "minimal_union_mask": 63,
+        "minimal_union_binary": "000111111",
+        "but_for_mask": 55,
+        "but_for_binary": "000110111"
+      },
+      {
+        "code": 79,
+        "code_binary": "001001111",
+        "live_inputs": 5,
+        "minimal_sets": [
+          {
+            "mask": 3,
+            "binary": "000000011",
+            "size": 2
+          },
+          {
+            "mask": 72,
+            "binary": "001001000",
+            "size": 2
+          }
+        ],
+        "minimal_union_mask": 75,
+        "minimal_union_binary": "001001011",
+        "but_for_mask": 12,
+        "but_for_binary": "000001100"
+      },
+      {
+        "code": 89,
+        "code_binary": "001011001",
+        "live_inputs": 4,
+        "minimal_sets": [
+          {
+            "mask": 72,
+            "binary": "001001000",
+            "size": 2
+          },
+          {
+            "mask": 25,
+            "binary": "000011001",
+            "size": 3
+          }
+        ],
+        "minimal_union_mask": 89,
+        "minimal_union_binary": "001011001",
+        "but_for_mask": 8,
+        "but_for_binary": "000001000"
+      },
+      {
+        "code": 91,
+        "code_binary": "001011011",
+        "live_inputs": 5,
+        "minimal_sets": [
+          {
+            "mask": 3,
+            "binary": "000000011",
+            "size": 2
+          },
+          {
+            "mask": 72,
+            "binary": "001001000",
+            "size": 2
+          },
+          {
+            "mask": 25,
+            "binary": "000011001",
+            "size": 3
+          }
+        ],
+        "minimal_union_mask": 91,
+        "minimal_union_binary": "001011011",
+        "but_for_mask": 80,
+        "but_for_binary": "001010000"
+      },
+      {
+        "code": 99,
+        "code_binary": "001100011",
+        "live_inputs": 4,
+        "minimal_sets": [
+          {
+            "mask": 3,
+            "binary": "000000011",
+            "size": 2
+          },
+          {
+            "mask": 97,
+            "binary": "001100001",
+            "size": 3
+          },
+          {
+            "mask": 98,
+            "binary": "001100010",
+            "size": 3
+          }
+        ],
+        "minimal_union_mask": 99,
+        "minimal_union_binary": "001100011",
+        "but_for_mask": 0,
+        "but_for_binary": "000000000"
+      },
+      {
+        "code": 103,
+        "code_binary": "001100111",
+        "live_inputs": 5,
+        "minimal_sets": [
+          {
+            "mask": 3,
+            "binary": "000000011",
+            "size": 2
+          },
+          {
+            "mask": 36,
+            "binary": "000100100",
+            "size": 2
+          },
+          {
+            "mask": 97,
+            "binary": "001100001",
+            "size": 3
+          },
+          {
+            "mask": 98,
+            "binary": "001100010",
+            "size": 3
+          }
+        ],
+        "minimal_union_mask": 103,
+        "minimal_union_binary": "001100111",
+        "but_for_mask": 99,
+        "but_for_binary": "001100011"
+      },
+      {
+        "code": 109,
+        "code_binary": "001101101",
+        "live_inputs": 5,
+        "minimal_sets": [
+          {
+            "mask": 36,
+            "binary": "000100100",
+            "size": 2
+          },
+          {
+            "mask": 72,
+            "binary": "001001000",
+            "size": 2
+          },
+          {
+            "mask": 97,
+            "binary": "001100001",
+            "size": 3
+          }
+        ],
+        "minimal_union_mask": 109,
+        "minimal_union_binary": "001101101",
+        "but_for_mask": 13,
+        "but_for_binary": "000001101"
+      },
+      {
+        "code": 110,
+        "code_binary": "001101110",
+        "live_inputs": 5,
+        "minimal_sets": [
+          {
+            "mask": 36,
+            "binary": "000100100",
+            "size": 2
+          },
+          {
+            "mask": 72,
+            "binary": "001001000",
+            "size": 2
+          },
+          {
+            "mask": 98,
+            "binary": "001100010",
+            "size": 3
+          }
+        ],
+        "minimal_union_mask": 110,
+        "minimal_union_binary": "001101110",
+        "but_for_mask": 14,
+        "but_for_binary": "000001110"
+      },
+      {
+        "code": 122,
+        "code_binary": "001111010",
+        "live_inputs": 5,
+        "minimal_sets": [
+          {
+            "mask": 72,
+            "binary": "001001000",
+            "size": 2
+          },
+          {
+            "mask": 98,
+            "binary": "001100010",
+            "size": 3
+          },
+          {
+            "mask": 58,
+            "binary": "000111010",
+            "size": 4
+          }
+        ],
+        "minimal_union_mask": 122,
+        "minimal_union_binary": "001111010",
+        "but_for_mask": 16,
+        "but_for_binary": "000010000"
+      },
+      {
+        "code": 123,
+        "code_binary": "001111011",
+        "live_inputs": 6,
+        "minimal_sets": [
+          {
+            "mask": 3,
+            "binary": "000000011",
+            "size": 2
+          },
+          {
+            "mask": 72,
+            "binary": "001001000",
+            "size": 2
+          },
+          {
+            "mask": 25,
+            "binary": "000011001",
+            "size": 3
+          },
+          {
+            "mask": 97,
+            "binary": "001100001",
+            "size": 3
+          },
+          {
+            "mask": 98,
+            "binary": "001100010",
+            "size": 3
+          },
+          {
+            "mask": 58,
+            "binary": "000111010",
+            "size": 4
+          }
+        ],
+        "minimal_union_mask": 123,
+        "minimal_union_binary": "001111011",
+        "but_for_mask": 90,
+        "but_for_binary": "001011010"
+      },
+      {
+        "code": 143,
+        "code_binary": "010001111",
+        "live_inputs": 5,
+        "minimal_sets": [
+          {
+            "mask": 3,
+            "binary": "000000011",
+            "size": 2
+          },
+          {
+            "mask": 133,
+            "binary": "010000101",
+            "size": 3
+          },
+          {
+            "mask": 140,
+            "binary": "010001100",
+            "size": 3
+          }
+        ],
+        "minimal_union_mask": 143,
+        "minimal_union_binary": "010001111",
+        "but_for_mask": 11,
+        "but_for_binary": "000001011"
+      },
+      {
+        "code": 157,
+        "code_binary": "010011101",
+        "live_inputs": 5,
+        "minimal_sets": [
+          {
+            "mask": 25,
+            "binary": "000011001",
+            "size": 3
+          },
+          {
+            "mask": 133,
+            "binary": "010000101",
+            "size": 3
+          },
+          {
+            "mask": 140,
+            "binary": "010001100",
+            "size": 3
+          }
+        ],
+        "minimal_union_mask": 157,
+        "minimal_union_binary": "010011101",
+        "but_for_mask": 148,
+        "but_for_binary": "010010100"
+      },
+      {
+        "code": 165,
+        "code_binary": "010100101",
+        "live_inputs": 4,
+        "minimal_sets": [
+          {
+            "mask": 36,
+            "binary": "000100100",
+            "size": 2
+          },
+          {
+            "mask": 133,
+            "binary": "010000101",
+            "size": 3
+          },
+          {
+            "mask": 161,
+            "binary": "010100001",
+            "size": 3
+          }
+        ],
+        "minimal_union_mask": 165,
+        "minimal_union_binary": "010100101",
+        "but_for_mask": 0,
+        "but_for_binary": "000000000"
+      },
+      {
+        "code": 173,
+        "code_binary": "010101101",
+        "live_inputs": 5,
+        "minimal_sets": [
+          {
+            "mask": 36,
+            "binary": "000100100",
+            "size": 2
+          },
+          {
+            "mask": 133,
+            "binary": "010000101",
+            "size": 3
+          },
+          {
+            "mask": 140,
+            "binary": "010001100",
+            "size": 3
+          },
+          {
+            "mask": 161,
+            "binary": "010100001",
+            "size": 3
+          }
+        ],
+        "minimal_union_mask": 173,
+        "minimal_union_binary": "010101101",
+        "but_for_mask": 37,
+        "but_for_binary": "000100101"
+      },
+      {
+        "code": 179,
+        "code_binary": "010110011",
+        "live_inputs": 5,
+        "minimal_sets": [
+          {
+            "mask": 3,
+            "binary": "000000011",
+            "size": 2
+          },
+          {
+            "mask": 161,
+            "binary": "010100001",
+            "size": 3
+          },
+          {
+            "mask": 178,
+            "binary": "010110010",
+            "size": 4
+          }
+        ],
+        "minimal_union_mask": 179,
+        "minimal_union_binary": "010110011",
+        "but_for_mask": 16,
+        "but_for_binary": "000010000"
+      },
+      {
+        "code": 183,
+        "code_binary": "010110111",
+        "live_inputs": 6,
+        "minimal_sets": [
+          {
+            "mask": 3,
+            "binary": "000000011",
+            "size": 2
+          },
+          {
+            "mask": 36,
+            "binary": "000100100",
+            "size": 2
+          },
+          {
+            "mask": 22,
+            "binary": "000010110",
+            "size": 3
+          },
+          {
+            "mask": 133,
+            "binary": "010000101",
+            "size": 3
+          },
+          {
+            "mask": 161,
+            "binary": "010100001",
+            "size": 3
+          },
+          {
+            "mask": 178,
+            "binary": "010110010",
+            "size": 4
+          }
+        ],
+        "minimal_union_mask": 183,
+        "minimal_union_binary": "010110111",
+        "but_for_mask": 51,
+        "but_for_binary": "000110011"
+      },
+      {
+        "code": 186,
+        "code_binary": "010111010",
+        "live_inputs": 5,
+        "minimal_sets": [
+          {
+            "mask": 58,
+            "binary": "000111010",
+            "size": 4
+          },
+          {
+            "mask": 154,
+            "binary": "010011010",
+            "size": 4
+          },
+          {
+            "mask": 178,
+            "binary": "010110010",
+            "size": 4
+          },
+          {
+            "mask": 184,
+            "binary": "010111000",
+            "size": 4
+          }
+        ],
+        "minimal_union_mask": 186,
+        "minimal_union_binary": "010111010",
+        "but_for_mask": 16,
+        "but_for_binary": "000010000"
+      },
+      {
+        "code": 188,
+        "code_binary": "010111100",
+        "live_inputs": 5,
+        "minimal_sets": [
+          {
+            "mask": 36,
+            "binary": "000100100",
+            "size": 2
+          },
+          {
+            "mask": 140,
+            "binary": "010001100",
+            "size": 3
+          },
+          {
+            "mask": 184,
+            "binary": "010111000",
+            "size": 4
+          }
+        ],
+        "minimal_union_mask": 188,
+        "minimal_union_binary": "010111100",
+        "but_for_mask": 16,
+        "but_for_binary": "000010000"
+      },
+      {
+        "code": 189,
+        "code_binary": "010111101",
+        "live_inputs": 6,
+        "minimal_sets": [
+          {
+            "mask": 36,
+            "binary": "000100100",
+            "size": 2
+          },
+          {
+            "mask": 25,
+            "binary": "000011001",
+            "size": 3
+          },
+          {
+            "mask": 133,
+            "binary": "010000101",
+            "size": 3
+          },
+          {
+            "mask": 140,
+            "binary": "010001100",
+            "size": 3
+          },
+          {
+            "mask": 161,
+            "binary": "010100001",
+            "size": 3
+          },
+          {
+            "mask": 184,
+            "binary": "010111000",
+            "size": 4
+          }
+        ],
+        "minimal_union_mask": 189,
+        "minimal_union_binary": "010111101",
+        "but_for_mask": 140,
+        "but_for_binary": "010001100"
+      },
+      {
+        "code": 191,
+        "code_binary": "010111111",
+        "live_inputs": 7,
+        "minimal_sets": [
+          {
+            "mask": 3,
+            "binary": "000000011",
+            "size": 2
+          },
+          {
+            "mask": 36,
+            "binary": "000100100",
+            "size": 2
+          },
+          {
+            "mask": 22,
+            "binary": "000010110",
+            "size": 3
+          },
+          {
+            "mask": 25,
+            "binary": "000011001",
+            "size": 3
+          },
+          {
+            "mask": 133,
+            "binary": "010000101",
+            "size": 3
+          },
+          {
+            "mask": 140,
+            "binary": "010001100",
+            "size": 3
+          },
+          {
+            "mask": 161,
+            "binary": "010100001",
+            "size": 3
+          },
+          {
+            "mask": 58,
+            "binary": "000111010",
+            "size": 4
+          },
+          {
+            "mask": 154,
+            "binary": "010011010",
+            "size": 4
+          },
+          {
+            "mask": 178,
+            "binary": "010110010",
+            "size": 4
+          },
+          {
+            "mask": 184,
+            "binary": "010111000",
+            "size": 4
+          }
+        ],
+        "minimal_union_mask": 191,
+        "minimal_union_binary": "010111111",
+        "but_for_mask": 53,
+        "but_for_binary": "000110101"
+      },
+      {
+        "code": 199,
+        "code_binary": "011000111",
+        "live_inputs": 5,
+        "minimal_sets": [
+          {
+            "mask": 3,
+            "binary": "000000011",
+            "size": 2
+          },
+          {
+            "mask": 133,
+            "binary": "010000101",
+            "size": 3
+          }
+        ],
+        "minimal_union_mask": 135,
+        "minimal_union_binary": "010000111",
+        "but_for_mask": 193,
+        "but_for_binary": "011000001"
+      },
+      {
+        "code": 205,
+        "code_binary": "011001101",
+        "live_inputs": 5,
+        "minimal_sets": [
+          {
+            "mask": 72,
+            "binary": "001001000",
+            "size": 2
+          },
+          {
+            "mask": 133,
+            "binary": "010000101",
+            "size": 3
+          },
+          {
+            "mask": 140,
+            "binary": "010001100",
+            "size": 3
+          }
+        ],
+        "minimal_union_mask": 205,
+        "minimal_union_binary": "011001101",
+        "but_for_mask": 65,
+        "but_for_binary": "001000001"
+      },
+      {
+        "code": 206,
+        "code_binary": "011001110",
+        "live_inputs": 5,
+        "minimal_sets": [
+          {
+            "mask": 72,
+            "binary": "001001000",
+            "size": 2
+          },
+          {
+            "mask": 140,
+            "binary": "010001100",
+            "size": 3
+          }
+        ],
+        "minimal_union_mask": 204,
+        "minimal_union_binary": "011001100",
+        "but_for_mask": 74,
+        "but_for_binary": "001001010"
+      }
+    ]
+  },
+  "full_run": {
+    "configuration": {
+      "size": 512,
+      "generations": 1600,
+      "min_dt": 100,
+      "max_dt": 900
+    },
+    "sanity": {
+      "clusters": 138891,
+      "rotation_equivalent_c2_occurrences": 144,
+      "canonical_expected_clusters": 138891,
+      "canonical_expected_rotation_equivalent_c2": 144,
+      "clusters_match_canonical": true,
+      "rotational_c2_match_canonical": true
+    },
+    "encountered_rule_states": {
+      "distinct_live_output_codes_encountered": 220,
+      "multiple_minimal_codes_encountered": 115,
+      "codes": [
+        23,
+        55,
+        63,
+        79,
+        89,
+        91,
+        99,
+        103,
+        109,
+        110,
+        122,
+        123,
+        143,
+        157,
+        165,
+        173,
+        179,
+        183,
+        186,
+        188,
+        189,
+        191,
+        199,
+        205,
+        206,
+        207,
+        215,
+        219,
+        222,
+        223,
+        227,
+        230,
+        233,
+        236,
+        238,
+        241,
+        243,
+        245,
+        246,
+        251,
+        253,
+        255,
+        271,
+        286,
+        295,
+        299,
+        301,
+        302,
+        303,
+        308,
+        315,
+        317,
+        319,
+        327,
+        330,
+        331,
+        333,
+        335,
+        343,
+        349,
+        350,
+        357,
+        358,
+        359,
+        361,
+        362,
+        364,
+        370,
+        371,
+        373,
+        377,
+        378,
+        382,
+        391,
+        395,
+        396,
+        398,
+        410,
+        413,
+        414,
+        415,
+        419,
+        421,
+        425,
+        427,
+        436,
+        438,
+        441,
+        444,
+        446,
+        447,
+        451,
+        453,
+        454,
+        457,
+        460,
+        461,
+        464,
+        469,
+        470,
+        472,
+        474,
+        481,
+        482,
+        484,
+        485,
+        486,
+        489,
+        499,
+        502,
+        504,
+        505,
+        506,
+        507,
+        510
+      ],
+      "total_uses_of_multiple_minimal_codes": 213776
+    },
+    "graph_comparison": {
+      "current_but_for_edges": 196466,
+      "minimal_set_edges": 203884,
+      "shared_edges": 196466,
+      "minimal_only_edges": 7418,
+      "but_for_only_edges": 0
+    },
+    "strict_exact_c2": {
+      "exact_occurrences_minimal_graph": 34,
+      "exact_occurrences_but_for_graph": 34,
+      "qualifying_parents_minimal_graph": 13,
+      "qualifying_parents_but_for_graph": 13,
+      "minimal_graph_pass": true,
+      "but_for_graph_pass": true,
+      "minimal_graph_events": [
+        {
+          "parent_uid": 3,
+          "parent_time": 2,
+          "offspring_count": 14,
+          "offspring": [
+            {
+              "uid": 7365,
+              "time": 393,
+              "dt": 391
+            },
+            {
+              "uid": 11940,
+              "time": 496,
+              "dt": 494
+            },
+            {
+              "uid": 11953,
+              "time": 496,
+              "dt": 494
+            },
+            {
+              "uid": 18059,
+              "time": 599,
+              "dt": 597
+            },
+            {
+              "uid": 18464,
+              "time": 605,
+              "dt": 603
+            },
+            {
+              "uid": 24150,
+              "time": 677,
+              "dt": 675
+            },
+            {
+              "uid": 24171,
+              "time": 677,
+              "dt": 675
+            },
+            {
+              "uid": 24185,
+              "time": 677,
+              "dt": 675
+            },
+            {
+              "uid": 26194,
+              "time": 708,
+              "dt": 706
+            },
+            {
+              "uid": 26214,
+              "time": 708,
+              "dt": 706
+            },
+            {
+              "uid": 32814,
+              "time": 780,
+              "dt": 778
+            },
+            {
+              "uid": 32836,
+              "time": 780,
+              "dt": 778
+            },
+            {
+              "uid": 32892,
+              "time": 780,
+              "dt": 778
+            },
+            {
+              "uid": 32901,
+              "time": 780,
+              "dt": 778
+            }
+          ],
+          "independent_pair_count": 75,
+          "independent_pairs": [
+            {
+              "a_uid": 7365,
+              "a_time": 393,
+              "b_uid": 11940,
+              "b_time": 496
+            },
+            {
+              "a_uid": 7365,
+              "a_time": 393,
+              "b_uid": 11953,
+              "b_time": 496
+            },
+            {
+              "a_uid": 7365,
+              "a_time": 393,
+              "b_uid": 18059,
+              "b_time": 599
+            },
+            {
+              "a_uid": 7365,
+              "a_time": 393,
+              "b_uid": 24185,
+              "b_time": 677
+            },
+            {
+              "a_uid": 7365,
+              "a_time": 393,
+              "b_uid": 26214,
+              "b_time": 708
+            },
+            {
+              "a_uid": 7365,
+              "a_time": 393,
+              "b_uid": 32892,
+              "b_time": 780
+            },
+            {
+              "a_uid": 7365,
+              "a_time": 393,
+              "b_uid": 32901,
+              "b_time": 780
+            },
+            {
+              "a_uid": 11940,
+              "a_time": 496,
+              "b_uid": 11953,
+              "b_time": 496
+            },
+            {
+              "a_uid": 11940,
+              "a_time": 496,
+              "b_uid": 18059,
+              "b_time": 599
+            },
+            {
+              "a_uid": 11940,
+              "a_time": 496,
+              "b_uid": 18464,
+              "b_time": 605
+            },
+            {
+              "a_uid": 11940,
+              "a_time": 496,
+              "b_uid": 24150,
+              "b_time": 677
+            },
+            {
+              "a_uid": 11940,
+              "a_time": 496,
+              "b_uid": 24171,
+              "b_time": 677
+            },
+            {
+              "a_uid": 11940,
+              "a_time": 496,
+              "b_uid": 26194,
+              "b_time": 708
+            },
+            {
+              "a_uid": 11940,
+              "a_time": 496,
+              "b_uid": 32814,
+              "b_time": 780
+            },
+            {
+              "a_uid": 11940,
+              "a_time": 496,
+              "b_uid": 32892,
+              "b_time": 780
+            },
+            {
+              "a_uid": 11940,
+              "a_time": 496,
+              "b_uid": 32901,
+              "b_time": 780
+            },
+            {
+              "a_uid": 11953,
+              "a_time": 496,
+              "b_uid": 18059,
+              "b_time": 599
+            },
+            {
+              "a_uid": 11953,
+              "a_time": 496,
+              "b_uid": 18464,
+              "b_time": 605
+            },
+            {
+              "a_uid": 11953,
+              "a_time": 496,
+              "b_uid": 24150,
+              "b_time": 677
+            },
+            {
+              "a_uid": 11953,
+              "a_time": 496,
+              "b_uid": 24171,
+              "b_time": 677
+            },
+            {
+              "a_uid": 11953,
+              "a_time": 496,
+              "b_uid": 24185,
+              "b_time": 677
+            },
+            {
+              "a_uid": 11953,
+              "a_time": 496,
+              "b_uid": 26194,
+              "b_time": 708
+            },
+            {
+              "a_uid": 11953,
+              "a_time": 496,
+              "b_uid": 26214,
+              "b_time": 708
+            },
+            {
+              "a_uid": 11953,
+              "a_time": 496,
+              "b_uid": 32814,
+              "b_time": 780
+            },
+            {
+              "a_uid": 11953,
+              "a_time": 496,
+              "b_uid": 32836,
+              "b_time": 780
+            }
+          ]
+        },
+        {
+          "parent_uid": 7365,
+          "parent_time": 393,
+          "offspring_count": 5,
+          "offspring": [
+            {
+              "uid": 18464,
+              "time": 605,
+              "dt": 212
+            },
+            {
+              "uid": 24150,
+              "time": 677,
+              "dt": 284
+            },
+            {
+              "uid": 24171,
+              "time": 677,
+              "dt": 284
+            },
+            {
+              "uid": 26194,
+              "time": 708,
+              "dt": 315
+            },
+            {
+              "uid": 32814,
+              "time": 780,
+              "dt": 387
+            }
+          ],
+          "independent_pair_count": 8,
+          "independent_pairs": [
+            {
+              "a_uid": 18464,
+              "a_time": 605,
+              "b_uid": 24171,
+              "b_time": 677
+            },
+            {
+              "a_uid": 18464,
+              "a_time": 605,
+              "b_uid": 26194,
+              "b_time": 708
+            },
+            {
+              "a_uid": 18464,
+              "a_time": 605,
+              "b_uid": 32814,
+              "b_time": 780
+            },
+            {
+              "a_uid": 24150,
+              "a_time": 677,
+              "b_uid": 24171,
+              "b_time": 677
+            },
+            {
+              "a_uid": 24150,
+              "a_time": 677,
+              "b_uid": 26194,
+              "b_time": 708
+            },
+            {
+              "a_uid": 24150,
+              "a_time": 677,
+              "b_uid": 32814,
+              "b_time": 780
+            },
+            {
+              "a_uid": 24171,
+              "a_time": 677,
+              "b_uid": 26194,
+              "b_time": 708
+            },
+            {
+              "a_uid": 24171,
+              "a_time": 677,
+              "b_uid": 32814,
+              "b_time": 780
+            }
+          ]
+        },
+        {
+          "parent_uid": 11940,
+          "parent_time": 496,
+          "offspring_count": 3,
+          "offspring": [
+            {
+              "uid": 24185,
+              "time": 677,
+              "dt": 181
+            },
+            {
+              "uid": 26214,
+              "time": 708,
+              "dt": 212
+            },
+            {
+              "uid": 32836,
+              "time": 780,
+              "dt": 284
+            }
+          ],
+          "independent_pair_count": 2,
+          "independent_pairs": [
+            {
+              "a_uid": 24185,
+              "a_time": 677,
+              "b_uid": 26214,
+              "b_time": 708
+            },
+            {
+              "a_uid": 24185,
+              "a_time": 677,
+              "b_uid": 32836,
+              "b_time": 780
+            }
+          ]
+        },
+        {
+          "parent_uid": 11953,
+          "parent_time": 496,
+          "offspring_count": 2,
+          "offspring": [
+            {
+              "uid": 32892,
+              "time": 780,
+              "dt": 284
+            },
+            {
+              "uid": 111910,
+              "time": 1392,
+              "dt": 896
+            }
+          ],
+          "independent_pair_count": 1,
+          "independent_pairs": [
+            {
+              "a_uid": 32892,
+              "a_time": 780,
+              "b_uid": 111910,
+              "b_time": 1392
+            }
+          ]
+        },
+        {
+          "parent_uid": 18059,
+          "parent_time": 599,
+          "offspring_count": 7,
+          "offspring": [
+            {
+              "uid": 32901,
+              "time": 780,
+              "dt": 181
+            },
+            {
+              "uid": 82077,
+              "time": 1201,
+              "dt": 602
+            },
+            {
+              "uid": 86786,
+              "time": 1235,
+              "dt": 636
+            },
+            {
+              "uid": 97324,
+              "time": 1306,
+              "dt": 707
+            },
+            {
+              "uid": 99917,
+              "time": 1323,
+              "dt": 724
+            },
+            {
+              "uid": 106578,
+              "time": 1359,
+              "dt": 760
+            },
+            {
+              "uid": 110936,
+              "time": 1385,
+              "dt": 786
+            }
+          ],
+          "independent_pair_count": 16,
+          "independent_pairs": [
+            {
+              "a_uid": 32901,
+              "a_time": 780,
+              "b_uid": 82077,
+              "b_time": 1201
+            },
+            {
+              "a_uid": 32901,
+              "a_time": 780,
+              "b_uid": 86786,
+              "b_time": 1235
+            },
+            {
+              "a_uid": 32901,
+              "a_time": 780,
+              "b_uid": 97324,
+              "b_time": 1306
+            },
+            {
+              "a_uid": 32901,
+              "a_time": 780,
+              "b_uid": 99917,
+              "b_time": 1323
+            },
+            {
+              "a_uid": 82077,
+              "a_time": 1201,
+              "b_uid": 86786,
+              "b_time": 1235
+            },
+            {
+              "a_uid": 82077,
+              "a_time": 1201,
+              "b_uid": 97324,
+              "b_time": 1306
+            },
+            {
+              "a_uid": 82077,
+              "a_time": 1201,
+              "b_uid": 99917,
+              "b_time": 1323
+            },
+            {
+              "a_uid": 82077,
+              "a_time": 1201,
+              "b_uid": 106578,
+              "b_time": 1359
+            },
+            {
+              "a_uid": 82077,
+              "a_time": 1201,
+              "b_uid": 110936,
+              "b_time": 1385
+            },
+            {
+              "a_uid": 86786,
+              "a_time": 1235,
+              "b_uid": 97324,
+              "b_time": 1306
+            },
+            {
+              "a_uid": 86786,
+              "a_time": 1235,
+              "b_uid": 99917,
+              "b_time": 1323
+            },
+            {
+              "a_uid": 86786,
+              "a_time": 1235,
+              "b_uid": 106578,
+              "b_time": 1359
+            },
+            {
+              "a_uid": 86786,
+              "a_time": 1235,
+              "b_uid": 110936,
+              "b_time": 1385
+            },
+            {
+              "a_uid": 97324,
+              "a_time": 1306,
+              "b_uid": 99917,
+              "b_time": 1323
+            },
+            {
+              "a_uid": 99917,
+              "a_time": 1323,
+              "b_uid": 106578,
+              "b_time": 1359
+            },
+            {
+              "a_uid": 99917,
+              "a_time": 1323,
+              "b_uid": 110936,
+              "b_time": 1385
+            }
+          ]
+        },
+        {
+          "parent_uid": 24185,
+          "parent_time": 677,
+          "offspring_count": 4,
+          "offspring": [
+            {
+              "uid": 92668,
+              "time": 1274,
+              "dt": 597
+            },
+            {
+              "uid": 109545,
+              "time": 1377,
+              "dt": 700
+            },
+            {
+              "uid": 121261,
+              "time": 1455,
+              "dt": 778
+            },
+            {
+              "uid": 134443,
+              "time": 1558,
+              "dt": 881
+            }
+          ],
+          "independent_pair_count": 4,
+          "independent_pairs": [
+            {
+              "a_uid": 92668,
+              "a_time": 1274,
+              "b_uid": 109545,
+              "b_time": 1377
+            },
+            {
+              "a_uid": 92668,
+              "a_time": 1274,
+              "b_uid": 134443,
+              "b_time": 1558
+            },
+            {
+              "a_uid": 109545,
+              "a_time": 1377,
+              "b_uid": 121261,
+              "b_time": 1455
+            },
+            {
+              "a_uid": 121261,
+              "a_time": 1455,
+              "b_uid": 134443,
+              "b_time": 1558
+            }
+          ]
+        },
+        {
+          "parent_uid": 26194,
+          "parent_time": 708,
+          "offspring_count": 2,
+          "offspring": [
+            {
+              "uid": 99917,
+              "time": 1323,
+              "dt": 615
+            },
+            {
+              "uid": 111910,
+              "time": 1392,
+              "dt": 684
+            }
+          ],
+          "independent_pair_count": 1,
+          "independent_pairs": [
+            {
+              "a_uid": 99917,
+              "a_time": 1323,
+              "b_uid": 111910,
+              "b_time": 1392
+            }
+          ]
+        },
+        {
+          "parent_uid": 26214,
+          "parent_time": 708,
+          "offspring_count": 6,
+          "offspring": [
+            {
+              "uid": 92586,
+              "time": 1274,
+              "dt": 566
+            },
+            {
+              "uid": 99917,
+              "time": 1323,
+              "dt": 615
+            },
+            {
+              "uid": 109485,
+              "time": 1377,
+              "dt": 669
+            },
+            {
+              "uid": 121205,
+              "time": 1455,
+              "dt": 747
+            },
+            {
+              "uid": 124981,
+              "time": 1486,
+              "dt": 778
+            },
+            {
+              "uid": 134348,
+              "time": 1558,
+              "dt": 850
+            }
+          ],
+          "independent_pair_count": 11,
+          "independent_pairs": [
+            {
+              "a_uid": 92586,
+              "a_time": 1274,
+              "b_uid": 99917,
+              "b_time": 1323
+            },
+            {
+              "a_uid": 92586,
+              "a_time": 1274,
+              "b_uid": 109485,
+              "b_time": 1377
+            },
+            {
+              "a_uid": 99917,
+              "a_time": 1323,
+              "b_uid": 109485,
+              "b_time": 1377
+            },
+            {
+              "a_uid": 99917,
+              "a_time": 1323,
+              "b_uid": 121205,
+              "b_time": 1455
+            },
+            {
+              "a_uid": 99917,
+              "a_time": 1323,
+              "b_uid": 124981,
+              "b_time": 1486
+            },
+            {
+              "a_uid": 99917,
+              "a_time": 1323,
+              "b_uid": 134348,
+              "b_time": 1558
+            },
+            {
+              "a_uid": 109485,
+              "a_time": 1377,
+              "b_uid": 121205,
+              "b_time": 1455
+            },
+            {
+              "a_uid": 109485,
+              "a_time": 1377,
+              "b_uid": 124981,
+              "b_time": 1486
+            },
+            {
+              "a_uid": 109485,
+              "a_time": 1377,
+              "b_uid": 134348,
+              "b_time": 1558
+            },
+            {
+              "a_uid": 121205,
+              "a_time": 1455,
+              "b_uid": 124981,
+              "b_time": 1486
+            },
+            {
+              "a_uid": 121205,
+              "a_time": 1455,
+              "b_uid": 134348,
+              "b_time": 1558
+            }
+          ]
+        },
+        {
+          "parent_uid": 32814,
+          "parent_time": 780,
+          "offspring_count": 2,
+          "offspring": [
+            {
+              "uid": 99917,
+              "time": 1323,
+              "dt": 543
+            },
+            {
+              "uid": 111910,
+              "time": 1392,
+              "dt": 612
+            }
+          ],
+          "independent_pair_count": 1,
+          "independent_pairs": [
+            {
+              "a_uid": 99917,
+              "a_time": 1323,
+              "b_uid": 111910,
+              "b_time": 1392
+            }
+          ]
+        },
+        {
+          "parent_uid": 32836,
+          "parent_time": 780,
+          "offspring_count": 6,
+          "offspring": [
+            {
+              "uid": 92586,
+              "time": 1274,
+              "dt": 494
+            },
+            {
+              "uid": 99917,
+              "time": 1323,
+              "dt": 543
+            },
+            {
+              "uid": 109485,
+              "time": 1377,
+              "dt": 597
+            },
+            {
+              "uid": 121205,
+              "time": 1455,
+              "dt": 675
+            },
+            {
+              "uid": 124981,
+              "time": 1486,
+              "dt": 706
+            },
+            {
+              "uid": 134348,
+              "time": 1558,
+              "dt": 778
+            }
+          ],
+          "independent_pair_count": 11,
+          "independent_pairs": [
+            {
+              "a_uid": 92586,
+              "a_time": 1274,
+              "b_uid": 99917,
+              "b_time": 1323
+            },
+            {
+              "a_uid": 92586,
+              "a_time": 1274,
+              "b_uid": 109485,
+              "b_time": 1377
+            },
+            {
+              "a_uid": 99917,
+              "a_time": 1323,
+              "b_uid": 109485,
+              "b_time": 1377
+            },
+            {
+              "a_uid": 99917,
+              "a_time": 1323,
+              "b_uid": 121205,
+              "b_time": 1455
+            },
+            {
+              "a_uid": 99917,
+              "a_time": 1323,
+              "b_uid": 124981,
+              "b_time": 1486
+            },
+            {
+              "a_uid": 99917,
+              "a_time": 1323,
+              "b_uid": 134348,
+              "b_time": 1558
+            },
+            {
+              "a_uid": 109485,
+              "a_time": 1377,
+              "b_uid": 121205,
+              "b_time": 1455
+            },
+            {
+              "a_uid": 109485,
+              "a_time": 1377,
+              "b_uid": 124981,
+              "b_time": 1486
+            },
+            {
+              "a_uid": 109485,
+              "a_time": 1377,
+              "b_uid": 134348,
+              "b_time": 1558
+            },
+            {
+              "a_uid": 121205,
+              "a_time": 1455,
+              "b_uid": 124981,
+              "b_time": 1486
+            },
+            {
+              "a_uid": 121205,
+              "a_time": 1455,
+              "b_uid": 134348,
+              "b_time": 1558
+            }
+          ]
+        },
+        {
+          "parent_uid": 32892,
+          "parent_time": 780,
+          "offspring_count": 5,
+          "offspring": [
+            {
+              "uid": 82077,
+              "time": 1201,
+              "dt": 421
+            },
+            {
+              "uid": 86786,
+              "time": 1235,
+              "dt": 455
+            },
+            {
+              "uid": 97324,
+              "time": 1306,
+              "dt": 526
+            },
+            {
+              "uid": 106578,
+              "time": 1359,
+              "dt": 579
+            },
+            {
+              "uid": 110936,
+              "time": 1385,
+              "dt": 605
+            }
+          ],
+          "independent_pair_count": 7,
+          "independent_pairs": [
+            {
+              "a_uid": 82077,
+              "a_time": 1201,
+              "b_uid": 86786,
+              "b_time": 1235
+            },
+            {
+              "a_uid": 82077,
+              "a_time": 1201,
+              "b_uid": 97324,
+              "b_time": 1306
+            },
+            {
+              "a_uid": 82077,
+              "a_time": 1201,
+              "b_uid": 106578,
+              "b_time": 1359
+            },
+            {
+              "a_uid": 82077,
+              "a_time": 1201,
+              "b_uid": 110936,
+              "b_time": 1385
+            },
+            {
+              "a_uid": 86786,
+              "a_time": 1235,
+              "b_uid": 97324,
+              "b_time": 1306
+            },
+            {
+              "a_uid": 86786,
+              "a_time": 1235,
+              "b_uid": 106578,
+              "b_time": 1359
+            },
+            {
+              "a_uid": 86786,
+              "a_time": 1235,
+              "b_uid": 110936,
+              "b_time": 1385
+            }
+          ]
+        },
+        {
+          "parent_uid": 32901,
+          "parent_time": 780,
+          "offspring_count": 8,
+          "offspring": [
+            {
+              "uid": 77797,
+              "time": 1171,
+              "dt": 391
+            },
+            {
+              "uid": 92668,
+              "time": 1274,
+              "dt": 494
+            },
+            {
+              "uid": 92686,
+              "time": 1274,
+              "dt": 494
+            },
+            {
+              "uid": 106578,
+              "time": 1359,
+              "dt": 579
+            },
+            {
+              "uid": 109545,
+              "time": 1377,
+              "dt": 597
+            },
+            {
+              "uid": 110936,
+              "time": 1385,
+              "dt": 605
+            },
+            {
+              "uid": 121261,
+              "time": 1455,
+              "dt": 675
+            },
+            {
+              "uid": 134443,
+              "time": 1558,
+              "dt": 778
+            }
+          ],
+          "independent_pair_count": 23,
+          "independent_pairs": [
+            {
+              "a_uid": 77797,
+              "a_time": 1171,
+              "b_uid": 92668,
+              "b_time": 1274
+            },
+            {
+              "a_uid": 77797,
+              "a_time": 1171,
+              "b_uid": 92686,
+              "b_time": 1274
+            },
+            {
+              "a_uid": 77797,
+              "a_time": 1171,
+              "b_uid": 106578,
+              "b_time": 1359
+            },
+            {
+              "a_uid": 77797,
+              "a_time": 1171,
+              "b_uid": 109545,
+              "b_time": 1377
+            },
+            {
+              "a_uid": 77797,
+              "a_time": 1171,
+              "b_uid": 110936,
+              "b_time": 1385
+            },
+            {
+              "a_uid": 77797,
+              "a_time": 1171,
+              "b_uid": 121261,
+              "b_time": 1455
+            },
+            {
+              "a_uid": 77797,
+              "a_time": 1171,
+              "b_uid": 134443,
+              "b_time": 1558
+            },
+            {
+              "a_uid": 92668,
+              "a_time": 1274,
+              "b_uid": 92686,
+              "b_time": 1274
+            },
+            {
+              "a_uid": 92668,
+              "a_time": 1274,
+              "b_uid": 106578,
+              "b_time": 1359
+            },
+            {
+              "a_uid": 92668,
+              "a_time": 1274,
+              "b_uid": 109545,
+              "b_time": 1377
+            },
+            {
+              "a_uid": 92668,
+              "a_time": 1274,
+              "b_uid": 110936,
+              "b_time": 1385
+            },
+            {
+              "a_uid": 92668,
+              "a_time": 1274,
+              "b_uid": 134443,
+              "b_time": 1558
+            },
+            {
+              "a_uid": 92686,
+              "a_time": 1274,
+              "b_uid": 109545,
+              "b_time": 1377
+            },
+            {
+              "a_uid": 92686,
+              "a_time": 1274,
+              "b_uid": 121261,
+              "b_time": 1455
+            },
+            {
+              "a_uid": 92686,
+              "a_time": 1274,
+              "b_uid": 134443,
+              "b_time": 1558
+            },
+            {
+              "a_uid": 106578,
+              "a_time": 1359,
+              "b_uid": 109545,
+              "b_time": 1377
+            },
+            {
+              "a_uid": 106578,
+              "a_time": 1359,
+              "b_uid": 121261,
+              "b_time": 1455
+            },
+            {
+              "a_uid": 106578,
+              "a_time": 1359,
+              "b_uid": 134443,
+              "b_time": 1558
+            },
+            {
+              "a_uid": 109545,
+              "a_time": 1377,
+              "b_uid": 110936,
+              "b_time": 1385
+            },
+            {
+              "a_uid": 109545,
+              "a_time": 1377,
+              "b_uid": 121261,
+              "b_time": 1455
+            },
+            {
+              "a_uid": 110936,
+              "a_time": 1385,
+              "b_uid": 121261,
+              "b_time": 1455
+            },
+            {
+              "a_uid": 110936,
+              "a_time": 1385,
+              "b_uid": 134443,
+              "b_time": 1558
+            },
+            {
+              "a_uid": 121261,
+              "a_time": 1455,
+              "b_uid": 134443,
+              "b_time": 1558
+            }
+          ]
+        },
+        {
+          "parent_uid": 92586,
+          "parent_time": 1274,
+          "offspring_count": 3,
+          "offspring": [
+            {
+              "uid": 121205,
+              "time": 1455,
+              "dt": 181
+            },
+            {
+              "uid": 124981,
+              "time": 1486,
+              "dt": 212
+            },
+            {
+              "uid": 134348,
+              "time": 1558,
+              "dt": 284
+            }
+          ],
+          "independent_pair_count": 2,
+          "independent_pairs": [
+            {
+              "a_uid": 121205,
+              "a_time": 1455,
+              "b_uid": 124981,
+              "b_time": 1486
+            },
+            {
+              "a_uid": 121205,
+              "a_time": 1455,
+              "b_uid": 134348,
+              "b_time": 1558
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "decision": {
+    "strict_reproduction_survives_candidate_minimal_graph": true,
+    "paper_method_warning": true,
+    "statement": "The strict exact-copy independent-offspring lineage criterion survives the candidate minimal-set causal graph.",
+    "method_status": "DIAGNOSTIC MISMATCH: multiple minimal causal sets were encountered under this implementation, whereas the paper reports none. Treat this as an explicit alternative causal reconstruction until the published code is matched."
+  }
+}

@@ -1,0 +1,1443 @@
+{
+  "criterion": {
+    "identity": "exact cropped bitmap; translation allowed; rotation NOT allowed",
+    "parent_to_offspring": "causal reachability in supplied lineage graph",
+    "direct_offspring": "first return to exact c2 on each causal branch",
+    "offspring_independence": "no directed causal path from offspring A to B or B to A",
+    "min_dt": 100,
+    "max_dt": 900
+  },
+  "sanity": {
+    "size": 512,
+    "generations": 1600,
+    "clusters": 138891,
+    "causal_edges": 196466,
+    "rotation_equivalent_c2_occurrences": 144,
+    "exact_c2_occurrences": 34,
+    "expected_clusters_from_previous_run": 138891,
+    "expected_rotation_equivalent_c2_from_previous_run": 144,
+    "clusters_match_previous_run": true,
+    "rotation_equivalent_c2_match_previous_run": true
+  },
+  "search": {
+    "exact_c2_parents_with_any_first_return": 19,
+    "exact_c2_parents_with_multiple_first_returns": 13,
+    "strict_replication_events": 13,
+    "events": [
+      {
+        "parent_uid": 3,
+        "parent_time": 2,
+        "offspring": [
+          {
+            "uid": 7365,
+            "time": 393,
+            "dt": 391
+          },
+          {
+            "uid": 11940,
+            "time": 496,
+            "dt": 494
+          },
+          {
+            "uid": 11953,
+            "time": 496,
+            "dt": 494
+          },
+          {
+            "uid": 18059,
+            "time": 599,
+            "dt": 597
+          },
+          {
+            "uid": 18464,
+            "time": 605,
+            "dt": 603
+          },
+          {
+            "uid": 24150,
+            "time": 677,
+            "dt": 675
+          },
+          {
+            "uid": 24171,
+            "time": 677,
+            "dt": 675
+          },
+          {
+            "uid": 24185,
+            "time": 677,
+            "dt": 675
+          },
+          {
+            "uid": 26194,
+            "time": 708,
+            "dt": 706
+          },
+          {
+            "uid": 26214,
+            "time": 708,
+            "dt": 706
+          },
+          {
+            "uid": 32814,
+            "time": 780,
+            "dt": 778
+          },
+          {
+            "uid": 32836,
+            "time": 780,
+            "dt": 778
+          },
+          {
+            "uid": 32892,
+            "time": 780,
+            "dt": 778
+          },
+          {
+            "uid": 32901,
+            "time": 780,
+            "dt": 778
+          }
+        ],
+        "independent_pairs": [
+          {
+            "a_uid": 7365,
+            "a_time": 393,
+            "b_uid": 11940,
+            "b_time": 496
+          },
+          {
+            "a_uid": 7365,
+            "a_time": 393,
+            "b_uid": 11953,
+            "b_time": 496
+          },
+          {
+            "a_uid": 7365,
+            "a_time": 393,
+            "b_uid": 18059,
+            "b_time": 599
+          },
+          {
+            "a_uid": 7365,
+            "a_time": 393,
+            "b_uid": 24185,
+            "b_time": 677
+          },
+          {
+            "a_uid": 7365,
+            "a_time": 393,
+            "b_uid": 26214,
+            "b_time": 708
+          },
+          {
+            "a_uid": 7365,
+            "a_time": 393,
+            "b_uid": 32892,
+            "b_time": 780
+          },
+          {
+            "a_uid": 7365,
+            "a_time": 393,
+            "b_uid": 32901,
+            "b_time": 780
+          },
+          {
+            "a_uid": 11940,
+            "a_time": 496,
+            "b_uid": 11953,
+            "b_time": 496
+          },
+          {
+            "a_uid": 11940,
+            "a_time": 496,
+            "b_uid": 18059,
+            "b_time": 599
+          },
+          {
+            "a_uid": 11940,
+            "a_time": 496,
+            "b_uid": 18464,
+            "b_time": 605
+          },
+          {
+            "a_uid": 11940,
+            "a_time": 496,
+            "b_uid": 24150,
+            "b_time": 677
+          },
+          {
+            "a_uid": 11940,
+            "a_time": 496,
+            "b_uid": 24171,
+            "b_time": 677
+          },
+          {
+            "a_uid": 11940,
+            "a_time": 496,
+            "b_uid": 26194,
+            "b_time": 708
+          },
+          {
+            "a_uid": 11940,
+            "a_time": 496,
+            "b_uid": 32814,
+            "b_time": 780
+          },
+          {
+            "a_uid": 11940,
+            "a_time": 496,
+            "b_uid": 32892,
+            "b_time": 780
+          },
+          {
+            "a_uid": 11940,
+            "a_time": 496,
+            "b_uid": 32901,
+            "b_time": 780
+          },
+          {
+            "a_uid": 11953,
+            "a_time": 496,
+            "b_uid": 18059,
+            "b_time": 599
+          },
+          {
+            "a_uid": 11953,
+            "a_time": 496,
+            "b_uid": 18464,
+            "b_time": 605
+          },
+          {
+            "a_uid": 11953,
+            "a_time": 496,
+            "b_uid": 24150,
+            "b_time": 677
+          },
+          {
+            "a_uid": 11953,
+            "a_time": 496,
+            "b_uid": 24171,
+            "b_time": 677
+          },
+          {
+            "a_uid": 11953,
+            "a_time": 496,
+            "b_uid": 24185,
+            "b_time": 677
+          },
+          {
+            "a_uid": 11953,
+            "a_time": 496,
+            "b_uid": 26194,
+            "b_time": 708
+          },
+          {
+            "a_uid": 11953,
+            "a_time": 496,
+            "b_uid": 26214,
+            "b_time": 708
+          },
+          {
+            "a_uid": 11953,
+            "a_time": 496,
+            "b_uid": 32814,
+            "b_time": 780
+          },
+          {
+            "a_uid": 11953,
+            "a_time": 496,
+            "b_uid": 32836,
+            "b_time": 780
+          },
+          {
+            "a_uid": 11953,
+            "a_time": 496,
+            "b_uid": 32901,
+            "b_time": 780
+          },
+          {
+            "a_uid": 18059,
+            "a_time": 599,
+            "b_uid": 18464,
+            "b_time": 605
+          },
+          {
+            "a_uid": 18059,
+            "a_time": 599,
+            "b_uid": 24150,
+            "b_time": 677
+          },
+          {
+            "a_uid": 18059,
+            "a_time": 599,
+            "b_uid": 24171,
+            "b_time": 677
+          },
+          {
+            "a_uid": 18059,
+            "a_time": 599,
+            "b_uid": 24185,
+            "b_time": 677
+          },
+          {
+            "a_uid": 18059,
+            "a_time": 599,
+            "b_uid": 26194,
+            "b_time": 708
+          },
+          {
+            "a_uid": 18059,
+            "a_time": 599,
+            "b_uid": 26214,
+            "b_time": 708
+          },
+          {
+            "a_uid": 18059,
+            "a_time": 599,
+            "b_uid": 32814,
+            "b_time": 780
+          },
+          {
+            "a_uid": 18059,
+            "a_time": 599,
+            "b_uid": 32836,
+            "b_time": 780
+          },
+          {
+            "a_uid": 18059,
+            "a_time": 599,
+            "b_uid": 32892,
+            "b_time": 780
+          },
+          {
+            "a_uid": 18464,
+            "a_time": 605,
+            "b_uid": 24171,
+            "b_time": 677
+          },
+          {
+            "a_uid": 18464,
+            "a_time": 605,
+            "b_uid": 24185,
+            "b_time": 677
+          },
+          {
+            "a_uid": 18464,
+            "a_time": 605,
+            "b_uid": 26194,
+            "b_time": 708
+          },
+          {
+            "a_uid": 18464,
+            "a_time": 605,
+            "b_uid": 26214,
+            "b_time": 708
+          },
+          {
+            "a_uid": 18464,
+            "a_time": 605,
+            "b_uid": 32814,
+            "b_time": 780
+          },
+          {
+            "a_uid": 18464,
+            "a_time": 605,
+            "b_uid": 32892,
+            "b_time": 780
+          },
+          {
+            "a_uid": 18464,
+            "a_time": 605,
+            "b_uid": 32901,
+            "b_time": 780
+          },
+          {
+            "a_uid": 24150,
+            "a_time": 677,
+            "b_uid": 24171,
+            "b_time": 677
+          },
+          {
+            "a_uid": 24150,
+            "a_time": 677,
+            "b_uid": 24185,
+            "b_time": 677
+          },
+          {
+            "a_uid": 24150,
+            "a_time": 677,
+            "b_uid": 26194,
+            "b_time": 708
+          },
+          {
+            "a_uid": 24150,
+            "a_time": 677,
+            "b_uid": 26214,
+            "b_time": 708
+          },
+          {
+            "a_uid": 24150,
+            "a_time": 677,
+            "b_uid": 32814,
+            "b_time": 780
+          },
+          {
+            "a_uid": 24150,
+            "a_time": 677,
+            "b_uid": 32892,
+            "b_time": 780
+          },
+          {
+            "a_uid": 24150,
+            "a_time": 677,
+            "b_uid": 32901,
+            "b_time": 780
+          },
+          {
+            "a_uid": 24171,
+            "a_time": 677,
+            "b_uid": 24185,
+            "b_time": 677
+          },
+          {
+            "a_uid": 24171,
+            "a_time": 677,
+            "b_uid": 26194,
+            "b_time": 708
+          },
+          {
+            "a_uid": 24171,
+            "a_time": 677,
+            "b_uid": 26214,
+            "b_time": 708
+          },
+          {
+            "a_uid": 24171,
+            "a_time": 677,
+            "b_uid": 32814,
+            "b_time": 780
+          },
+          {
+            "a_uid": 24171,
+            "a_time": 677,
+            "b_uid": 32836,
+            "b_time": 780
+          },
+          {
+            "a_uid": 24171,
+            "a_time": 677,
+            "b_uid": 32892,
+            "b_time": 780
+          },
+          {
+            "a_uid": 24171,
+            "a_time": 677,
+            "b_uid": 32901,
+            "b_time": 780
+          },
+          {
+            "a_uid": 24185,
+            "a_time": 677,
+            "b_uid": 26194,
+            "b_time": 708
+          },
+          {
+            "a_uid": 24185,
+            "a_time": 677,
+            "b_uid": 26214,
+            "b_time": 708
+          },
+          {
+            "a_uid": 24185,
+            "a_time": 677,
+            "b_uid": 32814,
+            "b_time": 780
+          },
+          {
+            "a_uid": 24185,
+            "a_time": 677,
+            "b_uid": 32836,
+            "b_time": 780
+          },
+          {
+            "a_uid": 24185,
+            "a_time": 677,
+            "b_uid": 32892,
+            "b_time": 780
+          },
+          {
+            "a_uid": 24185,
+            "a_time": 677,
+            "b_uid": 32901,
+            "b_time": 780
+          },
+          {
+            "a_uid": 26194,
+            "a_time": 708,
+            "b_uid": 26214,
+            "b_time": 708
+          },
+          {
+            "a_uid": 26194,
+            "a_time": 708,
+            "b_uid": 32836,
+            "b_time": 780
+          },
+          {
+            "a_uid": 26194,
+            "a_time": 708,
+            "b_uid": 32892,
+            "b_time": 780
+          },
+          {
+            "a_uid": 26194,
+            "a_time": 708,
+            "b_uid": 32901,
+            "b_time": 780
+          },
+          {
+            "a_uid": 26214,
+            "a_time": 708,
+            "b_uid": 32814,
+            "b_time": 780
+          },
+          {
+            "a_uid": 26214,
+            "a_time": 708,
+            "b_uid": 32892,
+            "b_time": 780
+          },
+          {
+            "a_uid": 26214,
+            "a_time": 708,
+            "b_uid": 32901,
+            "b_time": 780
+          },
+          {
+            "a_uid": 32814,
+            "a_time": 780,
+            "b_uid": 32836,
+            "b_time": 780
+          },
+          {
+            "a_uid": 32814,
+            "a_time": 780,
+            "b_uid": 32892,
+            "b_time": 780
+          },
+          {
+            "a_uid": 32814,
+            "a_time": 780,
+            "b_uid": 32901,
+            "b_time": 780
+          },
+          {
+            "a_uid": 32836,
+            "a_time": 780,
+            "b_uid": 32892,
+            "b_time": 780
+          },
+          {
+            "a_uid": 32836,
+            "a_time": 780,
+            "b_uid": 32901,
+            "b_time": 780
+          },
+          {
+            "a_uid": 32892,
+            "a_time": 780,
+            "b_uid": 32901,
+            "b_time": 780
+          }
+        ]
+      },
+      {
+        "parent_uid": 7365,
+        "parent_time": 393,
+        "offspring": [
+          {
+            "uid": 18464,
+            "time": 605,
+            "dt": 212
+          },
+          {
+            "uid": 24150,
+            "time": 677,
+            "dt": 284
+          },
+          {
+            "uid": 24171,
+            "time": 677,
+            "dt": 284
+          },
+          {
+            "uid": 26194,
+            "time": 708,
+            "dt": 315
+          },
+          {
+            "uid": 32814,
+            "time": 780,
+            "dt": 387
+          }
+        ],
+        "independent_pairs": [
+          {
+            "a_uid": 18464,
+            "a_time": 605,
+            "b_uid": 24171,
+            "b_time": 677
+          },
+          {
+            "a_uid": 18464,
+            "a_time": 605,
+            "b_uid": 26194,
+            "b_time": 708
+          },
+          {
+            "a_uid": 18464,
+            "a_time": 605,
+            "b_uid": 32814,
+            "b_time": 780
+          },
+          {
+            "a_uid": 24150,
+            "a_time": 677,
+            "b_uid": 24171,
+            "b_time": 677
+          },
+          {
+            "a_uid": 24150,
+            "a_time": 677,
+            "b_uid": 26194,
+            "b_time": 708
+          },
+          {
+            "a_uid": 24150,
+            "a_time": 677,
+            "b_uid": 32814,
+            "b_time": 780
+          },
+          {
+            "a_uid": 24171,
+            "a_time": 677,
+            "b_uid": 26194,
+            "b_time": 708
+          },
+          {
+            "a_uid": 24171,
+            "a_time": 677,
+            "b_uid": 32814,
+            "b_time": 780
+          }
+        ]
+      },
+      {
+        "parent_uid": 11940,
+        "parent_time": 496,
+        "offspring": [
+          {
+            "uid": 24185,
+            "time": 677,
+            "dt": 181
+          },
+          {
+            "uid": 26214,
+            "time": 708,
+            "dt": 212
+          },
+          {
+            "uid": 32836,
+            "time": 780,
+            "dt": 284
+          }
+        ],
+        "independent_pairs": [
+          {
+            "a_uid": 24185,
+            "a_time": 677,
+            "b_uid": 26214,
+            "b_time": 708
+          },
+          {
+            "a_uid": 24185,
+            "a_time": 677,
+            "b_uid": 32836,
+            "b_time": 780
+          }
+        ]
+      },
+      {
+        "parent_uid": 11953,
+        "parent_time": 496,
+        "offspring": [
+          {
+            "uid": 32892,
+            "time": 780,
+            "dt": 284
+          },
+          {
+            "uid": 111910,
+            "time": 1392,
+            "dt": 896
+          }
+        ],
+        "independent_pairs": [
+          {
+            "a_uid": 32892,
+            "a_time": 780,
+            "b_uid": 111910,
+            "b_time": 1392
+          }
+        ]
+      },
+      {
+        "parent_uid": 18059,
+        "parent_time": 599,
+        "offspring": [
+          {
+            "uid": 32901,
+            "time": 780,
+            "dt": 181
+          },
+          {
+            "uid": 82077,
+            "time": 1201,
+            "dt": 602
+          },
+          {
+            "uid": 86786,
+            "time": 1235,
+            "dt": 636
+          },
+          {
+            "uid": 97324,
+            "time": 1306,
+            "dt": 707
+          },
+          {
+            "uid": 99917,
+            "time": 1323,
+            "dt": 724
+          },
+          {
+            "uid": 106578,
+            "time": 1359,
+            "dt": 760
+          },
+          {
+            "uid": 110936,
+            "time": 1385,
+            "dt": 786
+          }
+        ],
+        "independent_pairs": [
+          {
+            "a_uid": 32901,
+            "a_time": 780,
+            "b_uid": 82077,
+            "b_time": 1201
+          },
+          {
+            "a_uid": 32901,
+            "a_time": 780,
+            "b_uid": 86786,
+            "b_time": 1235
+          },
+          {
+            "a_uid": 32901,
+            "a_time": 780,
+            "b_uid": 97324,
+            "b_time": 1306
+          },
+          {
+            "a_uid": 32901,
+            "a_time": 780,
+            "b_uid": 99917,
+            "b_time": 1323
+          },
+          {
+            "a_uid": 82077,
+            "a_time": 1201,
+            "b_uid": 86786,
+            "b_time": 1235
+          },
+          {
+            "a_uid": 82077,
+            "a_time": 1201,
+            "b_uid": 97324,
+            "b_time": 1306
+          },
+          {
+            "a_uid": 82077,
+            "a_time": 1201,
+            "b_uid": 99917,
+            "b_time": 1323
+          },
+          {
+            "a_uid": 82077,
+            "a_time": 1201,
+            "b_uid": 106578,
+            "b_time": 1359
+          },
+          {
+            "a_uid": 82077,
+            "a_time": 1201,
+            "b_uid": 110936,
+            "b_time": 1385
+          },
+          {
+            "a_uid": 86786,
+            "a_time": 1235,
+            "b_uid": 97324,
+            "b_time": 1306
+          },
+          {
+            "a_uid": 86786,
+            "a_time": 1235,
+            "b_uid": 99917,
+            "b_time": 1323
+          },
+          {
+            "a_uid": 86786,
+            "a_time": 1235,
+            "b_uid": 106578,
+            "b_time": 1359
+          },
+          {
+            "a_uid": 86786,
+            "a_time": 1235,
+            "b_uid": 110936,
+            "b_time": 1385
+          },
+          {
+            "a_uid": 97324,
+            "a_time": 1306,
+            "b_uid": 99917,
+            "b_time": 1323
+          },
+          {
+            "a_uid": 99917,
+            "a_time": 1323,
+            "b_uid": 106578,
+            "b_time": 1359
+          },
+          {
+            "a_uid": 99917,
+            "a_time": 1323,
+            "b_uid": 110936,
+            "b_time": 1385
+          }
+        ]
+      },
+      {
+        "parent_uid": 24185,
+        "parent_time": 677,
+        "offspring": [
+          {
+            "uid": 92668,
+            "time": 1274,
+            "dt": 597
+          },
+          {
+            "uid": 109545,
+            "time": 1377,
+            "dt": 700
+          },
+          {
+            "uid": 121261,
+            "time": 1455,
+            "dt": 778
+          },
+          {
+            "uid": 134443,
+            "time": 1558,
+            "dt": 881
+          }
+        ],
+        "independent_pairs": [
+          {
+            "a_uid": 92668,
+            "a_time": 1274,
+            "b_uid": 109545,
+            "b_time": 1377
+          },
+          {
+            "a_uid": 92668,
+            "a_time": 1274,
+            "b_uid": 134443,
+            "b_time": 1558
+          },
+          {
+            "a_uid": 109545,
+            "a_time": 1377,
+            "b_uid": 121261,
+            "b_time": 1455
+          },
+          {
+            "a_uid": 121261,
+            "a_time": 1455,
+            "b_uid": 134443,
+            "b_time": 1558
+          }
+        ]
+      },
+      {
+        "parent_uid": 26194,
+        "parent_time": 708,
+        "offspring": [
+          {
+            "uid": 99917,
+            "time": 1323,
+            "dt": 615
+          },
+          {
+            "uid": 111910,
+            "time": 1392,
+            "dt": 684
+          }
+        ],
+        "independent_pairs": [
+          {
+            "a_uid": 99917,
+            "a_time": 1323,
+            "b_uid": 111910,
+            "b_time": 1392
+          }
+        ]
+      },
+      {
+        "parent_uid": 26214,
+        "parent_time": 708,
+        "offspring": [
+          {
+            "uid": 92586,
+            "time": 1274,
+            "dt": 566
+          },
+          {
+            "uid": 99917,
+            "time": 1323,
+            "dt": 615
+          },
+          {
+            "uid": 109485,
+            "time": 1377,
+            "dt": 669
+          },
+          {
+            "uid": 121205,
+            "time": 1455,
+            "dt": 747
+          },
+          {
+            "uid": 124981,
+            "time": 1486,
+            "dt": 778
+          },
+          {
+            "uid": 134348,
+            "time": 1558,
+            "dt": 850
+          }
+        ],
+        "independent_pairs": [
+          {
+            "a_uid": 92586,
+            "a_time": 1274,
+            "b_uid": 99917,
+            "b_time": 1323
+          },
+          {
+            "a_uid": 92586,
+            "a_time": 1274,
+            "b_uid": 109485,
+            "b_time": 1377
+          },
+          {
+            "a_uid": 99917,
+            "a_time": 1323,
+            "b_uid": 109485,
+            "b_time": 1377
+          },
+          {
+            "a_uid": 99917,
+            "a_time": 1323,
+            "b_uid": 121205,
+            "b_time": 1455
+          },
+          {
+            "a_uid": 99917,
+            "a_time": 1323,
+            "b_uid": 124981,
+            "b_time": 1486
+          },
+          {
+            "a_uid": 99917,
+            "a_time": 1323,
+            "b_uid": 134348,
+            "b_time": 1558
+          },
+          {
+            "a_uid": 109485,
+            "a_time": 1377,
+            "b_uid": 121205,
+            "b_time": 1455
+          },
+          {
+            "a_uid": 109485,
+            "a_time": 1377,
+            "b_uid": 124981,
+            "b_time": 1486
+          },
+          {
+            "a_uid": 109485,
+            "a_time": 1377,
+            "b_uid": 134348,
+            "b_time": 1558
+          },
+          {
+            "a_uid": 121205,
+            "a_time": 1455,
+            "b_uid": 124981,
+            "b_time": 1486
+          },
+          {
+            "a_uid": 121205,
+            "a_time": 1455,
+            "b_uid": 134348,
+            "b_time": 1558
+          }
+        ]
+      },
+      {
+        "parent_uid": 32814,
+        "parent_time": 780,
+        "offspring": [
+          {
+            "uid": 99917,
+            "time": 1323,
+            "dt": 543
+          },
+          {
+            "uid": 111910,
+            "time": 1392,
+            "dt": 612
+          }
+        ],
+        "independent_pairs": [
+          {
+            "a_uid": 99917,
+            "a_time": 1323,
+            "b_uid": 111910,
+            "b_time": 1392
+          }
+        ]
+      },
+      {
+        "parent_uid": 32836,
+        "parent_time": 780,
+        "offspring": [
+          {
+            "uid": 92586,
+            "time": 1274,
+            "dt": 494
+          },
+          {
+            "uid": 99917,
+            "time": 1323,
+            "dt": 543
+          },
+          {
+            "uid": 109485,
+            "time": 1377,
+            "dt": 597
+          },
+          {
+            "uid": 121205,
+            "time": 1455,
+            "dt": 675
+          },
+          {
+            "uid": 124981,
+            "time": 1486,
+            "dt": 706
+          },
+          {
+            "uid": 134348,
+            "time": 1558,
+            "dt": 778
+          }
+        ],
+        "independent_pairs": [
+          {
+            "a_uid": 92586,
+            "a_time": 1274,
+            "b_uid": 99917,
+            "b_time": 1323
+          },
+          {
+            "a_uid": 92586,
+            "a_time": 1274,
+            "b_uid": 109485,
+            "b_time": 1377
+          },
+          {
+            "a_uid": 99917,
+            "a_time": 1323,
+            "b_uid": 109485,
+            "b_time": 1377
+          },
+          {
+            "a_uid": 99917,
+            "a_time": 1323,
+            "b_uid": 121205,
+            "b_time": 1455
+          },
+          {
+            "a_uid": 99917,
+            "a_time": 1323,
+            "b_uid": 124981,
+            "b_time": 1486
+          },
+          {
+            "a_uid": 99917,
+            "a_time": 1323,
+            "b_uid": 134348,
+            "b_time": 1558
+          },
+          {
+            "a_uid": 109485,
+            "a_time": 1377,
+            "b_uid": 121205,
+            "b_time": 1455
+          },
+          {
+            "a_uid": 109485,
+            "a_time": 1377,
+            "b_uid": 124981,
+            "b_time": 1486
+          },
+          {
+            "a_uid": 109485,
+            "a_time": 1377,
+            "b_uid": 134348,
+            "b_time": 1558
+          },
+          {
+            "a_uid": 121205,
+            "a_time": 1455,
+            "b_uid": 124981,
+            "b_time": 1486
+          },
+          {
+            "a_uid": 121205,
+            "a_time": 1455,
+            "b_uid": 134348,
+            "b_time": 1558
+          }
+        ]
+      },
+      {
+        "parent_uid": 32892,
+        "parent_time": 780,
+        "offspring": [
+          {
+            "uid": 82077,
+            "time": 1201,
+            "dt": 421
+          },
+          {
+            "uid": 86786,
+            "time": 1235,
+            "dt": 455
+          },
+          {
+            "uid": 97324,
+            "time": 1306,
+            "dt": 526
+          },
+          {
+            "uid": 106578,
+            "time": 1359,
+            "dt": 579
+          },
+          {
+            "uid": 110936,
+            "time": 1385,
+            "dt": 605
+          }
+        ],
+        "independent_pairs": [
+          {
+            "a_uid": 82077,
+            "a_time": 1201,
+            "b_uid": 86786,
+            "b_time": 1235
+          },
+          {
+            "a_uid": 82077,
+            "a_time": 1201,
+            "b_uid": 97324,
+            "b_time": 1306
+          },
+          {
+            "a_uid": 82077,
+            "a_time": 1201,
+            "b_uid": 106578,
+            "b_time": 1359
+          },
+          {
+            "a_uid": 82077,
+            "a_time": 1201,
+            "b_uid": 110936,
+            "b_time": 1385
+          },
+          {
+            "a_uid": 86786,
+            "a_time": 1235,
+            "b_uid": 97324,
+            "b_time": 1306
+          },
+          {
+            "a_uid": 86786,
+            "a_time": 1235,
+            "b_uid": 106578,
+            "b_time": 1359
+          },
+          {
+            "a_uid": 86786,
+            "a_time": 1235,
+            "b_uid": 110936,
+            "b_time": 1385
+          }
+        ]
+      },
+      {
+        "parent_uid": 32901,
+        "parent_time": 780,
+        "offspring": [
+          {
+            "uid": 77797,
+            "time": 1171,
+            "dt": 391
+          },
+          {
+            "uid": 92668,
+            "time": 1274,
+            "dt": 494
+          },
+          {
+            "uid": 92686,
+            "time": 1274,
+            "dt": 494
+          },
+          {
+            "uid": 106578,
+            "time": 1359,
+            "dt": 579
+          },
+          {
+            "uid": 109545,
+            "time": 1377,
+            "dt": 597
+          },
+          {
+            "uid": 110936,
+            "time": 1385,
+            "dt": 605
+          },
+          {
+            "uid": 121261,
+            "time": 1455,
+            "dt": 675
+          },
+          {
+            "uid": 134443,
+            "time": 1558,
+            "dt": 778
+          }
+        ],
+        "independent_pairs": [
+          {
+            "a_uid": 77797,
+            "a_time": 1171,
+            "b_uid": 92668,
+            "b_time": 1274
+          },
+          {
+            "a_uid": 77797,
+            "a_time": 1171,
+            "b_uid": 92686,
+            "b_time": 1274
+          },
+          {
+            "a_uid": 77797,
+            "a_time": 1171,
+            "b_uid": 106578,
+            "b_time": 1359
+          },
+          {
+            "a_uid": 77797,
+            "a_time": 1171,
+            "b_uid": 109545,
+            "b_time": 1377
+          },
+          {
+            "a_uid": 77797,
+            "a_time": 1171,
+            "b_uid": 110936,
+            "b_time": 1385
+          },
+          {
+            "a_uid": 77797,
+            "a_time": 1171,
+            "b_uid": 121261,
+            "b_time": 1455
+          },
+          {
+            "a_uid": 77797,
+            "a_time": 1171,
+            "b_uid": 134443,
+            "b_time": 1558
+          },
+          {
+            "a_uid": 92668,
+            "a_time": 1274,
+            "b_uid": 92686,
+            "b_time": 1274
+          },
+          {
+            "a_uid": 92668,
+            "a_time": 1274,
+            "b_uid": 106578,
+            "b_time": 1359
+          },
+          {
+            "a_uid": 92668,
+            "a_time": 1274,
+            "b_uid": 109545,
+            "b_time": 1377
+          },
+          {
+            "a_uid": 92668,
+            "a_time": 1274,
+            "b_uid": 110936,
+            "b_time": 1385
+          },
+          {
+            "a_uid": 92668,
+            "a_time": 1274,
+            "b_uid": 134443,
+            "b_time": 1558
+          },
+          {
+            "a_uid": 92686,
+            "a_time": 1274,
+            "b_uid": 109545,
+            "b_time": 1377
+          },
+          {
+            "a_uid": 92686,
+            "a_time": 1274,
+            "b_uid": 121261,
+            "b_time": 1455
+          },
+          {
+            "a_uid": 92686,
+            "a_time": 1274,
+            "b_uid": 134443,
+            "b_time": 1558
+          },
+          {
+            "a_uid": 106578,
+            "a_time": 1359,
+            "b_uid": 109545,
+            "b_time": 1377
+          },
+          {
+            "a_uid": 106578,
+            "a_time": 1359,
+            "b_uid": 121261,
+            "b_time": 1455
+          },
+          {
+            "a_uid": 106578,
+            "a_time": 1359,
+            "b_uid": 134443,
+            "b_time": 1558
+          },
+          {
+            "a_uid": 109545,
+            "a_time": 1377,
+            "b_uid": 110936,
+            "b_time": 1385
+          },
+          {
+            "a_uid": 109545,
+            "a_time": 1377,
+            "b_uid": 121261,
+            "b_time": 1455
+          },
+          {
+            "a_uid": 110936,
+            "a_time": 1385,
+            "b_uid": 121261,
+            "b_time": 1455
+          },
+          {
+            "a_uid": 110936,
+            "a_time": 1385,
+            "b_uid": 134443,
+            "b_time": 1558
+          },
+          {
+            "a_uid": 121261,
+            "a_time": 1455,
+            "b_uid": 134443,
+            "b_time": 1558
+          }
+        ]
+      },
+      {
+        "parent_uid": 92586,
+        "parent_time": 1274,
+        "offspring": [
+          {
+            "uid": 121205,
+            "time": 1455,
+            "dt": 181
+          },
+          {
+            "uid": 124981,
+            "time": 1486,
+            "dt": 212
+          },
+          {
+            "uid": 134348,
+            "time": 1558,
+            "dt": 284
+          }
+        ],
+        "independent_pairs": [
+          {
+            "a_uid": 121205,
+            "a_time": 1455,
+            "b_uid": 124981,
+            "b_time": 1486
+          },
+          {
+            "a_uid": 121205,
+            "a_time": 1455,
+            "b_uid": 134348,
+            "b_time": 1558
+          }
+        ]
+      }
+    ]
+  },
+  "pass": true,
+  "interpretation": "PASS: at least one exact c2 parent has two or more causal first-return offspring with at least one pair that is not causally dependent on one another.",
+  "caveat": "This validates the lineage criterion on the causal graph supplied by ch10_outlier_lineage.py. It does not by itself validate that the cell-level causal tracer matches the published minimal-causal-subset implementation."
+}
