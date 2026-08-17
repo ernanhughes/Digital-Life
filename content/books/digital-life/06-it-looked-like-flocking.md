@@ -9,37 +9,35 @@ categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Artificial Life", "Outlier", "Collective Motion", "Causality", "Controls", "Confounds", "Experimental Method"]
 +++
 
-Groups of structures appeared to move together.
+The previous chapter was built around a warning.
 
-Not merely outward, as an expanding front would carry everything. Together — with what looked like coordination, among structures that had recently shared a causal history.
+A deliberately simple swarm had produced object-like forms, coherent-looking collective motion and a persistent measured regime without giving us anything we were prepared to call digital life.
 
-It looked remarkably like **flocking**.
+Then we went back to Outlier.
 
-We have spent two chapters training ourselves against exactly this reaction:
+And almost immediately saw structures moving together.
 
-see motion
-→ invent a noun
-→ believe the noun.
+Not merely outward, as an expanding front would carry everything. Together — with what looked like coordination among structures sharing recent causal history.
 
-But something had changed.
+The biological noun arrived immediately.
 
-We had just watched one strong interpretation survive an attempt to destroy it. The reproduction result in Outlier was no longer based only on resemblance; within our experiment it was supported by branching causal ancestry.
+**Flocking.**
 
-The method had said **yes**.
+This time we knew exactly how dangerous the picture was.
 
-That made the next exciting interpretation much easier to believe.
+But Outlier also gave us a reason to investigate rather than dismiss the impression. Published work had established causal self-replication, and our smaller run had independently recovered branching causal recurrence under its stated criterion.
 
-And there was a legitimate reason to take the observation seriously.
+We already possessed a causal graph.
 
-We already possessed a causal graph. We could identify recent shared ancestry independently of motion.
+Shared ancestry and motion could therefore be measured independently.
 
 So the hypothesis was testable:
 
 > **Do structures with shared causal history also show stronger dynamical coherence?**
 
-For once, the biological-looking interpretation came with two independently measurable sides.
+The biological-looking interpretation therefore came with two independently measurable sides.
 
-So we made the impression into a hypothesis, and started measuring.
+So we turned the impression into a hypothesis and started measuring.
 
 ---
 
@@ -106,13 +104,13 @@ At short distances, observed velocity alignment was approximately **0.74**, agai
 
 {{< figure src="/images/books/digital-life/ch10-outlier-flocking-test.png" caption="Nearby persistent structures exhibit much stronger directional alignment than a shuffled velocity control." >}}
 
-So the visual observation was not imaginary.
+So the visual impression corresponded to a measurable feature of this run.
 
-There really was strong short-range directional coherence. An average near `0.74` on a scale running from `-1` to `+1` is not a subtle numerical residue.
+Short-range directional alignment was strong: an average near `0.74` on a scale from `-1` to `+1`.
 
 For now, that is all we should say.
 
-Something nearby is moving coherently.
+Nearby tracked structures in this run move coherently.
 
 Why it is doing so remains open.
 
@@ -168,9 +166,9 @@ Then the causal graph suggested an explanation.
 
 ## Shared Causal History
 
-Chapter 2 left us with an uncomfortable finding: several spatially disconnected clusters can participate in the same causal organization. What looks like three separate things may be three components of one causal process.
+Chapter 4 left us with an uncomfortable published result: causal self-replication in Outlier can involve spatially separated components.
 
-That does not establish that such components form a natural individual — we were careful about this, and remain careful about it. But it does suggest a narrower and testable idea:
+That does not establish that those components constitute one natural individual — we were careful about this, and remain careful about it. But it suggests a narrower and testable idea:
 
 > **Does shared causal organization explain the apparent coordinated motion?**
 
@@ -194,13 +192,13 @@ The coverage was remarkable. Of 138,891 clusters, 138,132 received a recent `c2`
 
 {{< figure src="/images/books/digital-life/ch11-outlier-family-coverage.png" caption="Almost every tracked moving structure in this single-seed experiment can be associated with a recent c2 causal ancestor." >}}
 
-Almost every tracked moving structure in this run could therefore be placed inside a recent branching causal history.
+Almost every tracked moving structure in this run could therefore be assigned a recent `c2` ancestry label under this procedure.
 
-That was striking.
+That coverage was striking.
 
-It also explained exactly nothing about the motion.
+It explained exactly nothing about the motion.
 
-A variable existing is not the same thing as that variable causing the effect we care about.
+A useful label is not an explanation.
 
 ---
 
@@ -300,10 +298,10 @@ gap                        0.645
 
 A gap of `0.645` on a scale bounded at `1.0`.
 
-And look at what it had already survived:
+And look at what the apparent effect had already survived:
 
 ```text
-real causal ancestry
+ancestry derived from the causal graph
 +
 shuffled-motion control
 +
@@ -348,7 +346,7 @@ same family
 appears more coherent
 ```
 
-with ancestry contributing nothing whatsoever.
+even if ancestry contributed nothing to the difference.
 
 The 0.645 gap might be measuring exactly one thing: that we had compared structures 4.5 cells apart against structures tens of cells apart, and discovered that closer structures move more similarly. Which we knew before we started.
 
@@ -511,9 +509,9 @@ Nearly 65,000 matched pairs per group.
 
 659 matched strata.
 
-The same-family advantage had not merely become smaller.
+The large same-family advantage had disappeared under the matched comparison.
 
-It had disappeared.
+The point estimate was effectively zero and slightly negative.
 
 ---
 
@@ -543,13 +541,11 @@ So the largest positive ancestry effect compatible with this interval is approxi
 
 of the original apparent gap.
 
-That is a substantive statement rather than a shrug:
+Under this bootstrap analysis, that is much stronger than simply saying that the interval crosses zero:
 
-> **Within the 4–64 cell region where the comparison has adequate empirical support, the data rule out anything remotely resembling the original apparent family effect. The upper bootstrap bound is only about 1.9% of the original 0.645 gap.**
+> **Within the 4–64 cell region where the comparison has adequate empirical support, nothing remotely resembling the original apparent family effect survives the matched analysis. The upper positive bootstrap bound is about 1.9% of the original `0.645` gap.**
 
-The supported data no longer allowed anything remotely as large as the effect we thought we had found.
-
-Within the 4–64 cell comparison region, the upper positive bootstrap bound was only about **1.9% of the original apparent `0.645` gap**.
+That numerical bound should be read under the bootstrap procedure used here; the exact resampling unit and dependence structure belong in the experimental audit.
 
 One more check, because the common-support threshold was our choice and a conclusion that depends on an arbitrary cutoff is not a conclusion. Repeating the analysis with minimum bin counts of 50, 100, 250 and 500: at threshold 50 the support region expands to 4–96 cells, and the matched pooled effect remains −0.0058 with an equal-stratum effect of −0.0182. At 100, 250 and 500 the region stays at 4–64 cells, with the matched pooled effect at −0.0071, equal-stratum effect −0.0265 and upper bootstrap bound +0.0122. The detailed tables are in the appendix.
 
@@ -589,9 +585,8 @@ Not on this evidence. But *no* is the wrong summary, and so is the defensive ret
 
 The honest answer is layered:
 
-```text
 SHORT-RANGE MOTION COHERENCE
-measured, ~0.74, survives shuffled control
+measured in this run, ~0.74; survives shuffled control
 
 GLOBAL RADIAL EXPANSION AS SOLE EXPLANATION
 rejected — coherence survives radial subtraction
@@ -600,14 +595,13 @@ LARGE CAUSAL-FAMILY COHERENCE EFFECT
 collapses under distance / time / density matching
 
 ANCESTRY-SPECIFIC COHERENCE, 4–64 CELLS
-not supported; bounded at ~1.9% of the original gap
+not supported; matched estimate near zero
 
 ANCESTRY EFFECT, 0–4 CELLS
 unresolved — inadequate common support
 
 BIOLOGICAL-STYLE FLOCKING
 not established
-```
 
 Look at what happened to a single observation as it climbed:
 
@@ -648,7 +642,11 @@ flocking
 
 This is the part that matters most, and the part a discouraged investigator would get wrong.
 
-**Short-range motion coherence is real.** The measurement stands: approximately 0.74 raw, 0.7427 after radial subtraction, against a shuffled residual control of 0.1933. Nothing in the ancestry collapse touches it. The thing that first caught our attention while watching the animation was there.
+**Short-range motion coherence is a measured feature of this run.** The estimate stands: approximately `0.74` raw and `0.7427` after radial subtraction, against a shuffled residual control of `0.1933`.
+
+Nothing in the ancestry analysis removes that observation.
+
+What collapsed was our explanation for it.
 
 And it deserves more credit than the failure of our explanation might suggest. Remember what Outlier actually is at the substrate level:
 
@@ -674,27 +672,34 @@ So the idea remains exactly where it belongs:
 
 > **open**
 
-**Causal reproduction is also still real.** This needs saying explicitly, because failure has a way of spreading beyond its jurisdiction. The flocking interpretation collapsing does not retract anything from Chapter 2. The 144 `c2` occurrences are still there. The counterfactual causal graph is unchanged. The branching return structure rooted at the `c2` at `t = 2` is exactly as it was.
+**The causal result from Chapter 4 is unchanged.** This needs saying explicitly, because failure has a way of spreading beyond its jurisdiction.
 
-```text
+The flocking interpretation collapsing does not retract the 144 detected `c2` occurrences, the causal graph, or the branching return structure rooted in the earlier `c2`.
+
+Our claim there remains what it was: branching causal recurrence under our stated causal criterion. The stronger published self-replication result remains the published result.
+
 FLOCKING INTERPRETATION FAILS
 ```
 
 does not imply:
 
 ```text
-CAUSAL REPRODUCTION FAILS
+THE CAUSAL ANCESTRY RESULT FAILS
 ```
 
-What failed was a specific attempted promotion — from *causal family* to *coordinated collective unit*. The causal families remain real. They simply do not explain the motion.
+What failed was a specific attempted promotion — from *shared causal ancestry* to *coordinated collective unit*.
 
-Chapter 2 also left us with an unresolved question about individuality.
+The ancestry assignments remain supported by the causal graph.
+
+Within the region where the comparison is identified, they do not explain the motion coherence.
+
+Chapter 4 also left us with an unresolved question about individuality.
 
 If components sharing causal ancestry had retained distinctive dynamical coherence after the controls, that would have strengthened the case that a causal family behaved as a meaningful unit.
 
 That evidence did not survive.
 
-So Outlier leaves us in an interesting position:
+So for the individuality question, Outlier leaves us in an interesting position:
 
 ```text
 connected geometry
@@ -754,7 +759,7 @@ It is what happened to `0.645` when the comparison finally became fair.
 
 ## Where This Leaves Us
 
-We lost flocking and gained a better question.
+We lost the flocking interpretation and kept the motion-coherence phenomenon.
 
 But notice what made the loss so laborious. Outlier is rich — that richness is why it is such powerful evidence about what computation can support, and it is also why five variables were hopelessly entangled by the time we started measuring. Geometry, ancestry, distance, expansion and local environment all move together in that world. Same-family means close. Close means coherent. Everything is expanding. Structures interact with debris from other structures. The causal graph, the motion tracks and the spatial layout are all consequences of the same 512 bits, and there is no way to hold one of them fixed while varying another.
 
@@ -764,11 +769,15 @@ We had ancestry, distance, geometry, expansion and local environment all changin
 
 Even careful matching left the most interesting very-short-range regime unresolved because the required controls were not present in the data.
 
-There is another way to work:
+Chapter 5 had already pointed toward another way to work:
 
 > **build the comparison into the experiment before the world runs.**
 
-Where we can hold expansion fixed and vary coupling. Where we can run a system, then run it again with one mechanism removed and everything else identical, and attribute the difference to the mechanism. Where the question *does history matter here?* can be asked by constructing two histories rather than by searching a run for pairs that happen to differ in the right way.
+A world where we can hold expansion fixed and vary coupling.
+
+Where we can run the same system again with one mechanism removed and everything else unchanged.
+
+Where *does history matter here?* can be answered by constructing two histories rather than searching an already entangled run for pairs that happen to differ in the right way.
 
 That is not Outlier, and it is not a criticism of Outlier. It is a different instrument for a different job.
 
@@ -788,7 +797,9 @@ Outlier showed us something important:
 
 > **surprising causal organization can arise without us explicitly programming the organization itself.**
 
-It also showed us the cost of richness. When many phenomena arise together, explanation becomes a problem of disentangling them after the fact.
+Chapter 6 shows the other side of that richness.
+
+When geometry, ancestry, motion, expansion and local environment emerge together, discovering a phenomenon can be easier than identifying its cause.
 
 So we are going back to almost nothing.
 
