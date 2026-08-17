@@ -2,7 +2,7 @@
 title = "13: What Does One Attachment Cause?"
 date = "2026-08-14T20:00:00+01:00"
 draft = false
-description = "Force one cell to attach, prevent it in the counterfactual, and measure everything else. The effect is real, it matches the local rule, and it dies out once the cell is removed."
+description = "Force one cell to attach, prevent it in the counterfactual, and measure everything else. The immediate effect matches the local rule; persistent occupancy produces larger finite-horizon consequences, while transient accumulation does not continue."
 weight = 13
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Causality", "Intervention", "Experimental Method"]
@@ -11,24 +11,27 @@ series = ["Digital Life From First Principles"]
 
 The last chapter took away the body's privilege.
 
-Two attempts to identify a privileged boundary around the connected occupied crystal both failed. What survived was narrower and more useful: local interventions produced spatially localized consequences under the tested protocol.
+Two supplied spatial boundaries failed to earn causal privilege. Comparable same-side localization appeared at both tested radial cuts, but under a local update rule and an eight-update horizon that was not evidence of an individual hiding inside either one.
 
 So stop drawing the object first.
 
 Start with an event.
- That is a statement about events and their effects rather than about objects and their edges, and it suggested we had been starting at the wrong end of the problem.
 
-So start at the other end. One event. What does it do?
+One event.
+
+What does it cause?
 
 That question turns out to conceal several different causal claims.
 
-The chapter is the process of forcing them apart.
+This chapter is the attempt to force them apart.
 
 ---
 
-## Does the Process Move?
+## Does Activity Propagate?
 
-The first instinct, having lost the body, is to look for something else with an outline. If the connected body is not the right experimental object, perhaps the activity itself has spatial organization — something that moves through the interface and generates structure as it goes.
+The first instinct, having lost the body, is to look for something else with an outline.
+
+If connected material is not yet an earned experimental object, perhaps the activity itself has spatial organization — something that propagates through the construction interface and generates a recognizable distance-lag structure as it goes.
 
 That is testable. If activity genuinely propagates, then activity near one location at time `t` should predict activity farther away at later times, in a structured way:
 
@@ -39,13 +42,24 @@ far distance   →  later lag
 
 A moving ridge through space and time.
 
-So we built an event field out of material-changing events, measured future event density at each distance and lag from each event, and compared it against matched non-event locations sharing local geometric context — plus a cross-run control, since ordinary developmental progression could manufacture a distance-lag trend without anything travelling at all. The primary statistic asked whether the lag holding the excess activity shifted outward as distance increased.
+So we built an event field from material-changing events and measured future event density by distance and lag.
 
-It did not shift enough. The paired test missed its frozen gate, and the propagation claim failed.
+Each source event was compared with matched non-event locations sharing local geometric context, and a cross-run control was added because ordinary developmental progression could generate a distance-lag pattern without anything propagating from the source event.
 
-Two secondary shape statistics nevertheless looked suggestive. Distance and estimated ridge lag were positively associated.
+The frozen primary statistic asked whether the lag of excess activity shifted outward with distance strongly enough to clear its declared gate.
 
-That made the surface worth inspecting directly rather than promoting a failed primary result.
+It did not.
+
+```text
+PROPAGATION CLAIM
+FAILED
+```
+
+Two secondary shape statistics nevertheless looked suggestive: distance and estimated ridge lag were positively associated.
+
+That made the underlying distance-lag surface worth inspecting.
+
+It did not make the failed primary claim positive.
 
 Then we looked at the surface itself.
 
@@ -80,10 +94,12 @@ So the instrument had made two mistakes at once:
 
 ```text
 noise acquired the shape we were looking for
-```
 
-real signed structure was removed because
-it had the wrong sign
+AND
+
+real signed structure was removed
+because it had the wrong sign
+```
 
 So we closed the propagation claim, kept the signed structure the estimator had been suppressing, and looked at it directly.
 
@@ -95,14 +111,16 @@ Separating events by type and keeping the sign gives a much simpler picture — 
 
 At distance zero, a source and its control are definitionally different states. An attachment source is occupied where its control is empty; a loss source is empty where its control is occupied. Those differences mechanically determine what can happen at that same site later. They are not neighbourhood dynamics at all, and including them contaminates everything.
 
-Exclude distance zero and the neighbourhood result comes out clean. At distances one and two:
+Exclude distance zero and a much simpler neighbourhood pattern remains.
+
+At distances one and two:
 
 ```text
 ATTACHMENT  →  MORE nearby attachment
 LOSS        →  LESS nearby attachment
 ```
 
-with the strongest signed structure concentrated at the shortest tested neighbourhood distances.
+The strongest signed differences are concentrated at the shortest tested neighbourhood distances.
 
 That is the wrong sign for the simple source/sink interpretation we had been carrying.
 
@@ -145,7 +163,29 @@ and measure everything **except `x` itself**.
 
 That exclusion is the whole design. We are not asking whether two states that differ at `x` still differ at `x` later — that is trivially true and tells us nothing. We are asking what happens *around* `x` because the state at `x` was changed.
 
-One more thing before looking at any outcome: calculate what the frozen rule mechanically predicts the immediate effect should be. Every candidate near `x` has an attachment probability in each branch, and those probabilities can be summed before any random draw is taken. Call the expected one-step difference `g_mech_1`, and the realized neighbouring difference `g1`.
+One more thing before looking at any outcome: calculate what the frozen rule mechanically predicts the immediate neighbouring effect should be.
+
+For each affected neighbouring candidate, compute its attachment probability in the FORCE branch and in the PREVENT branch before any Bernoulli draw is taken.
+
+Summing those probability differences gives:
+
+```text
+g_mech_1
+=
+mechanically expected neighbouring
+construction difference at lag one
+```
+
+Then measure the corresponding realized difference in neighbouring attachment outcomes:
+
+```text
+g1
+=
+realized neighbouring
+construction difference at lag one
+```
+
+For the first time in the book, zero is not the most informative benchmark. The frozen mechanism itself predicts a specific nonzero effect.
 
 This matters more than it sounds. Almost every experiment in this book has compared a measurement against zero. Here the mechanism already predicts a specific nonzero value, so zero is the wrong benchmark. The real question is not *did something happen* but *did what happened match what the rule says should happen*.
 
@@ -190,7 +230,13 @@ Ten updates after the intervention, the cumulative construction difference was a
 G_10 ≈ 0.58
 ```
 
-Only a small fraction of that appeared in the first step. The branches kept diverging, update after update, and it was tempting to read that as a cascade — one attachment causing others, which cause others, the perturbation feeding itself forward through the crystal.
+That is a descriptive finite-horizon total.
+
+Only part of it appeared at the first step, so the FORCE and PREVENT branches continued to accumulate differences after the immediate mechanical effect.
+
+It was tempting to call that accumulation a cascade — one attachment causing others, which cause others, and so on.
+
+The two-branch experiment could not yet justify that interpretation.
 
 It was also tempting to compare 0.58 against the obvious reference value of one additional event per initiating event, note that it sits below, and start reaching for vocabulary about branching and subcriticality.
 
@@ -239,7 +285,7 @@ The fresh-seed run used 96 independent groups and 384 interventions across four 
 
 ---
 
-## The Cascade Runs Out
+## The Transient Accumulation Stops Growing
 
 ```text
 G_transient(30)   0.198    [−0.026, 0.440]
@@ -253,9 +299,15 @@ transient late gain   −0.0081 per update    [−0.0201, 0.0039]
 
 which passed the frozen practical-convergence criterion. Within the tested late window, the transient branch shows no continuing positive accumulation rate.
 
-The downstream residue has converged under the predeclared criterion.
+The late accumulation rate satisfies the predeclared practical-convergence criterion.
 
-> **Once the initiating occupancy is removed, the remaining causal cascade is small and exhausts itself over the tested horizon.**
+That earns a narrower statement:
+
+> **Once the initiating occupancy is removed, no continuing positive accumulation rate is established over the tested late window.**
+
+A residual branch difference may remain.
+
+What the experiment rules out under this criterion is continuing positive accumulation, not the existence of every downstream difference.
 
 The thirty-update transient total also sits below the descriptive reference value of one, and it is worth stating plainly what we are *not* saying. This is not a branching ratio. We have not established subcriticality, criticality, or any position relative to a phase transition. Those terms come from theories with structure this experiment has not tested — a branching ratio presumes a well-defined offspring distribution, and we have measured a construction difference under one intervention, one horizon and one substrate. The number is below one. That is all it means.
 
@@ -300,15 +352,20 @@ persistent late gain   0.0057 per update    [−0.0159, 0.0281]
 
 An interval spanning zero, far below the predeclared offset threshold. The persistent trajectory rises early, flattens, and then wanders. No permanent positive growth offset was established.
 
-So under this intervention and horizon, one attachment produces:
+So under this intervention and thirty-update horizon, one attachment produces:
 
 ```text
 an immediate mechanically accounted effect
 ↓
-a small downstream residue
+a transient downstream difference
+whose positive accumulation stops
+under the late-window criterion
 ↓
-a larger finite consequence if the initiating state persists
+a substantially larger cumulative consequence
+when the initiating state remains present
 ```
+
+Neither branch established a permanent positive growth-rate offset.
 
 ---
 
@@ -316,24 +373,29 @@ a larger finite consequence if the initiating state persists
 
 It is worth separating what has now become four distinct causal statements, because ordinary language collapses them into "the attachment mattered":
 
-```text
-DIRECT MECHANICAL EFFECT          measured, and accounted for by the rule
-TRANSIENT DOWNSTREAM CASCADE      measured, small, convergent
-CONSEQUENCE OF PERSISTENT STATE   measured, substantially larger, finite
-PERMANENT GROWTH-RATE CHANGE      not established
-```
+DIRECT MECHANICAL EFFECT
+measured and consistent with the frozen rule
+
+TRANSIENT DOWNSTREAM CONSEQUENCE
+measured; no continuing positive late accumulation established
+
+CONSEQUENCE OF PERSISTENT STATE
+measured; substantially larger over the tested horizon
+
+PERMANENT GROWTH-RATE CHANGE
+not established
 
 Only the first three have evidence. They are not interchangeable, and an experiment that measures one and reports another — which is what the ten-update version was doing — will get the story wrong in a way no amount of extra precision would fix.
 
 ---
 
-## The Same Event Means Different Things in Different Places
+## The Same Attachment Changes Opportunity Differently
 
 One more result from the intervention runs, and it is the one that generates the second half of the chapter.
 
 The four probability strata sit in visibly different geometry. The lowest-probability probes were sparse sites — mean baseline attachment probability around 0.372, with almost exactly one occupied neighbour. The highest-probability probes were dense — baseline around 0.798, with roughly 4.07 occupied neighbours.
 
-Force an attachment at each and the immediate effect on frontier opportunity changes sign with local geometry.
+Force an attachment in those different geometries and the immediate effect on frontier opportunity changes sign.
 
 ```text
                             SPARSE      DENSE
@@ -346,9 +408,11 @@ At a sparse interface, occupying one cell gives several previously unsupported e
 
 The paired difference in frontier creation was about 2.20 sites, interval [1.99, 2.41], `p = 0.000125`.
 
-> **The same one-cell attachment can create or consume very different amounts of future construction opportunity depending on local geometry.**
+> **The same one-cell attachment can create or consume very different amounts of immediate frontier opportunity depending on local geometry.**
 
-That is solidly established, and it immediately suggests something stronger.
+That result is established under the frozen frontier measurement.
+
+It immediately suggests a stronger question: does that immediate opportunity transformation predict what the intervention causes later?
 
 ---
 
@@ -381,9 +445,15 @@ The immediate geometric contrast is strong enough to motivate a more ambitious h
 
 > **perhaps downstream causal consequence can be predicted from local state before the intervention occurs.**
 
-If so, causal leverage might be map-able across the frontier rather than measured only after the fact.
+If so, causal leverage might be predictable across the frontier rather than measured only after intervention.
 
-Which is a genuinely attractive hypothesis. If it held, the crystal would contain a causal field: a map assigning each frontier site a leverage value, high in some places and low in others, derivable from local structure. That would be a substantial discovery — the first quantity in this book that a location could be said to *have*.
+That is an attractive hypothesis.
+
+If a reproducible relationship survived prospective testing, we could construct an observer-side map assigning different predicted consequences to different frontier locations.
+
+But the map would remain a measurement model.
+
+The crystal would not thereby be shown to contain or represent a scalar quantity called causal leverage.
 
 The natural candidate is the geometric one:
 
@@ -460,11 +530,19 @@ LAG-ONE LOCAL CONSTRUCTION
 
 Put the two halves of the chapter together.
 
-A local intervention has a real causal future. Its immediate effect is measurable, replicated, and quantitatively explained by the rule. Its transient cascade is small and self-exhausting. Its persistent-state consequence is several times larger and still finite. And the same intervention transforms future opportunity in dramatically different ways depending on where it lands.
+A local intervention has measurable causal consequences.
 
-What we could not establish was a stable local predictor of downstream consequence.
+Its immediate neighbouring effect is replicated and quantitatively consistent with the frozen rule.
 
-Three candidate descriptions were tested:
+After the initiating occupancy is removed, no continuing positive accumulation rate is established over the tested late window.
+
+When the initiating state remains present, the cumulative thirty-update consequence is substantially larger, but no permanent positive growth-rate offset is established.
+
+And the same forced attachment can create or consume very different amounts of immediate frontier opportunity depending on local geometry.
+
+What we could not establish was a stable local representation that prospectively predicted the causal outcomes we tested.
+
+Three candidate descriptions were investigated:
 
 ```text
 Frontier Creation Potential
@@ -472,9 +550,34 @@ exact local motif
 recent local history
 ```
 
-Be precise about what that licenses. We did not show that downstream consequence is unpredictable. We showed that three specific representations either lacked the precision to answer or, in the one properly powered case, did not predict. Better predictors may exist.
+But they were not all tested against the same endpoint.
 
-But the word *gain* has been quietly doing damage, and it is worth saying so. It invites a picture in which each site holds a stored quantity — this cell has gain 0.8, that one 0.2 — waiting to be released. That is the picture behind linear-response thinking generally, where a system's reaction is characterized by a response function belonging to the point you poke. The measurements do not support it here. What we have instead is:
+The first FCP test and the exact-motif test were too imprecise to resolve their declared transient-gain effects.
+
+The recent-history experiment was precise enough to exclude its declared positive transient-gain effect, but only in a substrate with no independent history state once present geometry was matched.
+
+The final extreme-FCP experiment asked a narrower question again: whether a large difference in immediate frontier creation produced a scientifically meaningful difference in **expected lag-one local construction**. It did not.
+
+So we have not shown that downstream consequence is unpredictable.
+
+We have shown that the tested local descriptions did not yield a stable predictive relationship across these predeclared endpoints.
+
+But the word *gain* has been quietly encouraging a stronger picture than the experiments have earned.
+
+It invites us to imagine that each frontier site carries a stable scalar property:
+
+```text
+this site has high causal gain
+that site has low causal gain
+```
+
+waiting to be released by intervention.
+
+The experiments do not establish that picture for any of the local representations we tested.
+
+They establish causal consequences of interventions.
+
+Whether those consequences can eventually be summarized by some stable response field remains open.
 
 ```text
 intervention
@@ -513,14 +616,14 @@ The safest version of the chapter's conclusion, and the one fully earned:
 | Forcing one attachment causes additional neighbouring construction | **SUPPORTED** | replicated across two runs; `g1 ≈ 0.102` on fresh seed |
 | The immediate effect matches the frozen local rule | **SUPPORTED** | discrepancy `0.0132`, interval `[−0.0160, 0.0411]` |
 | The transient cascade sustains itself after the cause is removed | **FAILED** | late rate `−0.0081` per update, interval spanning zero |
-| Persistent state produces larger consequence than the transient cascade | **SUPPORTED** | difference `0.966`, interval `[0.612, 1.333]` |
+| Persistent initiating occupancy produces a larger thirty-update cumulative consequence than the transient intervention | **SUPPORTED** | persistent-minus-transient difference `0.966`, interval `[0.612, 1.333]` |
 | The persistent branch retains a positive late growth-rate offset | **FAILED** | late rate `0.0057`, interval spanning zero |
-| Sparse and dense sites differ in opportunity transformation | **SUPPORTED** | frontier difference `2.20`, `p = 0.000125` |
+| Sparse and dense probe geometries differ in immediate frontier-opportunity transformation | **SUPPORTED** | sparse-minus-dense frontier-creation difference `2.20`, interval `[1.99, 2.41]`, `p = 0.000125` |
 | Sparse geometry produces reliably greater long-run gain | **NOT ESTABLISHED** | difference `0.604`, `p = 0.0777`; persistent arm `p = 0.810` |
 | Frontier Creation Potential predicts transient gain (first test) | **INCONCLUSIVE** | interval `[−0.078, +0.431]` against declared `+0.15` |
 | Exact local motif predicts transient gain | **INCONCLUSIVE** | half-width `0.50` against declared `0.20` |
 | Recent turnover predicts transient gain | **NOT SUPPORTED (narrow scope)** | `−0.065`, `[−0.221, +0.096]`; substrate had no independent history state |
-| Extreme frontier creation raises expected local construction | **FAILED (bounded)** | `ΔE1 = −0.0026`, precision sufficient to exclude `+0.10` |
+| Extreme Frontier Creation Potential produces the declared positive increase in expected lag-one local construction | **FAILED** | `ΔE1 = −0.0026`, interval `[−0.0395, +0.0333]`; achieved precision sufficient to exclude the declared `+0.10` effect |
 | Downstream consequence is unpredictable in principle | **NOT CLAIMED** | three representations tested, not all possible ones |
 | Branching ratio, criticality, propagating wave, self-sustaining cascade | **NOT CLAIMED** | no such structure tested |
 
@@ -536,12 +639,33 @@ Their differences have intervals spanning zero.
 
 So there is no established far-field causal effect here.
 
-But the unresolved discrepancy points directly at a mechanism the local experiments have not yet isolated.
- The selected candidate sets remained more than 99% overlapping between branches.
+The unresolved local-versus-global comparison suggests one concrete mechanism worth testing next, but it does not establish it.
 
-So any scheduling-mediated effect, if one exists, is subtle rather than a wholesale rewriting of the global evaluation schedule.
+The selected candidate sets remained more than 99% overlapping between branches, so there is no evidence here of a wholesale rewriting of the global evaluation schedule.
 
-But the sign is worth sitting with. If a local intervention only helped, the global gain should be at least as large as the local gain. It is smaller. Something looks like it is being taken from elsewhere, and the reason it might be is not mysterious at all: the *What Does It Cost to Stay?* chapter gave every active location in this substrate something it shares with every other active location, a finite pool of evaluation opportunity. And the one thing this chapter has established beyond argument is that a local attachment changes the frontier — sometimes by two sites, sometimes by minus one.
+The point estimates for global cumulative difference are smaller than the corresponding local estimates, but their local-minus-global differences have intervals spanning zero.
+
+So we do not yet have evidence of a compensating far-field effect.
+
+What we do have is a mechanism capable of producing one.
+
+*What Does It Cost to Stay?* established that active candidates compete for a finite evaluation budget.
+
+A local attachment can also change the frontier candidate set.
+
+Those two facts create a specific causal possibility:
+
+```text
+local intervention
+↓
+changes candidate opportunities
+↓
+changes competition for finite evaluation
+↓
+could alter which distant candidates are evaluated
+```
+
+That possibility has not yet been tested directly.
 
 Change the frontier and you change the candidate population competing for a fixed evaluation budget.
 
@@ -553,6 +677,6 @@ The previous chapter failed to find a privileged enclosing body.
 
 This chapter found a local causal effect but no stable local gain variable that predicts its downstream size.
 
-Both now point toward the same untested mechanism: the finite evaluation budget shared by every active candidate.
+Together, the results suggest one concrete mechanism worth isolating next: competition for the finite evaluation budget shared by active candidates.
 
 > **Can finite computation couple local events that are too far apart to interact through the local rule?**
