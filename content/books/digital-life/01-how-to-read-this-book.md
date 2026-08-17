@@ -11,17 +11,17 @@ tags = ["Digital Life", "Experimental Method", "Evidence", "Controls", "Reproduc
 
 This book can be read in more than one way.
 
-You do not need to reproduce every experiment to follow the argument.
+You can follow the argument without reproducing every experiment.
 
-You do not need to inspect every number to understand what changed.
+You can understand what changed without inspecting every number.
 
-And you should not have to take the author's word for any result merely because you chose not to read the implementation.
+And when you want to examine a result more closely, the implementation and experimental record are there to audit.
 
 The book operates at several depths.
 
 They are all part of the same investigation.
 
-**---**
+---
 
 ## Five Kinds of Material
 
@@ -39,19 +39,9 @@ CLAIM BOUNDARY
 DEEP DIVE
 ```
 
-They do different jobs.
+The **concept** is the intellectual step: what question changed, what assumption failed, what new distinction the experiment forced us to make.
 
-### Concept
-
-The **concept** is the intellectual step.
-
-Why are we asking this question?
-
-What assumption has become doubtful?
-
-What new distinction has the previous experiment forced us to make?
-
-A conceptual result might be:
+For example:
 
 ```text
 persistence
@@ -67,51 +57,11 @@ same visible state
 same dynamical regime
 ```
 
-The concept tells you what changed in the argument.
+The **evidence** is what made us change our mind: a measurement, intervention, ancestry graph, damage experiment or comparison against control.
 
-It does not, by itself, tell you why you should believe the change.
+A **control** attacks an interpretation. A **confound** is an alternative explanation we have not yet eliminated.
 
-That belongs to the evidence.
-
-### Evidence
-
-The **evidence** is the measurement that supports the step.
-
-It may be a causal ancestry graph.
-
-A damage-and-recovery experiment.
-
-A population-turnover run.
-
-A dose-response curve.
-
-A comparison against an untouched control.
-
-A number is not included merely because we measured it. It earns space when it bears directly on a claim.
-
-The evidence reader should always be able to ask:
-
-> **What observation made us change our mind?**
-
-and find an answer.
-
-### Control and Confound
-
-The most important experiment is often not the experiment that produced the interesting result.
-
-It is the one that tried to make the result go away.
-
-A **control** asks whether an alternative explanation can produce the same observation.
-
-A **confound** is the explanation we failed to remove.
-
-Sometimes the first control works.
-
-Often it does not.
-
-Sometimes a control destroys the interpretation we wanted.
-
-Those failures remain in the book because they are part of the result.
+Sometimes the observation survives while the explanation does not:
 
 ```text
 observation
@@ -125,15 +75,7 @@ interpretation fails
 observation remains
 ```
 
-That sequence will occur repeatedly.
-
-### Claim Boundary
-
-A **claim boundary** is where we state exactly what the evidence licenses.
-
-These sentences are often less exciting than the idea that motivated the experiment.
-
-That is deliberate.
+A **claim boundary** says exactly what the evidence permits.
 
 Compare:
 
@@ -143,11 +85,11 @@ with:
 
 > A system exposed to condition A responds differently to condition B than an otherwise matched system without that prior exposure.
 
-The second sentence is narrower.
+The second is narrower.
 
-It is also something we can attack.
+That is why it is useful.
 
-Throughout the book, pay special attention whenever the prose says:
+Whenever you see phrases such as:
 
 ```text
 under this measurement
@@ -156,133 +98,64 @@ in this configuration
 
 within this observation window
 
-under this causal criterion
-
 we did not establish
 
 this does not imply
 ```
 
-Those are not disclaimers pasted around a result.
+those are not disclaimers around the result.
 
 They are the edges of the result.
 
-### Deep Dive
+The **deep dive** is the forensic record: parameters, seeds, thresholds, implementation details, alternative metrics, discarded designs and failed controls. Most of that lives in the appendices.
 
-The **deep dive** is the forensic record.
+The investigation was not clean.
 
-This is where the appendices live.
+The record should not pretend that it was.
 
-Parameters.
-
-Seeds.
-
-Thresholds.
-
-Exact feature definitions.
-
-Alternative metrics.
-
-Discarded designs.
-
-Implementation failures.
-
-Runs that turned out to be incomparable.
-
-Controls that failed.
-
-Criteria frozen before results were inspected.
-
-And sometimes the experiment we should have run first but did not think of until the third attempt.
-
-That material is intentionally less clean than the main narrative.
-
-The investigation was less clean.
-
-**---**
+---
 
 ## Three Ways Through the Book
 
-You can therefore read the book at three useful depths.
+You can therefore read at three useful depths.
 
-### The conceptual path
+The **conceptual reader** can follow what changed.
 
-Follow the argument.
+The **evidence reader** can see why it changed.
 
-Read the observations, the conceptual turns and the claim boundaries.
-
-Skip a detailed protocol when you do not need it.
-
-You should still understand:
+The **reproducing reader** can inspect exactly how the result was obtained.
 
 ```text
-what we thought
-
-what happened
-
+CONCEPT
 what changed
 
-what survived
+EVIDENCE + CONTROLS
+why it changed
+
+APPENDICES + NOTEBOOKS
+exactly how we tested it
 ```
 
-without reproducing the experiment yourself.
-
-### The evidence path
-
-Read the experiments and the controls.
-
-Stay with the numbers long enough to understand why the interpretation survived or failed.
-
-This is where the scientific claim is actually earned.
-
-The conceptual path tells you:
-
-> we changed our mind.
-
-The evidence path tells you:
-
-> here is why.
-
-### The reproduction path
-
-Follow the experiment into the appendices and notebooks.
-
-Inspect the configuration.
-
-Check the implementation.
-
-Re-run the seeds.
-
-Change the threshold.
-
-Try another metric.
-
-Attack the result differently.
-
-This is the level at which the book stops being something to read and becomes something to audit.
-
-These are not the simplified and "real" versions of the book.
+These are not simplified and "real" versions of the book.
 
 They are different depths of the same argument.
 
-The conceptual reader can follow what changed.
+If a detailed protocol is not important to you, skip it.
 
-The evidence reader can see why it changed.
+If a result matters enough that you want to challenge it, follow it downward.
 
-The reproducing reader can inspect exactly how the result was obtained.
+---
 
-**---**
+## The Shape of an Experiment
 
-## The Shortest Version of Every Experiment
-
-Almost every experimental chapter can be reduced to the same shape.
+Most experimental chapters follow roughly the same sequence:
 
 ```text
 WE SAW SOMETHING
 ↓
-WE GAVE IT A NAME
+WE NAMED A HYPOTHESIS
 ↓
-WE DEFINED WHAT THAT NAME WOULD REQUIRE
+WE DEFINED WHAT WOULD COUNT AS EVIDENCE
 ↓
 WE MEASURED IT
 ↓
@@ -293,67 +166,55 @@ SOMETHING FAILED
 SOMETHING SURVIVED
 ```
 
-The interesting part is usually the distance between the first noun and the final sentence.
+The interesting part is often the distance between the first noun and the final claim.
 
 A system may look as though it recovered.
 
-The measurement may show that its untouched control wandered just as far.
+Then the untouched control may wander just as far.
 
 A structure may look as though it reproduced.
 
-The causal history may show only one continuing chain.
+Then its causal history may turn out to be one unbranching continuation.
 
-A dose may cross a threshold we declared in advance.
+A dose may cross a threshold declared in advance.
 
-The rest of the dose-response curve may show that the apparent threshold was not a transition at all.
+Then the rest of the dose-response curve may show that no transition occurred.
 
 The book keeps the attractive interpretation only when it survives the inconvenient evidence.
 
-**---**
+---
 
 ## Numbers Are Local Until Proven Otherwise
 
-One convention will save a great deal of confusion later.
+Do not assume that two numbers from different experiments are directly comparable merely because they have the same name.
 
-**Do not assume that two numbers from different experiments are directly comparable merely because they have the same name.**
+A recovery score may use a different normalization.
 
-A "recovery score" may depend on a particular normalization.
+A control-drift estimate may come from different temporal blocks.
 
-A "control drift" may be estimated from different temporal blocks.
+A similarity measure may allow rotations in one experiment and exact copies in another.
 
-A "similarity" may use exact copies in one experiment and allow rotations in another.
+A causal graph may use a different counterfactual criterion.
 
-A causal graph may be built under one counterfactual criterion while a published result uses another.
-
-When those differences matter, the chapter should say so.
-
-The default rule is:
+So the default rule is:
 
 > **A quantity belongs first to the experiment that defined it.**
 
 Cross-experiment comparison has to be earned too.
 
-This is one reason the appendices retain the exact measurement definitions rather than reducing everything to a single book-wide score.
-
-There will be no:
+There will be no final:
 
 ```text
 LIFE SCORE = 0.83
 ```
 
-at the end.
+because collapsing everything into one number would erase exactly the distinctions we are trying to discover.
 
-That would hide exactly the distinctions we are trying to discover.
+---
 
-**---**
+## Failure Is Part of the Result
 
-## Failure Is Part of the Record
-
-The appendices are deliberately unclean.
-
-That needs saying because scientific writing often creates the opposite impression.
-
-A finished paper usually presents a straight line:
+A finished scientific story often looks like this:
 
 ```text
 question
@@ -365,9 +226,7 @@ result
 conclusion
 ```
 
-The investigation rarely looked like that.
-
-It looked more like:
+The investigation usually looked more like:
 
 ```text
 question
@@ -382,40 +241,16 @@ better metric
 ↓
 different result
 ↓
-new hypothesis
-↓
-stronger control
-↓
 smaller claim
 ```
 
 The wrong metric matters when it explains why the better one exists.
 
-The failed control matters when it exposes an alternative explanation.
+The failed control matters when it destroys an attractive explanation.
 
-The discarded run matters when its failure changes the protocol.
+And a negative result does not automatically mean the experiment failed.
 
-We will not preserve every typo, debugging session or dead end.
-
-But when a failure changed the scientific interpretation, it belongs to the record.
-
-Otherwise the reader sees a conclusion without seeing what it survived.
-
-**---**
-
-## A Negative Result Is Not an Empty Result
-
-There is another convention worth establishing before the experiments begin.
-
-When an interpretation fails, the experiment has not necessarily failed.
-
-Suppose we predict that damaging a particular mechanism will destroy a capability.
-
-We damage it.
-
-Nothing detectable happens.
-
-That result may mean:
+If damaging a proposed mechanism produces no detectable change, several possibilities remain:
 
 ```text
 the mechanism was not necessary
@@ -429,59 +264,21 @@ another mechanism compensated
 the hypothesis was wrong
 ```
 
-The experiment has not selected among those possibilities automatically.
+The experiment does not choose among those automatically.
 
-But it has changed what we know.
+But it changes what we can honestly claim.
 
 Sometimes the most important sentence in a chapter will be:
 
 > **We could not claim what we expected to claim.**
 
-That is not a narrative problem to be repaired.
+That is often the discovery.
 
-It is often the discovery.
-
-**---**
-
-## Where to Slow Down
-
-If you are reading quickly, there are three places where I would not skim.
-
-### When the definition changes
-
-If a chapter stops using one meaning of persistence, reproduction, identity or memory and replaces it with another, that change is usually the chapter.
-
-### When the control changes the story
-
-The first interpretation is often the attractive one.
-
-The control is where we find out whether it was also the correct one.
-
-### When the claim becomes smaller
-
-A smaller claim after a stronger test is generally more valuable than a larger claim before one.
-
-If the chapter begins with:
-
-> it reproduced
-
-and ends with:
-
-> recurring structures participate in a branching causal ancestry graph under this criterion
-
-the book has not retreated.
-
-It has learned what it can actually say.
-
-**---**
+---
 
 ## What the Appendices Are For
 
-The appendices are not where inconvenient detail goes to disappear.
-
-They are where claims become inspectable.
-
-A main chapter should tell you enough to understand:
+The main text should let you understand:
 
 ```text
 the question
@@ -504,20 +301,20 @@ the implementation
 
 the parameters
 
-the exact metric
-
-the run structure
+the metric
 
 the seeds
 
 the thresholds
 
-the alternatives
-
 the failures
 
 the provenance
 ```
+
+The appendices are not where inconvenient detail goes to disappear.
+
+They are where claims become inspectable.
 
 If the narrative and the experimental record ever disagree, the experimental record wins.
 
@@ -525,35 +322,33 @@ The prose is an interpretation of the experiment.
 
 The experiment is not an illustration of the prose.
 
-**---**
+---
 
 ## One Book, Several Depths
 
-So read at the depth that serves the question you have.
+Read at the depth that serves your question.
 
-If you want the journey, follow the concepts.
+Follow the concepts if you want the journey.
 
-If you want the justification, follow the evidence and controls.
+Follow the evidence and controls if you want the justification.
 
-If you want to challenge the work, follow it into the appendices.
+Follow the notebooks and appendices if you want to challenge the result.
 
-You can move between those levels whenever something catches your attention.
-
-The important thing is that they remain connected.
+The important thing is that those levels remain connected.
 
 Every major conceptual turn should have evidence beneath it.
 
+Every important control should attack a named alternative explanation.
+
 Every major claim should have a visible boundary around it.
 
-Every important control should target a named alternative explanation.
-
-And every result important enough to carry the argument should leave enough of a trail that someone else can attack it.
+And every result important enough to carry the argument should leave enough of a trail that someone else can try to break it.
 
 That is how to read the experiments.
 
 It is also how the book was built.
 
-**---**
+---
 
 The next chapter begins with the harder problem.
 
