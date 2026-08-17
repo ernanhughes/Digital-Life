@@ -164,7 +164,7 @@ It is:
 
 > **Discover the aerodynamics of digital life.**
 
-Which mechanisms actually matter? Which properties arise on their own? Which biological constraints simply vanish in a computational substrate — and what new constraints appear in their place? Which things we assume are fundamental turn out to be solutions biology found for the specific problem of living in the physical world?
+Which mechanisms actually matter? Which properties arise on their own? And which of the things we assume are fundamental turn out to be solutions biology found for the specific problem of living in the physical world?
 
 We should not answer any of that in advance.
 
@@ -188,11 +188,7 @@ So the book insists throughout on a distinction that is easy to state and surpri
 
 > **The phenomenon and our explanation of the phenomenon are not the same thing.**
 
-Something can genuinely happen while our name for what happened is completely wrong.
-
 In a new substrate, even the definition has to be earned. Before we call something memory, reproduction or individuality, we need to say what observation would count as evidence for it and what would count against it. That operational definition is part of the experiment, not something the vocabulary supplies for free.
-
-The observation may survive even when the interpretation does not.
 
 Which gives us a second rule:
 
@@ -212,13 +208,13 @@ We will begin with simple geometric definitions, because they are measurable and
 
 Persistence creates the same problem. A program can persist indefinitely by doing nothing, so duration alone tells us very little.
 
-Reproduction deserves similar suspicion. Biology makes it look unavoidable because organisms die and lineages continue through successors. A digital process might instead continue, grow, fork, checkpoint, merge, or transfer acquired state directly. Reproduction may turn out to matter — but the substrate has to show us why.
+Reproduction deserves similar suspicion. Biology makes it look unavoidable because organisms die and lineages continue through successors. A digital process might simply continue. Reproduction may turn out to matter — but the substrate has to show us why.
 
-Evolution raises the same problem. Digital inheritance could include acquired state, learned parameters, external memory or modified code. Branches might exchange what they learned or merge again.
+Evolution raises the same problem. Digital inheritance could include acquired state, learned parameters, external memory or modified code.
 
 So the broader question is:
 
-> **How can useful organization accumulate through time in a computational substrate?**
+> **How can history produce cumulative, measurable changes in what a computational system can do?**
 
 Biological evolution is one answer.
 
@@ -232,7 +228,9 @@ Those are questions for the experiments. We should not settle them by choosing t
 
 ## How This Book Will Find Out
 
-The visual system gives us hypotheses. The experiment decides what survives.
+That leaves a practical problem. If we cannot trust the vocabulary and cannot assume the requirements, how do we know what to look for?
+
+We start with what we can observe. The visual system gives us hypotheses. The experiment decides what survives.
 
 So the same cycle runs through the entire book:
 
@@ -274,10 +272,9 @@ Remove one, and you may finally be able to see what remains.
 
 with a deliberately bounded statement such as:
 
-> Under a defined perturbation, in a defined region, the system recovered a defined measure of structure within a defined observation window.
+> Under perturbation `P` in region `R`, structural measure `M` recovered to 0.87 within `T` steps.
 
-The second claim may sound less dramatic, but it tells us exactly what was measured, under which conditions, and where the conclusion stops.
- We know precisely what it asserts, and precisely what it does not. A bounded claim survives scrutiny because its edges are visible.
+The second claim may sound less dramatic, but its edges are visible. We know what was changed, what was measured, and where the conclusion stops.
 
 One consequence needs stating plainly, because it is where investigations usually go wrong.
 
@@ -321,7 +318,7 @@ That leads to one of the central rules of the investigation:
 
 A failed interpretation does not oblige us to throw away the observation that killed it. Sometimes the observation is the discovery.
 
-Something real can be happening in the system while the story we told about it is completely wrong. Separating those two things — the measurement that survives and the interpretation that does not — is most of the work.
+Separating the measurement that survives from the interpretation that does not is most of the work.
 
 We are not trying to prove that digital life exists.
 
@@ -331,11 +328,7 @@ We are trying to find out which claims remain standing after we attack them.
 
 ## There Is No Biological Ladder Here
 
-We will meet familiar properties along the way — structure, persistence, identity, damage tolerance, repair, reproduction, inheritance, adaptation, evolution — but they are experimental questions, not levels.
-
-Some may prove important. Some may be consequences of biological constraints that do not carry over. Some may have digital equivalents unlike their biological namesakes. Some may disappear from the final picture entirely.
-
-The order in which we study them is a path through the investigation, not a ladder toward life.
+We will meet familiar properties along the way — structure, persistence, identity, damage tolerance, repair, reproduction, inheritance, adaptation, evolution. They are experimental questions, and the order in which we study them is a path through the investigation rather than a ladder toward life.
 
 Nothing earns points toward an `ALIVE` label.
 
@@ -366,6 +359,8 @@ this apparent behaviour disappears when this confound is removed
 ```
 
 Those are modest sentences. They are also somewhere solid to stand, which is more than most of the vocabulary we started with can offer.
+
+Perhaps that is where the aerodynamics begin: with measurements precise enough to survive before there is a general theory to contain them.
 
 And if enough surprising properties survive enough attempts to explain them away, a different question eventually becomes unavoidable. Not:
 
@@ -401,7 +396,7 @@ They are **experimental microscopes for emergence**.
 
 In the next chapter we will calibrate the microscope.
 
-We will begin with computational systems that make the temptation almost irresistible: shapes that move, persist, collide and appear to behave like things.
+We will begin with computational systems rich enough to make the temptation almost irresistible: shapes that move, persist, collide and appear to behave like things.
 
 We will let ourselves see the creature.
 

@@ -1,0 +1,406 @@
+{
+  "experiment": "adversarial_swarm_persistence",
+  "claim_status": "EXPERIMENTAL",
+  "config": {
+    "particles": 256,
+    "dt": 0.05,
+    "damping": 0.94,
+    "max_speed": 2.5,
+    "centre_strength": 0.015,
+    "friend_strength": 0.22,
+    "enemy_strength": 0.28,
+    "enemy_length_scale": 2.0,
+    "softcore_strength": 0.02,
+    "softcore_length_scale": 0.55,
+    "burn_in": 10000,
+    "reference_window": 1000,
+    "reference_stride": 20,
+    "post_steps": 6000,
+    "sample_stride": 20,
+    "damage_fraction": 0.3,
+    "damage_scale": 2.5,
+    "rewire_fraction": 0.3,
+    "replacement_finish_fraction": 0.6,
+    "histogram_bins": 64
+  },
+  "base_seed": 20260817,
+  "replicates": 8,
+  "trials": [
+    {
+      "seed": 20260817,
+      "reference_snapshots": 50,
+      "reference_radius_mean": 2.902143561809516,
+      "reference_anisotropy_mean": 2.460197577630171,
+      "reference_speed_mean": 0.047456690061894076,
+      "branches": {
+        "control": {
+          "late_visible_similarity_mean": 0.05553058975203268,
+          "late_visible_similarity_std": 0.01064338290621269,
+          "late_radial_w1_mean": 0.01655386764462073,
+          "late_pair_w1_mean": 0.0229022166925095,
+          "final_graph_similarity": 1.0,
+          "final_original_material_fraction": 1.0
+        },
+        "material_damage": {
+          "late_visible_similarity_mean": 0.04804246395064483,
+          "late_visible_similarity_std": 0.004510370481237041,
+          "late_radial_w1_mean": 0.019247760854223573,
+          "late_pair_w1_mean": 0.02881429316586624,
+          "final_graph_similarity": 1.0,
+          "final_original_material_fraction": 1.0
+        },
+        "organizational_damage": {
+          "late_visible_similarity_mean": 0.056949216789100456,
+          "late_visible_similarity_std": 0.010619739356854061,
+          "late_radial_w1_mean": 0.01540902564470747,
+          "late_pair_w1_mean": 0.02646545996372615,
+          "final_graph_similarity": 0.701171875,
+          "final_original_material_fraction": 1.0
+        },
+        "material_replacement": {
+          "late_visible_similarity_mean": 0.05553058975203268,
+          "late_visible_similarity_std": 0.01064338290621269,
+          "late_radial_w1_mean": 0.01655386764462073,
+          "late_pair_w1_mean": 0.0229022166925095,
+          "final_graph_similarity": 1.0,
+          "final_original_material_fraction": 0.0
+        }
+      }
+    },
+    {
+      "seed": 20360820,
+      "reference_snapshots": 50,
+      "reference_radius_mean": 2.7318218775710803,
+      "reference_anisotropy_mean": 1.646949966740011,
+      "reference_speed_mean": 0.04730150810523557,
+      "branches": {
+        "control": {
+          "late_visible_similarity_mean": 0.19219232454896748,
+          "late_visible_similarity_std": 0.03159252956319224,
+          "late_radial_w1_mean": 0.02530973380294077,
+          "late_pair_w1_mean": 0.01704106543829338,
+          "final_graph_similarity": 1.0,
+          "final_original_material_fraction": 1.0
+        },
+        "material_damage": {
+          "late_visible_similarity_mean": 0.6567009637170486,
+          "late_visible_similarity_std": 0.09680095378265928,
+          "late_radial_w1_mean": 0.01994070960175287,
+          "late_pair_w1_mean": 0.006643223275416128,
+          "final_graph_similarity": 1.0,
+          "final_original_material_fraction": 1.0
+        },
+        "organizational_damage": {
+          "late_visible_similarity_mean": 0.17672937285424006,
+          "late_visible_similarity_std": 0.0463290739641632,
+          "late_radial_w1_mean": 0.022173976032626254,
+          "late_pair_w1_mean": 0.015392222469838217,
+          "final_graph_similarity": 0.69921875,
+          "final_original_material_fraction": 1.0
+        },
+        "material_replacement": {
+          "late_visible_similarity_mean": 0.19219232454896748,
+          "late_visible_similarity_std": 0.03159252956319224,
+          "late_radial_w1_mean": 0.02530973380294077,
+          "late_pair_w1_mean": 0.01704106543829338,
+          "final_graph_similarity": 1.0,
+          "final_original_material_fraction": 0.0
+        }
+      }
+    },
+    {
+      "seed": 20460823,
+      "reference_snapshots": 50,
+      "reference_radius_mean": 2.531529331899639,
+      "reference_anisotropy_mean": 1.7392303144270607,
+      "reference_speed_mean": 0.04908639232293237,
+      "branches": {
+        "control": {
+          "late_visible_similarity_mean": 0.4149336013330039,
+          "late_visible_similarity_std": 0.08466945801971296,
+          "late_radial_w1_mean": 0.01653033404956752,
+          "late_pair_w1_mean": 0.006946733752879193,
+          "final_graph_similarity": 1.0,
+          "final_original_material_fraction": 1.0
+        },
+        "material_damage": {
+          "late_visible_similarity_mean": 0.5404725204210584,
+          "late_visible_similarity_std": 0.14115124175979993,
+          "late_radial_w1_mean": 0.020266678065901506,
+          "late_pair_w1_mean": 0.009087834475734136,
+          "final_graph_similarity": 1.0,
+          "final_original_material_fraction": 1.0
+        },
+        "organizational_damage": {
+          "late_visible_similarity_mean": 0.07143827280719971,
+          "late_visible_similarity_std": 0.005433460061672588,
+          "late_radial_w1_mean": 0.043997611492608175,
+          "late_pair_w1_mean": 0.024991848659057878,
+          "final_graph_similarity": 0.69921875,
+          "final_original_material_fraction": 1.0
+        },
+        "material_replacement": {
+          "late_visible_similarity_mean": 0.4149336013330039,
+          "late_visible_similarity_std": 0.08466945801971296,
+          "late_radial_w1_mean": 0.01653033404956752,
+          "late_pair_w1_mean": 0.006946733752879193,
+          "final_graph_similarity": 1.0,
+          "final_original_material_fraction": 0.0
+        }
+      }
+    },
+    {
+      "seed": 20560826,
+      "reference_snapshots": 50,
+      "reference_radius_mean": 2.789895499992046,
+      "reference_anisotropy_mean": 2.0589455964045595,
+      "reference_speed_mean": 0.04178576278423372,
+      "branches": {
+        "control": {
+          "late_visible_similarity_mean": 0.494510468251984,
+          "late_visible_similarity_std": 0.042619620147251285,
+          "late_radial_w1_mean": 0.015550486427465844,
+          "late_pair_w1_mean": 0.007801260009271033,
+          "final_graph_similarity": 1.0,
+          "final_original_material_fraction": 1.0
+        },
+        "material_damage": {
+          "late_visible_similarity_mean": 0.33166419445087125,
+          "late_visible_similarity_std": 0.031970081580496676,
+          "late_radial_w1_mean": 0.04308001819725449,
+          "late_pair_w1_mean": 0.021329733452471054,
+          "final_graph_similarity": 1.0,
+          "final_original_material_fraction": 1.0
+        },
+        "organizational_damage": {
+          "late_visible_similarity_mean": 0.21714647975432988,
+          "late_visible_similarity_std": 0.0426304846031573,
+          "late_radial_w1_mean": 0.046525840631257274,
+          "late_pair_w1_mean": 0.03285779686246998,
+          "final_graph_similarity": 0.701171875,
+          "final_original_material_fraction": 1.0
+        },
+        "material_replacement": {
+          "late_visible_similarity_mean": 0.494510468251984,
+          "late_visible_similarity_std": 0.042619620147251285,
+          "late_radial_w1_mean": 0.015550486427465844,
+          "late_pair_w1_mean": 0.007801260009271033,
+          "final_graph_similarity": 1.0,
+          "final_original_material_fraction": 0.0
+        }
+      }
+    },
+    {
+      "seed": 20660829,
+      "reference_snapshots": 50,
+      "reference_radius_mean": 2.5734871817240674,
+      "reference_anisotropy_mean": 1.493845573511846,
+      "reference_speed_mean": 0.05952876927732399,
+      "branches": {
+        "control": {
+          "late_visible_similarity_mean": 0.6506295342946131,
+          "late_visible_similarity_std": 0.14445163172390071,
+          "late_radial_w1_mean": 0.017016946293179354,
+          "late_pair_w1_mean": 0.005930754892086044,
+          "final_graph_similarity": 1.0,
+          "final_original_material_fraction": 1.0
+        },
+        "material_damage": {
+          "late_visible_similarity_mean": 0.5712328369322536,
+          "late_visible_similarity_std": 0.233551165156916,
+          "late_radial_w1_mean": 0.018920849163730682,
+          "late_pair_w1_mean": 0.012882870296042856,
+          "final_graph_similarity": 1.0,
+          "final_original_material_fraction": 1.0
+        },
+        "organizational_damage": {
+          "late_visible_similarity_mean": 0.43160046455564466,
+          "late_visible_similarity_std": 0.025908973085574015,
+          "late_radial_w1_mean": 0.022486019373596948,
+          "late_pair_w1_mean": 0.01632944352291364,
+          "final_graph_similarity": 0.69921875,
+          "final_original_material_fraction": 1.0
+        },
+        "material_replacement": {
+          "late_visible_similarity_mean": 0.6506295342946131,
+          "late_visible_similarity_std": 0.14445163172390071,
+          "late_radial_w1_mean": 0.017016946293179354,
+          "late_pair_w1_mean": 0.005930754892086044,
+          "final_graph_similarity": 1.0,
+          "final_original_material_fraction": 0.0
+        }
+      }
+    },
+    {
+      "seed": 20760832,
+      "reference_snapshots": 50,
+      "reference_radius_mean": 2.7117817139024925,
+      "reference_anisotropy_mean": 1.5611775073200604,
+      "reference_speed_mean": 0.05547340744441637,
+      "branches": {
+        "control": {
+          "late_visible_similarity_mean": 0.22220326348568253,
+          "late_visible_similarity_std": 0.009505576152314562,
+          "late_radial_w1_mean": 0.018904155259015794,
+          "late_pair_w1_mean": 0.008211790913792321,
+          "final_graph_similarity": 1.0,
+          "final_original_material_fraction": 1.0
+        },
+        "material_damage": {
+          "late_visible_similarity_mean": 0.36944791207430117,
+          "late_visible_similarity_std": 0.04041807358599951,
+          "late_radial_w1_mean": 0.015053025357870068,
+          "late_pair_w1_mean": 0.007752231662456178,
+          "final_graph_similarity": 1.0,
+          "final_original_material_fraction": 1.0
+        },
+        "organizational_damage": {
+          "late_visible_similarity_mean": 0.3915706780765846,
+          "late_visible_similarity_std": 0.04514516451558077,
+          "late_radial_w1_mean": 0.023867867476479787,
+          "late_pair_w1_mean": 0.013190297492730728,
+          "final_graph_similarity": 0.701171875,
+          "final_original_material_fraction": 1.0
+        },
+        "material_replacement": {
+          "late_visible_similarity_mean": 0.22220326348568253,
+          "late_visible_similarity_std": 0.009505576152314562,
+          "late_radial_w1_mean": 0.018904155259015794,
+          "late_pair_w1_mean": 0.008211790913792321,
+          "final_graph_similarity": 1.0,
+          "final_original_material_fraction": 0.0
+        }
+      }
+    },
+    {
+      "seed": 20860835,
+      "reference_snapshots": 50,
+      "reference_radius_mean": 2.877088674385324,
+      "reference_anisotropy_mean": 1.6786678541908464,
+      "reference_speed_mean": 0.05207324486310513,
+      "branches": {
+        "control": {
+          "late_visible_similarity_mean": 0.12598820239556166,
+          "late_visible_similarity_std": 0.052555802362572096,
+          "late_radial_w1_mean": 0.021580559170186264,
+          "late_pair_w1_mean": 0.00487425302142967,
+          "final_graph_similarity": 1.0,
+          "final_original_material_fraction": 1.0
+        },
+        "material_damage": {
+          "late_visible_similarity_mean": 0.19404719607764812,
+          "late_visible_similarity_std": 0.0631724394813422,
+          "late_radial_w1_mean": 0.023851827604932416,
+          "late_pair_w1_mean": 0.0078884891852299,
+          "final_graph_similarity": 1.0,
+          "final_original_material_fraction": 1.0
+        },
+        "organizational_damage": {
+          "late_visible_similarity_mean": 0.14975000334521607,
+          "late_visible_similarity_std": 0.04323357107267405,
+          "late_radial_w1_mean": 0.03246724979441501,
+          "late_pair_w1_mean": 0.013267393916179026,
+          "final_graph_similarity": 0.69921875,
+          "final_original_material_fraction": 1.0
+        },
+        "material_replacement": {
+          "late_visible_similarity_mean": 0.12598820239556166,
+          "late_visible_similarity_std": 0.052555802362572096,
+          "late_radial_w1_mean": 0.021580559170186264,
+          "late_pair_w1_mean": 0.00487425302142967,
+          "final_graph_similarity": 1.0,
+          "final_original_material_fraction": 0.0
+        }
+      }
+    },
+    {
+      "seed": 20960838,
+      "reference_snapshots": 50,
+      "reference_radius_mean": 2.7556923950998646,
+      "reference_anisotropy_mean": 2.0690249572971906,
+      "reference_speed_mean": 0.04107630976661202,
+      "branches": {
+        "control": {
+          "late_visible_similarity_mean": 0.48596375812655807,
+          "late_visible_similarity_std": 0.024479895723338696,
+          "late_radial_w1_mean": 0.02790424154512788,
+          "late_pair_w1_mean": 0.020885792479096044,
+          "final_graph_similarity": 1.0,
+          "final_original_material_fraction": 1.0
+        },
+        "material_damage": {
+          "late_visible_similarity_mean": 0.4488335977031662,
+          "late_visible_similarity_std": 0.08754454198030324,
+          "late_radial_w1_mean": 0.02383891972621121,
+          "late_pair_w1_mean": 0.019857377446338646,
+          "final_graph_similarity": 1.0,
+          "final_original_material_fraction": 1.0
+        },
+        "organizational_damage": {
+          "late_visible_similarity_mean": 0.45853488136649606,
+          "late_visible_similarity_std": 0.08484599298797539,
+          "late_radial_w1_mean": 0.027227468444247494,
+          "late_pair_w1_mean": 0.008844819115567892,
+          "final_graph_similarity": 0.701171875,
+          "final_original_material_fraction": 1.0
+        },
+        "material_replacement": {
+          "late_visible_similarity_mean": 0.48596375812655807,
+          "late_visible_similarity_std": 0.024479895723338696,
+          "late_radial_w1_mean": 0.02790424154512788,
+          "late_pair_w1_mean": 0.020885792479096044,
+          "final_graph_similarity": 1.0,
+          "final_original_material_fraction": 0.0
+        }
+      }
+    }
+  ],
+  "summary": [
+    {
+      "branch": "control",
+      "replicates": 8,
+      "late_visible_similarity_mean": 0.3302439677735505,
+      "late_visible_similarity_sd": 0.21009191501702296,
+      "late_pair_w1_mean": 0.011824233399919648,
+      "late_radial_w1_mean": 0.01991879052401302,
+      "final_graph_similarity_mean": 1.0,
+      "final_original_material_fraction_mean": 1.0
+    },
+    {
+      "branch": "material_damage",
+      "replicates": 8,
+      "late_visible_similarity_mean": 0.395055210665874,
+      "late_visible_similarity_sd": 0.20319996764792253,
+      "late_pair_w1_mean": 0.01428200661994439,
+      "late_radial_w1_mean": 0.0230249735714846,
+      "final_graph_similarity_mean": 1.0,
+      "final_original_material_fraction_mean": 1.0
+    },
+    {
+      "branch": "organizational_damage",
+      "replicates": 8,
+      "late_visible_similarity_mean": 0.24421492119360144,
+      "late_visible_similarity_sd": 0.1611968366450631,
+      "late_pair_w1_mean": 0.018917410250310438,
+      "late_radial_w1_mean": 0.0292693823612423,
+      "final_graph_similarity_mean": 0.7001953125,
+      "final_original_material_fraction_mean": 1.0
+    },
+    {
+      "branch": "material_replacement",
+      "replicates": 8,
+      "late_visible_similarity_mean": 0.3302439677735505,
+      "late_visible_similarity_sd": 0.21009191501702296,
+      "late_pair_w1_mean": 0.011824233399919648,
+      "late_radial_w1_mean": 0.01991879052401302,
+      "final_graph_similarity_mean": 1.0,
+      "final_original_material_fraction_mean": 0.0
+    }
+  ],
+  "notes": [
+    "Material IDs are deliberately causally inert.",
+    "Friend/enemy relationships are causally active.",
+    "Visible similarity is measured independently of both identity labels and graph identity.",
+    "The experiment is a deliberately nonliving adversarial baseline."
+  ]
+}
