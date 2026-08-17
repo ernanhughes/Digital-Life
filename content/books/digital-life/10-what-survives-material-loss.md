@@ -2,7 +2,7 @@
 title = "10: What Survives Material Loss?"
 date = "2026-08-14T14:00:00+01:00"
 draft = false
-description = "Remove the guarantee that occupied material stays occupied, and the Digital Crystal does not slow down. It builds faster — because every lost cell manufactures a new place to build."
+description = "Remove the guarantee that occupied material stays occupied, and gross construction accelerates — because material loss creates new places where construction can occur."
 weight = 10
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Material Loss", "Turnover", "Reoccupation", "Experiments"]
@@ -57,13 +57,15 @@ $$
 \text{loss} \sim r^2
 $$
 
-One term grows linearly, the other quadratically. Whatever the constants, the quadratic term wins eventually.
+If those scaling assumptions remain valid as the crystal grows, the conclusion follows: the quadratic loss term eventually dominates the linear construction term.
 
 ```text
 small crystal    →  construction > loss
 larger crystal   →  loss catches up
 some scale       →  balance
 ```
+
+The prediction therefore depends on more than the arithmetic. It depends on construction opportunity continuing to scale with the outer perimeter even after loss changes the geometry.
 
 Which predicts something genuinely interesting: a finite sustainable size.
 
@@ -100,7 +102,11 @@ The late normalized slopes across the entire sweep stayed at roughly:
 0.036 – 0.038
 ```
 
-That is the no-loss slope. At the highest tested loss rate, where sixteen percent of all occupied material was being removed on every update, the crystal was still expanding at essentially the same normalized rate as a crystal losing nothing at all.
+At the highest tested loss rate, `δ = 0.16`, every occupied cell faced a 16% loss probability on each update, yet the crystal retained essentially the same **normalized population slope** as the no-loss condition.
+
+Absolute net growth did fall.
+
+What exploded was gross construction.
 
 Loss did have an effect on scale: at `δ = 0.16` the late mean population was about a third smaller than the baseline. But smaller is not stationary. Nothing flattened. No tested non-zero loss rate came close to satisfying the predeclared finite-regime condition.
 
@@ -184,7 +190,9 @@ NEW ATTACHMENT OPPORTUNITY
 
 > **Loss removes material and creates new places where construction can occur.**
 
-The boundary measurements show this directly. Late mean boundary counts across the sweep:
+The construction-interface measurement shows this directly. Here the interface count is the number of empty locations currently eligible for attachment.
+
+Late mean interface counts across the sweep:
 
 ```text
 δ = 0.00      372
@@ -193,11 +201,11 @@ The boundary measurements show this directly. Late mean boundary counts across t
 δ = 0.16     2068
 ```
 
-The high-loss crystal has more than five times as much measured active interface despite being smaller overall.
+The high-loss crystal has more than five times the measured construction-interface size despite being smaller overall.
 
 The difference is internal vacancy structure.
 
-Loss has created interface throughout material that previously contributed none.
+Loss creates additional eligible attachment sites inside material that would otherwise remain occupied.
 
 So the failed premise was never the loss term. It was this:
 
@@ -236,19 +244,37 @@ That worked because, under irreversible growth, the outer surface was almost the
 Material loss exposes the more general concept.
  The aperture was on the outside because the outside was the only place a state transition could occur.
 
-The better definition is not geometric at all:
+The better definition for construction is not geometric at all:
 
-> **The active interface is the dynamically generated set of locations at which the process currently has an available state transition.**
+> **The construction interface is the dynamically generated set of empty locations currently eligible for attachment.**
 
-Under irreversible growth those two definitions coincide, which is why the distinction never mattered. Once material can vanish, they come apart completely. The interface can now appear internally, split into many disconnected regions and disappear again as vacancies are filled.
+The distinction from the previous chapter now becomes useful:
 
-It is defined by available transitions rather than by the visible outline of the Crystal.
+```text
+CONSTRUCTION INTERFACE
+→ empty locations at which occupation can occur
+
+CAUSAL APERTURE
+→ existing material whose state can influence decisions at those locations
+```
+
+Under irreversible outward growth the two sit beside the visible outer surface and are easy to confuse with it.
+
+Loss pulls them apart.
+
+Under irreversible growth, the construction interface sits almost entirely on the outer surface, so geometry and causal access appear to be the same thing.
+
+Loss separates them.
+
+A vacancy can create construction interface deep inside the crystal. That interface can appear, split into disconnected regions and disappear again when vacancies are filled.
+
+The relevant boundary is therefore generated by available **construction transitions**, not by the visible outline of the Crystal.
 
 That has a striking implication for the previous chapter. Buried material became causally inert because construction moved past it and nothing could ever bring it back into contact with a decision. In a world with loss, that is no longer permanent. A vacancy opening near old material puts old material back on an active interface.
 
 Be careful with what that does and does not mean. It does not mean we have recovered history readout — nothing in the previous chapter failed because access was theoretically impossible, and re-exposing a region does not make its arrangement legible to anything. What it means is narrower and still important:
 
-> **The active interface is dynamically re-creatable.**
+**The causal aperture can be re-created around material that had previously fallen outside it.**
 
 Permanent burial was a consequence of the irreversible-growth rule, not a necessary property of the Crystal substrate.
 
@@ -263,7 +289,12 @@ So hold the number of removed cells exactly equal on every update and change onl
 The first result looked strong.
 
 Late population under interior-biased loss was about 11.1% higher than under surface-biased loss, clearing the predeclared population-difference threshold.
- And the visible structure differed enormously:
+
+That difference is real.
+
+Its mechanism is not yet identified.
+
+The visible structure also differed strongly in this first placement experiment:
 
 ```text
 surface loss     ~2.7 late holes
@@ -329,19 +360,25 @@ Now return to the matched surface-versus-interior design, with loss counts synch
 
 What fraction of lost sites are subsequently occupied again?
 
-```text
-surface   ≈ 93.6% of unique lost sites reoccupied
-interior  ≈ 95.7% of unique lost sites reoccupied
-```
+surface   ≈ 93.6% of unique lost sites reoccupied within the observation horizon
+interior  ≈ 95.7% of unique lost sites reoccupied within the observation horizon
 
-And how long do they stay empty?
+Among the vacancy episodes included in the delay analysis, how long did a site remain empty before reoccupation?
 
 ```text
 surface   ≈ 1.56 updates
 interior  ≈ 1.09 updates
 ```
 
-More than 93% of unique tested lost locations were subsequently occupied again, typically after only one or two updates.
+The Experimental Note should state explicitly how unreoccupied or right-censored episodes are handled in this mean.
+
+More than 93% of unique tested lost locations were reoccupied within the observation horizon, typically after only one or two updates.
+
+Two bookkeeping details matter here.
+
+A site lost near the end of observation has less time available for a return to be observed, and a single lattice position can participate in more than one loss–reoccupation episode.
+
+The percentages above therefore describe **unique lost sites observed to return within the declared horizon**. Event-level turnover and censoring need to remain explicit in the experimental record rather than being silently collapsed into that percentage.
 
 This result makes the biological interpretation almost irresistible:
 
@@ -361,7 +398,9 @@ There is no damage detector. There is no target morphology. There is no repair p
 
 A lost site becomes empty. The ordinary growth rule encounters an empty site with occupied neighbours and does what it has always done with empty sites that have occupied neighbours. The identical rule runs whether the location is new territory at the outer edge or a hole punched through the middle of existing material. The crystal cannot tell the two apart, because nothing in it stores the distinction.
 
-The observer knows a site is being reoccupied. The crystal does not.
+The observer knows that the location was occupied before.
+
+The crystal does not.
 
 ```text
 REOCCUPATION
@@ -391,18 +430,31 @@ That is a smaller sentence than *the crystal repairs itself*, and it has the adv
 
 The reoccupation experiment had not predicted merely that reoccupation would occur. It predicted that interior loss would produce a scientifically large reoccupation advantage over surface loss — the mechanism the 11.1% population difference had suggested.
 
-The predeclared minimum meaningful difference was 0.15 additional reoccupations per loss. The observed difference was:
+The predeclared minimum meaningful difference was:
 
 ```text
-0.0198
+0.15 additional reoccupations per loss
 ```
+
+The observed difference was:
+
+```text
+0.0198 additional reoccupations per loss
+```
+
+or about `1.98` percentage points against a declared meaningful difference of `15` percentage points.
 
 The difference was statistically detectable but far below the magnitude we had declared scientifically meaningful in advance.
- The same shape as the failures in the last chapter, and the same verdict:
 
 ```text
-FAILED
+STATISTICALLY DETECTABLE
+≠
+SCIENTIFICALLY LARGE ENOUGH
 ```
+
+The predeclared large interior-reoccupation advantage was therefore **not supported**.
+
+And that matters for the earlier 11.1% population difference: the population effect remains, but this proposed reoccupation advantage is too small to serve as its demonstrated explanation.
 
 Two primary hypotheses, two failures, in one chapter. Neither was foolish. Both were the obvious inference from the geometry, and the substrate simply answered a different question than the one we asked.
 
@@ -410,19 +462,34 @@ The failure redirected attention from the small difference between the groups to
 
 Interior vacancies were reoccupied somewhat faster.
 
-But both conditions were already reoccupying almost everything.
- The frontier-creation measurement makes the point exactly:
+But both conditions were already reoccupying almost everything within the tested horizon.
+
+The large placement-dependent population difference therefore remains mechanistically unresolved here.
+
+What the frontier-creation measurement establishes much more cleanly is the shared mechanism:
+
+surface loss    ≈ 0.995 newly eligible construction sites per lost cell
+interior loss   ≈ 1.000 newly eligible construction sites per lost cell
+
+Essentially one-for-one under both tested placement policies.
+
+The general mechanism supported by these experiments is not:
 
 ```text
-surface loss    ≈ 0.995 new frontier sites per lost cell
-interior loss   ≈ 1.000 new frontier sites per lost cell
+INTERIOR LOSS
+→
+SPECIAL OPPORTUNITY
 ```
 
-Essentially one-for-one, in both conditions. The general mechanism is not *interior loss creates special opportunity*. It is:
+but:
 
 ```text
-LOCAL MATERIAL LOSS → NEW ATTACHMENT OPPORTUNITY
+LOCAL MATERIAL LOSS
+→
+NEW ATTACHMENT OPPORTUNITY
 ```
+
+almost every time it was measured in these conditions.
 
 everywhere, almost without exception. The specific interior-advantage hypothesis failed.
 
@@ -473,11 +540,11 @@ The distinction between a stock and a flow is ancient outside this book — nati
 
 After material turnover appears, it no longer does.
 
-A useful working label for this observation is the **Flux Principle**:
+The useful distinction is simply:
 
 > **Static population or morphology can conceal large ongoing construction, loss and reoccupation flows.**
 
-With the reminder that this is currently an observation about one substrate under tested conditions, not a law about digital systems in general.
+There is no need to promote this into a new principle. Stock and flow are already well-understood concepts; what is new here is that material loss has made the distinction experimentally necessary in this substrate.
 
 ---
 
@@ -485,11 +552,19 @@ With the reminder that this is currently an observation about one substrate unde
 
 One result looked contradictory at first, and its resolution is the same lesson from another direction.
 
-Interior-biased loss produced far more visible holes — roughly 37.6 against 3.2 for surface loss in the exact-count runs — while its individual lost sites were reoccupied slightly more often and considerably faster.
+In the later exact-count reoccupation experiment, interior-biased loss produced far more visible holes — roughly `37.6` against `3.2` for surface loss — while individual interior vacancies were reoccupied slightly more often and considerably faster.
+
+These are not the `29.8` versus `2.7` values from the earlier placement experiment.
+
+They come from a different, later protocol in which loss counts were synchronized exactly between branches.
 
 How can a process that refills faster be full of more holes?
 
-Because a snapshot counts how many vacancies exist right now. It says nothing about how long any one of them lasts.
+Because a snapshot measures vacancy **prevalence**.
+
+Reoccupation delay measures vacancy **duration**.
+
+A process can create vacancies rapidly enough to maintain many holes at a snapshot even when individual vacancies are short-lived.
 
 ```text
 lose A
@@ -512,7 +587,7 @@ Those quantities can move in apparently opposite directions without contradictio
 
 > **State is not dynamics.**
 
-The book keeps rediscovering that sentence. This is the first time it has been forced on us by a measurement that looks like a paradox until you check which kind of quantity you are holding.
+Here the apparent paradox disappears as soon as we separate a snapshot quantity from an event-duration quantity.
 
 ---
 
@@ -551,7 +626,13 @@ new attachment opportunity
 construction
 ```
 
-It requires no sensing, no goal, and no representation of the loss it counteracts. Call it **structural compensation** — with emphasis on *structural*, because the compensation is done by geometry rather than by anything resembling intent.
+It requires no sensing, no goal and no representation of the loss.
+
+A useful descriptive phrase is **structural compensation**: some of the material removed by loss is replaced because loss itself changes the geometry on which the unchanged construction rule acts.
+
+The word *compensation* describes the net dynamical effect.
+
+It does not imply that the crystal detects or attempts to correct loss.
 
 The crystal does not want to stay intact. Nothing in it prefers occupation to vacancy. The rule that fills a vacancy is the same rule that would otherwise act on any eligible attachment site.
 
@@ -579,7 +660,7 @@ continued turnover
 
 The growth rule did not become more sophisticated.
 
-We removed one guarantee.
+We removed one guarantee, and the existing rule began operating on a different geometry.
 
 That was enough to change the meaning of several quantities we had treated as straightforward:
 
@@ -592,23 +673,71 @@ persistence
 
 ---
 
+## Experimental Note
+
+This chapter adds one transition to the frozen Digital Crystal substrate:
+
+```text
+OCCUPIED → EMPTY
+```
+
+with per-update loss probability `δ`.
+
+The chapter distinguishes three different quantities that become non-equivalent once loss exists:
+
+```text
+population
+    occupied cells present now
+
+gross material traffic
+    occupation events + loss events
+
+construction interface
+    empty locations currently eligible for attachment
+```
+
+The observer-only occupancy ledger records whether each lattice location has previously been occupied so that first occupations can be separated from reoccupations. The simulation itself does not read this ledger.
+
+The surface/interior placement experiments are laboratory interventions: the number of loss events is matched while the spatial locations of those losses are deliberately changed.
+
+For all reoccupation statistics, the final record should specify:
+
+```text
+update order
+observation horizon
+number of runs
+number of unique lost sites
+number of loss episodes
+treatment of right-censored vacancies
+definition of reoccupation delay
+definition of construction-interface count
+definition of hole count
+```
+
+The predeclared interior-reoccupation magnitude gate was `0.15` additional reoccupations per loss. The observed difference was `0.0198`.
+
+[INSERT VERIFIED LOSS-SWEEP N PER δ]
+
+[INSERT VERIFIED PLACEMENT-EXPERIMENT N]
+
+[INSERT VERIFIED REOCCUPATION SAMPLE / EPISODE COUNTS]
+
+Full per-seed distributions, uncertainty intervals and lower-level protocol details remain in the accompanying experimental record.
+
+---
+
 ## Evidence Ledger
 
-| Claim | Status | Evidence |
-|---|---|---|
-| Background loss produces a finite near-stationary regime | **FAILED** | late slopes `0.036–0.038` across the full sweep |
+| Background loss produces a finite near-stationary regime in the tested sweep | **NOT SUPPORTED** | late slopes `0.036–0.038` across tested `δ` values |
 | Loss reduces crystal scale | **SUPPORTED** | late population ~⅓ smaller at `δ = 0.16` |
 | Gross construction increases with loss rate | **SUPPORTED** | 152 → 632 attachments per update across the sweep |
-| Loss creates new local frontier | **SUPPORTED** | ≈ `0.995` / `1.000` new frontier sites per lost cell |
-| Active interface increases with loss | **SUPPORTED** | boundary count 372 → 2068 across the sweep |
-| Loss placement affects late population | **SUPPORTED** | interior-biased ≈ 11.1% higher at matched loss count |
-| Reoccupation occurs without loss | **FAILED** (null verified) | 0 reoccupations across 96 no-loss runs |
-| Most lost sites are reoccupied | **SUPPORTED** | `93.6%` surface, `95.7%` interior at matched loss counts |
-| Reoccupation is rapid | **SUPPORTED** | mean delay `1.56` / `1.09` updates |
-| Interior loss gives a large reoccupation advantage | **FAILED** | observed `0.0198` against declared `0.15` |
-| Gross turnover exceeds net population change | **SUPPORTED** | 1,163 material events for +101 net |
-| Reoccupation constitutes repair or maintenance | **NOT CLAIMED** | no damage detector, target state, or special pathway |
-| The crystal has a sustainable size, ages, or dies | **NOT CLAIMED** | no such quantity was demonstrated |
+| Loss creates new local construction interface | **SUPPORTED** | ≈ `0.995` / `1.000` new frontier sites per lost cell |
+| Measured construction-interface extent increases with loss | **SUPPORTED** | boundary/interface count 372 → 2068 across the sweep |
+| Loss placement affects late population under matched loss count | **SUPPORTED** | interior-biased ≈ 11.1% higher |
+| No-loss control produces reoccupation events | **NOT SUPPORTED** | structurally impossible; 0 observed across 96 control runs |
+| Most tested lost sites are reoccupied within the observation horizon | **SUPPORTED** | `93.6%` surface, `95.7%` interior |
+| Reoccupation is rapid under the tested conditions | **SUPPORTED** | mean delay `1.56` / `1.09` updates |
+| Interior loss produces the predeclared large reoccupation advantage | **NOT SUPPORTED** | observed `0.0198` against declared `0.15` |
 
 ---
 
@@ -630,7 +759,9 @@ REOCCUPY WHAT WAS LOST
 
 It has never had to trade one against the other, because nothing has ever limited how much construction it can consider in a single step. Under unlimited evaluation, reoccupation never has to compete with outward construction for computational opportunity.
 
-That means the extraordinarily high reoccupation rates are partly properties of the computational regime in which we measured them.
+That means the extraordinarily high reoccupation rates were measured under a computational regime in which every eligible construction opportunity could be evaluated.
+
+How much of the result survives once those opportunities must compete is still unknown.
 
 We have not yet asked what happens when opportunities must compete.
 
@@ -644,5 +775,6 @@ Then, for the first time, evaluating one construction opportunity can mean not e
 OUTWARD CONSTRUCTION
         competes with
 REOCCUPATION
+```
 
 > **When computation becomes scarce, what gets built — and what gets left undone?**
