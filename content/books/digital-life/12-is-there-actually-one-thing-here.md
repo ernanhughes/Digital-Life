@@ -2,7 +2,7 @@
 title = "12: Is There Actually One Thing Here?"
 date = "2026-08-14T18:00:00+01:00"
 draft = false
-description = "We have said 'the crystal' for six chapters without testing whether the noun refers to anything. Two experiments look for a privileged boundary. Neither finds one — but causal consequences turn out to be strongly local."
+description = "We have said 'the crystal' for six chapters without testing whether the noun refers to anything. Two experiments test a privileged spatial boundary. Neither supports one, while both tested radial cuts show clear same-side causal localization."
 weight = 12
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Causality", "Boundaries", "Process", "Experiments"]
@@ -11,7 +11,7 @@ series = ["Digital Life From First Principles"]
 
 The last chapter ended with a suspicion about a word.
 
-We have been saying *the crystal* since the *Now There Are Two* chapter, and the noun has been doing quiet work ever since. We kept using it after material became impermanent. We kept using it after large material turnover appeared beneath the visible state. We kept using it after computational opportunity was shown to strongly constrain its scale, and after no tested budget produced a stationary population.
+We have been saying *the crystal* comfortably since *The Digital Crystal*, and the noun has been doing quiet work ever since. We kept using it after material became impermanent. We kept using it after large material turnover appeared beneath the visible state. We kept using it after computational opportunity was shown to strongly constrain its scale, and after no tested budget produced a stationary population.
  Through all of that, the sentence "the crystal is doing X" kept seeming like a sentence about something.
 
 The justification has always been the same, and it has never been tested:
@@ -38,7 +38,22 @@ They make inside and outside feel like natural places to begin looking for a thi
 
 The Digital Crystal owes us nothing of the kind, and the last three chapters have been quietly making the boundary assumption harder to hold.
 
-The *Can Experience Change the Material?* chapter found that retained material only matters while it sits inside the causal aperture — a region that moves. the *What Survives Material Loss?* chapter destroyed the idea that this region is the outer edge at all, since loss can open an interface anywhere in the interior, and redefined it as the dynamically generated set of locations where the process currently has an available transition. the previous chapter added that not even every available transition is real in practice; finite computation decides which of them get evaluated.
+*Can Experience Change the Material?* found that retained material matters only while it remains coupled to the causal aperture.
+
+*What Survives Material Loss?* then separated two ideas we had previously allowed to blur together:
+
+```text
+CONSTRUCTION INTERFACE
+→ empty locations currently eligible for attachment
+
+CAUSAL APERTURE
+→ existing material whose state can influence
+  decisions at those locations
+```
+
+Loss showed that both can reappear deep inside material that had previously fallen behind the visible outer surface.
+
+The previous chapter removed one more assumption: even an eligible construction opportunity need not receive computation. Under a finite evaluation budget, only some of those opportunities are evaluated.
 
 So a site can sit in inactive bulk on one update and return to an active interface on the next because nearby material disappeared.
 
@@ -65,14 +80,59 @@ S_t     the candidate region's state
 E_t     the surrounding active environment
 ```
 
-and ask whether predicting the region's later state from `S_t + E_t` beats predicting it from `E_t` alone. The excess is the quantity of interest — how much the region adds about itself, over and above its context.
+and ask whether predicting the region's later state from `S_t + E_t` beats predicting it from `E_t` alone.
+
+Call that first difference the **self-prediction gain**:
+
+```text
+Δ_self
+=
+R²(S_t + E_t → S_future)
+-
+R²(E_t → S_future)
+```
+
+But even that is not yet the primary statistic.
+
+The same calculation is performed on an observer-only spatially scrambled representation, producing:
+
+```text
+Δ_self,null
+```
+
+The quantity reported below is therefore:
+
+```text
+EXCESS PREDICTIVE COHERENCE
+=
+Δ_self,real
+-
+Δ_self,null
+```
+
+So the question is not merely whether a region predicts itself.
+
+It is whether it does so more strongly than the frozen observer-null construction.
 
 One detail matters more than it looks. The state representation here is not a picture of occupied cells. It is process-oriented: population, frontier density, recent attachment, loss, reoccupation, first occupation, gross turnover, angular process structure. By this point in the book, describing a region by its occupancy alone would be repeating a mistake we have already made twice — morphology turned out to be a lossy projection in the *Now There Are Two* chapter, and net population turned out to hide almost all the activity in the *What Survives Material Loss?* chapter.
+
+The substrate was frozen at:
+
+```text
+loss rate δ = 0.08
+neutral evaluation budget B = 96
+```
 
 Five candidate scales were frozen in advance, as fractions of the crystal's effective radius:
 
 ```text
-0.30    0.45    0.60    0.75    0.90
+R / R_eff
+
+0.30
+0.45
+0.60
+0.75
+0.90
 ```
 
 with a minimum effect of 0.02 declared before running, and a family-level permutation null — because testing five scales and reporting the best one is a search, and the null has to know that.
@@ -114,13 +174,21 @@ one-sided                     p ≈ 0.0849
 FAILED
 ```
 
-The scrambled comparison produces maxima of nearly the same size. Not occasionally — on average. Once the null preserves the fact that we searched five candidate scales and selected the maximum, similarly large maxima are no longer unusual.
+The family-level future-permutation null produces maxima of nearly the same size.
+
+Its mean maximum is already `0.2569`.
+
+That matters because this is a second control beyond the observer-side spatial scramble used inside the predictive-coherence statistic. The family permutation preserves the fact that we searched five frozen scales and then selected the maximum.
+
+Under that search-aware null, a maximum near the observed value is no longer unusual.
 
 The observed `0.2906` does not clear the family-level test.
 
 We did not tune the radius, add new candidate scales or replace the decoder after seeing the result.
 
-The predictive-boundary hypothesis failed.
+The frozen predictive-boundary criterion failed.
+
+That is already enough to prevent `0.90 R_eff` from being promoted on the strength of this experiment.
 
 ---
 
@@ -192,7 +260,35 @@ The outer candidate now has to demonstrate something the arbitrary interior line
 
 The intervention: at a checkpoint, remove exactly 16 occupied cells, either just inside or just outside the boundary in question. Intervention sites are matched on occupied-neighbour count, absolute distance from the boundary, and exact count, so the two conditions differ in which side they hit rather than in what they hit. Both branches then run forward under the cell-keyed common-random-number coupling from the *The Crystal Gets a Past* chapter, so that the comparison is a paired counterfactual and not an accumulation of reassigned random draws.
 
-Then ask where the consequences show up. If the boundary is causally privileged, then an inside perturbation should stay preferentially inside and an outside perturbation preferentially outside — and it should do so more strongly at the candidate boundary than at a line drawn arbitrarily through the interior.
+Eight updates later, we measure occupancy divergence from the unperturbed control in an inner target shell and an outer target shell.
+
+Each divergence is normalized by the number of lattice sites in that target shell.
+
+For each proposed boundary, define:
+
+```text
+CAUSAL LOCALIZATION
+=
+(inside perturbation → inner response
+ - outside perturbation → inner response)
+
++
+
+(outside perturbation → outer response
+ - inside perturbation → outer response)
+```
+
+A positive score means that perturbations have larger consequences on the same side of the boundary from which they originated.
+
+The primary statistic is then:
+
+```text
+candidate localization at 0.90 R_eff
+-
+control localization at 0.60 R_eff
+```
+
+If the outer candidate boundary is privileged under this criterion, that difference should be positive and scientifically large enough to clear the frozen gate.
 
 One limitation has to be stated plainly. The experiment requested 96 groups and only 25 satisfied the frozen matching conditions. Seventy-one were skipped because inside and outside sites could not be matched on local geometry. Only about a quarter of the intended confirmatory sample therefore survives the frozen matching requirements, which limits the precision with which the effect magnitude should be interpreted.
 
@@ -220,17 +316,17 @@ The candidate boundary did not localize causal consequences more strongly than a
 
 Resist the obvious next move. This is not evidence that `0.60 R_eff` is the real boundary — it is a control, chosen precisely because nothing distinguishes it, and promoting it would be exactly the maneuver we refused in the previous two chapters. Also, with 25 usable groups, a small negative difference is not something to build on. The result says one thing:
 
-> **The proposed outer boundary is not special.**
+> **The proposed outer boundary was not privileged under this causal-localization test.**
 
 This is a considerably harder failure than the first one. Predictive coherence could be dismissed as an indirect, observational measure — perhaps the boundary was real and prediction was simply the wrong instrument. This experiment intervened directly.
 
 It changed material on one side of a candidate boundary and measured where the downstream difference appeared.
 
-The candidate outer boundary was no more privileged by that measurement than the interior control.
+Under the frozen localization measurement, the candidate outer boundary was no more privileged than the interior control.
 
 ---
 
-## But Locality Is Real
+## But Same-Side Localization Survives
 
 Now look underneath the failed comparison, at the components that went into it.
 
@@ -244,13 +340,25 @@ inside perturbation → outer              0.00508          0.00545
 outside perturbation → outer             0.02467          0.02530
 ```
 
-Every comparison points in the same direction.
+Every reported component mean points in the same direction.
 
-Perturbations delivered on one side of either tested boundary produce larger effects on that same side than perturbations delivered on the opposite side.
+At both tested radial cuts:
 
-Under this intervention and measurement window, causal consequences are spatially localized.
+```text
+inside perturbation
+→ larger inner response
 
-That is a real phenomenon, and it is worth being clear that its reality is exactly why the boundary hypothesis failed. The localization is not weak at the candidate boundary. Localization is strong at both tested boundaries.
+outside perturbation
+→ larger outer response
+```
+
+So under this intervention and eight-update measurement window, the experiment measured positive **same-side causal localization** at both boundaries.
+
+That is exactly why it does not distinguish the outer candidate from the interior control.
+
+The useful result is not that localization is uniquely strong at the proposed boundary.
+
+It is that comparable localization appears at both tested cuts.
 
 That means the effect does not distinguish the proposed outer boundary from the interior control.
 
@@ -258,13 +366,11 @@ What survives is locality.
 
 What fails is privilege.
 
-```text
-SPATIAL CAUSAL LOCALITY
-MEASURED
+SAME-SIDE CAUSAL LOCALIZATION
+MEASURED AT BOTH TESTED RADIAL CUTS
 
-PRIVILEGED ENCLOSING BOUNDARY
-NOT ESTABLISHED
-```
+PRIVILEGED OUTER BOUNDARY
+NOT SUPPORTED BY THIS TEST
 
 The failed hypothesis and the surviving phenomenon are the same measurement read two ways.
 
@@ -281,9 +387,9 @@ Many locally coupled systems produce stronger nearby than distant consequences w
 So locality cannot do the work the failed boundary hypothesis was supposed to do.
  What we measured here is narrower: perturbations produced stronger effects on the same side of each tested boundary than across it.
 
-That establishes spatial causal localization under this protocol.
+That establishes same-side causal localization under this protocol.
 
-A full distance-decay law has not yet been measured.
+It does not establish a general distance-decay law, propagation velocity, causal closure or a privileged inside/outside decomposition.
 
 What we have not shown, and should not be read as having shown:
 
@@ -315,10 +421,13 @@ NOT ESTABLISHED
 
 Two failures at the same question is usually a sign to look at the question rather than the answers. So we went back through what the previous chapters had actually established, and something lined up that had not been visible chapter by chapter.
 
-The *Can Experience Change the Material?* chapter: persistent material matters only while coupled to an active interface.
-The *What Survives Material Loss?* chapter: material loss creates new interfaces, anywhere, including deep inside the bulk.
-The previous chapter: finite computation determines which interface opportunities are serviced at all.
-This chapter: causal consequences are spatially local — but no tested enclosing boundary is privileged.
+*Can Experience Change the Material?*: retained material matters only while it remains coupled to an active causal aperture.
+
+*What Survives Material Loss?*: loss can create new construction interface inside material that had previously become causally remote.
+
+*What Does It Cost to Stay?*: finite computation determines which eligible construction opportunities receive evaluation.
+
+This chapter: same-side causal localization appears at both tested radial cuts, but the proposed outer boundary receives no special privilege.
 
 Read separately, these are four experimental findings.
 
@@ -332,7 +441,13 @@ where do their consequences remain local?
 
 There is another recurring pattern further back.
 
-Across Chapters 4, 5 and 6, coarse causal consequence repeatedly survived stronger tests that removed claims of fine readable history: source family without chronology, pulse effects without sender identity, different particular futures without a stable history signature, persistent distinct traces without a differential common-challenge response.
+The same pattern appears further back.
+
+*The Digital Crystal* recovered broad source-family information without establishing recoverable temporal order.
+
+*The Crystal Gets a Past* found causal pulse consequences without sender identity or exact chronology, and different particular futures without a stable population-level history signature.
+
+*Can Experience Change the Material?* produced persistent and accessible material distinctions without establishing scientifically meaningful differential use of those pasts under a common challenge.
 
 That does not establish a process ontology.
 
@@ -344,7 +459,11 @@ But it adds another reason to investigate the dynamics directly rather than infe
 
 Here is one way to say what may have gone wrong with the framing.
 
-If we define the system as *occupied cells inside radius R*, we are defining it by what has accumulated. the *What Survives Material Loss?* chapter showed large gross material turnover hidden beneath comparatively modest net population change, and the previous chapter showed that absolute population can vary substantially while some normalized turnover measures remain remarkably stable.
+If we define the system as *occupied cells inside radius R*, we are defining it by what has accumulated.
+
+*What Survives Material Loss?* showed that large gross material traffic can hide beneath comparatively modest net population change.
+
+The previous chapter then showed something subtler: finite computation can strongly change the population reached, while an apparently stable gross-turnover aggregate turned out to be largely constrained by the loss protocol and accounting identity. What remained informative was the behaviour of the component flows, especially the different response of reoccupation and first occupation under severe scarcity.
 
 ```text
 BULK      what remains occupied
@@ -363,9 +482,15 @@ It may simply not be the whole object we need to measure.
 
 The question that has been hanging over this chapter deserves an honest and unsatisfying answer.
 
-Is the crystal a thing? We did not establish that. Two attempts to find the boundary that would justify the noun both failed, one observationally and one causally.
+Is the crystal one natural thing?
 
-Is it a flow? We have not established that either, and this is the more important half of the answer. Declaring the crystal a process would replace an unearned noun with an unearned noun. Everything measured in this chapter is also compatible with a spatially structured stochastic field whose local dynamics do not pick out one privileged individual.
+These experiments did not establish that.
+
+Is it instead one coherent flow or process?
+
+They did not establish that either.
+
+Replacing *thing* with *process* would merely exchange one unearned ontology for another. Everything measured in this chapter is also compatible with a spatially structured stochastic field whose local dynamics do not pick out one privileged individual.
 
 So these measurements cannot decide the question by themselves.
  Stable flux is not sufficient evidence of coherent organization.
@@ -416,20 +541,171 @@ That changes the experimental object.
 
 ---
 
+## Experimental Note
+
+This chapter contains two frozen experiments under the same lossy, finite-budget Digital Crystal substrate:
+
+```text
+loss rate δ = 0.08
+neutral evaluation budget B = 96
+```
+
+### V1 — Predictive Coherence Screen
+
+The V1 quick profile used:
+
+```text
+96 independent run groups
+radius                 72
+warmup                 20 updates
+continuation           84 updates
+
+prediction horizon      4 updates
+history window           4 updates
+checkpoint stride        4 updates
+
+held-out fraction        0.25
+ridge alpha             10.0
+
+family permutations      1000
+alpha                     0.05
+meaningful excess R²      0.02
+```
+
+The five candidate spatial scales were frozen at:
+
+```text
+R / R_eff
+
+0.30
+0.45
+0.60
+0.75
+0.90
+```
+
+For each scale:
+
+```text
+Δ_self
+=
+R²(S_t + E_t → S_future)
+-
+R²(E_t → S_future)
+```
+
+The same comparison was made using an observer-only angularly scrambled representation.
+
+The reported scale statistic was:
+
+```text
+EXCESS PREDICTIVE COHERENCE
+=
+Δ_self,real
+-
+Δ_self,null
+```
+
+The primary family statistic was the maximum across all five frozen scales.
+
+A run-group current/future permutation test preserved the full five-scale selection procedure.
+
+The post-run V1 audit identified several protocol limitations:
+
+```text
+centered candidate geometry
+
+observer-null environment
+not exactly matched to real annulus
+
+future extent entered part
+of measurement-support bookkeeping
+
+scrambled region lacked stable
+temporal identity across checkpoints
+```
+
+Those limitations do not rescue the failed frozen family test. They limit the strength of any interpretation built from V1.
+
+### V2 — Causal Boundary Localization
+
+V2 changed evidence type rather than tuning V1.
+
+The quick profile used:
+
+```text
+96 requested groups
+25 usable matched groups
+
+radius                       72
+warmup                       20 updates
+checkpoint after warmup      36
+response horizon              8 updates
+
+candidate radius          0.90 R_eff
+control radius            0.60 R_eff
+
+boundary shell width          4
+distance matching bin         1
+removed cells                 16
+
+meaningful candidate excess   0.01
+bootstrap repetitions       3000
+sign-flip permutations      4000
+alpha                        0.05
+```
+
+Inside and outside interventions were matched on:
+
+```text
+occupied-neighbour count
+absolute distance from boundary
+exact removal count
+```
+
+Future stochastic draws were cell-keyed across counterfactual branches.
+
+Occupancy divergence from the unperturbed control was measured in inner and outer target shells and normalized by target-shell size.
+
+For each boundary:
+
+```text
+causal localization
+=
+(inside → inner - outside → inner)
++
+(outside → outer - inside → outer)
+```
+
+The primary statistic was:
+
+```text
+localization(0.90 R_eff)
+-
+localization(0.60 R_eff)
+```
+
+The `0.60 R_eff` region is a predeclared interior pseudo-boundary control. It is not claimed to be a geometry-perfect null or an alternative candidate individual.
+
+Full per-group results and lower-level protocol details remain in the accompanying experimental record.
+
+---
+
 ## Evidence Ledger
 
 | Claim | Status | Evidence / limitation |
 |---|---|---|
-| Some frozen spatial scale shows excess predictive coherence beating the family null | **FAILED** | family maximum `0.2906`, null 95th percentile `0.2947`, `p ≈ 0.0849` |
-| `0.90 R_eff` is a privileged predictive boundary | **NOT ESTABLISHED** | failed family test; audit also found protocol weaknesses |
-| `0.90 R_eff` localizes causal effects more than a `0.60 R_eff` pseudo-boundary | **FAILED** | difference `−0.00724`, one-sided `p ≈ 0.9693` |
-| `0.60 R_eff` is the real boundary | **NOT CLAIMED** | it is a control; difference is small and the sample is limited |
-| Causal effects are spatially localized | **MEASURED** | same-side responses exceed opposite-side responses at both boundaries |
-| Spatial locality implies individuality | **NOT ESTABLISHED** | locality appears equally at an arbitrary interior line |
-| Stronger formal boundary criteria (e.g. conditional independence) hold or fail | **UNTESTED** | no such test was run |
-| Causal activity concentrates at dynamically generated interfaces | **SUPPORTED ACROSS CHAPTERS** | independent mechanisms in Chapters 6, 7 and 8 |
-| Stable normalized flux defines a natural individual | **UNTESTED** | flow stability is not individuation |
-| The crystal is a coherent process rather than a thing | **NOT CLAIMED** | a structured local field would produce these results too |
+| Some frozen spatial scale shows excess predictive coherence large enough to beat the family null | **FAILED** | family maximum `0.2906`, null 95th percentile `0.2947`, `p ≈ 0.0849` |
+| `0.90 R_eff` is a privileged predictive boundary | **NOT SUPPORTED** | frozen family test failed; post-run audit also identified protocol weaknesses |
+| `0.90 R_eff` localizes causal effects more strongly than the `0.60 R_eff` pseudo-boundary | **FAILED** | difference `−0.00724`, 95% interval `[−0.01399, −0.00020]`, one-sided `p ≈ 0.9693` |
+| `0.60 R_eff` is the real boundary | **NOT CLAIMED** | it is a predeclared control, not a promoted alternative |
+| Same-side causal localization appears at both tested radial cuts | **SUPPORTED** | inside→inner exceeds outside→inner and outside→outer exceeds inside→outer at both `0.90` and `0.60 R_eff` |
+| Same-side localization establishes individuality | **NOT SUPPORTED** | comparable localization appears at the arbitrary interior control |
+| No privileged natural boundary exists anywhere in the Digital Crystal | **NOT CLAIMED** | only two operational boundary criteria and a limited set of spatial candidates were tested |
+| Stronger formal boundary criteria hold or fail | **NOT CLAIMED** | conditional-independence, closure and related criteria were not tested |
+| Dynamically generated construction interfaces repeatedly mediate causal opportunity | **SUPPORTED** | Chapters *Can Experience Change the Material?*, *What Survives Material Loss?*, and *What Does It Cost to Stay?* provide distinct mechanisms |
+| Stable normalized flow defines a natural individual | **NOT CLAIMED** | flow stability is neither established as an independent invariant nor tested as an individuation criterion |
+| The crystal is a coherent process rather than a thing | **NOT CLAIMED** | the measurements are also compatible with a structured local stochastic field |
 
 Note the sample limitation attached to the second failure: 25 usable groups out of 96 requested. The direction of that result does not support the hypothesis, but its magnitude should not be quoted as though it were precise.
 
