@@ -115,9 +115,11 @@ experienced, labels erased ───┘
 
 At the late ablation point, removing the retained material state produced no downstream difference.
 
-The trace was still present.
+The ablation changed modified cells back to ordinary occupied cells while preserving the occupied geometry and the paired continuation conditions.
 
-Its removal no longer changed the future.
+The trace was present immediately before that intervention.
+
+Its removal no longer changed the tested future.
 
 ---
 
@@ -161,9 +163,13 @@ later probe     mean frontier contact ≈  2.25     effect not detected
 after burial    mean frontier contact =   0       effect = 0
 ```
 
-The bounded result:
+The timed ablations point in one direction:
 
-> **In these experiments, the causal effect of retained material tracked whether that material remained accessible to active growth.**
+> **Retained material produced a detectable causal effect while it remained strongly exposed to active growth, and no detectable effect once that exposure had collapsed.**
+
+Three probe times do not establish a general quantitative law.
+
+They tell us what to test next.
 
 ---
 
@@ -185,13 +191,17 @@ It was access.
 
 > **The crystal did not run out of storage. Its past fell behind the moving surface where the future was being decided.**
 
-Under irreversible outward growth, the active frontier is the interface through which existing material can still participate in the next construction decisions.
+Under irreversible outward growth, existing material can affect the next construction decision only when it is adjacent to a currently eligible attachment site.
 
-Call this the crystal's **causal aperture**.
+That gives us an operational definition:
 
-State inside that aperture can affect future transitions.
+> **The causal aperture is the currently active interface through which stored material state can enter a transition rule that affects what happens next.**
 
-State left behind it may remain perfectly preserved while losing any route into the computation that comes next.
+In this version of the Digital Crystal, that aperture coincides with the growth frontier.
+
+State coupled to it can alter attachment probabilities.
+
+State left behind it may remain perfectly preserved while losing any current route into the computation.
 
 ```mermaid
 flowchart TD
@@ -326,6 +336,8 @@ The fix is to take the quantity away as a variable.
 
 We rebuilt the comparison with a controller that looks across all three branches at every propagation step, finds a copy budget that all of them can satisfy, and forces every branch to transmit exactly that many modified cells.
 
+This controller is an **experimental instrument**. It is not a new capability attributed to the crystal. Its job is to remove propagated-state quantity as a confound.
+
 At the intervention level we now hold fixed:
 
 ```text
@@ -357,7 +369,9 @@ The trajectories suggested a different question: perhaps placement affects **how
 
 That observation did not rescue the failed endpoint.
 
-It generated a new hypothesis, tested in a new experiment with a frozen observation window:
+It generated a new hypothesis and therefore required a new experiment.
+
+The observation window, outcome measures and analysis rule for that experiment were frozen before its outcomes were inspected:
 
 > **Placement may control causal lifetime rather than any one late state.**
 
@@ -381,19 +395,17 @@ All three integrated measures produced the same ordering:
 INTERIOR  <  RANDOM  <  SURFACE
 ```
 
-```text
-                        INTERIOR   RANDOM   SURFACE
-
-integrated access AUC      0.515    0.847     1.293
-probability leverage       3.87     7.33     12.26
-realized causal flips      4.06     7.52     12.39
-```
+| placement | integrated access | probability leverage | realized causal flips |
+|---|---:|---:|---:|
+| INTERIOR | 0.515 | 3.87 | 4.06 |
+| RANDOM | 0.847 | 7.33 | 7.52 |
+| SURFACE | 1.293 | 12.26 | 12.39 |
 
 And the cumulative amount of propagated material was identical across all three policies — an average of 27.1875 transmissions each. The experiment was not comparing more history against less history. It was comparing where an equal amount of history had been put.
 
-That earns the strongest claim of the chapter:
+Taken together, those three measurements earn the strongest positive claim of the chapter:
 
-> **With propagated-state quantity held constant, spatial placement changes how long and how strongly that state remains causally available to subsequent growth.**
+> **With propagated-state quantity held constant, spatial placement changed the duration and strength of that state's causal availability to subsequent growth under this protocol.**
 
 More stored past was not the answer.
 
@@ -430,8 +442,12 @@ At that point the scientific picture had stopped changing:
 ```text
 quantity can confound placement
 placement changes causal lifetime
-frontier access tracks causal leverage
+accessible state can exert causal leverage
 ```
+
+The narrower exploratory protocols remain part of the experimental record.
+
+They did not justify another promotion here.
 
 ---
 
@@ -517,7 +533,22 @@ During retention both labels were inert — they did nothing at all. During the 
 The controls behaved as required.
  Without the challenge, A and B futures were identical. Erase the labels immediately before the challenge and A and B futures were identical again. So any difference in the retained-label challenge condition had to come from the labels.
 
-And before running it, we froze something the book had been missing: a smallest effect worth interpreting. The interaction had to clear a directional statistical test **and** be at least 1% of the pre-challenge population **and** at least 0.5 standard deviations of ordinary seed-to-seed noise.
+And before running it, we froze something the book had been missing: a smallest effect worth interpreting.
+
+The interaction had to clear a directional statistical test **and** satisfy two operational magnitude gates:
+
+```text
+at least 1% of pre-challenge population
+
+AND
+
+at least 0.5 standard deviations
+of ordinary seed-to-seed variation
+```
+
+These are not biological constants or universal thresholds.
+
+They were declared in advance to prevent a very small but precisely estimated effect from being promoted into the phenomenon under investigation merely because its p-value was impressive.
 
 ```text
 statistically detectable
@@ -561,7 +592,9 @@ Before seeing the result, we had required more than a departure from zero. The i
 
 It was not.
 
-A small p-value answers a much narrower question than the one we declared.
+A small p-value tells us that the observed result is difficult to reconcile with the declared null model.
+
+It does not tell us that the effect is large enough to be the phenomenon we said we were looking for.
 
 > Is it large enough to be the thing we said we were looking for?
 
@@ -594,15 +627,15 @@ elif history == "B":
 
 That is a decoder we supplied.
 
-The experiment can test whether an engineered A/B state remains available to a later rule explicitly designed to distinguish A from B.
+The experiment therefore established something narrower than history discrimination: an engineered local label can remain available long enough for an engineered decoder to produce a small, statistically detectable response.
 
-It cannot answer the stronger question:
+It still failed the predeclared magnitude gate.
+
+And even a larger effect would not have answered the stronger question:
 
 > **Can different pasts leave material differences that ordinary later dynamics distinguish without being told what those histories mean?**
 
-The next experiment removed the symbolic distinction entirely.
-
-Rather than tuning the failed experiment, we removed the decoder.
+Rather than tune the failed experiment, we removed the decoder.
 
 ---
 
@@ -617,9 +650,19 @@ MODIFIED
 
 No `HISTORY_A`. No `HISTORY_B`. Nothing in the substrate that names a history.
 
-The two experiences differ only in *where* they write the same modified state: experience A toward one directional region of the boundary, experience B toward another. Identical initial write counts. Identical material physics afterwards. At every propagation step, both histories are forced to copy exactly the same number of cells. The two pasts differ in spatial organization and in nothing else.
+The two experiences differ only in *where* they write the same modified state: experience A toward one directional region of the boundary, experience B toward another.
 
-Then one identical challenge, with no history-specific rule anywhere in it.
+```text
+same material state
+same initial write quantity
+same propagation quantity
+same material physics
+different spatial organization
+```
+
+Then both histories receive the same later challenge.
+
+The challenge contains no history label and no A/B-specific decoding rule.
 
 There is one more confound to remove. Because modified material affects growth, the two histories may themselves produce slightly different geometries before the challenge arrives — in which case a simple A-versus-B comparison would confuse retained material with the shape that material happened to build. So at the exact pre-challenge checkpoint we clone each history and erase only its labels, keeping the geometry untouched, and take the difference of differences:
 
@@ -666,7 +709,9 @@ against seed noise                        0.033 SD  (required 0.500 SD)
 FAILED
 ```
 
-This is not a near miss. The interval straddles zero and the effect is only `0.033` standard deviations on the declared seed-to-seed noise scale.
+This is not a near miss on the declared scale.
+
+The interval straddles zero, and the estimated material-mediated interaction is only `0.033` standard deviations of ordinary seed-to-seed variation, against the predeclared `0.500 SD` magnitude requirement.
 
 There is nothing here to promote and nothing in the frozen experiment to rescue.
 
@@ -709,7 +754,7 @@ DISTINGUISH BETWEEN PASTS
 
 ```
 
-The chapter has earned two distinctions:
+The experiments have now earned two distinctions:
 
 > **Persistent does not mean accessible.**
 
@@ -740,6 +785,38 @@ causally leveraged
 ≠
 differentially read
 ```
+
+---
+
+## Experimental Note
+
+This chapter extends the frozen Digital Crystal substrate with one additional persistent local material condition: `MODIFIED`.
+
+Modified material can affect later construction only when its state enters the local attachment calculation of an active candidate site. The chapter calls the currently active interface through which such retained material can affect a transition the **causal aperture**.
+
+The placement experiments use three related measurements:
+
+```text
+frontier accessibility
+    how strongly retained modified material remains coupled
+    to active attachment opportunities
+
+probability leverage
+    accumulated changes in local attachment probability
+    attributable to accessible modified state
+
+realized causal flips
+    attachment outcomes that change when the material-state
+    contribution is removed in the paired counterfactual
+```
+
+For the causal-lifetime experiment these quantities were integrated over the predeclared observation window from steps 5 through 18. The matched-copy controller equalized propagated-state quantity across placement policies and is an experimental isolation device, not an intrinsic capability of the crystal.
+
+In the symbolic history-discrimination experiment, interaction magnitude was evaluated both relative to pre-challenge population and relative to ordinary seed-to-seed variation. The predeclared operational gates were `1%` of population and `0.5 SD`, in addition to the directional statistical test.
+
+The later non-symbolic experiment removed the A/B decoder, kept one `MODIFIED` material state, matched propagated quantity, and compared two spatially distinct histories under the same later challenge. A label-erased control at the pre-challenge checkpoint was used to subtract differences attributable to geometry already produced by those histories.
+
+Exact write rules, material-effect coefficients, challenge parameters, sample sizes, bootstrap procedures, directional tests and raw per-seed results remain part of the accompanying experimental record.
 
 ---
 
