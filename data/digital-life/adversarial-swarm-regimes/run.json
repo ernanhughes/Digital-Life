@@ -1,0 +1,340 @@
+{
+  "experiment": "adversarial_swarm_regimes",
+  "claim_status": "EXPERIMENTAL",
+  "question": "Does persistence reside in a distribution of macrostates, and do interventions change that distribution beyond ordinary control self-drift?",
+  "config": {
+    "particles": 256,
+    "burn_in": 10000,
+    "post_steps": 12000,
+    "sample_stride": 20,
+    "damage_fraction": 0.3,
+    "damage_scale": 2.5,
+    "rewire_fraction": 0.3,
+    "replicates": 8,
+    "base_seed": 20260817,
+    "control_blocks": 6,
+    "regimes": 4,
+    "kmeans_iterations": 100,
+    "max_energy_samples": 400,
+    "late_fraction": 0.5
+  },
+  "feature_names": [
+    "log_radius_gyration",
+    "log_anisotropy",
+    "mean_speed",
+    "radial_q10",
+    "radial_q25",
+    "radial_q50",
+    "radial_q75",
+    "radial_q90",
+    "pair_q10",
+    "pair_q25",
+    "pair_q50",
+    "pair_q75",
+    "pair_q90",
+    "friend_q25",
+    "friend_q50",
+    "friend_q75",
+    "enemy_q25",
+    "enemy_q50",
+    "enemy_q75"
+  ],
+  "standardization": {
+    "fit_on": "pooled control states only",
+    "mean": [
+      0.9721998434591265,
+      0.4692667620598473,
+      0.04848907986725286,
+      0.4100372734074564,
+      0.6509219243343127,
+      0.9484957274702522,
+      1.212401603720729,
+      1.400324656905579,
+      0.476015865749515,
+      0.7904490738597829,
+      1.2299885655550031,
+      1.7126459087704324,
+      2.1318984901535925,
+      0.18903067152771263,
+      0.27474554953822894,
+      0.38969152771847704,
+      0.9931517778663224,
+      1.346668539793416,
+      1.7525568673838852
+    ],
+    "scale": [
+      0.050777695077377866,
+      0.25612090546502597,
+      0.007259735831124917,
+      0.02889155495686989,
+      0.02718213283159585,
+      0.024989489856578288,
+      0.024577886692889007,
+      0.02352943353467289,
+      0.015553431186105669,
+      0.021938561843675708,
+      0.02164966689371229,
+      0.015380384332355097,
+      0.01861988486091602,
+      0.029292310843721713,
+      0.03872425955211729,
+      0.04929586390040494,
+      0.04686333350136471,
+      0.05180039729232739,
+      0.06071887713184943
+    ]
+  },
+  "pca": {
+    "fit_on": "pooled standardized control states only",
+    "components": [
+      [
+        -0.2632603587863365,
+        -0.2923807873117993,
+        0.2389246483797057,
+        0.12513896523774462,
+        0.15423255569654096,
+        0.18029180835201467,
+        0.17470416729306537,
+        -0.047645898259853554,
+        0.3084099314550521,
+        0.31089057247078916,
+        0.3044891978046237,
+        0.12716388267484557,
+        -0.2766899171587545,
+        0.27222367979011297,
+        0.26571336550735636,
+        0.2328984441717959,
+        0.22412469164319349,
+        0.21737296470556688,
+        0.09865624000899292
+      ],
+      [
+        -0.2624202170116212,
+        0.12447276205660922,
+        0.21273703390054224,
+        -0.2880379285998405,
+        -0.3464673249362307,
+        -0.3064903806839582,
+        0.03694417383540891,
+        0.27251312180651416,
+        -0.04578437828809673,
+        -0.12260032033197997,
+        -0.24898878785733042,
+        -0.2852565271959043,
+        0.17884035841084292,
+        0.27728685491924576,
+        0.2991823410543338,
+        0.33463076141246806,
+        0.11169084510404144,
+        0.06170745243251924,
+        0.10333893014983157
+      ]
+    ],
+    "explained_variance_ratio": [
+      0.41146030769016323,
+      0.19397814684203982
+    ]
+  },
+  "descriptive_regimes": {
+    "method": "k-means",
+    "fit_on": "pooled standardized control states only",
+    "k": 4,
+    "centres": [
+      [
+        0.3854310448239067,
+        -0.3689357323573494,
+        -0.32898118768653006,
+        0.3341589977987706,
+        0.48567970111136005,
+        0.5414564457262634,
+        0.03190003222094809,
+        -0.4029598922760576,
+        0.290117079075804,
+        0.40767153906265924,
+        0.5338873132147248,
+        0.38002079286622814,
+        -0.4503779365256738,
+        -0.4476697283642063,
+        -0.4545058211107504,
+        -0.5243480846865167,
+        -0.2689463322783919,
+        -0.21923719327320706,
+        -0.3579649220223538
+      ],
+      [
+        1.561808849922528,
+        2.398005948867824,
+        -1.3546614293001666,
+        -0.08495132840755312,
+        -0.3119763114455794,
+        -0.2833896533885418,
+        0.2965530885259406,
+        0.8353171264255329,
+        -2.718647700609826,
+        -2.629495158953022,
+        -1.8264443458903197,
+        1.0679595824389811,
+        2.749533003843053,
+        -1.1878180029352754,
+        -1.2684323842646363,
+        -1.0572864580845873,
+        -1.1147447796225571,
+        -0.5465676120733524,
+        0.6479284354709393
+      ],
+      [
+        0.5617465279609769,
+        1.0923764293130545,
+        -0.5873560970958677,
+        -1.0562152602294792,
+        -1.447715645422789,
+        -1.7218147755372504,
+        -1.7450388258787701,
+        0.13692185602115764,
+        -0.9812361282388262,
+        -1.2080373937918418,
+        -1.7848865570129808,
+        -1.991150479093138,
+        0.8905036575131346,
+        -0.8050571898224813,
+        -0.6410132494964681,
+        -0.4048668290992462,
+        -0.8254463728990604,
+        -1.038650104876227,
+        -0.7319820018770875
+      ],
+      [
+        -0.9477063672143841,
+        -0.3751783135732454,
+        0.8501097764701478,
+        -0.02318807393399083,
+        -0.02898860786001834,
+        -0.007038288909219052,
+        0.5085291442246676,
+        0.2844748211656599,
+        0.49125861626067646,
+        0.4111513514426687,
+        0.30927408192899664,
+        0.030680845282122834,
+        -0.2723063274145646,
+        1.0375442983030676,
+        1.0041245844255797,
+        0.9678914836921544,
+        0.8154119406855679,
+        0.7238698276711467,
+        0.5645361333504644
+      ]
+    ],
+    "warning": "These regions are descriptive partitions, not claimed natural kinds or intrinsic states."
+  },
+  "control_drift_summary": {
+    "adjacent_block_distance_mean": 2.669270915297296,
+    "adjacent_block_distance_median": 2.3973020882311182,
+    "all_control_block_pairs_mean": 3.3033321142753,
+    "all_control_block_pairs_median": 2.667887973892731,
+    "first_last_distance_mean": 3.3294137312552463,
+    "first_last_distance_median": 2.283987245680419,
+    "first_last_over_adjacent_median": 0.9527323472886514
+  },
+  "intervention_shift_summary": [
+    {
+      "branch": "material_damage",
+      "replicates": 8,
+      "mean_energy_distance_to_control": 1.8436695208145208,
+      "sd_energy_distance_to_control": 1.3001018933653967,
+      "median_distance_over_control_drift": 0.6219749377933428,
+      "mean_distance_over_control_drift": 0.6712755784301575,
+      "fraction_replicates_above_control_drift": 0.125,
+      "fraction_replicates_above_2x_control_drift": 0.0
+    },
+    {
+      "branch": "organizational_damage",
+      "replicates": 8,
+      "mean_energy_distance_to_control": 2.7173851743086916,
+      "sd_energy_distance_to_control": 1.2019784896623826,
+      "median_distance_over_control_drift": 0.7657469206876593,
+      "mean_distance_over_control_drift": 0.9494911061960677,
+      "fraction_replicates_above_control_drift": 0.25,
+      "fraction_replicates_above_2x_control_drift": 0.125
+    }
+  ],
+  "trials": [
+    {
+      "seed": 20260817,
+      "samples_per_branch": 601,
+      "final_graph_similarity": {
+        "control": 1.0,
+        "material_damage": 1.0,
+        "organizational_damage": 0.701171875
+      }
+    },
+    {
+      "seed": 20360820,
+      "samples_per_branch": 601,
+      "final_graph_similarity": {
+        "control": 1.0,
+        "material_damage": 1.0,
+        "organizational_damage": 0.69921875
+      }
+    },
+    {
+      "seed": 20460823,
+      "samples_per_branch": 601,
+      "final_graph_similarity": {
+        "control": 1.0,
+        "material_damage": 1.0,
+        "organizational_damage": 0.69921875
+      }
+    },
+    {
+      "seed": 20560826,
+      "samples_per_branch": 601,
+      "final_graph_similarity": {
+        "control": 1.0,
+        "material_damage": 1.0,
+        "organizational_damage": 0.701171875
+      }
+    },
+    {
+      "seed": 20660829,
+      "samples_per_branch": 601,
+      "final_graph_similarity": {
+        "control": 1.0,
+        "material_damage": 1.0,
+        "organizational_damage": 0.69921875
+      }
+    },
+    {
+      "seed": 20760832,
+      "samples_per_branch": 601,
+      "final_graph_similarity": {
+        "control": 1.0,
+        "material_damage": 1.0,
+        "organizational_damage": 0.701171875
+      }
+    },
+    {
+      "seed": 20860835,
+      "samples_per_branch": 601,
+      "final_graph_similarity": {
+        "control": 1.0,
+        "material_damage": 1.0,
+        "organizational_damage": 0.69921875
+      }
+    },
+    {
+      "seed": 20960838,
+      "samples_per_branch": 601,
+      "final_graph_similarity": {
+        "control": 1.0,
+        "material_damage": 1.0,
+        "organizational_damage": 0.701171875
+      }
+    }
+  ],
+  "interpretation": [
+    "A branch-to-control distance comparable to ordinary control block drift does not establish a changed regime.",
+    "A branch-to-control distance consistently larger than ordinary control drift supports an intervention-induced change in macrostate distribution.",
+    "This experiment does not define persistence as return to one pre-intervention snapshot."
+  ]
+}
