@@ -2,7 +2,7 @@
 title = "03: Now There Are Two"
 date = "2026-08-14T10:00:00+01:00"
 draft = false
-description = "Persistence is not reproduction. In a binary cellular automaton nobody designed for the purpose, structures appear to make copies of themselves — and this time, when we attack the interpretation, it survives."
+description = "Persistence is not reproduction. In a binary cellular automaton whose rule was found without explicitly searching for self-replication, apparent copying survives a causal test — within carefully bounded claims."
 weight = 3
 series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
@@ -27,17 +27,15 @@ A process can persist throughout an observation without ever producing a descend
 
 But we never defined or observed a descendant relation.
 
-Continuation is one capability. Producing another causally descended organization is a different one, and nothing measured in the previous chapter establishes it.
- Continuation is one capability. Making another one is a different capability, and nothing we measured in the last chapter bears on it at all.
+Continuation is one capability. Making another one is a different capability, and nothing we measured in the last chapter bears on it at all.
 
 The glider looks like the harder case, and it is worth spending a moment on, because it is where the distinction becomes precise instead of merely rhetorical.
 
-Every four generations the glider's configuration recurs one cell diagonally along, built from active cells at different coordinates. New material participation, recurring organization, generation after generation.
- If anything in the previous chapter deserved the word *reproduction*, surely that did.
+Every four generations the glider's configuration recurs, displaced by one cell diagonally and built from active cells at different coordinates. New material participation, recurring organization, generation after generation. If anything in the previous chapter deserved the word **reproduction**, surely that did.
 
 It does not qualify, and the reason is not our invention. In the causal analysis we are about to rely on, Hintze and Bohm set out a criterion for calling a structure a self-replicator: it must produce at least two copies of itself, each causally traceable back to the original, and not to each other.[6] The glider fails it. Each glider copy descends from the copy immediately before it, in a single unbranching chain. Nothing ever forks. A glider gun fails for a different reason — it produces gliders, not glider guns.
 
-That criterion is doing real work, so it is worth stating on its own:
+The criterion is worth making explicit:
 
 > **An earlier organization must give rise to at least two later organizations of the same kind, each causally dependent on the original and not on one another.**
 
@@ -53,17 +51,19 @@ Now look at this.
 
 ## The Rule Was Searched. The Replicator Wasn't.
 
-Artificial life already contains systems that reproduce, evolve, conserve material and generate structures nobody explicitly designed. Evoloops, Flow-Lenia, Genelife and more recent computational-life experiments each cover different parts of that territory, and there are other books for surveying them.[1–4] For our purposes one system is unusually useful, and it is called **Outlier**.
+Artificial life already contains systems that reproduce, evolve, conserve material and generate structures nobody explicitly designed. Evoloops, Flow-Lenia, Genelife and more recent computational-life experiments cover different parts of that territory, and other work surveys it more systematically.[1–4]
+
+For our purposes one system is unusually useful: **Outlier**.
 
 The mechanism will take one paragraph, because the previous chapter has already done the teaching.
 
-Every cell is `0` or `1`. Each cell reads its `3 × 3` Moore neighbourhood, itself included, which gives 512 possible local configurations, and the rule specifies an output for each. That is the entire law of this universe: 512 output bits. The published rule is rotationally symmetric but not mirror-symmetric, and 220 of its 512 entries produce an active centre cell, which makes it a good deal denser than the 140 of Conway's Game of Life.[5]
+Every cell is `0` or `1`. Each cell reads its `3 × 3` Moore neighbourhood, itself included, which gives 512 possible local configurations, and the rule specifies an output for each. That is the entire law of this universe: 512 output bits. The published rule is rotationally symmetric but not mirror-symmetric. Of its 512 entries, 220 produce an active centre cell, compared with 140 for Conway's Game of Life.[5]
 
 Note what is absent. No `Organism`. No genome, no energy budget, no `reproduce()`, no fitness function, no population manager, no representation of an individual anywhere. There is binary state, a neighbourhood, a transition rule and time.
 
-The provenance matters, and the sloppy version of it is false.
+How Outlier was found matters, because it is easy to overstate what happened.
 
-Outlier was found by an automated search — genetic programming across cellular-automaton rules, looking for dynamics that might support open-ended evolution.[5] Humans wrote the search. Humans defined the rule space, the substrate and the selection criteria. Nothing here appeared independently of human design in any absolute sense, and anyone claiming otherwise is selling something.
+Outlier was found by an automated search — genetic programming across cellular-automaton rules, looking for dynamics that might support open-ended evolution.[5] Humans wrote the search. Humans defined the rule space, the substrate and the selection criteria. Nothing here appeared independently of human design in any absolute sense; the result is better understood as the discovery of an interesting rule within a human-defined search space.
 
 But the search was for a universe, not for a replicator. Self-replication was not an explicit objective.[5] What the search returned was a local transition rule. The particular replicating organizations later observed were not explicitly represented in that rule or specified as the target of the search.
 
@@ -143,7 +143,7 @@ similarity
 ancestry
 ```
 
-That is the load-bearing sentence of this chapter, and it is the sharpened form of the rule from Chapter 1 that appearance is not mechanism. Reproduction cannot be established from the final picture, because reproduction is a claim about causation and the picture contains no causation. It contains only the outcome.
+Everything that follows depends on that distinction. It is the sharpened form of the rule from Chapter 1 that appearance is not mechanism. Reproduction cannot be established from the final picture, because reproduction is a claim about causation and the picture contains no causation. It contains only the outcome.
 
 ---
 
@@ -181,7 +181,7 @@ with branching wherever one earlier organization contributes to several later on
 
 > **Can we trace a causal path by which the earlier organization contributed to producing the later one?**
 
-One restriction is worth carrying forward, because it makes the published result more conservative rather than less. The causal work counts only exact copies, where the earlier study allowed rotational variants.[6] Whatever it finds, it is not finding it by relaxing what counts as the same structure.
+One restriction is worth carrying forward. Yang's structural analysis allowed rotational variants, while Hintze and Bohm's causal analysis restricted its replication claims to exact copies.[5][6] Whatever the causal analysis finds, it is not finding it by relaxing what counts as the same structure.
 
 ---
 
@@ -217,25 +217,21 @@ sustained lineage
 
 ## The Fast Ones Did Worse
 
-The original `c2` does not neatly divide in two. It produces many offspring, of which four go on to replicate themselves. Two of those complete the process in 675 ticks; the other two take 778.[6]
+The original `c2` produces several offspring, four of which go on to replicate themselves. Two complete the process in 675 ticks; the other two take 778.[6]
 
-The obvious expectation is that the faster replicators win. Shorter generation time, more descendants, straightforward.
+The obvious expectation is that the faster branches should leave more descendants.
 
-The opposite happened. Over the full phylogeny the 675-tick lineage produced 96 replication events and the slower 778-tick lineage produced 125.[6]
+They did not.
 
-The authors attribute the difference to geometry. The faster branches expand in roughly horizontal directions, while the slower pair travel obliquely and interfere with one another less. In the observed phylogeny, the faster paths therefore encounter more collisions while the slower paths retain more room in which to continue.[6]
+Across the full phylogeny, the 675-tick lineage produced 96 replication events and the slower 778-tick lineage produced 125.[6]
 
-The measurement is solid: shorter replication time did not correspond to greater realized lineage output. The proposed explanation — spatial interference — is strongly suggested by the trajectories, but it was not isolated here by an intervention. We should keep those two things separate.
+The authors attribute the difference to geometry: the faster branches expand in directions that produce more spatial interference, while the slower branches retain more room in which to continue.[6] The measurement is solid. The explanation is plausible but was not isolated by intervention.
 
-Even with that boundary, the result is valuable. A familiar expectation — shorter generation time should produce more descendants, other things being equal — failed in this environment. Spatial direction and available room became candidate constraints on reproductive success.
+So the bounded result is smaller: shorter replication time did not correspond to greater realized lineage output. Spatial direction and available room became candidate constraints on reproductive success.
 
-That is exactly the kind of substrate-specific constraint Chapter 1 told us to look for: not a biological requirement copied into software, but a consequence of the computational world in which the process happens.
+The same run contains another clue. Three of the four developmental pathways begin differently and then converge, passing through an identical sequence of cluster states for their final 143 ticks before producing offspring.[6]
 
-The same run offers a second, quieter surprise. Three of the four developmental pathways diverge substantially at the start and then converge, passing through an identical sequence of cluster states for their final 143 ticks before producing offspring.[6]
-
-Different beginnings can therefore enter the same terminal developmental sequence.
-
-That makes the mechanism harder to describe as a body simply being copied. Replication here is an extended dynamical process through intermediate organizations, some of which bear little resemblance to the eventual offspring.
+Replication here is not well described as a body simply being copied. It is an extended dynamical process through intermediate organizations, some of which bear little resemblance to the eventual offspring.
 
 ---
 
@@ -249,7 +245,7 @@ We do not need the stronger noun. The narrower statement is enough, and it is qu
 
 > **Causal self-replication can involve multiple spatially separated components.**
 
-Notice what that does and does not say. It does not say those components constitute one natural individual. It says connectedness is not a sufficient criterion for locating the reproducing unit — that a detector built to look only for compact connected bodies would have missed reproduction that was demonstrably occurring.
+Notice what that does and does not say. It does not say those components constitute one natural individual. It says a reproducing process need not correspond to one connected body. A detector restricted to compact connected structures would have missed reproduction that was demonstrably occurring.
 
 The previous chapter left us with a version of this problem already. Every intervention there failed to localize the continuing organization to either the agents or the field, and what the experiments kept pointing at was the relationship between them. Outlier now produces the same discomfort from the opposite direction: here we can follow ancestry exactly, and the thing with the ancestry still refuses to be a single object.
 
@@ -277,17 +273,21 @@ So everything below carries its scope with it, and does not generalize upward by
 
 Now the experiment. We wanted to avoid the failure mode where you hunt through a large run for shapes that seem to repeat, because that guarantees a result: among a hundred thousand clusters, *something* recurs, and whatever recurs most strikingly will feel like a discovery. Instead we derived the target signature in advance from the known seed — the small structure the published work designates `c2`, six cells in a `3 × 3` bounding box in our run — and only then searched for later occurrences of that structure.
 
-Our detector treats translation and quarter-turn rotation as equivalent, so the 144 matches below are occurrences of the same `c2` equivalence class under that identity convention.
+Our detector treats translation and quarter-turn rotation as equivalent, consistent with the rule's rotational symmetry. Mirror reflections are not treated as equivalent because the rule is not mirror-symmetric.
 
-That is deliberately broader than Hintze and Bohm's later causal study, which restricted its replication analysis to perfect copies rather than rotational variants.[6]
+That identity convention is deliberately broader than Hintze and Bohm's causal study, which restricted its replication analysis to exact copies.[6]
 
-The search found **144 `c2`-equivalent occurrences** between `t = 2` and `t = 1598`.
+The search found **144 `c2`-equivalent occurrences** between `t = 2` and `t = 1598`. Our indexing takes the initial seed as `t = 0`; the published causal study numbers the corresponding original `c2` one tick later. That is an indexing convention, not a disagreement about the structure.
 
 That is an observation. It is not reproduction, and the gap is the whole point of the chapter. One hundred and forty-four copies are entirely compatible with one hundred and forty-four independent products of the same underlying dynamics, none of which had anything to do with any other.
 
-Encouragingly, this is not a scruple we invented. The authors of the causal study raise precisely the same possibility about their own result: that `c2` patterns might simply arise often, with descent being a correlate of the dynamics rather than a cause.[6] Their answer is the causal trace, and so is ours.
+Encouragingly, this is not a scruple we invented. The authors of the causal study raise precisely the same possibility about their own result: that `c2` patterns might simply arise often, with descent being a correlate of the dynamics rather than a cause.[6] Their answer is the causal trace.
 
-So we built the graph for our own run:
+Ours asks the same causal question, but it does not reproduce their reconstruction exactly. Hintze and Bohm identify minimal sufficient subsets of live predecessors. Our implementation uses a simpler local but-for test: remove each live predecessor individually and record a dependency when that removal changes the child from live to dead.
+
+Those procedures are not equivalent. Redundant causal sets can be missed by ours, and because the Outlier rule is non-monotonic we cannot treat our graph simply as a lower bound on theirs. Everything we claim from our run is therefore bounded to this stated causal criterion.
+
+With that restriction visible, we built the graph:
 
 ```text
 138,891 clusters
@@ -310,11 +310,11 @@ The figure shows a deliberately pruned family, because the full graph is unreada
 
 ---
 
-## This Time, the Interpretation Survives
+## This Time, a Causal Claim Survives
 
-It is worth being explicit about what just happened, because it has not happened before in this book.
+Something has happened here that has not happened before in this book.
 
-We began with a criterion set independently of our result, one that had already disqualified the most persuasive object we had. We fixed the target structure in advance rather than choosing it after seeing which shapes recurred. Then we asked how much of that criterion our own causal reconstruction could actually establish.
+We began with a criterion set independently of our result, one that had already disqualified the most persuasive object we had. We fixed the target structure in advance rather than choosing it after seeing which shapes recurred. Then we asked how much of that criterion our own reconstruction could establish.
 
 It established more than resemblance:
 
@@ -326,17 +326,19 @@ multiple causal first returns
 
 Bounded to what was actually run:
 
-> **In our 512 × 512, 1,600-generation run, recurring `c2` structures participate in a branching causal return graph: later occurrences of `c2` are reachable through measurable causal ancestry originating in earlier `c2` structures.**
+\> **In our 512 × 512, 1,600-generation run, recurring `c2` structures participate in a branching causal return graph: later occurrences of `c2` are reachable through measurable causal ancestry originating in earlier `c2` structures.**
 
-That sentence is narrow, hedged and specific. It is also the strongest positive result in the book so far, and it deserves to be stated without apology.
+That is the strongest positive result from our own experiments so far.
 
-Earlier `c2` organization participates measurably in producing later `c2` organization, and the resulting history branches. No reproduction function was written anywhere. The capability arises from a local rule applied repeatedly, in a universe found by a search that was not looking for it.
+It is not yet the full Hintze-and-Bohm self-replication result. Our first-return analysis does not explicitly test whether two candidate offspring each depend on the parent while remaining causally independent of one another, and our causal reconstruction differs from their minimal-subset method.
 
-This matters for the method as much as for the result.
+So the claim that survives in our run is narrower: **branching causal recurrence of a pre-specified structure**.
 
-The purpose of the procedure is not to make interesting interpretations disappear. It is to discriminate between claims that survive a stated test and claims that do not. A negative result would have been perfectly acceptable.
+That is still more than resemblance. Earlier `c2` organization participates measurably in producing later `c2` organization, and the resulting causal history branches.
 
-What matters is that a positive result is possible when the evidence supports one.
+The purpose of the procedure is not to make interesting interpretations disappear. It is to discriminate between claims that survive a stated test and claims that do not.
+
+A positive result is possible when the evidence supports one.
 
 ```text
 appearance
@@ -345,7 +347,7 @@ stronger criterion
 ↓
 causal test
 ↓
-claim survives
+bounded claim survives
 ```
 
 ---
@@ -354,367 +356,64 @@ claim survives
 
 Discipline now, while the result is fresh and most attractive.
 
-Causal self-replication is a strong result. It is also only causal self-replication. By itself it establishes nothing about self-maintenance, adaptation, agency, memory, autonomy, individuality, open-ended evolution or life. Those remain separate questions, and they remain separate precisely because reproduction has now earned the right to stand on its own rather than be smuggled in alongside them.
+The published Outlier analyses establish causal self-replication under a stricter criterion than the one our reconstruction currently implements.[5][6] Our smaller run independently recovered something narrower: pre-specified structural recurrence embedded in a branching causal ancestry graph.
 
-Note also what the multi-component finding did to our vocabulary. We can say that reproduction occurred. We cannot yet say *what* reproduced, because the reproducing organization need not correspond to anything our eyes or our connected-component detector would isolate as an object.
+Neither result establishes self-maintenance, adaptation, agency, memory, autonomy, individuality, open-ended evolution or life.
 
-The supported statement is narrower than any single word we might reach for:
+And the multi-component result creates another problem. Published causal analysis shows that reproduction can proceed through spatially separated components. That establishes reproduction without giving us an obvious body to point at.
 
-> **Very simple digital physics can support emergent structures that satisfy a defined causal criterion for branching self-replication, including replication processes that involve multiple spatially separated components.**
+So there are two claims here, and keeping them separate matters:
 
-That is already remarkable. Embellishing it would cost us the only property that makes it worth reporting.
+\> **Published analysis shows that very simple digital physics can support emergent structures satisfying a defined causal criterion for branching self-replication, including replication processes involving spatially separated components.**
+
+\> **Our smaller run independently recovers branching causal recurrence of a pre-specified `c2` structure under our stated local but-for criterion, but does not yet reproduce every condition of the published self-replication test.**
+
+Both are already remarkable.
+
+Neither needs embellishment.
 
 ---
 
 ## Two Instruments, Each Missing Something
 
-There is a failure mode available here, and it should be named before we walk into it.
-
-Having found a system that does something remarkable, the obvious move is to start bolting capabilities onto it. Give Outlier a memory. Give it an energy budget. Give it goals. That would build a new cargo cult on a more respectable foundation.
+Finding something remarkable in Outlier does not make Outlier a blueprint.
 
 ```text
 Outlier is evidence, not specification
 ```
 
-We are not going to copy its rule, its structures or its geometry. Its value is as a demonstration of what a substrate can support without anyone specifying the resulting organization. The demonstration is the transferable part.
+Its value is as a demonstration of what a computational substrate can support without anyone explicitly specifying the resulting organization. Copying its rule and bolting on memory, energy or goals would simply rebuild the cargo cult with better evidence underneath it.
 
-The specific 512 bits remain a valuable specimen, but they are not a blueprint for what we build next.
+There is another problem.
 
-But there is a second reason not to build on it, and it is more interesting than the first.
-
-Outlier is extraordinary evidence partly because it is rich. Structures interact, recombine, produce debris and build hierarchies.
-
-That same richness makes higher-level mechanisms difficult to isolate.
-
-We can intervene on cells, seeds and even the transition rule itself. What Outlier does not give us is a clean higher-level parameterization: there is no independent dial for coupling, interaction range, memory, turnover or reproductive mechanism that we can vary while holding the rest fixed.
- Suppose we want to know why one process continues while another stops, or whether stored history changes a later response, or what finite computational scarcity does to interaction. Outlier offers no dial for any of it. There is no parameter marked *coupling*, nothing governing how far influence travels, nothing to hold fixed while varying something else. There are 512 bits that produce this universe or a different one.
-
-Now put that beside the previous chapter, and the shape of the problem becomes clear.
+The previous chapter gave us clean interventions but no operational lineage. Outlier gives us reconstructible causal lineage but very few clean higher-level interventions.
 
 ```text
 Physarum model    separable higher-level interventions, no operational lineage
 Outlier           reconstructible causal lineage, no clean higher-level dials
-
 ```
 
-The Physarum system let us delete the field, replace the population, run a specificity control and switch turnover off again — but the model supplied no operational descendant relation to follow.
+In Physarum we could delete the field, replace the population and switch turnover off while leaving everything else alone.
 
-Outlier gives us something complementary: a deterministic substrate from which causal ancestry can be reconstructed at cell level, but few clean ways to vary one interpretable higher-level mechanism while leaving the rest untouched.
+In Outlier we can alter cells, seeds or the 512-bit rule, but there is no independent parameter for coupling, memory, interaction range or reproduction that can be varied while the rest remains fixed.
 
-The two systems therefore expose complementary strengths rather than forming opposites.
- Neither is the laboratory this book eventually needs, which would have both at once: every rule known, every intervention controllable, one mechanism variable at a time, and a history that can be followed rather than inferred.
+Each system therefore gives us something the other lacks.
 
-That is a specification for something we will have to build.
-
----
-
-## So We Built the Wrong Thing on Purpose
-
-There was a way to turn that specification into an experiment without pretending we already knew how to build digital life.
-
-Build something we knew was not the thing we were looking for.
-
-Make it convincing enough to fool us.
-
-Then attack the measurements.
-
-We constructed a deliberately simple swarm of particles. Each particle had a position and velocity, one designated friend and one designated enemy. Friends attracted. Enemies repelled. A weak pull toward the centre kept the world bounded. Nothing represented a flock, a ring, an organism, a body or an individual.
-
-The point was not originality. Systems with simple attraction and repulsion rules have been producing extraordinary collective structures for decades. The point was to turn that fact against our own method.
-
-If a system this simple could pass one of our tests for persistence, recovery or individuality, then the test was weaker than we thought.
-
-So this was not a candidate.
-
-It was a **decoy**.
-
-The first version did exactly what a good decoy should do.
-
-It produced visible organization.
-
-Then we damaged it.
-
-### What survived the damage?
-
-We began from one evolved state and split it into four identical branches.
+Neither gives us the laboratory we eventually need:
 
 ```text
-control
-
-material damage
-
-organizational damage
-
-material replacement
+known rules
++
+controlled interventions
++
+one mechanism varied at a time
++
+history we can follow
 ```
 
-Material damage displaced 30% of the particles while leaving their relationships intact.
+That is not a description of digital life.
 
-Organizational damage did the opposite: particle positions and velocities were left alone while 30% of the friend-and-enemy relationships were rewired.
-
-Material replacement was stranger. Every particle carried an identity label that had no role in the dynamics. Those labels were gradually replaced until none of the original material identities remained.
-
-That last intervention was intentionally artificial.
-
-If replacing a causally inert label changed anything, our measurement was broken.
-
-It did not.
-
-The replacement branch followed the untouched control exactly while the fraction of original material fell to zero.
-
-That proves almost nothing about the swarm.
-
-It proves something about the experiment.
-
-Our measurement did not secretly define persistence as persistence of material identity.
-
-But the longer runs exposed a larger problem.
-
-The visible state itself would not sit still.
-
-A short run suggested that damaged structures returned toward a recognizable form. A longer run changed the picture substantially. Even the untouched control wandered far from the state against which we had been measuring recovery.
-
-For a moment this looked like failure.
-
-Then the question changed.
-
-We had been asking whether the same **picture** returned.
-
-Why should persistence require that?
-
-### The control would not remain itself
-
-So we stopped measuring distance from one preferred configuration.
-
-Instead we described each state using a collection of macroscopic variables: scale, anisotropy, speed, radial structure, pair-distance structure and the spatial distributions of friend and enemy relations.
-
-Then we watched the untouched system for a long time.
-
-If it were progressively drifting into new kinds of behaviour, the earliest and latest portions of the trajectory should become much more different than neighbouring periods.
-
-They did not.
-
-The median distance between adjacent control periods was approximately:
-
-```text
-2.397
-```
-
-The median distance between the first and last periods was:
-
-```text
-2.284
-```
-
-or about:
-
-```text
-0.953 ×
-```
-
-the ordinary adjacent-period difference.
-
-The pictures could change radically.
-
-The statistical regime did not show corresponding cumulative drift.
-
-That distinction matters.
-
-```text
-same visible state
-≠
-same dynamical regime
-```
-
-What appeared persistent was no longer a shape.
-
-It was a region of possibilities through which the system moved.
-
-### Now damage it again
-
-This gave us a better control.
-
-Instead of asking whether an intervention returned to one snapshot, ask whether the distribution of states after intervention differs from the distribution naturally explored by an untouched copy of the same system.
-
-Then compare that difference with the system's ordinary self-variation.
-
-For material damage, the median intervention-to-control distance was only about:
-
-```text
-0.622 × ordinary control drift
-```
-
-Only one of eight independent runs exceeded the ordinary control-drift baseline, and none exceeded twice that baseline.
-
-Thirty percent of the visible material could therefore be thrown violently out of place without producing a long-run macrostate distribution distinguishable, by this measurement, from the system's ordinary wandering.
-
-That is stronger than saying the shape recovered.
-
-The shape need not recover.
-
-The regime survived.
-
-### Then the result we expected failed
-
-We expected organizational damage to behave differently.
-
-The relationships were causal. Attraction and repulsion were what generated the dynamics. Rewiring 30% of those relationships seemed like a direct attack on the invisible organization underneath the visible swarm.
-
-And the effect was larger.
-
-```text
-mean distance from control
-
-material damage          1.84
-
-organizational damage    2.72
-```
-
-But that is not the comparison we had declared.
-
-The relevant comparison was with ordinary control drift.
-
-By that standard the organizational intervention did not cleanly separate either.
-
-Its median distance was approximately:
-
-```text
-0.766 × ordinary control drift
-```
-
-and its mean was approximately:
-
-```text
-0.949 ×
-```
-
-Only two of eight runs exceeded the ordinary drift baseline. One exceeded twice it.
-
-So the attractive conclusion failed.
-
-We could not say:
-
-```text
-material is replaceable
-but
-organization is the relationship graph
-```
-
-The exact relationship graph had taken substantial damage, and the macroscopic regime usually remained inside the variation the undamaged system produced on its own.
-
-That is not what we built the experiment hoping to find.
-
-Which is why it is useful.
-
-### We had chosen another noun too early
-
-The first temptation was to locate persistence in the particles.
-
-That failed.
-
-Then in the visible form.
-
-That failed.
-
-Then in the exact relationship graph.
-
-That now looked too specific as well.
-
-What remained was coarser:
-
-```text
-particle identity                  replaceable
-
-particular visible configuration  variable
-
-substantial exact edge identity   replaceable
-
-dynamical regime                  persistent so far
-```
-
-There are many possible explanations for that final line.
-
-Perhaps only some relationships matter.
-
-Perhaps what persists is a distribution of interaction lengths rather than particular edges.
-
-Perhaps graph motifs matter.
-
-Perhaps only the balance between attraction and repulsion matters.
-
-Perhaps the relationship network is almost incidental and the persistent organization lives primarily in the update law itself.
-
-We do not get to choose among those because one of them sounds good.
-
-The experiment has earned a new question, not an answer:
-
-> **How much of the relationship organization can be destroyed before the dynamical regime actually changes?**
-
-That is now measurable.
-
-We can rewire 10%, 20%, 30% and continue all the way to complete replacement of the relationship graph, always beginning from matched copies of the same evolved state and always comparing the resulting macrostate distribution against ordinary control drift.
-
-If there is a threshold, we can measure it.
-
-If no threshold appears even after complete rewiring, then exact relational identity was never the carrier we thought it was.
-
-Either result tells us more than naming the swarm ever could.
-
-And that is why we built the wrong thing on purpose.
-
-Not because it might be alive.
-
-Because we know enough about it to catch ourselves when we start treating persistence, organization and individuality as synonyms.
-
-The swarm had warned us that coherent motion can belong to a dynamical regime without identifying either an individual or the mechanism carrying its continuity.
-
-Then we went back to Outlier.
-
-And almost immediately saw something moving together.
-
----
-
-## And Then We Noticed Something Else
-
-We had just earned our strongest positive result. The obvious interpretation had survived the stronger test.
-
-Which matters psychologically as well as scientifically, and not in a good way. Once one exciting claim survives, the next exciting claim becomes much easier to believe.
-
-That is where the trouble starts.
-
-Watching the same simulation, another pattern became difficult to ignore. Structures seemed to move together — not merely outward, as fragments carried on one expanding front would, but with an apparent directional coherence that looked strongest among structures sharing recent causal history.
-
-The biological noun arrived immediately.
-
-**Flocking.**
-
-We knew better than to trust it. Unfortunately we also had a reason to think it might be real, and worse, we had the causal graph, which meant shared ancestry could be identified independently of motion. The hypothesis was testable.
-
-So we did what the method requires.
-
-```text
-observation
-↓
-hypothesis
-↓
-measurement
-↓
-control
-```
-
----
-
-## Experimental Note
-
-Our own measurements come from one implementation under one configuration: a `512 × 512` world run for 1,600 generations from the published seed, with the rule decoded and verified against all 512 transition cases, 220 active outputs and the published rotational symmetry. The `c2` signature was fixed in advance from the seed rather than selected from the run, and matching allowed translation and rotation. Causal reconstruction is at cell level, aggregated to clusters by adjacency.
-
-Our implementation does not use the full minimal-subset reconstruction of Hintze and Bohm. For each live child cell, it removes each live predecessor individually and records a dependency when that single removal changes the child from live to dead.
-
-That is a legitimate local but-for test, but it is not equivalent to the published method. In particular, redundant causal sets can be missed, and because the Outlier rule is non-monotonic there is no general basis for describing the resulting graph simply as a lower bound on the published causal graph.
-
-The measurements reported from our run should therefore be interpreted under this explicitly stated causal criterion. Reproducing the published minimal-subset procedure is a separate validation step.
-
-Our indexing places the initial seed at `t = 0`, which puts the first `c2` occurrence at `t = 2`; the published causal study refers to the original `c2` at `t = 3`. We treat this as a difference in indexing convention rather than a disagreement about the structure. Published figures throughout are from the 1024 × 1024, 20,000-tick run and are reported as such; nothing from our smaller run is generalized to that regime. Full protocols, the decoder verification and the discarded runs are in the appendix.
+It is a specification for the instrument we will need to investigate it.
 
 ---
 
