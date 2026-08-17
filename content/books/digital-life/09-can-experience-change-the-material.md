@@ -11,7 +11,7 @@ series = ["Digital Life From First Principles"]
 
 At the end of the last chapter the Digital Crystal had a past with real consequences and nowhere inside itself to keep it.
 
-A checkpoint could continue it exactly, but the checkpoint belonged to us. An event log could reconstruct how it formed, but the growth rule never read the log. A single received bit could redirect a later trajectory, and two matched pulse histories produced measurably different futures — yet nothing about those futures let us recover which history had occurred.
+A checkpoint could continue it exactly, but the checkpoint belonged to us. An event log could reconstruct how it formed, but the growth rule never read the log. A single received bit could redirect a later trajectory, and two matched pulse histories produced measurably different futures — yet the tested morphology readouts did not recover which history had occurred.
 
 The consequences propagated forward through construction itself. An altered attachment changed a frontier; the changed frontier changed what could happen next. That is a genuine causal past. It is not a stored one. Nothing was written down anywhere inside the process, because the process had nowhere to write.
 
@@ -81,23 +81,25 @@ If the mechanism fails outright, that is useful. If it succeeds, we still have t
 
 ## The Mark Persists
 
-The first requirement is easy to satisfy.
+The first requirement is almost trivial by construction.
 
 The pulse arrives. Cells near the boundary become modified. The pulse ends. The modified cells remain modified because this model contains no rule that erases or decays that state.
 
-We have produced a persistent internal consequence of experience. Not a record in our database, not a checkpoint on our disk: a difference inside the material of the crystal itself, written by something that happened to it.
+So persistence itself is not a discovery here. We deliberately built a material state that can persist.
 
-This is the first mechanism that makes the word *memory* genuinely tempting.
+The experimental question is what that persistent state can still do.
+
+The consequence now exists inside the material rather than in our checkpoint or event log.
 
 The event is over.
 
-The material is different because it happened.
+The material remains different because it occurred.
 
-And the difference remains.
+That is enough to make the word *memory* tempting.
 
-Good.
+It is nowhere near enough to earn it.
 
-Now ask whether the future can still reach it.
+The next question is whether the future can still reach the difference we created.
 
 So we do the obvious thing and check whether it matters.
 
@@ -161,7 +163,7 @@ after burial    mean frontier contact =   0       effect = 0
 
 The bounded result:
 
-> **Persistent material state matters only while it remains causally accessible to the active growth frontier.**
+> **In these experiments, the causal effect of retained material tracked whether that material remained accessible to active growth.**
 
 ---
 
@@ -183,7 +185,7 @@ It was access.
 
 > **The crystal did not run out of storage. Its past fell behind the moving surface where the future was being decided.**
 
-The active frontier is not merely the geometric edge of the crystal. It is the interface through which existing material can still participate in the next construction decisions.
+Under irreversible outward growth, the active frontier is the interface through which existing material can still participate in the next construction decisions.
 
 Call this the crystal's **causal aperture**.
 
@@ -219,7 +221,7 @@ We did not need a biological theory of memory to discover it. It emerged from th
 
 Within this model, persistence is cheap.
 
-Causal access is scarce.
+Continued causal access is the harder problem.
 
 ---
 
@@ -322,7 +324,26 @@ So the exciting run was not yet evidence for the claim we wanted. This is the re
 
 The fix is to take the quantity away as a variable.
 
-We rebuilt the comparison with a controller that looks across all three branches at every propagation step, finds a copy budget that all of them can satisfy, and forces every branch to transmit exactly that many modified cells. Same checkpoint, same environment, same number of propagation events, same amount of material copied. The only remaining difference is where it goes.
+We rebuilt the comparison with a controller that looks across all three branches at every propagation step, finds a copy budget that all of them can satisfy, and forces every branch to transmit exactly that many modified cells.
+
+At the intervention level we now hold fixed:
+
+```text
+checkpoint
+environment
+copy count
+number of propagation events
+```
+
+and deliberately vary:
+
+```text
+placement policy
+```
+
+The comparison is no longer more state against less state.
+
+It is the same amount of propagated state placed differently.
 
 Now the intervention is clean:
 
@@ -342,7 +363,7 @@ It generated a new hypothesis, tested in a new experiment with a frozen observat
 
 ---
 
-## The Surface Wins
+Placement Changes Causal Lifetime
 
 So we kept the exact matched-copy controller, changed nothing about the material mechanism, and changed only the definition of the outcome. Instead of one frame, freeze an observation window — steps 5 through 18 — and integrate through it:
 
@@ -407,9 +428,9 @@ None satisfied its broader predeclared claim.
 At that point the scientific picture had stopped changing:
 
 ```text
-amount matters
-placement matters
-frontier access matters
+quantity can confound placement
+placement changes causal lifetime
+frontier access tracks causal leverage
 ```
 
 ---
@@ -534,13 +555,13 @@ FAILED
 
 The statistical effect is detectable.
 
-The scientific claim still fails.
+The predeclared scientific claim still fails.
 
-Before seeing the result, we had specified not merely that the effect must differ from zero, but that it must be large enough relative to ordinary crystal-to-crystal variation to count as the phenomenon under investigation.
+Before seeing the result, we had required more than a departure from zero. The interaction also had to be large enough relative to population size and ordinary crystal-to-crystal variation to count as the phenomenon we said we were looking for.
 
 It was not.
 
-The reason to insist on this is mechanical rather than moral. A p-value answers one question: could this effect plausibly be zero? With enough replicates, effects that are far too small to matter produce spectacularly small p-values. The question we actually care about is different:
+A small p-value answers a much narrower question than the one we declared.
 
 > Is it large enough to be the thing we said we were looking for?
 
@@ -579,9 +600,9 @@ It cannot answer the stronger question:
 
 > **Can different pasts leave material differences that ordinary later dynamics distinguish without being told what those histories mean?**
 
-So the next experiment removed the symbolic distinction entirely.
+The next experiment removed the symbolic distinction entirely.
 
-So rather than tuning the failed experiment, we removed the decoder.
+Rather than tuning the failed experiment, we removed the decoder.
 
 ---
 
@@ -645,7 +666,9 @@ against seed noise                        0.033 SD  (required 0.500 SD)
 FAILED
 ```
 
-This is not a near miss. The interval straddles zero and the effect is a few hundredths of the scale on which crystals differ from each other for no reason at all. There is nothing here to rescue and nothing worth tuning.
+This is not a near miss. The interval straddles zero and the effect is only `0.033` standard deviations on the declared seed-to-seed noise scale.
+
+There is nothing here to promote and nothing in the frozen experiment to rescue.
 
 Many additional probes are possible: different spatial organizations, different challenge geometries, different timings.
 
@@ -686,7 +709,7 @@ DISTINGUISH BETWEEN PASTS
 
 ```
 
-The chapter's two sentences:
+The chapter has earned two distinctions:
 
 > **Persistent does not mean accessible.**
 
