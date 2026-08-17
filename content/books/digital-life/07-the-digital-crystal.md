@@ -13,8 +13,7 @@ Outlier was the wrong laboratory for the question we now wanted to ask.
 
 Not a wrong system. The last two chapters were worth every page, and nothing in them is retracted. Outlier showed us what computation can support.
 
-But by the end of the flocking investigation, another problem had become unmistakable: it was much better at producing phenomena than at isolating them.
- Geometry, ancestry, distance, expansion, local environment and interaction all arrive together in that world, arising from the same 512 bits, moving together, entangled beyond separation. Every control we built was an attempt to statistically undo an entanglement we could not experimentally prevent, and one entire regime stayed unresolved because the comparison we needed simply did not exist in the data.
+But by the end of the flocking investigation, another problem had become unmistakable: it was much better at producing phenomena than at isolating them. Geometry, ancestry, distance, expansion, local environment and interaction all arrive together in that world, arising from the same 512 bits, moving together, entangled beyond separation. Every control we built was an attempt to statistically undo an entanglement we could not experimentally prevent, and one entire regime stayed unresolved because the comparison we needed simply did not exist in the data.
 
 Matching is one way to recover a comparison when the experiment did not create one for you.
 
@@ -24,11 +23,13 @@ We want to construct the comparison before the world runs: hold everything we ca
 
 There is one idea worth carrying across from Outlier, and it is much smaller than an organism:
 
+```text
 local computation
 ↓
 repeated interaction
 ↓
 larger-scale organization
+```
 
 That is all we need to import.
 
@@ -48,16 +49,18 @@ the full history can be preserved
 
 And an equally important list of what we refuse to build:
 
+```text
 organism
 memory
 repair
 reproduction
 metabolism
 individual
+```
 
-Not because those questions are uninteresting.
+We want to leave those concepts out of the machinery entirely.
 
-Because if those concepts appear explicitly in the machinery, we lose the ability to discover whether anything resembling them arises from something simpler.
+Then, if anything resembling them appears, we can ask whether the simpler system actually produced it.
 
 The laboratory must not contain the answer.
 

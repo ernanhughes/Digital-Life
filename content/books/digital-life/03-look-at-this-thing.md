@@ -231,6 +231,7 @@ The mechanism is simple. Agents sense the field, turn, move and deposit into it.
 
 So:
 
+```text
 agents
  ↓
 change the field
@@ -240,6 +241,7 @@ the field retains a trace
 the trace changes later behaviour
  ↓
 agents change the field again
+```
 
 There is no network object, route planner or representation of the structure that eventually appears.
 
