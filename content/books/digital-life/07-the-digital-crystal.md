@@ -11,15 +11,15 @@ tags = ["Digital Life", "Digital Crystal", "Crystal Growth", "Hexagonal Lattice"
 
 Outlier was the wrong laboratory for the question we now wanted to ask.
 
-Not a wrong system. The last two chapters were worth every page, and nothing in them is retracted. Outlier showed us what computation can support.
+Nothing in the previous chapters is retracted. Outlier had shown us what computation could support.
 
-But by the end of the flocking investigation, another problem had become unmistakable: it was much better at producing phenomena than at isolating them. Geometry, ancestry, distance, expansion, local environment and interaction all arrive together in that world, arising from the same 512 bits, moving together, entangled beyond separation. Every control we built was an attempt to statistically undo an entanglement we could not experimentally prevent, and one entire regime stayed unresolved because the comparison we needed simply did not exist in the data.
+But by the end of the flocking investigation, another problem had become unmistakable: Outlier was much better at producing phenomena than at isolating them. Geometry, ancestry, distance, expansion and local environment all arose together from the same 512-bit rule.
 
-Matching is one way to recover a comparison when the experiment did not create one for you.
+Matching can recover some comparisons after a world has already run.
 
-Now we want the opposite situation.
+Now we want to build the comparison first.
 
-We want to construct the comparison before the world runs: hold everything we can fixed, change one mechanism deliberately, and measure what changes with it.
+Hold everything we can fixed. Change one mechanism deliberately. Measure what changes with it.
 
 There is one idea worth carrying across from Outlier, and it is much smaller than an organism:
 
@@ -64,7 +64,7 @@ Then, if anything resembling them appears, we can ask whether the simpler system
 
 The laboratory must not contain the answer.
 
-The result is going to be almost embarrassingly small.
+The first laboratory is going to be almost embarrassingly small.
 
 ---
 
@@ -155,7 +155,9 @@ That does not tell us whether reproduction matters to digital life.
 
 It tells us only that growth and reproduction are separate computational possibilities, and therefore deserve separate experiments.
 
-That is a substrate-first move, and it is the reason this laboratory is built around growth rather than around anything more ambitious. We get to study **continued process before reproduction** instead of assuming the biological ordering.
+That is why this laboratory begins with growth rather than reproduction.
+
+We can study **continued process before reproduction** instead of assuming the biological ordering in advance.
 
 ---
 
@@ -173,9 +175,7 @@ Let the structure grow for twenty generations, then erase a region from its inte
 
 It looks like healing. It is not.
 
-The rule says any empty location adjacent to occupied structure becomes occupied, and that rule operates identically outside the structure and inside a hole. The system does not distinguish damage from ordinary frontier — there is no target morphology anywhere, nothing that could represent what the structure is supposed to look like. The hole closes because continued growth plus available empty space closes holes.
-
-But nothing in the rule distinguishes damage from ordinary empty space.
+The system does not distinguish damage from ordinary empty space. There is no target morphology and nothing representing what the structure is supposed to look like.
 
 The same attachment rule that advances the exterior frontier also fills an interior hole.
 
@@ -206,7 +206,8 @@ The prototype is almost too predictable.
 Good.
 
 A laboratory should begin with a baseline we understand.
- What we want next is genuinely different:
+
+What we want next is genuinely different:
 
 > **Can changing external conditions influence growth strongly enough to leave a persistent, measurable signature in the finished structure?**
 
@@ -240,9 +241,7 @@ The hole-filling result above tells us nothing about how this stochastic model r
 
 This is where the name **Digital Crystal** becomes useful.
 
-Not because the structure resembles quartz, and not because it sits on a hexagonal lattice.
-
-The analogy is mechanistic: local interactions during formation accumulate into persistent larger-scale structure.
+The analogy is mechanistic rather than visual: local interactions during formation accumulate into persistent larger-scale structure.
 
 So we can state a hypothesis rather than a definition:
 
@@ -251,9 +250,8 @@ So we can state a hypothesis rather than a definition:
 If the answer is no, the name has earned nothing.
 
 If the answer is yes, we can decide what the name is worth afterwards.
- morphology.**
 
-Deliberately narrow. It says nothing about life, memory, learning, adaptation, reproduction, intelligence or agency. Its only virtue is that it can be tested, and might be false.
+The hypothesis is deliberately narrow. It says nothing about life, memory, learning, adaptation, reproduction, intelligence or agency.
 
 ---
 
@@ -410,11 +408,11 @@ alt="Held-out classification accuracy for recovering the source process from Dig
 caption="Source-process family can be recovered from held-out Digital Crystal morphology substantially above the 16.7% chance baseline."
 >}}
 
-Substantially above chance on held-out structures.
+Substantially above the six-way chance baseline on held-out structures.
 
-The environment has left a readable morphological signature.
+The forcing process has left a recoverable morphological signature under this measurement.
 
-Two different classifier families produce similar held-out accuracy, which makes the result less dependent on one particular decision boundary.
+Two different classifier families give similar held-out accuracy, making the result less dependent on one particular classifier family.
 
 That is reassuring, but not magical. The important result is simpler: unseen crystals contain enough morphological information for source family to be recovered substantially above the six-way chance baseline.
 
@@ -452,11 +450,11 @@ white noise   2.40
 random walk   1.40
 ```
 
-The variable-source populations remain morphologically distinct after their means are approximately aligned.
+The variable-source populations remain morphologically displaced from the constant baseline after their means are approximately aligned.
 
-So differences in mean forcing are not sufficient to explain the separation among those source families.
+So differences in mean forcing are not sufficient to explain those morphological shifts.
 
-Something about the distribution or temporal structure of the forcing is also contributing.
+Some other property of the forcing — its distribution, temporal structure, or both — is contributing.
 
 Which one?
 
@@ -480,11 +478,11 @@ against a 16.7% chance baseline throughout.
 
 Discipline here, because this sweep is noisy and it would be easy to over-read. There is no clean monotonic trend; 1.15 outperforms 1.25 substantially, and a seven-point sweep cannot tell us the shape of a response curve. We are not entitled to say that increasing forcing predictably increases recoverability, and we do not know the optimum.
 
-What survives is narrow and sufficient:
+What survives is narrow:
 
-> **Source-family information remains recoverable above chance at every tested forcing strength in this sweep.**
+> **Source-family recovery remained above the six-way chance baseline at every tested forcing strength in this sweep.**
 
-The phenomenon is not an artefact of one lucky parameter.
+That makes a single lucky forcing strength an inadequate explanation for the result.
 
 ---
 
@@ -543,13 +541,13 @@ caption="Ordered-versus-shuffled source histories cannot be recovered above chan
 
 The result sits essentially at chance under both tested classifiers.
 
-Whatever allowed us to recover source family did not provide a usable ordered-versus-shuffled signal under this morphology representation and protocol.
+Under this morphology representation and protocol, we found no evidence that the ordered and shuffled histories were recoverably distinguishable.
 
 Be precise about what this does and does not establish. It does not prove that no conceivable measurement could ever recover temporal information from this model. It establishes:
 
-> **Our morphology representation and classifiers do not recover ordered-versus-shuffled history above chance under this protocol.**
+> **Our morphology representation and classifiers provide no evidence of above-chance recovery of ordered-versus-shuffled history under this protocol.**
 
-Which is already enough to kill the claim we were drifting toward.
+That is enough to block the stronger claim we were drifting toward.
 
 But the control can be stronger, and should be. A sine wave and a square wave do not merely differ in ordering — their distributions differ too, so the successful source-family classifier may be leaning primarily on distributional structure. We can remove even that.
 
@@ -582,13 +580,13 @@ caption="The temporal forcing histories differ radically, but their final morpho
 
 One safeguard matters enough to state. All temporal arrangements built from a single value set stay together during the train/test split, so the classifier cannot train on one ordering of a value set and then be tested on a different ordering of that same set. Held-out value sets are genuinely unseen. Without that, a subtle leakage path would let the model recognize the values rather than the ordering.
 
-With the value multiset held exactly constant, the tested morphology representation and classifiers still do not recover temporal organization above chance.
+With the value multiset held exactly constant, the tested morphology representation and classifiers again provide no evidence of above-chance recovery of temporal organization.
 
 The stronger interpretation fails again.
 
 The values mattered.
 
-Their exact ordering, under this test, did not remain readable.
+Under this test, their exact ordering was not recoverably readable from the final morphology.
 
 ---
 
@@ -626,7 +624,7 @@ Which is, when you look at it, strangely appropriate. Inspect a physical crystal
 
 Our Digital Crystal turns out to be closer to that than to a recording device. The morphology behaves less like a tape recording and more like a compressed consequence of formation.
 
-Which means the failure has told us something the success could not: what *kind* of information this substrate preferentially preserves.
+The failure therefore narrows the result: this measurement recovers broad properties of the formation conditions more readily than exact temporal organization.
 
 ---
 
@@ -653,8 +651,8 @@ past contributed to present
 source family recoverable
         SUPPORTED
 
-mean alone explains source effect
-        FAILED
+mean forcing alone is sufficient
+        NOT SUPPORTED
 
 exact temporal order recoverable
         NOT SUPPORTED
@@ -676,7 +674,7 @@ RECOVERABLE HISTORY
 
 A process can be thoroughly shaped by its past without being a record of it.
 
-A useful working description is **lossy integration**:
+A useful working description for what we measured is **lossy integration**:
 
 ```text
 external forcing
@@ -706,7 +704,7 @@ That is a real result. It does not need help.
 
 ## The Digital Crystal
 
-The name was a label at the start of the experiment. It has now earned a little weight, and the definition it earned is the modest one:
+The name was a label at the start of the experiment. It has now earned a little weight:
 
 > **A Digital Crystal is a local computational growth process in which characteristics of an external input become expressed as persistent, measurable morphology.**
 
@@ -729,39 +727,31 @@ Keeping those statements separate is the result.
 
 It is worth noticing what just happened procedurally, because it is the thing Outlier could not offer. We wanted to know whether temporal order mattered. So we built two worlds identical in every respect except temporal order, and looked at the difference. No matching. No searching a complicated world for naturally occurring comparisons. No unresolved regime where the data happened not to contain what we needed.
 
-That is what the laboratory is for, and it worked on its first serious question.
+That is what the laboratory was built for.
+
+For its first serious question, the comparison existed because we constructed it.
 
 ---
 
 ## Give It a Past
 
-We asked the crystal what happened to it.
+The first experiment could recover something about the conditions under which the crystal formed.
 
-The morphology could answer something like:
+The harder question was whether the final morphology could also distinguish the order in which those conditions occurred.
 
-> *I can tell you something about the conditions under which I formed.*
-
-Then we asked a harder question:
-
-> *Can you tell us in what order those conditions occurred?*
-
-Under the tests we ran, the morphology could not.
+Under the tests we ran, it could not.
 
 That is not a disappointing end to the Digital Crystal. It identifies the next missing capability with unusual precision. The crystal has a present, and that present carries information about the conditions that produced it.
 
 What we have not yet given it is a **recoverable past**: enough preserved state that two different histories can remain distinguishable even when their current visible morphology is otherwise comparable.
 
-So the next step is not to make it intelligent. Not to give it goals. Not reproduction. Not learning.
-
-Something much smaller.
+So the next step is smaller than intelligence, goals, reproduction or learning.
 
 Give the process a way to **keep what happened**.
 
-Not to interpret the past.
-Not to learn from it.
-Not to call it memory.
+Preserve enough internal consequence that two different histories remain distinguishable later.
 
-Just preserve enough internal consequence that two different histories remain different later.
+We do not need to call that memory yet.
 
 Because before the past can change the future, some distinction from that past has to survive.
 
