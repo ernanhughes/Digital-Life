@@ -1,0 +1,171 @@
+{
+  "experiment_version": "matched-temporal-v1",
+  "model_version": "digital-crystal-v1-frozen",
+  "profile": "quick",
+  "replicates": 10,
+  "steps": 72,
+  "max_radius": 44,
+  "temporal_classes": [
+    "random",
+    "block",
+    "alternating",
+    "smooth",
+    "burst",
+    "periodic"
+  ],
+  "total_crystals": 60,
+  "cached_runs": 0,
+  "exact_multiset_validation": true,
+  "group_safe_split": true,
+  "classification": {
+    "labels": [
+      "alternating",
+      "block",
+      "burst",
+      "periodic",
+      "random",
+      "smooth"
+    ],
+    "chance": 0.16666666666666666,
+    "n_train": 42,
+    "n_test": 18,
+    "train_groups": [
+      0,
+      1,
+      2,
+      3,
+      6,
+      7,
+      9
+    ],
+    "test_groups": [
+      4,
+      5,
+      8
+    ],
+    "random_forest_accuracy": 0.1111111111111111,
+    "logistic_accuracy": 0.1111111111111111,
+    "random_forest_confusion": [
+      [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        2,
+        0,
+        1,
+        0,
+        0
+      ]
+    ],
+    "logistic_confusion": [
+      [
+        1,
+        0,
+        0,
+        0,
+        2,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        2,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        2,
+        1,
+        0
+      ]
+    ]
+  },
+  "permutation_null": {
+    "repeats": 30,
+    "mean": 0.13333333333333333,
+    "std": 0.07671227843410362,
+    "p95": 0.2222222222222222,
+    "max": 0.3333333333333333
+  },
+  "verdict": "TEMPORAL_ORGANIZATION_NOT_RECOVERABLE",
+  "bounded_claim": "With the Digital Crystal v1 growth rule frozen and input value distributions exactly matched, this experiment did not establish recoverable information about temporal organization in final morphology.",
+  "figures": {
+    "signals": "static\\images\\books\\digital-life\\ch14-09-matched-temporal-signals.png",
+    "crystals": "static\\images\\books\\digital-life\\ch14-09-matched-temporal-crystals.png",
+    "confusion": "static\\images\\books\\digital-life\\ch14-09-matched-temporal-confusion.png",
+    "accuracy": "static\\images\\books\\digital-life\\ch14-09-matched-temporal-accuracy.png"
+  },
+  "nonclaims": [
+    "memory",
+    "learning",
+    "adaptation",
+    "life",
+    "universal temporal encoding"
+  ]
+}
