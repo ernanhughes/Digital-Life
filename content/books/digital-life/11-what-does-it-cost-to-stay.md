@@ -66,11 +66,15 @@ B = 1024     ~3513
 unlimited    ~3462
 ```
 
-The scale of the process is strongly constrained by the amount of computation available to it.
+Under this loss regime and observation window, the population reached by the process is strongly budget-dependent.
 
-Across the binding part of the sweep, increasing the evaluation budget produces a large increase in late population. A sixteen-fold change in budget corresponds to roughly a nine-fold difference in scale.
+Across the binding part of the sweep, increasing the evaluation budget produces a large increase in late population.
 
-That the curve flattens somewhere above `B = 512` is unsurprising: past some point the budget stops binding, because there are not that many eligible sites to evaluate. The exact ordering at the top end is not worth interpreting. What matters is the binding end of the sweep.
+That the curve flattens somewhere above `B = 512` is unsurprising: past some point the budget stops binding because there are not enough eligible sites to use all available evaluations. The exact ordering at the top end is not worth interpreting.
+
+What matters is the binding end. At the tested horizon, the crystal at `B = 64` has a late population roughly one ninth that of the unlimited reference.
+
+Whether this is an asymptotic scale difference or partly a time-rescaled growth difference is not established by this experiment.
 
 Under the tested horizon and loss regime, the crystal at `B = 64` reaches a late population roughly one tenth that of the unlimited reference.
 
@@ -142,16 +146,34 @@ NEUTRAL          keyed-random ordering
 LOW SUPPORT      sites with fewer occupied neighbours evaluated first
 ```
 
-Each policy sees only current local geometry. None of them can inspect the occupancy ledger. None of them knows whether a site is new territory or a place that used to be occupied and was lost — that distinction remains, as it was in the previous chapter, entirely observer-side.
+Each policy sees only current local geometry. None can inspect the occupancy ledger. None knows whether a site is new territory or a location that was previously occupied and lost.
 
-But current geometry carries statistical consequences of how a site arose.
+But local support has two consequences at once.
 
-Reoccupation candidates often sit inside more occupied local neighbourhoods than candidates at the outer frontier.
- So support-biased scheduling can indirectly shift evaluation opportunity between reoccupation-like and expansion-like candidates without ever reading the observer's occupancy history.
+Reoccupation candidates often have more occupied neighbours than outer-frontier candidates.
 
-That is exactly what makes the experiment interesting.
+And occupied-neighbour count already enters the attachment rule itself.
 
-That is the mechanism worth watching. If the allocation shifts, it will shift because of local geometry, not because we told anything to prefer repair.
+So high-support scheduling does not merely select more reoccupation-like candidates:
+
+```text
+support
+→
+changes which sites receive evaluation
+
+AND
+
+support
+→
+changes the attachment probability
+of those evaluated sites
+```
+
+The experiment therefore tests **support-biased allocation through local geometry**.
+
+It does not isolate a pure causal tradeoff between reoccupation and expansion.
+
+That stronger interpretation would require a comparison matched on local support.
 
 ---
 
@@ -168,15 +190,19 @@ first occupations / 1000 evals   188       212           249
 late net growth                +24.3     +10.0          -1.5
 ```
 
-The same evaluation budget, allocated differently, produces mean late populations differing by roughly seventy percent.
+The same evaluation budget, scheduled differently through local support, produces mean late populations differing by roughly seventy percent.
 
-The mean late net-growth statistic even changes sign across the scheduling policies.
+The mean late net-growth statistic even changes sign across the policies.
 
 ```text
 SAME COMPUTATIONAL BUDGET
 ≠
 SAME MATERIAL FUTURE
 ```
+
+That result does not depend on interpreting the schedules as reuse-versus-expansion policies.
+
+It is already enough to establish that, under finite computation, **which eligible opportunities receive evaluation matters**.
 
 Under high-support scheduling, reoccupation runs at roughly `0.96` events per loss.
 
@@ -191,18 +217,33 @@ The scheduling rule does not know what reoccupation is, yet it changes it dramat
 
 The hypothesis had been more specific than *allocation matters*. It predicted a clean two-sided tradeoff: high-support scheduling should meaningfully increase reuse, **and** low-support scheduling should meaningfully increase expansion, each clearing a magnitude threshold fixed in advance.
 
-The first arm passed comfortably:
+The first arm passed comfortably.
+
+The frozen contrast was high support minus low support:
 
 ```text
-high-support reoccupation advantage    ≈ 0.425     required 0.150
+reoccupation / loss
+
+high support - low support
+≈ 0.425
+
+required
+≥ 0.150
 ```
 
-The second did not:
+The second arm used the opposite contrast:
 
 ```text
-low-support first-occupation advantage ≈ 61.6      required 100
-                                       (per 1000 evaluations)
+first occupations / 1000 evaluations
+
+low support - high support
+≈ 61.6
+
+required
+≥ 100
 ```
+
+The observed expansion-side effect reached only about `61.6%` of the predeclared meaningful magnitude.
 
 The first-occupation effect is statistically detectable, but it remains below the magnitude we had committed to calling scientifically meaningful.
 
@@ -291,11 +332,11 @@ B = 128    -0.00280
 
 against a frozen requirement of `|slope| ≤ 0.00250`.
 
-At `B = 80`, the measured slope was `-0.00252` against a frozen limit of `±0.00250`.
+At `B = 80`, the measured slope was `-0.00252` against the frozen operational limit of `±0.00250`.
 
 Close enough to tempt reinterpretation.
 
-Not close enough to pass.
+Not close enough to pass the declared criterion.
 
 We could now search neighbouring budgets, adjust the late window, or redefine `B = 80` as effectively stationary.
 
@@ -307,42 +348,117 @@ So we do none of them.
 FAILED
 ```
 
-The crystal was not stationary. It was very slowly declining, at every budget we had committed to testing.
+No tested budget satisfied the frozen operational criterion for stationarity.
+
+All five remained slowly declining.
+
+The threshold protects us from moving the line after seeing the data. It does not imply that `-0.00249` and `-0.00252` are physically different regimes.
 
 ---
 
-## The Wrong Kind of Stability
+## A Stable-Looking Flow
 
-But the five failing budgets were failing in a peculiar way.
+The five failing budgets shared one striking numerical pattern.
 
-Their absolute populations differed substantially.
+Their absolute populations differed substantially, yet gross material turnover as a fraction of population remained close to `0.17` per update across the entire budget family.
 
-Yet their normalized decline rates were similar, and one quantity was more stable still: gross material turnover as a fraction of population remained close to `0.17` per update across the entire budget family.
+At first this looked like a different kind of stability.
 
-Different scale.
+But before treating it that way, there is an accounting identity we have to notice.
 
-Remarkably similar proportional traffic.
+Let:
 
-Which raises an uncomfortable possibility about the experiment we had just run. We had asked whether population would become stationary because population was the obvious candidate state variable.
+```text
+A = attachments
+L = losses
+N = population after loss
+ΔN = A - L
+```
 
-The experiment suggested that another class of quantities might be more stable than population itself.
- The substrate had been answering a different question all along, in a quantity we had been treating as a diagnostic.
+Then:
 
-> **Is population the thing that should have been stable?**
+```text
+A + L
+=
+ΔN + 2L
+```
+
+and therefore:
+
+```text
+gross turnover / N
+=
+ΔN / N
++
+2L / N
+```
+
+The experiment fixes the loss probability at:
+
+```text
+δ = 0.08
+```
+
+and applies loss after construction.
+
+For proportional loss at `δ = 0.08`, the expected loss count relative to the surviving post-loss population is approximately:
+
+```text
+δ / (1 - δ)
+=
+0.08 / 0.92
+≈ 0.08696
+```
+
+So before any interesting dynamics enter:
+
+```text
+2L / N
+≈
+0.1739
+```
+
+The tested budgets are also declining only slowly, subtracting roughly a few thousandths from that number.
+
+That already predicts a gross-turnover fraction very close to the `0.171` we measured.
+
+So the near-constant turnover fraction is not, by itself, evidence for a new stable process regime.
+
+Much of its apparent stability is mechanically induced by the fixed proportional loss rule and the accounting of material replacement.
+
+That does not make V3 unnecessary.
+
+It changes what V3 is allowed to teach us.
+
+The interesting question becomes:
+
+> **Which components depart from the mechanically constrained aggregate, and which remain sensitive to starting scale and computational scarcity?**
 
 ---
 
-## Stable Size Is Not Stable Process
+## Stable Stock Is Not Stable Flow
 
-The previous chapter forced a distinction between a stock and a flow: net population change versus gross material turnover, with more than ninety percent of the crystal's activity invisible in the former.
+The previous chapter forced a distinction between a stock and a flow.
 
-This is the same distinction arriving with an additional twist. There, the flow was larger than the stock suggested. Here, the flow is *steadier* than the stock — and steadier across conditions that change the stock by a factor of three.
+That distinction still matters:
 
 ```text
 STABLE STOCK
 ≠
 STABLE NORMALIZED FLOW
 ```
+
+But V3 adds a warning.
+
+A normalized flow can appear extremely stable because the experimental rules constrain its arithmetic.
+
+Gross turnover is the clearest example here.
+
+So V3 is not evidence that the crystal has discovered a preferred turnover rate.
+
+Its value is comparative: it lets us ask whether the **components** of material traffic respond alike to changes in budget and starting scale.
+
+They do not.
 
 A process can drift in size while the traffic passing through each unit of it stays remarkably constant. Nothing about the first requires or prevents the second. They are separate properties of the same system, and we had been using one as a proxy for the other without noticing.
 
@@ -386,17 +502,17 @@ Every gate was required.
 
 ---
 
-## Turnover Barely Moves
+## The Aggregate Barely Moves
 
-The gross turnover result is the most striking measurement in this chapter.
+The measured gross-turnover fractions are:
 
-```text
-B = 48     0.17229
-B = 64     0.17150
-B = 80     0.17066
-B = 96     0.17147
-B = 128    0.17132
-```
+| budget `B` | gross turnover / population |
+|---:|---:|
+| 48 | 0.17229 |
+| 64 | 0.17150 |
+| 80 | 0.17066 |
+| 96 | 0.17147 |
+| 128 | 0.17132 |
 
 The coefficient of variation across those budget means is:
 
@@ -404,9 +520,21 @@ The coefficient of variation across those budget means is:
 0.0030
 ```
 
+That is extraordinarily small numerically.
+
+But after the accounting decomposition above, it is no longer mysterious.
+
+With fixed proportional loss and small net population drift, the aggregate gross-turnover fraction is strongly constrained to live near this range.
+
+So the `0.0030` CV is a measured property of the experiment, but it is **not evidence for an independently regulated turnover invariant**.
+
+```text
+0.0030
+```
+
 Three tenths of one percent, across a budget family that produces populations differing by a factor of three. And the quantity is not merely similar across budgets; it is nearly flat within each run. The worst late temporal slope across the family was around `0.00024`, against a frozen tolerance of `0.0025` — an order of magnitude inside it.
 
-Starting size barely affects **gross turnover** either.
+The mechanically constrained aggregate also changes little across starting sizes.
 
 At `B = 48`:
 
@@ -416,7 +544,11 @@ medium    0.17267
 large     0.17089
 ```
 
-Loss fraction, attachment fraction and reoccupation fraction show the same broad stability pattern and remain within the frozen start-size sensitivity gate across the tested budgets.
+Several component fractions also remain within the frozen start-size sensitivity gate.
+
+But one does not.
+
+And that failure is more informative than the stability of the aggregate.
 
 Across these tested starting sizes and budgets, gross material-event traffic remains close to the same fraction of population per update.
 
@@ -455,7 +587,7 @@ But the identity of the failing component matters more than the binary verdict.
 
 ---
 
-## Two Processes Hiding Inside One
+## Reuse and Expansion Respond Differently
 
 Sort the measurements by how they behaved.
 
@@ -493,13 +625,19 @@ Under the tested scarcity regimes, reoccupation-related turnover is comparativel
 
 First occupation is more sensitive, especially under the harshest scarcity.
 
-So the two observer-defined categories respond differently to finite computation.
+So the two observer-defined categories do not respond identically to finite computation.
 
 Reoccupation-related turnover is comparatively insensitive to starting scale across these tested regimes.
 
-First occupation is more sensitive under severe scarcity.
+First occupation becomes more sensitive under severe scarcity.
 
-> **Staying and growing are not the same computational problem.**
+That earns a narrower result:
+
+> **Reuse and first occupation respond differently to computational scarcity under the tested conditions.**
+
+And it gives us a stronger hypothesis worth carrying forward:
+
+> **Staying and growing may be different computational problems.**
 
 Operationally, in this substrate — not biologically.
 
@@ -527,7 +665,7 @@ Reduce the allowance and the scale of the process falls with it. Change how it i
 
 The bounded claim:
 
-> **Continued material turnover in the lossy Digital Crystal depends strongly on finite computational opportunity. At fixed budget, scheduling can strongly alter reoccupation and can also shift first occupation, although the predeclared symmetric reuse-versus-expansion tradeoff was not established.**
+> **Finite evaluation opportunity strongly changes the population reached by the lossy Digital Crystal, and support-biased scheduling at fixed budget strongly changes reoccupation and the resulting material future. The experiments did not isolate a pure reuse-versus-expansion allocation effect.**
 
 Biology pays for action through physical resource constraints, and that comparison will be tempting for the rest of the book. Resist it a little longer. This substrate has exposed a different primitive: a per-update limit on how many possible transitions can receive computation.
 
@@ -553,11 +691,44 @@ normalized process flows
 ↛ complete invariance across size and budget
 ```
 
-One honest caution before this becomes a principle. The near-constant turnover fraction may be less mysterious than it looks. The loss rate is frozen at `δ = 0.08`, and the previous chapter established that lost sites are reoccupied rapidly and almost universally. A system losing a fixed fraction of itself and putting most of it back promptly will produce a turnover fraction in the neighbourhood of that loss rate more or less mechanically. The stability is real and measured. Its explanation is open, and the audit that would settle it — comparing observed turnover against the turnover mechanically expected from the loss rate and the known replacement dynamics — has not been run.
+The arithmetic audit no longer needs to remain an open question.
 
-That distinction matters more here than almost anywhere else in the book. A stable measurement is scientifically interesting only to the extent that its stability is not already forced by the parameters used to generate it.
+Under the implemented update order:
 
-Until that subtraction is done, `0.171` is a strikingly stable measurement and not yet a law.
+```text
+growth
+↓
+loss at δ = 0.08
+↓
+measure surviving population
+```
+
+and with:
+
+```text
+gross turnover = attachments + losses
+```
+
+the near-`0.171` aggregate is largely expected from the fixed proportional loss rate plus the small net population drift.
+
+So the strongest conclusion is not:
+
+```text
+THE PROCESS MAINTAINS A TURNOVER RATE
+```
+
+It is:
+
+```text
+THE AGGREGATE TURNOVER RATE
+IS STRONGLY CONSTRAINED BY THE PROTOCOL
+```
+
+The scientifically useful residue is the **asymmetry among its components**, especially the greater start-size sensitivity of first occupation under severe scarcity.
+
+A stable measurement is scientifically interesting only to the extent that its stability is not already forced by the parameters used to generate it.
+
+Here, much of the apparent stability was.
 
 ---
 
@@ -677,12 +848,12 @@ Full confidence intervals, randomization tests and per-run records remain in the
 | Low-support scheduling meaningfully increases expansion | **FAILED** | advantage `61.6` against required `100` per 1000 evaluations |
 | The full two-sided allocation tradeoff holds | **FAILED** | one arm below its declared magnitude |
 | Some finite budget yields stationary population with turnover | **FAILED** | best slope `-0.00252` against a required absolute slope of `0.00250` |
-| Gross normalized turnover remains highly stable across the tested budgets | **SUPPORTED** | `0.17066–0.17229`; between-budget CV `0.0030`; worst late slope `0.00024` |
+| Gross normalized turnover remains numerically stable across the tested budgets | **SUPPORTED** | `0.17066–0.17229`; between-budget CV `0.0030` |
+| Near-constant gross turnover constitutes an independent substrate stability law | **NOT SUPPORTED** | the aggregate is largely predicted by fixed `δ = 0.08`, post-loss normalization and small net drift |
 | Loss, attachment and reoccupation fractions satisfy the frozen start-size sensitivity gate | **SUPPORTED** | each remains within the `0.10` CV threshold across tested start sizes and budgets |
 | First occupation is start-size insensitive under severe scarcity | **FAILED** | CV `0.118` at `B=48` against maximum `0.100` |
-| The complete normalized process vector is invariant | **FAILED** | one metric at one budget breaks the frozen criterion |
-| Reoccupation-related turnover and first occupation respond differently to scarcity | **SUPPORTED** | turnover measures remain comparatively stable while first occupation fails the start-size gate at `B=48` |
-| Turnover stability reflects a substrate law rather than arithmetic induced by the fixed loss rate | **NOT RESOLVED** | observed-minus-mechanically-expected audit has not been run |
+| The complete normalized process vector is invariant | **FAILED** | first occupation at `B=48` breaks the frozen criterion |
+| Reoccupation-related turnover and first occupation respond identically to scarcity | **NOT SUPPORTED** | first occupation shows greater start-size sensitivity under severe scarcity |
 | The crystal has metabolism, homeostasis or a sustainable body size | **NOT CLAIMED** | no target, controller, resource or set point exists |
 
 ---
@@ -699,19 +870,27 @@ population does not settle
 some normalized process rates remain surprisingly stable
 ```
 
-We have been calling this *the crystal* since the *The Digital Crystal* chapter.
+We have been calling this *the crystal* since *The Digital Crystal*.
 
-But it is no longer obvious what that noun refers to.
+But several easy candidates for what that noun might denote have now failed us.
 
-Not a fixed collection of material.
+It is not:
 
-Not a stable size.
+```text
+a fixed collection of material
 
-And, after material loss, not even a permanently fixed geometric interface.
+a fixed morphology
 
-Something continues.
+a stationary population
 
-We have not yet shown what its natural boundary is.
+a permanently fixed geometric interface
+```
+
+Something continues through all of those changes.
+
+What remains is the continuing dynamics.
+
+We have not yet shown whether those dynamics belong to one causally privileged region or whether the noun *crystal* is imposing unity where the dynamics themselves do not.
 
 Connected geometry is not enough to answer that question.
 
