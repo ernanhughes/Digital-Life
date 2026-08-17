@@ -2,7 +2,7 @@
 title = "12: Is There Actually One Thing Here?"
 date = "2026-08-14T18:00:00+01:00"
 draft = false
-description = "We have said 'the crystal' for six chapters without testing whether the noun refers to anything. Two experiments test a privileged spatial boundary. Neither supports one, while both tested radial cuts show clear same-side causal localization."
+description = "We have said 'the crystal' for six chapters without testing whether the noun refers to anything. Two experiments test a privileged spatial boundary. Neither supports one, while both tested radial cuts show comparable same-side causal localization."
 weight = 12
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Causality", "Boundaries", "Process", "Experiments"]
@@ -12,7 +12,7 @@ series = ["Digital Life From First Principles"]
 The last chapter ended with a suspicion about a word.
 
 We have been saying *the crystal* comfortably since *The Digital Crystal*, and the noun has been doing quiet work ever since. We kept using it after material became impermanent. We kept using it after large material turnover appeared beneath the visible state. We kept using it after computational opportunity was shown to strongly constrain its scale, and after no tested budget produced a stationary population.
- Through all of that, the sentence "the crystal is doing X" kept seeming like a sentence about something.
+Through all of that, the sentence "the crystal is doing X" kept seeming like a sentence about something.
 
 The justification has always been the same, and it has never been tested:
 
@@ -22,7 +22,17 @@ there is a connected occupied structure
 therefore there is one natural object
 ```
 
-That inference deserves an experiment. Not the big one — this chapter is not asking whether the Digital Crystal is an individual, which is a much stronger question that will need much stronger evidence. The question here is prior and weaker:
+That inference deserves an experiment.
+
+Not the largest possible one.
+
+This chapter does not attempt to decide whether the Digital Crystal is an individual. It tests two operationally defined ways a spatial region might earn causal privilege.
+
+Failure of both criteria would not prove that no natural boundary exists.
+
+It would mean only that connected occupied geometry has not earned one under these tests.
+
+The question is prior and weaker:
 
 > **Does the connected occupied crystal have a privileged causal boundary or region that justifies treating it as one natural object?**
 
@@ -76,11 +86,36 @@ If adding the region's own state contributes nothing beyond the environment, thi
 So define, at each measurement point:
 
 ```text
-S_t     the candidate region's state
-E_t     the surrounding active environment
+S_t     the candidate region's process state
+
+E_t     the process state of the surrounding annulus,
+        from the candidate radius out to the frozen
+        active outer measurement radius
 ```
 
-and ask whether predicting the region's later state from `S_t + E_t` beats predicting it from `E_t` alone.
+The question is whether the candidate region contributes predictive information beyond that surrounding annulus.
+
+First compute:
+
+```text
+Δ_self
+=
+R²(S_t + E_t → S_future)
+-
+R²(E_t → S_future)
+```
+
+Then repeat the same comparison using the observer-only spatial scramble.
+
+The reported quantity is:
+
+```text
+EXCESS PREDICTIVE COHERENCE
+=
+Δ_self,real
+-
+Δ_self,null
+```
 
 Call that first difference the **self-prediction gain**:
 
@@ -114,7 +149,29 @@ So the question is not merely whether a region predicts itself.
 
 It is whether it does so more strongly than the frozen observer-null construction.
 
-One detail matters more than it looks. The state representation here is not a picture of occupied cells. It is process-oriented: population, frontier density, recent attachment, loss, reoccupation, first occupation, gross turnover, angular process structure. By this point in the book, describing a region by its occupancy alone would be repeating a mistake we have already made twice — morphology turned out to be a lossy projection in the *Now There Are Two* chapter, and net population turned out to hide almost all the activity in the *What Survives Material Loss?* chapter.
+One detail matters more than it looks.
+
+The state representation is not a bitmap of occupied cells.
+
+For each region, the predictor receives a 19-dimensional process vector:
+
+```text
+population density
+frontier density
+
+recent attachment fraction
+recent loss fraction
+recent first-occupation fraction
+recent reoccupation fraction
+recent gross-turnover fraction
+
+6 angular-sector population densities
+6 angular-sector turnover densities
+```
+
+The recent-flow terms are accumulated over a frozen four-update history window.
+
+The prediction models standardize these features on the training data and are evaluated on held-out run groups. By this point in the book, describing a region by its occupancy alone would be repeating a mistake we have already made twice — visible form turned out to be an incomplete description of executable state in *The Crystal Gets a Past*, and net population turned out to hide almost all the activity in the *What Survives Material Loss?* chapter.
 
 The substrate was frozen at:
 
@@ -123,7 +180,33 @@ loss rate δ = 0.08
 neutral evaluation budget B = 96
 ```
 
-Five candidate scales were frozen in advance, as fractions of the crystal's effective radius:
+Five candidate scales were frozen in advance as fractions of the crystal's effective radius.
+
+Here:
+
+```text
+R_eff
+=
+the maximum Euclidean distance
+from the origin to any currently occupied cell
+```
+
+computed separately at each checkpoint.
+
+The five frozen candidate scales were:
+
+Here:
+
+```text
+R_eff
+=
+the maximum Euclidean distance
+from the origin to any currently occupied cell
+```
+
+computed separately at each checkpoint.
+
+The five frozen candidate scales were:
 
 ```text
 R / R_eff
@@ -212,7 +295,7 @@ PRIVILEGED BOUNDARY
 
 Which is worth stating in its general form, because it is a trap the whole field of this book walks into repeatedly:
 
-> **A structured field can predict itself extremely well without containing a natural individual.**
+> **Predictive coherence alone does not identify a natural boundary.**
 
 There is an echo of the *It Looked Like Flocking* chapter here.
 
@@ -228,7 +311,11 @@ In both cases, the magnitude of a statistic is not enough. The control determine
 
 A post-run audit of this experiment found several things wrong with it, and it is worth recording them without using them as an escape hatch.
 
-The candidate system was defined as a centered region, when the last three chapters all point at causal activity living near dynamically generated interfaces rather than around a geometric center. The observer-null environment was not exactly geometry-matched to the real annular environment, which muddies the comparison. Part of the measurement-support bookkeeping depended on future extent, which compromises a predictor intended to use only information available at the present measurement point.
+The candidate system was defined as a centered region, when the last three chapters all point at causal activity living near dynamically generated interfaces rather than around a geometric center. The observer-null environment was not exactly geometry-matched to the real annular environment, which muddies the comparison. One piece of the measurement geometry also depended on future extent.
+
+The outer measurement radius was constructed using the larger of the present and future effective radii.
+
+That means part of the support used to define the predictive measurement had access to information that would not have been available at the present checkpoint.
  And the scrambled candidate region was regenerated independently at different times, so the null never preserved a stable temporal identity for the region it was standing in for.
 
 None of that rescues the hypothesis. The correct status is both things at once:
@@ -290,7 +377,33 @@ control localization at 0.60 R_eff
 
 If the outer candidate boundary is privileged under this criterion, that difference should be positive and scientifically large enough to clear the frozen gate.
 
-One limitation has to be stated plainly. The experiment requested 96 groups and only 25 satisfied the frozen matching conditions. Seventy-one were skipped because inside and outside sites could not be matched on local geometry. Only about a quarter of the intended confirmatory sample therefore survives the frozen matching requirements, which limits the precision with which the effect magnitude should be interpreted.
+One limitation matters more than the nominal sample size suggests.
+
+The experiment requested `96` independent groups.
+
+Only `25` satisfied the frozen matching requirements for both the candidate and control comparisons.
+
+The remaining `71` were excluded because suitable inside/outside perturbation sets could not be matched on the required local geometry.
+
+So the causal estimand is narrower than:
+
+```text
+all Digital Crystal states
+```
+
+It is:
+
+```text
+the subset of tested states
+in which the frozen matched intervention
+could actually be constructed
+```
+
+That restriction reduces precision and may also restrict generalizability, because the 25 usable groups are not guaranteed to be a random sample of the 96 requested groups.
+
+The direction of the supported comparison can still be reported.
+
+Its magnitude should not be generalized beyond that region of experimental support.
 
 But the measured direction does not support the hypothesis either.
 
@@ -298,7 +411,7 @@ The candidate boundary scores lower than the control.
 
 ---
 
-## The Outer Boundary Loses
+## The Outer Boundary Does Not Win
 
 ```text
 candidate boundary   (0.90 R_eff)     localization ≈ 0.03772
@@ -314,7 +427,17 @@ FAILED
 
 The candidate boundary did not localize causal consequences more strongly than a circle we drew through the interior on purpose to be unremarkable. If anything it did slightly worse.
 
-Resist the obvious next move. This is not evidence that `0.60 R_eff` is the real boundary — it is a control, chosen precisely because nothing distinguishes it, and promoting it would be exactly the maneuver we refused in the previous two chapters. Also, with 25 usable groups, a small negative difference is not something to build on. The result says one thing:
+Resist the obvious next move. This is not evidence that `0.60 R_eff` is the real boundary — it is a control, chosen precisely because nothing distinguishes it, and promoting it would be exactly the maneuver we refused in the previous two chapters. The bootstrap interval for the candidate-minus-control difference lies below zero:
+
+```text
+[-0.01399, -0.00020]
+```
+
+So within the 25 matched groups, the measured direction is negative.
+
+But those 25 groups are only the subset for which the frozen match existed.
+
+The result therefore gives us no reason to rescue candidate superiority; it does not justify turning the small negative magnitude into a general claim that the interior control is "better." The result says one thing:
 
 > **The proposed outer boundary was not privileged under this causal-localization test.**
 
@@ -362,9 +485,9 @@ It is that comparable localization appears at both tested cuts.
 
 That means the effect does not distinguish the proposed outer boundary from the interior control.
 
-What survives is locality.
+What survives is a same-side localization pattern.
 
-What fails is privilege.
+What fails is boundary privilege.
 
 SAME-SIDE CAUSAL LOCALIZATION
 MEASURED AT BOTH TESTED RADIAL CUTS
@@ -427,7 +550,7 @@ Two failures at the same question is usually a sign to look at the question rath
 
 *What Does It Cost to Stay?*: finite computation determines which eligible construction opportunities receive evaluation.
 
-This chapter: same-side causal localization appears at both tested radial cuts, but the proposed outer boundary receives no special privilege.
+This chapter: same-side causal localization appears at both tested radial cuts, but neither cut earned boundary privilege.
 
 Read separately, these are four experimental findings.
 
@@ -440,8 +563,6 @@ where do their consequences remain local?
 ```
 
 There is another recurring pattern further back.
-
-The same pattern appears further back.
 
 *The Digital Crystal* recovered broad source-family information without establishing recoverable temporal order.
 
@@ -493,7 +614,7 @@ They did not establish that either.
 Replacing *thing* with *process* would merely exchange one unearned ontology for another. Everything measured in this chapter is also compatible with a spatially structured stochastic field whose local dynamics do not pick out one privileged individual.
 
 So these measurements cannot decide the question by themselves.
- Stable flux is not sufficient evidence of coherent organization.
+Even a stable flux would not be sufficient evidence of coherent organization.
 
 Persistence of a dynamical pattern does not, by itself, establish a natural individual.
 
@@ -511,19 +632,15 @@ Both experiments begin the same way:
 draw candidate region
 ↓
 ask whether it is special
+```
 
 Reverse it.
-```
 
-```text
-OLD                                  NEW
-
-choose a region                      measure the causal process
-↓                                    ↓
-ask if it behaves like a thing       find coherent organization
-↓                                    ↓
-impose a boundary                    only then ask whether a boundary emerges
-```
+| OLD | NEW |
+|---|---|
+| choose a region | measure the causal process |
+| ask if it behaves like a thing | find coherent organization |
+| impose a boundary | only then ask whether a boundary emerges |
 
 There are mature examples of this reversal elsewhere. In fluid dynamics, coherent structures can be identified from the dynamics of transport rather than selected from snapshot geometry.[^haller]
 
@@ -594,7 +711,11 @@ R²(S_t + E_t → S_future)
 R²(E_t → S_future)
 ```
 
-The same comparison was made using an observer-only angularly scrambled representation.
+The observer-null region preserves how many lattice locations belong to the candidate in each of six radial bins, but reassigns which angular locations receive that membership using keyed observer-only randomness.
+
+It therefore preserves approximate radial scale while destroying the centered contiguous region assignment.
+
+The null does not alter the Digital Crystal itself.
 
 The reported scale statistic was:
 
@@ -697,10 +818,10 @@ Full per-group results and lower-level protocol details remain in the accompanyi
 |---|---|---|
 | Some frozen spatial scale shows excess predictive coherence large enough to beat the family null | **FAILED** | family maximum `0.2906`, null 95th percentile `0.2947`, `p ≈ 0.0849` |
 | `0.90 R_eff` is a privileged predictive boundary | **NOT SUPPORTED** | frozen family test failed; post-run audit also identified protocol weaknesses |
-| `0.90 R_eff` localizes causal effects more strongly than the `0.60 R_eff` pseudo-boundary | **FAILED** | difference `−0.00724`, 95% interval `[−0.01399, −0.00020]`, one-sided `p ≈ 0.9693` |
-| `0.60 R_eff` is the real boundary | **NOT CLAIMED** | it is a predeclared control, not a promoted alternative |
-| Same-side causal localization appears at both tested radial cuts | **SUPPORTED** | inside→inner exceeds outside→inner and outside→outer exceeds inside→outer at both `0.90` and `0.60 R_eff` |
-| Same-side localization establishes individuality | **NOT SUPPORTED** | comparable localization appears at the arbitrary interior control |
+| Within the matched V2 support region, `0.90 R_eff` localizes causal effects more strongly than the `0.60 R_eff` pseudo-boundary | **FAILED** | 25/96 groups were matchable; candidate-minus-control `−0.00724`, 95% interval `[−0.01399, −0.00020]`, one-sided superiority `p ≈ 0.9693` |
+| Same-side causal localization appears at both tested radial cuts | **SUPPORTED** | all four reported component means are larger on the same side than across the cut; component-wise uncertainty was not separately used as a hypothesis gate |
+| Same-side localization identifies a privileged boundary | **NOT SUPPORTED** | the same qualitative pattern appears at the arbitrary interior control and is consistent with short-horizon local propagation |
+| V2 result generalizes to all tested crystal states | **NOT CLAIMED** | only 25 of 96 requested groups satisfied the frozen geometry-matching requirements |
 | No privileged natural boundary exists anywhere in the Digital Crystal | **NOT CLAIMED** | only two operational boundary criteria and a limited set of spatial candidates were tested |
 | Stronger formal boundary criteria hold or fail | **NOT CLAIMED** | conditional-independence, closure and related criteria were not tested |
 | Dynamically generated construction interfaces repeatedly mediate causal opportunity | **SUPPORTED** | Chapters *Can Experience Change the Material?*, *What Survives Material Loss?*, and *What Does It Cost to Stay?* provide distinct mechanisms |
@@ -728,7 +849,7 @@ What survived is smaller and more useful:
 > **local interventions produce spatially localized consequences.**
 
 That is a statement about events and effects rather than about bodies and edges.
- And it suggests that we have been starting at the wrong end of the problem.
+And it suggests that we have been starting at the wrong end of the problem.
 
 So stop drawing the object first.
 
