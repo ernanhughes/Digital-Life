@@ -1,6 +1,6 @@
 +++
 title = "08: The Crystal Gets a Past"
-date = "2026-08-14T10:00:00+01:00"
+date = "2026-08-14T11:30:00+01:00"
 draft = false
 description = "A saved state can continue the Digital Crystal exactly, an event history can reconstruct how it formed, and a single received bit can redirect its future. None of that is memory yet."
 weight = 8
@@ -89,7 +89,7 @@ Begin with state, because state has an operational definition available:
 
 That wording is careful. We are not claiming to know the smallest possible state of a Digital Crystal. We are asking whether a particular stored representation is sufficient — a question an experiment can answer.
 
-Take the frozen Digital Crystal from Chapter 4 and run it for 96 steps. At step 48, save everything we currently believe the process needs in order to continue:
+Take the frozen Digital Crystal from the previous chapter and run it for 96 steps. At step 48, save everything we currently believe the process needs in order to continue:
 
 ```text
 occupied cells
@@ -213,6 +213,8 @@ That is not a biological mechanism copied into software. It is an affordance of 
 Now damage the checkpoint deliberately, one component at a time, and see which damage the future notices.
 
 Every variant gets exactly 48 continuation updates, so that moving the environmental cursor does not accidentally shorten the experiment.
+
+Throughout this section, `symmetric-difference cells` means occupied positions present in one final crystal but not the other.
 
 **Remove the random state.** Same morphology, same birth metadata, same timestep, same signal position, different stochastic continuation state:
 
@@ -435,7 +437,11 @@ Call it a pulse.
 
 The Digital Crystal itself stays frozen — same lattice, same local growth rule, same dependence on a scalar environmental input.
 
-We add one coupling mechanism outside that rule: the laboratory derives a one-bit pulse from the sender's own growth dynamics, and that pulse perturbs the scalar forcing already used by the receiver.
+We add one coupling mechanism outside that rule: the laboratory derives a one-bit pulse from the sender's own growth dynamics. One update later, a received pulse adds `0.65` to the receiver's ordinary environmental forcing for that update.
+
+The sender and receiver retain independently generated external environments.
+
+So the channel does not replace the receiver's environment. It perturbs a scalar the receiver was already using.
 
 ```mermaid
 flowchart LR
@@ -462,7 +468,20 @@ if step % 10 == 0:
 
 Then every receiver responds to a programmer-supplied metronome, and the experiment demonstrates the existence of the programmer.
 
-Instead the pulse is derived from the sender's own dynamics. At each step the coupling layer counts how many cells the sender attached and compares that value with its recent attachment activity. When current growth is unusually high relative to that recent baseline, the coupling emits a bit.
+Instead the pulse is derived from the sender's own dynamics.
+
+For the full experiment, the coupling looks back over the sender's previous 12 attachment counts. A pulse is emitted when current attachments reach at least:
+
+```text
+max(
+    3 attachments,
+    recent mean + 0.75 × max(recent standard deviation, 1)
+)
+```
+
+No timer and no receiver state enter that decision.
+
+The emitted pulse is delivered one update later.
 
 The pulse means only, operationally:
 
@@ -486,7 +505,7 @@ The detailed horizon calculation belongs in the reproducibility record. The prin
 
 ## One Bit Changes the Future
 
-Now the intervention, and it is as clean as this book gets.
+The first paired intervention looked unusually clean.
 
 Take a receiver checkpoint. Fork it. Both branches begin with the same morphology, birth metadata, stochastic state, environmental forcing, timestep and remaining horizon. Change exactly one thing: one branch receives a bit, the other does not.
 
@@ -516,6 +535,16 @@ produced morphology divergence  95.8%
 mean normalized difference     0.1633
 ```
 
+Here, normalized difference is:
+
+```text
+cells occupied in exactly one branch
+────────────────────────────────────
+cells occupied in either branch
+```
+
+so `0` means identical occupied sets and larger values mean greater morphological separation.
+
 Five of the 120 interventions produced no final morphological difference.
 
 That constrains the result usefully: the claim is not that every bit deterministically changes the receiver.
@@ -525,7 +554,9 @@ That constrains the result usefully: the claim is not that every bit determinist
 
 The bit reaches the actual growth process.
 
-We have established primitive causal transmission.
+We have established **primitive causal transmission through the imposed coupling**.
+
+That is smaller than communication, and it is enough.
 
 ---
 
@@ -543,9 +574,26 @@ The question we have answered is *can an event cause a change*, and the answer i
 
 That takes a ladder of controls, each one removing a cheaper explanation than the last.
 
-**Destroy the timing.** Keep the same number of bits, move them to different steps. If sender timing matters, the real stream should win. It does, and comfortably: the mean peak message-to-growth correlation for the real stream exceeded the shuffled stream by about 0.294, with a pairwise superiority near 0.980.
+**Destroy the timing.** Keep the same number of bits, move them to different steps.
 
-**Replace the sender with randomness.** Preserve the pulse count, place the pulses at random times. Real wins again — a difference of about 0.270, superiority about 0.977. So the receiver is not merely responding to how many bits arrived. Something about their arrangement matters.
+For each run, `peak message-to-growth correlation` is the largest correlation between the pulse stream and the receiver's per-step attachment count across the declared non-negative lag window.
+
+The real stream exceeded the shuffled stream by about `0.294`, with pairwise superiority near `0.980`.
+
+Here, pairwise superiority is the empirical probability that a randomly selected real-stream statistic exceeds a randomly selected control statistic, with ties counting half.
+
+**Replace the sender with randomness.** Preserve the pulse count, place the pulses at random times.
+
+Real wins again:
+
+```text
+real minus random       ≈ +0.270
+pairwise superiority    ≈  0.977
+```
+
+Pulse count alone is therefore inadequate to explain the result.
+
+Something about the timing structure matters.
 
 At this point the story is going very well. Timing structure is real. The next control is the one that decides the chapter.
 
@@ -569,7 +617,27 @@ pairwise superiority       0.473
 
 Again, effectively nothing.
 
-We also tried to rescue the claim with structure rather than statistics. Six crystals in a line, each one's pulses feeding the next, produced source-to-node correlations that looked convincingly like a signal travelling down a chain — until the shuffled-edge control produced almost the same pattern, with a mean absolute real-versus-shuffled difference of about 0.0164. A 6×6 board of thirty-six locally connected crystals told the same story: real minus shuffled neighbour correlation, about 0.0048. We had built connectivity. We had not built coordination.
+We tried topology too.
+
+Six crystals in a line, each one's pulses feeding the next, produced source-to-node correlations that looked convincingly like propagation. But a control that shuffled which upstream crystal supplied each downstream edge produced almost the same pattern:
+
+```text
+mean absolute real-vs-shuffled difference
+≈ 0.0164
+```
+
+A `6 × 6` board of thirty-six locally connected crystals gave the same warning:
+
+```text
+real minus shuffled neighbour correlation
+≈ 0.0048
+```
+
+These were exploratory topology tests, not evidence of coordinated collective behaviour.
+
+We had built connectivity.
+
+We had not built coordination.
 
 ```text
 causal transmission
@@ -597,11 +665,24 @@ It would be lazy to summarize that as *communication failed*.
 
 Look at what the control ladder actually mapped.
 
-The receiver is sensitive to something destroyed by shuffled and rate-matched timing controls, but whatever that property is, it is also preserved well enough by a count-matched same-class sender and by an interval-preserving surrogate to erase the apparent advantage of the actual sender.
+The receiver is sensitive to something destroyed by shuffled and rate-matched timing controls.
 
-The experiment therefore does not isolate whether the surviving cue is burstiness, interval distribution, local pulse density or some other coarse temporal property.
+But the next two controls tell us how little we know about what that something is. A count-matched same-class sender performs as well as the actual sender. So does a surrogate preserving the exact multiset of inter-pulse intervals while changing their order.
 
-What it does show is narrower: coarse timing structure matters, while sender identity and exact interval chronology were not established as recoverable.
+The experiment does not isolate burstiness, interval distribution, local pulse density or any other single statistic as the carrier.
+
+What survives is narrower:
+
+```text
+COARSE TIMING STRUCTURE
+        MATTERS
+
+ACTUAL SENDER IDENTITY
+        NOT SUPPORTED
+
+EXACT INTERVAL CHRONOLOGY
+        NOT SUPPORTED
+```
 
 The transmission is lossy.
 
@@ -670,9 +751,13 @@ This is a common-random-number coupling, and it needs a clear label:
 
 > **The cell-keyed runner is an experimental coupling, not a replacement for the canonical Digital Crystal.**
 
-The canonical model remains the sequential stochastic process from Chapter 4. The keyed runner exists only to define a cleaner paired counterfactual — and before using it, we had to check we had not quietly built a different crystal. Across 96 runs per implementation, the omnibus morphology comparison between the two found no evidence of a gross distributional discrepancy (`p ≈ 0.922`), and four predeclared practical-compatibility margins all passed. That is not proof that the two processes are mathematically identical. It is enough to use the instrument for the experiment it was declared for.
+The canonical model remains the sequential stochastic process introduced in **The Digital Crystal**. The keyed runner exists only to define a cleaner paired counterfactual — and before using it, we had to check we had not quietly built a different crystal. Across 96 runs per implementation, the omnibus morphology comparison between the two found no evidence of a gross distributional discrepancy (`p ≈ 0.922`), and four predeclared practical-compatibility margins all passed. That is not proof that the two processes are mathematically identical. It is enough to use the instrument for the experiment it was declared for.
 
-Then repeat the pulse experiment under both couplings and compare like with like: how far apart do the two branches drift, relative to the drift you get from two entirely independent stochastic continuations?
+Then repeat the pulse experiment under both couplings and compare like with like.
+
+For scale, define `independent divergence` as the drift produced when two continuations start from the same experimental context but use independently reseeded stochastic futures.
+
+Now ask how large the pulse-induced paired divergence is relative to that reference:
 
 ```text
 sequential RNG coupling      ≈ 87% of independent-divergence scale
@@ -746,11 +831,17 @@ Same number of pulses. Same first pulse. Same last pulse. Only the interior arra
 
 The confirmatory experiment was frozen before the result was inspected: codewords, stochastic coupling, primary endpoint and primary morphology measurement.
 
-Secondary measurements were recorded but were not allowed to rescue a failed primary test.
+The first measurement occurred immediately after the final pulse. Further measurements followed one, two and four updates later.
 
-That matters because otherwise every negative result becomes permission to keep searching until some alternative statistic succeeds.
+The primary endpoint was frozen at step `8`, using a regularized paired multivariate statistic over nine angular morphology features. A wider 24-feature measurement and the later endpoints were secondary.
 
-Forty-eight independently generated receiver checkpoints. Two histories each. One question:
+They were recorded.
+
+They were not allowed to rescue the primary experiment.
+
+Otherwise every negative result becomes permission to keep searching until some alternative statistic succeeds.
+
+Forty-eight independently generated receiver checkpoints.
 
 > **Does temporal arrangement leave a stable, reproducible morphological signature across independently generated receivers?**
 
@@ -868,7 +959,23 @@ The single sentence the chapter has earned:
 
 ---
 
-## Evidence Ledger
+## Experimental Note
+
+This chapter combines three experimental layers built on the same frozen Digital Crystal v1 substrate.
+
+The state/history experiment used a 96-update full-profile trajectory with a checkpoint at update 48. Thirty independently seeded checkpoint restores reproduced both final morphology and complete continuation state exactly. `Symmetric-difference cells` counts occupied positions present in exactly one of two compared states.
+
+The signalling experiments used independently seeded sender and receiver environments. In the full profile, the endogenous pulse rule used a 12-update recent-activity window, a `0.75`-standard-deviation threshold with a minimum of three attachments, one-update delivery delay and receiver coupling gain `0.65`. Normalized morphology difference is occupied-set symmetric difference divided by occupied-set union. Peak message-to-growth correlation is the maximum lagged correlation between the pulse stream and receiver attachment counts over the declared lag window. Pairwise superiority is the empirical cross-sample probability that a statistic from one condition exceeds one from another, with ties weighted by one half.
+
+The later counterfactual experiments use a separate cell-keyed common-random-number runner. It assigns random values by `(seed, absolute step, cell)` so corresponding cell/time opportunities receive the same draw across paired branches. This runner is an experimental coupling instrument, not a replacement for the canonical sequential-RNG Digital Crystal.
+
+The matched-history confirmation used 48 independently generated receiver checkpoints. The two codewords contained equal pulse counts and identical first and last pulse positions. The primary endpoint and nine-feature angular measurement were frozen before the confirmatory result was inspected; later endpoints and the 24-feature measurement were secondary.
+
+Full parameter values, raw distributions, confidence intervals, control construction, compatibility margins and reproducibility records are preserved with the accompanying experiment reports.
+
+---
+
+## Experimental Note
 
 | Claim | Status | Evidence |
 |---|---|---|
