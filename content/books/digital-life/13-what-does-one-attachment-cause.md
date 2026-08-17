@@ -84,7 +84,7 @@ The danger is obvious in retrospect. A statistic designed to summarize a travell
 
 A positive result on that statistic could therefore have become a result about the estimator rather than the Crystal.
 
-> **An estimator can manufacture the shape of the phenomenon it was designed to detect.**
+> **An estimator can manufacture the shape of the phenomenon it was designed to summarize.**
 
 There is a second lesson buried in the same failure. The strongest structure in the surface was not positive at all. It was a persistent negative band at short range.
 
@@ -113,14 +113,20 @@ At distance zero, a source and its control are definitionally different states. 
 
 Exclude distance zero and a much simpler neighbourhood pattern remains.
 
-At distances one and two:
+At distances one and two, the observational signed analysis showed:
 
 ```text
 ATTACHMENT  →  MORE nearby attachment
 LOSS        →  LESS nearby attachment
 ```
 
-The strongest signed differences are concentrated at the shortest tested neighbourhood distances.
+with the strongest signed differences concentrated at the shortest tested neighbourhood distances.
+
+These are observational associations.
+
+The attachment side is tested causally below.
+
+No equivalent forced-loss intervention is performed in this chapter.
 
 That is the wrong sign for the simple source/sink interpretation we had been carrying.
 
@@ -191,7 +197,7 @@ This matters more than it sounds. Almost every experiment in this book has compa
 
 ---
 
-## The First Effect Is Mechanical
+## The First Effect Matches the Mechanics
 
 ```text
 mechanically expected one-step gain     g_mech_1 ≈ 0.105
@@ -505,7 +511,32 @@ That procedure has no stopping rule and produces no knowledge, and we have decli
 
 The reset kept the frozen crystal and the FORCE/PREVENT intervention and changed what was measured. Rather than starting from the noisy realized cascade, start from the rule: for every candidate, compute the attachment probability in each branch and take the difference, before any Bernoulli draw turns those probabilities into a single bit. A realized attachment discards almost all the information the rule provides; the expected construction difference keeps it.
 
-The contrast was made extreme — high sites with `FCP ≥ +2`, low sites with `FCP ≤ −1`, every pair differing by at least 3 — matched on occupied-neighbour count and radial band, and deliberately *not* matched on baseline probability or local frontier density, since those lie on the pathway. It ran 384 groups and yielded 275 usable ones, 471 extreme pairs, 71.6% coverage.
+The contrast was made extreme:
+
+```text
+HIGH
+FCP ≥ +2
+
+LOW
+FCP ≤ −1
+
+minimum pair difference
+ΔFCP ≥ 3
+```
+
+Pairs were matched on occupied-neighbour count and radial band.
+
+They were deliberately **not** matched on baseline attachment probability or local frontier density, because those variables may lie on the pathway through which geometry acts.
+
+The run requested 384 independent groups.
+
+Of those, 275 contained at least one usable extreme matched comparison:
+
+```text
+coverage = 275 / 384 = 71.6%
+```
+
+Across those supported groups, the design produced 471 extreme pairs.
 
 This time the precision was adequate: an achieved minimum detectable effect around 0.047 against a declared meaningful effect of `+0.10`. And the result was:
 
@@ -515,18 +546,30 @@ This time the precision was adequate: an achieved minimum detectable effect arou
 
 > **Under this protocol, even an extreme difference in Frontier Creation Potential did not produce the predeclared scientifically meaningful positive difference in expected lag-one local construction.**
 
-That is a bounded negative, not another inconclusive run. The bounded claim is now properly resolved:
+That is a bounded negative, not another inconclusive run.
+
+But it resolves a **different endpoint** from the earlier FCP experiments.
+
+The earlier tests asked whether local representations predicted realized finite-horizon transient gain.
+
+This experiment asks whether an extreme FCP contrast predicts the expected **lag-one** local construction difference before Bernoulli realization.
+
+Its bounded conclusion is therefore:
 
 ```text
+UNDER THE EXTREME MATCHED FCP PROTOCOL
+
 MORE FRONTIER CREATION
 ↛
-MEANINGFULLY MORE EXPECTED
-LAG-ONE LOCAL CONSTRUCTION
+THE PREDECLARED MEANINGFUL INCREASE IN
+EXPECTED LAG-ONE LOCAL CONSTRUCTION
 ```
+
+It does not retroactively resolve the earlier long-horizon FCP question.
 
 ---
 
-## A Causal Effect Without a Stable Local Predictor
+## No Stable Local Predictor Yet
 
 Put the two halves of the chapter together.
 
@@ -679,4 +722,4 @@ This chapter found a local causal effect but no stable local gain variable that 
 
 Together, the results suggest one concrete mechanism worth isolating next: competition for the finite evaluation budget shared by active candidates.
 
-> **Can finite computation couple local events that are too far apart to interact through the local rule?**
+> **Does competition for a shared finite evaluation budget create measurable causal effects between locations too far apart to interact through the local rule?**
