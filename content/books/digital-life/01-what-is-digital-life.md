@@ -21,7 +21,7 @@ Produce them, rather than declare them.
 
 That sounds simple until we try to say what those properties are.
 
-We reach immediately for a familiar vocabulary:
+We reach immediately for a familiar vocabulary — not a list of requirements, just the properties biology has taught us to notice:
 
 ```text
 structure
@@ -130,7 +130,7 @@ So this book will not open with a checklist called `REQUIREMENTS FOR LIFE`.
 
 We do not know the requirements.
 
-We do not even know whether "requirements" is the right way to think about the problem.
+We do not even know whether "requirements" is the right way to think about the problem. A biological checklist could make us blind to phenomena for which biology gives us no ready analogue.
 
 Discovering what survives is the experiment.
 
@@ -190,7 +190,7 @@ So the book insists throughout on a distinction that is easy to state and surpri
 
 Something can genuinely happen while our name for what happened is completely wrong.
 
-Calling something memory does not establish memory. Calling something reproduction does not establish reproduction. Calling a region an individual does not establish individuality. Calling a number energy does not establish metabolism.
+In a new substrate, even the definition has to be earned. Before we call something memory, reproduction or individuality, we need to say what observation would count as evidence for it and what would count against it. That operational definition is part of the experiment, not something the vocabulary supplies for free.
 
 The observation may survive even when the interpretation does not.
 
@@ -210,45 +210,23 @@ We will begin with simple geometric definitions, because they are measurable and
 
 > **The visible boundary of a pattern may not be the true boundary of a digital individual.**
 
-Persistence immediately creates the same problem.
+Persistence creates the same problem. A program can persist indefinitely by doing nothing, so duration alone tells us very little.
 
-A program can persist indefinitely by doing nothing:
+Reproduction deserves similar suspicion. Biology makes it look unavoidable because organisms die and lineages continue through successors. A digital process might instead continue, grow, fork, checkpoint, merge, or transfer acquired state directly. Reproduction may turn out to matter — but the substrate has to show us why.
 
-Reproduction deserves the same suspicion. Biology makes it look unavoidable because organisms die and lineages continue by producing successors. A digital process might instead continue, grow, fork, checkpoint, merge, or transfer acquired state directly.
+Evolution raises the same problem. Digital inheritance could include acquired state, learned parameters, external memory or modified code. Branches might exchange what they learned or merge again.
 
-So the useful question is not simply:
-
-> Does it reproduce?
-
-but:
-
-> **Under what computational conditions does reproduction become useful or necessary at all?**
-
-Evolution raises the same problem. Digital inheritance could include acquired state, learned parameters, external memory or even modified code. Branches might exchange what they learned or merge again.
-
-So instead of assuming that biological evolution is the universal route to cumulative change, we ask the broader question:
+So the broader question is:
 
 > **How can useful organization accumulate through time in a computational substrate?**
 
 Biological evolution is one answer.
 
-We do not yet know what the other answers are.
+We do not yet know the others.
 
-Behind that question sit several others the book will keep returning to.
+The visible object may not be the important unit. History may matter without anything we would recognize as memory. Reproduction may not be fundamental at all.
 
-Is the visible object even the important unit?
-
-Digital scarcity may turn out to have little in common with biological energy.
-
-History might matter without anything we would recognize as memory.
-
-Reproduction may not be fundamental at all.
-
-And what if computation makes possible forms of persistence and change for which biology offers no precedent?
-
-For now, these remain open questions.
-
-We should not settle them by choosing the right vocabulary. The experiments have to do that.
+Those are questions for the experiments. We should not settle them by choosing the right vocabulary.
 
 ---
 
@@ -276,23 +254,9 @@ BUILD A BETTER CONTROL
 KEEP ONLY WHAT SURVIVES
 ```
 
-```mermaid
-flowchart TD
-    A[See Something] --> B[Name the Hypothesis]
-    B --> C[Define Evidence]
-    C --> D[Measure]
-    D --> E[Build a Control]
-    E --> F[Look for Confounds]
-    F --> G[Build a Better Control]
-    G --> H[Keep Only What Survives]
-    H -.->|repeat| A
-```
+Later chapters will return to this sequence again and again, because the procedure is part of the instrument.
 
-That repetition is deliberate.
-
-Later chapters will return to this sequence again and again, because the procedure is part of the instrument. We cannot demand a control when we dislike a result and quietly omit it when we like one. We cannot tighten the standard of evidence for an inconvenient hypothesis and relax it for an exciting one.
-
-The protocol repeats because the standard must remain the same while the questions change.
+The questions will change. The procedure does not.
 
 Three parts of the cycle do most of the work.
 
@@ -365,63 +329,15 @@ We are trying to find out which claims remain standing after we attack them.
 
 ---
 
-## How to Read the Experiments
-
-The book operates at several depths, and not every reader needs all of them at once.
-
-Some material is **concept**: the intellectual step in the argument, the reason a question is being asked at all. Some is **evidence**: the experiment, the measurement, the numbers that support the step. Some is **control and confound**: the attack on the interpretation, including the attacks that succeeded. Some is a **claim boundary**: an explicit statement of what the evidence permits and what it does not. And some is a **deep dive** — protocols, thresholds, discarded designs, seeds, implementation failures, the forensic record — which mostly lives in the appendices.
-
-A reader following the conceptual journey can stay with the argument and the claim boundaries, and skip the detailed protocols without losing the thread.
-
-A reader who wants to know why a claim was earned should read the evidence and the controls, because that is where the claim is actually made.
-
-A reader who wants to audit or reproduce the work can go to the appendices, where the experimental record is kept deliberately unclean: the wrong metric before the better metric, the control that failed, the run that had to be discarded.
-
-These are not simplified and "real" versions of the book. They are different depths of the same argument.
-
-The conceptual reader can follow what changed.
-
-The evidence reader can see why it changed.
-
-The reproducing reader can inspect exactly how the result was obtained.
-
----
-
 ## There Is No Biological Ladder Here
 
-We will meet many familiar properties along the way:
+We will meet familiar properties along the way — structure, persistence, identity, damage tolerance, repair, reproduction, inheritance, adaptation, evolution — but they are experimental questions, not levels.
 
-```text
-structure
-persistence
-identity
-damage tolerance
-repair
-reproduction
-inheritance
-adaptation
-evolution
-```
+Some may prove important. Some may be consequences of biological constraints that do not carry over. Some may have digital equivalents unlike their biological namesakes. Some may disappear from the final picture entirely.
 
-They should not be read as a ranking:
-
-```text
-LEVEL 1
-↓
-LEVEL 2
-↓
-LEVEL 3
-↓
-ALIVE
-```
-
-They are experimental questions, and each is allowed to fail. Some may turn out to be deeply important. Some may turn out to be consequences of biological constraints that a computational substrate does not have. Some may have digital equivalents that look nothing like their biological namesakes. Some may disappear from the final picture entirely.
-
-The order in which we study these properties is a path through the investigation, not a ladder toward life.
+The order in which we study them is a path through the investigation, not a ladder toward life.
 
 Nothing earns points toward an `ALIVE` label.
-
-Indeed, one possibility we have to preserve throughout the book is that some of the properties we began by treating as fundamental may turn out not to belong in the final picture at all.
 
 ---
 
