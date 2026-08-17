@@ -2,7 +2,7 @@
 title = "11: What Does It Cost to Stay?"
 date = "2026-08-14T16:00:00+01:00"
 draft = false
-description = "Limit how many construction opportunities the Digital Crystal can evaluate per update and it never finds a stable size. What becomes stable instead is the traffic flowing through it."
+description = "Limit how many construction opportunities the Digital Crystal can evaluate per update and scale becomes budget-dependent. No tested budget satisfies the frozen stationarity criterion, while normalized material turnover remains strikingly stable across the tested regimes."
 weight = 11
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Scarcity", "Turnover", "Computation", "Experiments"]
@@ -11,9 +11,19 @@ series = ["Digital Life From First Principles"]
 
 The last chapter ended with an impressive number and a suspicion about it.
 
-More than ninety-three percent of everything the crystal lost came back, usually within a step or two, through nothing more than the ordinary growth rule encountering ordinary empty sites. No repair mechanism, no damage detector, no target shape.
+Under the previous chapter's exact-count experiment, roughly `0.94–0.96` reoccupation events were observed per loss event, and more than ninety-three percent of distinct lost locations returned at least once within the finite run.
 
-But the crystal had never once had to decide whether rebuilding was worth doing. Every update, every eligible site received an attachment evaluation — the vacancies carved through its interior and the frontier at its outer edge, all of them, simultaneously. Reoccupation was cheap because nothing else was competing for the chance to happen.
+Among the returns that were observed, the typical delay was only a step or two.
+
+All of that happened through the ordinary growth rule encountering ordinary empty sites.
+
+But those measurements came from a regime in which every eligible construction opportunity could receive an attachment evaluation.
+
+Vacancies inside the crystal and candidates at the outer edge did not have to compete for evaluation capacity.
+
+So one major question remained open:
+
+> **How much of that rapid reoccupation survives when computational opportunity becomes finite?**
 
 So this chapter removes that luxury, and it removes it in the smallest possible way.
 
@@ -41,7 +51,7 @@ That is the whole modification, and it is worth being precise about what kind of
 
 ---
 
-## The Budget Sets the Scale
+## The Budget Constrains the Scale
 
 The first result arrived before any of the interesting questions did.
 
@@ -60,7 +70,11 @@ The scale of the process is strongly constrained by the amount of computation av
 
 Across the binding part of the sweep, increasing the evaluation budget produces a large increase in late population. A sixteen-fold change in budget corresponds to roughly a nine-fold difference in scale.
 
-That the curve flattens somewhere above `B = 512` is unsurprising: past some point the budget stops binding, because there are not that many eligible sites to evaluate. The exact ordering at the top end is not worth interpreting. What matters is the bottom end, where the crystal at `B = 64` is not a slower version of the unlimited crystal. It is roughly a tenth of the size, indefinitely.
+That the curve flattens somewhere above `B = 512` is unsurprising: past some point the budget stops binding, because there are not that many eligible sites to evaluate. The exact ordering at the top end is not worth interpreting. What matters is the binding end of the sweep.
+
+Under the tested horizon and loss regime, the crystal at `B = 64` reaches a late population roughly one tenth that of the unlimited reference.
+
+Finite evaluation opportunity has changed the scale of the process, not merely delayed its growth.
 
 ```text
 AVAILABLE EVALUATION OPPORTUNITY
@@ -154,7 +168,9 @@ first occupations / 1000 evals   188       212           249
 late net growth                +24.3     +10.0          -1.5
 ```
 
-The same evaluation budget, allocated differently, produces late populations differing by roughly seventy percent — and even changes the sign of late net growth.
+The same evaluation budget, allocated differently, produces mean late populations differing by roughly seventy percent.
+
+The mean late net-growth statistic even changes sign across the scheduling policies.
 
 ```text
 SAME COMPUTATIONAL BUDGET
@@ -221,13 +237,33 @@ The budget sweep contained a suggestive regime.
 
 Under severe scarcity, late population change approached zero while loss, attachment and reoccupation continued.
 
-That raised a stronger question.
-
-Which revives a hypothesis that failed in the previous chapter for reasons that may no longer apply. Material loss alone did not produce a finite sustainable size, because loss manufactured the very opportunities that replaced it. But loss plus a ceiling on how many of those opportunities can be serviced is a different situation entirely. Now the replacement mechanism has a hard limit.
+That raised a stronger question and revived a hypothesis that had failed in the previous chapter for reasons that might no longer apply. Material loss alone did not produce a finite sustainable size, because loss manufactured the very opportunities that replaced it. But loss plus a ceiling on how many of those opportunities can be serviced is a different situation entirely. Now the replacement mechanism has a hard limit.
 
 > **Is there a finite budget at which population becomes approximately stationary while material turnover continues?**
 
-That is a much stronger claim than *growth becomes slow*, so it needed gates that a trivially stationary system could not pass. A qualifying regime had to keep a nonzero population, hold a late population slope near zero, and continue to exhibit loss, reoccupation, first occupation and substantial gross turnover, all without approaching simulation capacity. Freezing on death does not count. Freezing against the wall of the world does not count. We wanted approximately stationary population together with continuing material turnover.
+That is a much stronger claim than *growth becomes slow*, so it needed gates that a trivially stationary system could not pass.
+
+A qualifying regime had to satisfy all of the following:
+
+```text
+|late normalized population slope| ≤ 0.0025
+
+late mean population ≥ 150
+
+mean late losses ≥ 5 per update
+
+mean late reoccupations ≥ 2 per update
+
+mean late first occupations ≥ 2 per update
+
+gross turnover / population ≥ 0.05
+
+|late net change| ≤ 3 cells per update
+
+maximum capacity fraction < 0.75
+```
+
+Freezing on death does not count. Freezing against the wall of the world does not count. We wanted approximately stationary population together with continuing material turnover.
 
 The candidate budgets were frozen before the run:
 
@@ -334,7 +370,19 @@ So the test is straightforward:
 
 under the same budget, do crystals started at different scales converge toward similar normalized material traffic even when their absolute populations remain different?
 
-The claim was demanding: every flow, at every budget, had to stay within a frozen sensitivity threshold across starting sizes.
+The claim was deliberately demanding.
+
+For every normalized process metric, the coefficient of variation across starting sizes had to remain at or below:
+
+```text
+0.10
+```
+
+at every tested budget.
+
+For gross turnover specifically, the coefficient of variation across budget means also had to remain at or below `0.10`, and its absolute late-window temporal slope had to remain at or below `0.0025`.
+
+Every gate was required.
 
 ---
 
@@ -358,7 +406,9 @@ The coefficient of variation across those budget means is:
 
 Three tenths of one percent, across a budget family that produces populations differing by a factor of three. And the quantity is not merely similar across budgets; it is nearly flat within each run. The worst late temporal slope across the family was around `0.00024`, against a frozen tolerance of `0.0025` — an order of magnitude inside it.
 
-Starting size barely matters either. At `B = 48`:
+Starting size barely affects **gross turnover** either.
+
+At `B = 48`:
 
 ```text
 small     0.17330
@@ -366,10 +416,11 @@ medium    0.17267
 large     0.17089
 ```
 
-Loss fraction, attachment fraction and reoccupation fraction cluster the same way, at this budget and the others.
+Loss fraction, attachment fraction and reoccupation fraction show the same broad stability pattern and remain within the frozen start-size sensitivity gate across the tested budgets.
 
 Across these tested starting sizes and budgets, gross material-event traffic remains close to the same fraction of population per update.
- Absolute population is changing.
+
+Absolute population is still changing.
 
 This normalized traffic measure changes remarkably little.
 
@@ -408,7 +459,6 @@ But the identity of the failing component matters more than the binary verdict.
 
 Sort the measurements by how they behaved.
 
-```text
 RELATIVELY STABLE ACROSS TESTED CONDITIONS
 loss fraction
 reoccupation fraction
@@ -417,26 +467,49 @@ total attachment fraction
 
 MORE SENSITIVE UNDER SEVERE SCARCITY
 first-occupation fraction
-
 ```
 
-The cleanest asymmetry is between:
+The cleanest operational contrast is:
 
 ```text
 REOCCUPATION
+        versus
+FIRST OCCUPATION
 ```
 
-Call them **continuation** and **expansion**, with the caveat that continuation here means nothing more than ongoing turnover and reuse within existing structure. It is not self-maintenance, and nothing is being maintained on purpose.
+We can use **continuation** and **expansion** as shorthand for those two measured responses, with an important caveat:
+
+```text
+continuation
+→ turnover and reuse within previously occupied structure
+
+expansion
+→ occupation of never-before-used locations
+```
+
+Neither term implies purpose, self-maintenance or a biological function.
 
 Under the tested scarcity regimes, reoccupation-related turnover is comparatively stable across starting scales and budgets.
 
 First occupation is more sensitive, especially under the harshest scarcity.
 
-So continuation and expansion respond differently to finite computation.
+So the two observer-defined categories respond differently to finite computation.
+
+Reoccupation-related turnover is comparatively insensitive to starting scale across these tested regimes.
+
+First occupation is more sensitive under severe scarcity.
 
 > **Staying and growing are not the same computational problem.**
 
-Operationally, in this substrate — not biologically. And note where the distinction came from. The scheduling policies cannot see it; they sort by neighbour count. The growth rule cannot see it; it treats every empty site alike. the previous chapter introduced first occupation versus reoccupation as an observer's bookkeeping device, a way for us to classify events the crystal cannot distinguish. This chapter finds that the two categories respond differently to a constraint neither of them knows about.
+Operationally, in this substrate — not biologically.
+
+And note where the distinction came from.
+
+The scheduling policies cannot see it; they sort by neighbour count.
+
+The growth rule cannot see it; it treats every empty site alike.
+
+The previous chapter introduced first occupation versus reoccupation as an observer-side bookkeeping distinction, a way for us to classify events the crystal itself cannot distinguish. This chapter finds that the two categories respond differently to a constraint neither of them knows about.
 
 The observer-side distinction introduced for bookkeeping has turned out to separate two dynamical responses.
 
@@ -446,7 +519,7 @@ The observer-side distinction introduced for bookkeeping has turned out to separ
 
 The chapter's title can now be answered, and the answer is not a substance.
 
-The measured cost of continuing is **evaluation opportunity**. A candidate attachment can only occur where computation is spent on it, and under a binding budget, spending computation on one site means not spending it on another. Evaluating one candidate can therefore mean leaving another unevaluated on that update.
+The scarce quantity exposed by these experiments is **evaluation opportunity**. A candidate attachment can only occur where computation is spent on it, and under a binding budget, spending computation on one site means not spending it on another. Evaluating one candidate can therefore mean leaving another unevaluated on that update.
 
 That is a genuine opportunity cost created by finite computation.
 
@@ -454,7 +527,7 @@ Reduce the allowance and the scale of the process falls with it. Change how it i
 
 The bounded claim:
 
-> **Continued material turnover in the lossy Digital Crystal depends strongly on finite computational opportunity, and the allocation of that opportunity changes whether construction tends toward reuse of previously occupied locations or occupation of new territory.**
+> **Continued material turnover in the lossy Digital Crystal depends strongly on finite computational opportunity. At fixed budget, scheduling can strongly alter reoccupation and can also shift first occupation, although the predeclared symmetric reuse-versus-expansion tradeoff was not established.**
 
 Biology pays for action through physical resource constraints, and that comparison will be tempting for the rest of the book. Resist it a little longer. This substrate has exposed a different primitive: a per-update limit on how many possible transitions can receive computation.
 
@@ -467,17 +540,17 @@ It is simply a bound on action.
 
 ## What Survived the Three Tests
 
-Three increasingly simple descriptions failed:
+Three increasingly refined hypotheses failed:
 
 ```text
-finite computation
-↛ clean symmetric stay/grow tradeoff
+same finite budget
+↛ clean symmetric reuse/expansion tradeoff
 
 finite computation
-↛ stationary population
+↛ stationary population with turnover
 
-normalized process
-↛ complete invariance
+normalized process flows
+↛ complete invariance across size and budget
 ```
 
 One honest caution before this becomes a principle. The near-constant turnover fraction may be less mysterious than it looks. The loss rate is frozen at `δ = 0.08`, and the previous chapter established that lost sites are reoccupied rapidly and almost universally. A system losing a fixed fraction of itself and putting most of it back promptly will produce a turnover fraction in the neighbourhood of that loss rate more or less mechanically. The stability is real and measured. Its explanation is open, and the audit that would settle it — comparing observed turnover against the turnover mechanically expected from the loss rate and the known replacement dynamics — has not been run.
@@ -485,6 +558,112 @@ One honest caution before this becomes a principle. The near-constant turnover f
 That distinction matters more here than almost anywhere else in the book. A stable measurement is scientifically interesting only to the extent that its stability is not already forced by the parameters used to generate it.
 
 Until that subtraction is done, `0.171` is a strikingly stable measurement and not yet a law.
+
+---
+
+## Experimental Note
+
+This chapter combines three frozen experiments under the same lossy Digital Crystal substrate with:
+
+```text
+loss rate δ = 0.08
+```
+
+### V1 — finite-budget allocation
+
+The V1 quick profile used:
+
+```text
+48 independent groups
+radius                 72
+warmup                 14 updates
+continuation           48 updates
+late window            final 12 updates
+primary budget         B = 256
+```
+
+The neutral budget characterization tested:
+
+```text
+B = 64, 128, 256, 512, 1024, 2048
+and an unbounded reference
+```
+
+The scheduling policies used only current occupied-neighbour count plus keyed scheduling noise.
+
+They could not inspect occupancy history.
+
+The two frozen primary magnitude gates were:
+
+```text
+high-support reoccupation advantage
+≥ 0.15 reoccupations per loss
+
+low-support first-occupation advantage
+≥ 100 first occupations per 1000 evaluations
+```
+
+Both were required for the two-sided tradeoff hypothesis.
+
+### V2 — stationary population with turnover
+
+V2 used:
+
+```text
+96 independent groups
+radius                 72
+warmup                 14 updates
+continuation           72 updates
+late window            final 20 updates
+
+B = 48, 64, 80, 96, 128
+```
+
+with neutral scheduling only.
+
+A candidate regime had to satisfy every frozen population, activity, turnover and capacity gate. No budget could be added after observing the V2 results.
+
+### V3 — normalized process stability
+
+V3 used:
+
+```text
+48 independent groups per condition
+72 continuation updates
+late window = 20
+
+B = 48, 64, 80, 96, 128
+
+small start     warmup 8
+medium start    warmup 14
+large start     warmup 20
+```
+
+The normalized process vector was:
+
+```text
+loss / population
+attachments / population
+reoccupation / population
+first occupation / population
+gross turnover / population
+```
+
+For every metric and budget, the coefficient of variation across starting sizes had to be at most `0.10`.
+
+Gross turnover also had to satisfy:
+
+```text
+between-budget CV ≤ 0.10
+absolute late temporal slope ≤ 0.0025
+gross turnover fraction ≥ 0.05
+```
+
+All V3 gates were required.
+
+The V3 full process-invariance hypothesis failed because first occupation exceeded the start-size CV limit at `B = 48`.
+
+Full confidence intervals, randomization tests and per-run records remain in the accompanying experiment reports.
 
 ---
 
@@ -498,12 +677,12 @@ Until that subtraction is done, `0.171` is a strikingly stable measurement and n
 | Low-support scheduling meaningfully increases expansion | **FAILED** | advantage `61.6` against required `100` per 1000 evaluations |
 | The full two-sided allocation tradeoff holds | **FAILED** | one arm below its declared magnitude |
 | Some finite budget yields stationary population with turnover | **FAILED** | best slope `-0.00252` against a required absolute slope of `0.00250` |
-| Gross normalized turnover is stable across budgets | **MEASURED** | `0.17066–0.17229`; CV `0.0030`; worst late slope `0.00024` |
-| Loss, attachment and reoccupation fractions are start-size insensitive | **MEASURED** | tightly clustered across small/medium/large starts |
+| Gross normalized turnover remains highly stable across the tested budgets | **SUPPORTED** | `0.17066–0.17229`; between-budget CV `0.0030`; worst late slope `0.00024` |
+| Loss, attachment and reoccupation fractions satisfy the frozen start-size sensitivity gate | **SUPPORTED** | each remains within the `0.10` CV threshold across tested start sizes and budgets |
 | First occupation is start-size insensitive under severe scarcity | **FAILED** | CV `0.118` at `B=48` against maximum `0.100` |
 | The complete normalized process vector is invariant | **FAILED** | one metric at one budget breaks the frozen criterion |
-| Continuation and expansion respond differently to scarcity | **SUPPORTED** | stable turnover flows versus contingent first occupation |
-| Turnover stability reflects a substrate law rather than the loss rate | **UNTESTED** | observed-minus-expected audit not yet performed |
+| Reoccupation-related turnover and first occupation respond differently to scarcity | **SUPPORTED** | turnover measures remain comparatively stable while first occupation fails the start-size gate at `B=48` |
+| Turnover stability reflects a substrate law rather than arithmetic induced by the fixed loss rate | **NOT RESOLVED** | observed-minus-mechanically-expected audit has not been run |
 | The crystal has metabolism, homeostasis or a sustainable body size | **NOT CLAIMED** | no target, controller, resource or set point exists |
 
 ---
