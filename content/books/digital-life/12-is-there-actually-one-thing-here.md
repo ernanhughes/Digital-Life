@@ -1,9 +1,9 @@
 +++
-title = "11: Is There Actually One Thing Here?"
+title = "12: Is There Actually One Thing Here?"
 date = "2026-08-14T18:00:00+01:00"
 draft = false
 description = "We have said 'the crystal' for six chapters without testing whether the noun refers to anything. Two experiments look for a privileged boundary. Neither finds one — but causal consequences turn out to be strongly local."
-weight = 11
+weight = 12
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Causality", "Boundaries", "Process", "Experiments"]
 series = ["Digital Life From First Principles"]

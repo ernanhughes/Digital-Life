@@ -1,9 +1,9 @@
 +++
-title = "16: How to Fail Correctly"
+title = "17: How to Fail Correctly"
 date = "2026-08-15T03:00:00+01:00"
 draft = false
 description = "Thirteen chapters of biological names failed under stronger controls, and something smaller survived each time. This chapter makes explicit the bookkeeping that kept the survivors intact."
-weight = 16
+weight = 17
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Experimental Method", "Epistemology"]
 series = ["Digital Life From First Principles"]

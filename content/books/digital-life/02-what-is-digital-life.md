@@ -1,9 +1,9 @@
 +++
-title = "01: What Would Digital Life Mean?"
+title = "02: What Would Digital Life Mean?"
 date = "2026-08-14T09:00:00+01:00"
 draft = false
 description = "If digital life is possible, why assume it must look like biological life? The intellectual constitution of the book: names are not evidence, biology is evidence rather than specification, and every claim must survive a control."
-weight = 1
+weight = 2
 series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Cellular Automata", "Artificial Life", "Emergence", "Experimental Method"]

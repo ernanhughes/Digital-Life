@@ -1,9 +1,9 @@
 +++
-title = "02: Look at This Thing"
+title = "03: Look at This Thing"
 date = "2026-08-14T09:30:00+01:00"
 draft = false
 description = "Calibrating the microscope. A continuous cellular automaton produces something that looks disturbingly like a creature. We strip it down to almost nothing, then rebuild a world in which the actors rewrite the conditions of their own future — and start deleting the parts to find out where the thing actually lives."
-weight = 2
+weight = 3
 series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Artificial Life", "Lenia", "Cellular Automata", "Physarum", "Agent-Based Models", "Pattern Identity", "History Dependence", "Emergence"]
