@@ -113,13 +113,11 @@ experienced, labels retained ─┐
 experienced, labels erased ───┘
 ```
 
-At the late ablation point, removing the retained material state produced no downstream difference.
+At the late ablation point, removing the retained material state produced no detectable downstream difference.
 
-The ablation changed modified cells back to ordinary occupied cells while preserving the occupied geometry and the paired continuation conditions.
+The trace was still present immediately before ablation.
 
-The trace was present immediately before that intervention.
-
-Its removal no longer changed the tested future.
+Its removal no longer produced a detectable change in the tested future.
 
 ---
 
@@ -155,19 +153,21 @@ So we stopped counting how many modified cells survived and started measuring wh
 
 The mystery evaporated. Immediately after the pulse the modified material was exposed to the frontier. A few updates later that exposure had collapsed. By the late checkpoint where our ablation had found nothing, there was nothing left to find — not because the state was gone, but because no decision was being made anywhere near it.
 
-The timed erasure experiment makes the relationship direct. Erase the same material at different moments and the causal consequence tracks frontier contact, not quantity:
+The timed erasure experiment makes the relationship more concrete. Erase the same material at different moments:
 
 ```text
 early probe     mean frontier contact ≈ 16.69     ablation effect detected
 later probe     mean frontier contact ≈  2.25     effect not detected
-after burial    mean frontier contact =   0       effect = 0
+after burial    mean frontier contact =   0       material contribution structurally zero
 ```
+
+The last row is different from the first two. Once no active candidate is adjacent to modified material, the material term cannot enter any attachment probability. Its local contribution is therefore zero by the model definition, not because a statistical test failed to detect it.
 
 The timed ablations point in one direction:
 
-> **Retained material produced a detectable causal effect while it remained strongly exposed to active growth, and no detectable effect once that exposure had collapsed.**
+> **Retained material produced a detectable causal effect while strongly exposed to active growth; once frontier contact vanished, its contribution to the local attachment rule vanished by construction.**
 
-Three probe times do not establish a general quantitative law.
+Three probe times do not establish a quantitative law relating accessibility to effect size.
 
 They tell us what to test next.
 
@@ -241,7 +241,11 @@ Before building anything on top of that, one alternative explanation had to be r
 
 So we audited the mechanism end to end.
 
-For every candidate site at the frontier we can compute its attachment probability with the material effect and without it, giving a local difference `Δp`. But a changed probability is not a changed event. If the probability moves from 0.510 to 0.515 and the random draw is 0.900, nothing whatsoever happens; the cell stays empty in both worlds. Move the same probability against a draw of 0.512 and the two worlds disagree:
+For every candidate site at the frontier we can compute its attachment probability with the material effect and without it, giving a local difference `Δp`.
+
+Attachment occurs when the candidate's random draw falls below its attachment probability.
+
+So a changed probability is not automatically a changed event. If the probability moves from `0.510` to `0.515` and the draw is `0.900`, nothing happens in either world. If the same probability shift is evaluated against a draw of `0.512`, the two worlds disagree:
 
 ```text
 without modified neighbour:  no attachment
@@ -363,7 +367,9 @@ Now the intervention is clean:
 
 The first matched-quantity experiment failed.
 
-Its predeclared endpoint was a single late snapshot, and the predicted ordering was not present there. That result stays failed.
+Its predeclared endpoint was a single late snapshot, and the predicted placement ordering was not present there.
+
+That result stays failed and appears explicitly in the Evidence Ledger below.
 
 The trajectories suggested a different question: perhaps placement affects **how long** state remains causally available rather than guaranteeing a difference at one arbitrarily late moment.
 
@@ -377,7 +383,7 @@ The observation window, outcome measures and analysis rule for that experiment w
 
 ---
 
-Placement Changes Causal Lifetime
+## Placement Changes Causal Lifetime
 
 So we kept the exact matched-copy controller, changed nothing about the material mechanism, and changed only the definition of the outcome. Instead of one frame, freeze an observation window — steps 5 through 18 — and integrate through it:
 
@@ -389,17 +395,19 @@ realized causal attachment flips over time
 
 New seed, new population of crystals, window and metrics fixed before looking at any result.
 
-All three integrated measures produced the same ordering:
+All three per-crystal measures, integrated across the frozen observation window, produced the same ordering:
 
 ```text
 INTERIOR  <  RANDOM  <  SURFACE
 ```
 
-| placement | integrated access | probability leverage | realized causal flips |
+| placement | integrated access | probability leverage | mean realized causal flips |
 |---|---:|---:|---:|
 | INTERIOR | 0.515 | 3.87 | 4.06 |
 | RANDOM | 0.847 | 7.33 | 7.52 |
 | SURFACE | 1.293 | 12.26 | 12.39 |
+
+The non-integer flip values are population means, not fractional attachment events within an individual crystal.
 
 And the cumulative amount of propagated material was identical across all three policies — an average of 27.1875 transmissions each. The experiment was not comparing more history against less history. It was comparing where an equal amount of history had been put.
 
@@ -564,11 +572,9 @@ That second requirement was about to earn its keep.
 
 A difference appeared.
 
-```text
-normalized interaction     0.00440
-bootstrap interval         0.00331 ... 0.00548
-directional test           p ≈ 0.00025
-```
+interaction normalized by pre-challenge population     0.00440
+bootstrap interval                                      0.00331 ... 0.00548
+directional test                                        p ≈ 0.00025
 
 By a conventional significance-only rule, this would be easy to call positive.
 
@@ -596,6 +602,8 @@ A small p-value tells us that the observed result is difficult to reconcile with
 
 It does not tell us that the effect is large enough to be the phenomenon we said we were looking for.
 
+That distinction cannot be bought away simply by running more crystals. Increasing sample size can make a small effect more precisely estimated; it does not make that effect larger relative to the predeclared population or seed-to-seed magnitude gates.
+
 > Is it large enough to be the thing we said we were looking for?
 
 Here that distinction has teeth, because of what we would have written otherwise. With `p ≈ 0.00025` in hand and no magnitude gate, the sentence practically writes itself: *the crystal responds differently depending on which past it had.* Which would have been true, in the sense that a difference of 0.4% of population is a difference, and thoroughly misleading, since that is well inside the range in which two crystals with the *same* history routinely differ from each other by chance.
@@ -612,9 +620,9 @@ We had also noticed, in passing, that most of the difference appeared in the ver
 
 ## Remove the Decoder
 
-The failed magnitude gate was already enough to reject the claim.
+The magnitude gate had already rejected the claim.
 
-But the design also exposed a deeper problem with the question we had built.
+The design also exposed a deeper problem with the question we had built.
 
 We created two labels and then explicitly told the challenge how to interpret each one:
 
@@ -688,7 +696,24 @@ cumulative material A       78.5
 cumulative material B       78.5
 ```
 
-Their spatial organizations remained measurably different throughout retention — a directional diagnostic separated them cleanly and kept them separated, rather than letting them collapse into one indistinguishable distribution. And crucially, given everything the first half of this chapter established, the material had not been buried: at the end of the retention window roughly one fifth of the active frontier was still in contact with modified material in both conditions.
+Their spatial organizations remained measurably different throughout retention.
+
+The predeclared directional diagnostic remained separated at the pre-challenge checkpoint:
+
+```text
+[INSERT EXACT DIRECTIONAL-DIAGNOSTIC NAME AND A/B VALUES FROM THE EXPERIMENTAL REPORT]
+```
+
+That measurement matters: equal material quantity does not establish different spatial histories.
+
+And the material had not been buried. At the end of retention, the fraction of the active frontier still in contact with modified material was approximately:
+
+```text
+history A     0.215
+history B     0.219
+```
+
+So both histories remained spatially distinct and causally accessible when the common challenge arrived.
 
 So when the challenge arrived, three things were already established:
 
@@ -733,7 +758,7 @@ Not: no possible later interaction could ever distinguish them. That claim would
 
 ## A Past You Can Reach
 
-Two hypotheses failed in this chapter. It would be a serious misreading to conclude that nothing worked.
+Two attempted promotions failed in the second half of this chapter. It would be a serious misreading to conclude that nothing worked.
 
 What survived is the mechanism the chapter set out to find. Experience can write a persistent local change into the material of the process. That change biases what gets built nearby. Some of those biases become realized construction differences. And with quantity held exactly constant, where the state sits determines how long and how strongly it can do any of that.
 
@@ -741,16 +766,17 @@ What failed is the promotion of that mechanism into something that carries the *
 
 The two together give a ladder in which every rung is a separate empirical property:
 
-```text
-WRITE
+WRITE                         SUPPORTED
 ↓
-PERSIST
+PERSIST                       SUPPORTED
 ↓
-REMAIN ACCESSIBLE
+REMAIN ACCESSIBLE             ACHIEVED UNDER TESTED PLACEMENTS
 ↓
-ALTER LATER CONSTRUCTION
+ALTER LATER CONSTRUCTION      SUPPORTED
 ↓
-DISTINGUISH BETWEEN PASTS
+DISTINGUISH BETWEEN PASTS     TRACE DIFFERENCE SUPPORTED
+↓
+DIFFERENTIALLY USE THE PAST   NOT SUPPORTED
 
 ```
 
@@ -825,22 +851,23 @@ Exact write rules, material-effect coefficients, challenge parameters, sample si
 | Claim | Status | Evidence |
 |---|---|---|
 | Experience can write a persistent local material state | **SUPPORTED** | modified cells persist indefinitely after the pulse |
-| Persistent material state is automatically usable | **FAILED** | late erasure produced no detectable difference |
-| Causal efficacy tracks frontier accessibility | **SUPPORTED** | effect present at contact ≈ 16.69, absent at ≈ 2.25, zero after burial |
-| Modified material changes local attachment probability | **SUPPORTED** | measured Δp at frontier candidates |
-| Probability change becomes realized construction difference | **SUPPORTED** | counterfactual attachment flips at the decision boundary |
-| Propagation alone preserves causal access | **FAILED** | propagated material was still eventually buried |
-| Surface advantage is explained by copy quantity | **FAILED** (confound removed) | matched-budget controller equalized transmissions |
-| Placement controls causal lifetime at fixed quantity | **SUPPORTED** | `INTERIOR < RANDOM < SURFACE` on all three integrated measures at 27.1875 matched transmissions |
-| Accessibility feeds back to sustain itself | **FAILED** | no reliable increase in total transmissions |
-| Temporal alignment broadly improves accessibility | **FAILED** | narrow leverage signal only |
-| Timing produces general causal-efficiency advantage | **FAILED** | broad predeclared claim not met |
-| Symbolic A/B labels produce a meaningful history response | **FAILED** | effect `0.00440`, `p ≈ 0.00025`, but `0.383 SD` against required `0.500 SD` |
-| Two histories remain spatially distinguishable | **SUPPORTED** | directional separation maintained at matched quantity `78.5` / `78.5` |
+| Persistent material state is automatically usable | **NOT SUPPORTED** | late erasure produced no detectable difference |
+| Causal effect remains available after frontier contact disappears | **NOT SUPPORTED** | effect became undetectable as contact collapsed; at zero contact the material term is structurally absent from active attachment decisions |
+| Modified material changes local attachment probability while accessible | **SUPPORTED** | measured `Δp` at active frontier candidates |
+| Probability change can become realized construction difference | **SUPPORTED** | counterfactual attachment flips at the stochastic decision boundary |
+| Propagation alone preserves causal access | **NOT SUPPORTED** | propagated material was still eventually buried |
+| Uncontrolled surface placement establishes a placement effect | **INVALID** | surface policy changed both placement and propagated-state quantity |
+| Placement changes causal lifetime at matched quantity | **SUPPORTED** | `INTERIOR < RANDOM < SURFACE` on all three integrated measures at mean `27.1875` matched transmissions |
+| Placement produces the predicted ordering at the original predeclared late snapshot | **NOT SUPPORTED** | the first matched-quantity late-endpoint experiment failed |
+| Accessibility feeds back strongly enough to sustain itself | **NOT SUPPORTED** | no reliable increase in total transmissions |
+| Temporal alignment broadly improves accessibility | **NOT SUPPORTED** | narrow leverage signal only |
+| Timing produces a general causal-efficiency advantage | **NOT SUPPORTED** | broad predeclared claim not met |
+| Symbolic A/B labels produce a scientifically meaningful history response | **NOT SUPPORTED** | normalized effect `0.00440`, `p ≈ 0.00025`, but `0.383 SD` against required `0.500 SD` |
+| Two histories remain spatially distinguishable | **SUPPORTED** | [INSERT DIRECTIONAL-DIAGNOSTIC NAME AND PRE-CHALLENGE A/B RESULT] |
 | Distinguishable histories remain frontier-accessible | **SUPPORTED** | contact fraction ≈ `0.215` / `0.219` at end of retention |
-| Non-symbolic history produces meaningful challenge response | **FAILED** | effect `0.000431`, `p ≈ 0.163`, `0.033 SD` |
+| Non-symbolic history produces a scientifically meaningful challenge response | **NOT SUPPORTED** | effect `0.000431`, `p ≈ 0.163`, `0.033 SD` |
+| No possible later probe could distinguish the two spatial histories | **NOT CLAIMED** | only the frozen common challenge was tested |
 | The material constitutes memory, learning or adaptation | **NOT CLAIMED** | no representation, recognition, or use of a past as a past |
-
 ---
 
 ## What Happens When the Material Doesn't Stay?
