@@ -11,7 +11,7 @@ series = ["Digital Life From First Principles"]
 
 The last chapter ended with a suspicion about a word.
 
-We have been saying *the crystal* since the *Now There Are Two* chapter, and the noun has been doing quiet work ever since. We kept using it after material became impermanent. We kept using it after large material turnover appeared beneath the visible state. We kept using it after computational opportunity was shown to strongly constrain its scale, and after no tested budget produced a stationary population.
+We have been saying *the crystal* since Chapter 4, and the noun has been doing quiet work ever since. We kept using it after material became impermanent. We kept using it after large material turnover appeared beneath the visible state. We kept using it after computational opportunity was shown to strongly constrain its scale, and after no tested budget produced a stationary population.
  Through all of that, the sentence "the crystal is doing X" kept seeming like a sentence about something.
 
 The justification has always been the same, and it has never been tested:
@@ -38,7 +38,7 @@ They make inside and outside feel like natural places to begin looking for a thi
 
 The Digital Crystal owes us nothing of the kind, and the last three chapters have been quietly making the boundary assumption harder to hold.
 
-The *Can Experience Change the Material?* chapter found that retained material only matters while it sits inside the causal aperture — a region that moves. the *What Survives Material Loss?* chapter destroyed the idea that this region is the outer edge at all, since loss can open an interface anywhere in the interior, and redefined it as the dynamically generated set of locations where the process currently has an available transition. the previous chapter added that not even every available transition is real in practice; finite computation decides which of them get evaluated.
+Chapter 6 found that retained material only matters while it sits inside the causal aperture — a region that moves. Chapter 7 destroyed the idea that this region is the outer edge at all, since loss can open an interface anywhere in the interior, and redefined it as the dynamically generated set of locations where the process currently has an available transition. Chapter 8 added that not even every available transition is real in practice; finite computation decides which of them get evaluated.
 
 So a site can sit in inactive bulk on one update and return to an active interface on the next because nearby material disappeared.
 
@@ -67,7 +67,7 @@ E_t     the surrounding active environment
 
 and ask whether predicting the region's later state from `S_t + E_t` beats predicting it from `E_t` alone. The excess is the quantity of interest — how much the region adds about itself, over and above its context.
 
-One detail matters more than it looks. The state representation here is not a picture of occupied cells. It is process-oriented: population, frontier density, recent attachment, loss, reoccupation, first occupation, gross turnover, angular process structure. By this point in the book, describing a region by its occupancy alone would be repeating a mistake we have already made twice — morphology turned out to be a lossy projection in the *Now There Are Two* chapter, and net population turned out to hide almost all the activity in the *What Survives Material Loss?* chapter.
+One detail matters more than it looks. The state representation here is not a picture of occupied cells. It is process-oriented: population, frontier density, recent attachment, loss, reoccupation, first occupation, gross turnover, angular process structure. By this point in the book, describing a region by its occupancy alone would be repeating a mistake we have already made twice — morphology turned out to be a lossy projection in Chapter 4, and net population turned out to hide almost all the activity in Chapter 7.
 
 Five candidate scales were frozen in advance, as fractions of the crystal's effective radius:
 
@@ -146,7 +146,7 @@ Which is worth stating in its general form, because it is a trap the whole field
 
 > **A structured field can predict itself extremely well without containing a natural individual.**
 
-There is an echo of the *It Looked Like Flocking* chapter here.
+There is an echo of Chapter 3 here.
 
 The flocking result was large until the control showed how much geometry could generate on its own.
 
@@ -190,7 +190,7 @@ The outer candidate now has to demonstrate something the arbitrary interior line
 
 > **Does the outer candidate boundary localize causal consequences more strongly than an arbitrary interior boundary?**
 
-The intervention: at a checkpoint, remove exactly 16 occupied cells, either just inside or just outside the boundary in question. Intervention sites are matched on occupied-neighbour count, absolute distance from the boundary, and exact count, so the two conditions differ in which side they hit rather than in what they hit. Both branches then run forward under the cell-keyed common-random-number coupling from the *The Crystal Gets a Past* chapter, so that the comparison is a paired counterfactual and not an accumulation of reassigned random draws.
+The intervention: at a checkpoint, remove exactly 16 occupied cells, either just inside or just outside the boundary in question. Intervention sites are matched on occupied-neighbour count, absolute distance from the boundary, and exact count, so the two conditions differ in which side they hit rather than in what they hit. Both branches then run forward under the cell-keyed common-random-number coupling from Chapter 5, so that the comparison is a paired counterfactual and not an accumulation of reassigned random draws.
 
 Then ask where the consequences show up. If the boundary is causally privileged, then an inside perturbation should stay preferentially inside and an outside perturbation preferentially outside — and it should do so more strongly at the candidate boundary than at a line drawn arbitrarily through the interior.
 
@@ -315,10 +315,10 @@ NOT ESTABLISHED
 
 Two failures at the same question is usually a sign to look at the question rather than the answers. So we went back through what the previous chapters had actually established, and something lined up that had not been visible chapter by chapter.
 
-The *Can Experience Change the Material?* chapter: persistent material matters only while coupled to an active interface.
-The *What Survives Material Loss?* chapter: material loss creates new interfaces, anywhere, including deep inside the bulk.
-The previous chapter: finite computation determines which interface opportunities are serviced at all.
-This chapter: causal consequences are spatially local — but no tested enclosing boundary is privileged.
+Chapter 6: persistent material matters only while coupled to an active interface.
+Chapter 7: material loss creates new interfaces, anywhere, including deep inside the bulk.
+Chapter 8: finite computation determines which interface opportunities are serviced at all.
+Chapter 9: causal consequences are spatially local — but no tested enclosing boundary is privileged.
 
 Read separately, these are four experimental findings.
 
@@ -344,7 +344,7 @@ But it adds another reason to investigate the dynamics directly rather than infe
 
 Here is one way to say what may have gone wrong with the framing.
 
-If we define the system as *occupied cells inside radius R*, we are defining it by what has accumulated. the *What Survives Material Loss?* chapter showed large gross material turnover hidden beneath comparatively modest net population change, and the previous chapter showed that absolute population can vary substantially while some normalized turnover measures remain remarkably stable.
+If we define the system as *occupied cells inside radius R*, we are defining it by what has accumulated. Chapter 7 showed large gross material turnover hidden beneath comparatively modest net population change, and Chapter 8 showed that absolute population can vary substantially while some normalized turnover measures remain remarkably stable.
 
 ```text
 BULK      what remains occupied

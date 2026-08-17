@@ -90,7 +90,7 @@ Not immortality, and not identity in any metaphysical sense. Operationally: the 
 
 Change does not happen everywhere. It happens where the process currently has an available transition — a set of locations that is generated dynamically rather than fixed by shape.
 
-Under irreversible growth this coincided with the outer frontier, which is why the *It Looked Like Flocking* chapter could describe it geometrically as a moving aperture and why stored material stopped mattering once construction passed it. Then loss made interfaces appear inside the bulk, and the geometric description came apart from the real one:
+Under irreversible growth this coincided with the outer frontier, which is why Chapter 6 could describe it geometrically as a moving aperture and why stored material stopped mattering once construction passed it. Then loss made interfaces appear inside the bulk, and the geometric description came apart from the real one:
 
 > **The active interface is the dynamically generated set of locations at which the process currently has an available state transition.**
 
@@ -134,7 +134,7 @@ A system need not reconstruct *what happened* for *what happened* to constrain w
 ### Causal organization before an established individual
 
 Every one of those layers was measured without establishing a privileged individual boundary.
- The *Is There Actually One Thing Here?* chapter failed to locate a boundary twice. the *We Found an Individual. Then We Didn't.* chapter found strong raw causal containment and then discovered that arbitrary regions of the same geometry produced it too.
+ Chapter 9 failed to locate a boundary twice. Chapter 13 found strong raw causal containment and then discovered that arbitrary regions of the same geometry produced it too.
 
 ```text
 CONTAINMENT  ≠  INDIVIDUATION
@@ -167,7 +167,7 @@ It does suggest a possibility worth stating and labelling clearly as speculation
 
 It would be a serious misreading to conclude that every biological interpretation failed. The method can say yes, and it did.
 
-The *Now There Are Two* chapter established causal reproduction-like organization in the Outlier system: not resemblance between an earlier structure and a later one, but evidence that the earlier organization participated causally in producing the later one, surviving controls designed to remove the cheaper explanation. That result stands, and it matters more now than when it was made, because it shows the method is not simply a machine for saying no.
+Chapter 2 established causal reproduction-like organization in the Outlier system: not resemblance between an earlier structure and a later one, but evidence that the earlier organization participated causally in producing the later one, surviving controls designed to remove the cheaper explanation. That result stands, and it matters more now than when it was made, because it shows the method is not simply a machine for saying no.
 
 But two things it does *not* establish deserve stating precisely, because the loose versions are tempting in both directions.
 
@@ -272,7 +272,7 @@ Long-lived network protocols, build pipelines, schedulers and other stateful com
 
 So the wording is plainly broad enough to admit ordinary computational systems that we would not want to call alive.
 
-The temptation is to patch — add a criterion that excludes databases and keeps crystals. That is exactly the move the previous chapter identified as rescue: changing the claim after seeing which cases it admits. So instead, take the result at face value.
+The temptation is to patch — add a criterion that excludes databases and keeps crystals. That is exactly the move Chapter 14 identified as rescue: changing the claim after seeing which cases it admits. So instead, take the result at face value.
 
 That does not automatically invalidate the proposal.
 
@@ -319,7 +319,7 @@ the organization that produced the alterations
 
 **Not established.** Not by us, and not implied by anything in the preceding chapters. The book measured a system whose organization was given and fixed; a self-conditioning process would have to be one whose organization participates in its own persistence, and we never built one.
 
-And one caution, which is the whole book applied to its own conclusion: if that criterion is ever tested, it will need a null. the *We Found an Individual. Then We Didn't.* chapter found causal containment at 0.44 and lost it to arbitrary geometry. A measurement of *self-maintenance* would face the identical trap — any process that persists will, trivially, have been doing whatever it was doing while it persisted. The question would have to be whether it maintains itself more than a matched process that merely happens to continue.
+And one caution, which is the whole book applied to its own conclusion: if that criterion is ever tested, it will need a null. Chapter 13 found causal containment at 0.44 and lost it to arbitrary geometry. A measurement of *self-maintenance* would face the identical trap — any process that persists will, trivially, have been doing whatever it was doing while it persisted. The question would have to be whether it maintains itself more than a matched process that merely happens to continue.
 
 ---
 

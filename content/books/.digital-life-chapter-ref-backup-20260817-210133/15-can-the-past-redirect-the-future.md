@@ -11,9 +11,9 @@ series = ["Digital Life From First Principles"]
 
 The last two chapters have narrowed the question to one local event.
 
-The *What Does One Attachment Cause?* chapter forced a single attachment and found an immediate causal effect whose magnitude was consistent with the local rule's mechanical prediction, followed by a small transient consequence that converged.
+Chapter 10 forced a single attachment and found an immediate causal effect whose magnitude was consistent with the local rule's mechanical prediction, followed by a small transient consequence that converged.
 
-The previous chapter showed that finite computation can route causal opportunity outside the local causal cone, change which pathways express the perturbation, and gate whether an affected opportunity is evaluated at all — while resolving no meaningful change in mean twelve-step consequence at the declared ±0.15 scale.
+Chapter 11 showed that finite computation can route causal opportunity outside the local causal cone, change which pathways express the perturbation, and gate whether an affected opportunity is evaluated at all — while resolving no meaningful change in mean twelve-step consequence at the declared ±0.15 scale.
 
 Every variable in both chapters was a fact about the present. Current occupancy. Current frontier. Current budget. Current probabilities.
 
@@ -21,7 +21,7 @@ But two crystals with the same visible geometry can still differ in hidden state
 
 We have not yet isolated whether that difference can change their response to the same perturbation.
 
-This is not the question of whether the crystal has memory. the *The Crystal Gets a Past* chapter refused that word when a causal past turned out not to be a readable one, and the *Can Experience Change the Material?* chapter refused it again when two histories stayed persistent, accessible and distinguishable while producing no differential response. The question here is smaller and prior to all of that:
+This is not the question of whether the crystal has memory. Chapter 5 refused that word when a causal past turned out not to be a readable one, and Chapter 6 refused it again when two histories stayed persistent, accessible and distinguishable while producing no differential response. The question here is smaller and prior to all of that:
 
 > **Can two states with the same visible geometry respond differently to the same perturbation because they contain different hidden material state?**
 
@@ -44,7 +44,7 @@ with the gain frozen at `g_m = 0.30`. The attachment mechanism retains the same 
 The material is deliberately weak and transient.
  Its half-life is six updates and the trace has already aged three before the test begins, so each carrier starts at about 0.707. Two cells carry it, for a total starting mass near 1.414. Newly attached cells do not inherit it. It does not spread. It only decays.
 
-That weakness is the design. We are not constructing a memory architecture with retention policies and propagation rules — the *Can Experience Change the Material?* chapter built something like that and found the interesting question was elsewhere. We are giving the crystal one hidden variable and asking whether it can matter causally at all.
+That weakness is the design. We are not constructing a memory architecture with retention policies and propagation rules — Chapter 6 built something like that and found the interesting question was elsewhere. We are giving the crystal one hidden variable and asking whether it can matter causally at all.
 
 And note the phrase that has to be used carefully from here on. The two conditions do not have the same state. They have the **same visible occupancy geometry** and different hidden state. The invisibility is the entire point:
 
@@ -180,7 +180,7 @@ Through the material dynamics alone, remote carriers were beyond the probe's twe
 
 Yet the protocol produced a tiny local difference.
 
-Not by propagating. By calibration. The protocol dynamically matches expected background construction, exactly as the previous chapter's corrected design required — and it does so with a global score offset. Remote material changes expected construction where it sits; the controller compensates; the compensation applies everywhere, including near the probe.
+Not by propagating. By calibration. The protocol dynamically matches expected background construction, exactly as Chapter 11's corrected design required — and it does so with a global score offset. Remote material changes expected construction where it sits; the controller compensates; the compensation applies everywhere, including near the probe.
 
 ```text
 remote material
@@ -192,7 +192,7 @@ calibration offset changes
 local probabilities shift slightly
 ```
 
-The previous chapter found that a global computational mechanism can couple spatially separated regions. Here the same structure appears one level up: our own experimental controller had become a coupling channel between regions the physics kept apart. A compensator that acts globally is, by construction, a path between everything it touches.
+Chapter 11 found that a global computational mechanism can couple spatially separated regions. Here the same structure appears one level up: our own experimental controller had become a coupling channel between regions the physics kept apart. A compensator that acts globally is, by construction, a path between everything it touches.
 
 That is not a property of the material. It is a property of the instrument, and it means the remote arm was not automatically the clean null it was assumed to be.
 
@@ -202,7 +202,7 @@ That is not a property of the material. It is a property of the instrument, and 
 
 Three corrections, with every scientific parameter frozen — same gain, same half-life, same history age, same horizon, same effect threshold. Nothing was tuned. These are construct-validity repairs.
 
-**The intervention.** PREVENT now explicitly blocks `x` during lag one; FORCE explicitly contains it. After one full causal exposure, `x` is removed from FORCE and both branches continue normally — the transient causal semantics earned in the *What Does One Attachment Cause?* chapter, applied properly this time.
+**The intervention.** PREVENT now explicitly blocks `x` during lag one; FORCE explicitly contains it. After one full causal exposure, `x` is removed from FORCE and both branches continue normally — the transient causal semantics earned in Chapter 10, applied properly this time.
 
 **The control.** Remote carriers are no longer chosen merely for being far away. Each is matched to an accessible carrier on how much background frontier influence it exerts: the same number of adjacent frontier cells, and their total baseline attachment-probability mass within a frozen tolerance, while still lying beyond the twelve-step local reach. After this matching, the remote-minus-erased immediate difference falls to about `8.2 × 10⁻⁵`, making the controller-mediated leakage negligible on this measure.
 
@@ -361,7 +361,7 @@ What it does show is that the accumulated causal difference cannot be explained 
 
 Treat "moved out of the trace" as interpretation rather than a measured transfer — nothing was tracked from one carrier to another. What was measured is that the effect kept accumulating while the trace kept shrinking, and that the amount remaining does not predict the increment.
 
-An earlier draft named this **Material-State Trajectory Redirection**. The phenomenon matters more than the label, and in plain prose *history-dependent trajectory redirection* says the same thing without adding another formal Principle to the ledger.
+Old Chapter 27 named this **Material-State Trajectory Redirection**. The phenomenon matters more than the label, and in plain prose *history-dependent trajectory redirection* says the same thing without adding another formal Principle to the ledger.
 
 ---
 
@@ -369,9 +369,9 @@ An earlier draft named this **Material-State Trajectory Redirection**. The pheno
 
 This is the distinction the chapter has actually earned, and it reframes several earlier failures.
 
-The *The Crystal Gets a Past* chapter established that a past can be causally consequential without being recoverable as a stable history signature.
+Chapter 5 established that a past can be causally consequential without being recoverable as a stable history signature.
 
-The *Can Experience Change the Material?* chapter went further: even persistent, accessible and spatially distinguishable traces failed to produce the required differential response to a common challenge.
+Chapter 6 went further: even persistent, accessible and spatially distinguishable traces failed to produce the required differential response to a common challenge.
 
 Those chapters separated several questions we had initially treated as one:
 
@@ -421,7 +421,7 @@ TRAJECTORY REDIRECTION
 ```
 
 A stronger memory claim would require additional machinery or evidence: endogenous encoding, retention, discrimination, retrieval or some other demonstrated use of stored history.
- The *Can Experience Change the Material?* chapter's failure is the reminder of how much further there is to go: two histories that leave distinguishable traces still did not produce a differential response to a common challenge. Here the response does differ, but the experiment deliberately placed hidden material where it entered the local causal mechanism and compared it with matched material positioned outside that route.
+ Chapter 6's failure is the reminder of how much further there is to go: two histories that leave distinguishable traces still did not produce a differential response to a common challenge. Here the response does differ, but the experiment deliberately placed hidden material where it entered the local causal mechanism and compared it with matched material positioned outside that route.
 
 The Crystal did not discover or encode that placement itself.
 
@@ -464,9 +464,9 @@ No retrieval or history-specific decoding has been demonstrated.
 
 Which sharpens a question the book has left open twice.
 
-The *Is There Actually One Thing Here?* chapter looked for a privileged boundary around the connected crystal and failed to find one, twice: no scale showed excess predictive coherence beyond a family null, and the candidate outer boundary localized causal effects no better than a circle drawn arbitrarily through the interior. What survived was spatial causal locality — consequences stay near their causes — which is true of any local field and establishes nothing about individuals.
+Chapter 9 looked for a privileged boundary around the connected crystal and failed to find one, twice: no scale showed excess predictive coherence beyond a family null, and the candidate outer boundary localized causal effects no better than a circle drawn arbitrarily through the interior. What survived was spatial causal locality — consequences stay near their causes — which is true of any local field and establishes nothing about individuals.
 
-But the *Is There Actually One Thing Here?* chapter tested regions defined primarily by geometry.
+But Chapter 9 tested regions defined primarily by geometry.
 
 We now have a better candidate experimental object: a spatially extended causal process whose response can depend on hidden state inherited from the past.
 

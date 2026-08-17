@@ -134,7 +134,7 @@ So stop watching. Intervene.
 
 ## Force One Attachment
 
-Take a checkpoint. Take one eligible frontier cell `x`. Take the same environment and the same cell-keyed randomness from the *The Crystal Gets a Past* chapter. Then split the future:
+Take a checkpoint. Take one eligible frontier cell `x`. Take the same environment and the same cell-keyed randomness from Chapter 5. Then split the future:
 
 ```text
 FORCE      x attaches
@@ -194,7 +194,7 @@ Only a small fraction of that appeared in the first step. The branches kept dive
 
 It was also tempting to compare 0.58 against the obvious reference value of one additional event per initiating event, note that it sits below, and start reaching for vocabulary about branching and subcriticality.
 
-But there is a confound sitting in the middle of the design, and it is the same shape as the confound that ruined the surface-versus-interior comparison in the *Can Experience Change the Material?* chapter.
+But there is a confound sitting in the middle of the design, and it is the same shape as the confound that ruined the surface-versus-interior comparison in Chapter 6.
 
 In the FORCE branch, `x` is still there. It did not merely happen; it remains occupied, and it goes on being an occupied neighbour to everything around it on every subsequent update. So the accumulating difference could be either of two quite different things:
 
@@ -279,7 +279,7 @@ PERSISTENT STATE DIFFERENCE
 TRANSIENT CAUSAL CASCADE
 ```
 
-This is the same lesson the *Can Experience Change the Material?* chapter taught about material traces, arriving now at the scale of a single cell. There, persistent material mattered while it stayed coupled to the interface, and the persistence was doing the work rather than any propagating consequence. Here, the continued state difference carries substantially more cumulative consequence than the transient residue left after that difference is removed.
+This is the same lesson Chapter 6 taught about material traces, arriving now at the scale of a single cell. There, persistent material mattered while it stayed coupled to the interface, and the persistence was doing the work rather than any propagating consequence. Here, the continued state difference carries substantially more cumulative consequence than the transient residue left after that difference is removed.
 
 But persistent does not mean permanent, and the obvious next interpretation dies too. If keeping `x` gave the branch a standing growth advantage, cumulative gain would rise roughly linearly with horizon forever. It does not:
 
@@ -431,7 +431,7 @@ But the scope of that result is narrower than it looks, and the reason is struct
 
 At this point the path forward is obvious and wrong. Bigger motifs. A longer history window. A learned predictor over some richer feature set. Keep going until something correlates with gain.
 
-That procedure has no stopping rule and produces no knowledge, and we have declined it twice already — after the placement experiments in the *Can Experience Change the Material?* chapter and the budget experiments in the *What Does It Cost to Stay?* chapter. So instead of another feature, rebuild the measurement.
+That procedure has no stopping rule and produces no knowledge, and we have declined it twice already — after the placement experiments in Chapter 6 and the budget experiments in Chapter 8. So instead of another feature, rebuild the measurement.
 
 The reset kept the frozen crystal and the FORCE/PREVENT intervention and changed what was measured. Rather than starting from the noisy realized cascade, start from the rule: for every candidate, compute the attachment probability in each branch and take the difference, before any Bernoulli draw turns those probabilities into a single bit. A realized attachment discards almost all the information the rule provides; the expected construction difference keeps it.
 
@@ -541,7 +541,7 @@ But the unresolved discrepancy points directly at a mechanism the local experime
 
 So any scheduling-mediated effect, if one exists, is subtle rather than a wholesale rewriting of the global evaluation schedule.
 
-But the sign is worth sitting with. If a local intervention only helped, the global gain should be at least as large as the local gain. It is smaller. Something looks like it is being taken from elsewhere, and the reason it might be is not mysterious at all: the *What Does It Cost to Stay?* chapter gave every active location in this substrate something it shares with every other active location, a finite pool of evaluation opportunity. And the one thing this chapter has established beyond argument is that a local attachment changes the frontier — sometimes by two sites, sometimes by minus one.
+But the sign is worth sitting with. If a local intervention only helped, the global gain should be at least as large as the local gain. It is smaller. Something looks like it is being taken from elsewhere, and the reason it might be is not mysterious at all: Chapter 8 gave every active location in this substrate something it shares with every other active location, a finite pool of evaluation opportunity. And the one thing this chapter has established beyond argument is that a local attachment changes the frontier — sometimes by two sites, sometimes by minus one.
 
 Change the frontier and you change the candidate population competing for a fixed evaluation budget.
 
@@ -549,7 +549,7 @@ That creates a concrete route by which a local intervention **could** affect dis
 
 That possibility has not yet been tested directly.
 
-The previous chapter failed to find a privileged enclosing body.
+Chapter 9 failed to find a privileged enclosing body.
 
 This chapter found a local causal effect but no stable local gain variable that predicts its downstream size.
 

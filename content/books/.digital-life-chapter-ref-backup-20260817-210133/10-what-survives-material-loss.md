@@ -229,7 +229,7 @@ The gross traffic changes dramatically even though the measured normalized expan
 
 This is worth stopping on, because it changes a concept the previous chapter depended on.
 
-The previous chapter treated the causal aperture as the outer surface of the growing Crystal.
+Chapter 6 treated the causal aperture as the outer surface of the growing Crystal.
 
 That worked because, under irreversible growth, the outer surface was almost the only place where new occupation could occur.
 
@@ -246,7 +246,7 @@ It is defined by available transitions rather than by the visible outline of the
 
 That has a striking implication for the previous chapter. Buried material became causally inert because construction moved past it and nothing could ever bring it back into contact with a decision. In a world with loss, that is no longer permanent. A vacancy opening near old material puts old material back on an active interface.
 
-Be careful with what that does and does not mean. It does not mean we have recovered history readout — nothing in the previous chapter failed because access was theoretically impossible, and re-exposing a region does not make its arrangement legible to anything. What it means is narrower and still important:
+Be careful with what that does and does not mean. It does not mean we have recovered history readout — nothing in Chapter 6 failed because access was theoretically impossible, and re-exposing a region does not make its arrangement legible to anything. What it means is narrower and still important:
 
 > **The active interface is dynamically re-creatable.**
 

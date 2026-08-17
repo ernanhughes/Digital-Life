@@ -17,7 +17,7 @@ The consequences propagated forward through construction itself. An altered atta
 
 As material, an occupied cell has carried almost no internal distinction beyond the fact that it exists.
 
-So the question that ends the previous chapter is the question that opens this one:
+So the question that ends Chapter 5 is the question that opens this one:
 
 > **Can experience change the material itself?**
 

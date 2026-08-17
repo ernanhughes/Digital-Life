@@ -29,7 +29,7 @@ B
 
 candidate sites per update. A site that is not evaluated simply gets no attachment attempt on that step. It is not blocked, not penalized, not remembered; the opportunity passes and may return next update.
 
-Nothing else changes. The attachment probability is what it always was. The loss rule is what it was in the previous chapter. The crystal gains no new internal state whatsoever — no energy, no fuel, no resource counter, no metabolism variable, no maintenance controller, no target size, no record of what has been neglected.
+Nothing else changes. The attachment probability is what it always was. The loss rule is what it was in Chapter 7. The crystal gains no new internal state whatsoever — no energy, no fuel, no resource counter, no metabolism variable, no maintenance controller, no target size, no record of what has been neglected.
 
 ```text
 many possible transitions
@@ -128,7 +128,7 @@ NEUTRAL          keyed-random ordering
 LOW SUPPORT      sites with fewer occupied neighbours evaluated first
 ```
 
-Each policy sees only current local geometry. None of them can inspect the occupancy ledger. None of them knows whether a site is new territory or a place that used to be occupied and was lost — that distinction remains, as it was in the previous chapter, entirely observer-side.
+Each policy sees only current local geometry. None of them can inspect the occupancy ledger. None of them knows whether a site is new territory or a place that used to be occupied and was lost — that distinction remains, as it was in Chapter 7, entirely observer-side.
 
 But current geometry carries statistical consequences of how a site arose.
 
@@ -223,7 +223,7 @@ Under severe scarcity, late population change approached zero while loss, attach
 
 That raised a stronger question.
 
-Which revives a hypothesis that failed in the previous chapter for reasons that may no longer apply. Material loss alone did not produce a finite sustainable size, because loss manufactured the very opportunities that replaced it. But loss plus a ceiling on how many of those opportunities can be serviced is a different situation entirely. Now the replacement mechanism has a hard limit.
+Which revives a hypothesis that failed in Chapter 7 for reasons that may no longer apply. Material loss alone did not produce a finite sustainable size, because loss manufactured the very opportunities that replaced it. But loss plus a ceiling on how many of those opportunities can be serviced is a different situation entirely. Now the replacement mechanism has a hard limit.
 
 > **Is there a finite budget at which population becomes approximately stationary while material turnover continues?**
 
@@ -298,7 +298,7 @@ The experiment suggested that another class of quantities might be more stable t
 
 ## Stable Size Is Not Stable Process
 
-The previous chapter forced a distinction between a stock and a flow: net population change versus gross material turnover, with more than ninety percent of the crystal's activity invisible in the former.
+Chapter 7 forced a distinction between a stock and a flow: net population change versus gross material turnover, with more than ninety percent of the crystal's activity invisible in the former.
 
 This is the same distinction arriving with an additional twist. There, the flow was larger than the stock suggested. Here, the flow is *steadier* than the stock — and steadier across conditions that change the stock by a factor of three.
 
@@ -436,7 +436,7 @@ So continuation and expansion respond differently to finite computation.
 
 > **Staying and growing are not the same computational problem.**
 
-Operationally, in this substrate — not biologically. And note where the distinction came from. The scheduling policies cannot see it; they sort by neighbour count. The growth rule cannot see it; it treats every empty site alike. the previous chapter introduced first occupation versus reoccupation as an observer's bookkeeping device, a way for us to classify events the crystal cannot distinguish. This chapter finds that the two categories respond differently to a constraint neither of them knows about.
+Operationally, in this substrate — not biologically. And note where the distinction came from. The scheduling policies cannot see it; they sort by neighbour count. The growth rule cannot see it; it treats every empty site alike. Chapter 7 introduced first occupation versus reoccupation as an observer's bookkeeping device, a way for us to classify events the crystal cannot distinguish. This chapter finds that the two categories respond differently to a constraint neither of them knows about.
 
 The observer-side distinction introduced for bookkeeping has turned out to separate two dynamical responses.
 
@@ -480,7 +480,7 @@ normalized process
 ↛ complete invariance
 ```
 
-One honest caution before this becomes a principle. The near-constant turnover fraction may be less mysterious than it looks. The loss rate is frozen at `δ = 0.08`, and the previous chapter established that lost sites are reoccupied rapidly and almost universally. A system losing a fixed fraction of itself and putting most of it back promptly will produce a turnover fraction in the neighbourhood of that loss rate more or less mechanically. The stability is real and measured. Its explanation is open, and the audit that would settle it — comparing observed turnover against the turnover mechanically expected from the loss rate and the known replacement dynamics — has not been run.
+One honest caution before this becomes a principle. The near-constant turnover fraction may be less mysterious than it looks. The loss rate is frozen at `δ = 0.08`, and Chapter 7 established that lost sites are reoccupied rapidly and almost universally. A system losing a fixed fraction of itself and putting most of it back promptly will produce a turnover fraction in the neighbourhood of that loss rate more or less mechanically. The stability is real and measured. Its explanation is open, and the audit that would settle it — comparing observed turnover against the turnover mechanically expected from the loss rate and the known replacement dynamics — has not been run.
 
 That distinction matters more here than almost anywhere else in the book. A stable measurement is scientifically interesting only to the extent that its stability is not already forced by the parameters used to generate it.
 
@@ -520,7 +520,7 @@ population does not settle
 some normalized process rates remain surprisingly stable
 ```
 
-We have been calling this *the crystal* since the *The Digital Crystal* chapter.
+We have been calling this *the crystal* since Chapter 4.
 
 But it is no longer obvious what that noun refers to.
 

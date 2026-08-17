@@ -168,7 +168,7 @@ Then the causal graph suggested an explanation.
 
 ## Shared Causal History
 
-The *Now There Are Two* chapter left us with an uncomfortable published result: causal self-replication in Outlier can involve spatially separated components.
+Chapter 4 left us with an uncomfortable published result: causal self-replication in Outlier can involve spatially separated components.
 
 That does not establish that those components constitute one natural individual — we were careful about this, and remain careful about it. But it suggests a narrower and testable idea:
 
@@ -691,7 +691,7 @@ So the idea remains exactly where it belongs:
 
 > **open**
 
-**The causal result from the *Now There Are Two* chapter is unchanged.** This needs saying explicitly, because failure has a way of spreading beyond its jurisdiction.
+**The causal result from Chapter 4 is unchanged.** This needs saying explicitly, because failure has a way of spreading beyond its jurisdiction.
 
 The flocking interpretation collapsing does not retract the 144 detected `c2` occurrences, the causal graph, or the branching return structure rooted in the earlier `c2`.
 
@@ -705,7 +705,7 @@ Within the supported comparison region, recent-family membership provides no det
 
 That is narrower than saying ancestry can have no relationship whatsoever to motion. Proximity itself may lie on a pathway connecting common history to shared dynamics, and this experiment was not designed to separate every such pathway.
 
-The *Now There Are Two* chapter also left us with an unresolved question about individuality.
+Chapter 4 also left us with an unresolved question about individuality.
 
 If components sharing causal ancestry had retained distinctive dynamical coherence after the controls, that would have strengthened the case that a causal family behaved as a meaningful unit.
 
@@ -739,7 +739,7 @@ Every control in this chapter therefore tried to disentangle variables after the
 
 Even careful matching left the most interesting very-short-range regime unresolved because the required controls were not present in the data.
 
-The previous chapter had already pointed toward another way to work:
+Chapter 5 had already pointed toward another way to work:
 
 > **build the comparison into the experiment before the world runs.**
 

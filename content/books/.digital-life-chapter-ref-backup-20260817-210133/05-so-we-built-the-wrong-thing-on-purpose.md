@@ -582,7 +582,7 @@ It therefore does not make the Physarum turnover result disappear.
 
 It tells us that robustness alone is less discriminating than it first appeared.
 
-The *Look at This Thing* chapter survives for a different reason.
+Chapter 3 survives for a different reason.
 
 This swarm has no operational descendant relation and no branching reproductive lineage of the kind measured there.
 

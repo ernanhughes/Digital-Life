@@ -18,7 +18,7 @@ The local/global discrepancy was not itself evidence of a far-field effect — i
 But it suggested a mechanism worth isolating.
 
 There was one obvious candidate already present in the substrate: the finite evaluation budget shared by every active frontier site.
- The *What Does It Cost to Stay?* chapter gave every active location a constraint it shares with every other active location: a fixed number of evaluation slots per update. the previous chapter established, beyond argument, that a single attachment changes the frontier — by roughly +2 sites in sparse geometry, by about −1 in dense.
+ Chapter 8 gave every active location a constraint it shares with every other active location: a fixed number of evaluation slots per update. Chapter 10 established, beyond argument, that a single attachment changes the frontier — by roughly +2 sites in sparse geometry, by about −1 in dense.
 
 Change the frontier and you change the population of candidates competing for a fixed evaluation pool.
 
@@ -313,7 +313,7 @@ That is a comparison, not evidence — our crystal is not a datacenter and we ha
 
 It does not establish that the Digital Crystal result generalizes to every finite computational system.
 
-And it is exactly the kind of thing the substrate-first approach was supposed to turn up. We refused to start with metabolism, energy, membranes or genomes. We introduced one honest computational scarcity in the *What Does It Cost to Stay?* chapter. Three chapters later, that computational scarcity has produced a consequence we did not have to borrow from a biological category:
+And it is exactly the kind of thing the substrate-first approach was supposed to turn up. We refused to start with metabolism, energy, membranes or genomes. We introduced one honest computational scarcity in Chapter 8. Three chapters later, that computational scarcity has produced a consequence we did not have to borrow from a biological category:
 
 > **The crystal did not need a signal to couple distant regions. It needed a shared bottleneck.**
 
@@ -398,7 +398,7 @@ The predeclared scientifically meaningful effect was ±0.15 attachments, and the
 BOUNDED NEAR ZERO
 ```
 
-The language here has to be exact, because two easier statements are both wrong. This is stronger than "not statistically significant" — an underpowered experiment produces that phrase without licensing any conclusion, and the previous chapter spent several paragraphs on why. It is weaker than "the two regimes are equivalent" — the interval is not tight enough to rule out effects smaller than the declared scale. At a ±0.10 threshold this same result would have been **unresolved**. It resolves the question it declared, at the scale it declared.
+The language here has to be exact, because two easier statements are both wrong. This is stronger than "not statistically significant" — an underpowered experiment produces that phrase without licensing any conclusion, and Chapter 10 spent several paragraphs on why. It is weaker than "the two regimes are equivalent" — the interval is not tight enough to rule out effects smaller than the declared scale. At a ±0.10 threshold this same result would have been **unresolved**. It resolves the question it declared, at the scale it declared.
 
 > **At dynamically matched background construction, strong candidate subsampling did not change mean twelve-step causal consequence relative to true exhaustive evaluation by the predeclared ±0.15 attachment scale.**
 
@@ -549,15 +549,15 @@ Scope for everything above: single-contact frontier sites, lag-one selection, th
 
 We now know a fair amount about what determines the fate of a local perturbation in this substrate.
 
-The local rule predicts the immediate effect, and the previous chapter found the measured effect consistent with that mechanical prediction.
+The local rule predicts the immediate effect, and Chapter 10 found the measured effect consistent with that mechanical prediction.
  The local geometry determines how much opportunity it creates or consumes. The finite selector changes where evaluation opportunity is spent, which causal pathway contributes to the response, and whether affected opportunities are evaluated at all.
 
-Yet under the matched experiment in this chapter, those changes do not produce a resolved difference in mean twelve-step consequence at the declared `±0.15` scale.
+Yet under the matched Chapter 11 experiment, those changes do not produce a resolved difference in mean twelve-step consequence at the declared `±0.15` scale.
 
 Every one of those variables is a fact about the present. The current occupancy, the current frontier, the current budget.
 
 Which leaves an obvious gap. Two states can be matched on visible geometry and current computational conditions while differing in the material history that produced them.
- The *Can Experience Change the Material?* chapter built material that could carry such a difference and found it went causally inert once construction moved past it. the previous chapter tried to use recent process history as a predictor and could not, in a substrate that had no independent history state to carry anything.
+ Chapter 6 built material that could carry such a difference and found it went causally inert once construction moved past it. Chapter 10 tried to use recent process history as a predictor and could not, in a substrate that had no independent history state to carry anything.
 
 So the experiment has never actually been run. So the next experiment holds the present geometry, allocation policy and perturbation fixed as tightly as possible and varies the retained material consequence of prior experience.
 

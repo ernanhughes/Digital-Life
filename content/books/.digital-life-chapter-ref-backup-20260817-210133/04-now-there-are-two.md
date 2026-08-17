@@ -147,7 +147,7 @@ similarity
 ancestry
 ```
 
-Everything that follows depends on that distinction. It is the sharpened form of the rule from the *What Would Digital Life Mean?* chapter that appearance is not mechanism. Reproduction cannot be established from the final picture, because reproduction is a claim about causation and the picture contains no causation. It contains only the outcome.
+Everything that follows depends on that distinction. It is the sharpened form of the rule from Chapter 1 that appearance is not mechanism. Reproduction cannot be established from the final picture, because reproduction is a claim about causation and the picture contains no causation. It contains only the outcome.
 
 ---
 

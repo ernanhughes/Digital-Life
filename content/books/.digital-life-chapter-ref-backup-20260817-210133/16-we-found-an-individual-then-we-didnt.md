@@ -9,9 +9,9 @@ tags = ["Digital Life", "Digital Crystal", "Causality", "Individuality", "Experi
 series = ["Digital Life From First Principles"]
 +++
 
-The *Is There Actually One Thing Here?* chapter asked whether the connected occupied crystal had a privileged boundary, and failed twice to find one. But the object it was testing was a shape: a centered disk, drawn on the material, tested afterwards for whether it behaved like a thing.
+Chapter 9 asked whether the connected occupied crystal had a privileged boundary, and failed twice to find one. But the object it was testing was a shape: a centered disk, drawn on the material, tested afterwards for whether it behaved like a thing.
 
-Since then the book has been doing what that failure recommended. the *What Does One Attachment Cause?* chapter measured what one local event causes. the *Can Finite Computation Couple Distant Events?* chapter found that finite computation routes those consequences, coupling regions the local rule cannot connect. the previous chapter showed that hidden past-dependent state changes the crystal's causal sensitivity, and that the resulting difference in trajectory outlives most of the trace that produced it.
+Since then the book has been doing what that failure recommended. Chapter 10 measured what one local event causes. Chapter 11 found that finite computation routes those consequences, coupling regions the local rule cannot connect. Chapter 12 showed that hidden past-dependent state changes the crystal's causal sensitivity, and that the resulting difference in trajectory outlives most of the trace that produced it.
 
 So the candidate has changed. What we have now is not a blob of occupied cells. It is a causal process with a history, whose events are conditioned by state that does not appear in its shape.
 
@@ -55,7 +55,7 @@ That is a plausible operational signature of causal containment.
 
 Whether it identifies an individual is the question the rest of the chapter has to answer.
 
-One estimator detail matters. `A` is summed **absolute** expected causal mass — the accumulated size of the probability shifts, not their signed total. the *Can Finite Computation Couple Distant Events?* chapter showed that a perturbation can raise some probabilities and lower others; if we summed signed values, a region full of large opposing causal shifts could cancel to nearly zero and appear causally empty. The question here is where the influence went, not what it netted out to.
+One estimator detail matters. `A` is summed **absolute** expected causal mass — the accumulated size of the probability shifts, not their signed total. Chapter 11 showed that a perturbation can raise some probabilities and lower others; if we summed signed values, a region full of large opposing causal shifts could cancel to nearly zero and appear causally empty. The question here is where the influence went, not what it netted out to.
 
 ---
 
@@ -63,9 +63,9 @@ One estimator detail matters. `A` is summed **absolute** expected causal mass �
 
 Two long-range mechanisms have already been discovered in this substrate, and both would contaminate a modularity measurement.
 
-The *Can Finite Computation Couple Distant Events?* chapter established that a finite evaluation budget couples distant regions: a local frontier change alters which faraway candidates receive slots, producing effects outside the local causal cone. A region measured under a binding budget would appear less modular for reasons having nothing to do with its own organization.
+Chapter 11 established that a finite evaluation budget couples distant regions: a local frontier change alters which faraway candidates receive slots, producing effects outside the local causal cone. A region measured under a binding budget would appear less modular for reasons having nothing to do with its own organization.
 
-The previous chapter found a second channel by accident: a global construction-rate calibrator compensating for local changes applies its offset everywhere, coupling regions the physics keeps apart.
+Chapter 12 found a second channel by accident: a global construction-rate calibrator compensating for local changes applies its offset everywhere, coupling regions the physics keeps apart.
 
 So this experiment removes both by design. **True unbounded evaluation** — every frontier candidate evaluated, no competition for slots. **No dynamic construction-rate calibration.** With both known global channels removed, causal influence under this protocol is limited by the local transition dynamics over the eight-step horizon.
 
@@ -74,9 +74,9 @@ That gives a structural check for free: beyond the corresponding causal reach, t
 
 The experiment therefore inherits something useful from earlier failures.
 
-The *Can Finite Computation Couple Distant Events?* chapter identified one global coupling channel.
+Chapter 11 identified one global coupling channel.
 
-The previous chapter exposed another.
+Chapter 12 exposed another.
 
 Both can now be removed deliberately before testing causal containment.
 
@@ -256,7 +256,7 @@ $$
 
 The raw threshold of 0.15 belonged to raw modularity. Excess modularity is a different quantity, so it needs its own smallest effect of interest, frozen before the result: **+0.10**.
 
-The selected regions have to beat matched arbitrary geometry by more than ten percentage points before we are willing to call that causal privilege. This is the same discipline the *Can Experience Change the Material?* chapter applied to its magnitude gate and the *Can Finite Computation Couple Distant Events?* chapter to its ±0.15 band — and it matters more here than anywhere, because without it any small positive residual could be narrated into an individual.
+The selected regions have to beat matched arbitrary geometry by more than ten percentage points before we are willing to call that causal privilege. This is the same discipline Chapter 6 applied to its magnitude gate and Chapter 11 to its ±0.15 band — and it matters more here than anywhere, because without it any small positive residual could be narrated into an individual.
 
 ---
 
@@ -324,9 +324,9 @@ Under this operational test, it did not establish the second.
 
 > **A boundary can organize our measurement without organizing the system.**
 
-That distinction has been quietly implicated in several earlier failures. the *Is There Actually One Thing Here?* chapter's predictive-coherence result was large because any sizeable chunk of a structured field predicts itself. Its localization result was strong at an arbitrary interior circle as well as at the candidate boundary. In both cases, an observer-defined partition plus ordinary spatial structure could explain the apparent privilege.
+That distinction has been quietly implicated in several earlier failures. Chapter 9's predictive-coherence result was large because any sizeable chunk of a structured field predicts itself. Its localization result was strong at an arbitrary interior circle as well as at the candidate boundary. In both cases, an observer-defined partition plus ordinary spatial structure could explain the apparent privilege.
 
-This chapter exposes the same problem with a much stronger-looking causal statistic.
+Chapter 13 exposes the same problem with a much stronger-looking causal statistic.
 
 ---
 
@@ -353,7 +353,7 @@ Under the tested radius-4 criterion, that meaningful excess was not found.
 Scope that carefully. This is one operational criterion, at one radius, with circular regions, under an eight-step horizon, using this modularity statistic. It does not establish that no individual can exist here. Non-circular or time-varying regions, process-defined boundaries and other operational criteria for individuation were untested
  — and this chapter is not the place to start proposing them, because listing alternative rescues is the reflex the book has spent twelve chapters declining.
 
-Notice, too, what did not save us. The candidate object was much stronger than the *Is There Actually One Thing Here?* chapter's. It had history-dependent sensitivity, trajectory redirection, turnover, local causal structure, and a huge raw containment asymmetry. Every one of those is real. None of them adds up to an individual.
+Notice, too, what did not save us. The candidate object was much stronger than Chapter 9's. It had history-dependent sensitivity, trajectory redirection, turnover, local causal structure, and a huge raw containment asymmetry. Every one of those is real. None of them adds up to an individual.
 
 ```text
 history-dependent process

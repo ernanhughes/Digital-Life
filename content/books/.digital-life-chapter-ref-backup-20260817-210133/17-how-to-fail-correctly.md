@@ -70,7 +70,7 @@ Rather than presenting this as a taxonomy to memorize, it is easier to reach the
 
 ## Did We Run the Experiment We Claimed?
 
-The *Can the Past Redirect the Future?* chapter intended a clean contrast: FORCE occupies the probe cell for one causal exposure, PREVENT keeps it empty for that same exposure. What the implementation did was insert the cell in FORCE and merely *start* it empty in PREVENT — leaving it free to attach naturally during the first update.
+Chapter 12 intended a clean contrast: FORCE occupies the probe cell for one causal exposure, PREVENT keeps it empty for that same exposure. What the implementation did was insert the cell in FORCE and merely *start* it empty in PREVENT — leaving it free to attach naturally during the first update.
 
 Worse, the contamination correlated with the treatment. The accessible material trace included the probe's only occupied neighbour, so it raised the probability that the supposedly prevented cell would appear: 0.428 in the accessible condition against 0.377 and 0.378 in the others.
 
@@ -80,13 +80,13 @@ The downstream result was therefore **INVALID**, and the crucial point is that t
 INVALID  ≠  NEGATIVE
 ```
 
-The productive question after an invalidation is not *what did we find* but *which parts were untouched by the defect*. In the *Can the Past Redirect the Future?* chapter the immediate expected causal response had been computed before the broken growth step, so it could not depend on what happened afterwards — and it survived, was replicated by the corrected run, and turned out to carry the chapter's mechanism.
+The productive question after an invalidation is not *what did we find* but *which parts were untouched by the defect*. In Chapter 12 the immediate expected causal response had been computed before the broken growth step, so it could not depend on what happened afterwards — and it survived, was replicated by the corrected run, and turned out to carry the chapter's mechanism.
 
 ---
 
 ## Could the Experiment Answer Its Question?
 
-The *What Does One Attachment Cause?* chapter's first attempt at predicting causal gain from local geometry returned:
+Chapter 10's first attempt at predicting causal gain from local geometry returned:
 
 ```text
 +0.167     CI [−0.078, +0.431]     declared meaningful effect +0.15
@@ -102,7 +102,7 @@ The test is not whether the interval contains zero. It is *what effect sizes rem
 
 Other, narrower questions — such as direction — may still have answers.
 
-The same distinction appeared in a more interesting form in the *Can the Past Redirect the Future?* chapter, where two questions about the same number got different answers. Was the downstream effect negative? Both estimators excluded zero: supported. Did it reach the predeclared ±0.15 magnitude? The achieved MDE was around 0.357: unresolved. Those statements are compatible, and collapsing them in either direction — "the hypothesis passed" or "inconclusive" — would have thrown away real information.
+The same distinction appeared in a more interesting form in Chapter 12, where two questions about the same number got different answers. Was the downstream effect negative? Both estimators excluded zero: supported. Did it reach the predeclared ±0.15 magnitude? The achieved MDE was around 0.357: unresolved. Those statements are compatible, and collapsing them in either direction — "the hypothesis passed" or "inconclusive" — would have thrown away real information.
 
 ```text
 DIRECTION  ≠  MAGNITUDE
@@ -114,7 +114,7 @@ DIRECTION  ≠  MAGNITUDE
 
 The reverse error is just as common: reporting an interval near zero as *nothing happened*.
 
-The *Can Finite Computation Couple Distant Events?* chapter compared strong candidate subsampling against exhaustive evaluation at dynamically matched background construction, and found a mean twelve-step difference of `+0.00130` with the whole interval inside the predeclared ±0.15 band. the previous chapter compared selected regions against geometry-matched controls and found excess modularity of `−0.0123`, upper bound `+0.0072`, against a declared meaningful margin of `+0.10`.
+Chapter 11 compared strong candidate subsampling against exhaustive evaluation at dynamically matched background construction, and found a mean twelve-step difference of `+0.00130` with the whole interval inside the predeclared ±0.15 band. Chapter 13 compared selected regions against geometry-matched controls and found excess modularity of `−0.0123`, upper bound `+0.0072`, against a declared meaningful margin of `+0.10`.
 
 Neither is an absence of evidence. Both are evidence of absence *at a stated scale* — which is a far stronger and more useful claim, and one that requires two things a bare non-significant result does not have: a threshold declared in advance, and enough precision to have detected it.
 
@@ -126,7 +126,7 @@ The distinction is old and still routinely ignored elsewhere. Clinical trials th
 BOUNDED NEGATIVE  ≠  NOTHING HAPPENED
 ```
 
-And a bounded negative earns its status only with both parts. the previous chapter's excess modularity was bounded because the achieved MDE was `0.0265` against a `+0.10` threshold — roughly four times the precision needed. Without that, the same point estimate would have been unresolved, not negative.
+And a bounded negative earns its status only with both parts. Chapter 13's excess modularity was bounded because the achieved MDE was `0.0265` against a `+0.10` threshold — roughly four times the precision needed. Without that, the same point estimate would have been unresolved, not negative.
 
 ---
 
@@ -134,7 +134,7 @@ And a bounded negative earns its status only with both parts. the previous chapt
 
 Now the failure that none of the above would catch, and the reason this chapter exists.
 
-The previous chapter's measurement was valid. Its mechanism was real: perturbations inside a region really did express most of their causal mass inside it, while external perturbations penetrated much less. What failed was the step from that mechanism to the concept it was taken to demonstrate.
+Chapter 13's measurement was valid. Its mechanism was real: perturbations inside a region really did express most of their causal mass inside it, while external perturbations penetrated much less. What failed was the step from that mechanism to the concept it was taken to demonstrate.
 
 The layers can be separated:
 
@@ -145,7 +145,7 @@ CONSTRUCT         a privileged causal region                     ✕
 INTERPRETATION    an individual                          not established
 ```
 
-A failure at one layer does not propagate downward. The containment survives; only the promotion dies. And the *It Looked Like Flocking* chapter has exactly the same shape at the other end of the book:
+A failure at one layer does not propagate downward. The containment survives; only the promotion dies. And Chapter 3 has exactly the same shape at the other end of the book:
 
 ```text
 MEASUREMENT       nearby velocity coherence                      ✓
@@ -180,7 +180,7 @@ In every case the measurement was real and the promotion was premature. And in e
 
 ## The Null Is Part of the Claim
 
-The previous chapter makes a point sharper than any of the earlier cases.
+Chapter 13 makes a point sharper than any of the earlier cases.
 
 Before the geometry-matched control, the operative claim was effectively:
 
@@ -193,7 +193,7 @@ So the null is not a formality applied after the result to check it. It is part 
 
 > **A measurement without its alternative explanation is not yet a construct.**
 
-This reframes several earlier failures. the *Is There Actually One Thing Here?* chapter's predictive-coherence result looked enormous at 0.2906 until a family-level permutation null produced maxima averaging 0.2569 — the statistic was measuring what any large chunk of a structured field does. the *Can Experience Change the Material?* chapter's placement advantage looked decisive until the copy budget was equalized and most of it turned out to be quantity. the *It Looked Like Flocking* chapter's large ancestry-coherence difference changed meaning once distance was matched. Each time, the original measurement remained part of the record while a stronger comparison changed what it was allowed to mean.
+This reframes several earlier failures. Chapter 9's predictive-coherence result looked enormous at 0.2906 until a family-level permutation null produced maxima averaging 0.2569 — the statistic was measuring what any large chunk of a structured field does. Chapter 6's placement advantage looked decisive until the copy budget was equalized and most of it turned out to be quantity. Chapter 3's large ancestry-coherence difference changed meaning once distance was matched. Each time, the original measurement remained part of the record while a stronger comparison changed what it was allowed to mean.
 
 ---
 
@@ -219,7 +219,7 @@ lower-level phenomenon intact   → keep it
 follow-up analysis explanatory  → label it descriptive
 ```
 
-Applied to the previous chapter, that means the individual disappears and the containment stays. Applied to the *Can the Past Redirect the Future?* chapter, the invalid downstream result disappears and the immediate sensitivity effect stays. Applied to the *It Looked Like Flocking* chapter, ancestry-specific flocking disappears and short-range motion coherence stays.
+Applied to Chapter 13, that means the individual disappears and the containment stays. Applied to Chapter 12, the invalid downstream result disappears and the immediate sensitivity effect stays. Applied to Chapter 3, ancestry-specific flocking disappears and short-range motion coherence stays.
 
 ---
 
@@ -227,7 +227,7 @@ Applied to the previous chapter, that means the individual disappears and the co
 
 One category deserves separate attention because it is the most tempting.
 
-The *Can the Past Redirect the Future?* chapter's confirmatory magnitude claim stayed unresolved. Then a follow-up analysis of the same data showed something genuinely striking: about 75% of the cumulative causal difference accrued after the material trace had fallen below half its starting mass, and 36% after it fell below a quarter. That trajectory analysis supplies the chapter's most interesting mechanistic interpretation.
+Chapter 12's confirmatory magnitude claim stayed unresolved. Then a follow-up analysis of the same data showed something genuinely striking: about 75% of the cumulative causal difference accrued after the material trace had fallen below half its starting mass, and 36% after it fell below a quarter. That trajectory analysis supplies the chapter's most interesting mechanistic interpretation.
 
 It is also **descriptive**. It was not the frozen primary endpoint, it was found by looking at trajectories after the fact, and it cannot promote the unresolved magnitude claim into a supported one. An explanation can illuminate a result without rescuing it.
 
@@ -242,7 +242,7 @@ It records how the result was obtained and therefore what inferential work it is
 
 If invalid experiments must be re-run, then re-running experiments cannot always be cheating. The distinction matters, and it is not subtle.
 
-The *Can the Past Redirect the Future?* chapter's second run repaired the PREVENT semantics, matched the remote carriers on background frontier influence, and replaced a noisy estimator with a lower-variance one — while freezing every scientific parameter: the material gain, the half-life, the history age, the horizon, the effect threshold. the *Can Finite Computation Couple Distant Events?* chapter's corrected design fixed a calibration that controlled only the first frame of a twelve-lag process. Both repaired the instrument and left the question alone.
+Chapter 12's second run repaired the PREVENT semantics, matched the remote carriers on background frontier influence, and replaced a noisy estimator with a lower-variance one — while freezing every scientific parameter: the material gain, the half-life, the history age, the horizon, the effect threshold. Chapter 11's corrected design fixed a calibration that controlled only the first frame of a twelve-lag process. Both repaired the instrument and left the question alone.
 
 Compare the alternative. Adjusting the material gain, or the half-life, or the horizon, or the meaningful-effect threshold, until an effect appeared, would have been a different activity with the same outward appearance.
 
@@ -264,13 +264,13 @@ The third is dangerous precisely because the question changes while the write-up
 The instinct after a weakened claim is to try one more variant. Another radius. Another feature. Another budget. Another history window. Another decoder. There is always one more, and the search has no natural end.
 
 Several chapters reached points where continuing the same search would have become result-driven parameter hunting.
- The *Can Experience Change the Material?* chapter abandoned an entire line after three consecutive broad claims failed, rather than keeping whichever secondary metric survived in each. the *Is There Actually One Thing Here?* chapter refused to tune the radius after the family null failed, and changed the evidence type instead. the *What Does One Attachment Cause?* chapter stopped adding local features and rebuilt the measurement. the previous chapter changed the null rather than the disk.
+ Chapter 6 abandoned an entire line after three consecutive broad claims failed, rather than keeping whichever secondary metric survived in each. Chapter 9 refused to tune the radius after the family null failed, and changed the evidence type instead. Chapter 10 stopped adding local features and rebuilt the measurement. Chapter 13 changed the null rather than the disk.
 
 The stop rule that emerges:
 
 > **When the declared question has been answered, stop. Do not convert disappointment into a parameter search unless you are willing to declare a genuinely new experiment.**
 
-And its companion, from the *What Does It Cost to Stay?* chapter, where a budget missed its frozen stationarity threshold by about `0.00002`:
+And its companion, from Chapter 8, where a budget missed its frozen stationarity threshold by about `0.00002`:
 
 > **A threshold that moves when the answer is inconvenient is not a threshold.**
 
