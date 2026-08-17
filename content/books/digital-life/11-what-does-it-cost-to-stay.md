@@ -657,7 +657,7 @@ The observer-side distinction introduced for bookkeeping has turned out to separ
 
 The chapter's title can now be answered, and the answer is not a substance.
 
-The scarce quantity exposed by these experiments is **evaluation opportunity**. A candidate attachment can only occur where computation is spent on it, and under a binding budget, spending computation on one site means not spending it on another. Evaluating one candidate can therefore mean leaving another unevaluated on that update.
+The scarce quantity imposed by these experiments is **evaluation opportunity**. A candidate attachment can only occur where computation is spent on it, and under a binding budget, spending computation on one site means not spending it on another. Evaluating one candidate can therefore mean leaving another unevaluated on that update.
 
 That is a genuine opportunity cost created by finite computation.
 
