@@ -1,9 +1,9 @@
 +++
-title = "06: The Crystal Gets a Past"
+title = "07: The Crystal Gets a Past"
 date = "2026-08-14T10:00:00+01:00"
 draft = false
 description = "A saved state can continue the Digital Crystal exactly, an event history can reconstruct how it formed, and a single received bit can redirect its future. None of that is memory yet."
-weight = 6
+weight = 7
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "State", "History", "Checkpointing", "Causality", "Counterfactuals"]
 series = ["Digital Life From First Principles"]

@@ -1,9 +1,9 @@
 +++
-title = "12: Can Finite Computation Couple Distant Events?"
+title = "13: Can Finite Computation Couple Distant Events?"
 date = "2026-08-14T22:00:00+01:00"
 draft = false
 description = "A local attachment changes expected construction in places the local rule cannot reach in one step — because distant opportunities compete for the same evaluation slots. But routing causality is not the same as amplifying it."
-weight = 12
+weight = 13
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Finite Computation", "Causality", "Experimental Method"]
 series = ["Digital Life From First Principles"]

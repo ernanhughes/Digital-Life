@@ -1,9 +1,9 @@
 +++
-title = "14: We Found an Individual. Then We Didn't."
+title = "15: We Found an Individual. Then We Didn't."
 date = "2026-08-15T01:00:00+01:00"
 draft = false
 description = "A region of the Digital Crystal retains its own causal influence and resists influence from outside — strongly, precisely, reproducibly. Then arbitrary regions of the same size do exactly the same thing."
-weight = 14
+weight = 15
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Causality", "Individuality", "Experimental Method"]
 series = ["Digital Life From First Principles"]

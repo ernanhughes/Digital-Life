@@ -1,9 +1,9 @@
 +++
-title = "08: What Survives Material Loss?"
+title = "09: What Survives Material Loss?"
 date = "2026-08-14T14:00:00+01:00"
 draft = false
 description = "Remove the guarantee that occupied material stays occupied, and the Digital Crystal does not slow down. It builds faster — because every lost cell manufactures a new place to build."
-weight = 8
+weight = 9
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Material Loss", "Turnover", "Reoccupation", "Experiments"]
 series = ["Digital Life From First Principles"]

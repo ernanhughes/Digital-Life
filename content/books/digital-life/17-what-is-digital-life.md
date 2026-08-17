@@ -1,9 +1,9 @@
 +++
-title = "16: What Is Digital Life?"
+title = "17: What Is Digital Life?"
 date = "2026-08-15T05:00:00+01:00"
 draft = false
 description = "After fifteen chapters of biological names failing under controls, what the surviving computational phenomena add up to — a provisional, process-first foundation, and an honest account of why it is broader than life."
-weight = 16
+weight = 17
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Synthesis", "Experimental Method"]
 series = ["Digital Life From First Principles"]

@@ -1,9 +1,9 @@
 +++
-title = "11: What Does One Attachment Cause?"
+title = "12: What Does One Attachment Cause?"
 date = "2026-08-14T20:00:00+01:00"
 draft = false
 description = "Force one cell to attach, prevent it in the counterfactual, and measure everything else. The effect is real, it matches the local rule, and it dies out once the cell is removed."
-weight = 11
+weight = 12
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Causality", "Intervention", "Experimental Method"]
 series = ["Digital Life From First Principles"]

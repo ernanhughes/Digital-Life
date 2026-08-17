@@ -1,9 +1,9 @@
 +++
-title = "04: It Looked Like Flocking"
+title = "05: It Looked Like Flocking"
 date = "2026-08-14T10:30:00+01:00"
 draft = false
 description = "Nearby Outlier structures appear to move together, and shared causal ancestry appears to explain it. A spectacular family effect survives two controls and then collapses under a third."
-weight = 4
+weight = 5
 series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Artificial Life", "Outlier", "Collective Motion", "Causality", "Controls", "Confounds", "Experimental Method"]
@@ -15,7 +15,7 @@ Not merely outward, as an expanding front would carry everything. Together — w
 
 It looked remarkably like **flocking**.
 
-We had spent two chapters training ourselves against exactly this reaction:
+We have spent two chapters training ourselves against exactly this reaction:
 
 see motion
 → invent a noun

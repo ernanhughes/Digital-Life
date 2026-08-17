@@ -1,9 +1,9 @@
 +++
-title = "09: What Does It Cost to Stay?"
+title = "10: What Does It Cost to Stay?"
 date = "2026-08-14T16:00:00+01:00"
 draft = false
 description = "Limit how many construction opportunities the Digital Crystal can evaluate per update and it never finds a stable size. What becomes stable instead is the traffic flowing through it."
-weight = 9
+weight = 10
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Scarcity", "Turnover", "Computation", "Experiments"]
 series = ["Digital Life From First Principles"]

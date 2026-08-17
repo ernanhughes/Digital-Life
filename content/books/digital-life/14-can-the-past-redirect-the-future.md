@@ -1,9 +1,9 @@
 +++
-title = "13: Can the Past Redirect the Future?"
+title = "14: Can the Past Redirect the Future?"
 date = "2026-08-14T23:30:00+01:00"
 draft = false
 description = "Two crystals with identical visible geometry, one carrying a decaying hidden material trace. The same perturbation produces a different response — and most of the downstream difference accumulates after the trace has substantially weakened."
-weight = 13
+weight = 14
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Causality", "History Dependence", "Experimental Method"]
 series = ["Digital Life From First Principles"]

@@ -1,9 +1,9 @@
 +++
-title = "07: Can Experience Change the Material?"
+title = "08: Can Experience Change the Material?"
 date = "2026-08-14T12:00:00+01:00"
 draft = false
 description = "A pulse can leave a permanent mark inside a Digital Crystal. The mark persists, biases construction, and then stops mattering — not because it decayed, but because growth moved past it."
-weight = 7
+weight = 8
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Material State", "Causality", "Path Dependence", "Experiments"]
 series = ["Digital Life From First Principles"]
