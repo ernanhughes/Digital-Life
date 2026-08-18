@@ -104,16 +104,16 @@ The obvious experiment — grow crystals under different budgets and compare —
 
 So freeze everything. Same checkpoint, same probe `x`, same FORCE/PREVENT intervention, same environment, same cell-keyed randomness, same geometry. Let the intervention create its two lag-one states under the ordinary budget. Then stop the world and vary exactly one thing: what fraction of the frontier is allowed to receive evaluation on that next update.
 
-For each finite arm, `f` determines a fixed evaluation count from the PREVENT frontier. That same count is then supplied to both FORCE and PREVENT.
+For each finite arm, `f` sets a fixed evaluation count from the *larger* of the two branch frontiers — the frozen control parameter is `B / max(F_force, F_prevent)`. That same count is then supplied to both branches, and each selects from its own frontier by keyed randomness without replacement. If a branch's frontier is smaller than the count, it simply evaluates all of it.
 
 ```text
 f = 0.05, 0.10, 0.25, 0.50, 0.75, 1.00
 plus an explicit UNBOUNDED arm
 ```
 
-So `f = 1.00` is still a fixed-count policy: FORCE can remain budget-limited if its frontier is larger than PREVENT's.
+`f = 1.00` is still a fixed-count policy, but taking the count from the larger frontier makes it non-binding: the budget is at least as large as either branch's candidate set, so both evaluate everything. In this implementation `f = 1.00` and `UNBOUNDED` therefore coincide, and the protocol froze both as full-evaluation controls with a hard outside-cone zero at `1e-12` tolerance.
 
-`UNBOUNDED` is different. Each branch evaluates its own complete frontier.
+They remain different *policies*. `f = 1.00` is a fixed count that happens not to bind; `UNBOUNDED` removes the selector. The distinction matters for what each one licenses, not for what either measured here.
 
 The same checkpoint generates every budget condition. This is a control-parameter experiment on a single frozen state, not a comparison between differently grown crystals.
 
@@ -130,23 +130,29 @@ Under partial evaluation, FORCE and PREVENT differ in expected construction outs
 For sites where the intervention creates frontier (`FCP = +2`), the far-field effect is negative, with its magnitude increasing across the tested partial-evaluation fractions from `f = 0.05` through `f = 0.75`:
 
 ```text
-f      E_far
-0.05   −0.049
-0.10   −0.110
-0.25   −0.261
-0.50   −0.492
-0.75   −0.715
+f           E_far
+0.05        −0.049
+0.10        −0.110
+0.25        −0.261
+0.50        −0.492
+0.75        −0.715
+1.00         0.000
+unbounded    0.000
 ```
 
 For sites where the intervention consumes frontier (`FCP = −1`), it runs the other way:
 
 ```text
-0.05   +0.012
-0.10   +0.031
-0.25   +0.118
-0.50   +0.213
-0.75   +0.294
+0.05        +0.012
+0.10        +0.031
+0.25        +0.118
+0.50        +0.213
+0.75        +0.294
+1.00         0.000
+unbounded    0.000
 ```
+
+Both full-evaluation arms return exactly zero, at every FCP class, including the frontier-creating class where the actual lag-one frontier difference averages `+1.84`. That is not a small number that rounded down. The far-field selected sets are bit-identical between branches.
 
 Create local frontier opportunity and expected construction falls in the outside-cone region.
 
@@ -173,8 +179,6 @@ Must be.
 Not approximately and not on average.
 
 This is a correctness identity of the unbounded policy, not an empirical discovery.
-
-The finite `f = 1.00` arm is not identical to this policy: it still supplies both branches with a fixed evaluation count derived from the finite-budget construction. That distinction matters and is returned to later.
 
 It is important to be honest about what that zero is. It is not a discovery. It is a correctness identity, and quoting it as evidence would be exactly the error this book has flagged repeatedly: reporting a theorem about the code as though it were a fact about the world. A quantity with exactly zero variance across thousands of independent groups belongs in an assertion, not a confidence interval.
 
@@ -269,84 +273,51 @@ PAYLOAD
 the attachment probability carried by those candidates
 ```
 
-**---**
+---
 
-## The Scaling Relation
+## Exactly What the Selector Moves
 
-If the mechanism is really slot competition, the far-field effect should follow a specific form. Roughly, it should scale with how much frontier imbalance the intervention created, how large a fraction of the frontier is being evaluated, and how much attachment probability the displaced far candidates carry:
+The two quantities can be separated exactly, because the experiment records both for every site.
 
-$$
-E_{\text{far}} \approx -\Delta F \times f \times \bar{p}_{\text{far}}
-$$
-
-which predicts, at any fixed evaluation fraction:
+At lag one, outside the local-rule cone, a candidate's neighbourhood is untouched by the intervention. So any candidate evaluated in *both* branches carries the same attachment probability in both. Across all 37,625 site-by-budget records, the shared-candidate contribution to the far-field difference is not merely small:
 
 ```text
-E_far  ∝  −ΔF
+shared-candidate contribution to E_far      exactly 0
 ```
 
-One subtlety decides whether this works. `ΔF` must be the *actual* lag-one frontier difference, not the checkpoint-level FCP label. Ordinary background loss occurs between the intervention and the selection, so the frontier the selector actually sees is not the frontier we labelled one step earlier. The selector responds to what exists when it runs.
+Zero in every record, in every arm. That leaves only one source, and it accounts for the whole effect:
 
-Fitting through the origin at the three low fractions:
+$$
+E_{\text{far}} = \sum_{i \in \text{FORCE only}} p_i \;-\; \sum_{i \in \text{PREVENT only}} p_i
+$$
+
+The residual against the recorded `E_far` is zero to the last bit, across every record. The far-field effect *is* the probability payload of the candidates the selector swapped — nothing else contributes, and `E_far` is nonzero exactly when the two evaluated far sets differ.
+
+That is the mechanism stated as an identity over measured data rather than as a fitted approximation:
 
 ```text
-f       β        relative residual
-0.05    0.0251        12.6%
-0.10    0.0571         9.9%
-0.25    0.1422         2.6%
+SELECTOR MEMBERSHIP CHANGE
+×
+CANDIDATE PROBABILITY PAYLOAD
+=
+EXPECTED FAR-FIELD CONSTRUCTION DIFFERENCE
 ```
 
-all inside the frozen 25% aggregate criterion, and tightening as evaluation broadens.
+It also explains the two full-evaluation arms without any appeal to magnitude. When both branches evaluate their whole frontier, no candidate is in one selected set and not the other, the swap set is empty, and the sum is zero by construction.
+
+An aggregate summary of the same thing was frozen in advance for the low-evaluation regime `f ≤ 0.25`, predicting `E_far ≈ −ΔF × f × p̄_far` — where `ΔF` must be the *actual* lag-one frontier difference rather than the checkpoint FCP label, because ordinary background loss falls between the intervention and the selection and the selector responds to what exists when it runs. Its relative residuals were `12.6%`, `9.9%` and `2.6%` against the frozen `25%` criterion.
 
 ```text
 SUPPORTED
 ```
 
-The high `R²` from fitting three class means through the origin is not the result — three points and a fixed intercept can make that statistic look impressive too easily.
-
-What matters is narrower: across the three predeclared low-fraction conditions, the residuals from the mechanism-derived scaling relation remain inside the frozen aggregate tolerance.
-
-There is a further check available. If the model is right, dividing the fitted coefficient by the evaluation fraction should recover the mean probability carried by the far frontier:
-
-```text
-f       β/f
-0.05    0.502
-0.10    0.571
-0.25    0.569
-```
-
-Across a fivefold change in evaluation fraction, the last two converge near 0.57 — which is what the mechanism says should be sitting there. Worth stating carefully: the far-frontier probability mass was not independently measured here, so this is not a verified parameter recovery. The bounded claim is that the coefficient *behaves like* the payload the finite-selection model predicts.
-
----
-
-## The Ratio That Didn't Survive
-
-There was a more elegant claim on the table, and it did not hold up.
-
-An earlier single-budget experiment had produced far-field effects of about −0.117 for the frontier-creating class and +0.063 for the frontier-consuming class. Those classes differ by +2 and −1 in nominal frontier change, so a pure slot model predicts a ratio of exactly −2:1, and the observed ratio was −1.86. A parameter-free prediction, nearly hit, with no fitted slope anywhere. It was an unusually attractive result because the prediction contained no fitted parameter.
-
-Frozen as a target across the budget sweep, it fell apart:
-
-```text
-f = 0.05    −4.15
-f = 0.10    −3.54
-f = 0.25    −2.21
-```
-
-Only the last comes within tolerance of −2.
+That relation is a coarse-grained restatement of the exact accounting, useful for seeing how the effect scales but strictly weaker than it. One more elegant version was frozen as a target and did not survive: a parameter-free `−2:1` ratio between the extreme FCP classes came out at `−4.15`, `−3.54` and `−2.21` across the low fractions, clearing tolerance only at `f = 0.25`, with wide intervals throughout.
 
 ```text
 UNRESOLVED
 ```
 
-And the reason is instructive rather than embarrassing. The −2:1 prediction used the checkpoint FCP labels; the actual lag-one frontier differences were closer to +1.84 and −0.78, a magnitude ratio nearer 2.36. The elegant ratio was computed from a descriptor one update upstream of the quantity the selector actually consumes.
-
-So the general scaling survives and the specific ratio does not — the same pattern as several earlier chapters. The broader selector-mediated scaling survives.
-
-The cleaner parameter-free ratio does not.
- Which also tells us that the scalar frontier-size model is not the most proximal description available: slot displacement is closer to the machinery than `ΔF` is, and `ΔF` is closer than FCP.
-
-The per-class residuals point the same way. The frontier-creating classes tracked the model closely at every low fraction; the frontier-consuming class deviated well past the per-class scale at the two smallest fractions before falling into line at 0.25. The aggregate criterion passed. The scalar model is not equally good everywhere.
+The diagnosis is the same one the exact accounting makes obvious. The ratio was computed from the checkpoint FCP labels, while the actual lag-one frontier differences were nearer `+1.84` and `−0.78`. Scalar frontier size is simply not the most proximal description available — slot payload is closer to the machinery than `ΔF`, and `ΔF` is closer than FCP.
 
 ---
 
@@ -382,8 +353,7 @@ Now the temptation, and it is a strong one.
 
 If a local perturbation can recruit consequences outside its causal reach, perhaps finite computation is how small events become large ones. Perhaps selector-mediated redistribution does more than change where the consequence appears.
 
-Perhaps it increases the total finite-horizon consequence of the perturbation.
- That would be a genuinely major claim, and everything so far seems to be pointing at it.
+Perhaps it increases the total finite-horizon consequence of the perturbation. That would be a genuinely major claim, and everything so far seems to be pointing at it.
 
 The obvious experiment is to sweep the budget and see whether tighter budgets produce more downstream causal consequence.
 
@@ -430,10 +400,11 @@ The required calibration also changes through time.
 
 > **Controlling a dynamical process requires controlling the trajectory, not merely matching its starting point.**
 
-The fresh-seed experiment passed its frozen validity gate: the dynamically recalibrated PREVENT trajectories remained within the required tolerance of the reference construction process across allocation arms and lags.
+The offsets are additive on the attachment *score*, before the logistic — not on probability. The reference is a dedicated PREVENT-only `f = 0.10` trajectory carrying zero offset, and the target it defines is the exact expected attachment count at each lag.
 
-Only after that gate passed was the amplification comparison interpretable.
- The comparison really is between allocation regimes at matched background construction.
+The frozen gate required every arm and lag to match that target within a `2%` relative tolerance, with at least `95%` of records passing individually. The fresh-seed experiment cleared it on both counts: record-level pass fraction `1.0`, and every arm-by-lag population mean inside tolerance.
+
+Only after that gate passed was the amplification comparison interpretable. The comparison really is between allocation regimes at matched background construction.
 
 ---
 
@@ -456,7 +427,7 @@ The predeclared scientifically meaningful effect was ±0.15 attachments, and the
 BOUNDED NEAR ZERO
 ```
 
-The language here has to be exact, because two easier statements are both wrong. This is stronger than "not statistically significant" — an underpowered experiment produces that phrase without licensing any conclusion, and the previous chapter spent several paragraphs on why. It is weaker than "the two regimes are equivalent" — the interval is not tight enough to rule out effects smaller than the declared scale. At a ±0.10 threshold this same result would have been **unresolved**. It resolves the question it declared, at the scale it declared.
+The language here has to be exact, because two easier statements are both wrong. This is stronger than "not statistically significant" — an underpowered experiment produces that phrase without licensing any conclusion, and the previous chapter spent several paragraphs on why. It is weaker than "the two regimes are equivalent" — the interval is not tight enough to rule out effects smaller than the declared scale. The realized interval happens to fall inside ±0.10, but that is luck rather than design: the achieved minimum detectable effect was `0.11536`, so this experiment was never equipped to resolve a predeclared ±0.10 scale. It resolves the question it declared, at the scale it declared, and no tighter.
 
 > **At dynamically matched background construction, strong candidate subsampling did not change mean twelve-step causal consequence relative to true exhaustive evaluation by the predeclared ±0.15 attachment scale.**
 
@@ -472,10 +443,13 @@ The wrong summary is:
 
 ```text
 nothing changed
+```
+
+That summary is wrong, and seeing why requires looking at how the immediate effect is assembled.
 
 For a single-contact probe, `x` has one occupied neighbour and five empty ones. Some of those empty neighbours are not frontier candidates at all until `x` is occupied — when FORCE places a cell there, they become eligible for the first time. Others were already frontier candidates in both branches, and simply have their probabilities shifted by the new occupied neighbour.
 
-So the immediate effect arrives through two distinct channels: **promotion**, where the intervention creates candidates that exist only in FORCE, and **shared shift**, where it changes probabilities on candidates evaluated in both branches. Conditioning on probes where the intervention survived:
+So the immediate effect arrives through two distinct channels: **promotion**, where the intervention creates candidates that exist only in FORCE, and **shared shift**, where it changes probabilities on candidates evaluated in both branches. The decomposition is exact rather than fitted, and conditions on one thing only — the `702` probes whose focal occupancy survived the delivery step:
 
 ```text
              promotion    shared shift    total
@@ -492,7 +466,7 @@ Within this survival-conditioned decomposition, the promotion channel roughly ha
 
 That is the structure hidden by the flat aggregate mean.
 
-Because this decomposition conditions on interventions that survived the delivery step, it describes **how an expressed immediate effect is routed**. It should not be confused with the unconditional mean causal effect tested above.
+Because this decomposition conditions on interventions whose focal occupancy survived the delivery step — a post-treatment event — it describes **how the immediate effect is routed within that conditioned subset**. It is not the unconditional causal mean across all delivered probes, and it is not conditioned on selector exposure.
 
 That is the finding hiding under the flat mean. Under strong subsampling, an intervention matters largely because it puts a *new* opportunity in front of the selector. Under broad evaluation, it matters largely because it changes the *probability* of opportunities that were going to be evaluated anyway. Those are different computational routes to the same aggregate effect, and their weights move in opposite directions with almost exactly compensating magnitudes.
 
@@ -538,9 +512,9 @@ Close everywhere, and within about a percentage point from `f = 0.50` upward.
 
 So under the strongest subsampling, many delivered probes produce essentially zero immediate difference because either the intervention is removed or the selector evaluates none of the opportunities it changed.
 
-The twelve-step outcomes are correspondingly highly zero-inflated.
+The important point is not that every zero has one cause. Survival and selector exposure are separate gates, and the prediction above multiplies them rather than attributing the zero mass to either alone. What it establishes is that a substantial part of the immediate zero mass is predicted in advance by the survival-plus-selection mechanism rather than requiring an interpretation in terms of weak causal response.
 
-The important point is not that every zero has one cause. It is that a substantial part of the immediate zero mass is predicted in advance by the survival-plus-selection mechanism rather than requiring an interpretation in terms of weak causal response.
+Two endpoints pull in opposite directions here, and it is worth keeping them apart. *Immediate* expression becomes much rarer under strong subsampling — `0.401` of probes against `0.910` unbounded. But the fraction of probes with a nonzero *twelve-step* cumulative difference moves the other way: `0.169` at `f = 0.10` against `0.129` unbounded, a difference of `+0.040` with interval `[0.008, 0.072]`. Fewer perturbations get expressed at all, and those that do appear less likely to be washed out over the horizon. The second half of that sentence is a description of the data, not a tested mechanism.
 
 That gives a hierarchy the substrate produced on its own:
 
@@ -590,7 +564,59 @@ CAUSAL AMPLIFICATION
 
 This is a better answer than the one we went looking for. An amplification result would have been exciting and, on reflection, slightly suspicious — a mechanism that made perturbations grow simply by rationing computation would have been the sort of free lunch this book has learned to distrust. What the substrate gave instead is a redistribution mechanism: causal opportunity is expressed in different places and through different pathways, while the matched experiment resolves no scientifically meaningful change in the mean twelve-step consequence at its declared scale.
 
-One methodological note before leaving it. The `f = 1.00` arm and the unbounded arm are not the same policy, despite the fraction suggesting they should be. A budget set to the size of the PREVENT frontier is still a fixed count handed to both branches, so FORCE — which may have a larger frontier — still competes for slots. The unbounded arm instead lets each branch evaluate its own entire frontier. Finite arms conserve evaluation *count*; the unbounded arm conserves *coverage*. A numerical parameter value is not the same thing as a computational policy.
+One methodological note before leaving it. The `f = 1.00` arm and the unbounded arm produced identical outside-cone zeros here, and it would be easy to conclude they are the same thing. They are not. `f = 1.00` is a fixed evaluation count that happens to be large enough not to bind; `UNBOUNDED` removes the selector from the design entirely. Finite arms conserve evaluation *count*; the unbounded arm conserves *coverage*. That the two coincide under this reference frontier is a fact about this parameterisation, not an equivalence of policies — and had the budget been referenced to the smaller frontier instead, they would not have coincided. A numerical parameter value is not the same thing as a computational policy.
+
+---
+
+## Experimental Note
+
+Two frozen experiments stand behind this chapter.
+
+**Finite-budget redistribution.** Frozen crystal, `digital-crystal-v1-frozen`, loss rate `0.08`, ordinary evaluation budget `96`. 384 independent checkpoints, 5,375 supported sites, seven allocation conditions — 37,625 site-by-budget measurements. Probe scope: single-contact frontier sites, exactly one occupied neighbour. FORCE and PREVENT are constructed at the checkpoint and the ordinary loss step is applied before selection.
+
+```text
+control parameter   B / max(F_force, F_prevent)
+f                   0.05, 0.10, 0.25, 0.50, 0.75, 1.00
+UNBOUNDED           each branch evaluates its own full frontier
+selection           keyed randomness, without replacement
+
+local-rule cone     d ≤ 1 from x at lag one
+E_far               expected FORCE-minus-PREVENT construction over
+                    branch-specific evaluated candidates at d > 1,
+                    before any attachment draw
+FCP                 checkpoint frontier change from occupying x
+actual ΔF           realized lag-one frontier difference, post-loss
+far candidate churn size of the far selected-set symmetric difference
+
+scaling test        frozen for f ≤ 0.25, 25% relative residual criterion
+extreme ratio       frozen target −2.0, 25% relative tolerance
+full-evaluation     f = 1.00 and UNBOUNDED, hard zero at 1e-12
+```
+
+**Dynamically matched amplification.** Intervention budget `96`, horizon 12 updates, 192 groups, 768 probes, same checkpoint and probe across arms.
+
+```text
+reference           dedicated PREVENT-only f = 0.10 trajectory, offset 0
+target              lag-specific exact expected attachments
+calibration         additive offset on the attachment score, pre-logistic,
+                    solved on each arm's PREVENT state every lag;
+                    the same offset is applied to FORCE
+validity gate       2% relative tolerance, ≥95% record pass fraction,
+                    every arm-lag population mean must pass
+                    achieved: pass fraction 1.0, all arms within tolerance
+
+primary contrast    G_T(f=0.10) − G_T(unbounded), two-sided
+meaningful scale    ±0.15 attachments
+achieved MDE        0.11536 (one-sided, 80%)
+statistical unit    group; bootstrap percentile intervals
+                    paired sign-flip permutation where stated
+
+pathway decomposition   exact, conditioned on the 702 probes whose focal
+                        occupancy survived the delivery step
+expressibility          P(x survives) × [1 − C(F−k,B)/C(F,B)]
+```
+
+The dynamically calibrated family is an experimental instrument, not the canonical Digital Crystal dynamics. Everything in this chapter is scoped to single-contact frontier sites, lag-one selection, this substrate and these budgets.
 
 ---
 
@@ -599,19 +625,19 @@ One methodological note before leaving it. The `f = 1.00` arm and the unbounded 
 | Claim | Status | Evidence |
 |---|---|---|
 | Partial evaluation produces outside-cone expected construction differences | **SUPPORTED** | signed far-field effects across the fraction sweep, both classes |
-| True unbounded evaluation gives exactly zero selector-mediated outside-local-rule-cone effect | **ASSERTION** | correctness identity of exhaustive per-branch evaluation; not empirical evidence |
+| True unbounded evaluation gives exactly zero selector-mediated outside-local-rule-cone effect | **ASSERTION** | correctness identity of exhaustive per-branch evaluation; `f = 1.00` coincides here because the budget is referenced to the larger frontier |
 | The outside-cone effect is produced by finite candidate selection | **SUPPORTED** | effect present under subsampling, absent exactly without it |
 | Fixed-budget selection conserves selected-slot count | **IDENTITY** | `Δ(selected far) = −Δ(selected near)` by construction of fixed-size selection |
-| Low-budget far-field effect tracks −ΔF × f | **SUPPORTED** | residuals 12.6% / 9.9% / 2.6% against 25% criterion |
-| The fitted coefficient behaves like far-frontier probability payload | **CONSISTENT** | β/f ≈ 0.50–0.57; far probability mass not independently measured |
+| The far-field difference equals swapped-candidate probability payload exactly | **IDENTITY** | shared-candidate contribution exactly `0` in all 37,625 records; residual zero to floating-point |
+| Low-budget far-field effect tracks −ΔF × f in the predeclared `f ≤ 0.25` regime | **SUPPORTED** | residuals 12.6% / 9.9% / 2.6% against the frozen 25% criterion |
 | Candidate displacement determines construction displacement | **FAILED** | similar churn (0.483 vs 0.446), opposite effects (−0.013 vs +0.213) |
 | The extreme classes follow a parameter-free −2:1 ratio | **UNRESOLVED** | sweep gives −4.15 / −3.54 / −2.21; actual ΔF ratio ≈ 2.36 |
 | Lag-one background matching controls the continuing process | **INVALID DESIGN** | construction rates drifted by lags 2–12; superseded |
 | Dynamic per-lag matching controls background construction | **SUPPORTED** | record-level pass fraction 1.0; all arm means within ±2% |
-| Strong subsampling changes mean 12-step causal consequence | **BOUNDED NEAR ZERO** | difference `+0.00130`, CI inside ±0.15; unresolved at ±0.10 |
-| Evaluation breadth changes the immediate pathway mixture among surviving interventions | **SUPPORTED** | survival-conditioned decomposition: promotion `0.069→0.033`, shared shift `0.054→0.085` |
+| Strong subsampling changes mean 12-step causal consequence | **BOUNDED NEAR ZERO** | difference `+0.00130`, CI inside the declared ±0.15; achieved MDE `0.11536`, so ±0.10 was never resolvable |
+| Evaluation breadth changes the immediate pathway mixture among surviving interventions | **SUPPORTED** | exact decomposition over the 702 survival-conditioned probes: promotion `0.069→0.033`, shared shift `0.054→0.085` |
 | Causal expression is gated by survival and selector exposure | **SUPPORTED** | combinatorial prediction matches observed active fractions |
-| Nonzero outcomes are more frequent under strong subsampling | **DESCRIPTIVE** | post-treatment conditional analysis, not promoted |
+| Nonzero twelve-step outcomes are more frequent under strong subsampling | **SUPPORTED** | secondary contrast over all probes: `0.169` at `f = 0.10` vs `0.129` unbounded, difference `+0.040`, CI `[0.008, 0.072]` |
 | Branching process, criticality, propagation, signalling | **NOT CLAIMED** | no such structure tested |
 
 Scope for everything above: single-contact frontier sites, lag-one selection, this substrate, these budgets.
@@ -622,8 +648,7 @@ Scope for everything above: single-contact frontier sites, lag-one selection, th
 
 We now know a fair amount about what determines the fate of a local perturbation in this substrate.
 
-The local rule predicts the immediate effect, and the previous chapter found the measured effect consistent with that mechanical prediction.
- The local geometry determines how much opportunity it creates or consumes. The finite selector changes where evaluation opportunity is spent, which causal pathway contributes to the response, and whether affected opportunities are evaluated at all.
+The local rule predicts the immediate effect, and the previous chapter found the measured effect consistent with that mechanical prediction. The local geometry determines how much opportunity it creates or consumes. The finite selector changes where evaluation opportunity is spent, which causal pathway contributes to the response, and whether affected opportunities are evaluated at all.
 
 Yet under the matched experiment in this chapter, those changes do not produce a resolved difference in mean twelve-step consequence at the declared `±0.15` scale.
 
@@ -652,7 +677,5 @@ Hold the visible present, allocation policy and perturbation as fixed as the pro
 Vary the retained material consequence of prior experience.
 
 For the first time, make history itself the intervention variable.
-
-For the first time, history itself becomes the intervention variable.
 
 > **Can the past redirect the future even when the visible present is held fixed?**
