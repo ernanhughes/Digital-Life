@@ -104,10 +104,16 @@ The obvious experiment — grow crystals under different budgets and compare —
 
 So freeze everything. Same checkpoint, same probe `x`, same FORCE/PREVENT intervention, same environment, same cell-keyed randomness, same geometry. Let the intervention create its two lag-one states under the ordinary budget. Then stop the world and vary exactly one thing: what fraction of the frontier is allowed to receive evaluation on that next update.
 
+For each finite arm, `f` determines a fixed evaluation count from the PREVENT frontier. That same count is then supplied to both FORCE and PREVENT.
+
 ```text
 f = 0.05, 0.10, 0.25, 0.50, 0.75, 1.00
 plus an explicit UNBOUNDED arm
 ```
+
+So `f = 1.00` is still a fixed-count policy: FORCE can remain budget-limited if its frontier is larger than PREVENT's.
+
+`UNBOUNDED` is different. Each branch evaluates its own complete frontier.
 
 The same checkpoint generates every budget condition. This is a control-parameter experiment on a single frozen state, not a comparison between differently grown crystals.
 
