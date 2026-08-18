@@ -48,7 +48,7 @@ organism   memory   repair   reproduction
 metabolism   boundary   individual   evolution
 ```
 
-Every one of those is a noun. Each names a thing you could go looking for, and — this was the warning the first chapter opened with — each names something you could simply implement and then claim to have found.
+Every one of those is a high-level biological category. Each names something you could go looking for, and — this was the warning the first chapter opened with — each names something you could simply implement and then claim to have found.
 
 By the end of the investigation, many of them had failed to survive in the form we started with. What survived instead reads very differently:
 
@@ -66,7 +66,7 @@ spatial causal containment
 
 Those are less like biological objects than like relationships — between a state and its successors, between what exists and what can happen next, between a past and a distribution over futures.
 
-That transformation is one of the book's central outcomes. We repeatedly began with biological nouns, and stronger controls kept forcing the surviving claims into process-level terms.
+That transformation is one of the book's central outcomes. We repeatedly began with a high-level biological category, and stronger controls kept forcing the surviving claim down to a substrate-level relationship.
 
 ---
 
@@ -76,9 +76,7 @@ The survivors group into roughly five recurring dimensions. The grouping is inte
 
 ### Continuation without fixed material identity
 
-The larger construction process continues while many of the material tokens realizing it are replaced.
- Cells appear, vanish, and are reoccupied — over 93% of tested lost locations were subsequently occupied again, typically within a step or two — while large gross construction and loss flows can be concealed by much smaller net population change.
- Whatever continuity we are measuring therefore cannot be reduced to persistence of the same occupied cells.
+The larger construction process continues while many of the material tokens realizing it are replaced. Cells appear, vanish, and are reoccupied — over 93% of tested lost locations were subsequently occupied again, typically within a step or two — while large gross construction and loss flows can be concealed by much smaller net population change. Whatever continuity we are measuring therefore cannot be reduced to persistence of the same occupied cells.
 
 ```text
 MATERIAL IDENTITY  ≠  PROCESS CONTINUITY
@@ -90,7 +88,7 @@ Not immortality, and not identity in any metaphysical sense. Operationally: the 
 
 Change does not happen everywhere. It happens where the process currently has an available transition — a set of locations that is generated dynamically rather than fixed by shape.
 
-Under irreversible growth this coincided with the outer frontier, which is why the *It Looked Like Flocking* chapter could describe it geometrically as a moving aperture and why stored material stopped mattering once construction passed it. Then loss made interfaces appear inside the bulk, and the geometric description came apart from the real one:
+Under irreversible growth this coincided with the outer frontier, which is why the *Can Experience Change the Material?* chapter could describe it geometrically as a moving causal aperture and why stored material stopped mattering once construction passed it. Then loss made interfaces appear inside the bulk, and the geometric description came apart from the real one:
 
 > **The active interface is the dynamically generated set of locations at which the process currently has an available state transition.**
 
@@ -106,7 +104,7 @@ ELIGIBLE TO HAPPEN  ≠  GIVEN COMPUTATIONAL OPPORTUNITY TO HAPPEN
 
 That single constraint set the scale of the process, changed the balance between reuse and expansion, determined whether a perturbation became expressible at all, and — most surprisingly — coupled regions that the local rule could not connect, because distant opportunities compete for the same fixed pool of evaluation slots. The crystal did not need a signal to link distant regions. It needed a shared bottleneck.
 
-This is genuinely computational. It is not energy wearing a different word, and calling it metabolism would give back exactly what the book spent fifteen chapters earning.
+This is genuinely computational. It is not energy wearing a different word, and calling it metabolism would give back exactly what the investigation spent its whole length earning.
 
 ### Hidden state can redirect causal response
 
@@ -144,8 +142,7 @@ What these experiments did not establish is that the crystal's own prior dynamic
 
 ### Causal organization before an established individual
 
-Every one of those layers was measured without establishing a privileged individual boundary.
-The *Is There Actually One Thing Here?* chapter failed to locate a boundary twice. the *We Found an Individual. Then We Didn't.* chapter found strong raw causal containment and then showed that same-checkpoint regions matched on the declared spatial and interface geometry produced essentially the same containment. A post-hoc robustness audit found that the near-zero excess remained when overlapping comparisons were progressively removed.
+Every one of those dimensions was measured without establishing a privileged individual boundary. The *Is There Actually One Thing Here?* chapter failed to locate a boundary twice. The *We Found an Individual. Then We Didn't.* chapter found strong raw causal containment and then showed that same-checkpoint regions matched on the declared spatial and interface geometry produced essentially the same containment. A post-hoc robustness audit found that the near-zero excess remained when overlapping comparisons were progressively removed.
 
 ```text
 CONTAINMENT  ≠  INDIVIDUATION
@@ -161,14 +158,13 @@ The biological vocabulary we started with encouraged an individual-first picture
 
 Two versions of that observation are available, and only one is defensible.
 
-The strong version says individuality is ontologically or evolutionarily secondary, that the process is the object, that this substrate demands a process ontology. We have not shown any of that, and Chapters 9 and 13 are precisely the warning against installing a new privileged ontology quickly.
+The strong version says individuality is ontologically or evolutionarily secondary, that the process is the object, that this substrate demands a process ontology. We have not shown any of that, and the *Can Experience Change the Material?* and *What Does One Attachment Cause?* chapters are precisely the warning against installing a new privileged ontology quickly.
 
 The defensible version is methodological:
 
 > **In this substrate, useful causal organization became measurable before a privileged individual boundary did.**
 
-The process was the better experimental starting point. The major process-level phenomena in this substrate were measurable without first establishing an individual, while the operational individuation tests used here did not identify a privileged region.
- That is a claim about where to begin an investigation, not about what exists.
+The process was the better experimental starting point. The major process-level phenomena in this substrate were measurable without first establishing an individual, while the operational individuation tests used here did not identify a privileged region. That is a claim about where to begin an investigation, not about what exists.
 
 It does suggest a possibility worth stating and labelling clearly as speculation: perhaps an individual is not the container in which life begins, but an architecture that sufficiently organized processes later stabilize. The same might be said of memory — history dependence appeared long before anything readable, so readable memory may be a later architecture for exploiting a more primitive fact. Neither has been demonstrated. Both are the kind of hypothesis this book's method could eventually test.
 
@@ -178,12 +174,13 @@ It does suggest a possibility worth stating and labelling clearly as speculation
 
 It would be a serious misreading to conclude that every biological interpretation failed. The method can say yes, and it did.
 
+One division is worth making explicit before going further, because a synthesis blurs substrates easily. The causal reproduction result came from Outlier. Most of the process-level dimensions collected above came from the later Digital Crystal experiments. The Digital Crystal was never shown to reproduce.
+
 The *Now There Are Two* chapter established causal reproduction-like organization in the Outlier system: not resemblance between an earlier structure and a later one, but evidence that the earlier organization participated causally in producing the later one, surviving controls designed to remove the cheaper explanation. That result stands, and it matters more now than when it was made, because it shows the method is not simply a machine for saying no.
 
 But two things it does *not* establish deserve stating precisely, because the loose versions are tempting in both directions.
 
-It does not establish reproduction as a prerequisite. The later Digital Crystal phenomena were established without reproduction functioning as the explanatory mechanism under test.
- Nor does the crystal's richness establish that reproduction is unimportant — that would be the mirror-image dogma, a biology-is-wrong reflex with no more evidence behind it than the biology-is-right reflex we started with.
+It does not establish reproduction as a prerequisite. The later Digital Crystal phenomena were established without reproduction functioning as the explanatory mechanism under test. Nor does the crystal's richness establish that reproduction is unimportant — that would be the mirror-image dogma, a biology-is-wrong reflex with no more evidence behind it than the biology-is-right reflex we started with.
 
 The same care applies to everything else the book did not establish. The correct formulations are narrow:
 
@@ -382,7 +379,7 @@ That question has been asked before, outside this book, by researchers who arriv
 
 One influential organizational tradition in theoretical biology focuses not on complexity or on any particular biological organ, but on the relationships that allow an organization to contribute to its own continued existence.
 
-Montévil and Mossio describe biological organization in terms of **closure of constraints**. On their account, constraints act on underlying processes while also standing in relations of mutual dependence: they both depend on and contribute to maintaining one another. The system remains materially and energetically open, but its organization is not merely imposed as a one-way external structure. ([PubMed][1])
+Montévil and Mossio describe biological organization in terms of **closure of constraints**. On their account, constraints act on underlying processes while also standing in relations of mutual dependence: they both depend on and contribute to maintaining one another. The system remains materially and energetically open, but its organization is not merely imposed as a one-way external structure.[^closure]
 
 That is already different from anything established in the Digital Crystal.
 
@@ -390,7 +387,7 @@ A second comparison comes from NASA's long-used working definition:
 
 > **a self-sustaining chemical system capable of Darwinian evolution**
 
-NASA itself presents this as a working, non-binding formulation rather than a settled definition of life. Gerald Joyce, who participated in the working group that developed it, has also emphasized that *self-sustaining* in this formulation concerns the system containing the information required for its Darwinian evolution; it should not be treated as another name for generic causal persistence or independence from an environment. ([NASA Science][2])
+NASA itself presents this as a working, non-binding formulation rather than a settled definition of life, and *self-sustaining* there concerns the system containing what its Darwinian evolution requires. It should not be read as another name for generic causal persistence or for independence from an environment.[^nasa]
 
 So these traditions reach the problem from different directions, and neither should be collapsed into the process-first proposal developed here.
 
@@ -438,6 +435,8 @@ Not by this book, and not implied by any result preceding this chapter.
 
 The Digital Crystal we studied had an organization embedded in fixed external rules. A genuinely self-conditioning process would require something stronger: some part of the organization would have to participate causally in maintaining or recreating the conditions that allow that organization to continue.
 
+And the database was the easy adversary. Ordinary engineering already builds systems that satisfy weaker forms of this: a thermostat alters the environment that determines its own next input, a congestion controller reshapes the traffic conditions it responds to, an autoscaler provisions the compute its own workload will consume, a garbage collector recovers the resource its host process needs to keep running, and a replicated service reconstructs failed members to preserve the quorum that keeps it available. None of these is a candidate for life, and none should be. That is the point. Any criterion built on organizational self-conditioning will have to defeat ordinary engineered control, repair and persistence as cheaper explanations before it earns anything — which is the same demand every other chapter in this book made of its own strongest result.
+
 That distinction also clarifies why ordinary persistence is insufficient.
 
 ```text
@@ -473,8 +472,9 @@ And even then, it would be another measured property.
 
 Not yet life.
 
-[1]: https://pubmed.ncbi.nlm.nih.gov/25752259/?utm_source=chatgpt.com "Biological organisation as closure of constraints - PubMed"
-[2]: https://science.nasa.gov/universe/search-for-life/life-on-other-planets-what-is-life-and-what-does-it-need/?utm_source=chatgpt.com "Life on Other Planets: What is Life and What Does It Need? - NASA Science"
+[^closure]: Montévil, M. and Mossio, M. (2015). "Biological organisation as closure of constraints." *Journal of Theoretical Biology* 372, 179–191.
+
+[^nasa]: NASA, "Life on Other Planets: What is Life and What Does It Need?", science.nasa.gov. The formulation is usually traced to a 1994 NASA exobiology working group and is presented as a working definition rather than a settled one.
 
 ---
 
@@ -527,15 +527,13 @@ A first-principles approach never meant pretending biology does not exist. Biolo
 
 That refusal shaped the book's strongest results.
 
-The simulations provided the phenomena; the repeated demand for stronger alternatives determined what those phenomena were allowed to mean.
- Sometimes the answer was *nothing simpler*, and the phenomenon survived. More often the simpler mechanism was sitting right there, and the name dissolved while the measurement stayed.
+The simulations provided the phenomena; the repeated demand for stronger alternatives determined what those phenomena were allowed to mean. Sometimes the answer was *nothing simpler*, and the phenomenon survived. More often the simpler mechanism was sitting right there, and the name dissolved while the measurement stayed.
 
 The first chapter allowed for the possibility that we might reach the end without being entitled to call anything we built alive.
 
 That is where the evidence leaves us. What we have instead is smaller and more useful: a set of measured relationships that no biological vocabulary was required to state, a list of observations that are now known to be insufficient, a provisional foundation broad enough to include a build pipeline, and one sharp candidate discriminator that the next experiment should test.
 
-The first chapter also asked what we would actually be looking for. Here is the difference fifteen chapters made. We would not begin by requiring an organism, a boundary, a memory or a metabolism.
-We would begin by looking for a process that carries organized causal consequence through continued change.
+The first chapter also asked what we would actually be looking for. Here is the difference the investigation made. We would not begin by requiring an organism, a boundary, a memory or a metabolism. We would begin by looking for a process that carries organized causal consequence through continued change.
 
 Then we would ask the harder question this book has not answered:
 
@@ -544,4 +542,3 @@ Then we would ask the harder question this book has not answered:
 **We did not discover whether the Digital Crystal is alive.**
 
 **We discovered what the next experiment will have to operationalize before that question can become sharper.**
-
