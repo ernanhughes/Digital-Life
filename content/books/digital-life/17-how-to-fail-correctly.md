@@ -2,28 +2,57 @@
 title = "17: How to Fail Correctly"
 date = "2026-08-15T03:00:00+01:00"
 draft = false
-description = "Thirteen chapters of biological names failed under stronger controls, and something smaller survived each time. This chapter makes explicit the bookkeeping that kept the survivors intact."
+description = "The strongest controls in this investigation repeatedly destroyed richer interpretations while leaving smaller phenomena intact. This chapter makes explicit the bookkeeping required to fail one claim without erasing what the evidence still supports."
 weight = 17
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Experimental Method", "Epistemology"]
 series = ["Digital Life From First Principles"]
 +++
 
-The most dangerous result in this book was not a noisy one. It was one of the cleanest.
+The most dangerous result in this book was not a noisy one.
+
+It was one of the cleanest.
 
 ```text
-measurement        ✓   M = 0.4402, CI [0.419, 0.461]
-precision          ✓   MDE 0.0268 against a 0.15 threshold
-implementation     ✓   corrected intervention, known global channels removed
-predeclaration     ✓   regions selected blind to outcome, threshold frozen
-raw effect reproduced   ✓   selected regions scored 0.4436 in the matched-control run
-individuation inference ✕
+measurement            ✓    M = 0.4402
+                            CI [0.419, 0.461]
 
-```
+precision              ✓    MDE80 = 0.0268
+                            against a +0.15 threshold
 
-Many of the safeguards we had learned to rely on were satisfied.
+implementation         ✓    corrected transient intervention
+                            known global channels removed
 
-And yet the inference from strong causal containment to causal individuality did not survive the geometry-matched control.
+predeclaration         ✓    regions selected blind to outcome
+                            threshold frozen
+
+fresh reproduction     ✓    selected regions scored 0.4436
+                            in an independent matched-null run
+
+individuation          ✕    not established
+````
+
+The two numbers come from different runs.
+
+V1 measured raw causal containment on seed `20260916`.
+
+V2 regenerated the selected regions on fresh seed `20260917`, reproduced the
+raw score at `0.4436`, and then asked the stronger question: did those regions
+exceed same-checkpoint matched controls?
+
+Many of the safeguards we had learned to trust were satisfied.
+
+The number was large.
+
+The interval was narrow.
+
+The intervention was correct.
+
+The region selection was outcome-blind.
+
+The raw phenomenon appeared again on a fresh seed.
+
+And the inference from strong causal containment to causal individuality still did not survive the geometry-matched control.
 
 The measurement was right.
 
@@ -31,12 +60,17 @@ What we thought it meant was not.
 
 That is worth sitting with because it exposes the limits of procedural rigour.
 
-Predeclaration can stop us moving the goalposts; it cannot guarantee that we chose the right goal.
+Predeclaration can stop us moving a threshold after seeing the answer. It cannot guarantee that we chose the right threshold, the right estimand, or the right null.
 
-Precision can tell us how tightly we measured an estimand; it cannot tell us whether that estimand identifies the construct we care about.
+Precision can tell us how tightly we measured a quantity. It cannot tell us whether that quantity identifies the construct we care about.
+
+A corrected implementation can make an experiment internally valid. It cannot guarantee that the valid experiment asks the scientifically important question.
 
 So before the final chapter asks what survived this investigation, this one has to make explicit the bookkeeping that determined what was allowed to survive.
- That requires answering a question the book has been answering implicitly for thirteen chapters:
+
+The book has been doing that bookkeeping implicitly for most of its experimental life.
+
+Now it needs to be stated.
 
 > **When a claim fails, what exactly has failed?**
 
@@ -44,156 +78,575 @@ So before the final chapter asks what survived this investigation, this one has 
 
 ## Failure Is Not One Thing
 
-The word compresses several situations that license completely different conclusions.
+The word *failure* compresses several situations that license completely different conclusions.
 
-An experiment might not have implemented the contrast it claimed. It might have been valid but too imprecise to answer its own question. It might have been valid, precise, and able to rule out an effect large enough to matter. Or the measurement might be perfectly sound while the interpretation built on top of it collapses under a better control.
+An experiment may never have implemented the contrast it claimed to test.
 
-The book has now produced examples of all four, which is how the working vocabulary developed:
+A valid experiment may have been too imprecise to answer its own question.
+
+A valid and sufficiently precise experiment may exclude an effect large enough to matter.
+
+A lower-level phenomenon may be measured cleanly while the richer interpretation attached to it collapses under a stronger control.
+
+A follow-up analysis may explain something interesting without being allowed to alter the status of the confirmatory test.
+
+These are not different degrees of the same outcome.
+
+They live at different logical levels.
 
 ```text
-INVALID              the intended causal contrast was not implemented
-UNRESOLVED           the declared question remains open at the required precision
-BOUNDED NEGATIVE     a predeclared meaningful effect was precisely excluded
-SUPPORTED            the tested claim survived
-DESCRIPTIVE ONLY     informative follow-up, not confirmatory evidence
-NARROWED             a lower-level result survived while a richer interpretation did not
+RUN VALIDITY
 
+INVALID
+the run cannot support the intended estimand because
+its intervention, implementation, operationalization or reference contrast
+is defective
+
+INFERENTIAL STATUS
+
+UNRESOLVED
+the declared question remains open at the required precision
+
+SUPPORTED
+the tested claim survived
+
+BOUNDED
+a predeclared effect region was excluded with adequate precision
+
+EVIDENCE ROLE
+
+DESCRIPTIVE ONLY
+informative follow-up that does not alter confirmatory status
+
+CLAIM TRANSITION
+
+NARROWED
+a lower-level result survived while a richer interpretation did not
 ```
 
-The reason for keeping those labels separate is simple:
+Even `BOUNDED` is not one thing.
+
+Two cases in this book used different forms of it:
+
+```text
+BOUNDED NEAR ZERO
+
+a declared two-sided meaningful band is resolved around zero
+
+BOUNDED BELOW SEI
+
+a declared positive effect of meaningful size is excluded
+```
+
+Those are not interchangeable.
+
+Nor is `INVALID` merely another inferential status. An invalid experiment does not produce a weak answer to the original question. It fails to instantiate the question correctly.
+
+And `NARROWED` is not a statistical verdict at all. It describes what happens when a stronger control leaves a smaller claim intact while removing permission for a larger one.
+
+The reason for keeping these categories separate is simple:
 
 > **A failed claim, an invalid experiment and an absent phenomenon are three different things.**
 
-Rather than presenting this as a taxonomy to memorize, it is easier to reach the same distinctions by asking four questions in order. Each has a different failure mode, and each fails a different thing.
+The easiest way to use the distinctions is not to memorize a taxonomy.
+
+It is to ask a sequence of questions.
 
 ---
 
 ## Did We Run the Experiment We Claimed?
 
-The *Can the Past Redirect the Future?* chapter intended a clean contrast: FORCE occupies the probe cell for one causal exposure, PREVENT keeps it empty for that same exposure. What the implementation did was insert the cell in FORCE and merely *start* it empty in PREVENT — leaving it free to attach naturally during the first update.
-
-Worse, the contamination correlated with the treatment. The accessible material trace included the probe's only occupied neighbour, so it raised the probability that the supposedly prevented cell would appear: 0.428 in the accessible condition against 0.377 and 0.378 in the others.
-
-The downstream result was therefore **INVALID**, and the crucial point is that this verdict is independent of what the numbers said. If a broken intervention returns a large effect, it is tempting to salvage it. If it returns nothing, it is tempting to report no effect. Both are the same error. The intended estimand was never implemented, so the run is evidence neither for nor against the claim.
+The *Can the Past Redirect the Future?* chapter intended a clean contrast.
 
 ```text
-INVALID  ≠  NEGATIVE
+FORCE
+x is present for one controlled causal exposure
+
+PREVENT
+x is prevented from appearing during that same exposure
 ```
 
-The productive question after an invalidation is not *what did we find* but *which parts were untouched by the defect*. In the *Can the Past Redirect the Future?* chapter the immediate expected causal response had been computed before the broken growth step, so it could not depend on what happened afterwards — and it survived, was replicated by the corrected run, and turned out to carry the chapter's mechanism.
+The first implementation did not do that.
+
+FORCE inserted `x`.
+
+PREVENT merely *started* with `x` empty.
+
+The supposedly prevented cell remained eligible to attach naturally during the first update.
+
+Worse, the probability of that contamination depended on the treatment arm.
+
+```text
+natural PREVENT attachment of x
+
+ACCESSIBLE    0.428
+REMOTE        0.377
+ERASED        0.378
+```
+
+The hidden material state altered the probability that the supposedly prevented event would occur.
+
+So the intended causal contrast had not been implemented.
+
+The downstream result was therefore:
+
+```text
+INVALID
+```
+
+The crucial point is that this verdict is logically prior to the numerical outcome.
+
+If a broken intervention returns a large effect, it is tempting to salvage it.
+
+If it returns nothing, it is tempting to report a negative result.
+
+Both are the same error.
+
+The affected estimand was never correctly instantiated.
+
+```text
+INVALID
+≠
+NEGATIVE
+≠
+UNRESOLVED
+```
+
+An invalid result is evidence neither for nor against the claim it failed to test.
+
+That sounds obvious when written down.
+
+It is much harder when the invalid run contains a result you want.
+
+The productive question after invalidation is therefore not:
+
+> *Can we keep the conclusion?*
+
+It is:
+
+> **Which quantities were causally upstream of the defect?**
+
+In that experiment, the immediate expected causal response had been computed before the contaminated growth step.
+
+Its value could not depend on whether PREVENT later allowed `x` to attach.
+
+That immediate quantity therefore survived the invalidation.
+
+It was audited separately.
+
+Its negative sign was reproduced after the intervention was repaired.
+
+And it supplied the operating-point mechanism that made the otherwise surprising sign intelligible.
+
+The downstream result disappeared.
+
+The independent immediate result stayed.
+
+That is what failing correctly looks like.
 
 ---
 
 ## Could the Experiment Answer Its Question?
 
-The *What Does One Attachment Cause?* chapter's first attempt at predicting causal gain from local geometry returned:
+A valid experiment can still fail to resolve the question it was built to answer.
+
+Earlier, while trying to predict downstream causal consequence from local geometry, one estimate came back approximately:
 
 ```text
-+0.167     CI [−0.078, +0.431]     declared meaningful effect +0.15
++0.167
+
+95% CI
+[-0.078, +0.431]
+
+declared meaningful scale
+0.15
 ```
 
-Reporting that as evidence against the hypothesis would have been a straightforward misrepresentation. The interval comfortably contains effects twice the size of the one declared meaningful, and also contains effects in the opposite direction. The experiment did not answer its question; it lacked the precision to.
+Reporting that as evidence against the hypothesis would have been a straightforward misrepresentation.
+
+The interval contains zero.
+
+But that is not the important fact.
+
+It also contains substantial positive effects well beyond the declared meaningful scale.
+
+The experiment could not distinguish:
 
 ```text
-UNRESOLVED  ≠  FAILED
+meaningful positive effect
+
+from
+
+small effect
+
+from
+
+zero
+
+from
+
+effect in the opposite direction
 ```
 
-The test is not whether the interval contains zero. It is *what effect sizes remain compatible with the data*. If effects large enough to matter remain compatible with the data, then the declared magnitude question remains unresolved.
-
-Other, narrower questions — such as direction — may still have answers.
-
-The same distinction appeared in a more interesting form in the *Can the Past Redirect the Future?* chapter, where two questions about the same number got different answers. Was the downstream effect negative? Both estimators excluded zero: supported. Did it reach the predeclared ±0.15 magnitude? The achieved MDE was around 0.357: unresolved. Those statements are compatible, and collapsing them in either direction — "the hypothesis passed" or "inconclusive" — would have thrown away real information.
+The correct status was:
 
 ```text
-DIRECTION  ≠  MAGNITUDE
+UNRESOLVED
 ```
+
+not:
+
+```text
+FAILED
+```
+
+The test is not simply whether an interval contains zero.
+
+The more useful question is:
+
+> **What scientifically meaningful effects remain compatible with the data?**
+
+If effects at or beyond the predeclared scale of interest remain compatible with the observations—and the achieved precision cannot resolve that scale—then the magnitude question remains open.
+
+Whether the interval excludes zero can answer the directional question.
+
+Whether it excludes the predeclared effect threshold answers a different,
+magnitude question.
+
+The distinction became especially clear in *Can the Past Redirect the Future?*
+
+The corrected experiment produced:
+
+```text
+ACCESSIBLE − REMOTE
+
+mean       −0.397
+95% CI     [−0.679, −0.119]
+```
+
+The entire interval lay below zero.
+
+So one question had an answer:
+
+```text
+IS THE EFFECT NEGATIVE?
+
+SUPPORTED
+```
+
+But the frozen smallest effect of interest was `±0.15`, and the achieved one-sided MDE80 was about `0.357`.
+
+The interval also extended to `−0.119`, a magnitude smaller than the declared `0.15` threshold.
+
+So another question remained open:
+
+```text
+CAN WE ESTABLISH THE PREDECLARED
+MINIMUM MAGNITUDE?
+
+UNRESOLVED
+```
+
+Those statements are compatible.
+
+```text
+DIRECTION
+≠
+MAGNITUDE
+```
+
+Calling the whole result *supported* would have promoted a magnitude the experiment did not resolve.
+
+Calling the whole result *inconclusive* would have thrown away a direction the experiment did establish.
+
+Failure bookkeeping is partly the discipline of refusing both simplifications.
 
 ---
 
 ## Did We Exclude Something Worth Excluding?
 
-The reverse error is just as common: reporting an interval near zero as *nothing happened*.
+The reverse mistake is just as common.
 
-The *Can Finite Computation Couple Distant Events?* chapter compared strong candidate subsampling against exhaustive evaluation at dynamically matched background construction, and found a mean twelve-step difference of `+0.00130` with the whole interval inside the predeclared ±0.15 band. the previous chapter compared selected regions against geometry-matched controls and found excess modularity of `−0.0123`, upper bound `+0.0072`, against a declared meaningful margin of `+0.10`.
+An estimate close to zero is reported as:
 
-Neither is an absence of evidence. Both are evidence of absence *at a stated scale* — which is a far stronger and more useful claim, and one that requires two things a bare non-significant result does not have: a threshold declared in advance, and enough precision to have detected it.
+> *nothing happened.*
 
-The distinction is old and still routinely ignored elsewhere. Clinical trials that fail to reach significance are habitually described as negative, when the honest reading is often that they were too small to detect a difference that would have mattered.[^altman] The remedy is the same one this book has been using: state what would count as meaningful before the data arrive, and report whether the experiment could have seen it.
+But a small point estimate means little by itself.
 
-[^altman]: D. G. Altman and J. M. Bland, "Absence of evidence is not evidence of absence", *BMJ* 311 (1995), 485.
+To make a useful negative statement, the experiment has to define what would count as meaningful and then demonstrate enough precision to exclude it.
+
+Two recent experiments did this in different ways.
+
+In *Can Finite Computation Couple Distant Events?*, strong candidate subsampling was compared with true exhaustive evaluation under dynamically matched background construction.
+
+At twelve updates:
 
 ```text
-BOUNDED NEGATIVE  ≠  NOTHING HAPPENED
+mean difference      +0.00130
+95% CI               [−0.08984, +0.08854]
+frozen band          ±0.15
+MDE80                 ≈ 0.115
 ```
 
-And a bounded negative earns its status only with both parts. the previous chapter's excess modularity was bounded because the achieved MDE was `0.0265` against a `+0.10` threshold — roughly four times the precision needed. Without that, the same point estimate would have been unresolved, not negative.
+The question there was two-sided.
+
+Could the mean consequence differ from exhaustive evaluation by at least `0.15` in either direction?
+
+The answer was no at the achieved precision.
+
+```text
+BOUNDED NEAR ZERO
+AT THE DECLARED ±0.15 SCALE
+```
+
+The previous chapter asked a different question.
+
+Selected regions were compared with geometry-matched controls:
+
+```text
+M_excess    −0.0123
+95% CI      [−0.0327, +0.0072]
+SEI         +0.10
+MDE80       0.0265
+```
+
+The scientific claim was directional in a different sense.
+
+Did the selected regions show **positive excess modularity** of at least `+0.10` beyond the matched null?
+
+The upper confidence bound was only `+0.0072`, and the achieved precision was far tighter than the declared threshold.
+
+So:
+
+```text
+MEANINGFUL POSITIVE EXCESS
+BOUNDED BELOW SEI
+```
+
+But:
+
+```text
+DIRECTION AROUND ZERO
+UNRESOLVED
+```
+
+because the interval still crossed zero.
+
+Those two experiments therefore earned different negative claims:
+
+```text
+BOUNDED NEAR ZERO
+≠
+BOUNDED BELOW A POSITIVE THRESHOLD
+≠
+NOT SIGNIFICANT
+```
+
+Neither is merely an absence of evidence.
+
+Each excludes a predeclared effect region at a stated scale.
+
+That is much stronger than a bare failure to reject zero.
+
+It also explains why precision belongs in the status.
+
+The same point estimate could be:
+
+```text
+BOUNDED
+```
+
+under one standard error and:
+
+```text
+UNRESOLVED
+```
+
+under another.
+
+A negative result is not the absence of a positive point estimate.
+
+It is an inference about what effect sizes the experiment has actually ruled out.
+
+[^altman]: D. G. Altman and J. M. Bland, "Absence of evidence is not evidence of absence", *BMJ* 311 (1995), 485.
 
 ---
 
 ## Does the Measurement Identify the Construct?
 
-Now the failure that none of the above would catch, and the reason this chapter exists.
+Now the failure that none of the previous checks can catch.
 
-The previous chapter's measurement was valid. Its mechanism was real: perturbations inside a region really did express most of their causal mass inside it, while external perturbations penetrated much less. What failed was the step from that mechanism to the concept it was taken to demonstrate.
+And the reason this chapter exists.
 
-The layers can be separated:
+The previous chapter's **raw containment measurement** was valid.
 
-```text
-MEASUREMENT       raw modularity M ≈ 0.44                        ✓
-MECHANISM         local spatial causal containment               ✓
-CONSTRUCT         a privileged causal region                     ✕
-INTERPRETATION    an individual                          not established
-```
+The measured phenomenon was real.
 
-A failure at one layer does not propagate downward. The containment survives; only the promotion dies. And the *It Looked Like Flocking* chapter has exactly the same shape at the other end of the book:
+At radius four:
 
 ```text
-MEASUREMENT       nearby velocity coherence                      ✓
-MECHANISM         short-range spatial coherence                  ✓
-CONSTRUCT         ancestry-specific flocking                     ✕
+internal retention       ≈ 0.776
+external penetration     ≈ 0.335
+
+raw modularity M         ≈ 0.440
 ```
 
-This is a construct-validity problem: an instrument can measure an operational quantity accurately and reproducibly while that quantity fails to uniquely identify the richer theoretical construct attached to it.
- The classic treatment makes the point that a construct is validated not by any single correlation but by the network of predictions it makes and the alternatives it excludes.[^cronbach] Statistical rigour can make an estimate extremely precise.
+Perturbations initiated inside the selected regions really did express much more accumulated causal effect inside those regions than comparable external perturbations expressed inward.
 
-It cannot, by itself, validate the inference from that estimate to a richer construct.
+The number was not an artifact of a broken intervention.
+
+It was not underpowered.
+
+It was not selected after looking at the outcome.
+
+It appeared again on a fresh seed.
+
+What failed was the promotion from that measured phenomenon to the richer construct.
+
+The layers are easier to see when separated:
+
+```text
+MEASUREMENT
+
+raw modularity
+M ≈ 0.44
+✓
+
+PHENOMENON
+
+strong spatial causal containment
+✓
+
+CONSTRUCT
+
+system-privileged causal region
+NOT ESTABLISHED
+
+INTERPRETATION
+
+individual
+NOT ESTABLISHED
+```
+
+A failure at the upper layer does not propagate automatically downward.
+
+The containment survives.
+
+The privilege claim does not.
+
+The early flocking result had the same logical shape:
+
+```text
+MEASUREMENT
+
+nearby velocity coherence
+✓
+
+PHENOMENON
+
+short-range spatial motion coherence
+✓
+
+CONSTRUCT
+
+ancestry-specific flocking
+NOT ESTABLISHED
+```
+
+This is a construct-validity problem.
+
+An operational quantity can be measured accurately and reproducibly while failing to uniquely identify the richer theoretical construct attached to it.
+
+The classic construct-validity literature makes the broader point that a construct is not validated by one successful association. It earns meaning through its relations to other observables and through the theoretical network of predictions surrounding it.[^cronbach]
+
+Statistical rigour can make an estimate extremely precise.
+
+It cannot, by itself, validate the promotion from that estimate to a richer concept.
 
 [^cronbach]: L. J. Cronbach and P. E. Meehl, "Construct validity in psychological tests", *Psychological Bulletin* 52(4) (1955), 281–302.
 
-Which yields the rule this book most needed and did not have written down until now:
+The experimental version of that lesson, learned repeatedly here, is:
 
 > **Do not promote a measurement into a richer construct until a simpler mechanism capable of producing the same measurement has been controlled.**
 
-The recurring shape is unmistakable once listed:
+Consider the recurring pattern:
 
 ```text
-coherent motion       → flocking
-refilled vacancies    → repair
-persistent history-bearing state  → memory
+coherent motion
+→ flocking
 
-retained influence    → individual
+refilled vacancies
+→ repair
+
+experimentally written persistent hidden state
+→ memory
+
+retained causal influence
+→ individual
 ```
 
-In every case the measurement was real and the promotion was premature. And in every case, what exposed the error was not a better statistic but a control that asked what else could produce the same number.
+In every case something real was measured.
+
+In every case the promotion was stronger than the evidence.
+
+And what exposed the mismatch was not usually a better statistic.
+
+It was a better alternative explanation.
 
 ---
 
 ## The Null Is Part of the Claim
 
-The previous chapter makes a point sharper than any of the earlier cases.
+The previous chapter makes this point sharper than any earlier example.
 
-Before the geometry-matched control, the operative claim was effectively:
+Before the geometry-matched control, the operative inference was effectively:
 
 ```text
 large raw causal modularity
 →
 privileged region
+```
 
-So the null is not a formality applied after the result to check it. It is part of what the statistic *means*. A modularity score with no null attached is not a weak measurement of individuality; it is not a measurement of individuality at all.
+The missing object in that inference was the null.
 
-> **A measurement without its alternative explanation is not yet a construct.**
+How large would the same statistic be in other regions with comparable spatial and interface geometry?
 
-This reframes several earlier failures. the *Is There Actually One Thing Here?* chapter's predictive-coherence result looked enormous at 0.2906 until a family-level permutation null produced maxima averaging 0.2569 — the statistic was measuring what any large chunk of a structured field does. the *Can Experience Change the Material?* chapter's placement advantage looked decisive until the copy budget was equalized and most of it turned out to be quantity. the *It Looked Like Flocking* chapter's large ancestry-coherence difference changed meaning once distance was matched. Each time, the original measurement remained part of the record while a stronger comparison changed what it was allowed to mean.
+Once those controls were built:
+
+```text
+selected regions     M ≈ 0.444
+
+matched controls     M ≈ 0.456
+
+excess               ≈ −0.012
+```
+
+the raw measurement did not disappear.
+
+Its interpretation changed.
+
+A null is therefore not merely a ceremonial calculation applied after a result.
+
+It is part of what the result is allowed to mean.
+
+> **A measurement is not yet evidence for a richer construct until plausible alternative generators of that measurement have been controlled.**
+
+That pattern was already visible elsewhere.
+
+Predictive coherence weakened when ordinary structured regions were admitted
+into the null.
+
+Material placement weakened when copy quantity was equalized.
+
+Ancestry-specific flocking weakened when distance was matched.
+
+Different experiments, same bookkeeping:
+
+```text
+PHENOMENON SURVIVES
+
+PROMOTION NARROWS
+````
 
 ---
 
@@ -203,23 +656,85 @@ All of this collapses into one operating principle:
 
 > **Fail the smallest claim the evidence actually defeats. Preserve everything that still survives.**
 
-It rules out two opposite pathologies. **Over-rescue** keeps renaming what remains until the original ambition appears to have survived.
+It rules out two opposite pathologies.
 
-**Over-destruction** discards every result associated with a failed higher-level claim, including evidence the stronger control never defeated.
- Both distort the record; the second is more respectable and equally wasteful.
+The first is **over-rescue**.
 
-The correct response is surgical, and mechanical enough to write down:
+A rich claim weakens, so the language keeps changing until whatever remains is presented as though it were what we meant all along.
+
+That destroys the distinction between prediction and retrospective interpretation.
+
+The second is **over-destruction**.
+
+A rich claim fails, so everything associated with it is thrown away—including measurements and mechanisms the stronger control never defeated.
+
+That feels stricter.
+
+It is not more scientific.
+
+It is simply wasteful.
+
+The response should be surgical:
 
 ```text
-implementation invalid          → invalidate the affected estimand only
-precision insufficient          → leave the claim unresolved
-meaningful effect excluded      → record a bounded negative
-stronger control explains it    → narrow the construct
-lower-level phenomenon intact   → keep it
-follow-up analysis explanatory  → label it descriptive
+implementation invalid
+→
+invalidate the affected estimand only
+
+precision insufficient
+→
+leave the declared question unresolved
+
+meaningful effect region excluded
+→
+record the appropriate bounded result
+
+stronger control defeats richer interpretation
+→
+narrow the claim
+
+lower-level phenomenon remains valid
+→
+keep it
+
+follow-up analysis explains or contextualizes
+→
+label it descriptive
 ```
 
-Applied to the previous chapter, that means the individual disappears and the containment stays. Applied to the *Can the Past Redirect the Future?* chapter, the invalid downstream result disappears and the immediate sensitivity effect stays. Applied to the *It Looked Like Flocking* chapter, ancestry-specific flocking disappears and short-range motion coherence stays.
+Applied to the previous chapter:
+
+```text
+individual
+disappears
+
+causal containment
+stays
+```
+
+Applied to *Can the Past Redirect the Future?*:
+
+```text
+invalid V1 downstream inference
+disappears
+
+valid immediate hidden-state sensitivity
+stays
+```
+
+Applied to the flocking experiment:
+
+```text
+ancestry-specific flocking
+disappears
+
+short-range motion coherence
+stays
+```
+
+This is not rhetorical moderation.
+
+It is evidence accounting.
 
 ---
 
@@ -227,93 +742,316 @@ Applied to the previous chapter, that means the individual disappears and the co
 
 One category deserves separate attention because it is the most tempting.
 
-The *Can the Past Redirect the Future?* chapter's confirmatory magnitude claim stayed unresolved. Then a follow-up analysis of the same data showed something genuinely striking: about 75% of the cumulative causal difference accrued after the material trace had fallen below half its starting mass, and 36% after it fell below a quarter. That trajectory analysis supplies the chapter's most interesting mechanistic interpretation.
+The corrected hidden-state experiment ended with:
 
-It is also **descriptive**. It was not the frozen primary endpoint, it was found by looking at trajectories after the fact, and it cannot promote the unresolved magnitude claim into a supported one. An explanation can illuminate a result without rescuing it.
+```text
+negative direction
+SUPPORTED
 
-The rule holds in the other direction too. Calling it descriptive is not a demotion.
+predeclared minimum magnitude
+UNRESOLVED
+```
 
-It records how the result was obtained and therefore what inferential work it is allowed to do.
- It is simply not allowed to change what the confirmatory test concluded.
+Then we inspected how the effect accumulated through time.
+
+The closeout was striking.
+
+Roughly 75% of the final cumulative difference accrued after the written material trace had fallen below half its starting mass.
+
+About 36% accrued after it had fallen below a quarter.
+
+That temporal pattern motivates a plausible interpretation:
+
+early hidden-state modulation changes events;
+
+those events alter later states;
+
+later divergence may therefore depend partly on trajectory as well as on whatever material remains.
+
+That is interesting.
+
+It is also:
+
+```text
+DESCRIPTIVE
+```
+
+The closeout was not the frozen confirmatory endpoint.
+
+It did not isolate a mediation pathway.
+
+Its pooled group-by-lag diagnostics were not independent confirmatory observations.
+
+And it cannot upgrade the unresolved minimum-magnitude claim into a supported one.
+
+An explanation can illuminate a result without rescuing it.
+
+Calling an analysis descriptive is therefore not a dismissal.
+
+It records how the evidence was obtained and what inferential work it is allowed to do.
+
+```text
+DESCRIPTIVE
+≠
+UNIMPORTANT
+
+DESCRIPTIVE
+≠
+CONFIRMATORY
+```
+
+Both distinctions matter.
 
 ---
 
 ## Corrections Are Not Rescues
 
-If invalid experiments must be re-run, then re-running experiments cannot always be cheating. The distinction matters, and it is not subtle.
+If invalid experiments must be repaired and rerun, then rerunning an experiment cannot automatically be cheating.
 
-The *Can the Past Redirect the Future?* chapter's second run repaired the PREVENT semantics, matched the remote carriers on background frontier influence, and replaced a noisy estimator with a lower-variance one — while freezing every scientific parameter: the material gain, the half-life, the history age, the horizon, the effect threshold. the *Can Finite Computation Couple Distant Events?* chapter's corrected design fixed a calibration that controlled only the first frame of a twelve-lag process. Both repaired the instrument and left the question alone.
+The distinction is in what changes.
 
-Compare the alternative. Adjusting the material gain, or the half-life, or the horizon, or the meaningful-effect threshold, until an effect appeared, would have been a different activity with the same outward appearance.
+The corrected hidden-state experiment repaired the PREVENT semantics.
+
+It repaired the contaminated REMOTE comparator.
+
+It froze a lag-wise expected local causal-difference estimator before the corrected run.
+
+And it kept the scientific parameters fixed:
 
 ```text
-CORRECTIVE EXPERIMENT   fixes validity; the question is unchanged
-NEW EXPERIMENT          asks a different question, declared as such
-RESCUE EXPERIMENT       changes the question after seeing the answer while presenting it as continuation
-
+material gain
+half-life
+history age
+horizon
+effect threshold
 ```
 
-The first two can be legitimate scientific moves because the change is visible and its relation to the original question is explicit.
+The scientific question remained recognizable.
 
-The third is dangerous precisely because the question changes while the write-up pretends it did not.
+The instrument changed because the original instrument had not implemented that question correctly.
+
+The computational-coupling experiment had a similar correction.
+
+A calibration scheme that controlled only the beginning of a multi-lag process was replaced by one that controlled the trajectory dynamically.
+
+Again, the repair targeted the instrument.
+
+It did not tune the scientific parameters until the desired effect appeared.
+
+The distinctions are:
+
+```text
+CORRECTIVE EXPERIMENT
+
+repairs a defect in implementation, construct or reference
+while preserving the declared scientific question
+
+NEW EXPERIMENT
+
+asks a materially different question
+and declares that change before interpreting its result
+
+RESCUE
+
+changes the estimand, threshold, parameter regime or interpretation
+because the original answer was inconvenient,
+while presenting the new result as though it answered the old question
+```
+
+The first two are legitimate scientific moves.
+
+The third is dangerous because it lets a question mutate invisibly.
 
 ---
 
 ## Knowing When to Stop
 
-The instinct after a weakened claim is to try one more variant. Another radius. Another feature. Another budget. Another history window. Another decoder. There is always one more, and the search has no natural end.
+After a weakened claim, there is always another variant available.
 
-Several chapters reached points where continuing the same search would have become result-driven parameter hunting.
- The *Can Experience Change the Material?* chapter abandoned an entire line after three consecutive broad claims failed, rather than keeping whichever secondary metric survived in each. the *Is There Actually One Thing Here?* chapter refused to tune the radius after the family null failed, and changed the evidence type instead. the *What Does One Attachment Cause?* chapter stopped adding local features and rebuilt the measurement. the previous chapter changed the null rather than the disk.
+Another radius.
 
-The stop rule that emerges:
+Another feature.
+
+Another budget.
+
+Another history window.
+
+Another matching rule.
+
+Another decoder.
+
+Another horizon.
+
+The search space has no natural end.
+
+That makes stopping a scientific act.
+
+Several chapters reached points where continuing the same search would have turned disappointment into parameter hunting.
+
+The material-placement experiments abandoned a broad line after repeated controls collapsed its richer interpretations rather than continuing until one secondary metric looked favourable.
+
+The boundary experiments did not retune the radius after the geometric null weakened the claim.
+
+The causal-gain work stopped adding local predictors when the local prediction programme stopped earning information and changed the measurement instead.
+
+The previous chapter changed the null rather than changing the modularity statistic until the selected regions won.
+
+The stop rule that emerges is:
 
 > **When the declared question has been answered, stop. Do not convert disappointment into a parameter search unless you are willing to declare a genuinely new experiment.**
 
-And its companion, from the *What Does It Cost to Stay?* chapter, where a budget missed its frozen stationarity threshold by about `0.00002`:
+The companion rule came from an earlier stationarity threshold that missed by roughly:
+
+```text
+0.00002
+```
+
+Scientifically tiny.
+
+Procedurally decisive.
 
 > **A threshold that moves when the answer is inconvenient is not a threshold.**
 
-That can feel absurdly rigid in the moment. A miss of `0.00002` is scientifically tiny.
+That can feel absurdly rigid when the miss is microscopic.
 
-But changing a frozen decision boundary because the observed value landed inconveniently close to it converts a predeclared rule into a post hoc judgment.
+But a frozen boundary is useful precisely because it prevents us deciding, after seeing the number, whether this particular miss *really counts*.
 
-The proper response is to report the near miss as a near miss.
+The correct response is not to pretend `0.00002` matters biologically.
+
+It is to report:
+
+```text
+near miss
+```
+
+and keep the rule intact.
 
 ---
 
 ## Auditing the Bookkeeping
 
-Rules stated in a chapter are cheap. The question is whether the project's actual evidence history obeys them.
+Rules written in prose are cheap.
 
-So the recent experimental chains were encoded as a ledger. Each entry recorded the claim under test, whether the run was valid, its inferential status, the transition that occurred, the threshold where one existed, the achieved precision, and — the field that matters most — what evidence survived. Ten cases were registered across the three most recent chapters, all backed by source artifacts rather than recollection.
+The question is whether the project actually followed them.
 
-The audit then checked for the forbidden moves:
+So the most recent experimental chains were encoded into an executable failure ledger.
+
+This chapter does not introduce another Digital Crystal simulation.
+
+Its experimental object is the evidence history itself.
+
+Ten cases were registered across three recent experimental chains:
+
+```text
+finite-selector / amplification
+hidden-state causal response
+causal modularity / individuation
+
+Every registered case resolved to source artifacts.
+
+```text
+registered cases             10
+
+source-backed cases          10
+
+manual-evidence-only          0
+
+missing required sources      0
+```
+
+Each entry records:
+
+```text
+claim under test
+
+run validity
+
+inferential status
+
+transition type
+
+evidence role
+
+threshold, where applicable
+
+achieved precision, where applicable
+
+what evidence survived
+```
+
+The audit then checks for the forbidden moves:
 
 ```text
 did an INVALID run ever become evidence against a hypothesis?
-did UNRESOLVED ever quietly become FAILED?
-did any bounded negative lack a declared threshold or adequate precision?
+
+did UNRESOLVED quietly become FAILED?
+
+did a bounded result lack a declared threshold or adequate precision?
+
 did a stronger control erase valid lower-level evidence?
+
 did a descriptive closeout upgrade a confirmatory claim?
-did any estimand change after the result was seen?
+
+did a materially changed estimand masquerade as the original one?
 ```
 
-All ten registered transitions were internally consistent with the declared bookkeeping rules, and all five predeclared cross-case checks also passed
- — that the invalid intervention preserved the independently valid immediate effect; that direction and magnitude were kept separate; that the geometry-matched null narrowed the construct without erasing raw containment; that the bounded amplification result preserved the mechanistic rerouting finding; and that the trajectory closeout did not rescue the unresolved magnitude.
+All ten registered cases passed the bookkeeping rules.
 
 ```text
-FAILURE-LEDGER BOOKKEEPING CONSISTENT
-
+10 / 10
 ```
 
-That status needs reading narrowly, because it is easy to inflate. It does not establish that the project made no mistakes — it exists precisely because the project made several. It does not establish that the taxonomy is complete, that future results will classify cleanly, or that any conclusion in this book is true.
+Five cross-case checks were declared as well.
 
-It establishes one narrower thing:
+They asked whether:
 
-> **Within the audited cases, the evidence transitions can be represented without silently converting one status into another or deleting lower-level results that survived the relevant control.**
+```text
+1.
+the invalid hidden-state primary preserved
+the independently valid immediate result
 
-That is a modest claim. It is also the only claim that makes the final chapter possible, because a list of survivors is worthless if the criteria for surviving moved.
+2.
+direction and minimum magnitude
+remained separate
+
+3.
+the geometry-matched null narrowed
+the individuation claim without erasing raw containment
+
+4.
+the bounded amplification result preserved
+the mechanistic routing result
+
+5.
+the trajectory closeout remained descriptive
+and did not rescue the unresolved magnitude claim
+```
+
+All five passed.
+
+```text
+FAILURE-LEDGER BOOKKEEPING
+CONSISTENT
+```
+
+That status is narrow.
+
+The ledger does not certify the truth of the conclusions, the completeness of
+the taxonomy, the completeness of the underlying case record, or the absence
+of mistakes.
+
+It checks one thing: whether the registered evidence transitions were carried
+forward without silently changing their logical status.
+
+> **Across the registered Chapters 26–28 case chains, the recorded invalidations, unresolved questions, bounded results, descriptive closeouts and claim narrowings can be represented without silently converting one evidence class into another or deleting surviving evidence.**
+
+That is enough.
+
+A final chapter built from “what survived” is meaningless if the survival criteria changed every time a result became inconvenient.
+
+The ledger does not certify the conclusions.
+
+It certifies the bookkeeping used to carry them forward.
 
 ---
 
@@ -321,84 +1059,208 @@ That is a modest claim. It is also the only claim that makes the final chapter p
 
 Here is the part that makes this chapter something other than an apology.
 
-The failures were productive, and not in the consoling sense. Each one located a boundary between concepts that had been treated as synonyms:
+The failures were productive.
+
+Not in the consoling sense that every setback teaches us something.
+
+They were productive because each one forced a distinction between concepts that had previously been allowed to blur together.
 
 ```text
-similarity            ≠  causal ancestry
-state                 ≠  history
-causal past           ≠  memory
-persistent            ≠  accessible
-accessible            ≠  differentially used
-net change            ≠  gross process
-reoccupation          ≠  repair
-stable size           ≠  stable turnover-related flow
+similarity
+≠
+causal ancestry
 
-locality              ≠  privileged boundary
-causal effect         ≠  stable local predictor of downstream consequence
+visible state
+≠
+complete causal state
 
-causal routing        ≠  causal amplification
-past-dependent        ≠  past-readable
-containment           ≠  individuation
+causal state difference
+≠
+readable record of a past
+
+persistent
+≠
+locally accessible
+
+accessible
+≠
+differentially used
+
+net population change
+≠
+gross construction and loss
+
+reoccupation
+≠
+repair
+
+stable population size
+≠
+absence of turnover
+
+locality
+≠
+privileged boundary
+
+causal effect
+≠
+stable local predictor of downstream consequence
+
+causal routing
+≠
+causal amplification
+
+hidden-state conditioning
+≠
+record reading
+
+causal containment
+≠
+causal individuation
 ```
 
-Most of these distinctions were not part of the vocabulary we began with.
+Most of those distinctions were not part of the vocabulary we started with.
 
-They became necessary when a stronger interpretation encountered a control that left a smaller phenomenon intact.
+They became necessary when a richer interpretation encountered a control that left a smaller phenomenon intact.
 
 > **A failed promotion is a successful distinction.**
 
-Which suggests a way of reading the whole investigation. We repeatedly asked questions framed in biological vocabulary.
+That may be the most useful way to read the investigation.
 
-The controls kept forcing the answers into narrower, more computational terms.
+We repeatedly asked questions in biological vocabulary.
+
+The controls kept forcing the answers into narrower computational terms.
 
 ```text
-we asked                what survived
+we asked                 what survived
 
-flocking?               short-range motion coherence
-memory?                 history-dependent causal sensitivity
-repair?                 rapid reoccupation of vacated sites
-stable body size?       compute-dependent scale and turnover
-individual?             strong spatial causal containment
+flocking?                short-range motion coherence
 
+memory?                  hidden-state causal sensitivity
+
+repair?                  rapid reoccupation after vacancy
+
+stable body size?        compute-constrained scale
+                         with substantial turnover
+
+individual?              strong spatial causal containment
 ```
 
-None of those answers is disappointing. They are simply not the words we brought with us. The method's entire job has been to hear the answer the system actually gave rather than the one the question was shaped to receive — and the reason it took this much apparatus is that the temptation was never abstract. A trace that persists really does beg to be called memory. A hole that fills really does look like healing. A number like 0.44 really did look like an individual.
+The right-hand column is not a list of consolation prizes.
+
+Those are the measurements that remained after the stronger names stopped being defensible.
+
+The method's job was never to preserve the biological vocabulary.
+
+It was to discover when that vocabulary stopped earning its keep.
+
+And the temptation was never abstract.
+
+A trace that persists really does beg to be called memory.
+
+A hole that fills really does look like healing.
+
+A population that stays roughly stable really does resemble a maintained body.
+
+A modularity score of `0.44` really did look like an individual.
+
+The richer words were not foolish hypotheses.
+
+They were hypotheses.
+
+The mistake would have been refusing to give them up when the controls said otherwise.
 
 ---
 
 ## What Survived
 
-Many of the richer biological or organism-like promotions have now been removed, bounded or left unestablished: ancestry-specific flocking, readable memory, repair, stable organism-like size, a privileged body boundary, causal amplification and individuality.
+Many of the stronger biological or organism-like promotions have now been removed, bounded, narrowed or left unestablished.
 
-Their scientific statuses differ.
-
-What they share is that none survived in the stronger form initially suggested by the measurement.
-
-What is left is not nothing. It is a list of phenomena that survived implementation audits, matched nulls, precision gates and failed interpretations:
+Among them:
 
 ```text
-causal reproduction without a reproduction operator
+ancestry-specific flocking
+
+readable memory
+
+repair
+
+stable organism-like body size
+
+a privileged body boundary
+
+causal amplification
+
+causal individuality
+```
+
+Their scientific statuses are not identical.
+
+Some failed specific controls.
+
+Some were never established in the first place.
+
+Some became unresolved at the declared magnitude.
+
+Some were replaced by narrower descriptions.
+
+What they share is only this:
+
+none survived in the richer form initially suggested by the measurement.
+
+What remains is not nothing.
+
+It is a list of phenomena that survived implementation audits, matched nulls, precision gates and failed interpretations:
+
+```text
+causal reproduction without an explicit reproduction operator
+
 short-range motion coherence
+
 counterfactual continuation from complete saved state
 
-causal consequence without a readable record
-persistent material state, causally active while it stays accessible
-loss-generated construction interfaces and rapid reoccupation
-large gross turnover concealed beneath much smaller net population change
+hidden state that can modulate causal response
+without evidence that the state is a readable record
 
-process scale strongly constrained by finite computational opportunity
+persistent material state that remains causally active
+while locally accessible
+
+loss-generated construction interfaces
+and rapid reoccupation
+
+large gross turnover concealed beneath
+much smaller net population change
+
+process scale strongly constrained
+by finite computational opportunity
 
 selector-mediated coupling between distant regions
-history-dependent causal sensitivity, with descriptively supported trajectory redirection
+
+causal sensitivity to experimentally written hidden state,
+with trajectory redirection remaining a descriptive interpretation
 
 strong spatial causal containment
 ```
 
-Those are not fragments of failed hypotheses. They are what the evidence still supports after everything the investigation could throw at it, and they arrived in the substrate's vocabulary rather than biology's.
+Those are not fragments left over after failed experiments.
 
-*Which features of life can we reproduce?* turned out to be the wrong organizing question for this investigation.
+They are the positive content of the investigation.
 
-It repeatedly encouraged us to name the phenomenon before we had discovered what the substrate was actually doing.
+They survived because the controls did not remove them.
+
+And they arrived increasingly in the substrate's vocabulary rather than biology's.
+
+That changes the question.
+
+*Which features of life can we reproduce?* turned out to be an increasingly poor organizing principle for this investigation.
+
+Not because the biological questions were useless.
+
+They were extraordinarily productive.
+
+They gave us hypotheses sharp enough to fail.
+
+But they repeatedly encouraged us to name the phenomenon before discovering what the substrate itself was doing.
 
 The final chapter therefore has to begin from the survivors rather than from the names we hoped to recover.
 
@@ -410,4 +1272,4 @@ Which biological property comes next?
 
 but:
 
-What do these computational phenomena add up to?
+> **What do these computational phenomena add up to?**
