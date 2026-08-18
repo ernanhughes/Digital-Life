@@ -191,7 +191,7 @@ It is worth being precise about what changed, because the loose version of this 
 
 > **Locally accessible hidden state changed the effective causal sensitivity of the same fixed response rule.**
 
-The V1 candidate-level audit supplies the operating-point explanation for that sign, and corrected V2 independently reproduces the sign itself.
+The V1 candidate-level audit supplies the operating-point explanation for that sign, and corrected V2 independently reproduces the sign itself. What V2 does not do is repeat the decomposition. The mechanism is therefore consistent with the V1 audit and replicated in sign, not independently re-derived under the corrected intervention.
 
 That is sharper than *history changes response*. The rule is fixed; the state moves the perturbation to a different operating point on that rule.
 
@@ -246,11 +246,13 @@ REMOTE − ERASED
 95% CI      ≈ [−0.213, +0.051]
 ```
 
-That interval spans zero, but it is not precise enough to establish that the REMOTE arm stays inside the frozen `±0.15` practical scale over the full horizon.
+That interval spans zero, but its achieved `MDE80` of about `0.172` exceeds the frozen `±0.15` scale, so the experiment could not have certified the remote arm as practically null over the full horizon even if it were.
 
 So REMOTE should not be promoted into a demonstrated zero-effect arm.
 
 It is the matched comparator the primary experiment declared: equal material mass, identical visible occupancy geometry, no direct local material route at the intervention, and closely matched background frontier influence.
+
+The three contrasts are at least mutually consistent. Accessible-minus-erased came out at `−0.450`, interval `[−0.705, −0.227]`, which is close to the sum of the accessible-minus-remote and remote-minus-erased differences. That is arithmetic rather than evidence, but a decomposition that failed to add up would have been a warning sign.
 
 The primary estimand remains:
 
@@ -259,22 +261,6 @@ ACCESSIBLE − REMOTE
 ```
 
 under this calibrated experimental regime.
-
-**The estimator.** The realized twelve-step attachment difference is noisy — a sum of Bernoulli outcomes measuring a small effect.
-
-The twelve-step secondary control is less decisive:
-
-```text
-REMOTE − ERASED
-ΔG_RB = −0.052
-95% CI [−0.213, +0.051]
-```
-
-That interval spans zero, but it is not precise enough to bound the remote arm inside the frozen `±0.15` scale.
-
-So REMOTE should be treated as the matched comparator the experiment was designed to use, not as a demonstrated zero-effect arm over the entire horizon.
-
-The primary claim remains the predeclared ACCESSIBLE-versus-REMOTE contrast.
 
 **The estimator.** The realized twelve-step attachment difference is noisy — a sum of Bernoulli outcomes measuring a small effect. So the primary quantity becomes the expected local causal difference at each lag, summed over the horizon:
 
@@ -386,16 +372,6 @@ Calling the entire result **INCONCLUSIVE** would throw away a directional result
 
 The frozen primary verdict remains `UNRESOLVED`, while the negative direction is an established secondary statement about that result.
 
-The important distinction is simple:
-
-```text
-DIRECTION
-SUPPORTED
-
-PREDECLARED MAGNITUDE
-UNRESOLVED
-```
-
 ---
 
 ## The Trace Fades While the Difference Grows
@@ -436,7 +412,7 @@ The middle epoch contributes at least as much as the early epoch, even though th
 
 The late epoch still contributes on average, at a point where mean accessible material has fallen to around 0.183. Its interval includes zero, so this remains a description of the trajectory rather than a separate confirmatory result.
 
-A second check gives the same caution against a simple instantaneous-dose explanation.
+A regression of the per-lag increment on contemporaneous material mass points the same way, but its rows are group-by-lag and therefore not independent, so it is reported in the ledger as descriptive only and carries no weight here.
 
 The closeout diagnostics do **not** establish that material amount is irrelevant. The material state caused the initial sensitivity difference, and the experiment does not isolate a residual-material component from a trajectory-mediated component.
 
@@ -557,11 +533,81 @@ DOWNSTREAM TRAJECTORY DIFFERENCE
 For this to become endogenous history dependence, the crystal would also have to generate the relevant hidden-state difference from its own prior dynamics.
 
 A stronger memory claim would require additional machinery or evidence: endogenous encoding, retention, discrimination, retrieval or some other demonstrated use of stored history.
- The *Can Experience Change the Material?* chapter's failure is the reminder of how much further there is to go: two histories that leave distinguishable traces still did not produce a differential response to a common challenge. Here the response does differ, but the experiment deliberately placed hidden material where it entered the local causal mechanism and compared it with matched material positioned outside that route.
+
+The *Can Experience Change the Material?* chapter's failure is the reminder of how much further there is to go: two histories that leave distinguishable traces still did not produce a differential response to a common challenge. Here the response does differ, but the experiment deliberately placed hidden material where it entered the local causal mechanism and compared it with matched material positioned outside that route.
 
 The crystal did not discover or encode that placement itself.
 
 For the same reason, be careful with the word *experience*. This experiment models the **causal effect of a candidate retained material trace**. It does not model the crystal having an experience and encoding that experience into the trace.
+
+---
+
+## Experimental Note
+
+**State matching.** ACCESSIBLE, REMOTE and ERASED are built from the same checkpoint object: identical occupied set, birth-time map, step, stream seed and probe. The arms differ only in which already-occupied cells carry the hidden scalar. No occupied cell is moved, added or removed. Equal initial material mass is asserted at construction.
+
+**Material dynamics.**
+
+```text
+gain g_m                0.30, added to the attachment score
+half-life               6 updates
+history age at t0       3 updates
+carriers                2
+initial mass            ≈ 1.414 (each carrier ≈ 0.707)
+
+no inheritance, no spreading, no transfer
+material dies with its carrier
+```
+
+**Arms.** ACCESSIBLE places carriers near the probe, always including `x`'s sole occupied neighbour. REMOTE places equal mass beyond `HORIZON + margin`, matched to the accessible carriers on exact adjacent-frontier count and on baseline adjacent-frontier probability mass within a frozen `0.05` tolerance. ERASED carries none. Remote matching is performed outcome-blind, before any result is examined. Evaluation is true unbounded in all arms, removing the finite-selector routing of the previous chapter.
+
+**Calibration remains active.** V2 does not remove global construction matching. A dedicated ERASED PREVENT trajectory defines the target expected attachments at each lag. ACCESSIBLE and REMOTE each solve one additive offset on their own current PREVENT state so that expected total attachments match that target; the same solved offset is applied to FORCE, which is never separately normalized. The offset acts on the attachment score, before the logistic.
+
+**Intervention.**
+
+```text
+lag 1     FORCE contains x for one full causal growth exposure
+          PREVENT removes x from the frontier before evaluation
+
+after lag-1 growth and loss
+          x removed from BOTH branches, absence asserted
+
+lag 2+    ordinary dynamics; natural reoccupation permitted
+          x excluded from all measured outcomes
+```
+
+**Estimators.** Local support `L` is `1 ≤ d(x,y) ≤ 12`, excluding `x`.
+
+```text
+Δ_t     = Σ_{y∈L} [ p_FORCE(y,t) − p_PREVENT(y,t) ]
+G_RB    = Σ_{t=1..12} Δ_t
+
+realized = cumulative FORCE-minus-PREVENT actual attachment counts
+           over the same support and horizon
+```
+
+Probabilities are evaluated on each branch's own realized state at each lag. The trajectories remain fully stochastic; expectation replaces only the final Bernoulli measurement.
+
+**Estimands.** Primary: `G_RB(accessible) − G_RB(remote)`. Secondary: the realized version, and `REMOTE − ERASED` as a control.
+
+**Scale and precision.**
+
+```text
+groups                  192
+supported probes        564
+group coverage          1.00  (required ≥ 0.90)
+record-level match      1.00  (required ≥ 0.95, within 2%)
+every arm × lag mean    within 2%
+intervention assertions PASS
+remote matching         PASS
+
+SEI                     ±0.15 attachments
+MDE80                   one-sided minimum detectable effect at 80% power;
+                        the frozen rule requires MDE80 ≤ 0.15 for SUPPORTED
+statistical unit        group; bootstrap percentile intervals
+```
+
+**Analysis-only diagnostics.** The V1 construct-validity audit and the V2 trace-decay closeout are analyses of existing samples. Neither is a confirmatory experiment, and neither changes the frozen V2 primary status.
 
 ---
 
@@ -570,15 +616,16 @@ For the same reason, be careful with the word *experience*. This experiment mode
 | Claim | Status | Evidence |
 |---|---|---|
 | Hidden material changes immediate causal response at matched visible geometry | **SUPPORTED** | `ΔE₁ = −0.01499`, CI `[−0.01725, −0.01281]` |
-| Immediate operating-point mechanism | **SUPPORTED BY V1 MECHANISM AUDIT; V2 SIGN REPLICATED** | V1 shared-candidate saturation contribution `−0.01814` of total `−0.01930`; corrected V2 independently reproduces negative `ΔE₁` |
+| Immediate operating-point mechanism | **CONSISTENT WITH V1 MECHANISM AUDIT; V2 SIGN REPLICATED** | V1 shared-candidate saturation contribution `−0.01814` of total `−0.01930`; corrected V2 reproduces the negative `ΔE₁` but does not independently repeat the candidate-level decomposition |
 | The response rule itself changed | **NOT CLAIMED** | logistic unchanged; only the operating point moved |
 | Downstream twelve-step effect is negative | **SUPPORTED** | `ΔG_RB = −0.397` and `ΔG_realized ≈ −0.357`, both excluding zero |
 | Downstream effect reaches the predeclared `±0.15` minimum magnitude | **UNRESOLVED** | CI `[−0.679, −0.119]` includes negative effects smaller than `0.15` in magnitude; frozen `MDE80 ≈ 0.357` also exceeds the `0.15` precision requirement |
-| First experiment's downstream result | **INVALID** | PREVENT allowed natural attachment; contamination correlated with treatment |
-| REMOTE is a demonstrated zero-effect comparator over the full twelve-step horizon | **NOT ESTABLISHED** | matched V2 `REMOTE−ERASED ΔE₁ ≈ 8.2 × 10⁻⁵`, but twelve-step `ΔG_RB ≈ −0.052`, CI approximately `[−0.213,+0.051]`; REMOTE remains the frozen matched comparator, not a proven zero-effect arm |
+| First experiment's downstream result | **INVALID** | PREVENT allowed natural attachment; contamination correlated with treatment (`0.428` vs `0.377` / `0.378`) |
+| First experiment's immediate `ΔE₁` remains interpretable | **SUPPORTED** | computed from branch probabilities before the contaminated growth step, with `x` excluded |
+| REMOTE is a demonstrated zero-effect comparator over the full twelve-step horizon | **NOT ESTABLISHED** | matched V2 `REMOTE−ERASED ΔE₁ ≈ 8.2 × 10⁻⁵`, but twelve-step `ΔG_RB ≈ −0.052`, CI `[−0.213, +0.051]` with `MDE80 ≈ 0.172` exceeding the `±0.15` scale; REMOTE remains the frozen matched comparator, not a proven zero-effect arm |
 | V1 remote placement was contaminated by global calibration | **FAILED CONTROL; CORRECTED IN V2** | V2 matches remote carriers on adjacent-frontier count and baseline frontier probability mass while preserving direct causal separation |
 | Cumulative difference continues changing after the trace has substantially weakened | **DESCRIPTIVELY SUPPORTED** | about 75% of final `G_RB` accrues after the half-mass threshold and about 36% after the quarter-mass threshold; closeout analysis only |
-| Simple contemporaneous material-mass tracking explains the later increment | **NOT ESTABLISHED — DESCRIPTIVE ONLY** | pooled `r ≈ −0.001`; pooled group-by-lag rows are non-independent and group-level relations are weak |
+| Simple contemporaneous material-mass tracking explains the later increment | **NOT ESTABLISHED — DESCRIPTIVE ONLY** | epoch contributions `−0.120 / −0.158 / −0.119` do not track the decaying mass; supporting regressions use non-independent group-by-lag rows and are descriptive |
 | A trajectory-mediated component is independently separated from residual material action | **NOT ESTABLISHED** | closeout does not perform a mediation decomposition |
 | The crystal endogenously generated the tested hidden state from its own prior dynamics | **NOT TESTED** | ACCESSIBLE and REMOTE material placement was written by the experiment |
 | Material amount is irrelevant | **NOT CLAIMED** | the material caused the initial sensitivity shift |
@@ -587,7 +634,7 @@ For the same reason, be careful with the word *experience*. This experiment mode
 
 ---
 
-## Where Does This History-Dependent Process End?
+## Where Does This State-Conditioned Process End?
 
 We have now established something that earlier chapters had not.
 
