@@ -21,7 +21,7 @@ That is a different kind of question from the ones the book has been asking. Eve
 
 There is an ending available that would undo everything.
 
-The Digital Crystal grows and loses material. It replaces most of what it loses. Its material turns over while its process continues. Experimentally written hidden state can change how it responds to the same perturbation at the same visible geometry. A local event has real consequences, and finite computational constraints can reroute how those consequences are expressed. Regions of it retain their own causal influence and resist influence from outside. Somewhere in the book, an earlier system produced reproduction that survived a causal test.
+The Digital Crystal grows and loses material. It replaces most of what it loses. Its material turns over while its process continues. Experimentally written hidden state can change how it responds to the same perturbation at the same visible geometry. A local event has real consequences, and finite computational constraints can reroute how those consequences are expressed. Regions of it retain their own causal influence and resist influence from outside. Earlier in the book, the Outlier system produced reproduction-like organization that survived a causal ancestry test.
 
 It would be very easy to write the sentence.
 
@@ -220,7 +220,7 @@ Confusing the two would let the synthesis claim credit for facts about computers
 
 The book opened with birds: evidence that flight is possible, not the specification for building an aircraft. The useful discoveries were underneath the anatomy — lift, drag, thrust, stability, control.
 
-We did not build the bird. We did not build an animal, and we did not establish an individual. But we may have begun to identify a few candidates for the aerodynamics: continuation through turnover, transition availability at an active interface, finite computational opportunity as a causal constraint, history-conditioned sensitivity, trajectory redirection, spatial causal containment.
+We did not build the bird. We did not build an animal, and we did not establish an individual. But we may have begun to identify a few candidates for the aerodynamics: continuation through turnover, transition availability at an active interface, finite computational opportunity as a causal constraint, causal sensitivity to experimentally written hidden state, descriptively observed trajectory redirection, and spatial causal containment.
 
 Call these candidate substrate-level organizational dimensions exposed by one investigation. Not laws. Not a specification. The analogy is a warning that survived into a conclusion, and it should not be pushed further than that: aerodynamics was a mature theory with equations, and this is a short list of measured relationships in one lattice.
 
