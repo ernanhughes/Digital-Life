@@ -2,7 +2,7 @@
 title = "15: Can the Past Redirect the Future?"
 date = "2026-08-14T23:30:00+01:00"
 draft = false
-description = "Two crystals with identical visible geometry, one carrying a decaying hidden material trace. The same perturbation produces a different response — and most of the downstream difference accumulates after the trace has substantially weakened."
+description = "Two crystals with identical visible geometry and equal decaying hidden material mass placed differently. The same perturbation produces a different response, while much of the cumulative difference accrues after the trace has substantially weakened."
 weight = 15
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Causality", "History Dependence", "Experimental Method"]
@@ -11,25 +11,33 @@ series = ["Digital Life From First Principles"]
 
 The last two chapters have narrowed the question to one local event.
 
-The *What Does One Attachment Cause?* chapter forced a single attachment and found an immediate causal effect whose magnitude was consistent with the local rule's mechanical prediction, followed by a small transient consequence that converged.
+The *What Does One Attachment Cause?* chapter forced a single attachment and found an immediate causal effect consistent with the local rule's mechanical prediction. A positive transient cumulative consequence was not established, while the late transient accumulation rate became practically consistent with zero under the frozen criterion.
 
-The previous chapter showed that finite computation can route causal opportunity outside the local causal cone, change which pathways express the perturbation, and gate whether an affected opportunity is evaluated at all — while resolving no meaningful change in mean twelve-step consequence at the declared ±0.15 scale.
+The previous chapter then showed that finite computation can redistribute evaluation opportunity outside the one-step reach of the local rule, change how the perturbation is expressed, and gate whether affected opportunities receive evaluation at all — while resolving no meaningful change in mean twelve-step consequence at the declared ±0.15 scale.
 
 Every variable in both chapters was a fact about the present. Current occupancy. Current frontier. Current budget. Current probabilities.
 
-But two crystals with the same visible geometry can still differ in hidden state inherited from different pasts.
+But two crystals with the same visible geometry can still differ in hidden state.
 
-We have not yet isolated whether that difference can change their response to the same perturbation.
+A real history-dependent system would have to produce such a difference from its own past. This experiment does something narrower: it writes the hidden state deliberately and asks whether that difference is sufficient to change the response to the same perturbation.
 
-This is not the question of whether the crystal has memory. the *The Crystal Gets a Past* chapter refused that word when a causal past turned out not to be a readable one, and the *Can Experience Change the Material?* chapter refused it again when two histories stayed persistent, accessible and distinguishable while producing no differential response. The question here is smaller and prior to all of that:
+So this is not yet a test of endogenous history encoding.
+
+It is a test of whether hidden material state can matter causally when the visible present is held fixed.
+
+This is not the question of whether the crystal has memory. *The Crystal Gets a Past* refused that word when a causal past turned out not to be a readable one, and *Can Experience Change the Material?* refused it again when distinguishable traces failed to produce the required differential response.
+
+The question here is smaller and prior to all of that:
 
 > **Can two states with the same visible geometry respond differently to the same perturbation because they contain different hidden material state?**
 
-Not whether the past can be read. Whether the past can change the response.
+First establish whether hidden state can change the response.
+
+Only later ask whether the crystal can create, preserve or use such state on its own.
 
 ---
 
-## Same Shape, Different Past
+## Same Shape, Different Hidden State
 
 The experiment gives the crystal a second kind of state.
 
@@ -42,7 +50,10 @@ $$
 with the gain frozen at `g_m = 0.30`. The attachment mechanism retains the same logistic response, but hidden material now contributes an additional frozen term to the score entering that response.
 
 The material is deliberately weak and transient.
- Its half-life is six updates and the trace has already aged three before the test begins, so each carrier starts at about 0.707. Two cells carry it, for a total starting mass near 1.414. Newly attached cells do not inherit it. It does not spread. It only decays.
+
+Its half-life is six updates and the trace has already aged three before the test begins, so each carrier starts at about 0.707. Two cells carry it, for a total starting mass near 1.414.
+
+Newly attached cells do not inherit the trace, and the trace neither spreads nor transfers. While a carrier remains occupied its strength decays; if the carrier is lost, its material disappears with it.
 
 That weakness is the design. We are not constructing a memory architecture with retention policies and propagation rules — the *Can Experience Change the Material?* chapter built something like that and found the interesting question was elsewhere. We are giving the crystal one hidden variable and asking whether it can matter causally at all.
 
@@ -62,13 +73,15 @@ Three conditions, and the choice of primary comparison matters more than it look
 
 **Accessible.** Two occupied cells near the probe carry the trace, and the probe's sole occupied neighbour is always one of them — guaranteeing that the stored state is locally causally accessible to the perturbation.
 
-**Remote.** The same number of carriers with the same material mass, placed beyond the twelve-step local causal reach of the probe.
+**Remote.** The same number of carriers with the same material mass, placed beyond the twelve-step direct local reach of the probe.
 
 **Erased.** No material at all.
 
-The primary contrast is accessible versus **remote**, not accessible versus erased. The easier comparison would confound two different things: whether material exists, and whether it is positioned where it can act on this perturbation. Only the remote arm separates them.
+The primary contrast is accessible versus **remote**, not accessible versus erased. The intention is to hold material quantity fixed while changing whether that material lies on a direct local causal route to the probe.
 
-At the intervention point, everything else is matched — visible occupancy, probe geometry, external input, random-number construction, allocation policy and perturbation.
+That does not automatically make REMOTE a perfect null — a point the first experiment will expose.
+
+At the intervention point, visible occupancy, probe geometry, external input, random-number construction and perturbation are matched. Evaluation is true unbounded in all three arms, deliberately removing the finite-selector routing mechanism isolated in the previous chapter.
 
 The futures are then allowed to diverge normally.
 
@@ -109,18 +122,21 @@ Not failed. Not inconclusive. Not underpowered.
 More data would only have measured the wrong intervention more precisely.
  This adds another failure mode to the book:
 
+This adds another failure mode to the book:
+
 ```text
 too imprecise to answer
 ≠
 valid experiment against a failed hypothesis
 ≠
 invalid intervention measuring the wrong causal contrast
+```
 
 ---
 
 ## Something Survived the Failure
 
-One quantity escaped the contamination, for a structural reason.
+One quantity escaped the **PREVENT-x defect**, for a structural reason.
 
 The immediate expected causal response was computed from the branch probabilities *before* the realized growth step. Whether `x` later reappeared in PREVENT could not affect a number that had already been calculated. So the immediate effect is measurable even in the invalid run:
 
@@ -162,7 +178,11 @@ flowchart TD
     D --> E["Reduced immediate causal response"]
 ```
 
-The candidate-level accounting is unusually clean. For accessible versus erased, the contribution from this saturation effect on shared candidates was about −0.01814, against a total immediate difference of about −0.01930. Under this accounting, the shared-candidate operating-point effect explains most of the measured immediate difference.
+The V1 immediate-effect audit also supplied a candidate-level mechanism check. That immediate quantity remained interpretable because it was computed before the contaminated PREVENT growth step.
+
+For accessible versus erased, the reduced probability increment on shared candidates contributed about −0.01814, against a total immediate difference of about −0.01930. Under that audit, the operating-point effect accounts for most of the measured immediate difference.
+
+The corrected V2 experiment below independently tests whether the negative immediate contrast survives the repaired intervention. It does not rerun this candidate-level saturation decomposition as a new primary test.
 
 It is worth being precise about what changed, because the loose version of this sentence is wrong. The response rule did not change. The logistic is the same logistic, with the same parameters, computing the same function. What changed is the **operating point** at which the perturbation acts:
 
@@ -202,7 +222,7 @@ That is not a property of the material. It is a property of the instrument, and 
 
 Three corrections, with every scientific parameter frozen — same gain, same half-life, same history age, same horizon, same effect threshold. Nothing was tuned. These are construct-validity repairs.
 
-**The intervention.** PREVENT now explicitly blocks `x` during lag one; FORCE explicitly contains it. After one full causal exposure, `x` is removed from FORCE and both branches continue normally — the transient causal semantics earned in the *What Does One Attachment Cause?* chapter, applied properly this time.
+**The intervention.** PREVENT now explicitly blocks `x` during lag one; FORCE explicitly contains it for one full causal growth exposure. After lag-one growth and loss, `x` is removed from **both** FORCE and PREVENT and its absence is asserted. From lag two onward, both branches return to ordinary dynamics.
 
 **The control.** Remote carriers are no longer chosen merely for being far away. Each is matched to an accessible carrier on how much background frontier influence it exerts: the same number of adjacent frontier cells, and their total baseline attachment-probability mass within a frozen tolerance, while still lying beyond the twelve-step local reach. After this matching, the remote-minus-erased immediate difference falls to about `8.2 × 10⁻⁵`, making the controller-mediated leakage negligible on this measure.
 
@@ -271,6 +291,7 @@ SUPPORTED
 
 PREDECLARED MAGNITUDE
 UNRESOLVED
+```
 
 ---
 
@@ -309,27 +330,34 @@ LATE     lags 9–12    −0.119
 Descriptively, the accumulated effect is not confined to the period when the trace is strongest.
 
 The middle epoch contributes at least as much as the early epoch, even though the original material trace has already substantially weakened.
- The late epoch still contributes on average, at a point where mean accessible material has fallen to around 0.183 — though its interval is wide enough to include zero, so that is a description of the trajectory and not a separate confirmatory claim.
+
+The late epoch still contributes on average, at a point where mean accessible material has fallen to around 0.183. Its interval includes zero, so this remains a description of the trajectory rather than a separate confirmatory result.
 
 A second check gives the same caution against a simple instantaneous-dose explanation.
 
-The pooled correlation between surviving accessible material and the accessible-minus-remote causal increment is approximately:
+A pooled descriptive correlation between surviving accessible material and the accessible-minus-remote causal increment was approximately:
 
 ```text
 r ≈ −0.001
- Group-level relations to average surviving material are weak too.
+```
 
-Which does **not** mean material amount is irrelevant — the material is what caused the sensitivity shift in the first place, and without it there is no effect at all. The bounded statement is narrower:
+The group-level relations to average surviving material were weak as well.
 
-> **The simplest instantaneous dose model does not explain the accumulated downstream trajectory.**
+Those diagnostics are not independent confirmatory tests: the pooled group-by-lag rows are non-independent, and the closeout analysis was explicitly descriptive.
+
+So this does **not** establish that material amount is irrelevant. The material state caused the initial sensitivity difference.
+
+The narrower conclusion is:
+
+> **These diagnostics do not support a simple model in which the later causal increment is proportional to the instantaneous amount of material remaining.**
 
 ---
 
-## The Path Begins to Carry the Past
+## A Trajectory-Redirection Interpretation
 
-The weakening relationship between surviving material amount and later causal increment suggests that the original trace is not the whole explanation of the downstream divergence.
+The material-decay analysis leaves a suggestive pattern: substantial cumulative difference accrues after the original trace has weakened, while simple contemporaneous material-mass diagnostics do not track the increment well.
 
-The plausible chain is one every previous chapter has supplied a piece of:
+One plausible causal account is:
 
 ```text
 hidden material state
@@ -345,29 +373,23 @@ later geometry changes what the perturbation's consequences can do
 causal difference continues accruing as the original trace decays
 ```
 
-A plausible interpretation is that part of the historical consequence has become embodied in the trajectory itself.
+One plausible interpretation is that early hidden-state modulation changes construction events, those events alter later geometry and state, and the changed trajectory then contributes to subsequent divergence.
 
-The material changes early causal sensitivity.
+But the experiment does **not** partition the late effect into residual-material and trajectory-mediated components. The original trace may still contribute while it remains.
 
-That changes which construction events occur.
+What is directly measured is narrower:
 
-Those events alter later geometry and state, which can continue changing future opportunities even as the original trace weakens.
+> **The cumulative causal difference continues to change after the original material trace has substantially weakened.**
 
-The experiment does not partition the late effect into a residual-material component and a trajectory-mediated component, so we should not claim that the trace has stopped contributing.
+That pattern is consistent with trajectory redirection, but it is not a measured transfer of causal influence from the trace into some new carrier. Nothing was tracked moving from one representation to another.
 
-What it does show is that the accumulated causal difference cannot be explained simply by the instantaneous amount of material remaining.
-
-> **The material did not need to remain strong for the entire horizon. Changing the early path was enough for later states to continue diverging.**
-
-Treat "moved out of the trace" as interpretation rather than a measured transfer — nothing was tracked from one carrier to another. What was measured is that the effect kept accumulating while the trace kept shrinking, and that the amount remaining does not predict the increment.
-
-An earlier draft named this **Material-State Trajectory Redirection**. The phenomenon matters more than the label, and in plain prose *history-dependent trajectory redirection* says the same thing without adding another formal Principle to the ledger.
+An earlier draft named this **Material-State Trajectory Redirection**. The label is less important than the boundary on the claim: trajectory redirection is a plausible interpretation of the observed temporal pattern, not an independently isolated causal channel.
 
 ---
 
-## Reading the Past Is Not Being Conditioned by It
+## Being Conditioned by Hidden State Is Not Reading the Past
 
-This is the distinction the chapter has actually earned, and it reframes several earlier failures.
+This is the distinction the experiment actually earns, and it reframes several earlier failures.
 
 The *The Crystal Gets a Past* chapter established that a past can be causally consequential without being recoverable as a stable history signature.
 
@@ -379,11 +401,14 @@ Those chapters separated several questions we had initially treated as one:
 did the past leave a consequence?
 can the past be distinguished?
 can the present differentially use that consequence?
+```
 
-This chapter asks a different question and gets a positive answer. The past does not have to be recoverable to be causally operative. It only has to leave the system in a state whose response differs.
+This chapter asks a prerequisite question and gets a positive answer: **if** the system contains a hidden state difference of the tested kind, that difference can alter its causal response even though the visible occupancy geometry is unchanged.
+
+The experiment does not establish that the crystal generated that state from its own past.
 
 ```text
-RECORD-LIKE PERSISTENCE          TRAJECTORY PERSISTENCE
+RECORD-LIKE ROUTE               STATE-CONDITIONED ROUTE
 
 past                             past
 ↓                                ↓
@@ -396,11 +421,15 @@ behaviour depends on past        changes later state
                                  behaviour depends on past
 ```
 
-Both routes can make later response depend on earlier events.
+A genuine history-dependent system could in principle use either route.
 
-Only the first requires a persisting representation that can later be read as a record of those events.
+Only the first requires a representation that can later be read as a record of earlier events.
 
-> **The past can change the future without being reconstructed as a record of the past.**
+This experiment establishes the causal-sufficiency prerequisite for the second route:
+
+> **A hidden state need not be readable as a record in order to alter future response.**
+
+Whether the crystal can generate such a state from its own history remains a separate question.
 
 ---
 
@@ -410,22 +439,24 @@ The temptation is obvious. There is hidden state. It changes later response. Its
 
 Because we wrote the state. It was placed by the experiment, not acquired by the crystal. Nothing here encoded anything, selected what to retain, retrieved anything, reconstructed a past event, distinguished one history from another, or improved at anything.
 
-What has been demonstrated is a more primitive capability:
+What has been demonstrated is a more primitive causal capability:
 
 ```text
-PAST-DEPENDENT HIDDEN STATE
+EXPERIMENTALLY WRITTEN HIDDEN STATE
 ↓
 CAUSAL RESPONSE MODULATION
 ↓
-TRAJECTORY REDIRECTION
+DOWNSTREAM TRAJECTORY DIFFERENCE
 ```
+
+For this to become endogenous history dependence, the crystal would also have to generate the relevant hidden-state difference from its own prior dynamics.
 
 A stronger memory claim would require additional machinery or evidence: endogenous encoding, retention, discrimination, retrieval or some other demonstrated use of stored history.
  The *Can Experience Change the Material?* chapter's failure is the reminder of how much further there is to go: two histories that leave distinguishable traces still did not produce a differential response to a common challenge. Here the response does differ, but the experiment deliberately placed hidden material where it entered the local causal mechanism and compared it with matched material positioned outside that route.
 
-The Crystal did not discover or encode that placement itself.
+The crystal did not discover or encode that placement itself.
 
-For the same reason, be careful with the word *experience*. This experiment models a past-dependent material trace. It does not model the crystal having experiences and encoding them.
+For the same reason, be careful with the word *experience*. This experiment models the **causal effect of a candidate retained material trace**. It does not model the crystal having an experience and encoding that experience into the trace.
 
 ---
 
@@ -434,14 +465,16 @@ For the same reason, be careful with the word *experience*. This experiment mode
 | Claim | Status | Evidence |
 |---|---|---|
 | Hidden material changes immediate causal response at matched visible geometry | **SUPPORTED** | `ΔE₁ = −0.01499`, CI `[−0.01725, −0.01281]` |
-| The mechanism is logistic operating-point sensitivity | **SUPPORTED** | saturation term `−0.01814` of a total `−0.01930` |
+| Immediate operating-point mechanism | **SUPPORTED BY V1 MECHANISM AUDIT; V2 SIGN REPLICATED** | V1 shared-candidate saturation contribution `−0.01814` of total `−0.01930`; corrected V2 independently reproduces negative `ΔE₁` |
 | The response rule itself changed | **NOT CLAIMED** | logistic unchanged; only the operating point moved |
 | Downstream twelve-step effect is negative | **SUPPORTED** | `ΔG_RB = −0.397` and `ΔG_realized ≈ −0.357`, both excluding zero |
 | Downstream effect reaches the predeclared ±0.15 magnitude | **UNRESOLVED** | achieved MDE ≈ `0.357` |
 | First experiment's downstream result | **INVALID** | PREVENT allowed natural attachment; contamination correlated with treatment |
-| Remote material has no local causal pathway | **FAILED, then corrected** | calibration leak in V1; remote−erased falls to `8.2 × 10⁻⁵` after matching |
-| Consequence accumulates after the trace has substantially decayed | **DESCRIPTIVELY SUPPORTED** | 75% of final effect after half-mass; 36% after quarter-mass |
-| Surviving material amount predicts the causal increment | **FAILED** | pooled `r ≈ −0.001` |
+| Geometric remoteness alone makes REMOTE a clean experimental null under global calibration | **FAILED IN V1; CONTROL CORRECTED** | global calibration created a local instrument pathway; matched V2 remote−erased `ΔE₁ ≈ 8.2 × 10⁻⁵` |
+| Cumulative difference continues changing after the trace has substantially weakened | **DESCRIPTIVELY SUPPORTED** | about 75% of final `G_RB` accrues after the half-mass threshold and about 36% after the quarter-mass threshold; closeout analysis only |
+| Simple contemporaneous material-mass tracking explains the later increment | **NOT ESTABLISHED — DESCRIPTIVE ONLY** | pooled `r ≈ −0.001`; pooled group-by-lag rows are non-independent and group-level relations are weak |
+| A trajectory-mediated component is independently separated from residual material action | **NOT ESTABLISHED** | closeout does not perform a mediation decomposition |
+| The crystal endogenously generated the tested hidden state from its prior history | **NOT TESTED** | material state was experimentally written |
 | Material amount is irrelevant | **NOT CLAIMED** | the material caused the initial sensitivity shift |
 | Memory, learning, adaptation, recall, experience encoding | **NOT ESTABLISHED** | the hidden state was written by the experiment |
 | History-dependent redirection is a general substrate property | **NOT CLAIMED** | one mechanism, one gain, one half-life, twelve-update horizon |
@@ -452,13 +485,13 @@ For the same reason, be careful with the word *experience*. This experiment mode
 
 We have now established something that earlier chapters had not.
 
-With visible geometry matched, hidden past-dependent material state can change the response to the same perturbation.
+With visible geometry matched, experimentally written hidden material state can change the response to the same perturbation.
 
-And the resulting causal difference continues accumulating after that material trace has substantially weakened.
+And in the corrected V2 sample, the cumulative causal difference continues changing after that material trace has substantially weakened.
 
 That is not yet memory.
 
-It is history-dependent causal response: hidden state inherited from the past changes present sensitivity, and the resulting event differences alter the later trajectory.
+It is a demonstrated **hidden-state causal response** plus a descriptive trajectory result. To call it endogenous history dependence, the crystal would still have to generate the relevant hidden state from its own past.
 
 No retrieval or history-specific decoding has been demonstrated.
 
@@ -466,13 +499,12 @@ Which sharpens a question the book has left open twice.
 
 The *Is There Actually One Thing Here?* chapter looked for a privileged boundary around the connected crystal and failed to find one, twice: no scale showed excess predictive coherence beyond a family null, and the candidate outer boundary localized causal effects no better than a circle drawn arbitrarily through the interior. What survived was spatial causal locality — consequences stay near their causes — which is true of any local field and establishes nothing about individuals.
 
-But the *Is There Actually One Thing Here?* chapter tested regions defined primarily by geometry.
+But *Is There Actually One Thing Here?* tested regions defined primarily by geometry.
 
-We now have a better candidate experimental object: a spatially extended causal process whose response can depend on hidden state inherited from the past.
+We now have a better experimental target.
 
-That makes the individuation question worth asking again with a stronger control.
- If anything in this substrate deserves to be called an individual, it should be a region of *causal organization*, not a region of material.
+Instead of asking whether a region is special because its outline looks object-like, ask whether perturbations originating inside it are preferentially contained there — and whether perturbations originating outside penetrate it less — **beyond what geometry alone predicts**.
 
-So the individuation question can finally be posed in the right terms.
+That reopens the boundary question without assuming in advance that there is an object, a process or an individual waiting to be found.
 
 > **Is there a region whose causal containment exceeds what its geometry alone would predict?**

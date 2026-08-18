@@ -1,6 +1,7 @@
 *.db
 *.zip
 *.gz
+.writer/
 *.csv
 *.sqlite3
 test.md
