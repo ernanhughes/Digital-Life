@@ -2,7 +2,7 @@
 title = "16: We Found an Individual. Then We Didn't."
 date = "2026-08-15T01:00:00+01:00"
 draft = false
-description = "A region of the Digital Crystal retains its own causal influence and resists influence from outside — strongly, precisely, reproducibly. Then arbitrary regions of the same size do exactly the same thing."
+description = "A region of the Digital Crystal shows strong, precise causal containment. Then same-checkpoint regions matched on spatial geometry show essentially the same containment."
 weight = 16
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Causality", "Individuality", "Experimental Method"]
@@ -407,7 +407,7 @@ Geometry-matched control disks of the same radius, drawn from the same crystal w
 
 One concern surfaced after the frozen result, and it was a real one.
 
-The matcher required a different control centre, but it did not require the selected and control disks to be spatially separate. Some matched controls were therefore nearby translations of the selected region — and a null built from near-duplicates of the thing being tested would be no null at all.
+The matcher required a different control centre, but it did not require the selected and control disks to be spatially separate. Some matched controls were therefore nearby translations of the selected region — and a null dominated by near-duplicates would be a weak test of whether the result survives spatially distinct comparison regions.
 
 The prevalence was substantial. Across all 1,151 frozen pairs the median radius-four disk overlap was about 33%, the median centre separation was 5, and only 339 pairs — under 30% — were strictly non-overlapping.
 
@@ -429,7 +429,7 @@ Nothing appears. Every filter leaves the estimate near zero and far below the `+
 
 These are **post-hoc robustness analyses**, not a replacement for the frozen V2 test, and the stricter subsets cover fewer independent groups than the confirmatory design required. They cannot promote themselves into a new result.
 
-What they can do is rule out one specific alternative explanation: the near-zero excess was not manufactured by comparing each selected region against a near-duplicate copy of itself.
+What they can do is test one specific alternative explanation. Across progressively more spatially distinct subsets, the estimate does not move toward positive privilege, so the audit provides no support for the idea that the near-zero excess was produced merely by matching selected regions to near-duplicate copies of themselves.
 
 ---
 
