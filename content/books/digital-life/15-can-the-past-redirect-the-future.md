@@ -57,7 +57,11 @@ Newly attached cells do not inherit the trace, and the trace neither spreads nor
 
 That weakness is the design. We are not constructing a memory architecture with retention policies and propagation rules — the *Can Experience Change the Material?* chapter built something like that and found the interesting question was elsewhere. We are giving the crystal one hidden variable and asking whether it can matter causally at all.
 
-And note the phrase that has to be used carefully from here on. The two conditions do not have the same state. They have the **same visible occupancy geometry** and different hidden state. The invisibility is the entire point:
+And note the phrase that has to be used carefully from here on. The conditions do not have the same complete state. They have the **same visible occupancy geometry** and different hidden material state.
+
+That matching is exact at the intervention checkpoint. ACCESSIBLE, REMOTE and ERASED begin from the same occupied set, birth-time map, step, stream seed and probe. The only difference between the history arms is which already-occupied cells carry the hidden scalar.
+
+The invisibility is the entire point:
 
 ```text
 SAME VISIBLE GEOMETRY
@@ -120,7 +124,6 @@ Not failed. Not inconclusive. Not underpowered.
 **Invalid.**
 
 More data would only have measured the wrong intervention more precisely.
- This adds another failure mode to the book:
 
 This adds another failure mode to the book:
 
@@ -188,7 +191,9 @@ It is worth being precise about what changed, because the loose version of this 
 
 > **Locally accessible hidden state changed the effective causal sensitivity of the same fixed response rule.**
 
-That is a sharper claim than *history changes response*, and it explains the sign that made no sense a moment ago.
+The V1 candidate-level audit supplies the operating-point explanation for that sign, and corrected V2 independently reproduces the sign itself.
+
+That is sharper than *history changes response*. The rule is fixed; the state moves the perturbation to a different operating point on that rule.
 
 ---
 
@@ -224,17 +229,79 @@ Three corrections, with every scientific parameter frozen — same gain, same ha
 
 **The intervention.** PREVENT now explicitly blocks `x` during lag one; FORCE explicitly contains it for one full causal growth exposure. After lag-one growth and loss, `x` is removed from **both** FORCE and PREVENT and its absence is asserted. From lag two onward, both branches return to ordinary dynamics.
 
-**The control.** Remote carriers are no longer chosen merely for being far away. Each is matched to an accessible carrier on how much background frontier influence it exerts: the same number of adjacent frontier cells, and their total baseline attachment-probability mass within a frozen tolerance, while still lying beyond the twelve-step local reach. After this matching, the remote-minus-erased immediate difference falls to about `8.2 × 10⁻⁵`, making the controller-mediated leakage negligible on this measure.
+**The control.** V2 keeps the global dynamic construction-matching controller, so the controller remains part of the experimental instrument. The repair is therefore not to pretend that REMOTE is automatically isolated from it.
+
+Instead, remote carriers are matched to accessible carriers on their baseline influence on the frontier: exactly the same number of adjacent frontier cells, with total baseline attachment-probability mass matched within the frozen `0.05` tolerance, while remaining beyond the twelve-step direct local reach.
+
+After that repair, the remote-minus-erased immediate difference falls to about `8.2 × 10⁻⁵`.
+
+So the controller-mediated leakage is negligible **at lag one** on this measure.
+
+The same V2 run also contains a twelve-step REMOTE-versus-ERASED secondary control:
+
+```text
+REMOTE − ERASED
+
+ΔG_RB       ≈ −0.052
+95% CI      ≈ [−0.213, +0.051]
+```
+
+That interval spans zero, but it is not precise enough to establish that the REMOTE arm stays inside the frozen `±0.15` practical scale over the full horizon.
+
+So REMOTE should not be promoted into a demonstrated zero-effect arm.
+
+It is the matched comparator the primary experiment declared: equal material mass, identical visible occupancy geometry, no direct local material route at the intervention, and closely matched background frontier influence.
+
+The primary estimand remains:
+
+```text
+ACCESSIBLE − REMOTE
+```
+
+under this calibrated experimental regime.
+
+**The estimator.** The realized twelve-step attachment difference is noisy — a sum of Bernoulli outcomes measuring a small effect.
+
+The twelve-step secondary control is less decisive:
+
+```text
+REMOTE − ERASED
+ΔG_RB = −0.052
+95% CI [−0.213, +0.051]
+```
+
+That interval spans zero, but it is not precise enough to bound the remote arm inside the frozen `±0.15` scale.
+
+So REMOTE should be treated as the matched comparator the experiment was designed to use, not as a demonstrated zero-effect arm over the entire horizon.
+
+The primary claim remains the predeclared ACCESSIBLE-versus-REMOTE contrast.
 
 **The estimator.** The realized twelve-step attachment difference is noisy — a sum of Bernoulli outcomes measuring a small effect. So the primary quantity becomes the expected local causal difference at each lag, summed over the horizon:
 
 $$
-\Delta_t = \sum_{y \in L} p_{\text{FORCE}}(y,t) - \sum_{y \in L} p_{\text{PREVENT}}(y,t)
+\Delta_t
+=
+\sum_{y \in L}
+\left[
+p_{\text{FORCE}}(y,t)
+-
+p_{\text{PREVENT}}(y,t)
+\right],
 \qquad
-G_{\mathrm{RB}} = \sum_{t=1}^{12} \Delta_t
+G_{\mathrm{RB}}
+=
+\sum_{t=1}^{12}\Delta_t
 $$
 
-This is worth stating carefully, because it is easy to misread. The trajectories are not replaced by expectation. Both branches still evolve through actual stochastic events — cells attach, cells are lost, geometry diverges, material decays. The expectation is used only to measure the causal difference *at each realized state* more precisely than a single coin flip per candidate would allow. The realized outcome is kept as a secondary check.
+where `L` is the fixed local measurement support `1 ≤ d(x,y) ≤ 12`, and the intervention cell `x` itself is always excluded.
+
+At every lag, the FORCE and PREVENT probabilities are evaluated on **their own realized current states**. The branches are therefore free to acquire different occupancy, material and frontier geometry through actual stochastic events.
+
+Expectation replaces only the final Bernoulli measurement of construction opportunity at each realized state. It does not replace the trajectory.
+
+The secondary realized estimator is the corresponding twelve-step cumulative difference in **actual attachment counts** inside the same local support, again excluding `x`.
+
+This is worth stating carefully, because it is easy to misread. Both branches still evolve through actual stochastic events — cells attach, cells are lost, geometry diverges, material decays. The expectation is used only to measure the causal difference *at each realized state* more precisely than a single coin flip per candidate would allow. The realized outcome is kept as a secondary check.
 
 The corrected run used 192 groups and 564 supported probes, and passed every validity gate: group coverage, dynamic matching, population matching, intervention assertions, remote-carrier matching. Only then is it worth interpreting.
 
@@ -263,7 +330,13 @@ Over twelve updates:
 ΔG_realized ≈ −0.357     95% CI [−0.673, −0.040]
 ```
 
-The expected estimator and the noisier realized one agree in direction and in rough magnitude. The mean downstream causal consequence is lower in the accessible condition than in the matched remote condition, with both estimators supporting the same direction.
+The expected estimator and the noisier realized estimator agree in direction and rough magnitude.
+
+Under the corrected, dynamically calibrated protocol, locally accessible hidden material produces a more negative twelve-step FORCE-minus-PREVENT consequence than equal hidden material placed on the matched remote route.
+
+Both estimators support that **direction**.
+
+The experiment does not establish that REMOTE itself is a zero-effect arm, nor does it yet establish the predeclared minimum effect magnitude.
 
 And here the frozen decision rule does something that a looser protocol would have let slide.
 
@@ -271,17 +344,47 @@ And here the frozen decision rule does something that a looser protocol would ha
 
 ## Direction Is Not Magnitude
 
-The predeclared smallest effect of interest was ±0.15. Calling the magnitude supported required not just an interval excluding zero, but enough precision to resolve that threshold — and the achieved minimum detectable effect was around 0.357.
+The predeclared smallest effect of interest was `±0.15`.
 
-So two questions, two different answers:
+The result separates two questions cleanly.
+
+For the expected estimator:
 
 ```text
-Is the mean effect negative?                              SUPPORTED
-Can we establish it reaches the predeclared ±0.15
-magnitude under the frozen precision rule?                UNRESOLVED
+mean       −0.397
+95% CI     [−0.679, −0.119]
 ```
 
-Those are compatible statements, and collapsing them in either direction would be a misreport. Saying "the hypothesis passed" would claim a magnitude the experiment cannot resolve. Saying "inconclusive" would throw away a direction it established with intervals excluding zero on both estimators.
+The interval lies entirely below zero, so the **negative direction is supported**.
+
+But its upper endpoint, `−0.119`, still includes effects whose magnitude is smaller than `0.15`. The interval therefore does not establish the predeclared minimum magnitude.
+
+The frozen protocol also required sufficient prospective precision:
+
+```text
+achieved MDE80     ≈ 0.357
+required           ≤ 0.150
+```
+
+That gate fails as well.
+
+So:
+
+```text
+DIRECTION
+SUPPORTED
+
+PREDECLARED MINIMUM MAGNITUDE
+UNRESOLVED
+```
+
+Those are compatible statements.
+
+Calling the whole hypothesis **SUPPORTED** would claim a minimum magnitude the experiment did not resolve.
+
+Calling the entire result **INCONCLUSIVE** would throw away a directional result supported independently by both the expected and realized estimators.
+
+The frozen primary verdict remains `UNRESOLVED`, while the negative direction is an established secondary statement about that result.
 
 The important distinction is simple:
 
@@ -335,21 +438,11 @@ The late epoch still contributes on average, at a point where mean accessible ma
 
 A second check gives the same caution against a simple instantaneous-dose explanation.
 
-A pooled descriptive correlation between surviving accessible material and the accessible-minus-remote causal increment was approximately:
+The closeout diagnostics do **not** establish that material amount is irrelevant. The material state caused the initial sensitivity difference, and the experiment does not isolate a residual-material component from a trajectory-mediated component.
 
-```text
-r ≈ −0.001
-```
+The narrower descriptive conclusion is:
 
-The group-level relations to average surviving material were weak as well.
-
-Those diagnostics are not independent confirmatory tests: the pooled group-by-lag rows are non-independent, and the closeout analysis was explicitly descriptive.
-
-So this does **not** establish that material amount is irrelevant. The material state caused the initial sensitivity difference.
-
-The narrower conclusion is:
-
-> **These diagnostics do not support a simple model in which the later causal increment is proportional to the instantaneous amount of material remaining.**
+> **The observed time course does not look like a simple model in which the later causal increment merely tracks the instantaneous amount of material remaining.**
 
 ---
 
@@ -373,9 +466,21 @@ later geometry changes what the perturbation's consequences can do
 causal difference continues accruing as the original trace decays
 ```
 
-One plausible interpretation is that early hidden-state modulation changes construction events, those events alter later geometry and state, and the changed trajectory then contributes to subsequent divergence.
+One plausible interpretation is that early hidden-state modulation changes construction events, those events alter later geometry and state, and those altered states then contribute to subsequent divergence.
 
-But the experiment does **not** partition the late effect into residual-material and trajectory-mediated components. The original trace may still contribute while it remains.
+But this is an interpretation of the time course, not a mediation result.
+
+The experiment does **not** partition the later difference into:
+
+```text
+continued action of the remaining trace
+
+versus
+
+consequences already embedded in changed downstream states
+```
+
+Both may contribute.
 
 What is directly measured is narrower:
 
@@ -468,13 +573,14 @@ For the same reason, be careful with the word *experience*. This experiment mode
 | Immediate operating-point mechanism | **SUPPORTED BY V1 MECHANISM AUDIT; V2 SIGN REPLICATED** | V1 shared-candidate saturation contribution `−0.01814` of total `−0.01930`; corrected V2 independently reproduces negative `ΔE₁` |
 | The response rule itself changed | **NOT CLAIMED** | logistic unchanged; only the operating point moved |
 | Downstream twelve-step effect is negative | **SUPPORTED** | `ΔG_RB = −0.397` and `ΔG_realized ≈ −0.357`, both excluding zero |
-| Downstream effect reaches the predeclared ±0.15 magnitude | **UNRESOLVED** | achieved MDE ≈ `0.357` |
+| Downstream effect reaches the predeclared `±0.15` minimum magnitude | **UNRESOLVED** | CI `[−0.679, −0.119]` includes negative effects smaller than `0.15` in magnitude; frozen `MDE80 ≈ 0.357` also exceeds the `0.15` precision requirement |
 | First experiment's downstream result | **INVALID** | PREVENT allowed natural attachment; contamination correlated with treatment |
-| Geometric remoteness alone makes REMOTE a clean experimental null under global calibration | **FAILED IN V1; CONTROL CORRECTED** | global calibration created a local instrument pathway; matched V2 remote−erased `ΔE₁ ≈ 8.2 × 10⁻⁵` |
+| REMOTE is a demonstrated zero-effect comparator over the full twelve-step horizon | **NOT ESTABLISHED** | matched V2 `REMOTE−ERASED ΔE₁ ≈ 8.2 × 10⁻⁵`, but twelve-step `ΔG_RB ≈ −0.052`, CI approximately `[−0.213,+0.051]`; REMOTE remains the frozen matched comparator, not a proven zero-effect arm |
+| V1 remote placement was contaminated by global calibration | **FAILED CONTROL; CORRECTED IN V2** | V2 matches remote carriers on adjacent-frontier count and baseline frontier probability mass while preserving direct causal separation |
 | Cumulative difference continues changing after the trace has substantially weakened | **DESCRIPTIVELY SUPPORTED** | about 75% of final `G_RB` accrues after the half-mass threshold and about 36% after the quarter-mass threshold; closeout analysis only |
 | Simple contemporaneous material-mass tracking explains the later increment | **NOT ESTABLISHED — DESCRIPTIVE ONLY** | pooled `r ≈ −0.001`; pooled group-by-lag rows are non-independent and group-level relations are weak |
 | A trajectory-mediated component is independently separated from residual material action | **NOT ESTABLISHED** | closeout does not perform a mediation decomposition |
-| The crystal endogenously generated the tested hidden state from its prior history | **NOT TESTED** | material state was experimentally written |
+| The crystal endogenously generated the tested hidden state from its own prior dynamics | **NOT TESTED** | ACCESSIBLE and REMOTE material placement was written by the experiment |
 | Material amount is irrelevant | **NOT CLAIMED** | the material caused the initial sensitivity shift |
 | Memory, learning, adaptation, recall, experience encoding | **NOT ESTABLISHED** | the hidden state was written by the experiment |
 | History-dependent redirection is a general substrate property | **NOT CLAIMED** | one mechanism, one gain, one half-life, twelve-update horizon |
