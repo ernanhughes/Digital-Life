@@ -72,7 +72,7 @@ That transformation is one of the book's central outcomes. We repeatedly began w
 
 ## What the Controls Left Behind
 
-The survivors group into roughly five layers. The grouping is interpretation; the contents are not.
+The survivors group into roughly five recurring dimensions. The grouping is interpretation; the contents are not.
 
 ### Continuation without fixed material identity
 
@@ -157,7 +157,7 @@ So the experimentally earned order is not the one biology suggests.
 
 ## Process Before Organism
 
-Biological thinking starts with an individual, then a boundary, then whatever happens inside it. The experiments repeatedly ran the other way: change first, then interfaces, then local causal structure, then turnover, then hidden-state causal sensitivity, then a descriptive trajectory interpretation — and only then the question of whether any of it belonged to a privileged region.
+The biological vocabulary we started with encouraged an individual-first picture: find the organism, locate its boundary, then ask what happens inside it. The experiments repeatedly ran the other way: change first, then interfaces, then local causal structure, then turnover, then hidden-state causal sensitivity, then a descriptive trajectory interpretation — and only then the question of whether any of it belonged to a privileged region.
 
 Two versions of that observation are available, and only one is defensible.
 
@@ -240,15 +240,43 @@ This book did not answer that. It showed why it has to stay open — because sev
 One of the most practically useful outputs is a list of things that are not enough. Every item was earned by a specific control that removed a specific cheaper explanation:
 
 ```text
-irregularity is not life                    motion is not life
-growth is not life                          visual copying is not causal reproduction
-refilling is not repair                     a persistent trace is not memory
-causal transmission is not signalling       turnover is not metabolism
-locality is not a boundary                  containment is not individuality
-a large statistic is not a construct
+WHAT THE EXPERIMENTS SHOWED IS INSUFFICIENT
+
+irregularity alone
+→ does not establish life
+
+motion alone
+→ does not establish life
+
+growth alone
+→ does not establish life
+
+visual copying
+→ does not establish causal reproduction
+
+refilling
+→ does not establish repair
+
+persistent state
+→ does not establish memory
+
+causal transmission
+→ does not establish signalling
+
+turnover
+→ does not establish metabolism
+
+locality
+→ does not establish a privileged boundary
+
+causal containment
+→ does not establish individuality
+
+a large statistic
+→ does not establish the richer construct attached to it
 ```
 
-This is not a claim that these observations can never be components of life. It is a claim that none of them, by itself, establishes the richer interpretation attached to it. Which makes cheap demonstrations harder and forces stronger claims to earn stronger controls.
+> None of these results says that the lower-level phenomenon can never participate in the richer one. They say only that the lower-level observation, by itself, does not establish it.
 
 ---
 
@@ -294,7 +322,7 @@ They do **not** establish that the Digital Crystal endogenously records its own 
 
 They suggest something smaller:
 
-> **Continuity of organized causal consequence may be more fundamental, in this substrate, than continuity of material, readable memory, or an established individual boundary.**
+Continuity of organized causal consequence may be a more productive experimental primitive, in this substrate, than continuity of material, readable memory, or an established individual boundary.
 
 That is the hypothesis.
 
@@ -417,7 +445,6 @@ CONTINUATION
 
 the process continues
 
-
 SELF-CONDITIONING
 
 the process's organization contributes causally
@@ -505,16 +532,16 @@ The simulations provided the phenomena; the repeated demand for stronger alterna
 
 The first chapter allowed for the possibility that we might reach the end without being entitled to call anything we built alive.
 
-That is where the evidence leaves us.
- What we have instead is smaller and more useful: a set of measured relationships that no biological vocabulary was required to state, a list of observations that are now known to be insufficient, a provisional foundation broad enough to include a build pipeline, and one sharp question about what would have to be added.
+That is where the evidence leaves us. What we have instead is smaller and more useful: a set of measured relationships that no biological vocabulary was required to state, a list of observations that are now known to be insufficient, a provisional foundation broad enough to include a build pipeline, and one sharp candidate discriminator that the next experiment should test.
 
 The first chapter also asked what we would actually be looking for. Here is the difference fifteen chapters made. We would not begin by requiring an organism, a boundary, a memory or a metabolism.
- We would begin by looking for a process that carries organized causal consequence through continued change.
+We would begin by looking for a process that carries organized causal consequence through continued change.
 
 Then we would ask the harder question this book has not answered:
 
 > **Does the process's own organization causally alter the conditions of its continuation in a way that exceeds an appropriate matched null?**
 
-We did not discover whether the Digital Crystal is alive.
+**We did not discover whether the Digital Crystal is alive.**
 
-We discovered what we would have to operationalize before that question could be asked properly.
+**We discovered what the next experiment will have to operationalize before that question can become sharper.**
+
