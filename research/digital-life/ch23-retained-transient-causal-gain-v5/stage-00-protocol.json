@@ -1,0 +1,43 @@
+{
+  "role": "CORRECTED RETAINED / TRANSIENT CAUSAL-GAIN DECOMPOSITION",
+  "construct_validity_correction": "PREVENT blocks x during the one intended causal exposure; after lag 1 x is removed from both TRANSIENT and PREVENT.",
+  "fresh_seed": 20260906,
+  "previous_v4_seed": 20260905,
+  "horizon": 30,
+  "late_window": [
+    21,
+    30
+  ],
+  "probe_quantiles": [
+    0.2,
+    0.4,
+    0.6,
+    0.8
+  ],
+  "intervention_timing": "At the frozen checkpoint, FORCE-derived branches receive x as occupied and PREVENT remains x-empty. Intervention delivery is external and does not consume a lag-1 evaluation slot. No ordinary loss occurs before the first causal growth exposure.",
+  "probe_support": "x is still selected from the checkpoint's exact finite-budget evaluated candidate set using the same first-exposure input.",
+  "lag1_control": "During lag 1 growth PREVENT removes x from the frontier before finite-budget selection; FORCE-derived branches contain x as an occupied neighbour. Ordinary loss follows growth.",
+  "transient_equalization": "Immediately after lag 1 growth+loss, x is explicitly removed from both TRANSIENT and PREVENT and absence is asserted.",
+  "later_x_semantics": "From lag 2 onward no branch specially blocks x. Natural reoccupation is downstream dynamics and x remains excluded from outcome accounting.",
+  "retained_semantics": "RETAINED means x is not experimentally removed after the intervention. It is not clamped occupied and remains subject to ordinary loss/reoccupation.",
+  "retained_offset_test": {
+    "late_mean_floor": 0.02,
+    "requires_late_ci_above_zero": true,
+    "requires_fit_c_ci_above_zero": true
+  },
+  "transient_convergence_test": {
+    "absolute_late_mean_floor": 0.02,
+    "ci_bound": 0.04
+  },
+  "descriptive_fit": "gain(tau)=A*exp(-tau/lambda)+c",
+  "critical_reference": "Only transient G(30) is compared descriptively with 1.",
+  "formal_branching_ratio_claim": false,
+  "primary_inference_uses": "group means; probes within one checkpoint are repeated measures",
+  "validity_assertions": [
+    "FORCE x present before lag-1 growth",
+    "PREVENT x blocked from lag-1 frontier before selection",
+    "PREVENT x not attached at lag 1",
+    "x absent from TRANSIENT and PREVENT after lag-1 cleanup"
+  ],
+  "status": "FROZEN"
+}

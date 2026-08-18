@@ -1,0 +1,479 @@
+# Stage 3 — Corrected Local Gain Regimes by Probe Stratum
+
+```json
+{
+  "strata": [
+    {
+      "probe": 0,
+      "quantile": 0.2,
+      "baseline_probability": {
+        "n": 96,
+        "mean": 0.366574512808095,
+        "ci95_low": 0.3547580805586106,
+        "ci95_high": 0.3776740600002252,
+        "half_width": 0.011457989720807304
+      },
+      "occupied_neighbor_count": {
+        "n": 96,
+        "mean": 1.0625,
+        "ci95_low": 1.0208333333333333,
+        "ci95_high": 1.1145833333333333,
+        "half_width": 0.046875
+      },
+      "ring1_newly_promoted_frontier": {
+        "n": 96,
+        "mean": 2.2083333333333335,
+        "ci95_low": 2.0104166666666665,
+        "ci95_high": 2.3958333333333335,
+        "half_width": 0.19270833333333348
+      },
+      "global_frontier_delta_if_forced_before_loss": {
+        "n": 96,
+        "mean": 1.2083333333333333,
+        "ci95_low": 1.0104166666666667,
+        "ci95_high": 1.3958333333333333,
+        "half_width": 0.19270833333333326
+      },
+      "g_mech_1": {
+        "n": 96,
+        "mean": 0.23498578954471053,
+        "ci95_low": 0.172169148301312,
+        "ci95_high": 0.3031984955578778,
+        "half_width": 0.06551467362828291
+      },
+      "retained_g1": {
+        "n": 96,
+        "mean": 0.25,
+        "ci95_low": 0.14583333333333334,
+        "ci95_high": 0.3544270833333343,
+        "half_width": 0.10429687500000047
+      },
+      "retained_G30": {
+        "n": 96,
+        "mean": 1.09375,
+        "ci95_low": -0.09375,
+        "ci95_high": 2.3125,
+        "half_width": 1.203125
+      },
+      "transient_G30": {
+        "n": 96,
+        "mean": 0.21875,
+        "ci95_low": -0.3541666666666667,
+        "ci95_high": 0.7916666666666666,
+        "half_width": 0.5729166666666666
+      },
+      "retained_late_mean": {
+        "n": 96,
+        "mean": -0.012500000000000006,
+        "ci95_low": -0.08125,
+        "ci95_high": 0.065625,
+        "half_width": 0.0734375
+      },
+      "transient_late_mean": {
+        "n": 96,
+        "mean": -1.1564823173178713e-18,
+        "ci95_low": -0.038541666666666675,
+        "ci95_high": 0.03854166666666667,
+        "half_width": 0.03854166666666667
+      },
+      "retained_x_occupied_growth_exposures": {
+        "n": 96,
+        "mean": 18.40625,
+        "ci95_low": 16.864583333333332,
+        "ci95_high": 19.895833333333332,
+        "half_width": 1.515625
+      },
+      "retained_x_occupancy_fraction": {
+        "n": 96,
+        "mean": 0.6135416666666667,
+        "ci95_low": 0.561111111111111,
+        "ci95_high": 0.6646180555555556,
+        "half_width": 0.05175347222222232
+      },
+      "transient_x_reoccupation_fraction": {
+        "n": 96,
+        "mean": 0.8020833333333334,
+        "ci95_low": 0.71875,
+        "ci95_high": 0.875,
+        "half_width": 0.078125
+      },
+      "prevent_x_reoccupation_fraction": {
+        "n": 96,
+        "mean": 0.78125,
+        "ci95_low": 0.6979166666666666,
+        "ci95_high": 0.8541666666666666,
+        "half_width": 0.078125
+      }
+    },
+    {
+      "probe": 1,
+      "quantile": 0.4,
+      "baseline_probability": {
+        "n": 96,
+        "mean": 0.44313040721088687,
+        "ci95_low": 0.42721085930157093,
+        "ci95_high": 0.46011632250881246,
+        "half_width": 0.016452731603620763
+      },
+      "occupied_neighbor_count": {
+        "n": 96,
+        "mean": 3.1145833333333335,
+        "ci95_low": 2.8645833333333335,
+        "ci95_high": 3.3645833333333335,
+        "half_width": 0.25
+      },
+      "ring1_newly_promoted_frontier": {
+        "n": 96,
+        "mean": 0.5104166666666666,
+        "ci95_low": 0.3229166666666667,
+        "ci95_high": 0.7083333333333334,
+        "half_width": 0.19270833333333334
+      },
+      "global_frontier_delta_if_forced_before_loss": {
+        "n": 96,
+        "mean": -0.4895833333333333,
+        "ci95_low": -0.6666666666666666,
+        "ci95_high": -0.28125,
+        "half_width": 0.19270833333333331
+      },
+      "g_mech_1": {
+        "n": 96,
+        "mean": 0.08946700043640371,
+        "ci95_low": 0.03997297937885144,
+        "ci95_high": 0.1419655291474737,
+        "half_width": 0.05099627488431113
+      },
+      "retained_g1": {
+        "n": 96,
+        "mean": 0.11458333333333333,
+        "ci95_low": 0.041666666666666664,
+        "ci95_high": 0.19791666666666666,
+        "half_width": 0.078125
+      },
+      "retained_G30": {
+        "n": 96,
+        "mean": 1.3020833333333333,
+        "ci95_low": 0.375,
+        "ci95_high": 2.2815104166666678,
+        "half_width": 0.9532552083333339
+      },
+      "transient_G30": {
+        "n": 96,
+        "mean": -0.010416666666666666,
+        "ci95_low": -0.22916666666666666,
+        "ci95_high": 0.19791666666666666,
+        "half_width": 0.21354166666666666
+      },
+      "retained_late_mean": {
+        "n": 96,
+        "mean": 0.012499999999999999,
+        "ci95_low": -0.03333333333333333,
+        "ci95_high": 0.057291666666666664,
+        "half_width": 0.0453125
+      },
+      "transient_late_mean": {
+        "n": 96,
+        "mean": -0.0010416666666666664,
+        "ci95_low": -0.015625,
+        "ci95_high": 0.013567708333333428,
+        "half_width": 0.014596354166666714
+      },
+      "retained_x_occupied_growth_exposures": {
+        "n": 96,
+        "mean": 18.3125,
+        "ci95_low": 16.770833333333332,
+        "ci95_high": 19.770833333333332,
+        "half_width": 1.5
+      },
+      "retained_x_occupancy_fraction": {
+        "n": 96,
+        "mean": 0.6104166666666666,
+        "ci95_low": 0.5624913194444444,
+        "ci95_high": 0.6586805555555555,
+        "half_width": 0.04809461805555554
+      },
+      "transient_x_reoccupation_fraction": {
+        "n": 96,
+        "mean": 0.90625,
+        "ci95_low": 0.84375,
+        "ci95_high": 0.9583333333333334,
+        "half_width": 0.057291666666666685
+      },
+      "prevent_x_reoccupation_fraction": {
+        "n": 96,
+        "mean": 0.8958333333333334,
+        "ci95_low": 0.8333333333333334,
+        "ci95_high": 0.9479166666666666,
+        "half_width": 0.05729166666666663
+      }
+    },
+    {
+      "probe": 2,
+      "quantile": 0.6,
+      "baseline_probability": {
+        "n": 96,
+        "mean": 0.6878354604509068,
+        "ci95_low": 0.6765048324053391,
+        "ci95_high": 0.6979585456789362,
+        "half_width": 0.010726856636798565
+      },
+      "occupied_neighbor_count": {
+        "n": 96,
+        "mean": 2.9375,
+        "ci95_low": 2.875,
+        "ci95_high": 2.9895833333333335,
+        "half_width": 0.05729166666666674
+      },
+      "ring1_newly_promoted_frontier": {
+        "n": 96,
+        "mean": 0.1875,
+        "ci95_low": 0.11458333333333333,
+        "ci95_high": 0.2604166666666667,
+        "half_width": 0.07291666666666669
+      },
+      "global_frontier_delta_if_forced_before_loss": {
+        "n": 96,
+        "mean": -0.8125,
+        "ci95_low": -0.8854166666666666,
+        "ci95_high": -0.7291666666666666,
+        "half_width": 0.078125
+      },
+      "g_mech_1": {
+        "n": 96,
+        "mean": 0.07537194400397797,
+        "ci95_low": 0.02758537370961834,
+        "ci95_high": 0.12497512496603597,
+        "half_width": 0.04869487562820882
+      },
+      "retained_g1": {
+        "n": 96,
+        "mean": 0.07291666666666667,
+        "ci95_low": -0.010416666666666666,
+        "ci95_high": 0.16666666666666666,
+        "half_width": 0.08854166666666666
+      },
+      "retained_G30": {
+        "n": 96,
+        "mean": 0.3229166666666667,
+        "ci95_low": -0.4065104166666666,
+        "ci95_high": 1.0208333333333333,
+        "half_width": 0.713671875
+      },
+      "transient_G30": {
+        "n": 96,
+        "mean": 0.03125,
+        "ci95_low": -0.1875,
+        "ci95_high": 0.28125,
+        "half_width": 0.234375
+      },
+      "retained_late_mean": {
+        "n": 96,
+        "mean": -0.027083333333333334,
+        "ci95_low": -0.06874999999999999,
+        "ci95_high": 0.011458333333333334,
+        "half_width": 0.04010416666666666
+      },
+      "transient_late_mean": {
+        "n": 96,
+        "mean": -0.004166666666666667,
+        "ci95_low": -0.01875,
+        "ci95_high": 0.006250000000000001,
+        "half_width": 0.0125
+      },
+      "retained_x_occupied_growth_exposures": {
+        "n": 96,
+        "mean": 18.177083333333332,
+        "ci95_low": 16.71875,
+        "ci95_high": 19.604427083333334,
+        "half_width": 1.4428385416666671
+      },
+      "retained_x_occupancy_fraction": {
+        "n": 96,
+        "mean": 0.6059027777777778,
+        "ci95_low": 0.5590190972222222,
+        "ci95_high": 0.6524305555555555,
+        "half_width": 0.046705729166666654
+      },
+      "transient_x_reoccupation_fraction": {
+        "n": 96,
+        "mean": 0.8958333333333334,
+        "ci95_low": 0.8333333333333334,
+        "ci95_high": 0.9479166666666666,
+        "half_width": 0.05729166666666663
+      },
+      "prevent_x_reoccupation_fraction": {
+        "n": 96,
+        "mean": 0.8958333333333334,
+        "ci95_low": 0.8333333333333334,
+        "ci95_high": 0.9479166666666666,
+        "half_width": 0.05729166666666663
+      }
+    },
+    {
+      "probe": 3,
+      "quantile": 0.8,
+      "baseline_probability": {
+        "n": 96,
+        "mean": 0.8178494729660223,
+        "ci95_low": 0.8074718464778654,
+        "ci95_high": 0.8280803663468387,
+        "half_width": 0.010304259934486637
+      },
+      "occupied_neighbor_count": {
+        "n": 96,
+        "mean": 4.260416666666667,
+        "ci95_low": 4.15625,
+        "ci95_high": 4.354166666666667,
+        "half_width": 0.09895833333333348
+      },
+      "ring1_newly_promoted_frontier": {
+        "n": 96,
+        "mean": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0,
+        "half_width": 0.0
+      },
+      "global_frontier_delta_if_forced_before_loss": {
+        "n": 96,
+        "mean": -1.0,
+        "ci95_low": -1.0,
+        "ci95_high": -1.0,
+        "half_width": 0.0
+      },
+      "g_mech_1": {
+        "n": 96,
+        "mean": 0.011089893253116231,
+        "ci95_low": -0.0063570731944371005,
+        "ci95_high": 0.028528570466769796,
+        "half_width": 0.017442821830603448
+      },
+      "retained_g1": {
+        "n": 96,
+        "mean": 0.0,
+        "ci95_low": -0.041666666666666664,
+        "ci95_high": 0.041666666666666664,
+        "half_width": 0.041666666666666664
+      },
+      "retained_G30": {
+        "n": 96,
+        "mean": 0.23958333333333334,
+        "ci95_low": -0.3960937499999999,
+        "ci95_high": 0.8333333333333334,
+        "half_width": 0.6147135416666667
+      },
+      "transient_G30": {
+        "n": 96,
+        "mean": -0.07291666666666667,
+        "ci95_low": -0.3127604166666666,
+        "ci95_high": 0.08333333333333333,
+        "half_width": 0.19804687499999996
+      },
+      "retained_late_mean": {
+        "n": 96,
+        "mean": -0.024999999999999998,
+        "ci95_low": -0.056249999999999994,
+        "ci95_high": 0.0031510416666667637,
+        "half_width": 0.02970052083333338
+      },
+      "transient_late_mean": {
+        "n": 96,
+        "mean": -0.005208333333333333,
+        "ci95_low": -0.015625,
+        "ci95_high": 0.0,
+        "half_width": 0.0078125
+      },
+      "retained_x_occupied_growth_exposures": {
+        "n": 96,
+        "mean": 18.21875,
+        "ci95_low": 16.72890625,
+        "ci95_high": 19.75,
+        "half_width": 1.5105468749999993
+      },
+      "retained_x_occupancy_fraction": {
+        "n": 96,
+        "mean": 0.6072916666666667,
+        "ci95_low": 0.5569357638888888,
+        "ci95_high": 0.6566059027777778,
+        "half_width": 0.04983506944444449
+      },
+      "transient_x_reoccupation_fraction": {
+        "n": 96,
+        "mean": 0.9375,
+        "ci95_low": 0.8854166666666666,
+        "ci95_high": 0.9791666666666666,
+        "half_width": 0.046875
+      },
+      "prevent_x_reoccupation_fraction": {
+        "n": 96,
+        "mean": 0.9375,
+        "ci95_low": 0.8854166666666666,
+        "ci95_high": 0.9791666666666666,
+        "half_width": 0.046875
+      }
+    }
+  ],
+  "paired_lowest_vs_highest": {
+    "frontier_delta_low_minus_high": {
+      "summary": {
+        "n": 96,
+        "mean": 2.2083333333333335,
+        "ci95_low": 2.020572916666667,
+        "ci95_high": 2.40625,
+        "half_width": 0.19283854166666647
+      },
+      "paired_signflip_two_sided": {
+        "n": 96,
+        "observed_mean": 2.2083333333333335,
+        "p_value": 0.00012498437695288088,
+        "permutations": 8000
+      }
+    },
+    "promoted_frontier_low_minus_high": {
+      "summary": {
+        "n": 96,
+        "mean": 2.2083333333333335,
+        "ci95_low": 2.0,
+        "ci95_high": 2.3958333333333335,
+        "half_width": 0.19791666666666674
+      },
+      "paired_signflip_two_sided": {
+        "n": 96,
+        "observed_mean": 2.2083333333333335,
+        "p_value": 0.00012498437695288088,
+        "permutations": 8000
+      }
+    },
+    "transient_G30_low_minus_high": {
+      "summary": {
+        "n": 96,
+        "mean": 0.2916666666666667,
+        "ci95_low": -0.2919270833333333,
+        "ci95_high": 0.9166666666666666,
+        "half_width": 0.604296875
+      },
+      "paired_signflip_two_sided": {
+        "n": 96,
+        "observed_mean": 0.2916666666666667,
+        "p_value": 0.37095363079615046,
+        "permutations": 8000
+      }
+    },
+    "retained_G30_low_minus_high": {
+      "summary": {
+        "n": 96,
+        "mean": 0.8541666666666666,
+        "ci95_low": -0.6252604166666665,
+        "ci95_high": 2.2815104166666678,
+        "half_width": 1.453385416666667
+      },
+      "paired_signflip_two_sided": {
+        "n": 96,
+        "observed_mean": 0.8541666666666666,
+        "p_value": 0.25821772278465194,
+        "permutations": 8000
+      }
+    }
+  },
+  "scope": "Probe quantiles were predeclared. Stratum intervals are descriptive/confirmatory for this frozen V5 protocol; group is the independent unit."
+}
+```

@@ -1,0 +1,19 @@
+# Stage 1 — Corrected Retained and Transient Interventions
+
+```json
+{
+  "requested_groups": 96,
+  "groups_used": 96,
+  "skipped_groups": 0,
+  "total_probes": 384,
+  "probes_per_group": 4,
+  "maximum_capacity_fraction": 0.03918664919974939,
+  "capacity_gate_passed": true,
+  "coverage_gate_passed": true,
+  "intervention_control_gate_passed": true,
+  "lag1_force_present_fraction": 1.0,
+  "lag1_prevent_blocked_fraction": 1.0,
+  "lag1_equalized_fraction": 1.0,
+  "status": "MEASURED"
+}
+```

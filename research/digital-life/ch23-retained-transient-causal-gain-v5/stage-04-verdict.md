@@ -1,0 +1,123 @@
+# Stage 4 — Bounded Chapter 23 V5 Verdict
+
+```json
+{
+  "validity": {
+    "valid": true,
+    "capacity_gate": true,
+    "coverage_gate": true,
+    "intervention_control_gate": true
+  },
+  "retained_offset": {
+    "late_mean": {
+      "n": 96,
+      "mean": -0.013020833333333334,
+      "ci95_low": -0.039322916666666666,
+      "ci95_high": 0.013287760416666693,
+      "half_width": 0.02630533854166668
+    },
+    "fit_c": {
+      "n": 96,
+      "mean": -0.29050272515484943,
+      "ci95_low": -0.4467594661257334,
+      "ci95_high": -0.14184747374783596,
+      "half_width": 0.15245599618894873
+    },
+    "floor": 0.02,
+    "status": "FAILED",
+    "note": "RETAINED means not experimentally removed; x is not clamped occupied and remains subject to ordinary loss/reoccupation."
+  },
+  "transient_cumulative_consequence": {
+    "G30": {
+      "n": 96,
+      "mean": 0.041666666666666664,
+      "ci95_low": -0.13541666666666666,
+      "ci95_high": 0.21614583333333334,
+      "half_width": 0.17578125
+    },
+    "status": "POSITIVE_TOTAL_NOT_ESTABLISHED"
+  },
+  "transient_convergence": {
+    "late_mean": {
+      "n": 96,
+      "mean": -0.0026041666666666674,
+      "ci95_low": -0.0140625,
+      "ci95_high": 0.009114583333333334,
+      "half_width": 0.011588541666666667
+    },
+    "status": "SUPPORTED",
+    "claim": "No continuing positive transient accumulation over the frozen late window."
+  },
+  "retained_minus_transient": {
+    "difference": {
+      "n": 96,
+      "mean": 0.6979166666666666,
+      "ci95_low": 0.2994791666666667,
+      "ci95_high": 1.1015625,
+      "half_width": 0.40104166666666663
+    },
+    "status": "SUPPORTED_RETAINED_LARGER"
+  },
+  "transient_critical_reference": {
+    "G30": {
+      "n": 96,
+      "mean": 0.041666666666666664,
+      "ci95_low": -0.13541666666666666,
+      "ci95_high": 0.21614583333333334,
+      "half_width": 0.17578125
+    },
+    "status": "TRANSIENT_GAIN_BELOW_ONE_REFERENCE",
+    "note": "Reference only. Transient G(30) is not asserted to be a formal branching ratio."
+  },
+  "one_step_mechanical_accounting": {
+    "discrepancy": {
+      "n": 96,
+      "mean": 0.006646343190447892,
+      "ci95_low": -0.020998139600589237,
+      "ci95_high": 0.03555487395016391,
+      "half_width": 0.028276506775376572
+    },
+    "status": "CONSISTENT_WITH_MECHANICS"
+  },
+  "focal_state_diagnostics": {
+    "retained_x_occupied_growth_exposures": {
+      "n": 96,
+      "mean": 18.278645833333332,
+      "ci95_low": 17.536393229166666,
+      "ci95_high": 19.0078125,
+      "half_width": 0.7357096354166668
+    },
+    "retained_x_occupancy_fraction": {
+      "n": 96,
+      "mean": 0.6092881944444445,
+      "ci95_low": 0.585154079861111,
+      "ci95_high": 0.6336848958333333,
+      "half_width": 0.024265407986111154
+    },
+    "retained_x_present_at_horizon_fraction": 0.4453125,
+    "transient_x_reoccupation_fraction": 0.8854166666666666,
+    "prevent_x_reoccupation_fraction": 0.8776041666666666,
+    "transient_first_reoccupation_lag_mean": 8.976470588235294,
+    "prevent_first_reoccupation_lag_mean": 9.050445103857566
+  },
+  "overall_status": "CORRECTED_TRANSIENT_CONSEQUENCE_SEPARATED_FROM_RETAINED_ARM",
+  "bounded_claim": "Under the frozen V5 corrected intervention, the transient branch is practically consistent with no continuing positive late accumulation, while the retained arm produces a larger finite-horizon cumulative consequence. A positive transient total is not independently established.",
+  "forbidden_overclaims": [
+    "formal branching ratio",
+    "supercritical neighbourhood",
+    "proof of subcriticality",
+    "permanent retained occupancy",
+    "mathematical convergence theorem",
+    "critical point",
+    "phase transition",
+    "directed percolation",
+    "Hawkes process",
+    "excitable medium",
+    "wave",
+    "individuality",
+    "organism",
+    "life"
+  ],
+  "next_if_strata_remain_large": "Re-evaluate corrected stratum contrasts before promoting any geometry-to-long-run-gain relationship. Do not rescue failed comparisons by changing the frozen probe strata."
+}
+```

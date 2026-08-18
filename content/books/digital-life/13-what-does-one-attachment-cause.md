@@ -2,7 +2,7 @@
 title = "13: What Does One Attachment Cause?"
 date = "2026-08-14T20:00:00+01:00"
 draft = false
-description = "Force one cell to attach, prevent it in the counterfactual, and measure everything else. The immediate effect matches the local rule; persistent occupancy produces larger finite-horizon consequences, while transient accumulation does not continue."
+description = "Force one cell to attach, prevent it in the counterfactual, and measure everything else. The immediate effect matches the local rule, retaining the initiating cell produces a larger finite-horizon consequence than removing it, and a negative construction difference appears beyond the local region."
 weight = 13
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Causality", "Intervention", "Experimental Method"]
@@ -204,12 +204,12 @@ mechanically expected one-step gain     g_mech_1 ≈ 0.105
 realized one-step neighbouring gain     g1       ≈ 0.115
 ```
 
-The discrepancy interval included zero and stayed inside the frozen accounting tolerance. A later fresh-seed experiment replicated it:
+The discrepancy interval included zero and stayed inside the frozen accounting tolerance. The corrected fresh-seed experiment described below replicated it:
 
 ```text
-g_mech_1        0.0883    [0.0676, 0.1095]
-g1              0.1016    [0.0677, 0.1380]
-g1 − g_mech_1   0.0132    [−0.0160, 0.0411]
+g_mech_1        0.1027    [0.0782, 0.1276]
+g1              0.1094    [0.0703, 0.1510]
+g1 − g_mech_1   0.0066    [−0.0210, 0.0356]
 ```
 
 ```text
@@ -230,7 +230,7 @@ Everything that follows is about what happens after the first update, where the 
 
 ## Then the Futures Keep Separating
 
-Ten updates after the intervention, the cumulative construction difference was around:
+In the first, two-branch version of this experiment, ten updates after the intervention the cumulative construction difference was around:
 
 ```text
 G_10 ≈ 0.58
@@ -248,7 +248,7 @@ It was also tempting to compare 0.58 against the obvious reference value of one 
 
 But there is a confound sitting in the middle of the design, and it is the same shape as the confound that ruined the surface-versus-interior comparison in the *Can Experience Change the Material?* chapter.
 
-In the FORCE branch, `x` is still there. It did not merely happen; it remains occupied, and it goes on being an occupied neighbour to everything around it on every subsequent update. So the accumulating difference could be either of two quite different things:
+In the FORCE branch, `x` was never taken away. It did not merely happen; it goes on being available as an occupied neighbour to everything around it on every subsequent update. So the accumulating difference could be either of two quite different things:
 
 ```text
 a free-running cascade
@@ -257,7 +257,7 @@ a free-running cascade
 or
 
 the continuing consequence
-    of one cell being permanently different
+    of one cell being left unremoved
 ```
 
 Those are not the same phenomenon, and the experiment as built could not tell them apart.
@@ -269,9 +269,10 @@ Those are not the same phenomenon, and the experiment as built could not tell th
 The fix is a third branch.
 
 ```text
-PREVENT      x does not attach
+PREVENT      x is held absent through the causal exposure
 
-PERSISTENT   x is forced to attach, then remains under normal dynamics
+RETAINED     x is forced to attach and is not experimentally
+             removed; its later fate follows ordinary dynamics
 
 TRANSIENT    x is forced to attach, gets one full causal update,
              and is then removed
@@ -279,41 +280,53 @@ TRANSIENT    x is forced to attach, gets one full causal update,
 
 The transient arm is the critical control.
 
-It allows the forced attachment to influence one complete subsequent update. Then the initiating occupancy difference is removed.
+It allows the forced attachment to influence one complete subsequent update. Then the initiating occupancy difference is removed from both branches.
 
 From that point onward, any remaining divergence has to be carried by consequences already created downstream rather than by the continued presence of `x`.
 
 > **Can a causal consequence sustain itself after the material difference that started it is gone?**
 
-That is a far better question than asking whether FORCE and PREVENT still differ later. It also required a correction to the intervention timing: force and prevent now happen inside the canonical growth update, with the ordinary loss step applied to every branch afterwards, so that the forced cell faces the same background loss as any other newly attached cell.
+That is a far better question than asking whether FORCE and PREVENT still differ later. Getting the experiment to actually ask it took two attempts.
 
-The fresh-seed run used 96 independent groups and 384 interventions across four predeclared frontier-probability strata, with the observation window extended to thirty updates.
+An earlier version of this control left the PREVENT branch free to reacquire the focal cell during the first exposure, and deleted `x` from the transient branch only. The focal states were therefore not guaranteed equal when the measurement window opened, and on a minority of probes the control ended up holding the cell the treatment branch had just been stripped of — the intervention's own sign, reversed. Background loss could also destroy the forced cell before it had influenced anything.
+
+The corrected intervention closes both routes. `x` is placed directly into the forced branches at the checkpoint, with no loss step before the exposure, so the intervention is always delivered. During the single exposure update, PREVENT removes `x` from the frontier before finite-budget selection, so it cannot attach. Immediately after that update, `x` is deleted from both the transient and the prevent branch and their agreement is asserted rather than assumed. From the next update onward neither branch treats `x` specially: it may reoccupy naturally in either, and when it does, that reoccupation is part of the downstream process rather than a failure of the control. Throughout, `x` itself stays excluded from every measured outcome.
+
+Those three conditions are checked on every probe:
+
+```text
+FORCE present through the exposure      1.000
+PREVENT blocked through the exposure    1.000
+focal states equal after the exposure   1.000
+```
+
+The corrected fresh-seed run used 96 independent groups and 384 interventions across four predeclared frontier-probability strata, with the observation window extended to thirty updates.
 
 ---
 
-## The Transient Accumulation Stops Growing
+## What Survives Removing the Cause
+
+Two different questions live inside the transient arm, and the corrected experiment answers only one of them.
+
+The first is whether any positive consequence accumulates at all:
 
 ```text
-G_transient(30)   0.198    [−0.026, 0.440]
+G_transient(30)   0.042    [−0.135, 0.216]
 ```
 
-More informative than the total is the late-time rate. Across updates 21 through 30:
+The interval spans zero. A positive thirty-update transient total is not established. Whatever residue remains after the initiating occupancy is equalized away is too small for this design to separate from nothing.
+
+The second question is about the *rate*, and that one is answerable. Across updates 21 through 30:
 
 ```text
-transient late gain   −0.0081 per update    [−0.0201, 0.0039]
+transient late gain   −0.0026 per update    [−0.0141, 0.0091]
 ```
 
-which passed the frozen practical-convergence criterion. Within the tested late window, the transient branch shows no continuing positive accumulation rate.
+which satisfies the frozen practical-convergence criterion.
 
-The late accumulation rate satisfies the predeclared practical-convergence criterion.
+> **After one controlled causal exposure and focal-state equalization, no continuing positive transient accumulation is established over the tested late window.**
 
-That earns a narrower statement:
-
-> **Once the initiating occupancy is removed, no continuing positive accumulation rate is established over the tested late window.**
-
-A residual branch difference may remain.
-
-What the experiment rules out under this criterion is continuing positive accumulation, not the existence of every downstream difference.
+Those are not the same result, and collapsing them would be an error in either direction. A total unresolved around zero is not a total shown to be zero. A late rate consistent with no continuing growth is not a claim that every downstream difference has vanished, or that the transient branch has returned exactly to PREVENT.
 
 The thirty-update transient total also sits below the descriptive reference value of one, and it is worth stating plainly what we are *not* saying. This is not a branching ratio. We have not established subcriticality, criticality, or any position relative to a phase transition. Those terms come from theories with structure this experiment has not tested — a branching ratio presumes a well-defined offspring distribution, and we have measured a construction difference under one intervention, one horizon and one substrate. The number is below one. That is all it means.
 
@@ -321,42 +334,54 @@ The thirty-update transient total also sits below the descriptive reference valu
 
 ## Leave the Cause in Place
 
-The persistent arm behaves very differently.
+The retained arm behaves very differently.
 
 ```text
-G_persistent(30)                  1.164    [0.786, 1.542]
-G_transient(30)                   0.198
-difference                        0.966    [0.612, 1.333]
+G_retained(30)                    0.740    [0.294, 1.188]
+G_transient(30)                   0.042
+difference                        0.698    [0.299, 1.102]
 ```
 
-The thirty-step consequence is substantially larger when the initiating state difference remains present than when it is removed after one causal update.
+The thirty-step consequence is substantially larger when the initiating cell is left unremoved than when it is deleted after one causal update.
 
 ```text
-PERSISTENT STATE DIFFERENCE
+RETAINED STATE DIFFERENCE
 ≠
 TRANSIENT CAUSAL CASCADE
 ```
 
-This is the same lesson the *Can Experience Change the Material?* chapter taught about material traces, arriving now at the scale of a single cell. There, persistent material mattered while it stayed coupled to the interface, and the persistence was doing the work rather than any propagating consequence. Here, the continued state difference carries substantially more cumulative consequence than the transient residue left after that difference is removed.
+This is the same lesson the *Can Experience Change the Material?* chapter taught about material traces, arriving now at the scale of a single cell. There, retained material mattered while it stayed coupled to the interface, and the retention was doing the work rather than any propagating consequence. Here, not removing the initiating cell carries substantially more cumulative consequence than the transient residue left after removal.
 
-But persistent does not mean permanent, and the obvious next interpretation dies too. If keeping `x` gave the branch a standing growth advantage, cumulative gain would rise roughly linearly with horizon forever. It does not:
+Retained is not the same word as permanent, and the experiment now measures exactly how far apart they are. `x` is not clamped occupied in this arm. It faces the same background loss as any other cell:
 
 ```text
-H=1     0.156
-H=5     0.539
-H=10    0.839
-H=17    1.008
-H=22    1.190
-H=30    1.164
+updates x occupied, of 30        18.28    [17.54, 19.01]
+occupancy fraction               0.609    [0.585, 0.634]
+still present at update 30       0.445
+```
+
+So this is not a branch in which one cell stays different for thirty updates. It is a branch in which the experiment declines to remove that cell and lets ordinary dynamics decide the rest. The comparison is between removal and non-removal, not between presence and absence.
+
+The behaviour after equalization is worth recording too. `x` reoccupies naturally in 88.5% of transient branches and 87.8% of prevent branches, first returning around update nine in both. Once the focal state is equalized, the site behaves almost identically in the two branches — which is what a working control should look like.
+
+The obvious next interpretation dies as well. If not removing `x` gave the branch a standing growth advantage, cumulative gain would rise roughly linearly with horizon forever. It does not:
+
+```text
+H=1     0.039
+H=5     0.448
+H=10    0.646
+H=17    0.875
+H=22    0.898
+H=30    0.740
 ```
 
 and the late-window rate was:
 
 ```text
-persistent late gain   0.0057 per update    [−0.0159, 0.0281]
+retained late gain   −0.0130 per update    [−0.0393, 0.0133]
 ```
 
-An interval spanning zero, far below the predeclared offset threshold. The persistent trajectory rises early, flattens, and then wanders. No permanent positive growth offset was established.
+An interval spanning zero with a negative point estimate, failing the predeclared positive-offset threshold. The retained trajectory rises early, flattens, and then declines. No permanent positive growth offset was established.
 
 So under this intervention and thirty-update horizon, one attachment produces:
 
@@ -364,11 +389,11 @@ So under this intervention and thirty-update horizon, one attachment produces:
 an immediate mechanically accounted effect
 ↓
 a transient downstream difference
-whose positive accumulation stops
-under the late-window criterion
+whose positive total is unresolved
+and whose late accumulation does not continue
 ↓
 a substantially larger cumulative consequence
-when the initiating state remains present
+when the initiating cell is left unremoved
 ```
 
 Neither branch established a permanent positive growth-rate offset.
@@ -377,21 +402,24 @@ Neither branch established a permanent positive growth-rate offset.
 
 ## Four Different Claims
 
-It is worth separating what has now become four distinct causal statements, because ordinary language collapses them into "the attachment mattered":
+It is worth separating what has now become five distinct causal statements, because ordinary language collapses them all into "the attachment mattered":
 
 DIRECT MECHANICAL EFFECT
-measured and consistent with the frozen rule
+supported; consistent with the frozen rule
 
-TRANSIENT DOWNSTREAM CONSEQUENCE
-measured; no continuing positive late accumulation established
+POSITIVE TRANSIENT CUMULATIVE CONSEQUENCE
+not established; the thirty-update interval spans zero
 
-CONSEQUENCE OF PERSISTENT STATE
-measured; substantially larger over the tested horizon
+CONTINUING POSITIVE TRANSIENT ACCUMULATION
+failed; the late rate satisfies the convergence criterion
 
-PERMANENT GROWTH-RATE CHANGE
+CONSEQUENCE OF RETAINING THE INITIATING CELL
+supported; substantially larger than the transient arm over the tested horizon
+
+PERMANENT POSITIVE GROWTH-RATE OFFSET
 not established
 
-Only the first three have evidence. They are not interchangeable, and an experiment that measures one and reports another — which is what the ten-update version was doing — will get the story wrong in a way no amount of extra precision would fix.
+The fourth and fifth rows used to be one row, and so did the second and third. Splitting them is the whole benefit of the corrected control. An experiment that measures one of these and reports another — which is what the ten-update version was doing — will get the story wrong in a way no amount of extra precision would fix.
 
 ---
 
@@ -399,20 +427,20 @@ Only the first three have evidence. They are not interchangeable, and an experim
 
 One more result from the intervention runs, and it is the one that generates the second half of the chapter.
 
-The four probability strata sit in visibly different geometry. The lowest-probability probes were sparse sites — mean baseline attachment probability around 0.372, with almost exactly one occupied neighbour. The highest-probability probes were dense — baseline around 0.798, with roughly 4.07 occupied neighbours.
+The four probability strata sit in visibly different geometry. The lowest-probability probes were sparse sites — mean baseline attachment probability around 0.367, with almost exactly one occupied neighbour. The highest-probability probes were dense — baseline around 0.818, with roughly 4.26 occupied neighbours.
 
 Force an attachment in those different geometries and the immediate effect on frontier opportunity changes sign.
 
 ```text
                             SPARSE      DENSE
 
-newly promoted frontier      2.23        0.031
-total frontier change       +1.23       −0.969
+newly promoted frontier      2.21        0.00
+total frontier change       +1.21       −1.00
 ```
 
 At a sparse interface, occupying one cell gives several previously unsupported empty neighbours their first occupied neighbour, and new frontier appears. At a dense interface, almost everything nearby is already occupied or already eligible, so the only substantial change is that the focal site itself leaves the frontier — the attachment consumes opportunity rather than creating it.
 
-The paired difference in frontier creation was about 2.20 sites, interval [1.99, 2.41], `p = 0.000125`.
+The paired difference in frontier creation was about 2.21 sites, interval [2.02, 2.41], `p = 0.000125`.
 
 > **The same one-cell attachment can create or consume very different amounts of immediate frontier opportunity depending on local geometry.**
 
@@ -429,17 +457,17 @@ The obvious stronger hypothesis is that sites creating more immediate frontier o
 The point estimates encourage it:
 
 ```text
-sparse probe    G_transient(30) ≈ 0.677
-dense probe     G_transient(30) ≈ 0.073
+sparse probe    G_transient(30) ≈ 0.219
+dense probe     G_transient(30) ≈ −0.073
 ```
 
 The predeclared paired comparison does not:
 
 ```text
-difference   0.604    [−0.031, 1.271]    p = 0.0777
+difference   0.292    [−0.292, 0.917]    p = 0.371
 ```
 
-and the persistent-arm version is worse still (difference 0.156, `p = 0.810`).
+and the retained-arm version does not either (difference 0.854, interval `[−0.625, 2.282]`, `p = 0.258`).
 
 So we have established that sparse and dense geometry differ, and we have *not* established that sparse geometry produces reliably higher long-run gain. The point estimates make the relationship interesting. They do not make it true.
 
@@ -577,9 +605,9 @@ A local intervention has measurable causal consequences.
 
 Its immediate neighbouring effect is replicated and quantitatively consistent with the frozen rule.
 
-After the initiating occupancy is removed, no continuing positive accumulation rate is established over the tested late window.
+After the initiating occupancy is equalized away, the positive transient total is unresolved and no continuing positive accumulation is established over the tested late window.
 
-When the initiating state remains present, the cumulative thirty-update consequence is substantially larger, but no permanent positive growth-rate offset is established.
+When the initiating cell is left unremoved, the cumulative thirty-update consequence is substantially larger, but no permanent positive growth-rate offset is established.
 
 And the same forced attachment can create or consume very different amounts of immediate frontier opportunity depending on local geometry.
 
@@ -649,6 +677,69 @@ The safest version of the chapter's conclusion, and the one fully earned:
 
 ---
 
+## Experimental Note
+
+The corrected decomposition, in enough detail to audit it.
+
+```text
+groups                   96
+probes per group          4
+total probes            384
+horizon                  30 updates
+late window       updates 21–30
+loss rate                0.08
+evaluation budget        96
+fresh seed         20260906
+```
+
+The intervention, update by update:
+
+```text
+CHECKPOINT
+    RETAINED, TRANSIENT   x inserted as occupied
+    PREVENT               x absent
+    no loss step before the exposure
+
+LAG 1  — one controlled causal exposure
+    forced branches       x present as an occupied neighbour
+    PREVENT               x removed from the frontier before
+                          finite-budget selection, so it cannot attach
+
+AFTER LAG 1 GROWTH AND LOSS
+    TRANSIENT             x removed
+    PREVENT               x removed
+    RETAINED              not touched
+    absence asserted in both equalized branches
+
+LAG 2 ONWARD
+    ordinary dynamics in every branch
+    x may reoccupy naturally; reoccupation is downstream
+    x excluded from all measured outcomes
+```
+
+The measured quantities:
+
+```text
+g_mech_1      expected neighbouring construction difference at lag one,
+              computed from branch probabilities before any Bernoulli draw
+
+g1            realized neighbouring construction difference at lag one
+
+G_A(H)        cumulative local construction difference for arm A,
+              summed over H updates, excluding x
+
+late mean     mean per-update local gain across updates 21–30
+
+difference    retained minus transient, computed per probe before
+              any aggregation, so the PREVENT term cancels
+
+far field     cumulative global minus cumulative local difference
+```
+
+One definition carries weight throughout: **RETAINED does not mean clamped occupancy.** It means the initiating cell was not experimentally removed. Its subsequent fate follows the ordinary loss and reoccupation dynamics, and the focal-state diagnostics above report what that fate actually was.
+
+---
+
 ## Evidence Ledger
 
 | Claim | Status | Evidence |
@@ -656,41 +747,46 @@ The safest version of the chapter's conclusion, and the one fully earned:
 | Local process activity propagates as a distance-lag ridge | **FAILED** | primary statistic missed its gate; estimator shown able to manufacture the shape |
 | The interface behaves as a loss-source / attachment-sink field | **FAILED** | neighbourhood signs opposite, once distance zero was excluded |
 | Attachment raises, and loss lowers, nearby attachment at distances 1–2 | **SUPPORTED** | signed event analysis, decaying by distance 3 |
-| Forcing one attachment causes additional neighbouring construction | **SUPPORTED** | replicated across two runs; `g1 ≈ 0.102` on fresh seed |
-| The immediate effect matches the frozen local rule | **SUPPORTED** | discrepancy `0.0132`, interval `[−0.0160, 0.0411]` |
-| The transient cascade sustains itself after the cause is removed | **FAILED** | late rate `−0.0081` per update, interval spanning zero |
-| Persistent initiating occupancy produces a larger thirty-update cumulative consequence than the transient intervention | **SUPPORTED** | persistent-minus-transient difference `0.966`, interval `[0.612, 1.333]` |
-| The persistent branch retains a positive late growth-rate offset | **FAILED** | late rate `0.0057`, interval spanning zero |
-| Sparse and dense probe geometries differ in immediate frontier-opportunity transformation | **SUPPORTED** | sparse-minus-dense frontier-creation difference `2.20`, interval `[1.99, 2.41]`, `p = 0.000125` |
-| Sparse geometry produces reliably greater long-run gain | **NOT ESTABLISHED** | difference `0.604`, `p = 0.0777`; persistent arm `p = 0.810` |
+| Forcing one attachment causes additional neighbouring construction | **SUPPORTED** | replicated across runs; `g1 ≈ 0.109` on the corrected fresh seed |
+| The immediate effect matches the frozen local rule | **SUPPORTED** | discrepancy `0.0066`, interval `[−0.0210, 0.0356]` |
+| A positive transient cumulative consequence exists at thirty updates | **NOT ESTABLISHED** | `G_transient(30) = 0.042`, interval `[−0.135, 0.216]` |
+| The transient branch sustains continuing positive late accumulation | **FAILED** | late rate `−0.0026` per update, interval spanning zero |
+| Leaving the initiating cell unremoved produces a larger thirty-update cumulative consequence than the transient intervention | **SUPPORTED** | retained-minus-transient difference `0.698`, interval `[0.299, 1.102]` |
+| The retained branch holds a positive late growth-rate offset | **FAILED** | late rate `−0.0130`, interval spanning zero, below the declared floor |
+| The retained cell stays occupied across the horizon | **FAILED** | occupied `18.28` of `30` updates; present at `H=30` on `44.5%` of probes |
+| Sparse and dense probe geometries differ in immediate frontier-opportunity transformation | **SUPPORTED** | sparse-minus-dense frontier-creation difference `2.21`, interval `[2.02, 2.41]`, `p = 0.000125` |
+| Sparse geometry produces reliably greater long-run gain | **NOT ESTABLISHED** | transient difference `0.292`, `p = 0.371`; retained arm `p = 0.258` |
 | Frontier Creation Potential predicts transient gain (first test) | **INCONCLUSIVE** | interval `[−0.078, +0.431]` against declared `+0.15` |
 | Exact local motif predicts transient gain | **INCONCLUSIVE** | half-width `0.50` against declared `0.20` |
 | Recent turnover predicts transient gain | **NOT SUPPORTED (narrow scope)** | `−0.065`, `[−0.221, +0.096]`; substrate had no independent history state |
 | Extreme Frontier Creation Potential produces the declared positive increase in expected lag-one local construction | **FAILED** | `ΔE1 = −0.0026`, interval `[−0.0395, +0.0333]`; achieved precision sufficient to exclude the declared `+0.10` effect |
 | Downstream consequence is unpredictable in principle | **NOT CLAIMED** | three representations tested, not all possible ones |
+| A negative cumulative construction difference appears outside the local measurement region | **SUPPORTED** | retained `−0.318`, interval `[−0.583, −0.068]`; transient `−0.177`, interval `[−0.362, −0.029]` |
+| The shared finite evaluation budget is the mechanism producing that far-field difference | **NOT CLAIMED** | not isolated in this chapter |
 | Branching ratio, criticality, propagating wave, self-sustaining cascade | **NOT CLAIMED** | no such structure tested |
 
 ---
 
 ## Where Does the Difference Go?
 
-There is one measurement left over, and it does not fit anywhere in this chapter.
+There is one measurement left over, and under the corrected intervention it becomes the most consequential thing in the chapter.
 
-Throughout the intervention runs we tracked causal gain twice: locally, around the intervention, and globally, across the whole crystal excluding the intervention site. For the persistent arm those measurements were approximately `1.164` locally and `1.036` globally. For the transient arm they were approximately `0.198` and `0.044`.
+Throughout the intervention runs we tracked causal gain twice: locally, in the region around the intervention, and globally, across the whole crystal excluding the intervention site. Subtracting one from the other gives the construction difference arising outside the local measurement region.
 
-Their differences have intervals spanning zero.
+```text
+              local     global    far field
 
-So there is no established far-field causal effect here.
+RETAINED      0.740     0.422     −0.318   [−0.583, −0.068]
+TRANSIENT     0.042    −0.135     −0.177   [−0.362, −0.029]
+```
 
-The unresolved local-versus-global comparison suggests one concrete mechanism worth testing next, but it does not establish it.
+Both far-field intervals lie below zero.
 
-The selected candidate sets remained more than 99% overlapping between branches, so there is no evidence here of a wholesale rewriting of the global evaluation schedule.
+So the experiment establishes something the local story does not contain. Forcing one attachment is accompanied by *less* construction beyond the region where its local effect is measured, in both arms — and the effect survives in the transient arm, where the initiating cell was removed after a single exposure.
 
-The point estimates for global cumulative difference are smaller than the corresponding local estimates, but their local-minus-global differences have intervals spanning zero.
+> **Under this finite-budget protocol, forcing one attachment produces a negative cumulative construction difference outside the local measurement region.**
 
-So we do not yet have evidence of a compensating far-field effect.
-
-What we do have is a mechanism capable of producing one.
+That is an established difference. It is not an established mechanism, and the gap between those two things matters more here than usual, because a candidate mechanism is already sitting in the substrate.
 
 *What Does It Cost to Stay?* established that active candidates compete for a finite evaluation budget.
 
@@ -708,18 +804,14 @@ changes competition for finite evaluation
 could alter which distant candidates are evaluated
 ```
 
-That possibility has not yet been tested directly.
+The selected candidate sets remained more than 99% overlapping between branches, so whatever produces the far-field difference is not a wholesale rewriting of the global evaluation schedule.
 
-Change the frontier and you change the candidate population competing for a fixed evaluation budget.
-
-That creates a concrete route by which a local intervention **could** affect distant opportunities without any local causal chain connecting the two sites.
-
-That possibility has not yet been tested directly.
+But nothing in this chapter isolates the budget as the cause. The difference could route through the shared selector, through ordinary geometric spillover that the local region failed to enclose, or through something not yet named. Establishing that a difference exists beyond the local region is a much weaker claim than identifying what carries it there, and this experiment did only the first.
 
 The previous chapter failed to find a privileged enclosing body.
 
-This chapter found a local causal effect but no stable local gain variable that predicts its downstream size.
+This chapter found a local causal effect, no stable local gain variable that predicts its downstream size, and a negative construction difference appearing outside the region where the local effect lives.
 
-Together, the results suggest one concrete mechanism worth isolating next: competition for the finite evaluation budget shared by active candidates.
+That last result names its own next experiment.
 
 > **Does competition for a shared finite evaluation budget create measurable causal effects between locations too far apart to interact through the local rule?**

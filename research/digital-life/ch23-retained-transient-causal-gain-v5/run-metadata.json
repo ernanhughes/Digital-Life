@@ -1,0 +1,61 @@
+{
+  "experiment_version": "digital-crystal-retained-transient-causal-gain-v5",
+  "schema_version": 5,
+  "base_model_version": "digital-crystal-v1-frozen",
+  "parent_experiment_version": "digital-crystal-finite-update-budget-v3",
+  "chapter": 23,
+  "run_title": "Retained State, Corrected Transient Consequence, and Local Gain",
+  "profile": "quick",
+  "profile_config": {
+    "groups": 96,
+    "probe_quantiles": [
+      0.2,
+      0.4,
+      0.6,
+      0.8
+    ],
+    "radius": 76,
+    "warmup_steps": 20,
+    "lossy_pre_steps": 20,
+    "horizon": 30,
+    "loss_rate": 0.08,
+    "budget": 96,
+    "interior_margin": 34,
+    "minimum_evaluated_candidates": 24,
+    "late_window_start": 21,
+    "persistent_offset_floor": 0.02,
+    "transient_tail_abs_floor": 0.02,
+    "transient_tail_ci_bound": 0.04,
+    "mechanical_tolerance": 0.1,
+    "bootstrap_reps": 3000,
+    "signflip_permutations": 8000,
+    "alpha": 0.05,
+    "max_capacity_fraction": 0.75,
+    "scientific": true
+  },
+  "seed": 20260906,
+  "previous_seeds": {
+    "v1": 20260902,
+    "v2": 20260903,
+    "v3": 20260904,
+    "v4": 20260905
+  },
+  "fresh_seed": true,
+  "frozen_model_parameters": {
+    "base_bias": -2.1,
+    "neighbor_gain": 0.78,
+    "signal_rate_gain": 0.28,
+    "anisotropy_gain": 0.95,
+    "signal_phase_gain": 1.15,
+    "crowding_penalty": 0.22,
+    "loss_rate": 0.08,
+    "budget": 96
+  },
+  "intervention_timing": "V5 direct state intervention at checkpoint; PREVENT blocks x during lag-1 growth; after lag-1 growth+loss x is removed from TRANSIENT and PREVENT before ordinary lag-2+ dynamics resume.",
+  "canonical_rules_modified": false,
+  "construct_validity_correction": true,
+  "started_at_unix": 1787012042.6409729,
+  "finished_at_unix": 1787012149.2510045,
+  "final_status": "CORRECTED_TRANSIENT_CONSEQUENCE_SEPARATED_FROM_RETAINED_ARM",
+  "transient_reference": "TRANSIENT_GAIN_BELOW_ONE_REFERENCE"
+}
