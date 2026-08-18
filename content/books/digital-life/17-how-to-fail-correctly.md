@@ -497,7 +497,7 @@ UNRESOLVED
 
 under another.
 
-A negative result is not the absence of a positive point estimate.
+A negative result is not the absence of a positive point estimate.[^altman]
 
 It is an inference about what effect sizes the experiment has actually ruled out.
 

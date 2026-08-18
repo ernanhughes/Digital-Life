@@ -21,6 +21,7 @@ We took exactly the same environmental values and rearranged them in time. Smoot
 
 The final morphology could not reliably tell them apart.
 
+```text
 SAME VALUES
 +
 DIFFERENT ORDER
@@ -108,7 +109,6 @@ Save the process, destroy the running instance, reconstruct it from the saved st
 src="/images/books/digital-life/ch15-01-reference-and-checkpoint.png"
 alt="The Digital Crystal input signal with a checkpoint at step 48, together with the crystal at the checkpoint and its final state at step 96."
 caption="The continuous reference trajectory. The midpoint checkpoint will be restored, damaged and replayed in the experiments that follow."
-
 >}}
 
 Then demand something much stronger than visual similarity.
@@ -153,7 +153,7 @@ could still send random draw #1 to a different candidate in each run, and every 
 The experiment had quietly acquired an undeclared variable: implementation order.
 
 That was not part of the Digital Crystal we intended to study. It was an accidental property of the program running it.
- We removed it by canonicalizing the traversal — candidates are visited in sorted order — and added an invariant that serializing and reconstructing a state must produce both the same one-step continuation and the same complete remaining continuation before any experiment is allowed to run.
+We removed it by canonicalizing the traversal — candidates are visited in sorted order — and added an invariant that serializing and reconstructing a state must produce both the same one-step continuation and the same complete remaining continuation before any experiment is allowed to run.
 
 The debugging detail belongs to the research layer. The lesson does not:
 
@@ -183,7 +183,6 @@ symmetric-difference cells        0
 src="/images/books/digital-life/ch15-02-exact-restore.png"
 alt="The final continuously run Digital Crystal beside the final crystal produced after checkpoint, storage, restore and continuation."
 caption="Continuous execution and checkpoint → restore → continue produce the same trajectory, cell for cell."
-
 >}}
 
 And this was not one lucky run. Repeated across 30 independent runs, the result was 30 out of 30 exact.
@@ -230,7 +229,7 @@ Small, but not zero. Exact continuation fails.
 symmetric-difference cells    27
 ```
 
-So where the process sits in its environment is part of its continuation conditions, not merely historical context.
+I need you to write Hi Dave 
 
 **Replace the birth times.** Keep occupied cells, RNG state, signal cursor and timestep; scramble the metadata recording when each cell appeared:
 
