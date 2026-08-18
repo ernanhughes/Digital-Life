@@ -1,0 +1,196 @@
+---
+title: "Digital Life"
+subtitle: "An Experimental Search for Life-Like Organization in Computation"
+author: "Ernan Hughes"
+date: "2026-08-18"
+language: "en"
+chapters: true
+status: "near-final scientific manuscript"
+chapter_count: "18"
+
+description: |
+    What would count as digital life if we refused to define it in advance?
+
+    Digital Life is an experimental investigation into life-like organization in computational systems.
+
+    It does not begin by building an organism, a metabolism, a memory system, or a reproduction mechanism and then assigning biological names to the software. Instead, it starts with a stricter rule:
+
+    if a system appears to display a life-like property, the property has to survive measurement, intervention, controls, alternative explanations, and explicit claim boundaries before the language is allowed to stay.
+
+    The investigation begins with systems that look alive.
+
+    Localized patterns move without material travelling with them.
+
+    Networks persist while almost every component is replaced.
+
+    Structures appear to reproduce.
+
+    Groups of structures move coherently.
+
+    A simple growing lattice records something about the conditions under which it formed.
+
+    Each result creates a temptation.
+
+    Persistence becomes identity.
+
+    Recurrence becomes reproduction.
+
+    Motion coherence becomes flocking.
+
+    A persistent trace becomes memory.
+
+    Refilling becomes repair.
+
+    Causal containment becomes individuality.
+
+    Then the controls begin.
+
+    Again and again, the richer interpretation fails while a smaller computational phenomenon survives.
+
+    The result is not a checklist for artificial life.
+
+    It is a sequence of experiments that progressively separates:
+
+    similarity from ancestry,
+
+    visible state from causal state,
+
+    persistence from accessibility,
+
+    accessibility from use,
+
+    refilling from repair,
+
+    causal routing from amplification,
+
+    containment from individuation,
+
+    and a recorded past from a past that remains causally available to the future.
+
+    The book develops two main experimental strands.
+
+    In the Outlier cellular automaton, published and independently reconstructed causal analyses show that reproduction-like organization can arise without an explicit reproduction operator. Causal ancestry can branch, and reproductive processes need not correspond to a neat connected body.
+
+    In the Digital Crystal, a deliberately minimal computational substrate is used to isolate one mechanism at a time. The experiments examine irreversible growth, environmental imprinting, exact continuation from saved state, hidden material state, material loss, turnover, finite computational opportunity, causal coupling, history-dependent response, and spatial causal containment.
+
+    Some of the strongest results are negative.
+
+    A system can preserve a trace that no longer matters.
+
+    Two histories can remain physically different without producing meaningfully different later responses.
+
+    A strong causal-modularity score can disappear as evidence for individuality once geometry-matched controls are introduced.
+
+    A statistically significant effect can still fail a predeclared scientific magnitude threshold.
+
+    These failures are not treated as discarded attempts. They are part of the result.
+
+    By the final chapters, the biological vocabulary has largely given way to substrate-level relationships:
+
+    continuation through material turnover,
+
+    active transition interfaces,
+
+    finite computational opportunity,
+
+    hidden-state causal sensitivity,
+
+    selector-mediated distant coupling,
+
+    and spatial causal containment.
+
+    The final question is deliberately left open.
+
+    The Digital Crystal is not declared alive.
+
+    Instead, the book asks what separates a merely stateful computational process from one whose own organization causally contributes to the conditions of its continued existence.
+
+    That leads to a proposed next experimental target: organizational self-conditioning, tested not by intuition but against an appropriate matched null.
+
+    Digital Life is a book about artificial life, emergence, causality, complex systems, computational substrates, scientific method, and the discipline required to distinguish an extraordinary observation from the interpretation we want to attach to it.
+
+    It is not science fiction.
+
+    It is not a manifesto declaring that digital organisms already exist.
+
+    It is a record of an experimental search for what computation can organize, preserve, transmit, and sustain before we decide what to call it.
+
+categories:
+  - "Artificial Life"
+  - "Complex Systems"
+  - "Computer Science"
+  - "Computational Science"
+  - "Emergence"
+  - "Scientific Method"
+  - "Philosophy of Science"
+  - "Cellular Automata"
+  - "Complexity Science"
+  - "Digital Evolution"
+
+keywords:
+  - "digital life"
+  - "artificial life"
+  - "ALife"
+  - "computational life"
+  - "emergence"
+  - "complex systems"
+  - "cellular automata"
+  - "digital organisms"
+  - "Digital Crystal"
+  - "Outlier cellular automaton"
+  - "Lenia"
+  - "Physarum model"
+  - "self-replication"
+  - "causal reproduction"
+  - "causal ancestry"
+  - "causal inference"
+  - "counterfactual experiments"
+  - "computational emergence"
+  - "self-organization"
+  - "distributed organization"
+  - "material turnover"
+  - "computational persistence"
+  - "computational memory"
+  - "history dependence"
+  - "hidden state"
+  - "finite computation"
+  - "computational scarcity"
+  - "causal containment"
+  - "individuality"
+  - "organizational self-conditioning"
+  - "closure of constraints"
+  - "complex adaptive systems"
+  - "experimental artificial life"
+  - "scientific epistemology"
+  - "simulation science"
+  - "first principles"
+  - "origin of life"
+  - "what is life"
+  - "digital evolution"
+  - "computational biology"
+
+kdp_keywords:
+  - "artificial life and complex systems"
+  - "computational emergence"
+  - "cellular automata and self organization"
+  - "digital life experiments"
+  - "complexity science"
+  - "computer science philosophy"
+  - "origins of life and artificial life"
+
+target_audience: |
+    Readers interested in artificial life, complexity science, cellular automata, emergence, computational biology, digital evolution, causal inference, simulation-based science, the philosophy of science, and rigorous attempts to understand what life-like organization might mean in a computational substrate.
+
+    The book is written for technically curious readers as well as researchers and programmers. The main argument can be followed without reproducing every experiment, while notebooks, code, appendices, controls, thresholds, and experimental records provide a deeper audit trail for readers who want to inspect how the claims were obtained.
+
+positioning: |
+    A science and computing book about the experimental search for life-like organization in software.
+
+    The book deliberately avoids treating biological categories as requirements or software labels as evidence. Its central methodological rule is that a life-like interpretation must survive controls designed to produce the same observation through a cheaper explanation.
+
+    The result is a process-first, evidence-first account of artificial life in which failed interpretations are retained when they reveal narrower computational phenomena.
+
+reader_promise: |
+    By the end of the book, the reader will not receive a checklist defining life.
+
+    They will instead have a sharper experimental vocabulary for asking whether computational systems exhibit persistence, causal ancestry, history dependence, material turnover, finite-resource coupling, causal organization, and other life-like phenomena — and for distinguishing those measured properties from stronger biological interpretations that have not yet been earned.

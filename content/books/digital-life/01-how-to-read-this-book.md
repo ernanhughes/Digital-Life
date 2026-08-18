@@ -1,67 +1,178 @@
 +++
-title = "01: How to Read the Experiments"
+title = "01: How to Read This Book"
 date = "2026-08-14T08:30:00+01:00"
 draft = false
-description = "This book can be read at several depths. A guide to the concepts, evidence, controls, claim boundaries and experimental record that make up the investigation."
+description = "Digital Life is a scientific investigation with a readable narrative above a reproducible experimental record. This chapter explains how to move between the argument, the evidence, and the underlying code."
 weight = 1
 series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Experimental Method", "Evidence", "Controls", "Reproducibility", "Scientific Method"]
 +++
 
-This book can be read in more than one way.
+This is a science book, but you do not need to reproduce every experiment to read it.
 
-You can follow the argument without reproducing every experiment.
+You can simply follow the investigation.
 
-You can understand what changed without inspecting every number.
+Watch something strange appear.
 
-And when you want to examine a result more closely, the implementation and experimental record are there to audit.
+See the explanation we reached for.
 
-The book operates at several depths.
+See the experiment that tested it.
 
-They are all part of the same investigation.
+See what survived.
+
+If that is all you want from the book, the main text is enough.
+
+But every important result sits above a deeper record, and that record is available if you want to inspect it.
+
+The book therefore exists at several depths.
+
+```text
+THE BOOK
+the argument
+
+THE WEB EDITION
+figures, animations and the living presentation
+
+THE EXPERIMENTAL RECORD
+code, reports, controls and source material
+````
+
+You can move between them whenever the question becomes interesting enough.
 
 ---
 
-## Five Kinds of Material
+## The Book Has a Website
 
-Most of what follows belongs to one of five categories.
+The web edition of *Digital Life* lives at:
+
+**[https://programmer.ie/books/digital-life/](https://programmer.ie/books/digital-life/)**
+
+If you are reading on Kindle, some of the experiments are easier to understand there.
+
+Animated systems can move.
+
+Large figures can be inspected at full size.
+
+A sequence that becomes a still image on an e-reader can be watched as the process it was meant to show.
+
+The web edition is therefore not a different book.
+
+It is another view of the same investigation.
+
+The public source repository is here:
+
+**[https://github.com/ernanhughes/Digital-Life](https://github.com/ernanhughes/Digital-Life)**
+
+That is where the investigation can be followed downward into code and experimental material.
+
+The prose tells you what we think happened.
+
+The experimental record lets you ask whether we are right.
+
+---
+
+## You Do Not Need to Read Everything at the Same Depth
+
+There are roughly three ways to read what follows.
+
+### Follow the argument
+
+Most readers can stay entirely in the main text.
+
+The important questions are:
 
 ```text
-CONCEPT
+What did we see?
 
-EVIDENCE
+What did we think it meant?
 
-CONTROL AND CONFOUND
+How did we test that interpretation?
 
-CLAIM BOUNDARY
-
-DEEP DIVE
+What survived?
 ```
 
-The **concept** is the intellectual step: what question changed, what assumption failed, what new distinction the experiment forced us to make.
+You do not need to know every parameter or reproduce every confidence interval to understand why the argument changed.
 
-For example:
+### Follow the evidence
+
+Sometimes a result will matter enough that you want to know exactly why we accepted it.
+
+Then pay attention to:
 
 ```text
-persistence
-≠
-reproduction
+the intervention
+
+the comparison
+
+the control
+
+the measured effect
+
+the alternative explanation
+
+the boundary of the claim
 ```
 
-or:
+This is the level at which most of the science in the narrative operates.
+
+### Audit the experiment
+
+If you want to go further, follow the experiment into the repository.
+
+There you can inspect the implementation, scripts, generated results, research reports and supporting material.
+
+The principle is simple:
+
+> **Every major conceptual claim should have a trail leading back toward something that can be inspected.**
+
+You are not required to follow every trail.
+
+But the trail should exist.
+
+---
+
+## The Rule of the Book
+
+Most chapters begin with a temptation.
+
+Something moves.
+
+Something returns after damage.
+
+Something appears to reproduce.
+
+One region seems to behave like an individual.
+
+An earlier event seems to have left a memory.
+
+The quickest way to write a book about digital life would be to keep those words.
+
+This book does almost the opposite.
+
+The recurring procedure is:
 
 ```text
-same visible state
-≠
-same dynamical regime
+SEE SOMETHING
+↓
+NAME THE HYPOTHESIS
+↓
+DECIDE WHAT WOULD COUNT AS EVIDENCE
+↓
+MEASURE IT
+↓
+ATTACK THE INTERPRETATION
+↓
+BUILD A BETTER CONTROL
+↓
+KEEP WHAT SURVIVES
 ```
 
-The **evidence** is what made us change our mind: a measurement, intervention, ancestry graph, damage experiment or comparison against control.
+The interesting part is often what disappears along the way.
 
-A **control** attacks an interpretation. A **confound** is an alternative explanation we have not yet eliminated.
+A phenomenon can survive after the explanation attached to it has failed.
 
-Sometimes the observation survives while the explanation does not:
+That distinction matters throughout the book.
 
 ```text
 observation
@@ -75,7 +186,71 @@ interpretation fails
 observation remains
 ```
 
-A **claim boundary** says exactly what the evidence permits.
+A structure may really move coherently even after *flocking* stops being a defensible explanation.
+
+A vacancy may really be refilled even after *repair* becomes too strong a word.
+
+A region may really contain more of its own causal influence than its surroundings even after *individual* fails under a better control.
+
+The failure of the noun does not erase the measurement.
+
+Often it tells us what the measurement actually was.
+
+---
+
+## What a Control Is Doing
+
+A control is not decoration around an experiment.
+
+It is an attack on a particular explanation.
+
+Suppose two structures look alike.
+
+That may be evidence of common ancestry.
+
+It may also be evidence that the same local rule tends to produce the same shape independently.
+
+The second possibility is a **confound**: another mechanism capable of producing the observation we are trying to interpret.
+
+The job of the next experiment is not merely to gather more evidence for the attractive explanation.
+
+It is to make the cheaper explanation harder to maintain.
+
+That is why the controls sometimes become stronger as a chapter proceeds.
+
+The first control may fail.
+
+The second may reveal another confound.
+
+Occasionally the experiment itself turns out to be wrong.
+
+That is part of the investigation rather than something edited out of it.
+
+---
+
+## The Edges of a Result
+
+Scientific prose can sound strangely cautious.
+
+You will repeatedly encounter phrases such as:
+
+```text
+under this measurement
+
+in this configuration
+
+within the tested window
+
+relative to this control
+
+not established
+
+descriptive only
+```
+
+Those phrases are not apologies for weak results.
+
+They tell you where the evidence stops.
 
 Compare:
 
@@ -83,138 +258,53 @@ Compare:
 
 with:
 
-> A system exposed to condition A responds differently to condition B than an otherwise matched system without that prior exposure.
+> Experimentally written hidden state changed the system's response to the same later perturbation under the tested protocol.
 
-The second is narrower.
+The second sentence is less dramatic.
 
-That is why it is useful.
+It is also much harder to misunderstand.
 
-Whenever you see phrases such as:
+A useful claim has edges.
 
-```text
-under this measurement
-
-in this configuration
-
-within this observation window
-
-we did not establish
-
-this does not imply
-```
-
-those are not disclaimers around the result.
-
-They are the edges of the result.
-
-The **deep dive** is the forensic record: parameters, seeds, thresholds, implementation details, alternative metrics, discarded designs and failed controls. Most of that lives in the appendices.
-
-The investigation was not clean.
-
-The record should not pretend that it was.
+One of the central disciplines of this book is refusing to erase those edges because a larger sentence would sound better.
 
 ---
 
-## Three Ways Through the Book
+## Numbers Belong to Their Experiments
 
-You can therefore read at three useful depths.
+There are many numbers in this book.
 
-The **conceptual reader** can follow what changed.
+Do not assume that two quantities can be compared simply because they have similar names.
 
-The **evidence reader** can see why it changed.
+A similarity score may use one normalization in one experiment and another elsewhere.
 
-The **reproducing reader** can inspect exactly how the result was obtained.
+A control baseline may come from a different population.
 
-```text
-CONCEPT
-what changed
+One ancestry analysis may treat rotations as equivalent while another requires exact copies.
 
-EVIDENCE + CONTROLS
-why it changed
-
-APPENDICES + NOTEBOOKS
-exactly how we tested it
-```
-
-These are not simplified and "real" versions of the book.
-
-They are different depths of the same argument.
-
-If a detailed protocol is not important to you, skip it.
-
-If a result matters enough that you want to challenge it, follow it downward.
-
----
-
-## The Shape of an Experiment
-
-Most experimental chapters follow roughly the same sequence:
-
-```text
-WE SAW SOMETHING
-↓
-WE NAMED A HYPOTHESIS
-↓
-WE DEFINED WHAT WOULD COUNT AS EVIDENCE
-↓
-WE MEASURED IT
-↓
-WE ATTACKED THE INTERPRETATION
-↓
-SOMETHING FAILED
-↓
-SOMETHING SURVIVED
-```
-
-The interesting part is often the distance between the first noun and the final claim.
-
-A system may look as though it recovered.
-
-Then the untouched control may wander just as far.
-
-A structure may look as though it reproduced.
-
-Then its causal history may turn out to be one unbranching continuation.
-
-A dose may cross a threshold declared in advance.
-
-Then the rest of the dose-response curve may show that no transition occurred.
-
-The book keeps the attractive interpretation only when it survives the inconvenient evidence.
-
----
-
-## Numbers Are Local Until Proven Otherwise
-
-Do not assume that two numbers from different experiments are directly comparable merely because they have the same name.
-
-A recovery score may use a different normalization.
-
-A control-drift estimate may come from different temporal blocks.
-
-A similarity measure may allow rotations in one experiment and exact copies in another.
-
-A causal graph may use a different counterfactual criterion.
+One causal estimate may answer a directional question while another tests whether an effect exceeds a predeclared meaningful magnitude.
 
 So the default rule is:
 
-> **A quantity belongs first to the experiment that defined it.**
+> **A number belongs first to the experiment that defined it.**
 
-Cross-experiment comparison has to be earned too.
+Cross-experiment comparison has to be justified.
 
-There will be no final:
+There will therefore be no final:
 
 ```text
 LIFE SCORE = 0.83
 ```
 
-because collapsing everything into one number would erase exactly the distinctions we are trying to discover.
+The book is trying to discover distinctions.
+
+Collapsing those distinctions into one number would defeat the purpose.
 
 ---
 
-## Failure Is Part of the Result
+## Failure Is Evidence Too
 
-A finished scientific story often looks like this:
+A polished scientific story often looks inevitable:
 
 ```text
 question
@@ -226,140 +316,187 @@ result
 conclusion
 ```
 
-The investigation usually looked more like:
+This investigation rarely behaved like that.
+
+It behaved more like:
 
 ```text
 question
 ↓
-bad metric
+promising measurement
 ↓
-interesting result
+unexpected result
 ↓
 confound
 ↓
-better metric
-↓
-different result
+better experiment
 ↓
 smaller claim
+↓
+new question
 ```
 
-The wrong metric matters when it explains why the better one exists.
+Some of the most important experiments in the book do not establish the thing they were designed to establish.
 
-The failed control matters when it destroys an attractive explanation.
+That does not make them useless.
 
-And a negative result does not automatically mean the experiment failed.
+A failed experiment may tell us that the intervention was invalid.
 
-If damaging a proposed mechanism produces no detectable change, several possibilities remain:
+It may tell us that the measurement was too insensitive.
 
-```text
-the mechanism was not necessary
+It may leave the question unresolved.
 
-the intervention was too weak
+Or it may destroy one interpretation while leaving a smaller phenomenon intact.
 
-the measurement was insensitive
+Those possibilities are different.
 
-another mechanism compensated
+Later in the book we will make that bookkeeping explicit.
 
-the hypothesis was wrong
-```
+For now, one rule is enough:
 
-The experiment does not choose among those automatically.
-
-But it changes what we can honestly claim.
-
-Sometimes the most important sentence in a chapter will be:
-
-> **We could not claim what we expected to claim.**
-
-That is often the discovery.
+> **Do not make a failed interpretation take more evidence down with it than the experiment actually defeats.**
 
 ---
 
-## What the Appendices Are For
+## The Experimental Record Wins
 
-The main text should let you understand:
+The main text exists to make the investigation understandable.
+
+It should tell you:
 
 ```text
 the question
 
 the intervention
 
-the measurement
-
-the control
+the important control
 
 the result
 
-the boundary
+what changed because of it
 ```
 
-The appendix should let you inspect:
+The deeper record exists to make that account inspectable.
+
+It contains the things that would destroy the pace of the book if every one were reproduced in the narrative:
 
 ```text
-the implementation
+implementation details
 
-the parameters
+parameters
 
-the metric
+seeds
 
-the seeds
+thresholds
 
-the thresholds
+secondary measurements
 
-the failures
+failed designs
 
-the provenance
+validation checks
+
+generated reports
+
+provenance
 ```
 
-The appendices are not where inconvenient detail goes to disappear.
+Those details are not being hidden because they are inconvenient.
 
-They are where claims become inspectable.
+They are being separated because reading and auditing are different activities.
 
-If the narrative and the experimental record ever disagree, the experimental record wins.
+And there is one hierarchy that matters:
 
-The prose is an interpretation of the experiment.
+> **If the prose and the experimental record disagree, the experimental record wins.**
 
-The experiment is not an illustration of the prose.
+The prose is our interpretation of an experiment.
 
----
-
-## One Book, Several Depths
-
-Read at the depth that serves your question.
-
-Follow the concepts if you want the journey.
-
-Follow the evidence and controls if you want the justification.
-
-Follow the notebooks and appendices if you want to challenge the result.
-
-The important thing is that those levels remain connected.
-
-Every major conceptual turn should have evidence beneath it.
-
-Every important control should attack a named alternative explanation.
-
-Every major claim should have a visible boundary around it.
-
-And every result important enough to carry the argument should leave enough of a trail that someone else can try to break it.
-
-That is how to read the experiments.
-
-It is also how the book was built.
+The experiment is not evidence manufactured to decorate the prose.
 
 ---
 
-The next chapter begins with the harder problem.
+## A Book You Are Allowed to Challenge
 
-Before we can decide how strong the evidence is, we have to decide what would count as evidence at all.
+You are not being asked to trust every interpretation in these pages.
 
-Names will not be enough.
+Quite the opposite.
 
-Resemblance will not be enough.
+The book is built around the assumption that an interesting interpretation should attract stronger attempts to break it.
 
-And biology, useful as it is, cannot simply hand us the specification.
+If a result seems surprising, follow it down.
 
-So we begin with the question underneath everything that follows:
+Inspect the control.
+
+Look at the code.
+
+Try another explanation.
+
+Run it again.
+
+The public record exists partly because a scientific claim becomes more useful when someone other than its author can attack it.
+
+So read at whatever depth serves you.
+
+If you want the journey, follow the argument.
+
+If you want the justification, follow the evidence.
+
+If you want to challenge the result, follow the experiment.
+
+```text
+ARGUMENT
+what changed
+
+EVIDENCE
+why it changed
+
+REPOSITORY
+how we tested it
+```
+
+They are not three different versions of the work.
+
+They are three depths of the same work.
+
+---
+
+## One Last Warning Before We Begin
+
+The next problem is harder than deciding whether an experiment was performed correctly.
+
+Before we can ask how strong the evidence is, we have to decide what the evidence would even be evidence **of**.
+
+That turns out to be unusually difficult when the subject is life.
+
+Biology gives us words immediately:
+
+```text
+organism
+
+memory
+
+repair
+
+reproduction
+
+individual
+
+evolution
+```
+
+Software makes those words dangerously easy to implement.
+
+And our eyes make them dangerously easy to see.
+
+So the investigation begins under one constraint:
+
+> **Names are not evidence.**
+
+Resemblance is not evidence of mechanism.
+
+And biology, however valuable, cannot simply hand us a specification for what computational life must contain.
+
+We have to discover what the system can actually earn.
+
+So the next chapter begins with the question underneath everything that follows:
 
 > **What would digital life mean?**

@@ -160,16 +160,16 @@ def find_metadata_file(chapter_path, metadata_dir):
     return None
 
 
-def read_optional_readme(base_dir):
+def read_optional_top_txt(chapters_dir):
     """
-    Reads README.md from the base directory if present.
+    Reads top.txt from the directory if present.
     """
-    readme_path = base_dir / "TOP.md"
+    top_path = chapters_dir / "top.txt"
 
-    if not readme_path.exists():
+    if not top_path.exists():
         return "", ""
 
-    with open(readme_path, "r", encoding="utf-8") as infile:
+    with open(top_path, "r", encoding="utf-8") as infile:
         content = infile.read()
 
     metadata = extract_leading_metadata(content)
@@ -224,7 +224,7 @@ def merge_and_count():
         print(f"No markdown files found in '{chapters_dir}' matching the criteria.")
         return
 
-    readme_content, readme_metadata = read_optional_readme(base_dir)
+    readme_content, readme_metadata = read_optional_top_txt(chapters_dir)
     has_readme = bool(readme_content.strip())
 
     print(f"Processing {len(md_files)} chapter(s)...\n")
