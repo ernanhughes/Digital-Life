@@ -9,15 +9,31 @@ tags = ["Digital Life", "Digital Crystal", "Causality", "Individuality", "Experi
 series = ["Digital Life From First Principles"]
 +++
 
-The *Is There Actually One Thing Here?* chapter asked whether the connected occupied crystal had a privileged boundary, and failed twice to find one. But the object it was testing was a shape: a centered disk, drawn on the material, tested afterwards for whether it behaved like a thing.
+The *Is There Actually One Thing Here?* chapter asked whether visible geometry marked a privileged boundary, and failed twice to establish one.
 
-Since then the book has been doing what that failure recommended. the *What Does One Attachment Cause?* chapter measured what one local event causes. the *Can Finite Computation Couple Distant Events?* chapter found that finite computation routes those consequences, coupling regions the local rule cannot connect. the previous chapter showed that hidden past-dependent state changes the crystal's causal sensitivity, and that the resulting difference in trajectory outlives most of the trace that produced it.
+Its candidate regions were defined primarily by geometry.
 
-So the candidate has changed. What we have now is not a blob of occupied cells. It is a causal process with a history, whose events are conditioned by state that does not appear in its shape.
+That left open a stronger possibility: perhaps a boundary that is unremarkable as shape could still be privileged causally.
+
+Since then the book has been replacing geometric intuition with causal tests.
+
+*What Does One Attachment Cause?* measured the consequence of one local event.
+
+*Can Finite Computation Couple Distant Events?* showed that a shared finite selector can route those consequences outside the one-step reach of the local rule.
+
+The previous chapter then established something different: visible occupancy does not exhaust causal state. Experimentally written hidden material can change how the same perturbation is expressed.
+
+That result makes a purely visual definition of individuality even less attractive.
+
+But this chapter does **not** carry the previous chapter's hidden material into the individuation experiment. The causal-modularity runs deliberately clear material state and remove the two known global coupling channels.
+
+The question here is narrower:
+
+Can ordinary local dynamics privilege one spatial partition over comparable geometry?
 
 That makes the individuation question worth asking again, and worth asking properly:
 
-> **Is there a spatial region whose internal causal coupling exceeds its coupling to the surrounding crystal, in a way that geometry alone cannot explain?**
+> **Is there a spatial region whose causal containment exceeds what comparable spatial geometry already produces?**
 
 The last clause is the whole chapter.
 
@@ -37,7 +53,7 @@ $$
 \text{internal retention} = \frac{A_{\text{inside}}}{A_{\text{inside}} + A_{\text{outside}}}
 $$
 
-Then perturb a comparable cell just **outside** the same region and measure what fraction of *that* influence lands inside:
+Then perturb a supported frontier cell just **outside** the same region, from the same one-occupied-neighbour probe class, and measure what fraction of *that* influence lands inside:
 
 $$
 \text{external penetration} = \frac{A_{\text{inside}}}{A_{\text{inside}} + A_{\text{outside}}}
@@ -55,7 +71,27 @@ That is a plausible operational signature of causal containment.
 
 Whether it identifies an individual is the question the rest of the chapter has to answer.
 
-One estimator detail matters. `A` is summed **absolute** expected causal mass — the accumulated size of the probability shifts, not their signed total. the *Can Finite Computation Couple Distant Events?* chapter showed that a perturbation can raise some probabilities and lower others; if we summed signed values, a region full of large opposing causal shifts could cancel to nearly zero and appear causally empty. The question here is where the influence went, not what it netted out to.
+One estimator detail matters.
+
+For each probe and lag, the experiment computes
+
+$$
+\Delta p(y,t)
+=
+p_{\mathrm{FORCE}}(y,t)
+-
+p_{\mathrm{PREVENT}}(y,t).
+$$
+
+It then accumulates `|Δp|` over the eight-update horizon, excluding the intervention cell itself.
+
+`A_inside` is that absolute expected causal mass inside the candidate region.
+
+`A_outside` is the corresponding mass outside it.
+
+The retention or penetration fraction is computed per probe, and the relevant probe fractions are then averaged within the region.
+
+Absolute mass matters because the question is **where causal influence is expressed**, not whether positive and negative probability shifts happen to cancel. the *Can Finite Computation Couple Distant Events?* chapter showed that a perturbation can raise some probabilities and lower others; if we summed signed values, a region full of large opposing causal shifts could cancel to nearly zero and appear causally empty. The question here is where the influence went, not what it netted out to.
 
 ---
 
@@ -67,10 +103,21 @@ The *Can Finite Computation Couple Distant Events?* chapter established that a f
 
 The previous chapter found a second channel by accident: a global construction-rate calibrator compensating for local changes applies its offset everywhere, coupling regions the physics keeps apart.
 
-So this experiment removes both by design. **True unbounded evaluation** — every frontier candidate evaluated, no competition for slots. **No dynamic construction-rate calibration.** With both known global channels removed, causal influence under this protocol is limited by the local transition dynamics over the eight-step horizon.
+So this experiment removes both known global channels by design.
 
-That gives a structural check for free: beyond the corresponding causal reach, the expected effect must be exactly zero.
- It was, in every run — an assertion about the code rather than a finding, but a useful one.
+**True unbounded evaluation:** every frontier candidate is evaluated, so there is no competition for evaluation slots.
+
+**No dynamic construction-rate calibration:** no global compensator links spatially separated regions.
+
+The hidden material introduced in the previous chapter is also absent from these runs.
+
+What remains is the ordinary local transition system, observed over an eight-update horizon.
+
+That gives a structural check for free: beyond the eight-step nearest-neighbour causal reach, the expected effect must be exactly zero under this protocol.
+
+The maximum measured absolute far-field expectation was exactly zero and satisfied the frozen `1e-12` assertion tolerance.
+
+That is a correctness assertion, not empirical evidence.
 
 The experiment therefore inherits something useful from earlier failures.
 
@@ -92,7 +139,21 @@ The candidates are then ranked using only pre-outcome properties — occupancy f
 
 No region is selected because it scored well. Nothing about causal outcome enters the selection.
 
-The perturbation is the corrected transient intervention from Chapters 10 and 12: FORCE explicitly occupies `x` at lag one, PREVENT explicitly blocks it, and after one full causal exposure `x` is removed from FORCE so that both branches continue without a permanent state difference. At each of eight lags, before any realized attachment, the expected probability shift is computed for every candidate and its absolute mass accumulated inside and outside the region.
+The perturbation reuses the corrected one-exposure intervention developed earlier in the book.
+
+At lag one:
+
+```text
+FORCE
+x is explicitly occupied
+
+PREVENT
+x is blocked from the frontier before growth
+```
+
+After lag-one growth, `x` is removed from **both** branches and its absence is asserted. From lag two onward ordinary dynamics resume.
+
+There is therefore one controlled causal exposure without a permanent experimentally maintained focal-state difference. At each of eight lags, before any realized attachment, the expected probability shift is computed for every candidate and its absolute mass accumulated inside and outside the region.
 
 ---
 
@@ -125,9 +186,16 @@ The retention fraction was therefore more than twice the penetration fraction.
 
 That is exactly the profile we had hoped a causally privileged region might show.
 
-After twelve chapters in which a privileged boundary, a stable body and stronger organism-like interpretations had repeatedly failed to materialize, the number finally looked compelling.
+The frozen V1 hypothesis passed comfortably:
 
-For a while, this was the chapter where the book found an individual.
+```text
+RAW CAUSAL CONTAINMENT ASYMMETRY
+SUPPORTED
+```
+
+For a while, it was very tempting to read that as individuation.
+
+That temptation is the subject of the rest of the chapter.
 
 ---
 
@@ -142,10 +210,20 @@ radius 4     M ≈ 0.440
 radius 5     M ≈ 0.504
 ```
 
-The score climbs almost monotonically with radius. There is no peak or obvious characteristic scale in the tested range.
+The mean score rises at every tested radius:
 
-That does not prove that no natural scale exists, but it creates an immediate problem for the interpretation of `r = 4`: the supposedly special score increases further when the observer simply draws a larger disk.
- Instead the pattern is simpler and much less flattering:
+```text
+r = 2    0.197
+r = 3    0.374
+r = 4    0.440
+r = 5    0.504
+```
+
+There is no peak or obvious characteristic scale within the tested range.
+
+That does not establish that no natural scale exists.
+
+It does show that the raw statistic is strongly sensitive to the observer's choice of radius, which weakens any attempt to interpret the `r = 4` value itself as evidence of a privileged boundary.
 
 ```text
 BIGGER DISK  →  BIGGER MODULE SCORE
@@ -181,10 +259,15 @@ disk size                 the fraction that points inward
               M = retention − penetration grows
 ```
 
-Even a spatially homogeneous local process with no privileged region can therefore produce substantial internal retention and lower external penetration when an observer draws a disk around the perturbation.
- The asymmetry is generated by where the boundary is placed relative to the perturbation, not by anything the system is doing.
+Locality plus an imposed partition is therefore a sufficient **candidate explanation** for a large raw containment score.
 
-The observer's circle can manufacture the appearance of a module.
+An internal probe begins inside the observer's disk; an external probe begins across its boundary. Even without a system-privileged boundary, those two geometries can produce different fractions of locally spreading causal mass on either side of the partition.
+
+The scale sweep does not by itself prove that geometry explains V1.
+
+It tells us what the next control must contain.
+
+> **The observer's circle can manufacture the appearance of privilege unless the null already contains the same spatial geometry.**
 
 ---
 
@@ -200,7 +283,22 @@ What the sweep undermines is not the measurement but an equation we had made wit
 raw causal containment  =  causal individuation
 ```
 
-The measurement supports the left side. The chapter's claim was about the right side. A stronger control should narrow an interpretation, not retroactively delete a phenomenon — and the phenomenon here is real containment, which will still be true at the end of the chapter.
+V1 supports the left side:
+
+```text
+RAW CAUSAL CONTAINMENT
+SUPPORTED
+```
+
+What remained untested was the inference:
+
+```text
+RAW CAUSAL CONTAINMENT
+→
+SYSTEM-PRIVILEGED REGION
+```
+
+That inference requires a spatial null. A stronger control should narrow an interpretation, not retroactively delete a phenomenon — and the phenomenon here is real containment, which will still be true at the end of the chapter.
 
 So the question is not whether to keep the result. It is what comparison would tell us what the result means.
 
@@ -216,9 +314,9 @@ The actual missing piece is much simpler:
 
 > **Would an arbitrary region with the same geometry produce the same score?**
 
-If matched disks produce the same score, geometry is sufficient to explain the observed containment.
+If selected regions do not exceed same-checkpoint regions closely matched on the predeclared spatial features, then this experiment has no evidence for causal privilege **beyond that matched spatial null**.
 
-If the selected regions substantially exceed them, then we have evidence of causal privilege beyond geometry — a necessary step toward an individuation claim, though not yet a complete definition of individuality.
+If selected regions substantially exceed those controls, then we have evidence of causal privilege not captured by the matched geometry — a necessary step toward an individuation claim, though still not a complete definition of individuality.
 
 The interpretation of a modularity statistic depends critically on its null.
 
@@ -270,11 +368,59 @@ M_control    0.4559
 M_excess    −0.0123     95% CI [−0.0327, +0.0072]
 ```
 
-The controls score slightly higher. The interval crosses zero, so there is no basis for claiming that arbitrary regions are *more* modular than the selected ones — that direction is unresolved and should stay that way.
+The matched controls score slightly higher.
 
-But the question we actually asked is fully resolved. The upper bound of the interval is `+0.0072`, against a declared meaningful threshold of `+0.10`, with an achieved MDE of `0.0265`. The achieved MDE was about `0.0265` against a declared meaningful excess of `0.10`, so the experiment had substantially more precision than required to resolve that target.
+The interval crosses zero, so there is no basis for claiming that the controls are more modular than the selected regions. The directional difference around zero is unresolved and should stay that way.
 
-The upper confidence bound was only `+0.0072`.
+There was one more concern worth checking.
+
+The frozen matcher required a different control centre, but it did not require the selected and control disks themselves to be spatially separate. Some matched controls were therefore nearby translations of the selected region.
+
+So after the frozen result, we ran a **post-hoc spatial-overlap audit**.
+
+The concern was real. Across all 1,151 frozen pairs, the median radius-four disk overlap was about 33%, and only 339 pairs were strictly non-overlapping.
+
+But removing those near-overlapping comparisons did not reveal hidden positive privilege.
+
+```text
+                                      mean excess M       95% CI
+
+all frozen pairs                         −0.012        [−0.033, +0.008]
+
+centre distance ≥ 6                     −0.019        [−0.051, +0.015]
+
+strictly non-overlapping disks          −0.012        [−0.050, +0.028]
+
+zero shared occupied cells              −0.006        [−0.047, +0.032]
+```
+
+These are **post-hoc robustness analyses**, not replacements for the frozen V2 test. The stricter subsets also cover fewer independent groups.
+
+But the pattern is useful: progressively removing spatial overlap does not move the estimate toward the predeclared `+0.10` privilege threshold.
+
+So the V2 result does not appear to be an artifact of matching each selected region to a near-duplicate copy of itself.
+
+But the meaningful-margin question is resolved.
+
+```text
+M_excess        −0.0123
+95% CI          [−0.0327, +0.0072]
+
+meaningful positive excess
+                 +0.10
+
+achieved MDE80    0.0265
+```
+
+The upper confidence bound is less than one percentage point above zero and far below the predeclared `+0.10` margin, while the achieved MDE is comfortably smaller than that margin.
+
+```text
+BOUNDED BELOW THE MEANINGFUL THRESHOLD
+```
+
+The result therefore excludes scientifically meaningful **positive** excess modularity of the declared size under this test.
+
+It does not establish a negative directional difference.
 
 ```text
 BOUNDED BELOW THE MEANINGFUL THRESHOLD
@@ -299,7 +445,17 @@ excess internal retention     −0.0066     [−0.0222, +0.0093]
 excess external penetration   +0.0057     [−0.0101, +0.0216]
 ```
 
-Neither component shows a privileged region. The selected regions do not hold onto their own causal influence better than matched controls, and they do not keep outside influence out better either. The combined score is therefore not hiding an opposing component-level advantage for the selected regions.
+Neither component reveals a positive excess over the matched controls.
+
+```text
+excess internal retention
+−0.0066    [−0.0222, +0.0093]
+
+excess external penetration
++0.0057    [−0.0101, +0.0216]
+```
+
+So the near-zero combined excess is not concealing an obvious component-level advantage in the selected regions. The combined score is therefore not hiding an opposing component-level advantage for the selected regions.
 
 ---
 
@@ -320,7 +476,7 @@ a partition the dynamics themselves distinguish
 
 The experiment certainly contains the first.
 
-Under this operational test, it did not establish the second.
+Under this operational test, the selected regions did not establish privilege beyond the matched spatial null.
 
 > **A boundary can organize our measurement without organizing the system.**
 
@@ -353,15 +509,20 @@ Under the tested radius-4 criterion, that meaningful excess was not found.
 Scope that carefully. This is one operational criterion, at one radius, with circular regions, under an eight-step horizon, using this modularity statistic. It does not establish that no individual can exist here. Non-circular or time-varying regions, process-defined boundaries and other operational criteria for individuation were untested
  — and this chapter is not the place to start proposing them, because listing alternative rescues is the reflex the book has spent twelve chapters declining.
 
-Notice, too, what did not save us. The candidate object was much stronger than the *Is There Actually One Thing Here?* chapter's. It had history-dependent sensitivity, trajectory redirection, turnover, local causal structure, and a huge raw containment asymmetry. Every one of those is real. None of them adds up to an individual.
+Notice, too, what did not save the individuation claim.
+
+By this point in the book we had established local causal effects, turnover, computational routing, and the causal sufficiency of experimentally written hidden state.
+
+But the Chapter 16 modularity experiment deliberately stripped away hidden material, finite-selector coupling and global calibration before asking whether the remaining local dynamics privileged one spatial region over matched controls.
+
+It still produced a huge raw containment asymmetry.
+
+And that asymmetry still did not establish causal privilege beyond the matched spatial null.
 
 ```text
-history-dependent process
-+
-strong causal containment
+STRONG CAUSAL CONTAINMENT
 ≠
-individuality established
-
+CAUSAL INDIVIDUATION
 ```
 
 ---
@@ -389,9 +550,15 @@ The individuation claim required a different estimand:
 raw modularity
 → measures containment
 
-excess modularity over matched geometry
-→ tests causal privilege beyond geometry
- What caught it was a descriptive secondary — a scale sweep run for completeness — showing the score doing something a real boundary would not do.
+excess modularity over matched spatial null
+→ tests privilege beyond that null
+```
+
+What caught the problem was a descriptive secondary — the scale sweep — showing that the score changed strongly with an observer-controlled quantity that the primary `r = 4` result had treated as fixed.
+
+That did not prove the boundary was unreal.
+
+It exposed a simpler explanation that the primary test had not controlled.
 
 That is the most dangerous kind of failure this book has encountered, and it is worth asking how many earlier results could have been the same thing wearing better clothes. Reoccupation tempted us toward repair.
 
@@ -416,3 +583,154 @@ a real measurement attached to the wrong claim
 ```
 
 How do you fail correctly?
+
+## Experimental Note
+
+Both experiments deliberately remove the hidden material state used in the previous chapter.
+
+```text
+material state              cleared
+evaluation                  true unbounded
+dynamic calibration         none
+horizon                     8 updates
+primary region radius       4
+secondary V1 radii          2, 3, 4, 5
+```
+
+Candidate regions are occupied-cell-centred hexagonal disks. Before any causal outcome is measured, a supported region must contain at least 12 occupied cells, have occupancy fraction between `0.20` and `0.80`, and contain at least two supported internal and two supported external-shell probes. Supported probes are frontier cells with exactly one occupied neighbour.
+
+At the primary radius, up to three internal and three external probes are used per region. Candidate regions are selected outcome-blind by:
+
+```text
+1. occupancy fraction closest to 0.50
+2. center radial distance
+3. axial coordinates
+```
+
+The corrected transient intervention is:
+
+```text
+lag 1
+FORCE       x occupied
+PREVENT     x blocked before growth
+
+after lag-1 growth
+x removed from both branches
+absence asserted
+
+lag 2+
+ordinary dynamics
+```
+
+For every probe and lag,
+
+$$
+\Delta p(y,t)
+=
+p_{\mathrm{FORCE}}(y,t)
+-
+p_{\mathrm{PREVENT}}(y,t).
+$$
+
+The intervention site itself is excluded. Absolute expected causal mass `|Δp|` is accumulated over the eight-update horizon.
+
+For an internal probe,
+
+$$
+R_{\mathrm{in}}
+=
+\frac{A_{\mathrm{inside}}}
+{A_{\mathrm{inside}} + A_{\mathrm{outside}}}.
+$$
+
+For an external-shell probe,
+
+$$
+P_{\mathrm{in}}
+=
+\frac{A_{\mathrm{inside}}}
+{A_{\mathrm{inside}} + A_{\mathrm{outside}}}.
+$$
+
+Region-level values average the relevant probe fractions, and
+
+$$
+M = R_{\mathrm{in}} - P_{\mathrm{in}}.
+$$
+
+### V1
+
+```text
+independent groups         192
+primary radius             4
+raw-module SEI             +0.15
+M                          0.4402
+95% CI                     [0.4194, 0.4614]
+MDE80                      0.0268
+status                     SUPPORTED
+```
+
+The radius sweep was descriptive.
+
+### V2
+
+V2 retains the frozen radius-4 statistic but replaces the interpretation with a same-checkpoint spatial null.
+
+For every selected region, controls are drawn without replacement from other supported radius-4 regions in the same checkpoint and matched outcome-blind on:
+
+```text
+occupancy fraction
+center radial distance
+occupied count
+internal n=1 frontier count
+external n=1 frontier count
+internal probe depth
+external probe depth
+boundary occupied fraction
+```
+
+Hard match gates include occupancy difference `≤0.08`, radial difference `≤6`, occupied-count difference `≤8`, internal/external frontier-count differences `≤4`, and standardized match distance `≤4`.
+
+```text
+independent groups         192
+matched pairs              1,151
+group coverage             1.0
+median observed/group      3
+median controls/observed   2
+far-effect assertion       exactly 0
+excess SEI                 +0.10
+
+M_selected                 0.4436
+M_control                  0.4559
+M_excess                  −0.0123
+95% CI                    [−0.0327, +0.0072]
+MDE80                       0.0265
+
+primary status             BOUNDED_BELOW_SEI
+directional status         DIRECTION_UNRESOLVED
+```
+
+The independent statistical unit is the group; region measurements are averaged within group before chapter-level inference.
+
+The structural far-field zero is a correctness assertion, not experimental evidence.
+
+## Evidence Ledger
+
+| Claim | Status | Evidence |
+|---|---|---|
+| Radius-4 selected regions show strong raw causal containment asymmetry | **SUPPORTED** | `M = 0.4402`, CI `[0.4194, 0.4614]`, SEI `0.15`, MDE80 `0.0268` |
+| Internal perturbations have high raw retention at radius 4 | **SUPPORTED AS MEASUREMENT** | mean retention `0.7755` |
+| External perturbations show lower raw inward penetration at radius 4 | **SUPPORTED AS MEASUREMENT** | mean penetration `0.3353` |
+| Radius 4 is a privileged or characteristic spatial scale | **NOT ESTABLISHED** | descriptive score rises from `0.197` at `r=2` to `0.504` at `r=5` |
+| The scale sweep alone proves geometry caused V1 | **NOT CLAIMED** | sweep motivates the spatial null; it does not identify the cause by itself |
+| V2 matching is scientifically valid | **SUPPORTED / GATE PASSED** | all 192 groups covered, 1,151 pairs, outcome-blind same-checkpoint matching, match-quality gates passed |
+| Selected regions have positive excess modularity over the matched spatial null of at least `+0.10` | **BOUNDED BELOW SEI** | `M_excess = −0.0123`, CI `[−0.0327,+0.0072]`, MDE80 `0.0265` |
+| Selected regions are less modular than matched controls | **DIRECTION UNRESOLVED** | excess interval crosses zero |
+| Internal retention shows positive excess over matched controls | **NOT ESTABLISHED** | `−0.0066 [−0.0222,+0.0093]` |
+| Resistance to external penetration shows positive privilege over matched controls | **NOT ESTABLISHED** | excess penetration `+0.0057 [−0.0101,+0.0216]` |
+| A system-privileged causal boundary was established | **NOT ESTABLISHED** | no meaningful excess over this frozen geometry-matched null |
+| Causal containment is the same thing as individuation | **FAILED AS INTERPRETATION** | matched controls reproduce the raw containment |
+| No individual can exist in this substrate | **NOT CLAIMED** | one disk geometry, one radius for the confirmatory null, one horizon and one statistic |
+| Chapter 16 tests the hidden material state from Chapter 15 | **NO** | V1/V2 clear material state before causal-modularity measurement |
+| Organism, self, agent, autonomy, life | **NOT ESTABLISHED** | outside the operational claim |
+| Near-overlap between selected and matched regions explains the near-zero V2 excess | **NOT SUPPORTED — POST-HOC ROBUSTNESS** | `M_excess` remains near zero under increasing center separation, strict disk non-overlap (`−0.0120 [−0.0502,+0.0277]`) and zero occupied-cell overlap (`−0.0061 [−0.0467,+0.0320]`); stricter subsets have reduced group coverage |

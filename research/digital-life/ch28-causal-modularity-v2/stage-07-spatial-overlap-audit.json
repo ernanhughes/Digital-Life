@@ -1,0 +1,790 @@
+{
+  "audit_version": "ch28-v2-spatial-overlap-posthoc-v1",
+  "epistemic_status": "POST_HOC_ROBUSTNESS_ONLY",
+  "frozen_v2_result_is_not_modified": true,
+  "inputs": {
+    "match_file": "C:\\Projects\\working-book\\research\\digital-life\\ch28-causal-modularity-v2\\raw-v2-match-results.jsonl",
+    "probe_file": "C:\\Projects\\working-book\\research\\digital-life\\ch28-causal-modularity-v2\\raw-v2-probe-results.jsonl",
+    "radius": 4,
+    "strict_nonoverlap_definition": "exact disk intersection == 0; for radius 4 this implies center distance >= 9",
+    "reconstructed_occupied": true,
+    "v2_seed_if_reconstructed": 20260917,
+    "profile_if_reconstructed": "full",
+    "bootstrap_reps": 7000,
+    "bootstrap_seed": 20260918,
+    "frozen_excess_SEI_reference": 0.1
+  },
+  "baseline_reproduction": {
+    "name": "baseline_all_existing_pairs",
+    "epistemic_status": "POST_HOC_ROBUSTNESS_ONLY",
+    "pairs_retained": 1151,
+    "groups_retained": 192,
+    "group_coverage_fraction": 1.0,
+    "median_pairs_per_retained_group": 6.0,
+    "median_observed_regions_per_retained_group": 3.0,
+    "excess_module_score": {
+      "n": 192,
+      "mean": -0.012225402301217566,
+      "sd": 0.14754224746795958,
+      "se": 0.010647944536558606,
+      "ci95_low": -0.03312187473046129,
+      "ci95_high": 0.008055721253493261,
+      "achieved_mde80_one_sided": 0.02647584640641096
+    },
+    "excess_internal_retention": {
+      "n": 192,
+      "mean": -0.0065479412933584875,
+      "sd": 0.10954833982708469,
+      "se": 0.007905970436055494,
+      "ci95_low": -0.021970435484205977,
+      "ci95_high": 0.008703520659018598,
+      "achieved_mde80_one_sided": 0.019657996737301005
+    },
+    "excess_external_penetration": {
+      "n": 192,
+      "mean": 0.005677461007859076,
+      "sd": 0.10948943221469515,
+      "se": 0.007901719145321692,
+      "ci95_low": -0.010331144373835302,
+      "ci95_high": 0.020978392125582838,
+      "achieved_mde80_one_sided": 0.019647426009766628
+    },
+    "frozen_excess_SEI_reference": 0.1,
+    "reference_only_status": "CONSISTENT_WITH_FROZEN_BOUNDED_BELOW_SEI"
+  },
+  "overlap_summary": {
+    "pairs": 1151,
+    "center_distance": {
+      "min": 1.0,
+      "q05": 1.0,
+      "q25": 2.0,
+      "median": 5.0,
+      "q75": 9.0,
+      "q95": 20.0,
+      "max": 34.0,
+      "mean": 7.005212858384014
+    },
+    "disk_overlap_fraction": {
+      "min": 0.0,
+      "q05": 0.0,
+      "q25": 0.0,
+      "median": 0.32786885245901637,
+      "q75": 0.7049180327868853,
+      "q95": 0.8524590163934426,
+      "max": 0.8524590163934426,
+      "mean": 0.35363404594721626
+    },
+    "strict_nonoverlap_pairs": 339,
+    "strict_nonoverlap_fraction": 0.2945264986967854,
+    "center_distance_counts": {
+      "1": 179,
+      "2": 120,
+      "3": 101,
+      "4": 124,
+      "5": 73,
+      "6": 78,
+      "7": 77,
+      "8": 60,
+      "9": 58,
+      "10": 36,
+      "11": 32,
+      "12": 27,
+      "13": 15,
+      "14": 25,
+      "15": 15,
+      "16": 16,
+      "17": 19,
+      "18": 19,
+      "19": 10,
+      "20": 18,
+      "21": 11,
+      "22": 4,
+      "23": 6,
+      "24": 6,
+      "25": 7,
+      "26": 4,
+      "27": 5,
+      "28": 2,
+      "29": 1,
+      "30": 2,
+      "34": 1
+    },
+    "pairs_with_center_distance_le_1": 179,
+    "pairs_with_center_distance_le_2": 299,
+    "pairs_with_disk_overlap_ge_0_50": 400,
+    "pairs_with_disk_overlap_ge_0_75": 179,
+    "probe_overlap_fraction_of_smaller": {
+      "min": 0.0,
+      "q05": 0.0,
+      "q25": 0.0,
+      "median": 0.4,
+      "q75": 0.6666666666666666,
+      "q95": 1.0,
+      "max": 1.0,
+      "mean": 0.39916015059368665
+    },
+    "pairs_with_any_probe_overlap": 779,
+    "occupied_overlap_fraction_of_smaller": {
+      "min": 0.0,
+      "q05": 0.0,
+      "q25": 0.0,
+      "median": 0.3,
+      "q75": 0.6896551724137931,
+      "q95": 0.9,
+      "max": 1.0,
+      "mean": 0.36519604891466084
+    },
+    "pairs_with_any_occupied_overlap": 786
+  },
+  "sensitivity_grid": [
+    {
+      "name": "baseline_all_existing_pairs",
+      "epistemic_status": "POST_HOC_ROBUSTNESS_ONLY",
+      "pairs_retained": 1151,
+      "groups_retained": 192,
+      "group_coverage_fraction": 1.0,
+      "median_pairs_per_retained_group": 6.0,
+      "median_observed_regions_per_retained_group": 3.0,
+      "excess_module_score": {
+        "n": 192,
+        "mean": -0.012225402301217566,
+        "sd": 0.14754224746795958,
+        "se": 0.010647944536558606,
+        "ci95_low": -0.03312187473046129,
+        "ci95_high": 0.008055721253493261,
+        "achieved_mde80_one_sided": 0.02647584640641096
+      },
+      "excess_internal_retention": {
+        "n": 192,
+        "mean": -0.0065479412933584875,
+        "sd": 0.10954833982708469,
+        "se": 0.007905970436055494,
+        "ci95_low": -0.021970435484205977,
+        "ci95_high": 0.008703520659018598,
+        "achieved_mde80_one_sided": 0.019657996737301005
+      },
+      "excess_external_penetration": {
+        "n": 192,
+        "mean": 0.005677461007859076,
+        "sd": 0.10948943221469515,
+        "se": 0.007901719145321692,
+        "ci95_low": -0.010331144373835302,
+        "ci95_high": 0.020978392125582838,
+        "achieved_mde80_one_sided": 0.019647426009766628
+      },
+      "frozen_excess_SEI_reference": 0.1,
+      "reference_only_status": "CONSISTENT_WITH_FROZEN_BOUNDED_BELOW_SEI"
+    },
+    {
+      "name": "center_distance_ge_2",
+      "epistemic_status": "POST_HOC_ROBUSTNESS_ONLY",
+      "pairs_retained": 972,
+      "groups_retained": 192,
+      "group_coverage_fraction": 1.0,
+      "median_pairs_per_retained_group": 5.0,
+      "median_observed_regions_per_retained_group": 3.0,
+      "excess_module_score": {
+        "n": 192,
+        "mean": -0.01660707774919901,
+        "sd": 0.16523681138963706,
+        "se": 0.011924939691980297,
+        "ci95_low": -0.039551730434118186,
+        "ci95_high": 0.00681719603931783,
+        "achieved_mde80_one_sided": 0.029651062757378426
+      },
+      "excess_internal_retention": {
+        "n": 192,
+        "mean": -0.006205983746622584,
+        "sd": 0.12201993000174663,
+        "se": 0.008806029929125964,
+        "ci95_low": -0.02310659331336016,
+        "ci95_high": 0.01086812872967368,
+        "achieved_mde80_one_sided": 0.02189597203979705
+      },
+      "excess_external_penetration": {
+        "n": 192,
+        "mean": 0.010401094002576427,
+        "sd": 0.12165635948485305,
+        "se": 0.008779791487151224,
+        "ci95_low": -0.006778420750064307,
+        "ci95_high": 0.027827575048471345,
+        "achieved_mde80_one_sided": 0.021830730813447535
+      },
+      "frozen_excess_SEI_reference": 0.1,
+      "reference_only_status": "CONSISTENT_WITH_FROZEN_BOUNDED_BELOW_SEI"
+    },
+    {
+      "name": "center_distance_ge_4",
+      "epistemic_status": "POST_HOC_ROBUSTNESS_ONLY",
+      "pairs_retained": 751,
+      "groups_retained": 191,
+      "group_coverage_fraction": 0.9947916666666666,
+      "median_pairs_per_retained_group": 4.0,
+      "median_observed_regions_per_retained_group": 3.0,
+      "excess_module_score": {
+        "n": 191,
+        "mean": -0.017170314958632294,
+        "sd": 0.20351584326922068,
+        "se": 0.014725889596428069,
+        "ci95_low": -0.046206610794227394,
+        "ci95_high": 0.010995122237907946,
+        "achieved_mde80_one_sided": 0.036615554280375995
+      },
+      "excess_internal_retention": {
+        "n": 191,
+        "mean": -0.0023993323665269725,
+        "sd": 0.14093463900307907,
+        "se": 0.010197672578868286,
+        "ci95_low": -0.022440493412267715,
+        "ci95_high": 0.01737134952101517,
+        "achieved_mde80_one_sided": 0.02535625650321488
+      },
+      "excess_external_penetration": {
+        "n": 191,
+        "mean": 0.014770982592105327,
+        "sd": 0.14790098340820573,
+        "se": 0.010701739569195347,
+        "ci95_low": -0.005663881859323066,
+        "ci95_high": 0.03568672936377719,
+        "achieved_mde80_one_sided": 0.026609606402683308
+      },
+      "frozen_excess_SEI_reference": 0.1,
+      "reference_only_status": "CONSISTENT_WITH_FROZEN_BOUNDED_BELOW_SEI"
+    },
+    {
+      "name": "center_distance_ge_6",
+      "epistemic_status": "POST_HOC_ROBUSTNESS_ONLY",
+      "pairs_retained": 554,
+      "groups_retained": 183,
+      "group_coverage_fraction": 0.953125,
+      "median_pairs_per_retained_group": 3.0,
+      "median_observed_regions_per_retained_group": 2.0,
+      "excess_module_score": {
+        "n": 183,
+        "mean": -0.018500763436358304,
+        "sd": 0.2279414031789965,
+        "se": 0.01684991337611465,
+        "ci95_low": -0.05139861410791138,
+        "ci95_high": 0.01469300654764751,
+        "achieved_mde80_one_sided": 0.041896886011722666
+      },
+      "excess_internal_retention": {
+        "n": 183,
+        "mean": -0.005206376521220227,
+        "sd": 0.1596252857273825,
+        "se": 0.011799840659188252,
+        "ci95_low": -0.02860148309936845,
+        "ci95_high": 0.017642709135882728,
+        "achieved_mde80_one_sided": 0.02934000715726509
+      },
+      "excess_external_penetration": {
+        "n": 183,
+        "mean": 0.013294386915138071,
+        "sd": 0.17280135399880572,
+        "se": 0.012773843652566822,
+        "ci95_low": -0.012396798348852977,
+        "ci95_high": 0.038655706969200135,
+        "achieved_mde80_one_sided": 0.0317618411143764
+      },
+      "frozen_excess_SEI_reference": 0.1,
+      "reference_only_status": "CONSISTENT_WITH_FROZEN_BOUNDED_BELOW_SEI"
+    },
+    {
+      "name": "center_distance_ge_8",
+      "epistemic_status": "POST_HOC_ROBUSTNESS_ONLY",
+      "pairs_retained": 399,
+      "groups_retained": 158,
+      "group_coverage_fraction": 0.8229166666666666,
+      "median_pairs_per_retained_group": 2.0,
+      "median_observed_regions_per_retained_group": 2.0,
+      "excess_module_score": {
+        "n": 158,
+        "mean": -0.0049732808566648355,
+        "sd": 0.23899796472910537,
+        "se": 0.0190136571743414,
+        "ci95_low": -0.04218838581693348,
+        "ci95_high": 0.032733675721826984,
+        "achieved_mde80_one_sided": 0.047276980570629026
+      },
+      "excess_internal_retention": {
+        "n": 158,
+        "mean": 0.005324498280534316,
+        "sd": 0.16047327500687383,
+        "se": 0.01276656828472536,
+        "ci95_low": -0.019594842824923863,
+        "ci95_high": 0.03069179521976331,
+        "achieved_mde80_one_sided": 0.031743751095137544
+      },
+      "excess_external_penetration": {
+        "n": 158,
+        "mean": 0.010297779137199155,
+        "sd": 0.1826908477958247,
+        "se": 0.014534103471620796,
+        "ci95_low": -0.017746829306309858,
+        "ci95_high": 0.03908131723429818,
+        "achieved_mde80_one_sided": 0.03613868290244532
+      },
+      "frozen_excess_SEI_reference": 0.1,
+      "reference_only_status": "CONSISTENT_WITH_FROZEN_BOUNDED_BELOW_SEI"
+    },
+    {
+      "name": "center_distance_ge_9",
+      "epistemic_status": "POST_HOC_ROBUSTNESS_ONLY",
+      "pairs_retained": 339,
+      "groups_retained": 140,
+      "group_coverage_fraction": 0.7291666666666666,
+      "median_pairs_per_retained_group": 2.0,
+      "median_observed_regions_per_retained_group": 2.0,
+      "excess_module_score": {
+        "n": 140,
+        "mean": -0.011966329563524645,
+        "sd": 0.23617788278425764,
+        "se": 0.01996067425078882,
+        "ci95_low": -0.050496309300392124,
+        "ci95_high": 0.027426381435228592,
+        "achieved_mde80_one_sided": 0.04963171472370284
+      },
+      "excess_internal_retention": {
+        "n": 140,
+        "mean": -0.001903539858275299,
+        "sd": 0.15812988418910173,
+        "se": 0.013364414442214692,
+        "ci95_low": -0.02790625434666122,
+        "ci95_high": 0.024430364902595,
+        "achieved_mde80_one_sided": 0.033230280536195866
+      },
+      "excess_external_penetration": {
+        "n": 140,
+        "mean": 0.010062789705249344,
+        "sd": 0.1886456195074097,
+        "se": 0.015943464796258418,
+        "ci95_low": -0.022206950098374548,
+        "ci95_high": 0.04135557157634808,
+        "achieved_mde80_one_sided": 0.03964302440555211
+      },
+      "frozen_excess_SEI_reference": 0.1,
+      "reference_only_status": "CONSISTENT_WITH_FROZEN_BOUNDED_BELOW_SEI"
+    },
+    {
+      "name": "disk_overlap_fraction_le_0_75",
+      "epistemic_status": "POST_HOC_ROBUSTNESS_ONLY",
+      "pairs_retained": 972,
+      "groups_retained": 192,
+      "group_coverage_fraction": 1.0,
+      "median_pairs_per_retained_group": 5.0,
+      "median_observed_regions_per_retained_group": 3.0,
+      "excess_module_score": {
+        "n": 192,
+        "mean": -0.01660707774919901,
+        "sd": 0.16523681138963706,
+        "se": 0.011924939691980297,
+        "ci95_low": -0.040862124866207834,
+        "ci95_high": 0.006258348670002349,
+        "achieved_mde80_one_sided": 0.029651062757378426
+      },
+      "excess_internal_retention": {
+        "n": 192,
+        "mean": -0.006205983746622584,
+        "sd": 0.12201993000174663,
+        "se": 0.008806029929125964,
+        "ci95_low": -0.023297875174989015,
+        "ci95_high": 0.011370178951561775,
+        "achieved_mde80_one_sided": 0.02189597203979705
+      },
+      "excess_external_penetration": {
+        "n": 192,
+        "mean": 0.010401094002576427,
+        "sd": 0.12165635948485305,
+        "se": 0.008779791487151224,
+        "ci95_low": -0.006673425575919543,
+        "ci95_high": 0.027908581545098593,
+        "achieved_mde80_one_sided": 0.021830730813447535
+      },
+      "frozen_excess_SEI_reference": 0.1,
+      "reference_only_status": "CONSISTENT_WITH_FROZEN_BOUNDED_BELOW_SEI"
+    },
+    {
+      "name": "disk_overlap_fraction_le_0_5",
+      "epistemic_status": "POST_HOC_ROBUSTNESS_ONLY",
+      "pairs_retained": 751,
+      "groups_retained": 191,
+      "group_coverage_fraction": 0.9947916666666666,
+      "median_pairs_per_retained_group": 4.0,
+      "median_observed_regions_per_retained_group": 3.0,
+      "excess_module_score": {
+        "n": 191,
+        "mean": -0.017170314958632294,
+        "sd": 0.20351584326922068,
+        "se": 0.014725889596428069,
+        "ci95_low": -0.04564501628131697,
+        "ci95_high": 0.01214329293814758,
+        "achieved_mde80_one_sided": 0.036615554280375995
+      },
+      "excess_internal_retention": {
+        "n": 191,
+        "mean": -0.0023993323665269725,
+        "sd": 0.14093463900307907,
+        "se": 0.010197672578868286,
+        "ci95_low": -0.02263221489547961,
+        "ci95_high": 0.017493996185095607,
+        "achieved_mde80_one_sided": 0.02535625650321488
+      },
+      "excess_external_penetration": {
+        "n": 191,
+        "mean": 0.014770982592105327,
+        "sd": 0.14790098340820573,
+        "se": 0.010701739569195347,
+        "ci95_low": -0.005700354617343655,
+        "ci95_high": 0.03547878536682073,
+        "achieved_mde80_one_sided": 0.026609606402683308
+      },
+      "frozen_excess_SEI_reference": 0.1,
+      "reference_only_status": "CONSISTENT_WITH_FROZEN_BOUNDED_BELOW_SEI"
+    },
+    {
+      "name": "disk_overlap_fraction_le_0_25",
+      "epistemic_status": "POST_HOC_ROBUSTNESS_ONLY",
+      "pairs_retained": 536,
+      "groups_retained": 181,
+      "group_coverage_fraction": 0.9427083333333334,
+      "median_pairs_per_retained_group": 3.0,
+      "median_observed_regions_per_retained_group": 2.0,
+      "excess_module_score": {
+        "n": 181,
+        "mean": -0.016692803238924095,
+        "sd": 0.22705855906955158,
+        "se": 0.016877129781171413,
+        "ci95_low": -0.049078199960346874,
+        "ci95_high": 0.015488732018423677,
+        "achieved_mde80_one_sided": 0.04196455891869016
+      },
+      "excess_internal_retention": {
+        "n": 181,
+        "mean": -0.0035085394654874352,
+        "sd": 0.15718690288908274,
+        "se": 0.0116836104784177,
+        "ci95_low": -0.025857919478801717,
+        "ci95_high": 0.019930272284724354,
+        "achieved_mde80_one_sided": 0.02905100373474491
+      },
+      "excess_external_penetration": {
+        "n": 181,
+        "mean": 0.013184263773436655,
+        "sd": 0.1722572719526933,
+        "se": 0.012803782189094313,
+        "ci95_low": -0.011899437570484455,
+        "ci95_high": 0.03852548701953317,
+        "achieved_mde80_one_sided": 0.031836282532812905
+      },
+      "frozen_excess_SEI_reference": 0.1,
+      "reference_only_status": "CONSISTENT_WITH_FROZEN_BOUNDED_BELOW_SEI"
+    },
+    {
+      "name": "disk_overlap_fraction_le_0_1",
+      "epistemic_status": "POST_HOC_ROBUSTNESS_ONLY",
+      "pairs_retained": 428,
+      "groups_retained": 165,
+      "group_coverage_fraction": 0.859375,
+      "median_pairs_per_retained_group": 2.0,
+      "median_observed_regions_per_retained_group": 2.0,
+      "excess_module_score": {
+        "n": 165,
+        "mean": -0.009314964246391489,
+        "sd": 0.24222767124767353,
+        "se": 0.018857398631301835,
+        "ci95_low": -0.04605539303669803,
+        "ci95_high": 0.02922613342472158,
+        "achieved_mde80_one_sided": 0.04688844763161898
+      },
+      "excess_internal_retention": {
+        "n": 165,
+        "mean": -0.0020272593051468882,
+        "sd": 0.162282831367707,
+        "se": 0.012633701287530236,
+        "ci95_low": -0.026541686099552295,
+        "ci95_high": 0.022928649838384545,
+        "achieved_mde80_one_sided": 0.031413380646818506
+      },
+      "excess_external_penetration": {
+        "n": 165,
+        "mean": 0.007287704941244606,
+        "sd": 0.18543199328784535,
+        "se": 0.014435861098835422,
+        "ci95_low": -0.01979942228488511,
+        "ci95_high": 0.03467135870157294,
+        "achieved_mde80_one_sided": 0.03589440571227622
+      },
+      "frozen_excess_SEI_reference": 0.1,
+      "reference_only_status": "CONSISTENT_WITH_FROZEN_BOUNDED_BELOW_SEI"
+    },
+    {
+      "name": "disk_overlap_fraction_le_0_0",
+      "epistemic_status": "POST_HOC_ROBUSTNESS_ONLY",
+      "pairs_retained": 339,
+      "groups_retained": 140,
+      "group_coverage_fraction": 0.7291666666666666,
+      "median_pairs_per_retained_group": 2.0,
+      "median_observed_regions_per_retained_group": 2.0,
+      "excess_module_score": {
+        "n": 140,
+        "mean": -0.011966329563524645,
+        "sd": 0.23617788278425764,
+        "se": 0.01996067425078882,
+        "ci95_low": -0.05132120386866564,
+        "ci95_high": 0.027253601422748717,
+        "achieved_mde80_one_sided": 0.04963171472370284
+      },
+      "excess_internal_retention": {
+        "n": 140,
+        "mean": -0.001903539858275299,
+        "sd": 0.15812988418910173,
+        "se": 0.013364414442214692,
+        "ci95_low": -0.02759420728475655,
+        "ci95_high": 0.024023718614702594,
+        "achieved_mde80_one_sided": 0.033230280536195866
+      },
+      "excess_external_penetration": {
+        "n": 140,
+        "mean": 0.010062789705249344,
+        "sd": 0.1886456195074097,
+        "se": 0.015943464796258418,
+        "ci95_low": -0.021285588732287707,
+        "ci95_high": 0.041306066410220665,
+        "achieved_mde80_one_sided": 0.03964302440555211
+      },
+      "frozen_excess_SEI_reference": 0.1,
+      "reference_only_status": "CONSISTENT_WITH_FROZEN_BOUNDED_BELOW_SEI"
+    },
+    {
+      "name": "strict_disk_nonoverlap",
+      "epistemic_status": "POST_HOC_ROBUSTNESS_ONLY",
+      "pairs_retained": 339,
+      "groups_retained": 140,
+      "group_coverage_fraction": 0.7291666666666666,
+      "median_pairs_per_retained_group": 2.0,
+      "median_observed_regions_per_retained_group": 2.0,
+      "excess_module_score": {
+        "n": 140,
+        "mean": -0.011966329563524645,
+        "sd": 0.23617788278425764,
+        "se": 0.01996067425078882,
+        "ci95_low": -0.050162869906274096,
+        "ci95_high": 0.027688967760394298,
+        "achieved_mde80_one_sided": 0.04963171472370284
+      },
+      "excess_internal_retention": {
+        "n": 140,
+        "mean": -0.001903539858275299,
+        "sd": 0.15812988418910173,
+        "se": 0.013364414442214692,
+        "ci95_low": -0.028238191506505604,
+        "ci95_high": 0.023717547294885278,
+        "achieved_mde80_one_sided": 0.033230280536195866
+      },
+      "excess_external_penetration": {
+        "n": 140,
+        "mean": 0.010062789705249344,
+        "sd": 0.1886456195074097,
+        "se": 0.015943464796258418,
+        "ci95_low": -0.021479652954216513,
+        "ci95_high": 0.041371883140460634,
+        "achieved_mde80_one_sided": 0.03964302440555211
+      },
+      "frozen_excess_SEI_reference": 0.1,
+      "reference_only_status": "CONSISTENT_WITH_FROZEN_BOUNDED_BELOW_SEI"
+    },
+    {
+      "name": "occupied_overlap_fraction_smaller_le_0_75",
+      "epistemic_status": "POST_HOC_ROBUSTNESS_ONLY",
+      "pairs_retained": 926,
+      "groups_retained": 192,
+      "group_coverage_fraction": 1.0,
+      "median_pairs_per_retained_group": 5.0,
+      "median_observed_regions_per_retained_group": 3.0,
+      "excess_module_score": {
+        "n": 192,
+        "mean": -0.02134795821285076,
+        "sd": 0.1742073322800001,
+        "se": 0.012572331273333081,
+        "ci95_low": -0.04630420903873944,
+        "ci95_high": 0.0028086752679902694,
+        "achieved_mde80_one_sided": 0.03126078564932725
+      },
+      "excess_internal_retention": {
+        "n": 192,
+        "mean": -0.008755242759305235,
+        "sd": 0.1298162533131791,
+        "se": 0.009368681099444075,
+        "ci95_low": -0.026764410122338746,
+        "ci95_high": 0.009919157541496379,
+        "achieved_mde80_one_sided": 0.023294990030037658
+      },
+      "excess_external_penetration": {
+        "n": 192,
+        "mean": 0.01259271545354552,
+        "sd": 0.12415813303497968,
+        "se": 0.008960341441228361,
+        "ci95_low": -0.004646726873348083,
+        "ci95_high": 0.029926944960018617,
+        "achieved_mde80_one_sided": 0.022279663735329167
+      },
+      "frozen_excess_SEI_reference": 0.1,
+      "reference_only_status": "CONSISTENT_WITH_FROZEN_BOUNDED_BELOW_SEI"
+    },
+    {
+      "name": "occupied_overlap_fraction_smaller_le_0_5",
+      "epistemic_status": "POST_HOC_ROBUSTNESS_ONLY",
+      "pairs_retained": 706,
+      "groups_retained": 190,
+      "group_coverage_fraction": 0.9895833333333334,
+      "median_pairs_per_retained_group": 4.0,
+      "median_observed_regions_per_retained_group": 3.0,
+      "excess_module_score": {
+        "n": 190,
+        "mean": -0.006627785024362125,
+        "sd": 0.21567082294345963,
+        "se": 0.015646405988716135,
+        "ci95_low": -0.03687791737570541,
+        "ci95_high": 0.023793950275988386,
+        "achieved_mde80_one_sided": 0.03890439514850087
+      },
+      "excess_internal_retention": {
+        "n": 190,
+        "mean": 0.0015299773731239446,
+        "sd": 0.14622594142020826,
+        "se": 0.010608344765033893,
+        "ci95_low": -0.019604571034146027,
+        "ci95_high": 0.022458771277369793,
+        "achieved_mde80_one_sided": 0.026377382570032252
+      },
+      "excess_external_penetration": {
+        "n": 190,
+        "mean": 0.008157762397486067,
+        "sd": 0.16230486718567574,
+        "se": 0.011774832642046753,
+        "ci95_low": -0.014885476476319397,
+        "ci95_high": 0.031606454863504996,
+        "achieved_mde80_one_sided": 0.02927782535133119
+      },
+      "frozen_excess_SEI_reference": 0.1,
+      "reference_only_status": "CONSISTENT_WITH_FROZEN_BOUNDED_BELOW_SEI"
+    },
+    {
+      "name": "occupied_overlap_fraction_smaller_le_0_25",
+      "epistemic_status": "POST_HOC_ROBUSTNESS_ONLY",
+      "pairs_retained": 541,
+      "groups_retained": 183,
+      "group_coverage_fraction": 0.953125,
+      "median_pairs_per_retained_group": 3.0,
+      "median_observed_regions_per_retained_group": 2.0,
+      "excess_module_score": {
+        "n": 183,
+        "mean": -0.013275555160462686,
+        "sd": 0.22536868499681667,
+        "se": 0.016659732575670758,
+        "ci95_low": -0.04576823432780759,
+        "ci95_high": 0.019494236636438712,
+        "achieved_mde80_one_sided": 0.04142400623246452
+      },
+      "excess_internal_retention": {
+        "n": 183,
+        "mean": -0.0003405426994851691,
+        "sd": 0.15526588532512645,
+        "se": 0.011477584508592693,
+        "ci95_low": -0.023334556815865343,
+        "ci95_high": 0.021469854125481216,
+        "achieved_mde80_one_sided": 0.028538725340159873
+      },
+      "excess_external_penetration": {
+        "n": 183,
+        "mean": 0.012935012460977516,
+        "sd": 0.17415342793511504,
+        "se": 0.012873791833929135,
+        "ci95_low": -0.012157368399500544,
+        "ci95_high": 0.037814391412016264,
+        "achieved_mde80_one_sided": 0.03201035975468893
+      },
+      "frozen_excess_SEI_reference": 0.1,
+      "reference_only_status": "CONSISTENT_WITH_FROZEN_BOUNDED_BELOW_SEI"
+    },
+    {
+      "name": "occupied_overlap_fraction_smaller_le_0_1",
+      "epistemic_status": "POST_HOC_ROBUSTNESS_ONLY",
+      "pairs_retained": 442,
+      "groups_retained": 169,
+      "group_coverage_fraction": 0.8802083333333334,
+      "median_pairs_per_retained_group": 3.0,
+      "median_observed_regions_per_retained_group": 2.0,
+      "excess_module_score": {
+        "n": 169,
+        "mean": -0.016713671064400384,
+        "sd": 0.24484867951654324,
+        "se": 0.018834513808964864,
+        "ci95_low": -0.05336187581102303,
+        "ci95_high": 0.01990700072770074,
+        "achieved_mde80_one_sided": 0.04683154509619054
+      },
+      "excess_internal_retention": {
+        "n": 169,
+        "mean": 0.0021720264855667015,
+        "sd": 0.16398657299694402,
+        "se": 0.012614351768995695,
+        "ci95_low": -0.022481368165717913,
+        "ci95_high": 0.02613992514296732,
+        "achieved_mde80_one_sided": 0.031365268555419115
+      },
+      "excess_external_penetration": {
+        "n": 169,
+        "mean": 0.01888569754996709,
+        "sd": 0.18700658853663293,
+        "se": 0.01438512219512561,
+        "ci95_low": -0.00914427035295074,
+        "ci95_high": 0.04650953438514684,
+        "achieved_mde80_one_sided": 0.03576824470375121
+      },
+      "frozen_excess_SEI_reference": 0.1,
+      "reference_only_status": "CONSISTENT_WITH_FROZEN_BOUNDED_BELOW_SEI"
+    },
+    {
+      "name": "occupied_overlap_fraction_smaller_le_0_0",
+      "epistemic_status": "POST_HOC_ROBUSTNESS_ONLY",
+      "pairs_retained": 365,
+      "groups_retained": 150,
+      "group_coverage_fraction": 0.78125,
+      "median_pairs_per_retained_group": 2.0,
+      "median_observed_regions_per_retained_group": 2.0,
+      "excess_module_score": {
+        "n": 150,
+        "mean": -0.006106827959443956,
+        "sd": 0.24549541521246077,
+        "se": 0.020044616715440666,
+        "ci95_low": -0.046678323567247874,
+        "ci95_high": 0.03201252386484761,
+        "achieved_mde80_one_sided": 0.04984043555179011
+      },
+      "excess_internal_retention": {
+        "n": 150,
+        "mean": 0.004309570105542832,
+        "sd": 0.17069228143571757,
+        "se": 0.013936966418301656,
+        "ci95_low": -0.022300814234953115,
+        "ci95_high": 0.03175995141675677,
+        "achieved_mde80_one_sided": 0.03465391663107967
+      },
+      "excess_external_penetration": {
+        "n": 150,
+        "mean": 0.010416398064986789,
+        "sd": 0.1859168777038941,
+        "se": 0.015180049498198771,
+        "ci95_low": -0.019720700796577523,
+        "ci95_high": 0.04109485092485756,
+        "achieved_mde80_one_sided": 0.03774481145878707
+      },
+      "frozen_excess_SEI_reference": 0.1,
+      "reference_only_status": "CONSISTENT_WITH_FROZEN_BOUNDED_BELOW_SEI"
+    }
+  ],
+  "warnings": [
+    "Strict non-overlap retains fewer than 90% of groups. Do not treat the strict-filter estimate as a clean replacement for frozen V2; consider a separately labelled outcome-blind rematching sensitivity analysis."
+  ]
+}
