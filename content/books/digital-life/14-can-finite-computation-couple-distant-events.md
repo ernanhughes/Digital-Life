@@ -9,22 +9,41 @@ tags = ["Digital Life", "Digital Crystal", "Finite Computation", "Causality", "E
 series = ["Digital Life From First Principles"]
 +++
 
-The last chapter ended with an accounting oddity it could not resolve.
+The last chapter ended with a causal difference it could measure but could not explain.
 
-Forcing one attachment produced a measurable local causal effect. Measured globally — the whole crystal, minus the intervention site — the effect came out *smaller* than the local one. Persistent arm: 1.164 locally, 1.036 globally. Transient arm: 0.198 locally, 0.044 globally. The implied far-field differences were negative in both cases, with intervals overlapping zero, so nothing was established.
+Under the corrected intervention, cumulative construction outside the measured local region was lower in both FORCE-derived branches than in PREVENT.
 
-The local/global discrepancy was not itself evidence of a far-field effect — its interval still included zero.
+```text
+RETAINED far-field difference
+−0.318    [−0.583, −0.068]
 
-But it suggested a mechanism worth isolating.
+TRANSIENT far-field difference
+−0.177    [−0.362, −0.029]
+```
 
-There was one obvious candidate already present in the substrate: the finite evaluation budget shared by every active frontier site.
- The *What Does It Cost to Stay?* chapter gave every active location a constraint it shares with every other active location: a fixed number of evaluation slots per update. the previous chapter established, beyond argument, that a single attachment changes the frontier — by roughly +2 sites in sparse geometry, by about −1 in dense.
+Both intervals lie below zero.
 
-Change the frontier and you change the population of candidates competing for a fixed evaluation pool.
+So the far-field difference is no longer merely a suggestive discrepancy. It is established under that finite-budget protocol.
+
+What the previous chapter did **not** establish was the mechanism.
+
+That is the question here.
+
+There was one obvious candidate already present in the substrate: the finite evaluation budget shared by active frontier sites.
+
+*What Does It Cost to Stay?* introduced a fixed number of evaluation opportunities per update.
+
+The previous chapter then showed that one attachment can transform immediate frontier opportunity very differently depending on local geometry.
+
+At the sparse end, forcing the attachment promoted about 2.21 previously unsupported sites into the frontier, for a net frontier change of about +1.21.
+
+At the dense end, it promoted none and removed the focal candidate from the frontier, for a net change of −1.
+
+Change the candidate population and you change what competes for a fixed evaluation pool.
 
 That creates a possible causal pathway that does not run through the local attachment rule at all:
 
-> **Can two regions too far apart to interact through the local rule nevertheless affect one another because both compete for the same finite computation?**
+> **Does competition for a shared finite evaluation budget create measurable causal effects outside the one-step reach of the local rule?**
 
 ---
 
@@ -35,17 +54,21 @@ The attachment rule reaches nearest neighbours and no further. That is structura
 So at lag one, define:
 
 ```text
-LOCAL CAUSAL CONE     d ≤ 1
-OUTSIDE THE CONE      d > 1
+LOCAL-RULE ONE-STEP CONE     d ≤ 1
+OUTSIDE LOCAL-RULE CONE      d > 1
 ```
 
-A FORCE/PREVENT intervention at `x` cannot alter attachment probabilities at `d > 1` after a single update through the ordinary transition rule. There is no path. Whatever the crystal does out there, the intervention has not reached it.
+A FORCE/PREVENT intervention at `x` cannot alter a candidate's local-rule attachment probability at `d > 1` in one update through the nearest-neighbour occupancy rule.
 
-At lag one, the intervention cannot reach `d > 1` through the nearest-neighbour attachment rule.
+There is no one-step neighbourhood path from `x` to those sites.
 
-That makes the outside-cone region unusually useful.
+That makes the region outside the local-rule cone unusually useful.
 
-If FORCE and PREVENT differ there at lag one, the ordinary local transition pathway cannot explain the difference. The finite selector then becomes the mechanism to isolate.
+If FORCE and PREVENT differ there in **expected construction** at lag one, the difference cannot have been produced by a nearest-neighbour change in attachment probability.
+
+Some other causal route must account for it.
+
+The shared finite selector is the candidate mechanism to isolate.
 
 ---
 
@@ -98,7 +121,7 @@ One scope restriction, stated once: every probe here is a single-contact frontie
 
 Under partial evaluation, FORCE and PREVENT differ in expected construction outside the local causal cone.
 
-For sites where the intervention creates frontier (`FCP = +2`), the far-field effect is negative and grows with evaluation fraction:
+For sites where the intervention creates frontier (`FCP = +2`), the far-field effect is negative, with its magnitude increasing across the tested partial-evaluation fractions from `f = 0.05` through `f = 0.75`:
 
 ```text
 f      E_far
@@ -133,24 +156,35 @@ Some candidates elsewhere therefore lose evaluation opportunity.
 
 ## Remove the Selector, Remove the Effect
 
-The cleanest part of this experiment is what happens when subsampling disappears.
+The cleanest part of this experiment is what happens when finite candidate selection is removed entirely.
 
-At `f = 1.00` and in the unbounded arm, every eligible frontier candidate is evaluated. Outside the causal cone, FORCE and PREVENT then have identical candidate sets carrying identical probabilities, so the selector-mediated far-field difference must be exactly zero.
+In the explicit **UNBOUNDED** arm, each branch evaluates its own complete frontier.
 
-Must be. Not approximately, not on average — the mechanism requires it. The implementation asserts it on every exhaustive intervention, and across the full run that assertion was checked 10,750 times without a violation.
+At lag one, sites outside the local-rule cone have unchanged local neighbourhoods and therefore unchanged attachment probabilities. With no candidate subsampling left to redistribute evaluation opportunities, the selector-mediated far-field difference is structurally zero.
+
+Must be.
+
+Not approximately and not on average.
+
+This is a correctness identity of the unbounded policy, not an empirical discovery.
+
+The finite `f = 1.00` arm is not identical to this policy: it still supplies both branches with a fixed evaluation count derived from the finite-budget construction. That distinction matters and is returned to later.
 
 It is important to be honest about what that zero is. It is not a discovery. It is a correctness identity, and quoting it as evidence would be exactly the error this book has flagged repeatedly: reporting a theorem about the code as though it were a fact about the world. A quantity with exactly zero variance across thousands of independent groups belongs in an assertion, not a confidence interval.
 
-The evidence is the *contrast*:
+The evidence is the contrast between computational policies:
 
 ```text
-PARTIAL EVALUATION     →  reproducible outside-cone effect
-EXHAUSTIVE EVALUATION  →  effect vanishes exactly
+PARTIAL FIXED-COUNT EVALUATION
+→ reproducible outside-local-rule-cone effect
+
+TRUE UNBOUNDED EVALUATION
+→ selector-mediated effect is structurally zero
 ```
 
-Under partial evaluation the outside-cone effect appears.
+The zero in the unbounded arm is an identity.
 
-Under exhaustive evaluation the selector-mediated difference is structurally zero.
+The empirical result is that partial finite selection creates the nonzero redistribution that the unbounded policy cannot.
 
 That intervention on the computational regime identifies finite candidate selection as the mechanism responsible for the measured outside-cone redistribution.
 
@@ -172,11 +206,23 @@ therefore
 Δ(selected far) = −Δ(selected near)
 ```
 
-This is an accounting identity of fixed-size selection, not an empirical law — but it says precisely what the constraint conserves. Not attachments. Not construction. Not frontier. Not causal consequence.
+This is an accounting identity imposed by fixed-size selection, not an empirical law.
 
-**Evaluation slots.**
+And it tells us exactly what is held fixed.
 
-The far field receives the exact negative of whatever slot imbalance the local intervention creates nearby. That is a conservation law native to the substrate, and it is worth noticing that it has no obvious biological counterpart. A cell does not skip a chemical reaction because a distant cell used too much of a shared quantity of *attention*.
+Not attachments.
+
+Not construction.
+
+Not frontier size.
+
+Not causal consequence.
+
+**The number of evaluation slots.**
+
+The far field receives the exact negative of whatever selected-slot imbalance appears nearby.
+
+That is a computational conservation identity of this selector: the allocation count is fixed even though the material consequence carried by those slots need not be.
 
 ---
 
@@ -215,10 +261,11 @@ which candidates receive evaluation
 
 PAYLOAD
 the attachment probability carried by those candidates
+```
 
----
+**---**
 
-## The Scaling Law
+## The Scaling Relation
 
 If the mechanism is really slot competition, the far-field effect should follow a specific form. Roughly, it should scale with how much frontier imbalance the intervention created, how large a fraction of the frontier is being evaluated, and how much attachment probability the displaced far candidates carry:
 
@@ -249,7 +296,9 @@ all inside the frozen 25% aggregate criterion, and tightening as evaluation broa
 SUPPORTED
 ```
 
-The high `R²` from fitting three class means through an origin is not the result — three points and a fixed intercept can fit almost anything. The result is that the scaling relation the mechanism predicts is the one the data follow.
+The high `R²` from fitting three class means through the origin is not the result — three points and a fixed intercept can make that statistic look impressive too easily.
+
+What matters is narrower: across the three predeclared low-fraction conditions, the residuals from the mechanism-derived scaling relation remain inside the frozen aggregate tolerance.
 
 There is a further check available. If the model is right, dividing the fitted coefficient by the evaluation fraction should recover the mean probability carried by the far frontier:
 
@@ -358,14 +407,17 @@ Dynamic calibration creates the comparison we actually need:
 similar background expected construction
 +
 different evaluation breadth
+```
+
+The required offsets were:
 
 ```text
-f = 0.10     offset  0.00  (reference, by definition)
-f = 0.25            −1.59
-f = 0.50            −2.49
-f = 0.75            −2.96
-f = 1.00            −3.28
-unbounded           −3.28
+f = 0.10     offset   0.00   reference, by definition
+f = 0.25             −1.59
+f = 0.50             −2.49
+f = 0.75             −2.96
+f = 1.00             −3.28
+unbounded            −3.28
 ```
 
 The required calibration also changes through time.
@@ -430,7 +482,11 @@ f = 1.00       0.0330        0.0853       0.1183
 unbounded      0.0332        0.0853       0.1184
 ```
 
-The promotion channel halves as evaluation broadens. The shared-shift channel rises by more than half. The total stays nearly flat.
+Within this survival-conditioned decomposition, the promotion channel roughly halves as evaluation broadens while the shared-shift channel rises substantially. Their sum remains comparatively stable.
+
+That is the structure hidden by the flat aggregate mean.
+
+Because this decomposition conditions on interventions that survived the delivery step, it describes **how an expressed immediate effect is routed**. It should not be confused with the unconditional mean causal effect tested above.
 
 That is the finding hiding under the flat mean. Under strong subsampling, an intervention matters largely because it puts a *new* opportunity in front of the selector. Under broad evaluation, it matters largely because it changes the *probability* of opportunities that were going to be evaluated anyway. Those are different computational routes to the same aggregate effect, and their weights move in opposite directions with almost exactly compensating magnitudes.
 
@@ -474,7 +530,11 @@ unbounded     0.918        0.910
 
 Close everywhere, and within about a percentage point from `f = 0.50` upward.
 
-So at the strongest subsampling, roughly sixty percent of probes show essentially zero immediate effect — not because the causal system is noisy, but because the selector never looked at anything the intervention touched. And 83% of probes produce no realized twelve-step difference whatsoever. The zero inflation is a property of the computational regime, predictable in advance from combinatorics.
+So under the strongest subsampling, many delivered probes produce essentially zero immediate difference because either the intervention is removed or the selector evaluates none of the opportunities it changed.
+
+The twelve-step outcomes are correspondingly highly zero-inflated.
+
+The important point is not that every zero has one cause. It is that a substantial part of the immediate zero mass is predicted in advance by the survival-plus-selection mechanism rather than requiring an interpretation in terms of weak causal response.
 
 That gives a hierarchy the substrate produced on its own:
 
@@ -498,16 +558,23 @@ Put the halves together and the chapter's result is sharper than either alone.
 Finite computational selection changes:
 
 ```text
-where causal opportunity is spent      (far-field redistribution)
-which route the effect travels         (promotion vs shared shift)
-whether the effect appears at all      (expressibility gating)
+where evaluation opportunity is spent
+    far-field redistribution
+
+how the immediate effect is expressed
+    promotion versus shared shift
+
+whether an available local difference receives evaluation
+    expressibility gating
 ```
 
-while the matched experiment bounds any change in:
+while the dynamically matched experiment bounds any change in:
 
+```text
 mean twelve-step downstream causal consequence
+```
 
-to within the predeclared ±0.15 attachment scale
+to within the predeclared `±0.15` attachment scale.
 
 ```text
 CAUSAL ROUTING
@@ -526,9 +593,9 @@ One methodological note before leaving it. The `f = 1.00` arm and the unbounded 
 | Claim | Status | Evidence |
 |---|---|---|
 | Partial evaluation produces outside-cone expected construction differences | **SUPPORTED** | signed far-field effects across the fraction sweep, both classes |
-| Exhaustive evaluation gives exactly zero outside-cone effect | **ASSERTION** | correctness identity; checked 10,750 times, not empirical evidence |
+| True unbounded evaluation gives exactly zero selector-mediated outside-local-rule-cone effect | **ASSERTION** | correctness identity of exhaustive per-branch evaluation; not empirical evidence |
 | The outside-cone effect is produced by finite candidate selection | **SUPPORTED** | effect present under subsampling, absent exactly without it |
-| Fixed-budget selection conserves evaluation slots | **IDENTITY** | Δ(far) = −Δ(near) by construction of fixed-size selection |
+| Fixed-budget selection conserves selected-slot count | **IDENTITY** | `Δ(selected far) = −Δ(selected near)` by construction of fixed-size selection |
 | Low-budget far-field effect tracks −ΔF × f | **SUPPORTED** | residuals 12.6% / 9.9% / 2.6% against 25% criterion |
 | The fitted coefficient behaves like far-frontier probability payload | **CONSISTENT** | β/f ≈ 0.50–0.57; far probability mass not independently measured |
 | Candidate displacement determines construction displacement | **FAILED** | similar churn (0.483 vs 0.446), opposite effects (−0.013 vs +0.213) |
@@ -536,7 +603,7 @@ One methodological note before leaving it. The `f = 1.00` arm and the unbounded 
 | Lag-one background matching controls the continuing process | **INVALID DESIGN** | construction rates drifted by lags 2–12; superseded |
 | Dynamic per-lag matching controls background construction | **SUPPORTED** | record-level pass fraction 1.0; all arm means within ±2% |
 | Strong subsampling changes mean 12-step causal consequence | **BOUNDED NEAR ZERO** | difference `+0.00130`, CI inside ±0.15; unresolved at ±0.10 |
-| Evaluation breadth changes the causal pathway mixture | **SUPPORTED** | promotion 0.069→0.033, shared shift 0.054→0.085 |
+| Evaluation breadth changes the immediate pathway mixture among surviving interventions | **SUPPORTED** | survival-conditioned decomposition: promotion `0.069→0.033`, shared shift `0.054→0.085` |
 | Causal expression is gated by survival and selector exposure | **SUPPORTED** | combinatorial prediction matches observed active fractions |
 | Nonzero outcomes are more frequent under strong subsampling | **DESCRIPTIVE** | post-treatment conditional analysis, not promoted |
 | Branching process, criticality, propagation, signalling | **NOT CLAIMED** | no such structure tested |
@@ -554,12 +621,31 @@ The local rule predicts the immediate effect, and the previous chapter found the
 
 Yet under the matched experiment in this chapter, those changes do not produce a resolved difference in mean twelve-step consequence at the declared `±0.15` scale.
 
-Every one of those variables is a fact about the present. The current occupancy, the current frontier, the current budget.
+Every variable isolated so far is a property of the present:
 
-Which leaves an obvious gap. Two states can be matched on visible geometry and current computational conditions while differing in the material history that produced them.
- The *Can Experience Change the Material?* chapter built material that could carry such a difference and found it went causally inert once construction moved past it. the previous chapter tried to use recent process history as a predictor and could not, in a substrate that had no independent history state to carry anything.
+```text
+current occupancy
+current frontier
+current attachment probabilities
+current evaluation policy
+current computational budget
+```
 
-So the experiment has never actually been run. So the next experiment holds the present geometry, allocation policy and perturbation fixed as tightly as possible and varies the retained material consequence of prior experience.
+That leaves one conspicuous variable untouched.
+
+Two states can be closely matched in their visible geometry and current computational conditions while differing in the material history that produced them.
+
+*Can Experience Change the Material?* built a substrate capable of carrying such a difference, but its stored material state became causally inaccessible once construction moved beyond it.
+
+The previous chapter also tested recent process history as a predictor, but in a substrate with no independent history-bearing state once the present was matched.
+
+So the stronger experiment has not yet been performed.
+
+Hold the visible present, allocation policy and perturbation as fixed as the protocol allows.
+
+Vary the retained material consequence of prior experience.
+
+For the first time, make history itself the intervention variable.
 
 For the first time, history itself becomes the intervention variable.
 
