@@ -162,7 +162,7 @@ So the task of this book is not:
 
 It is:
 
-> **Discover the aerodynamics of digital life.**
+> **Discover the dynamics of digital life.**
 
 Which mechanisms actually matter? Which properties arise on their own? And which of the things we assume are fundamental turn out to be solutions biology found for the specific problem of living in the physical world?
 

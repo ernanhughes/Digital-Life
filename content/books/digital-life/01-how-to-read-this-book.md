@@ -9,23 +9,23 @@ categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Experimental Method", "Evidence", "Controls", "Reproducibility", "Scientific Method"]
 +++
 
-This is a science book, but you do not need to reproduce every experiment to read it.
+This is a science book, but you do not need to reproduce every experiment to read it. 
 
 You can simply follow the investigation.
 
 Watch something strange appear.
 
-See the explanation we reached for.
+Notice the explanation we reached for.
 
-See the experiment that tested it.
+See how the experiment tested it.
 
-See what survived.
+Then ask what survived.
 
 If that is all you want from the book, the main text is enough.
 
 But every important result sits above a deeper record, and that record is available if you want to inspect it.
 
-The book therefore exists at several depths.
+The book exists at several depths.
 
 ```text
 THE BOOK
@@ -61,14 +61,13 @@ The web edition is therefore not a different book.
 It is another view of the same investigation.
 
 The public source repository is here:
-
-**[https://github.com/ernanhughes/Digital-Life](https://github.com/ernanhughes/Digital-Life)**
+https://github.com/ernanhughes/Digital-Life
 
 That is where the investigation can be followed downward into code and experimental material.
 
 The prose tells you what we think happened.
 
-The experimental record lets you ask whether we are right.
+The code and experimental record let you check whether we earned that conclusion.
 
 ---
 
@@ -136,13 +135,13 @@ But the trail should exist.
 
 Most chapters begin with a temptation.
 
-Something moves.
+A pattern moves.
 
-Something returns after damage.
+A damaged structure returns.
 
-Something appears to reproduce.
+One form appears to reproduce.
 
-One region seems to behave like an individual.
+A region begins to look like an individual.
 
 An earlier event seems to have left a memory.
 
