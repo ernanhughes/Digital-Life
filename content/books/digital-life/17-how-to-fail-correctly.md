@@ -30,7 +30,7 @@ fresh reproduction     ✓    selected regions scored 0.4436
                             in an independent matched-null run
 
 individuation          ✕    not established
-````
+```
 
 The two numbers come from different runs.
 
@@ -94,6 +94,26 @@ These are not different degrees of the same outcome.
 
 They live at different logical levels.
 
+Five terms do most of the work from here, and it is worth fixing them before they start carrying weight.
+
+```text
+ESTIMAND
+the specific quantity an experiment is built to estimate
+
+CONSTRUCT
+the richer theoretical concept we hope that quantity helps identify
+
+SEI
+smallest effect of interest — the predeclared magnitude
+that counts as scientifically meaningful for that estimand
+
+MDE80
+the achieved minimum detectable effect at 80% power
+under the frozen analysis convention
+```
+
+The gap between the first two is where most of this chapter lives. An estimand is something an experiment can deliver. A construct is something we decide the estimand licenses us to say.
+
 ```text
 RUN VALIDITY
 
@@ -139,6 +159,8 @@ a declared positive effect of meaningful size is excluded
 ```
 
 Those are not interchangeable.
+
+One consequence follows immediately, and it shapes everything below: an experiment does not receive a single global status. Direction, magnitude, mechanism, construct validity and descriptive closeouts answer different claims, and each carries its own. The bookkeeping attaches a status to a claim, not to a run.
 
 Nor is `INVALID` merely another inferential status. An invalid experiment does not produce a weak answer to the original question. It fails to instantiate the question correctly.
 
@@ -423,6 +445,17 @@ MEANINGFUL POSITIVE EXCESS
 BOUNDED BELOW SEI
 ```
 
+Two different thresholds appear in that pair of experiments, and the difference is worth stating plainly before it looks like drift.
+
+```text
+RAW MODULARITY        SEI = +0.15
+EXCESS MODULARITY     SEI = +0.10
+```
+
+These belong to different estimands. The first froze the smallest meaningful value of raw containment. The second introduced a new quantity — excess containment over geometry-matched controls — and froze its threshold before seeing any result for it. A new estimand may legitimately carry its own predeclared threshold.
+
+What would not be legitimate is moving an existing threshold because its answer turned out to be inconvenient. Neither number has a theoretical derivation behind it; both are declared operational thresholds, and their integrity comes entirely from having been fixed in advance.
+
 But:
 
 ```text
@@ -646,7 +679,7 @@ Different experiments, same bookkeeping:
 PHENOMENON SURVIVES
 
 PROMOTION NARROWS
-````
+```
 
 ---
 
@@ -843,7 +876,8 @@ The distinctions are:
 ```text
 CORRECTIVE EXPERIMENT
 
-repairs a defect in implementation, construct or reference
+repairs a defect in intervention, implementation,
+operationalization, estimand or reference contrast
 while preserving the declared scientific question
 
 NEW EXPERIMENT
@@ -946,6 +980,7 @@ Ten cases were registered across three recent experimental chains:
 finite-selector / amplification
 hidden-state causal response
 causal modularity / individuation
+```
 
 Every registered case resolved to source artifacts.
 
@@ -1029,10 +1064,20 @@ and did not rescue the unresolved magnitude claim
 
 All five passed.
 
+| Check | Required bookkeeping | Result |
+|---|---|---|
+| Invalid hidden-state primary | preserve the independent immediate result | PASS |
+| Direction vs magnitude | keep the two statuses separate | PASS |
+| Stronger spatial null | narrow the construct, preserve raw containment | PASS |
+| Bounded amplification | preserve the mechanistic routing result | PASS |
+| Descriptive closeout | do not rescue the magnitude claim | PASS |
+
 ```text
 FAILURE-LEDGER BOOKKEEPING
 CONSISTENT
 ```
+
+Every registered case resolved to primary project artifacts — generated reports, structured result files and analysis outputs — rather than to prose recollection. A case that could only be evidenced from documented prose would have been recorded as manual-evidence-only; none were. The complete machine-readable ledger and artifact audit are retained with this chapter's research outputs, and the table above shows the cross-case checks that matter for the argument here.
 
 That status is narrow.
 
@@ -1043,7 +1088,9 @@ of mistakes.
 It checks one thing: whether the registered evidence transitions were carried
 forward without silently changing their logical status.
 
-> **Across the registered Chapters 26–28 case chains, the recorded invalidations, unresolved questions, bounded results, descriptive closeouts and claim narrowings can be represented without silently converting one evidence class into another or deleting surviving evidence.**
+A word about the other labels that appear in the Evidence Ledgers throughout the book. `NOT ESTABLISHED`, `NOT CLAIMED` and `UNTESTED` are scope markers rather than inferential outcomes — they record where a claim was never taken, not how an experiment turned out. `ASSERTION` and `IDENTITY` refer to implementation correctness or algebraic properties of the code, not to empirical population findings. Keeping those apart from `SUPPORTED`, `UNRESOLVED` and `BOUNDED` is part of the same discipline.
+
+> **Across the three registered case chains — finite-selector amplification, hidden-state causal response, and causal modularity — the recorded invalidations, unresolved questions, bounded results, descriptive closeouts and claim narrowings can be represented without silently converting one evidence class into another or deleting surviving evidence.**
 
 That is enough.
 
