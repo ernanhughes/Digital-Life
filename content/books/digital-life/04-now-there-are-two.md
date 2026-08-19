@@ -59,19 +59,17 @@ The mechanism will take one paragraph, because the previous chapter has already 
 
 Every cell is `0` or `1`. Each cell reads its `3 × 3` Moore neighbourhood, itself included, which gives 512 possible local configurations, and the rule specifies an output for each. That is the entire law of this universe: 512 output bits. The published rule is rotationally symmetric but not mirror-symmetric. Of its 512 entries, 220 produce an active centre cell, compared with 140 for Conway's Game of Life.[5]
 
-Note what is absent. No `Organism`. No genome, no energy budget, no `reproduce()`, no fitness function, no population manager, no representation of an individual anywhere. There is binary state, a neighbourhood, a transition rule and time.
+Note what is absent. Nothing in the system yet corresponds to an organism or even an individual. We have only binary state, a neighbourhood, a transition rule and time. Genomes, energy budgets, reproduction, fitness and populations are all concepts that would have to emerge later, if they become relevant at all.
 
 How Outlier was found matters, because it is easy to overstate what happened.
 
-Outlier was found by an automated search — genetic programming across cellular-automaton rules, looking for dynamics that might support open-ended evolution.[5] Humans wrote the search. Humans defined the rule space, the substrate and the selection criteria. Nothing here appeared independently of human design in any absolute sense; the result is better understood as the discovery of an interesting rule within a human-defined search space.
+Humans designed the search. They chose the cellular-automaton substrate, the space of possible rules and the criteria by which rules were selected. Outlier is therefore not evidence of digital life appearing independently of human design.
 
-But the search was for a universe, not for a replicator. Self-replication was not an explicit objective.[5]
+But neither did the search specify a replicating organism. It searched for a rule system with dynamics considered promising for open-ended evolution.[5] Self-replication was not itself the explicit target, although such a search could certainly favour rules in which persistent or multiplying structures occur.
 
-That does not mean the search was indifferent to replication. A search for dynamics capable of open-ended evolution may favour rules in which structure persists or multiplies, even if replication itself is never named as the target.
+What the search ultimately returned was a **local transition rule**. The particular replicating organizations later found within that rule were not explicitly represented in it.
 
-The narrower point is enough. What the search returned was a local transition rule. The particular replicating organizations later observed were not explicitly represented in that rule or specified as the target of the search.
-
-That distinction is the whole reason Outlier is worth our time:
+**That is why Outlier matters here. The rule was selected; the replicator was discovered within the world the rule created.**
 
 ```mermaid
 flowchart LR
