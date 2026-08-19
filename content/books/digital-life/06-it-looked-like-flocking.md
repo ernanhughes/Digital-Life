@@ -9,15 +9,13 @@ categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Artificial Life", "Outlier", "Collective Motion", "Causality", "Controls", "Confounds", "Experimental Method"]
 +++
 
-The previous chapter was built around a warning.
-
-A deliberately simple swarm had produced object-like forms, coherent-looking collective motion and a persistent measured regime without giving us anything we were prepared to call digital life.
+The previous chapter ended with a warning: a deliberately simple swarm could look organized, move coherently and preserve a measured regime without giving us anything we were prepared to call digital life.
 
 Then we went back to Outlier.
 
 And almost immediately saw structures moving together.
 
-Not merely outward, as an expanding front would carry everything. Together — with what looked like coordination among structures sharing recent causal history.
+Not merely outward with the expanding front. Together — with what looked like stronger coordination among structures sharing recent causal history.
 
 The biological noun arrived immediately.
 
@@ -25,215 +23,248 @@ The biological noun arrived immediately.
 
 This time we knew exactly how dangerous the picture was.
 
-But Outlier also gave us a reason to investigate rather than dismiss the impression. Published work had established causal self-replication, and our smaller run had independently recovered branching causal recurrence under its stated criterion.
+But Outlier gave us a reason to investigate rather than dismiss it. Published work had already established causal self-replication, and our smaller reconstruction had recovered branching causal recurrence under its stated criterion.
 
-We already possessed a causal graph.
+We already had a causal graph.
 
-Shared ancestry and motion could therefore be measured independently.
+Motion and ancestry could therefore be measured separately.
 
-So the hypothesis was testable:
+So we asked:
 
-> **Do structures with shared causal history also show stronger dynamical coherence?**
+> **Do structures sharing recent causal history also show stronger dynamical coherence?**
 
-The biological-looking interpretation therefore came with two independently measurable sides.
+We turned the impression into a measurement.
 
-We turned the impression into a hypothesis and started measuring.
+The coherence was real.
+
+Our first explanation for it was not.
 
 ---
 
-## What Would Flocking Mean?
+## The Observation
 
-Not: *are these things birds?*
+We did not begin by asking whether Outlier satisfied every formal definition of flocking from swarm biology or active-matter physics.
 
-We did not begin by trying to satisfy every formal definition from swarm biology or active-matter physics. We started with something much narrower and answerable:
+We asked something narrower:
 
-> Do nearby persistent moving structures travel in unusually similar directions?
+> **Do nearby persistent structures move in unusually similar directions?**
 
-That is a measurement, and it needs three things: structures that persist long enough to have a direction, a way to compare directions, and a control.
+To answer that, we first needed to turn visible movement into data.
 
-Using the causal graph to follow plausible cluster continuations through time, we recovered 13,635 motion tracks lasting at least eight generations, yielding 633,808 motion observations.
+Using the causal graph, we followed plausible cluster continuations through time. Each tracked structure gave us a position, a direction of travel, a time and a causal identity.
 
-Each observation gave us what the hypothesis required:
+Across the run this produced:
 
 ```text
-position
-velocity
-time
-causal identity
-```
+13,635 motion tracks
+633,808 motion observations
+````
 
-Here, `velocity` is not a variable inside Outlier. It is an operational measurement derived from the displacement of a tracked structure through time.
+The tracks lasted at least eight generations.
 
-Comparing directions is simpler. For two velocity vectors, normalize both and take their dot product:
+`Velocity` here is not a variable inside Outlier. It is something we measure from the displacement of a tracked structure through time.
+
+To compare the directions of two structures, normalize their velocity vectors and take the dot product:
 
 $$
 A_{ij}
-=
+======
+
 \frac{v_i}{|v_i|}
 \cdot
 \frac{v_j}{|v_j|}
 $$
 
-which lands between −1 and +1:
+The result is simple:
 
 ```text
-+1  = same direction
- 0  = no directional agreement
--1  = opposite directions
++1    same direction
+ 0    no directional agreement
+-1    opposite directions
 ```
 
-We compared structures moving at the same moment, at various spatial separations, using a spatial index rather than comparing every structure with every other one. That was partly a performance decision and partly a better experiment: structures on opposite sides of the universe tell us nothing about local collective motion.
+We compared structures observed at the same time and at nearby spatial separations.
 
-Note the vocabulary discipline here, because it does the work later.
+The distinction that matters throughout this chapter is:
 
 ```text
-flocking
+flocking                           interpretation
+short-range directional alignment measurement
 ```
 
-is an interpretation.
-
-```text
-short-range directional alignment
-```
-
-is a measurement. The whole chapter is about the distance between those two lines.
+The question is whether the first is actually licensed by the second.
 
 ---
 
 ## The First Result
 
-At short distances, observed velocity alignment was approximately **0.74**, against a velocity-shuffled control that was much lower.
+At short range, the result was strong.
+
+Observed directional alignment was approximately:
+
+```text
+0.74
+```
+
+on a scale from `-1` to `+1`.
+
+A velocity-shuffled control was much lower.
 
 {{< figure src="/images/books/digital-life/ch10-outlier-flocking-test.png" caption="Nearby persistent structures exhibit much stronger directional alignment than a shuffled velocity control." >}}
 
-So the visual impression corresponded to a measurable feature of this run: an average near `0.74`, on a scale from `-1` to `+1`.
+So the visual impression was not imaginary.
 
-For now, that is all we should say.
+Nearby tracked structures in this run really did move coherently.
 
-Nearby tracked structures in this run move coherently.
+That is the observation.
 
-Why they do so remains open.
-
-What that *means* is a different question, and we had immediately created a new problem.
+The explanation remained open.
 
 ---
 
-## Maybe Everything Is Simply Moving Outward
+## Not Just Expansion
 
-Outlier develops as an expanding structure. Nearby clusters may sit on the same expanding front, and two things being carried outward by the same expansion will have similar velocity vectors without any relationship to each other at all.
+Outlier expands.
 
-Picture two pieces of debris riding the same circular wave. Their velocities agree beautifully. They have never interacted, and neither is responding to the other in any way.
+That immediately gives us an obvious alternative explanation.
 
-If that were the whole story, our 0.74 would be an elaborate way of measuring that Outlier grows.
+Structures sitting on the same expanding front may have similar velocities simply because they are being carried outward together.
 
-The control is direct. For each position, compute its radial direction relative to the centre of the expansion:
+Two pieces of debris riding the same circular wave can have beautifully aligned motion without interacting with one another at all.
 
-$$
-r_i
-=
-\frac{x_i-c}{|x_i-c|}
-$$
+If that explained the result, our `0.74` would amount to an elaborate measurement of the fact that Outlier grows.
 
-then decompose each velocity into a radial component and a non-radial component, and discard the radial part. What remains is motion that is not explained by the global expansion. If the coherence was expansion, the residual alignment should collapse.
+So we removed the radial component of each structure's motion — the part pointing directly away from the centre of expansion — and measured alignment again using only what remained.
 
-It did not:
+If global expansion alone explained the coherence, the effect should collapse.
+
+It did not.
 
 ```text
-raw short-range alignment        = 0.7373
-radial-subtracted alignment      = 0.7427
-shuffled residual control        = 0.1933
+raw short-range alignment        0.7373
+radial-subtracted alignment      0.7427
+shuffled residual control        0.1933
 ```
 
-Read those three numbers carefully, because this is the moment the investigation became serious.
+The small change from `0.7373` to `0.7427` is not interpreted here.
 
-The alignment did not merely survive removal of the global expansion field — it remained at essentially the same level. The small increase from `0.7373` to `0.7427` is not interpreted here.
+The important result is that removing the global radial field did not remove the short-range coherence.
 
-The shuffled control on the same residuals sits at `0.1933`, so the residual alignment is not an artefact of the subtraction procedure producing spuriously agreeable vectors.
+And the shuffled residual control remained much lower, so the subtraction itself had not simply manufactured agreeable vectors.
 
 {{< figure src="/images/books/digital-life/ch11-outlier-radial-family-flocking.png" caption="Short-range motion coherence survives subtraction of the global radial expansion field." >}}
 
-One explanation eliminated:
+One simple explanation had failed:
 
-> **The observed coherence is not explained merely by every structure moving radially away from the original seed.**
+> **Global radial expansion alone does not explain the observed coherence.**
 
-At this point the flocking interpretation had become harder to dismiss.
+That made the phenomenon more interesting.
 
-The most obvious alternative explanation — simple radial expansion — had failed to account for the effect.
+It still did not make it flocking.
 
-But we still did not know what produced the coherence.
+We needed an explanation for why nearby structures moved together.
 
-Then the causal graph suggested an explanation.
+Outlier already gave us one possibility the decoy swarm did not.
+
+Ancestry.
 
 ---
 
-## Shared Causal History
+## Maybe It Is Ancestry
 
-The *Now There Are Two* chapter left us with an uncomfortable published result: causal self-replication in Outlier can involve spatially separated components.
+The causal graph gave us a sharper hypothesis:
 
-That does not establish that those components constitute one natural individual — we were careful about this, and remain careful about it. But it suggests a narrower and testable idea:
+> **Do structures sharing recent causal history also move more coherently?**
 
-> **Does shared causal organization explain the apparent coordinated motion?**
+If they did, the motion might reflect some continuing causal organization rather than merely local geometry.
 
-If structures descending from a recent common ancestor remained dynamically coupled, then shared motion might reflect continuing causal organization rather than independent objects somehow "deciding" to coordinate.
+To test that, we assigned each cluster its most recent identifiable `c2` ancestor.
 
-That would be a much more interesting explanation.
+A `c2` cluster began a new family. Otherwise the label propagated through the causal graph.
 
-It was an attractive hypothesis. It used infrastructure we already trusted, offered an explanation for a measurement we already had, and required no imported social mechanism from biology.
+Coverage was extremely high.
 
-But it was still only a hypothesis.
+Of:
 
-So: do structures belonging to the same recent causal family move more coherently than structures assigned to different recent families?
+```text
+138,891 clusters
+```
 
-### Assigning families
+we assigned a recent `c2` ancestor to:
 
-An earlier family definition based on four branches descending from one early `c2` left too few different-family observations to support a useful comparison.
+```text
+138,132
+```
 
-So we strengthened it. Every cluster was assigned its **most recent identifiable `c2` ancestor**. A cluster that was itself `c2` began a new family; otherwise ancestry propagated through the causal graph.
+with:
 
-The coverage was remarkable. Of 138,891 clusters, 138,132 received a recent `c2` ancestor, with only 10 ambiguous and 749 unassigned. Of the motion observations, 633,696 out of 633,808 carried a family label.
+```text
+10 ambiguous
+749 unassigned
+```
+
+Of the `633,808` motion observations:
+
+```text
+633,696
+```
+
+carried a family label.
 
 {{< figure src="/images/books/digital-life/ch11-outlier-family-coverage.png" caption="Almost every tracked moving structure in this single-seed experiment can be associated with a recent c2 causal ancestor." >}}
 
-Almost every tracked moving structure in this run could therefore be assigned a recent `c2` ancestry label under this procedure.
+That gave us an unusually complete ancestry label for the moving structures.
 
-That coverage was striking.
-
-It explained exactly nothing about the motion.
+It explained nothing by itself.
 
 A useful label is not an explanation.
+
+So we compared motion.
 
 ---
 
 ## A Very Exciting Result
 
-Comparing nearby structures after subtracting a local background flow, we found:
+Our first ancestry comparison looked spectacular.
+
+After subtracting a local background flow:
 
 ```text
-same recent-c2 family         =  0.828
-different recent-c2 family    = -0.349
+same recent-c2 family          0.828
+different recent-c2 family   -0.349
 ```
 
-That looked spectacular.
+Same-family structures appeared strongly aligned.
 
-Related structures appeared strongly aligned at `0.828`.
-
-Different-family structures appeared strongly anti-aligned at `-0.349`.
+Different-family structures appeared strongly anti-aligned.
 
 For a moment it looked as though causal families were behaving like distinct dynamical units.
 
-But the negative result was almost *too* interesting.
+But the negative number was too good.
 
-Nothing in our hypothesis predicted that unrelated families should actively oppose one another.
+Our hypothesis predicted stronger alignment among relatives.
 
-That unexplained success was the clue.
+It did not predict that unrelated families should actively move against one another.
 
-### Our experiment was wrong
+That was the clue.
 
-This is worth slowing down for.
+Our experiment was wrong.
 
-To estimate the local environmental flow around object `A`, we averaged the velocities of nearby structures, excluding structures from `A`'s own family — sensibly, so that `A`'s relatives could not define the background against which `A` was judged.
+---
 
-Now consider comparing `A` from family α with `B` from family β. `B` is not in `A`'s family, so `B` contributes to `A`'s background estimate. And `A` is not in `B`'s family, so `A` contributes to `B`'s.
+## Our Control Was Wrong
+
+To measure motion relative to the local environment, we estimated a background flow around each structure.
+
+When judging object `A`, we excluded members of `A`'s own family from that background estimate. That sounded sensible: relatives should not define the background against which one another were tested.
+
+But now consider a different-family pair.
+
+Suppose `A` belongs to family α and `B` belongs to family β.
+
+`B` is not in `A`'s family, so `B` contributes to the background used for `A`.
+
+And `A` contributes to the background used for `B`.
 
 In the simplest case:
 
@@ -241,200 +272,228 @@ $$
 r_A \approx v_A-v_B
 $$
 
-and:
+while:
 
 $$
 r_B \approx v_B-v_A
 $$
 
-so:
+and therefore:
 
 $$
 r_B \approx -r_A
 $$
 
-We had built an anti-correlation into the estimator. The −0.349 was not a discovery about different families. It was a property of the arithmetic.
+We had built anti-correlation into the estimator.
 
-```mermaid
-flowchart TD
-    A["Object A velocity"] --> B["Background estimate for A uses B velocity"]
-    B --> C["Residual A ≈ vA - vB"]
-    D["Object B velocity"] --> E["Background estimate for B uses A velocity"]
-    E --> F["Residual B ≈ vB - vA"]
-    C --> G["Residuals artificially anti-correlated"]
-    F --> G
-```
+The `-0.349` was not evidence that different causal families opposed one another.
 
-The measurement was partly using the tested pair to manufacture the background against which that same pair was evaluated.
+It was partly a property of our arithmetic.
 
 The control itself had become a confound.
 
-That matters because controls are not external guarantees of correctness. They are pieces of experimental machinery.
+That is worth remembering.
+
+Controls are not external guarantees that an experiment is correct.
+
+They are part of the experimental machinery.
 
 They can be wrong too.
 
-### The stronger control
+---
 
-The fix is straightforward once the problem is visible. When testing a pair from families α and β, estimate the local background while excluding **both** families from both estimates. Now neither member of the tested pair can manufacture the other's residual.
+## The Effect Survived the Fix
 
-Under this stronger control:
+The repair was straightforward once we could see the problem.
+
+When testing a pair drawn from families α and β, we estimated the local background while excluding **both** families.
+
+Now neither member of the tested pair could help manufacture the other's residual.
+
+The pathological negative result disappeared.
+
+Unfortunately, the ancestry effect did not.
+
+The corrected analysis gave:
 
 ```text
-Same recent c2 ancestor          0.746
-Very close c2 ancestry           0.101
-Close c2 ancestry                0.032
-Distant c2 ancestry              0.135
-Very distant c2 ancestry         0.081
+same recent c2 ancestor        0.746
+very close c2 ancestry         0.101
+close c2 ancestry              0.032
+distant c2 ancestry            0.135
+very distant c2 ancestry       0.081
 ```
 
-The first category means that the pair shares the same most recent identified `c2` ancestor. The remaining categories group different-family pairs by genealogical separation in the causal graph; the exact bin definitions are given in the appendix.
+The first category means that the pair shares the same most recent identified `c2` ancestor.
 
-“Different family” therefore does not mean “causally unrelated.” It means that the pair does not share the same most recent identified `c2` ancestor under this procedure.
+The remaining categories contain different-family pairs grouped by separation in the causal graph.
+
+So `different family` does not mean causally unrelated. It means the pair does not share the same most recent identified `c2` ancestor under this procedure.
 
 {{< figure src="/images/books/digital-life/ch11-outlier-relatedness-coherence.png" caption="Before distance matching, motion coherence appears far higher for structures sharing the same recent c2 ancestor than for more distant genealogical relationships. This apparent effect does not survive the fair comparison later in the chapter." >}}
 
-The pathological negative number is gone, as it should be. But the main effect is still there, and it is enormous:
+The estimator bug was real.
+
+Fixing it removed the artificial anti-alignment.
+
+But the main contrast still looked enormous.
+
+The nearest different-family category sat around:
 
 ```text
-same recent c2 ancestor    0.746
-very close ancestry        0.101
-                           -----
-gap                        0.645
+0.101
 ```
 
-A gap of `0.645` on a scale bounded at `1.0`.
-
-And look at what the apparent effect had already survived:
+while same-family pairs sat at:
 
 ```text
-ancestry derived from the causal graph
-+
-shuffled-motion control
-+
-radial-expansion control
-+
+0.746
+```
+
+An apparent gap of:
+
+```text
+0.645
+```
+
+The ancestry explanation had now survived:
+
+```text
+a shuffled-motion control
+radial-expansion subtraction
 a discovered estimator bug
-+
 a corrected estimator
 ```
+
+It looked increasingly convincing.
+
+And then we checked distance.
 
 ---
 
 ## The Four-and-a-Half-Cell Problem
 
-Structures sharing the same recent `c2` ancestor had a mean separation of about **4.5 cells**.
+Structures sharing the same recent `c2` ancestor were separated, on average, by about:
 
-Structures in other causal groups were typically tens of cells apart.
+> **4.5 cells**
 
-Sit with that for a moment, because everything turns on it.
+Structures in the other causal groups were generally tens of cells apart.
 
-We had two variables that both track family membership. Same family means recently descended — and it also means *physically very close together*, because a structure and its recent causal descendants have not had time to get far apart. Different family, in this dataset, generally means far away.
+That changes everything.
 
-And we already knew, from the very first measurement, that motion coherence depends strongly on distance. That was the finding: *short-range* alignment is high.
+Same-family pairs tend to be recent descendants.
 
-So:
+Recent descendants have not had much time to move apart.
+
+So family membership and distance were entangled:
 
 ```text
 same family
-↓
-tends to mean closer
+    ↓
+usually closer together
 
-closer
-↓
-tends to mean more coherent
+closer together
+    ↓
+usually more coherent
 ```
 
-which produces:
+And therefore:
 
 ```text
 same family
-↓
+    ↓
 appears more coherent
 ```
 
-even if ancestry contributed nothing to the difference.
+even if ancestry itself contributes nothing.
 
-The 0.645 gap might be measuring exactly one thing: that we had compared structures 4.5 cells apart against structures tens of cells apart, and discovered that closer structures move more similarly. Which we knew before we started.
+We already knew that coherence was strongest at short range.
 
-Nothing about the `0.645` was fabricated.
+That was the first result in the chapter.
 
-Same-family pairs really did move more coherently than different-family pairs.
+So our spectacular ancestry effect might have been rediscovering something we had known all along:
 
-The problem was the sentence we wanted to attach to that number:
+> nearby things move more similarly than distant things.
+
+Nothing about the `0.645` contrast was fabricated.
+
+Same-family pairs really did move more coherently in the raw comparison.
+
+The problem was the explanation we wanted to attach to it:
 
 > **because they are related**
 
 The measurement was real.
 
-The causal interpretation was not yet identified.
+The causal interpretation was not identified.
 
-The comparison was never able to answer the ancestry question, no matter how large the gap it produced. Comparing like with unlike gives you a difference. It does not tell you which of the differences is responsible.
-
-So we needed to compare like with like.
+To test ancestry, we had to compare like with like.
 
 ---
 
-## Distance Matching
+## Compare Like With Like
 
-The stronger comparison holds three measured differences fixed: when the pair was observed, how far apart its members were, and how crowded the surrounding region was. Local density was measured by the existing pair-construction pipeline using a 32-cell neighborhood and then binned for matching.
+So we rebuilt the comparison.
 
-For each same-family pair, find different-family pairs occurring in the same:
-
-```text
-simulation-time bin
-spatial-distance bin
-local-density bin
-```
-
-— while continuing to use the pair-excluded background-flow correction from the previous stage. Then compare within each matched stratum, using equal numbers of same-family and different-family pairs, so that no stratum can dominate the result by virtue of being over-represented in one group.
-
-Matching makes the comparison fair with respect to those measured variables. It does not eliminate every possible unmeasured difference in local environment.
-
-The question becomes precise in a way it had not been before:
-
-> At similar times, at similar distances, and in similar local environments, do members of the same `c2` causal family move more coherently than members of different families?
-
-The underlying dataset contained 2,617,077 usable pair records. The matched analysis ultimately drew roughly 65,000 pairs from each group across hundreds of comparable strata.
-
-The implementation details belong in the appendix.
-
-One methodological detail does not: because the run had been preserved as a queryable experimental specimen, discovering the confound did not require rerunning the entire world. We could ask a better question of the same evidence.
-
-That made correction cheap enough to actually happen.
-
-The matched result across the full range of separations present in the data was:
+For every same-family pair, we compared different-family pairs observed at similar:
 
 ```text
-same-family         0.1515
-different-family    0.1588
-difference         -0.0073
+time
+distance
+local density
 ```
 
-The spectacular advantage had disappeared.
+The pair-excluded background-flow correction remained in place.
 
-After matching on time, distance and local density, recent-family membership provided no additional positive coherence in this comparison. The pair-weighted point estimate was slightly negative.
+Now ancestry could differ while those three measured differences were held approximately fixed.
+
+The precise binning and matching machinery belongs in the Experimental Note and appendix.
+
+The scientific question is simpler:
+
+> **At similar times, at similar distances and in similar local environments, do members of the same `c2` family move more coherently than members of different families?**
+
+The first matched result was:
+
+```text
+same-family          0.1515
+different-family     0.1588
+difference          -0.0073
+```
+
+The ancestry advantage was gone.
+
+After matching on time, distance and local density, same-family pairs no longer showed additional positive coherence.
+
+The point estimate was slightly negative.
 
 That should have been the end.
 
 It was not.
 
-Matching answers a question only where both groups actually contain comparable observations — and we had not yet checked where that was true.
+Matching can only answer questions where comparable observations actually exist.
+
+We had not yet checked where that was true.
 
 ---
 
-## Common Support
+## Where Comparison Is Actually Possible
 
-Matching cannot create comparison data where none exists.
+Matching cannot manufacture controls.
 
-If same-family pairs dominate one distance regime and different-family pairs dominate another, matching can only speak about the region where the two distributions overlap.
+If same-family pairs dominate one distance range and different-family pairs dominate another, then the comparison is meaningful only where both groups actually occur.
 
-Outside that overlap there is no counterfactual comparison to recover.
+That mattered here because same-family pairs were concentrated at the shortest separations — exactly where different-family controls were sparse.
 
-A global-looking number can therefore answer a much narrower question than its formatting suggests.
+So we measured the overlap directly.
 
-Given what we had just learned about the 4.5-cell separation, this was not a hypothetical worry. Same-family pairs are concentrated at exactly the distances where different-family pairs are rarest.
+The full pair dataset contained:
 
-So we kept all 2,617,077 pair records and measured the overlap directly, across distance bins:
+```text
+2,617,077 usable pair records
+```
+
+We examined distance bins:
 
 ```text
 0–4
@@ -448,11 +507,11 @@ So we kept all 2,617,077 pair records and measured the overlap directly, across 
 64–96
 ```
 
-with a declared operational rule:
+and declared a simple support rule:
 
 > **A distance bin must contain at least 100 same-family and 100 different-family raw pair records.**
 
-The largest contiguous distance region satisfying that condition was:
+The largest contiguous region satisfying that condition was:
 
 ```text
 [4, 64) cells
@@ -460,27 +519,37 @@ The largest contiguous distance region satisfying that condition was:
 
 {{< figure src="/images/books/digital-life/ch13-outlier-distance-overlap.png" caption="Same-family and different-family distance distributions. The shaded region marks the primary common-support interval from 4 to 64 cells." >}}
 
-This is a distance-support criterion. Inside that region, the matched analysis imposes a further requirement: a time × distance × density stratum contributes only when both same-family and different-family observations are present.
+Inside that distance range, matching imposed an additional condition: a particular time × distance × density stratum contributed only when both groups were actually represented.
 
-The shortest-distance regime, 0–4 cells, falls **outside** the primary distance-support region.
+The important boundary is at the short end.
 
-That changes what the analysis is entitled to say, and it changes it in both directions. We cannot claim matching has identified the ancestry effect at very short range. We also cannot claim it has ruled it out.
+The `0–4` cell regime lies **outside** the primary support region.
+
+So the matched analysis cannot tell us what ancestry does there.
+
+That cuts both ways.
+
+We cannot claim an ancestry effect at 0–4 cells.
+
+We also cannot claim to have ruled one out.
 
 ---
 
-## Inside the Region We Can Actually Compare
+## Inside the Region We Can Compare
 
-Restricting to 4–64 cells, the raw descriptive data still favoured the ancestry interpretation:
+Within the supported `4–64` cell range, the raw data still favoured the ancestry interpretation:
 
 ```text
-same-family mean         0.1732
-different-family mean    0.1166
-raw difference          +0.0566
+same-family mean           0.1732
+different-family mean      0.1166
+raw difference            +0.0566
 ```
 
-Even after removing the extreme short-range regime, the raw comparison still favoured the ancestry interpretation.
+So merely removing the unsupported shortest-distance regime did not make the association disappear.
 
-Applying the matching procedure within this region — exact matching on time bin, distance bin and density bin, with equal numbers from each group per stratum:
+The critical step was matching comparable observations.
+
+After matching on time, distance and local density:
 
 ```text
 matched same-family mean        +0.150823
@@ -488,115 +557,95 @@ matched different-family mean   +0.157890
 pair-weighted matched effect    -0.007067
 ```
 
-across:
+The analysis used:
 
 ```text
 64,948 matched pairs per group
 659 matched strata
 ```
 
-There are two useful summaries because they answer slightly different weighting questions.
-
-The pair-weighted estimate gives larger matched strata more influence. If instead every matched stratum receives equal weight, the effect is:
-
-```text
-equal-stratum effect            -0.026463
-```
-
-The uncertainty analysis belongs to that equal-stratum estimand. Bootstrapping the 659 stratum-level effects — rather than treating individual pair records as independent — gave:
-
-```text
-95% stratum-bootstrap interval
-[-0.066450, +0.012172]
-```
-
-{{< figure src="/images/books/digital-life/ch11-outlier-distance-matched-coherence.png" caption="Inside the matched comparison, same-family and different-family motion coherence are essentially indistinguishable." >}}
-
-Inside common support, the raw same-family advantage of `+0.0566` became a pair-weighted matched difference of `-0.007067`.
-
-Nearly 65,000 matched pairs per group.
-
-659 matched strata.
-
-The large positive association had disappeared once the measured comparison became fair.
-
----
-
-## How Dead Is It?
-
-The central result does not depend on a significance threshold.
-
-Inside the supported 4–64 cell region, the raw same-family/different-family difference was:
+The raw positive difference:
 
 ```text
 +0.0566
 ```
 
-After exact matching on time, distance and local density, the pair-weighted difference was:
+became:
 
 ```text
 -0.0071
 ```
 
-Giving every matched stratum equal weight produced:
+after matching.
+
+{{< figure src="/images/books/digital-life/ch11-outlier-distance-matched-coherence.png" caption="Inside the matched comparison, same-family and different-family motion coherence are essentially indistinguishable." >}}
+
+A second summary gives every matched stratum equal weight rather than allowing larger strata to contribute more heavily.
+
+That estimate was:
 
 ```text
--0.0265
+-0.026463
 ```
 
-and bootstrapping those 659 stratum-level effects gave:
+Bootstrapping the `659` stratum-level effects gave:
 
 ```text
-95% interval
-[-0.0665, +0.0122]
+95% stratum-bootstrap interval
+
+[-0.066450, +0.012172]
 ```
 
-The earlier analysis had produced a much more spectacular contrast:
+The uncertainty calculation is performed at the stratum level rather than treating millions of pair records as independent observations.
+
+The important scientific result does not depend on a significance threshold.
+
+Inside the region where we can make the comparison, the large positive ancestry association disappeared once time, distance and local density were matched.
+
+The upper positive end of the bootstrap interval, about:
 
 ```text
-same recent c2 ancestor     0.746
-comparison                  0.101
-                            -----
-apparent gap                0.645
++0.0122
 ```
 
-For scale, the upper bound of the equal-stratum bootstrap interval, `+0.0122`, is only about **1.9% as large as that earlier `0.645` contrast**.
+is small compared with the earlier apparent `0.645` contrast.
 
-That is not a formal claim that matching removed exactly 98.1% of one directly comparable effect. The earlier `0.645` contrast and the final binary matched estimand are not identical.
+Those are not identical estimands, so we should not claim that matching removed some exact percentage of the original effect.
 
 The directly comparable result is simpler:
 
-> **Within the supported 4–64 cell region, a raw same-family advantage of `+0.0566` becomes `-0.0071` after matching on time, distance and local density. The equal-stratum estimate is also negative, with a stratum-bootstrap interval extending only to `+0.0122` on the positive side.**
+> **Within the supported 4–64 cell region, a raw same-family advantage of `+0.0566` became `-0.0071` after matching on time, distance and local density.**
 
-The large ancestry-associated coherence effect we thought we had found does not survive the fair comparison.
-
-One more check, because the distance-support threshold was our choice.
-
-We repeated the analysis with minimum bin counts of 50, 100, 250 and 500. At 50, the supported distance region expands to 4–96 cells and the pair-weighted matched effect remains `−0.0058`. At 100, 250 and 500, the region remains 4–64 cells and the corresponding effect remains `−0.0071`.
-
-The detailed equal-stratum estimates and bootstrap intervals are in the appendix.
-
-The collapse is not a fragile consequence of one convenient support threshold.
+The large ancestry-associated coherence effect did not survive the fair comparison.
 
 ---
 
-## What Remains Unresolved
+## What We Still Cannot Answer
 
-The 0–4 cell regime is a different matter, and we should be as precise about our ignorance as about our results.
+The `0–4` cell regime remains different.
 
-Structures sharing a recent `c2` ancestor are concentrated at extremely short range. That is where the hypothesis would be most likely to be true, if it were true. It is also precisely where different-family controls are too sparse to construct the comparison.
+Structures sharing a recent `c2` ancestor are concentrated at extremely short range.
 
-So:
+If an ancestry-specific effect exists anywhere, this is an obvious place to look for it.
+
+It is also exactly where the controls become inadequate.
 
 ```text
 same-family pairs
 are common there
 
 different-family controls
-are too sparse for the same comparison
+are too sparse
+for the same comparison
 ```
 
-We cannot say ancestry has no effect at 0–4 cells. We cannot say it does. The correct status is **UNRESOLVED**, and converting an absence of adequate comparison into negative evidence would be the same category of error we have spent the chapter correcting — just pointing the other way.
+We cannot say ancestry has no additional effect at 0–4 cells.
+
+We cannot say that it does.
+
+The correct status is:
+
+> **UNRESOLVED**
 
 `UNRESOLVED` is not an embarrassed version of `NO`.
 
@@ -608,33 +657,26 @@ That boundary is part of the result.
 
 ## So Was It Flocking?
 
-Not on this evidence. But *no* is the wrong summary, and so is the defensive retreat to *well, we did measure something*.
+Not on this evidence.
 
-The honest answer is layered:
+But simply saying *no* throws away most of what we learned.
 
-```text
-SHORT-RANGE MOTION COHERENCE
-measured in this run, ~0.74; survives shuffled control
+The result is layered:
 
-GLOBAL RADIAL EXPANSION AS SOLE EXPLANATION
-rejected — coherence survives radial subtraction
+| Question                                           | Result                                  |
+| -------------------------------------------------- | --------------------------------------- |
+| Short-range directional coherence                  | **Measured — about 0.74**               |
+| Explained by global radial expansion alone         | **No**                                  |
+| Large family-associated coherence effect           | **Collapses under fair matching**       |
+| Additional family-associated coherence, 4–64 cells | **Not supported by matched comparison** |
+| Ancestry effect, 0–4 cells                         | **Unresolved**                          |
+| Biological-style flocking                          | **Not established**                     |
 
-LARGE CAUSAL-FAMILY COHERENCE EFFECT
-collapses under distance / time / density matching
+The mistake was not seeing coherent motion.
 
-ADDITIONAL FAMILY-ASSOCIATED COHERENCE, 4–64 CELLS
-not supported after matching on time, distance and local density
+That was real.
 
-ANCESTRY EFFECT, 0–4 CELLS
-unresolved — inadequate common support
-
-BIOLOGICAL-STYLE FLOCKING
-not established
-```
-
-The mistake was not seeing motion coherence.
-
-The mistake was promoting it:
+The mistake was promoting one observation through a chain of increasingly strong interpretations:
 
 ```text
 coherent motion
@@ -643,7 +685,9 @@ coherent motion
 → flock
 ```
 
-Three things that initially looked like one thing are now separable:
+Those are not the same claim.
+
+By the end of the analysis:
 
 ```text
 motion coherence
@@ -657,15 +701,23 @@ flocking
 
 ## The Phenomenon Did Not Die
 
-This is the part that matters most, and the part a discouraged investigator would get wrong.
+This is the most important part.
 
-**Short-range motion coherence is a measured feature of this run.** The estimate stands: `0.7373` raw and `0.7427` after radial subtraction, against a shuffled residual control of `0.1933`.
+> **Short-range motion coherence is a measured feature of this run.**
 
-Nothing in the ancestry analysis removes that observation.
+The estimates remain:
 
-What collapsed was our explanation for it.
+```text
+raw alignment                 0.7373
+radial-subtracted alignment   0.7427
+shuffled residual control     0.1933
+```
 
-And it deserves more credit than the failure of our explanation might suggest. Remember what Outlier actually is at the substrate level:
+Nothing in the ancestry analysis removes those observations.
+
+What collapsed was our explanation for them.
+
+And the surviving phenomenon is still remarkable when we remember what Outlier contains at the substrate level:
 
 ```text
 binary cells
@@ -673,45 +725,70 @@ local neighborhoods
 one deterministic update rule
 ```
 
-There is no velocity variable. No steering force. No alignment rule. No flocking controller. Nothing in those 512 bits mentions direction, neighbours-to-follow, or collective behaviour of any kind. Yet structures arise whose motion is strongly coherent at short range, and stays coherent when the most obvious global explanation is stripped out.
+There is no velocity variable.
 
-So the surviving phenomenon can be stated without importing a collective:
+No steering force.
+
+No alignment rule.
+
+No flocking controller.
+
+Nothing in the update law says that nearby persistent structures should travel in similar directions.
+
+Yet they do.
+
+And the effect remains after removing the most obvious global explanation.
+
+The bounded result is therefore:
 
 > **In this run, detected persistent structures exhibit strong short-range directional alignment, and global radial expansion alone does not explain that alignment.**
 
-There is also a possibility we have not tested.
+That is worth keeping.
+
+There is also another possibility we have not tested.
 
 Perhaps the coherence belongs less to independent objects and more to a propagating spatial process through which our detected structures happen to move.
 
-That would require a different experiment — for example, testing whether correlation develops a systematic lag with distance.
+A different experiment could test that — for example, by asking whether correlations acquire a systematic lag with distance.
 
 We did not run that experiment here.
 
-So the idea remains exactly where it belongs:
+So that possibility remains:
 
 > **open**
 
-**The causal result from the *Now There Are Two* chapter is unchanged.** This needs saying explicitly, because failure has a way of spreading beyond its jurisdiction.
+---
 
-The flocking interpretation collapsing does not retract the 144 detected `c2` occurrences, the causal graph, or the branching return structure rooted in the earlier `c2`.
+## What Did Not Change
 
-Our claim there remains what it was: branching causal recurrence under our stated causal criterion. The stronger published self-replication result remains the published result.
+None of this retracts the causal result from *Now There Are Two*.
 
-What failed was a specific attempted promotion — from *shared causal ancestry* to *coordinated collective unit*.
+The `c2` occurrences, causal graph and branching return structure remain exactly what they were.
 
-The ancestry assignments remain supported by the causal graph.
+What failed here was a later attempted promotion:
+
+```text
+shared causal ancestry
+→ coordinated collective unit
+```
+
+The ancestry remains.
+
+The coordination claim does not.
 
 Within the supported comparison region, recent-family membership provides no detectable additional positive coherence after matching on time, distance and local density.
 
-That is narrower than saying ancestry can have no relationship whatsoever to motion. Proximity itself may lie on a pathway connecting common history to shared dynamics, and this experiment was not designed to separate every such pathway.
+That is narrower than saying ancestry can have no relationship whatsoever to motion.
 
-The *Now There Are Two* chapter also left us with an unresolved question about individuality.
+For example, proximity itself may lie on a pathway connecting common history to shared dynamics.
 
-If components sharing causal ancestry had retained distinctive dynamical coherence after the controls, that would have strengthened the case that a causal family behaved as a meaningful unit.
+This experiment was not designed to separate every such pathway.
 
-That evidence did not survive.
+The individuality question therefore remains difficult.
 
-So for the individuality question, Outlier leaves us in an interesting position:
+Connected geometry was already insufficient.
+
+This chapter adds another warning:
 
 ```text
 connected geometry
@@ -721,39 +798,61 @@ causal ancestry alone
 is not enough
 ```
 
+If causal relatives had retained distinctive motion after the controls, that would have strengthened the case that a causal family behaved as a meaningful dynamical unit.
+
+That evidence did not survive.
+
 ---
 
-## Where This Leaves Us
+## Build the Comparison First
 
-Every correction in this chapter found a problem in our own analysis rather than in the system. In retrospect each looks obvious. None was obvious before the evidence forced it.
+Every major correction in this chapter found a problem in our interpretation or analysis rather than removing the underlying phenomenon.
+
+In retrospect, each confound looks obvious.
+
+None was obvious before the evidence forced us to confront it.
 
 The important number is not `0.645`.
 
 It is what happened when we finally compared like with like.
 
-We lost the flocking interpretation and kept the motion-coherence phenomenon.
+We lost the flocking interpretation.
 
-Outlier's richness is both its strength and its limitation as an experimental instrument. Geometry, ancestry, distance, expansion and local environment all emerge together. Same-family tends to mean close. Close tends to mean coherent. Everything is expanding.
+We kept the motion-coherence phenomenon.
 
-Every control in this chapter therefore tried to disentangle variables after the world had already produced them together.
+Outlier's richness is both its strength and its limitation as an experimental instrument.
 
-Even careful matching left the most interesting very-short-range regime unresolved because the required controls were not present in the data.
+Geometry, ancestry, distance, expansion and local environment all emerge together.
 
-The previous chapter had already pointed toward another way to work:
+Same-family tends to mean close.
 
-> **build the comparison into the experiment before the world runs.**
+Close tends to mean coherent.
 
-A world where we can hold expansion fixed and vary coupling.
+Everything is expanding.
 
-Where we can run the same system again with one mechanism removed and everything else unchanged.
+So every control in this chapter tried to disentangle variables after the world had already produced them together.
 
-Where *does history matter here?* can be answered by constructing two histories rather than searching an already entangled run for pairs that happen to differ in the right way.
+Even careful matching could not answer the shortest-range ancestry question because the necessary comparison group simply was not present.
 
-That is not Outlier, and it is not a criticism of Outlier. It is a different instrument for a different job.
+The previous chapter pointed toward another way to work:
 
-So the next move is to build a different kind of world.
+> **Build the comparison into the experiment before the world runs.**
 
-Not a world containing:
+Build a world where one mechanism can change while the others remain fixed.
+
+Where the same system can be rerun with one component removed.
+
+Where *does history matter here?* can be answered by constructing two histories rather than searching an already entangled world for examples that happen to differ in the right way.
+
+That is not Outlier.
+
+And that is not a criticism of Outlier.
+
+It is a different instrument for a different job.
+
+The next world will begin with almost nothing.
+
+Not:
 
 ```text
 repair
@@ -763,15 +862,13 @@ individuality
 collective motion
 ```
 
-A world simple enough that if any of those ever appear, we will know what produced them.
+But something simple enough that if any of those appear, we can ask what produced them.
 
-Outlier showed us something important:
+Outlier showed us that surprising causal organization can arise without us explicitly programming the organization itself.
 
-> **surprising causal organization can arise without us explicitly programming the organization itself.**
+This chapter showed the other side of that richness.
 
-This chapter shows the other side of that richness.
-
-When geometry, ancestry, motion, expansion and local environment emerge together, discovering a phenomenon can be easier than identifying its cause.
+When geometry, ancestry, motion, expansion and environment emerge together, discovering a phenomenon can be easier than identifying its cause.
 
 So we are going back to almost nothing.
 
@@ -781,27 +878,230 @@ One world.
 
 One rule.
 
-And one question at a time.
+One question at a time.
 
 The next experiment begins with a crystal.
 
-**---**
+---
 
 ## Experimental Note
 
-All measurements in this chapter come from the same `512 × 512`, 1,600-generation Outlier run used for our earlier causal analysis.
+All measurements in this chapter come from the same `512 × 512`, 1,600-generation Outlier run used for the earlier causal analysis.
 
-The motion analysis produced 2,617,077 usable pair records. The final comparison first declared a raw distance-support region of `[4, 64)` cells, then matched same-family and different-family observations exactly within time, distance and local-density bins. Only strata containing both groups contributed to the matched analysis.
+### Tracking
 
-The pair-weighted matched estimate and the equal-stratum estimate are different estimands. The reported `[-0.0665, +0.0122]` interval comes from bootstrapping the 659 matched stratum-level effects, not the individual pair records.
+The motion analysis recovered:
 
-That interval therefore describes uncertainty under this within-run stratum-bootstrap procedure. It does not measure variation across independent Outlier seeds, larger worlds, longer runs or alternative rule configurations.
+```text
+13,635 tracks lasting at least eight generations
+633,808 motion observations
+```
 
-The published causal study operated at `1024 × 1024` for 20,000 updates. Our experiment does not establish that the motion result generalizes to that larger regime.
+Velocity is operationally defined from tracked displacement through time rather than being a variable in the cellular automaton.
+
+### Family assignment
+
+Each cluster was assigned its most recent identifiable `c2` ancestor.
+
+Of `138,891` clusters:
+
+```text
+138,132 assigned
+10 ambiguous
+749 unassigned
+```
+
+Of `633,808` motion observations:
+
+```text
+633,696
+```
+
+carried a family label.
+
+An earlier family definition using four descendants of one early `c2` produced too few different-family comparisons and was not used for the final analysis.
+
+### Radial control
+
+The global expansion control subtracts the velocity component in the radial direction from the expansion centre.
+
+The reported values were:
+
+```text
+raw short-range alignment        0.7373
+radial-subtracted alignment      0.7427
+shuffled residual control        0.1933
+```
+
+The small increase after radial subtraction is not interpreted.
+
+### Pair-excluded background flow
+
+The initial local-background estimator excluded only the focal object's own family.
+
+For different-family pairs this allowed each tested member to contribute to the other's background estimate, creating an artificial anti-correlation.
+
+The corrected estimator excludes both tested families from both local background estimates.
+
+Before that correction:
+
+```text
+same recent-c2 family           0.828
+different recent-c2 family     -0.349
+```
+
+After correction, the genealogy categories were:
+
+```text
+same recent c2 ancestor         0.746
+very close c2 ancestry          0.101
+close c2 ancestry               0.032
+distant c2 ancestry             0.135
+very distant c2 ancestry        0.081
+```
+
+The exact genealogical bin definitions are given in the accompanying experimental record.
+
+### Matching
+
+The full motion analysis contained:
+
+```text
+2,617,077 usable pair records
+```
+
+The final comparison matched same-family and different-family observations within:
+
+```text
+simulation-time bins
+spatial-distance bins
+local-density bins
+```
+
+Local density was measured using the existing pair-construction pipeline with a 32-cell neighbourhood.
+
+The pair-excluded background-flow correction remained active during matching.
+
+Matching was performed only in strata containing both same-family and different-family observations, with equal numbers drawn from the two groups within each contributing stratum.
+
+### Common support
+
+Raw support was evaluated over distance bins:
+
+```text
+0–4
+4–8
+8–12
+12–16
+16–24
+24–32
+32–48
+48–64
+64–96
+```
+
+The primary operational rule required at least:
+
+```text
+100 same-family records
+100 different-family records
+```
+
+in each distance bin.
+
+The largest contiguous region satisfying that criterion was:
+
+```text
+[4, 64) cells
+```
+
+The `0–4` cell region therefore remains unresolved.
+
+Inside the supported distance region, matching imposed the additional requirement that each time × distance × density stratum contain observations from both groups.
+
+### Final matched estimates
+
+Within `4–64` cells, the raw descriptive comparison was:
+
+```text
+same-family mean          0.1732
+different-family mean     0.1166
+raw difference           +0.0566
+```
+
+After matching:
+
+```text
+matched same-family mean        +0.150823
+matched different-family mean   +0.157890
+pair-weighted effect            -0.007067
+```
+
+using:
+
+```text
+64,948 matched pairs per group
+659 matched strata
+```
+
+Giving every matched stratum equal weight produced:
+
+```text
+equal-stratum effect            -0.026463
+```
+
+Bootstrapping the 659 stratum-level effects gave:
+
+```text
+95% interval
+[-0.066450, +0.012172]
+```
+
+The bootstrap treats matched strata, not individual pair records, as the resampling units.
+
+### Support-threshold sensitivity
+
+The common-support threshold was also varied.
+
+At a minimum bin count of `50`, the supported distance range expanded to `4–96` cells and the pair-weighted matched effect was:
+
+```text
+-0.0058
+```
+
+At thresholds of:
+
+```text
+100
+250
+500
+```
+
+the supported region remained `4–64` cells and the corresponding pair-weighted matched effect remained approximately:
+
+```text
+-0.0071
+```
+
+The conclusion therefore does not depend on the primary threshold of 100 observations per group.
+
+### Scope
+
+The pair-weighted and equal-stratum estimates are different estimands.
+
+The reported `[-0.0665, +0.0122]` interval belongs to the equal-stratum estimand and describes uncertainty under this within-run stratum-bootstrap procedure.
+
+It does not measure variation across independent Outlier seeds, larger worlds, longer runs or alternative rule configurations.
+
+The published causal study operated at `1024 × 1024` for 20,000 updates.
+
+Our experiment used `512 × 512` for 1,600 generations.
+
+Nothing here establishes that the motion-coherence result generalizes to the larger published regime.
 
 Full tracking, family-assignment, background-flow, matching, support and resampling procedures are given in the appendix and accompanying experimental record.
 
-**---**
+---
 
 ## References
 
