@@ -61,15 +61,15 @@ Every cell is `0` or `1`. Each cell reads its `3 × 3` Moore neighbourhood, itse
 
 Note what is absent. Nothing in the system yet corresponds to an organism or even an individual. We have only binary state, a neighbourhood, a transition rule and time. Genomes, energy budgets, reproduction, fitness and populations are all concepts that would have to emerge later, if they become relevant at all.
 
-How Outlier was found matters, because it is easy to overstate what happened.
+How Outlier was found matters.
 
-Humans designed the search. They chose the cellular-automaton substrate, the space of possible rules and the criteria by which rules were selected. Outlier is therefore not evidence of digital life appearing independently of human design.
+Humans designed the substrate, the search space and the selection criteria. Outlier did not appear independently of human design.
 
-But neither did the search specify a replicating organism. It searched for a rule system with dynamics considered promising for open-ended evolution.[5] Self-replication was not itself the explicit target, although such a search could certainly favour rules in which persistent or multiplying structures occur.
+But the search did not specify a replicating organism either. It searched for cellular-automaton rules with dynamics considered promising for open-ended evolution.[5] Self-replication was not an explicit target.
 
-What the search ultimately returned was a **local transition rule**. The particular replicating organizations later found within that rule were not explicitly represented in it.
+What the search returned was a **local transition rule**. The particular structures that later replicated were discovered only after that rule was running.
 
-**That is why Outlier matters here. The rule was selected; the replicator was discovered within the world the rule created.**
+**The rule was selected. The replicator was discovered inside the resulting world.**
 
 ```mermaid
 flowchart LR
@@ -135,9 +135,11 @@ time t + 500
     A     A
 ```
 
-The sentence that arrives unbidden is *A reproduced*. But the same image is produced by at least three other stories. Both structures may have been generated independently by the surrounding dynamics. The second may have appeared for reasons that had nothing to do with the first, and would have appeared even if the first had never existed. Or what we are calling two structures may be two parts of one larger repeating process that our detector happened to split.
+The obvious conclusion is *A reproduced*.
 
-Nothing in the geometry distinguishes these.
+But the picture alone cannot tell us that. The two structures might have arisen independently. The second might have appeared even if the first had never existed. Or our detector might have split one larger process into two apparent objects.
+
+The geometry cannot distinguish between these possibilities.
 
 ```text
 similarity
@@ -151,25 +153,33 @@ Everything that follows depends on that distinction. It is the sharpened form of
 
 ## What Determinism Buys Us
 
-Here Outlier gives us something almost no interesting system gives us.
+Here Outlier gives us an unusual advantage: its dynamics are completely deterministic.
 
-It is deterministic and completely specified. For every live cell at time `t+1` we know exactly which `3 × 3` neighbourhood produced it, and we know the full mapping from neighbourhoods to outcomes. There is no learned function, no hidden state, no floating-point drift and no stochastic component. For any modified neighbourhood, the next cell state can therefore be computed exactly from the rule.
+For every cell at `t+1`, we know the neighbourhood at `t` that produced it, and we can calculate exactly what would have happened if that neighbourhood had been different.
 
-That does not make causality automatic.
+That does not make causality automatic. We still need a rule for deciding which earlier cells mattered, and for turning those cell-level dependencies into ancestry between larger structures.
 
-The update is exact. Which counterfactuals we choose to treat as causal evidence, and how we aggregate those cell-level dependencies into ancestry between larger structures, remain methodological decisions.
+But it makes the question testable.
 
 So a question that is usually unanswerable becomes mechanical:
 
 > Which live cells in the preceding neighbourhood were actually necessary for this cell to be alive?
 
-The published framework answers it carefully, and the care matters. Rather than asking whether removing any single predecessor changes the outcome, Hintze and Bohm identify the *minimal subset* of live neighbours that the transition actually requires, and exclude the rest from the causal trace.[6] This handles a real problem: update rules contain redundancy, and a neighbour that happens to be alive is not thereby a cause of anything. Where more than one minimal subset exists, their method conservatively includes all contributing clusters — a case they report not encountering in Outlier, though the method is built to handle it.[6]
+Hintze and Bohm answer this by identifying the minimal sets of earlier live cells required to produce later live cells.[6] Cells that merely happen to be nearby are excluded from the causal trace.
 
-Cell-level dependencies are far too numerous to reason about individually, so they are aggregated. Cells are grouped into clusters by adjacency, and a cluster is counted as causally derived from an earlier one if any of its cells depends on a cell belonging to that ancestor.[6]
+Those cell-level dependencies are then grouped into links between larger clusters.
 
-The result is a graph rather than an impression: clusters at successive ticks linked by measured dependency, with branching wherever one earlier organization contributes to several later ones. And the question has changed completely. Not *does this later structure resemble the earlier one*, but:
+The result is a causal ancestry graph: earlier structures are connected to later structures only when measured dependencies link them.[6] 
 
-> **Can we trace a causal path by which the earlier organization contributed to producing the later one?**
+The question has now changed.
+
+Not:
+
+*Does the later structure resemble the earlier one?*
+
+But:
+
+> **Did the earlier structure causally contribute to producing the later one?**
 
 One restriction is worth carrying forward. Yang's structural analysis allowed rotational variants, while Hintze and Bohm's causal analysis restricted its replication claims to exact copies.[5][6] Whatever the causal analysis finds, it is not finding it by relaxing what counts as the same structure.
 
@@ -179,21 +189,39 @@ Causality does not remove the identity problem. The criterion still requires lat
 
 ## Three Replicators, Three Fates
 
-Applied to a `1024 × 1024` periodic world run for 20,000 ticks, that method produced a causal ancestry graph of **31,959,320 cluster instances and 65,552,995 directed causal edges**, across 966,208 distinct clusters.[6]
+Once causal ancestry could be measured, structures that looked superficially similar turned out to have very different histories.
 
-Underneath an animation that reads as a few dozen things moving around.
+| Result | What happened | What it tells us |
+|---|---|---|
+| **c0** | 433 copies, but no second generation | Making copies is not the same as sustaining a lineage |
+| **c1** | 1,677 copies, but only a weak second generation | More copies still do not guarantee continued descent |
+| **c2** | 2,439 copies and 15 generations | This is a sustained lineage, not merely repeated copying |
+| **Fast vs slow c2 branches** | 675-tick branches produced 96 replication events; 778-tick branches produced 125 | Faster replication did not produce greater realized lineage output |
+| **Distributed replication** | Replication could pass through spatially separated components | A reproducing process need not correspond to one connected body |
 
-The interesting part is what happens when three specific structures are followed through it. Within the first 10,000 ticks:[6]
+These are the main results of the published causal analysis that matter to us. The rest of this section unpacks them.
 
-```text
-c0      433    no second generation
-c1    1,677    reached a second generation
-c2    2,439    15 generations
-```
+The underlying ancestry graph was enormous: 31,959,320 cluster instances linked by 65,552,995 directed causal edges.[6]
+
+But its most important lesson is much simpler.
+
+**Replication is not one achievement.**
 
 The published analysis uses these counts in describing the three reproductive histories; the important comparison here is not the raw total but what happened to the lineage afterwards.
 
-The seed cluster `c0` produced 433 copies, every one of them causally traceable to the original. On the criterion above it is a genuine self-replicator, and it is also an almost complete failure: not one of those 433 offspring went on to produce a `c0` of its own inside the window. The second cluster, `c1`, did better — 1,677 offspring, and near tick 10,000 one of them produced three more, which is a second generation and not much else. The third, `c2`, replicated more often than either and, crucially, its offspring kept replicating: fifteen generations of causal descent, growing at a fitted factor of roughly 1.5 per generation over the first ten.[6]
+`c0` is the clearest example.
+
+It produced **433 causally verified copies**.
+
+None of them produced another `c0`.
+
+So `c0` reproduced hundreds of times without founding a sustained lineage.
+
+`c1` went slightly further: 1,677 copies, followed by only a weak second generation.
+
+`c2` was different. Its descendants continued reproducing for **15 generations**.[6]
+
+Three apparent replicators had produced three very different histories.
 
 So a word we were treating as one thing turns out to be three:
 
@@ -211,43 +239,68 @@ sustained lineage
 
 ## The Fast Ones Did Worse
 
-The original `c2` produces several offspring, four of which go on to replicate themselves. Two complete the process in 675 ticks; the other two take 778.[6]
+Once `c2` had a sustained lineage, an obvious question appeared:
 
-The obvious expectation is that the faster branches should leave more descendants.
+**Did the faster-replicating branches do better?**
 
-They did not.
+No.
 
-Across the full phylogeny, the 675-tick lineage produced 96 replication events and the slower 778-tick lineage produced 125.[6]
+| c2 branch | Replication time | Realized replication events |
+|---|---:|---:|
+| Faster | 675 ticks | 96 |
+| Slower | 778 ticks | 125 |
 
-The authors attribute the difference to geometry: the faster branches expand in directions that produce more spatial interference, while the slower branches retain more room in which to continue.[6] The measurement is solid. The explanation is plausible but was not isolated by intervention.
+The slower branch produced more replication events.[6]
 
-So the bounded result is smaller: shorter replication time did not correspond to greater realized lineage output. Spatial direction and available room became candidate constraints on reproductive success.
+**Faster replication did not produce greater realized lineage output.**
 
-The same run contains something stranger. Three of the four developmental pathways begin differently and then converge, passing through an identical sequence of cluster states for their final 143 ticks before producing offspring.[6]
+The authors suggest geometry as the explanation: the faster branches expand in directions that create more spatial interference, while the slower branches retain more room in which to continue.[6]
 
-Replication here is not well described as a body simply being copied. It is an extended dynamical process through intermediate organizations, some of which bear little resemblance to the eventual offspring.
+That explanation was not isolated experimentally, so we keep the narrower result.
+
+There is another clue that replication here is a process rather than simple copying.
+
+Three developmental pathways begin differently, then converge on the same sequence of states for their final 143 ticks before producing offspring.[6]
+
+The eventual copy is therefore the end of a developmental process, not a body duplicated in one step.
 
 ---
 
 ## The Replicator Might Not Be a Body
 
-Which brings us to the finding that puts the most pressure on intuition.
+The strangest result is also one of the simplest to state:
 
-A self-replicating organization in Outlier does not necessarily correspond to one compact connected cluster. The replication process frequently unfolds across multiple spatially disjoint patterns, which stay disconnected for a number of ticks before merging or branching further, and which coordinate well enough to complete a replication between them.[6] The published work reads this as distributed, multi-component selfhood.[6]
+**the reproducing process does not always form one connected body.**
+
+In some cases, replication unfolds through several spatially separated components. They remain disconnected for part of the process, then later merge or branch as replication continues.[6]
+
+The published paper describes this in terms of distributed, multi-component selfhood. We do not need to make that stronger claim here.
 
 We do not need the stronger noun. The published causal analysis establishes something narrower, and quite strong enough:
 
 > **In the published Outlier analysis, causal self-replication can involve multiple spatially separated components.**
 
-Notice what that does and does not say. It does not say those components constitute one natural individual. It says a reproducing process need not correspond to one connected body. A detector restricted to compact connected structures would have missed reproduction that was demonstrably occurring.
+The important result is narrower:
 
-The previous chapter left us with a version of this problem already. Every intervention there failed to localize the continuing organization to either the agents or the field, and what the experiments kept pointing at was the relationship between them. Outlier now produces the same discomfort from the opposite direction: here we can follow ancestry exactly, and the thing with the ancestry still refuses to be a single object.
+**a causally reproducing process need not correspond to one connected body.**
+
+A detector that searched only for compact connected objects would have missed it.
+
+The previous chapter encountered the same problem from another direction.
+
+There, persistence could not be localized cleanly to either the agents or the field.
+
+Here, ancestry can be followed exactly — and the reproducing process still refuses to collapse into one obvious object.
 
 > **If reproduction can be causally real while the reproducing unit is not a neat connected body, what exactly is the thing that reproduces?**
 
-Resist the urge to answer. The temptation is to jump from *distributed causal reproduction* to *one distributed individual*, and no experiment here licenses that jump. Individuality would need a criterion we do not have, and inventing one to fit the case in front of us is how this field produces its worst results.
+That does not prove that the separated components form one individual.
 
-The question stays open. It gets considerably harder later.
+Individuality needs its own criterion, and we do not have one yet.
+
+So the question remains open:
+
+> **What exactly is the thing that reproduces?**
 
 ---
 
@@ -261,48 +314,88 @@ So we reconstructed the rule and verified it before asking it anything: all 512 
 
 A wrong decoder still produces extraordinary animations. It cannot produce evidence about Outlier.
 
-Scale is part of the experimental condition, and ours is smaller: a `512 × 512` world over 1,600 generations, against the published `1024 × 1024` over 20,000 ticks. That is not cosmetic. Yang reports a strong scale effect in this rule, and the published causal run behaves differently after about tick 10,000, when the expanding front meets the periodic boundary and the uninterrupted leading edge disappears.[5][6] Our run never reaches that regime.
+Our experiment is much smaller than the published one:
 
-So everything below carries its scope with it, and does not generalize upward by default.
+```text
+our run:        512 × 512, 1,600 generations
+published run: 1024 × 1024, 20,000 ticks
+```
 
-Now the experiment. We wanted to avoid the failure mode where you hunt through a large run for shapes that seem to repeat, because that guarantees a result: among a hundred thousand clusters, *something* recurs, and whatever recurs most strikingly will feel like a discovery. Instead we derived the target signature in advance from the known seed — the small structure the published work designates `c2`, six cells in a `3 × 3` bounding box in our run — and only then searched for later occurrences of that structure.
+That matters because Outlier changes behaviour with scale, and the published system enters a different regime after roughly tick 10,000.[5][6]
 
-Our detector treats translation and quarter-turn rotation as equivalent. Because the rule itself is rotationally symmetric, a rotated `c2` evolves as the corresponding rotation of `c2`'s evolution. Mirror reflections are not treated as equivalent because the rule is not mirror-symmetric.
+Our run never reaches that regime.
 
-That identity convention is still broader than Hintze and Bohm's causal study, which restricted its replication analysis to exact copies.[6]
+**Everything that follows therefore applies only to the smaller experiment we actually performed.**
 
-The search found **144 `c2`-equivalent occurrences** between `t = 2` and `t = 1598`. Our indexing takes the initial seed as `t = 0`; the published causal study numbers the corresponding original `c2` one tick later. That is an indexing convention, not a disagreement about the structure.
+We did not search the run for whatever shape happened to recur most impressively.
 
-That is an observation. It is not reproduction, and the gap is the whole point of the chapter. One hundred and forty-four copies are entirely compatible with one hundred and forty-four independent products of the same underlying dynamics, none of which had anything to do with any other.
+That would almost guarantee a result.
+
+Instead we chose the target **before** running the search: the known `c2` seed, a six-cell structure fitting inside a `3 × 3` box.
+
+Only then did we look for later occurrences of that same structure.
+
+Our detector treats translated and quarter-turn rotated versions of `c2` as equivalent, because the Outlier rule itself has rotational symmetry.
+
+Mirror images are not equivalent because the rule is not mirror-symmetric.
+
+This is slightly broader than Hintze and Bohm's causal analysis, which counted only exact copies.[6]
+
+The search found **144 `c2`-equivalent occurrences**.
+
+That sounds impressive.
+
+It proves almost nothing.
+
+All 144 could, in principle, have arisen independently from the surrounding dynamics. Recurrence tells us that the structure appeared repeatedly. It does not tell us that one occurrence produced another.
+
+That requires ancestry.
 
 Encouragingly, this is not a scruple we invented. The authors of the causal study raise precisely the same possibility about their own result: that `c2` patterns might simply arise often, with descent being a correlate of the dynamics rather than a cause.[6] Their answer is the causal trace.
 
-Ours asks the same causal question, but it does not reproduce their reconstruction exactly. Hintze and Bohm identify minimal sufficient subsets of live predecessors. Our implementation uses a simpler local but-for test: remove each live predecessor individually and record a dependency when that removal changes the child from live to dead.
+Our causal test is simpler than the published one.
 
-Those procedures are not equivalent. Redundant causal sets can be missed by ours, because no single predecessor need be individually necessary when several different subsets can support the same outcome. Our test also records only dependencies revealed when removing a live predecessor turns a live child dead. Because the Outlier rule is non-monotonic, we therefore cannot treat our graph simply as a lower bound on theirs.
+Hintze and Bohm search for minimal sufficient sets of predecessor cells.[6] We remove each live predecessor individually and record a dependency when that removal prevents the later cell from being alive.
 
-Everything we claim from our run is bounded to this stated causal criterion.
+The methods are not equivalent. In particular, our test can miss dependencies involving redundant combinations of cells.
 
-With that restriction visible, we built the graph:
+So our result must be stated under **our causal criterion**, not theirs.
+
+With that restriction in place, we built the causal graph:
 
 ```text
 138,891 clusters
 196,466 causal edges
 ```
 
-That number is itself a correction. The animation looks like a modest collection of discrete moving objects. Underneath it is a network of nearly two hundred thousand dependencies, and our visual impression of *a few things moving around* was never a description of the mechanism.
+The animation looks like a few objects moving around.
 
-Then we intersected recurrence with ancestry, searching forward from each `c2`-equivalent occurrence for later members of the same equivalence class reachable through the causal graph.
+The mechanism underneath it is a network of nearly two hundred thousand measured dependencies.
 
-Our search stops a causal branch at its first return to `c2`. The complete return graph contains 99 causal return edges across the 144 detected occurrences. Of those occurrences, **[N]** have two or more distinct first returns.
+Next we combined the two measurements.
 
-**[M]** of the 144 occurrences have no causal path back to an earlier `c2`.
+We asked:
 
-Those numbers matter because they expose the structure hidden by the recurrence count alone. The first tells us how often the causal history actually branches. The second measures how much of the apparent recurrence remains compatible with `c2` arising independently from the surrounding dynamics.
+> When a later `c2` appears, can we reach it through the causal graph from an earlier `c2`?
+
+For each occurrence, we followed its causal descendants until `c2` appeared again. The resulting first-return graph contains 547 causal return edges among the 144 detected occurrences.
+
+Of those occurrences:
+
+- **[N]** produce two or more distinct causal first returns.
+- **[M]** have no causal path back to an earlier `c2`.
+
+The first number measures branching.
+
+The second tells us how much recurrence remains compatible with independent formation.
 
 Under this detector, the result is therefore branching causal recurrence rather than recurrence alone.
 
-There is one further condition if we want to claim that this run satisfies Hintze and Bohm's stricter self-replication definition: two candidate offspring must each depend causally on the parent while not depending causally on one another. The current first-return construction does not explicitly test that final independence condition.
+One condition remains before we could claim the full published self-replication criterion.
+
+Two offspring must depend on the parent **without depending on one another**.
+
+Our current first-return analysis does not test that condition explicitly.
 
 ![A readable subset of the Outlier c2 causal family tree](/images/books/digital-life/ch10-outlier-causal-lineage.png)
 
@@ -316,27 +409,41 @@ Something has happened here that has not happened before in this book.
 
 We began with a criterion set independently of our result, one that had already disqualified the most persuasive object we had. We fixed the target structure in advance rather than choosing it after seeing which shapes recurred. Then we asked how much of that criterion our own reconstruction could establish.
 
-It established more than resemblance:
+It established more than resemblance: All right
+
+Our own experiment now gives us three things:
 
 ```text
 structural recurrence
 +
 causal ancestry
 +
-multiple causal first returns
+branching causal returns
 ```
 
-Bounded to what was actually run:
+The target structure was chosen in advance. Later occurrences were then traced through a measured causal graph.
 
-> **In our 512 × 512, 1,600-generation run, recurring `c2` structures participate in a branching causal return graph: later occurrences of `c2` are reachable through measurable causal ancestry originating in earlier `c2` structures.**
+So we have established more than resemblance.
 
-That is the strongest positive result from our own experiments so far.
+Bounded to our actual experiment:
 
-It is not yet the full Hintze-and-Bohm self-replication result. Our causal reconstruction uses a different criterion, and our first-return analysis does not explicitly test offspring independence.
+> **In our 512 × 512, 1,600-generation run, later `c2` structures are connected to earlier `c2` structures through a branching causal ancestry graph.**
 
-On the ladder this chapter has been building, our result therefore sits above recurrence and below demonstrated replication:
+That is stronger than recurrence alone.
 
-> **branching causal recurrence of a pre-specified structure**
+It is not yet the full published self-replication result because our causal test differs from Hintze and Bohm's and we have not explicitly tested offspring independence.
+
+So our result sits here:
+
+```text
+recurrence
+↓
+branching causal recurrence   ← our experiment
+↓
+demonstrated self-replication
+```
+
+**Our result is branching causal recurrence of a pre-specified structure.**
 
 Earlier `c2` organization participates measurably in producing later `c2` organization, and the resulting causal history branches.
 
@@ -348,21 +455,24 @@ A positive result is possible when the evidence supports one.
 
 Discipline now, while the result is fresh and most attractive.
 
-The published Outlier analyses establish causal self-replication under a stricter criterion than the one our reconstruction currently implements.[5][6] Our smaller run independently recovered something narrower: pre-specified structural recurrence embedded in a branching causal ancestry graph.
+We now have two different results, and they should remain separate.
 
-Neither result establishes self-maintenance, adaptation, agency, memory, autonomy, individuality, open-ended evolution or life.
+**Published Outlier:** causal self-replication under the stricter published criterion.[5][6]
 
-And the multi-component result creates another problem. Published causal analysis shows that reproduction can proceed through spatially separated components. That establishes reproduction without giving us an obvious body to point at.
+**Our reconstruction:** branching causal recurrence of a pre-specified `c2` structure under our simpler causal test.
 
-So there are two claims here, and keeping them separate matters:
+Neither establishes self-maintenance, adaptation, agency, memory, autonomy, individuality, open-ended evolution or life.
 
-> **Published analysis shows that very simple digital physics can support emergent structures satisfying a defined causal criterion for branching self-replication, including replication processes involving spatially separated components.**
+And the published multi-component result leaves us with a further problem: reproduction can be causally clear even when the reproducing unit is not an obvious body.
 
-> **Our smaller run independently recovers branching causal recurrence of a pre-specified `c2` structure under our stated local but-for criterion, but does not yet reproduce every condition of the published self-replication test.**
+| Evidence | What it establishes |
+|---|---|
+| **Published analysis** | Causal self-replication, including replication involving spatially separated components |
+| **Our experiment** | Branching causal recurrence of a pre-specified `c2` structure |
 
-Both are already remarkable.
+Both are strong results.
 
-Neither needs embellishment.
+They are not the same result, and neither needs to be made larger than it is.
 
 ---
 
@@ -378,20 +488,20 @@ Its value is as a demonstration of what a computational substrate can support wi
 
 There is another problem.
 
-The previous chapter gave us clean interventions but no operational lineage. Outlier gives us reconstructible causal lineage but very few clean higher-level interventions.
+The two systems give us almost opposite strengths.
 
-```text
-Physarum model    separable higher-level interventions, no operational lineage
-Outlier           reconstructible causal lineage, no clean higher-level dials
-```
+| System | What it gives us | What it lacks |
+|---|---|---|
+| **Physarum** | Clean higher-level interventions | Operational lineage |
+| **Outlier** | Reconstructible causal lineage | Clean higher-level intervention controls |
 
-In Physarum we could delete the field, replace the population and switch turnover off while leaving everything else alone.
+In Physarum we could remove the field, replace the population or switch turnover off.
 
-In Outlier we can alter cells, seeds or the 512-bit rule, but there is no independent parameter for coupling, memory, interaction range or reproduction that can be varied while the rest remains fixed.
+In Outlier we can trace ancestry, but there is no independent dial for reproduction, coupling, memory or interaction range.
 
-Each system therefore gives us something the other lacks.
+Each system gives us something the other lacks.
 
-Neither gives us the laboratory we eventually need:
+What we eventually need is a system with all four:
 
 ```text
 known rules
@@ -400,12 +510,12 @@ controlled interventions
 +
 one mechanism varied at a time
 +
-history we can follow
+causal history we can follow
 ```
 
-That is not a description of digital life.
+That is not a definition of digital life.
 
-It is a specification for the instrument we will need to investigate it.
+**It is a specification for the laboratory we need to investigate it.**
 
 ---
 
