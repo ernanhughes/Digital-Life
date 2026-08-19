@@ -9,107 +9,67 @@ categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Artificial Life", "Adversarial Calibration", "Swarm", "Persistence", "Dose Response", "Pre-declared Criteria", "Experimental Method", "Confounds"]
 +++
 
-The previous chapter ended with a specification.
-
-Known rules, controlled interventions, one mechanism varied at a time, a history we can follow. That is the laboratory we will eventually need, and building it is most of the work still ahead.
+The previous chapter ended with a specification: known rules, controlled interventions, one mechanism varied at a time, a history we can follow. That is the laboratory we will eventually need, and building it is most of the work still ahead.
 
 Before building it, there is a cheaper question.
 
 Are our tests any good?
 
-That is not an idle worry. The last chapter produced the first positive result in this book. A bounded one, but a real one: structural recurrence intersected with causal ancestry, and a causal claim survived a test we had not designed to make it pass.
+That is not an idle worry. The last chapter produced the first positive result in this book — a bounded one, but a real one. Structural recurrence intersected with causal ancestry, and a causal claim survived a test we had not designed to make it pass.
 
-Which is exactly the moment at which standards slip.
+Which is exactly the moment at which standards slip. Once one exciting claim has passed a test, the next exciting claim arrives with that test's reputation already attached to it. The instrument acquires authority it has not separately earned, and it becomes easier to overlook when it reads high.
 
-Once one exciting claim has passed a test, the next exciting claim arrives with that test's reputation already attached to it. The instrument acquires authority it has not separately earned, and it becomes easier to overlook when it reads high.
-
-There is a standard laboratory response to this kind of problem, and it is not merely to be more careful.
+There is a standard laboratory response to this, and it is not merely to be more careful.
 
 Challenge the instrument with something that should not support the interpretation you care about.
+
+So we spent this chapter building a system we did not believe in, and attacking it with our own evidence. It passed more of those tests than it had any right to. Violent positional damage did not reliably push it outside its measured regime. Nor did replacing every exact relationship in the system. On the way it produced one beautiful false result that we came close to believing.
+
+None of that tells us the swarm is alive. It tells us which of our tests were cheap.
 
 ---
 
 ## The Decoy
 
-In experimental biology the move is routine. Alongside the sample you care about, you run a **negative control**: a preparation in which the target condition is independently expected to be absent, processed through the same assay. If it comes back positive, you have learned something important about the assay. The same logic has been adapted in observational epidemiology to detect confounding and bias.[1]
+In experimental biology the move is routine. Alongside the sample you care about you run a **negative control**: a preparation in which the target condition is independently expected to be absent, processed through the same assay. If it comes back positive, you have learned something important about the assay. The same logic has been adapted in observational epidemiology to detect confounding and bias.[1]
 
-We cannot construct that kind of negative control for digital life.
+We cannot construct that kind of negative control for digital life. We do not possess an independent test proving that a computational system is not alive.
 
-We do not possess an independent test proving that a computational system is not alive.
-
-But we can borrow the logic.
-
-We can build a deliberately simple system whose striking appearances are known consequences of explicit local rules, then ask whether the evidence we were tempted to treat as discriminating can distinguish it.
+But we can borrow the logic. We can build a deliberately simple system whose striking appearances arise from explicit local rules, then ask whether the evidence we were tempted to treat as discriminating can distinguish it.
 
 So we built a decoy.
 
-We constructed a simple swarm of particles. Each particle had a position and a velocity, one designated friend and one designated enemy. Friends attracted. Enemies repelled. A weak pull toward the centre kept the world bounded, and a weak soft-core repulsion stopped pathological collapse.
+It is a swarm of particles. Each particle has a position and a velocity, one designated friend and one designated enemy. Friends attract. Enemies repel. A weak pull toward the centre keeps the world bounded, and a weak soft-core repulsion stops pathological collapse. That is the entire system. The specific inspiration was Simon Woods' friend-and-enemy particle model, in which each particle moves toward one designated particle and away from another.[2] Nothing in our implementation represented a flock, a ring, a vortex, an organism, a body, a boundary, an individual, a population, reproduction or life.
 
-The specific inspiration was Simon Woods' friend-and-enemy particle model, in which each particle moves toward one designated particle and away from another.[2]
+Simple local rules producing coherent macroscopic order is not a new observation. Reynolds showed it in distributed flocking; Vicsek and colleagues found collective order in self-propelled particles.[3][4]
 
-Nothing in our implementation represented a flock, a ring, a vortex, an organism, a body, a boundary, an individual, a population, reproduction or life.
-
-The broader point is older than this particular construction. Simple local interaction rules are well known to generate coherent macroscopic order, from Reynolds' distributed flocking model to Vicsek and colleagues' self-propelled particles.[3][4]
-
-The point was to turn that fact against our own method.
-
-The status of the swarm needs to remain precise.
-
-We are not claiming to have proven that it is not alive. We have no procedure that would establish that, and inventing one for a case we already have an opinion about would violate the method of this book.
-
-Its role is narrower.
+The status of the swarm needs to stay precise. We are not claiming to have proven that it is not alive. We have no procedure that would establish that, and inventing one for a case we already have an opinion about would violate the method of this book. Its role is narrower.
 
 > **If a deliberately simple, fully specified decoy can exhibit a property we intended to treat as evidence of digital life, then that property cannot, by itself, distinguish the systems we care about from the decoy.**
 
-The swarm is therefore not a negative control for life itself.
-
-It is an adversarial calibration system for our evidence.
+The swarm is therefore not a negative control for life. It is an adversarial calibration system for our evidence.
 
 We built it to expose tests that were too easy to pass.
 
-It did not fail them.
+The first test was persistence.
 
 ---
 
 ## Four Branches
 
-We ran the swarm until it produced visible large-scale organization, then took one evolved state and split it into four identical branches.
-
-```text
-control
-
-material damage
-
-organizational damage
-
-identity-label replacement
-```
+We ran the swarm until it produced visible large-scale organization, then took one evolved state and split it into four identical branches: a control, material damage, organizational damage, and identity-label replacement.
 
 **Material damage** displaced 30% of the particles violently while leaving every friend-and-enemy relationship intact. If persistence belonged to one particular visible arrangement of matter, this should hurt.
 
-**Organizational damage** did the reverse. Positions and velocities were left exactly where they were, while 30% of the friend-and-enemy relationships were rewired. If persistence required the exact relationship graph, this should hurt more.
+**Organizational damage** did the reverse. Positions and velocities were left exactly where they were while 30% of the friend-and-enemy relationships were rewired. If persistence required the exact relationship graph, this should hurt more.
 
-**Identity-label replacement** was the strange one.
+**Identity-label replacement** was the strange one. Every particle carried an identity label with no causal role — nothing in the update law read it — and we progressively replaced those labels until none of the originals remained. This was not component replacement; the same dynamical particles, positions and velocities continued through the run. The intervention tested the measurement rather than the system. If changing a causally inert bookkeeping label changed our persistence score, then the score was secretly encoding nominal identity.
 
-Every particle carried an identity label that had no causal role. Nothing in the update law read it. We progressively replaced those labels until none of the original labels remained.
-
-This was not component replacement.
-
-The same dynamical particles, positions and velocities continued through the run.
-
-The intervention tested the measurement itself.
-
-If changing a causally inert bookkeeping label changed our persistence score, then the score was secretly encoding nominal identity.
-
-It did not.
-
-The branch tracked the untouched control while the original labels disappeared.
+It did not. The branch tracked the untouched control while the original labels disappeared.
 
 > **Our persistence measurement did not depend on preservation of causally inert identity labels.**
 
-That establishes almost nothing about the swarm.
-
-It establishes that one trivial definition of persistence had not leaked into the measurement.
+That establishes almost nothing about the swarm. It tells us only that the measurement was not secretly treating a bookkeeping label as persistence.
 
 Then the longer runs exposed a problem the short runs had hidden.
 
@@ -117,33 +77,19 @@ Then the longer runs exposed a problem the short runs had hidden.
 
 ## The Control Would Not Stay Still
 
-The first runs were encouraging in the way that should always be suspicious.
+The first runs were encouraging in the way that should always be suspicious. Damaged branches appeared to return toward a recognizable macroscopic form.
 
-Damaged branches appeared to return toward a recognizable macroscopic form.
-
-Then we ran it longer.
-
-Over a longer window the untouched control also travelled far from the reference configuration — the very state against which we had been scoring everybody else's recovery.
+Then we ran it longer. Over a longer window the untouched control also travelled far from the reference configuration — the very state against which we had been scoring everybody else's recovery.
 
 For a while this looked like the experiment failing.
 
-It was the experiment working.
-
-It had found an assumption we had never declared, never justified and never noticed making:
+It was the experiment working. It had found an assumption we had never declared, never justified and never noticed making:
 
 > **We had defined persistence as return to one preferred picture.**
 
-Nothing licensed that.
+Nothing licensed that. The control did not return to its own picture either, and the control was not damaged. A definition of persistence that an undamaged system fails is not a strict definition. It is a broken one.
 
-The control did not return to its own picture either, and the control was not damaged.
-
-A definition of persistence that an undamaged system fails is not a strict definition.
-
-It is a broken one.
-
-So the question changed.
-
-We had been asking whether the same **picture** came back.
+So the question changed. We had been asking whether the same *picture* came back.
 
 Why should persistence require that?
 
@@ -151,21 +97,17 @@ Why should persistence require that?
 
 ## Persistence Might Not Be a Shape
 
-We stopped measuring distance from a privileged configuration and described each state instead by nineteen macroscopic features: log radius of gyration, log anisotropy, mean speed, and quantiles of radial distance, pair distance, friend distance and enemy distance.
+We stopped measuring distance from a privileged configuration. Instead we described each state by nineteen macroscopic features — size, elongation, speed, and a set of distance statistics — and asked a different question.
 
-The conceptual change matters more than the feature list.
+Not: does the system return to one picture?
 
-Do not ask whether the system returns to one picture.
+But: does the system stay inside its characteristic range of macroscopic states?
 
-Ask whether the system remains within a characteristic distribution of macroscopic states.
+That question needs a baseline, because the control moves around by itself. So before damaging anything we measured how much. We cut the untouched run into time blocks and asked how far apart those blocks were. That gave us a number for how much the system changes when nothing is done to it at all.
 
-That requires a baseline.
+We will call that baseline **ordinary variation**. From here on, every intervention is judged against it: did the damaged swarm move farther than the untouched swarm normally moves by itself?
 
-How much does an untouched system's own macrostate distribution move around simply as a function of time?
-
-So we watched the control alone and cut its trajectory into temporal blocks. If the system were progressively wandering into new kinds of behaviour, the first and last blocks should sit much farther apart than neighbouring blocks do.
-
-They did not.
+The same blocks answered a second question. Was the control slowly wandering somewhere new? If it were, the first and last blocks should sit much farther apart than neighbouring blocks do.
 
 ```text
 median distance, adjacent blocks     2.397
@@ -175,9 +117,7 @@ median distance, first to last       2.284
 ratio                                0.953 ×
 ```
 
-The pictures changed radically.
-
-The statistical regime did not show corresponding cumulative drift over the observed window.
+They did not. The pictures changed radically; the statistical regime showed no corresponding cumulative drift across the observed window.
 
 ```text
 same visible state
@@ -185,53 +125,31 @@ same visible state
 same dynamical regime
 ```
 
-What our measurement could now treat as persistent was no longer one shape.
+What our measurement could now treat as persistent was no longer a shape. It was a region of macroscopic states through which the system moves.
 
-It was a region of macroscopic states through which the system moved.
-
-And that gave us the comparison the rest of the chapter depends on.
-
-Instead of asking whether an intervention returns to a snapshot, ask whether the distribution of states after intervention differs from the distribution an untouched copy explores on its own.
-
-Then express that difference in units of the control's own variation.
-
-From here on, **ordinary control self-variation** means the median distance across pairs of blocks drawn from the control's own trajectory. The adjacent-block and first-to-last values above serve a different purpose: they test for cumulative drift.
-
-A damaged system whose long-run distribution differs from control by no more than that baseline has not, by this measurement, been shown to leave the measured regime.
+The exact feature list and calculations are in the Experimental Note. The two numbers above answer only one question: is the control progressively drifting somewhere new? The intervention results below use the separate ordinary-variation baseline.
 
 ---
 
 ## Material Damage Disappears Into Ordinary Variation
 
-Under that measurement, throwing 30% of the particles violently out of position produced a median intervention-to-control distance of about:
+Throwing 30% of the particles violently out of position produced a median shift of:
 
 ```text
-0.622 × ordinary control self-variation
+0.622 × ordinary variation
 ```
 
-The ratios reported in this experiment use their own control baseline and should not be compared numerically with the later dose-response sweep, which constructs that baseline differently.
+One of eight independent runs exceeded ordinary variation. None exceeded twice it.
 
-One of eight independent runs exceeded the ordinary self-variation baseline.
+> **Displacing 30% of the particles did not produce a long-run macrostate shift reliably larger, by this measurement, than the control's ordinary variation.**
 
-None exceeded twice it.
-
-> **Displacing 30% of the particles did not produce a long-run macrostate shift reliably larger, by this measurement, than the control's ordinary self-variation.**
-
-That is a stronger statement than *the shape recovered*, and a different one.
-
-The shape did not need to recover.
-
-Under this feature representation and distance measure, we did not detect a long-run departure larger than the control's ordinary self-variation.
+That is different from saying *the shape recovered*. The shape did not need to return. Under this measurement, the damaged branch never separated reliably from variation the untouched swarm produced by itself.
 
 ---
 
 ## The Result We Wanted Failed
 
-Now the interesting branch.
-
-We expected organizational damage to behave differently, and the expectation was not unreasonable.
-
-The specific friend-and-enemy assignments participate directly in the dynamics. Attraction and repulsion between those pairs help generate every trajectory in the system. Rewiring 30% of them therefore attacks causal structure while initially leaving positions and velocities untouched.
+Now the interesting branch, and the expectation behind it was not unreasonable. The friend-and-enemy assignments participate directly in the dynamics; attraction and repulsion between those pairs help generate every trajectory in the system. Rewiring 30% of them attacks causal structure while initially leaving positions and velocities untouched.
 
 And the effect was larger:
 
@@ -243,31 +161,19 @@ material damage          1.84
 organizational damage    2.72
 ```
 
-Which is not the comparison we had declared.
+Organizational damage looked worse than material damage. That was exactly the result we wanted.
 
-The declared comparison was against ordinary control self-variation.
-
-By that standard organizational damage did not separate cleanly either:
+Unfortunately, it was not the test we had declared. The declared comparison was against the swarm's own ordinary variation, and by that standard the apparent separation no longer held cleanly:
 
 ```text
-median      0.766 × ordinary control self-variation
+median      0.766 × ordinary variation
 
 mean        0.949 ×
 ```
 
-Two of eight runs exceeded ordinary self-variation.
+Two of eight runs exceeded ordinary variation. One exceeded twice it.
 
-One exceeded twice it.
-
-So the attractive sentence died:
-
-```text
-visible material can be disrupted
-but
-persistence is in the relationship graph
-```
-
-Nearly a third of the exact relationship assignments had been replaced, yet the resulting macrostate distributions did not reliably separate from ordinary control self-variation under our measurement.
+So the attractive sentence died — *visible material can be disrupted, but persistence lives in the relationship graph.* Nearly a third of the exact relationship assignments had been replaced, and the resulting macrostate distributions still did not reliably separate from ordinary variation under our measurement.
 
 That is not what we built the experiment hoping to find.
 
@@ -275,43 +181,23 @@ Which is why it is useful.
 
 ---
 
-## We Had Chosen Another Noun Too Early
+## We Had Located Persistence Too Early
 
-The pattern by this point was becoming difficult to miss.
+The pattern was becoming hard to miss. One privileged visible configuration had already failed. Thirty-percent positional damage had failed to produce a reliable departure. Now substantial exact relationship identity looked too specific as well.
 
-One privileged visible configuration had already failed.
+identity labels                     not used by the measurement
 
-Thirty-percent positional damage had failed to produce a reliable departure.
+particular visible configuration    not fixed
 
-Now substantial exact relationship identity looked too specific as well.
+30% positional displacement         no reliable regime departure detected
 
-```text
-causally inert identity labels     irrelevant to the measurement
+30% exact edge replacement           no reliable regime departure detected
 
-particular visible configuration   not fixed
+measured dynamical regime            persistent so far
 
-30% positional displacement        did not reliably separate
+There are many available explanations for that last line, and they are not equivalent. We do not get to pick one because it sounds good.
 
-substantial exact edge identity    replaceable
-
-measured dynamical regime          persistent so far
-```
-
-There are many available explanations for that final line, and they are not equivalent.
-
-Perhaps only some relationships matter.
-
-Perhaps what matters is a distribution of interaction lengths rather than particular pairs.
-
-Perhaps graph motifs matter.
-
-Perhaps only the balance of attraction against repulsion matters.
-
-Perhaps the particular relationship network is largely interchangeable and the relevant constraint lies mostly in the update law.
-
-We do not get to pick one because it sounds good.
-
-The experiment had earned a new question, not an answer:
+What the experiment had earned was a question, not an answer:
 
 > **How much of the exact relationship graph can be replaced before the measured dynamical regime changes?**
 
@@ -323,35 +209,23 @@ So we measured it.
 
 ## So We Swept the Graph
 
-The next controlled experiment swept exact friend-and-enemy rewiring from 0% to 100% in ten-point increments across eight matched seeds.
+For each of eight seeds, we cloned the same evolved swarm and rewired 0%, 10%, 20% and onward to 100% of its exact relationships. Everything else stayed fixed. Only the amount of rewiring changed.
 
-The microscopic system, feature representation and standardization procedure remained fixed.
-
-Only intervention strength changed.
-
-The full configuration belongs in the Experimental Note.
-
-One comparison needs ruling out before any number appears.
-
-The 30% row below is not a numerical replication of the earlier 30% result, because the sweep constructs its control self-variation denominator differently.
-
-Compare doses within this sweep, not ratios across the two experiments.
-
-Before inspecting the full sweep, we froze the break criterion.
-
-A dose would count as regime-breaking only if:
+Before looking at any of it, we decided what would count as a break. A dose would qualify as regime-breaking only if:
 
 ```text
 median normalized shift > 1.0
 
 AND
 
-at least 75% of replicates exceed ordinary control self-variation
+at least 75% of replicates exceed ordinary variation
 ```
 
 Declaring that in advance is a defence against one of the most ordinary forms of self-deception in experimental work: choosing, after seeing the data, which analysis counts as the analysis.[5]
 
-So we froze it.
+So we froze it, and ran the sweep.
+
+If the graph really carried the regime, we expected a simple pattern: more rewiring, more departure.
 
 One dose passed.
 
@@ -364,30 +238,18 @@ At 50% rewiring:
 ```text
 median normalized shift                 1.430
 
-fraction above control self-variation   0.75
+fraction above ordinary variation       0.75
 
-fraction above 2 × self-variation       0.375
+fraction above 2 × ordinary variation   0.375
 ```
 
-Both clauses were satisfied.
+Both clauses were satisfied. The metadata recorded a first operational break dose of 50%.
 
-The metadata recorded a first operational break dose of 50%.
-
-If we had tested only that dose — and testing one intermediate dose is an entirely reasonable-sounding experiment — we could have written a confident sentence about locating the organizational breaking point of the system, with a pre-declared criterion standing behind it.
+It is worth sitting with how good that sentence would have looked. If we had tested only that dose — and testing one intermediate dose is an entirely reasonable-sounding experiment — we could have reported the organizational breaking point of the system, with a pre-declared criterion standing behind it. It would have been the most quotable result in the chapter.
 
 Two things should have slowed us down even then.
 
-The first is that the criterion was met exactly at its boundary.
-
-Six of eight replicates exceeded ordinary self-variation.
-
-The rule required at least six.
-
-One of those six falling below the baseline and the dose fails.
-
-A pre-declared threshold does not become more robust by being pre-declared.
-
-It merely becomes honest about where it sits.
+First, the criterion was met exactly at its boundary: six of eight replicates exceeded ordinary variation, and the rule required six. One run moving the other way would have changed the classification. Pre-declaration makes the threshold honest; it does not make the result robust.
 
 The second problem was simpler.
 
@@ -397,210 +259,101 @@ We had nine other doses.
 
 ## Then We Looked at the Rest of the Curve
 
-```text
-rewired     median shift / control self-variation
+If rewiring were destroying whatever holds the regime together, the effect should grow as more of the graph disappears — and once the regime breaks, stronger damage should not make the effect vanish.
 
- 10%              1.052
- 20%              1.135
- 30%              1.185
- 40%              1.068
- 50%              1.430
- 60%              1.216
- 70%              0.855
- 80%              1.073
- 90%              1.163
-100%              0.949
-```
+Here is what actually happened.
 
-A simple graph-destruction threshold story predicts that once increasing rewiring pushes the system out of its measured regime, stronger interventions should preserve or strengthen that departure.
+![Increasing relationship damage did not produce an increasing departure from the swarm's ordinary variation. The isolated 50% crossing disappears as a threshold interpretation when the full dose-response curve is examined.](/images/books/digital-life/ch05-canonical-dose-response.png)
 
-The curve does not do that.
+The curve is not cleanly below baseline either. Several doses produce shifts of roughly one unit of ordinary variation or more, so the data does not support the stronger claim that rewiring has no effect.
 
-Normalized shift ranges from 0.855 to 1.430 without a monotonic relationship to dose.
-
-The strongest intervention does not produce the strongest effect.
-
-The largest value sits in the middle of the range, while two of the smallest occur at 70% and 100% rewiring.
-
-The curve is not centred cleanly below the self-variation baseline either. Several doses produce shifts of roughly one control-self-variation unit or more, so the data do not support the stronger claim that rewiring has no effect.
-
-What they fail to show is a monotonic dose-response.
-
-The measured departure does not increase as more exact relationships are replaced.
-
-So the responsible conclusions are both negative and both worth having:
+What they fail to show is a dose-response.
 
 > **The sweep does not identify a monotonic graph-destruction threshold.**
 
 > **The isolated criterion crossing at 50% should not be promoted into a mechanistic claim, because stronger interventions do not preserve the effect.**
 
-Freezing a criterion in advance protects against one specific failure: choosing the test after seeing the answer.
+One caution: the 30% value here is not directly comparable with the earlier 30% result because the two experiments normalize against different control baselines. Compare doses within this sweep; the construction is in the Experimental Note.
 
-It does not protect against another:
+Freezing a criterion in advance protects against one specific failure: choosing the test after seeing the answer. It does not protect against another: treating a single crossing of that criterion as though it described a mechanism.
 
-treating a single crossing of that criterion as though it described a mechanism.
-
-A pre-declared threshold can tell you that one result crossed a line.
-
-It cannot tell you that the system underwent a transition.
-
-For that stronger interpretation, the whole intervention series matters.
-
-Here it does not support a monotonic transition.
+A pre-declared threshold can tell you that one result crossed a line. It cannot tell you that the system underwent a transition. For that, the whole intervention series matters, and here the series does not support one.
 
 ---
 
 ## Every Relationship Replaced
 
-Which leaves the final row.
+Which leaves the strongest intervention.
 
-First, the manipulation check.
-
-Exact graph similarity fell as specified from:
-
-```text
-1.0
-```
-
-at zero rewiring to:
-
-```text
-0.0
-```
-
-at complete rewiring.
-
-That is not a finding.
-
-It confirms that the intervention did what it claimed.
-
-At the final dose, not one original friend-or-enemy assignment remained.
+At 100% rewiring, not one original friend-or-enemy assignment remained. Exact graph similarity fell from 1.0 at zero rewiring to 0.0 at complete rewiring — a manipulation check rather than a finding, since the arithmetic of the intervention fixes it. It confirms that the intervention did what it claimed.
 
 The median normalized macrostate shift was:
 
 ```text
-0.949 × ordinary control self-variation
+0.949 × ordinary variation
 ```
 
-Four of eight replicates exceeded ordinary self-variation.
+Four of eight replicates exceeded ordinary variation. None exceeded twice it.
 
-None exceeded twice it.
+Every exact relationship in the swarm had been replaced, yet the measured long-run departure still fell within ordinary variation.
 
-> **In this configuration and under this macrostate measurement, complete replacement of every exact friend-and-enemy relationship did not produce a long-run macrostate shift reliably larger than the control's ordinary self-variation.**
+![Late control states and late states after complete relationship rewiring projected into the same control-derived macrostate space. The projection is illustrative; the quantitative claim uses the full nineteen-feature energy-distance measurement.](/images/books/digital-life/ch05-control-vs-100pct-overlap.png)
+
+> **In this configuration and under this macrostate measurement, complete replacement of every exact friend-and-enemy relationship did not produce a long-run macrostate shift reliably larger than the control's ordinary variation.**
 
 ---
 
 ## What This Does Not Mean
 
-It does not mean relationships are irrelevant.
+It does not mean relationships are irrelevant, and the difference is not a quibble.
 
-The difference is not a quibble.
-
-At 100% rewiring, all of this remained:
+We destroyed which particle was linked to which. We did not touch the rule that builds a friend-and-enemy network in the first place. At 100% rewiring every particle still had exactly one friend and one enemy, the attraction and repulsion rules were unchanged, the interaction strengths were unchanged, and so was the microscopic update law.
 
 ```text
-every particle still has one friend
+destroyed:   which specific particle was linked to which
 
-every particle still has one enemy
-
-the attraction rule
-
-the repulsion rule
-
-the interaction strengths
-
-the particle count
-
-the class of network
-
-the microscopic update law
+preserved:   the interaction law and the form of the network
 ```
 
-What disappeared was one thing:
+So the plain reading is narrower than *relationships do not matter*.
 
-> which specific particle was linked to which specific other particle.
+Under this measurement, replacing every original relationship was still compatible with the same measured regime.
 
-So the result does not say that relationships do not matter.
-
-It says something narrower:
+More precisely:
 
 > **Exact edge identity was not required for persistence of the measured dynamical regime under this configuration.**
 
-Whatever supports that measured persistence is therefore not tied to preservation of particular edges.
+Whatever supports that measured persistence is therefore not tied to preserving particular edges. It may lie in coarser graph structure, in the interaction law, or in some combination of the two.
 
-It may be coarser.
+We have not distinguished among those possibilities.
 
-It may lie elsewhere in the system.
+We have not distinguished among those, and nothing here entitles us to. That is an earned open question rather than a gap in the writing.
 
-It may be distributed across several levels at once.
-
-Candidates are not in short supply: graph statistics, the distribution of interaction lengths, network motifs, the symmetry of the interaction law, the balance of attraction against repulsion, the ensemble of possible relationship graphs, the update law itself, or some joint coarse-graining generated by several of them.
-
-We have not distinguished among those.
-
-Nothing here entitles us to.
-
-That is an earned open question rather than a gap in the writing.
-
-We know what the next experiments are.
-
-We also know that we have not run them.
+The result suggests obvious next experiments. We have not run them.
 
 ---
 
 ## Why It Was Worth Building the Wrong Thing
 
-We built the swarm to expose evidence that was too easy to pass.
+We built the swarm to expose evidence that was too easy to pass, and it did.
 
-It produced object-like forms and coherent-looking collective motion.
+It looked organized. It tolerated heavy positional damage. Its visible form wandered while its measured regime remained bounded. And even complete replacement of its exact relationship graph failed to produce a reliably larger long-run departure than ordinary variation.
 
-Thirty-percent positional damage failed to separate reliably from ordinary control self-variation.
+None of those properties, by itself, distinguishes our candidate systems from a deliberately simple system built to generate complex collective behaviour.
 
-The untouched control showed no corresponding cumulative drift in our nineteen-feature representation over the observed window.
+So none of them is strong evidence on its own.
 
-Causally inert identity labels could be replaced without affecting the metric.
-
-And every exact friend-and-enemy relationship could be replaced without producing a reliably larger macrostate shift than ordinary control self-variation.
-
-None of those properties, by itself, distinguishes the systems we care about from a deliberately simple system built to generate complex collective behaviour.
-
-That makes each of them weak evidence by itself.
-
-That is the return on the whole exercise.
-
-Not a candidate.
-
-A raised bar.
+That is the return on the whole exercise. Not a candidate. A raised bar.
 
 > **From here on, any property we propose as evidence has to discriminate against a system built specifically to counterfeit it.**
 
-Which sharpens the previous chapters rather than undermining them.
+This sharpens the earlier results rather than erasing them. Physarum still underwent real population turnover, but robustness alone is now weaker evidence than it looked. Causal branching reproduction survives better: this swarm has no operational descendant relation and was never capable of counterfeiting that result.
 
-The Physarum result remains different. There we actually replaced more than 99.9% of the population. This swarm experiment did not replace components: it displaced some particles, verified that inert identity labels were irrelevant to the metric, and later replaced every exact relationship assignment.
+That is what the decoy was for. It cannot tell us what digital life is.
 
-It therefore does not make the Physarum turnover result disappear.
+It can tell us which evidence is too cheap.
 
-It tells us that robustness alone is less discriminating than it first appeared.
-
-The *Look at This Thing* chapter survives for a different reason.
-
-This swarm has no operational descendant relation and no branching reproductive lineage of the kind measured there.
-
-It was never in a position to counterfeit causal reproduction.
-
-That is what the decoy was for.
-
-It cannot tell us which results are real.
-
-It can tell us which proposed pieces of evidence were too easy to counterfeit.
-
-The visible configuration would not stay fixed.
-
-The exact relationship graph could be replaced completely.
-
-Under our measurement, the long-run dynamical regime still did not reliably separate from ordinary control self-variation.
-
-We had learned more about what the measured persistence did not require.
+We had learned more about what persistence did not require.
 
 We were still much less certain what carried it.
 
@@ -610,39 +363,25 @@ We were still much less certain what carried it.
 
 The swarm results come from one implementation.
 
-The four-branch damage study and the later rewiring sweep share a microscopic configuration: 256 particles, 10,000 burn-in steps, 12,000 post-intervention steps, sampling every 20 steps, and eight independent seeds. Every branch for a seed was cloned from one common post-burn-in checkpoint.
+**Shorthand.** *Ordinary variation* is the chapter's shorthand for **ordinary control self-variation**. Within each experiment, it is the median energy distance across the specified blocks of that seed's control trajectory. Normalized intervention shifts are expressed in units of that baseline.
 
-Burn-in is a settling period only. No claim is made that a stationary state was reached.
+**Configuration.** The four-branch damage study and the later rewiring sweep share a microscopic configuration: 256 particles, 10,000 burn-in steps, 12,000 post-intervention steps, sampling every 20 steps, and eight independent seeds. Every branch for a seed was cloned from one common post-burn-in checkpoint. Burn-in is a settling period only; no claim is made that a stationary state was reached.
 
-The macrostate is a nineteen-feature vector: log radius of gyration, log anisotropy, mean speed, and quantiles of radial distance, pairwise distance, friend distance and enemy distance.
+**Macrostate.** The macrostate is a nineteen-feature vector: log radius of gyration, log anisotropy, mean speed, and quantiles of radial distance, pairwise distance, friend distance and enemy distance. All distances except radius of gyration itself are expressed relative to that radius, so the description is scale-relative by construction. The feature representation contains no particle identity label and no node-identity feature. The metric therefore cannot score persistence merely by following nominal identity, and exact relationship assignments are free to change without being encoded directly as features.
 
-All distances except radius of gyration itself are expressed relative to that radius, so the description is scale-relative by construction.
+**Distance and normalization.** Feature vectors are z-scored using a standardizer fit only on pooled control states. Distribution distance is the multivariate energy distance between the late halves of two trajectories, computed on deterministically subsampled points. Normalized shift is that distance divided by the control's own internal spread.
 
-The feature representation contains no particle identity label and no node-identity feature. The metric therefore cannot score persistence merely by following nominal identity, and exact relationship assignments are free to change without being encoded directly as features.
+**Two denominators.** The four-branch study and the rewiring sweep construct that denominator differently: the former uses the late half of the control cut into three blocks; the latter uses the full control trajectory cut into six. Ratios are therefore comparable within each experiment and not numerically across the two. This is why the 30% organizational-damage ratio in the four-branch study and the 30% row of the sweep are not replications of one another. The adjacent-block and first-to-last values reported in the chapter are a separate diagnostic for cumulative drift and are not the denominator used for intervention ratios.
 
-Feature vectors are z-scored using a standardizer fit only on pooled control states.
+**Preserved under 100% rewiring.** Every particle still had one friend and one enemy; the attraction rule, the repulsion rule, the interaction strengths, the particle count, the class of network and the microscopic update law were all unchanged. The intervention destroyed edge identity, not network form or interaction law.
 
-Distribution distance is the multivariate energy distance between the late halves of two trajectories, computed on deterministically subsampled points.
+**Manipulation check.** Graph-similarity values are fixed by the intervention arithmetic rather than being empirical outcomes: the rewiring operation forbids reassignment to the previous target, so exact similarity is determined by dose. Similarity fell from 1.0 at 0% rewiring to 0.0 at 100% across the sweep.
 
-Normalized shift is that distance divided by the control's own internal spread.
+**Pre-declaration.** The break criterion — median normalized shift above 1.0 and at least 75% of replicates above ordinary variation — was frozen in the configuration before the sweep was inspected.
 
-The four-branch study and the rewiring sweep construct that denominator differently: the former uses the late half of the control cut into three blocks; the latter uses the full control trajectory cut into six.
+**Bounds on the claims.** Every claim about regime persistence in this chapter is conditional on the nineteen-feature representation, the chosen normalization and the energy-distance metric. A different representation could separate branches that this one does not. Failure to detect a departure here is not evidence that the underlying states were identical or that no causal change occurred.
 
-Ratios are therefore comparable within each experiment and not numerically across the two.
-
-The adjacent-block and first-to-last values reported earlier are a separate diagnostic for cumulative drift and are not the denominator used for intervention ratios.
-
-Regime-persistence claims in this chapter are bounded to this feature representation, normalization procedure and distance metric.
-
-A different description could produce a different answer.
-
-Failure to detect a departure is not evidence that no underlying change occurred.
-
-Eight replicates per dose is a small sample. The dose-response curve supports an absence of detected monotonic dose-dependence under this analysis; it should not be read as a precise estimate of effect size. Bootstrap confidence intervals on each dose's median ratio belong with the per-dose results in the appendix.
-
-The break criterion was frozen in the configuration before the sweep was inspected.
-
-Graph-similarity values are manipulation checks fixed by the intervention arithmetic rather than empirical outcomes: the rewiring operation forbids reassignment to the previous target, so exact similarity is determined by dose.
+**Sample size.** Eight replicates per dose is a small sample. The dose-response curve supports an absence of detected monotonic dose-dependence under this analysis; it should not be read as a precise estimate of effect size. Bootstrap confidence intervals on each dose's median ratio belong with the per-dose results in the appendix.
 
 Full parameters, feature definitions, standardizer construction, intervention protocols, per-seed results and discarded runs are provided in the appendix.
 

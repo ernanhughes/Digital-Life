@@ -14,10 +14,10 @@ Recommended:
     pip install rapidfuzz
 
 Examples:
-    python scripts/apply_edits_fast.py --edits test.md --chapter chapters/04
-    python scripts/apply_edits_fast.py --edits test.md --chapter chapters/04 --apply
-    python scripts/apply_edits_fast.py --edits test.md --chapter chapters/04 --apply --diff
-    python scripts/apply_edits_fast.py --edits test.md --chapter chapters/04 --show-matches
+    python scripts/apply_edits.py --edits test.md --chapter chapters/04
+    python scripts/apply_edits.py --edits test.md --chapter chapters/04 --apply
+    python scripts/apply_edits.py --edits test.md --chapter chapters/04 --apply --diff
+    python scripts/apply_edits.py --edits test.md --chapter chapters/04 --show-matches
 
 Expected edit format:
 

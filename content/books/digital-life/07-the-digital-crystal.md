@@ -35,7 +35,7 @@ local computation
 repeated interaction
 ↓
 larger-scale organization
-````
+```
 
 That is all we need to import.
 
