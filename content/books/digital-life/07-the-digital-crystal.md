@@ -9,15 +9,17 @@ categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Artificial Life", "Digital Crystal", "Crystal Growth", "Morphology", "Information", "Experimental Method"]
 +++
 
-Outlier was the wrong laboratory for the question we now wanted to ask.
+Outlier had taken us as far as it could.
 
 Nothing in the previous chapters is retracted. Outlier had shown us what computation could support.
 
-But by the end of the flocking investigation, another problem had become unmistakable: Outlier was much better at producing phenomena than at isolating them. Geometry, ancestry, distance, expansion and local environment all arose together from the same 512-bit rule.
+But by the end of the flocking investigation, its limitation had become unavoidable: Outlier was much better at producing phenomena than at isolating them.
 
-Matching can recover some comparisons after a world has already run.
+Geometry, ancestry, distance, expansion and local environment all emerged together from the same 512-bit rule. We could observe them, trace them and sometimes reconstruct their causal history. What we could not do cleanly was vary one mechanism while holding the others fixed.
 
-Now we want to build the comparison first.
+And that changed how we had to work.
+
+Now we would build the comparison first.
 
 Hold everything we can fixed.
 
@@ -37,13 +39,9 @@ larger-scale organization
 
 That is all we need to import.
 
-Not Outlier's reproduction.
+We are not importing Outlier itself — its reproduction, causal families or geometry.
 
-Not its causal families.
-
-Not its geometry.
-
-Only the demonstrated possibility that local rules can generate organization we did not explicitly represent.
+We are carrying forward only the demonstrated possibility that local rules can generate organization that was never explicitly represented in them.
 
 What we want from the new system is a short list:
 
@@ -225,7 +223,6 @@ The empty cells along the edge of the hole touch occupied cells, so they become 
 src="/images/books/digital-life/ch11-crystal-damage-triptych.png"
 alt="The digital crystal before perturbation, immediately after an interior region is removed, and several generations later."
 caption="Before, perturbation, and a later state. The missing region returns, but we have not yet earned the word repair."
-
 >}}
 
 It looks like healing.
@@ -532,11 +529,11 @@ So what?
 
 *Different signals generate different-looking crystals* would make an attractive demonstration and establish almost nothing.
 
-Perhaps one stochastic run happened to become larger.
+One stochastic run might simply have grown larger.
 
-Perhaps one family creates a higher average attachment probability and we are merely looking at area.
+Another signal family might raise the average attachment probability, leaving us to mistake greater area for a different kind of organization.
 
-Perhaps our eyes are classifying noise.
+Or our eyes might be finding structure in noise.
 
 We need populations, not specimens.
 
@@ -638,15 +635,13 @@ alt="Confusion matrix showing predictions of source-process family from final Di
 caption="Source recovery is substantial but incomplete. Some forcing families leave more distinctive morphological signatures than others."
 >}}
 
-The claim to keep is smaller than the excitement it produces:
+The result is simpler than the language it invites:
 
-> **The final morphology contains information that makes forcing-process family recoverable substantially above chance.**
+> **The final shape retains enough information to identify the forcing-process family substantially above chance.**
 
-Not *the crystal remembers its history*.
+We do not need to call that memory.
 
-Not *the crystal understands the environment*.
-
-Something about the conditions during formation has survived in a form we can read.
+The formation conditions left a readable trace.
 
 ---
 

@@ -61,15 +61,15 @@ Every cell is `0` or `1`. Each cell reads its `3 × 3` Moore neighbourhood, itse
 
 Note what is absent. Nothing in the system yet corresponds to an organism or even an individual. We have only binary state, a neighbourhood, a transition rule and time. Genomes, energy budgets, reproduction, fitness and populations are all concepts that would have to emerge later, if they become relevant at all.
 
-How Outlier was found matters.
+How Outlier was found matters, because it is easy to overstate what happened.
 
-Humans designed the substrate, the search space and the selection criteria. Outlier did not appear independently of human design.
+Humans designed the search. They chose the cellular-automaton substrate, the space of possible rules and the criteria by which rules were selected. Outlier is therefore not evidence of digital life appearing independently of human design.
 
-But the search did not specify a replicating organism either. It searched for cellular-automaton rules with dynamics considered promising for open-ended evolution.[5] Self-replication was not an explicit target.
+But neither did the search specify a replicating organism. It searched for a rule system with dynamics considered promising for open-ended evolution.[5] Self-replication was not itself the explicit target, although such a search could certainly favour rules in which persistent or multiplying structures occur.
 
-What the search returned was a **local transition rule**. The particular structures that later replicated were discovered only after that rule was running.
+What the search ultimately returned was a **local transition** rule. The particular replicating organizations later found within that rule were not explicitly represented in it.
 
-**The rule was selected. The replicator was discovered inside the resulting world.**
+**That is why Outlier matters here. The rule was selected; the replicator was discovered within the world the rule created.**
 
 ```mermaid
 flowchart LR
@@ -455,26 +455,22 @@ A positive result is possible when the evidence supports one.
 
 Discipline now, while the result is fresh and most attractive.
 
-We now have two different results, and they should remain separate.
+We have two different results, and they should remain separate.
 
-**Published Outlier:** causal self-replication under the stricter published criterion.[5][6]
+| Evidence                       | What it establishes                                                                                                                   |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| **Published Outlier analysis** | Causal self-replication under the stricter published criterion, including replication involving spatially separated components.[5][6] |
+| **Our reconstruction**         | Branching causal recurrence of a pre-specified `c2` structure under our simpler causal test                                           |
 
-**Our reconstruction:** branching causal recurrence of a pre-specified `c2` structure under our simpler causal test.
-
-Neither establishes self-maintenance, adaptation, agency, memory, autonomy, individuality, open-ended evolution or life.
+Neither result establishes self-maintenance, adaptation, agency, memory, autonomy, individuality, open-ended evolution or life.
 
 And the published multi-component result leaves us with a further problem: reproduction can be causally clear even when the reproducing unit is not an obvious body.
 
-| Evidence | What it establishes |
-|---|---|
-| **Published analysis** | Causal self-replication, including replication involving spatially separated components |
-| **Our experiment** | Branching causal recurrence of a pre-specified `c2` structure |
-
-Both are strong results.
+Both results are strong.
 
 They are not the same result, and neither needs to be made larger than it is.
 
----
+--- 
 
 ## Two Instruments, Each Missing Something
 

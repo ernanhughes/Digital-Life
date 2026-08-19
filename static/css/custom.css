@@ -293,3 +293,26 @@
     justify-content: flex-start;
   }
 }
+
+figure {
+    margin: 2rem 0;
+}
+
+figure img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+figure figcaption {
+    display: block;
+    margin-top: 0.6rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    text-align: center;
+    opacity: 0.8;
+}
+
+figure figcaption p {
+    margin: 0;
+}
