@@ -67,15 +67,15 @@ Suppose the crystal has an effective radius \(r\).
 
 New construction happens around its boundary, so construction opportunity should scale roughly like the perimeter:
 
-\[
+$$
 \text{construction} \sim r
-\]
+$$
 
 Loss, by contrast, applies throughout occupied material, so expected loss should scale roughly like occupied area:
 
-\[
+$$
 \text{loss} \sim r^2
-\]
+$$
 
 If those scaling assumptions remain valid as the crystal grows, the conclusion follows.
 

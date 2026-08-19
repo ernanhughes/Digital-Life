@@ -462,7 +462,7 @@ So V2 used a Rao-Blackwellized estimator as the primary quantity.
 
 At every lag, before realized Bernoulli attachment decisions were drawn, the experiment calculated the expected local causal difference:
 
-\[
+$$
 \Delta_t
 =
 \sum_{y \in L}
@@ -470,7 +470,7 @@ p_{\text{FORCE}}(y,t)
 -
 \sum_{y \in L}
 p_{\text{PREVENT}}(y,t)
-\]
+$$
 
 where \(L\) was the same local spatial support used for the realized outcome, and the intervention cell itself was always excluded.
 

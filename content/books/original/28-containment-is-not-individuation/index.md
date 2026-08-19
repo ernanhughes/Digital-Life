@@ -91,21 +91,21 @@ That suggests two quantities.
 
 For an internal perturbation:
 
-\[
+$$
 \text{internal retention}
 =
 \frac{A_{\text{inside}}}
 {A_{\text{inside}}+A_{\text{outside}}}
-\]
+$$
 
 For an external perturbation:
 
-\[
+$$
 \text{external penetration}
 =
 \frac{A_{\text{inside}}}
 {A_{\text{inside}}+A_{\text{outside}}}
-\]
+$$
 
 where \(A\) is the summed **absolute expected causal mass**.
 
@@ -115,13 +115,13 @@ If one region contains positive and negative probability shifts that cancel nume
 
 The modularity score was therefore:
 
-\[
+$$
 M
 =
 \text{internal retention}
 -
 \text{external penetration}
-\]
+$$
 
 A high value would mean:
 
@@ -205,15 +205,15 @@ So V1 used simple fixed-radius hexagonal disks.
 
 The primary region radius was frozen at:
 
-\[
+$$
 r=4
-\]
+$$
 
 Secondary descriptive scales were:
 
-\[
+$$
 r \in \{2,3,4,5\}
-\]
+$$
 
 For each independent checkpoint, candidate regions were centered on occupied cells.
 
@@ -273,13 +273,13 @@ The horizon was frozen at eight steps.
 
 At each lag, before realized stochastic attachment, the experiment calculated:
 
-\[
+$$
 \Delta p(y,t)
 =
 p_{\text{FORCE}}(y,t)
 -
 p_{\text{PREVENT}}(y,t)
-\]
+$$
 
 and accumulated the absolute causal mass inside and outside the candidate region.
 
@@ -293,29 +293,29 @@ The V1 result was enormous.
 
 At the frozen radius-4 scale:
 
-\[
+$$
 M
 =
 0.4402
-\]
+$$
 
 with 95% confidence interval approximately:
 
-\[
+$$
 [0.419,\ 0.461]
-\]
+$$
 
 The predeclared meaningful threshold was:
 
-\[
+$$
 0.15
-\]
+$$
 
 and the achieved one-sided MDE was only:
 
-\[
+$$
 0.0268
-\]
+$$
 
 So the primary V1 result was formally:
 
@@ -327,15 +327,15 @@ The decomposition looked even more compelling.
 
 Mean internal retention was:
 
-\[
+$$
 0.7755
-\]
+$$
 
 Mean external penetration was:
 
-\[
+$$
 0.3353
-\]
+$$
 
 So the selected regions seemed to do exactly what a causal module should do.
 
@@ -455,9 +455,9 @@ That became V2.
 
 V2 preserved the frozen radius:
 
-\[
+$$
 r=4
-\]
+$$
 
 It preserved:
 
@@ -507,13 +507,13 @@ Two controls were sought for every selected region.
 
 The primary V2 quantity was now:
 
-\[
+$$
 M_{\text{excess}}
 =
 M_{\text{observed}}
 -
 M_{\text{matched control}}
-\]
+$$
 
 This is the question V1 had not answered.
 
@@ -536,11 +536,11 @@ V2 measured a different quantity.
 
 So the excess-modularity threshold was frozen separately:
 
-\[
+$$
 \text{SEI}_{\text{excess}}
 =
 0.10
-\]
+$$
 
 To support a privileged causal region, the selected regions had to exceed matched arbitrary geometry by more than ten percentage points.
 
@@ -575,43 +575,43 @@ The median observed region received two controls.
 
 There were:
 
-\[
+$$
 1151
-\]
+$$
 
 matched observed-control pairs.
 
 Mean standardized match distance was approximately:
 
-\[
+$$
 1.18
-\]
+$$
 
 Maximum was only:
 
-\[
+$$
 3.06
-\]
+$$
 
 below the frozen threshold of 4.
 
 Mean occupancy-fraction difference was:
 
-\[
+$$
 0.027
-\]
+$$
 
 Mean radial difference was:
 
-\[
+$$
 1.78
-\]
+$$
 
 The far causal effect under unbounded evaluation was exactly:
 
-\[
+$$
 0
-\]
+$$
 
 The experiment passed every validity gate.
 
@@ -623,33 +623,33 @@ Now the matched null could answer the real question.
 
 The selected regions still reproduced the large V1 score:
 
-\[
+$$
 M_{\text{observed}}
 =
 0.4436
-\]
+$$
 
 The matched control regions scored:
 
-\[
+$$
 M_{\text{control}}
 =
 0.4559
-\]
+$$
 
 So:
 
-\[
+$$
 M_{\text{excess}}
 =
 -0.0123
-\]
+$$
 
 with 95% confidence interval:
 
-\[
+$$
 [-0.0327,\ 0.0072]
-\]
+$$
 
 The point estimate was slightly negative.
 
@@ -665,21 +665,21 @@ The meaningful-margin question, however, was completely resolved.
 
 The upper confidence bound was only:
 
-\[
+$$
 0.0072
-\]
+$$
 
 against a predeclared meaningful threshold of:
 
-\[
+$$
 0.10
-\]
+$$
 
 The achieved MDE was:
 
-\[
+$$
 0.0265
-\]
+$$
 
 far tighter than the threshold.
 
@@ -707,27 +707,27 @@ The V2 decomposition tested that.
 
 Excess internal retention was:
 
-\[
+$$
 -0.0066
-\]
+$$
 
 with 95% confidence interval:
 
-\[
+$$
 [-0.0222,\ 0.0093]
-\]
+$$
 
 Excess external penetration was:
 
-\[
+$$
 0.0057
-\]
+$$
 
 with 95% confidence interval:
 
-\[
+$$
 [-0.0101,\ 0.0216]
-\]
+$$
 
 Neither component supported a privileged region.
 

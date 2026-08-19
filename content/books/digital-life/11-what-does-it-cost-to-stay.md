@@ -635,19 +635,19 @@ and applies loss after construction.
 
 For proportional loss at `δ = 0.08`, expected loss relative to the surviving post-loss population is approximately:
 
-\[
+$$
 \frac{\delta}{1-\delta}
 =
 \frac{0.08}{0.92}
 \approx 0.08696
-\]
+$$
 
 So even before invoking an interesting process-level regularity:
 
-\[
+$$
 2\frac{L}{N}
 \approx 0.1739
-\]
+$$
 
 The tested low-budget regimes are also drifting downward slowly, subtracting a few thousandths through the:
 
