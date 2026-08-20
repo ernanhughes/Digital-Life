@@ -87,5 +87,5 @@ title = 'Programmer.ie: Modern AI programming'
       [markup.goldmark.extensions.passthrough]
         enable = true
         [markup.goldmark.extensions.passthrough.delimiters]
-          block = [['\\[', '\\]'], ['$$', '$$']]
-          inline = [['\\(', '\\)']]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)'], ['$', '$']]

@@ -316,3 +316,68 @@ figure figcaption {
 figure figcaption p {
     margin: 0;
 }
+
+.book-page__hero {
+  display: grid;
+  grid-template-columns: minmax(180px, 280px) 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.book-page__cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.book-page__hero-content {
+  min-width: 0;
+}
+
+@media (max-width: 700px) {
+  .book-page__hero {
+    grid-template-columns: 1fr;
+  }
+
+  .book-page__cover {
+    max-width: 260px;
+  }
+}
+
+.book-card__layout {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.book-card__content {
+  min-width: 0;
+}
+
+.book-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.book-cover--thumb {
+  width: 120px;
+}
+
+.book-cover--thumb img {
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
+}
+
+@media (max-width: 650px) {
+  .book-card__layout {
+    grid-template-columns: 80px minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .book-cover--thumb {
+    width: 80px;
+  }
+}

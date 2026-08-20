@@ -3,19 +3,32 @@
 <section class="book-page">
 
   <header class="book-page__hero">
-    <span class="books-hub__eyebrow">Programmer.ie Book</span>
 
-    <h1>{{ .Title }}</h1>
-
-    {{ with .Description }}
-      <p>{{ . }}</p>
-    {{ end }}
-
-    {{ with .Content }}
-      <div class="book-page__intro">
-        {{ . }}
+    {{ with .Params.cover }}
+      <div class="book-page__cover">
+        <img
+          src="{{ . | relURL }}"
+          alt="{{ $.Title }} cover"
+        >
       </div>
     {{ end }}
+
+    <div class="book-page__hero-content">
+      <span class="books-hub__eyebrow">Programmer.ie Book</span>
+
+      <h1>{{ .Title }}</h1>
+
+      {{ with .Description }}
+        <p>{{ . }}</p>
+      {{ end }}
+
+      {{ with .Content }}
+        <div class="book-page__intro">
+          {{ . }}
+        </div>
+      {{ end }}
+    </div>
+
   </header>
 
   <section class="book-page__chapters">

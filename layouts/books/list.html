@@ -1,60 +1,156 @@
 {{ define "main" }}
+
 {{- $books := .Site.Data.books.books -}}
+
 <section class="books-hub">
+
   <header class="books-hub__hero">
+
     <span class="books-hub__eyebrow">Programmer.ie Books</span>
+
     <h1>{{ .Title }}</h1>
+
     <p>{{ .Description }}</p>
-    {{ with .Content }}<div class="books-hub__intro">{{ . }}</div>{{ end }}
+
+    {{ with .Content }}
+      <div class="books-hub__intro">
+        {{ . }}
+      </div>
+    {{ end }}
+
   </header>
 
   <div class="books-hub__grid">
-    {{ range $book := $books }}
-      <article class="book-card" id="book-{{ $book.id }}">
-        <div class="book-card__meta">
-          <span>{{ $book.level }}</span>
-          <span>{{ $book.expected_chapters }} chapters</span>
-        </div>
-        <h2>{{ $book.title }}</h2>
-        <p class="book-card__subtitle">{{ $book.subtitle }}</p>
-        <p>{{ $book.description }}</p>
-        <div class="book-card__formats" aria-label="Available formats">
-          <span class="is-live">Read on the web</span>
-          {{- $epub := false -}}
-          {{- with $book.publication }}{{ with .epub }}{{ $epub = . }}{{ end }}{{ end -}}
-          {{- if and $epub $epub.enabled -}}
-            {{- if $epub.release_url -}}
-              <a class="is-live" href="{{ $epub.release_url }}">EPUB available</a>
-            {{- else -}}
-              <span>EPUB in production</span>
-            {{- end -}}
-          {{- else -}}
-            <span>EPUB planned</span>
-          {{- end -}}
-          <span>Video planned</span>
-        </div>
-        <div class="book-card__actions">
-          {{ $readURL := $book.learn_url }}
-          {{ with $book.book_url }}
-            {{ $readURL = . }}
-          {{ end }}
 
-          <a class="book-card__primary" href="{{ $readURL | relURL }}">Read the book →</a>
-          <a href="{{ printf "/solutions/#solutions-%s" $book.solutions_domain | relURL }}">Related solutions</a>
+    {{ range $book := $books }}
+
+      <article class="book-card" id="book-{{ $book.id }}">
+
+        <div class="book-card__layout">
+
+          {{ partial "book-cover.html" (dict
+              "book" $book
+              "size" "thumb"
+          ) }}
+
+          <div class="book-card__content">
+
+            <div class="book-card__meta">
+              <span>{{ $book.level }}</span>
+              <span>{{ $book.expected_chapters }} chapters</span>
+            </div>
+
+            <h2>{{ $book.title }}</h2>
+
+            <p class="book-card__subtitle">
+              {{ $book.subtitle }}
+            </p>
+
+            <p>{{ $book.description }}</p>
+
+            <div
+              class="book-card__formats"
+              aria-label="Available formats"
+            >
+              <span class="is-live">Read on the web</span>
+
+              {{- $epub := false -}}
+
+              {{- with $book.publication }}
+                {{- with .epub }}
+                  {{- $epub = . }}
+                {{- end }}
+              {{- end }}
+
+              {{- if and $epub $epub.enabled }}
+
+                {{- if $epub.release_url }}
+                  <a
+                    class="is-live"
+                    href="{{ $epub.release_url }}"
+                  >
+                    EPUB available
+                  </a>
+                {{- else }}
+                  <span>EPUB in production</span>
+                {{- end }}
+
+              {{- else }}
+                <span>EPUB planned</span>
+              {{- end }}
+
+              <span>Video planned</span>
+            </div>
+
+            <div class="book-card__actions">
+
+              {{- $readURL := $book.learn_url -}}
+
+              {{- with $book.book_url }}
+                {{- $readURL = . -}}
+              {{- end }}
+
+              <a
+                class="book-card__primary"
+                href="{{ $readURL | relURL }}"
+              >
+                Read the book →
+              </a>
+
+              <a
+                href="{{ printf "/solutions/#solutions-%s" $book.solutions_domain | relURL }}"
+              >
+                Related solutions
+              </a>
+
+            </div>
+
+          </div>
+
         </div>
+
       </article>
+
     {{ end }}
+
   </div>
 
   <section class="books-hub__system">
-    <span class="books-hub__eyebrow">One source, multiple products</span>
+
+    <span class="books-hub__eyebrow">
+      One source, multiple products
+    </span>
+
     <h2>Read, apply, own, watch.</h2>
-    <p>The web chapters remain freely readable. The same canonical material is compiled into book editions, connected to problem-first solutions and AI diagnostics, and later becomes video. The product grows without splitting the source of truth.</p>
-    <div class="books-system-flow" aria-label="Publishing flow">
-      <span>Book</span><b>→</b><span>Web chapters</span><b>→</b><span>Solutions</span><b>→</b><span>AI prompts</span><b>→</b><span>EPUB / PDF</span><b>→</b><span>Video</span>
+
+    <p>
+      The web chapters remain freely readable. The same canonical
+      material is compiled into book editions, connected to
+      problem-first solutions and AI diagnostics, and later becomes
+      video. The product grows without splitting the source of truth.
+    </p>
+
+    <div
+      class="books-system-flow"
+      aria-label="Publishing flow"
+    >
+      <span>Book</span>
+      <b>→</b>
+      <span>Web chapters</span>
+      <b>→</b>
+      <span>Solutions</span>
+      <b>→</b>
+      <span>AI prompts</span>
+      <b>→</b>
+      <span>EPUB / PDF</span>
+      <b>→</b>
+      <span>Video</span>
     </div>
+
   </section>
+
 </section>
+
 {{ end }}
 
 {{ define "sidebar" }}{{ end }}

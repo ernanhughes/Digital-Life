@@ -1,6 +1,7 @@
 +++
 title = "Digital Life: From First Principles"
 description = "An experimental search for life-like organization in computational systems — through emergence, causality, persistence, material turnover, hidden state and finite computation."
+cover = "/images/books/digital-life/cover.png"
 +++
 
 What would it take for a computational system to earn the language of life?

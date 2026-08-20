@@ -187,7 +187,7 @@ The hypothesis is deliberately narrow. It says nothing about life, memory, learn
 
 ## Influence, Not Instruction
 
-The prototype was a closed update, $C_{t+1}=G(C_t)$. Now introduce an environmental forcing signal, so that the update becomes $C_{t+1}=G(C_t,E_t)$.
+The prototype was a closed update, \(C_{t+1}=G(C_t)\). Now introduce an environmental forcing signal, so that the update becomes \(C_{t+1}=G(C_t,E_t)\).
 
 The distinction that matters is what the signal is *not* allowed to do. It does not draw. Nowhere does anything say:
 
