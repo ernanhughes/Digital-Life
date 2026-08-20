@@ -56,9 +56,11 @@ OCCUPIED_MODIFIED
 
 A pulse can convert some occupied cells near the active growth region from normal to modified. That is the entire addition.
 
-There is no history list. No global register. No timestamp recording when the pulse arrived. No stored copy of the signal. No decoder. No learned weight. No target morphology. No module named `memory`. Nothing in the substrate knows what a pulse *was*, and nothing can ask.
+The substrate contains no explicit representation of the pulse or its history. A pulse leaves only a local physical consequence: some cells enter a modified condition that persists after the signal itself has gone.
 
-The modified condition does exactly two things. It persists. And while a modified cell sits adjacent to a candidate attachment site, it slightly changes that candidate's local attachment probability.
+That modified condition does two things. It persists, and while a modified cell sits beside a candidate attachment site, it slightly changes that site's attachment probability.
+
+There is therefore no separate memory mechanism to consult. Whatever influence the pulse has on the future is carried forward through the changed state of the crystal itself.
 
 ```mermaid
 flowchart LR

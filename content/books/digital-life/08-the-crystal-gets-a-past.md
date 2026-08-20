@@ -7,6 +7,7 @@ weight = 8
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "State", "History", "Checkpointing", "Causality", "Counterfactuals"]
 series = ["Digital Life From First Principles"]
+chapter_status = "final"
 +++
 
 At the end of the last chapter the Digital Crystal could tell us something about the world that formed it. Hide the forcing process, show only the final shape, and the family of that process could be recovered well above chance. Then we asked a harder question.
@@ -558,7 +559,7 @@ Before asking how strongly an intervention changes the future, we therefore have
 
 Digital Crystal growth is stochastic. When we fork a checkpoint into a treated and an untreated branch, we hold the random-number state fixed and assume that gives us two versions of the same random world.
 
-It does not. It gives us two versions of the same random *stream*. Alright 
+It does not. It gives us two versions of the same random *stream*. 
 
 Here is the mechanism. At each step the process builds a frontier of candidate cells, sorts it, and hands each candidate the next value from the stream. Perfectly reproducible — as long as both branches present the same candidates in the same order. But the intervention changes an attachment, which changes the frontier, which changes the sorted list. From that moment the two branches are consuming the same sequence of numbers in different places. Random value 27 lands on a different cell in each world, and every value after it is misassigned relative to its counterpart.
 
@@ -690,30 +691,21 @@ The two histories did not produce identical crystals. Immediately after the fina
 
 ```text
 0.053     [0.048, 0.059]
-```
+````
 
 So the interior arrangement of the pulses had real causal consequences. Rearranging when the bits arrived changed what the receiver became.
 
-The population-level test asked for something stronger, and got nothing.
+The population-level test asked for something stronger, and found no evidence for it.
 
 ```text
-primary angular test (9 features)     p = 0.7366
-secondary test (24 features)          p = 0.9320
-```
+primary angular test (9 features)      p = 0.7366
 
-This was not a near miss.
+secondary test (24 features)           p = 0.9320
+```
 
 The predeclared primary statistic showed no evidence of a stable history signature, and the wider secondary measurement did not recover one either.
 
-The predeclared test did not support the hypothesis.
-
-Not because the software failed.
-
-Not because the preflight failed.
-
-Not because the coupling failed.
-
-The primary measurement simply did not recover the predicted population-level signature, and the secondary measurement did not rescue it.
+The experiment passed its implementation, preflight and coupling checks. What failed was the prediction: neither the primary nor the secondary measurement recovered a stable population-level history signature.
 
 The bounded result is:
 
@@ -723,15 +715,17 @@ That is a clean negative result for the predeclared test.
 
 It is not evidence that temporal arrangement can never matter, and it does not mean the two histories had no consequences.
 
+```text
 DIFFERENT HISTORY → DIFFERENT PARTICULAR FUTURE
 SUPPORTED
 
 DIFFERENT HISTORY → STABLE POPULATION-LEVEL SIGNATURE
 NOT SUPPORTED UNDER THE PREDECLARED TEST
+```
 
 There is a tempting sentence here: *the crystal forgot the sequence*. We cannot say that. Forgetting presupposes something like memory to lose. What we can say is stranger and more useful:
 
-> **A history can contribute causally to the present without remaining legible in the present.**
+> **The past can change the present without leaving an obvious trace of how it did so.**
 
 ---
 
@@ -747,7 +741,6 @@ PERSISTENT CONSEQUENCE
 SYSTEMATIC SIGNATURE
         ↓
 RECOVERABLE INFORMATION
-
 ```
 
 Every arrow is a new empirical claim.
@@ -897,4 +890,3 @@ Not yet.
 But finally a place inside the process where experience can remain causally available after the original event is gone.
 
 > **Can experience change the material itself?**
-
