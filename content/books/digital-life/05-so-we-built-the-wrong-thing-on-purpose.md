@@ -7,6 +7,7 @@ weight = 5
 series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Artificial Life", "Adversarial Calibration", "Swarm", "Persistence", "Dose Response", "Pre-declared Criteria", "Experimental Method", "Confounds"]
+chapter_status = "final"
 +++
 
 The previous chapter ended with a specification: known rules, controlled interventions, one mechanism varied at a time, a history we can follow. That is the laboratory we will eventually need, and building it is most of the work still ahead.
@@ -185,25 +186,19 @@ Which is why it is useful.
 
 The pattern was becoming hard to miss. One privileged visible configuration had already failed. Thirty-percent positional damage had failed to produce a reliable departure. Now substantial exact relationship identity looked too specific as well.
 
-identity labels                     not used by the measurement
+| Candidate location of persistence | What the experiment showed                                 |
+| --------------------------------- | ---------------------------------------------------------- |
+| Identity labels                   | Not used by the measurement                                |
+| Particular visible configuration  | Not fixed                                                  |
+| Exact positions                   | 30% displacement produced no reliable regime departure     |
+| Exact relationships               | 30% edge replacement produced no reliable regime departure |
+| Measured dynamical regime         | Persistent so far                                          |
 
-particular visible configuration    not fixed
-
-30% positional displacement         no reliable regime departure detected
-
-30% exact edge replacement           no reliable regime departure detected
-
-measured dynamical regime            persistent so far
-
-There are many available explanations for that last line, and they are not equivalent. We do not get to pick one because it sounds good.
-
-What the experiment had earned was a question, not an answer:
+There are many available explanations for that last line, and they are not equivalent. We do not get to pick one because it sounds good. What the experiment had earned was a question, not an answer:
 
 > **How much of the exact relationship graph can be replaced before the measured dynamical regime changes?**
 
-That is measurable.
-
-So we measured it.
+That is measurable. So we measured it.
 
 ---
 
@@ -303,11 +298,11 @@ Every exact relationship in the swarm had been replaced, yet the measured long-r
 
 ---
 
-## What This Does Not Mean
+## What the Result Actually Says
 
-It does not mean relationships are irrelevant, and the difference is not a quibble.
+It does not mean relationships are irrelevant, and the difference matters.
 
-We destroyed which particle was linked to which. We did not touch the rule that builds a friend-and-enemy network in the first place. At 100% rewiring every particle still had exactly one friend and one enemy, the attraction and repulsion rules were unchanged, the interaction strengths were unchanged, and so was the microscopic update law.
+We destroyed which particle was linked to which. The rule that builds a friend-and-enemy network remained unchanged. Even at 100% rewiring, every particle still had exactly one friend and one enemy; the attraction and repulsion rules, interaction strengths and microscopic update law were preserved.
 
 ```text
 destroyed:   which specific particle was linked to which
@@ -315,19 +310,16 @@ destroyed:   which specific particle was linked to which
 preserved:   the interaction law and the form of the network
 ```
 
-So the plain reading is narrower than *relationships do not matter*.
+So the result is narrower than *relationships do not matter*.
 
 Under this measurement, replacing every original relationship was still compatible with the same measured regime.
-
 More precisely:
 
 > **Exact edge identity was not required for persistence of the measured dynamical regime under this configuration.**
 
-Whatever supports that measured persistence is therefore not tied to preserving particular edges. It may lie in coarser graph structure, in the interaction law, or in some combination of the two.
+Whatever supports that persistence is therefore not tied to preserving particular edges. It may lie in coarser graph structure, in the interaction law, or in some combination of the two.
 
-We have not distinguished among those possibilities.
-
-We have not distinguished among those, and nothing here entitles us to. That is an earned open question rather than a gap in the writing.
+**This experiment does not separate those possibilities. They remain open questions for a different intervention.**
 
 The result suggests obvious next experiments. We have not run them.
 

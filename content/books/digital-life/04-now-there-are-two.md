@@ -7,6 +7,7 @@ weight = 4
 series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Artificial Life", "Outlier", "Cellular Automata", "Self-Replication", "Causality", "Ancestry", "Experimental Method"]
+chapter_status = "final"
 +++
 
 In the previous chapter an organization survived while nearly everything participating in it was replaced. By the end of the turnover window, only 7 of the original 20,000 agents remained, yet the broader organized network persisted.
