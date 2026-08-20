@@ -1,6 +1,10 @@
 +++
 title = "Digital Life: From First Principles"
 description = "An experimental search for life-like organization in computational systems — through emergence, causality, persistence, material turnover, hidden state and finite computation."
+subtitle = "An Experimental Search for Life-Like Organization in Computation"
+level = "Artificial life, complex systems and computational emergence"
+solutions_domain = "digital-life"
+weight = 1
 cover = "/images/books/digital-life/cover.png"
 +++
 
