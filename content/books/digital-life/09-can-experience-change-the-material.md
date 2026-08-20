@@ -85,25 +85,13 @@ The first requirement is almost trivial by construction.
 
 The pulse arrives. Cells near the boundary become modified. The pulse ends. The modified cells remain modified because this model contains no rule that erases or decays that state.
 
-So persistence itself is not a discovery here. We deliberately built a material state that can persist.
+So persistence itself is not a discovery here. We deliberately built a material state that can persist. The experimental question is what that persistent state can still do.
 
-The experimental question is what that persistent state can still do.
+The consequence now exists inside the material rather than in our checkpoint or event log. The event is over; the material remains different because it occurred.
 
-The consequence now exists inside the material rather than in our checkpoint or event log.
+That is enough to make the word *memory* tempting. It is nowhere near enough to earn it.
 
-The event is over.
-
-The material remains different because it occurred.
-
-That is enough to make the word *memory* tempting.
-
-It is nowhere near enough to earn it.
-
-The next question is whether the future can still reach the difference we created.
-
-So we do the obvious thing and check whether it matters.
-
-Take an experienced crystal. At a later checkpoint, clone it. In one copy erase the modified labels while leaving the visible occupied geometry exactly as it is. Continue both copies under identical future conditions and identical stochastic coupling.
+So we check whether the future can still reach the difference we created. Take an experienced crystal. At a later checkpoint, clone it. In one copy erase the modified labels while leaving the visible occupied geometry exactly as it is. Continue both copies under identical future conditions and identical stochastic coupling.
 
 If the retained material is doing causal work, the two futures should differ.
 
@@ -177,17 +165,9 @@ They tell us what to test next.
 
 This deserves to be stated as more than a debugging note, because it inverts the intuition we brought to the problem.
 
-We had assumed that the hard part of keeping a past would be keeping it.
+We had assumed that the hard part of keeping a past would be keeping it. In this model that assumption was wrong. The modified state does not decay unless we explicitly introduce a mechanism that removes it, so persistence became almost trivial — and yet the state stopped mattering.
 
-In this model, that assumption was wrong.
-
-The modified state does not decay unless we explicitly introduce a mechanism that removes it. Persistence therefore became almost trivial.
-
-And yet the state stopped mattering.
-
-The bottleneck was not retention.
-
-It was access.
+The bottleneck was not retention. It was access.
 
 > **The crystal did not run out of storage. Its past fell behind the moving surface where the future was being decided.**
 
@@ -197,11 +177,7 @@ That gives us an operational definition:
 
 > **The causal aperture is the currently active interface through which stored material state can enter a transition rule that affects what happens next.**
 
-In this version of the Digital Crystal, that aperture coincides with the growth frontier.
-
-State coupled to it can alter attachment probabilities.
-
-State left behind it may remain perfectly preserved while losing any current route into the computation.
+In this version of the Digital Crystal that aperture coincides with the growth frontier. State coupled to it can alter attachment probabilities; state left behind it may remain perfectly preserved while losing any current route into the computation.
 
 ```mermaid
 flowchart TD
@@ -415,17 +391,9 @@ Taken together, those three measurements earn the strongest positive claim of th
 
 > **With propagated-state quantity held constant, spatial placement changed the duration and strength of that state's causal availability to subsequent growth under this protocol.**
 
-More stored past was not the answer.
+More stored past was not the answer. The same amount of stored state had a different causal lifetime depending on where it was placed.
 
-The same amount of stored state had a different causal lifetime depending on where it was placed.
-
-The quantity was fixed.
-
-Persistence was guaranteed by the model.
-
-Yet causal accessibility and realized influence still differed substantially.
-
-The variable that remained was geometry relative to the moving interface.
+The quantity was fixed and persistence was guaranteed by the model, yet causal accessibility and realized influence still differed substantially. The only variable left was geometry relative to the moving interface.
 
 Storage capacity had ceased to be the interesting quantity.
 
@@ -433,17 +401,11 @@ Storage capacity had ceased to be the interesting quantity.
 
 ## Stop Digging
 
-We pushed the mechanism further.
+We pushed the mechanism further with three more predeclared claims.
 
-Could accessibility reinforce itself by creating more propagation opportunities?
+That accessibility reinforces itself by creating more propagation opportunities. That the timing of otherwise matched transmissions increases causal access. That some propagation schedules produce more causal effect per contact.
 
-Could the timing of otherwise matched transmissions increase causal access?
-
-Could some propagation schedules produce more causal effect per contact?
-
-Each produced narrower observations worth retaining in the experimental record.
-
-None satisfied its broader predeclared claim.
+Each produced narrower observations worth retaining in the experimental record. None satisfied its broader predeclared claim, and all three appear as separate **NOT SUPPORTED** rows in the Evidence Ledger below rather than being folded into a single sentence here.
 
 At that point the scientific picture had stopped changing:
 
@@ -487,15 +449,7 @@ Everything above concerns a single binary condition. The material can answer exa
 DID SOMETHING HAPPEN HERE?
 ```
 
-A future that depends on **whether** something happened is weaker than a future that depends on **which** thing happened.
-
-That is the next boundary.
-
-The first gives us a retained consequence.
-
-The second would give us history-dependent differentiation.
-
-So:
+A future that depends on **whether** something happened is weaker than a future that depends on **which** thing happened. The first gives us a retained consequence; the second would give us history-dependent differentiation. That is the next boundary:
 
 > **Can two different prior experiences leave different retained material states that produce meaningfully different responses to exactly the same later challenge?**
 
@@ -518,7 +472,8 @@ HISTORY_B
 ```
 
 Two branches were made identical in geometry, material quantity and write locations, differing only in whether the retained label was `HISTORY_A` or `HISTORY_B`.
- Immediately before the challenge the two crystals matched on everything we could match:
+
+Immediately before the challenge the two crystals matched on everything we could match:
 
 ```text
 occupied cells          identical
@@ -538,8 +493,7 @@ During retention both labels were inert — they did nothing at all. During the 
 (A challenge − A no-challenge) − (B challenge − B no-challenge)
 ```
 
-The controls behaved as required.
- Without the challenge, A and B futures were identical. Erase the labels immediately before the challenge and A and B futures were identical again. So any difference in the retained-label challenge condition had to come from the labels.
+The controls behaved as required. Without the challenge, A and B futures were identical. Erase the labels immediately before the challenge and A and B futures were identical again. So any difference in the retained-label challenge condition had to come from the labels.
 
 And before running it, we froze something the book had been missing: a smallest effect worth interpreting.
 
@@ -572,19 +526,20 @@ That second requirement was about to earn its keep.
 
 A difference appeared.
 
+```text
 interaction normalized by pre-challenge population     0.00440
-bootstrap interval                                      0.00331 ... 0.00548
-directional test                                        p ≈ 0.00025
+bootstrap interval                                     0.00331 ... 0.00548
+directional test                                       p ≈ 0.00025
+```
 
-By a conventional significance-only rule, this would be easy to call positive.
+By a conventional significance-only rule this would be easy to call positive. The interval excludes zero comfortably and the p-value is tiny.
 
-The interval excludes zero comfortably.
+But significance was only one of the criteria we had declared. On the two magnitude gates the effect fell short of both:
 
-The p-value is tiny.
-
-But significance was only one of the criteria we had declared before running the experiment.
-
-But the effect was 0.44% of the pre-challenge population, against a declared requirement of 1.00%. Against the seed-noise scale it was 0.383 standard deviations, against a declared requirement of 0.500.
+```text
+population gate     0.44%      required 1.00%
+seed-noise gate     0.383 SD   required 0.500 SD
+```
 
 ```text
 FAILED
@@ -600,13 +555,15 @@ It was not.
 
 A small p-value tells us that the observed result is difficult to reconcile with the declared null model.
 
-It does not tell us that the effect is large enough to be the phenomenon we said we were looking for.
+It does not tell us that the effect is large enough to be the phenomenon we said we were looking for. Those are two questions, and only the first is statistical:
 
-That distinction cannot be bought away simply by running more crystals. Increasing sample size can make a small effect more precisely estimated; it does not make that effect larger relative to the predeclared population or seed-to-seed magnitude gates.
+> **Is it distinguishable from zero?**
 
-> Is it large enough to be the thing we said we were looking for?
+> **Is it large enough to be the thing we said we were looking for?**
 
-Here that distinction has teeth, because of what we would have written otherwise. With `p ≈ 0.00025` in hand and no magnitude gate, the sentence practically writes itself: *the crystal responds differently depending on which past it had.* Which would have been true, in the sense that a difference of 0.4% of population is a difference, and thoroughly misleading, since that is well inside the range in which two crystals with the *same* history routinely differ from each other by chance.
+The second cannot be bought away by running more crystals. Increasing sample size makes a small effect more precisely estimated; it does not make that effect larger relative to the predeclared population or seed-to-seed magnitude gates.
+
+Here that distinction has teeth, because of what we would have written otherwise. With `p ≈ 0.00025` in hand and no magnitude gate, the sentence practically writes itself: *the crystal responds differently depending on which past it had.* Which would have been true, in the sense that a difference of 0.44% of population is a difference, and thoroughly misleading, since that is well inside the range in which two crystals with the *same* history routinely differ from each other by chance.
 
 ```text
 STATISTICALLY DETECTABLE
@@ -669,6 +626,8 @@ different spatial organization
 ```
 
 Then both histories receive the same later challenge.
+
+[INSERT ONE-SENTENCE PHYSICAL DESCRIPTION OF THE CHALLENGE FROM THE EXPERIMENTAL REPORT — the probe-specificity caveat later in this section cannot be read without it]
 
 The challenge contains no history label and no A/B-specific decoding rule.
 
@@ -734,19 +693,9 @@ against seed noise                        0.033 SD  (required 0.500 SD)
 FAILED
 ```
 
-This is not a near miss on the declared scale.
+This is not a near miss on the declared scale. The interval straddles zero, and the estimated material-mediated interaction is only `0.033` standard deviations of ordinary seed-to-seed variation against a predeclared requirement of `0.500 SD`. There is nothing here to promote and nothing in the frozen experiment to rescue.
 
-The interval straddles zero, and the estimated material-mediated interaction is only `0.033` standard deviations of ordinary seed-to-seed variation, against the predeclared `0.500 SD` magnitude requirement.
-
-There is nothing here to promote and nothing in the frozen experiment to rescue.
-
-Many additional probes are possible: different spatial organizations, different challenge geometries, different timings.
-
-But each would be a new experiment.
-
-The frozen experiment failed, and searching variations until one succeeds would answer a different question from the one we declared.
-
-So this mechanism family stops here.
+Many additional probes are possible — different spatial organizations, different challenge geometries, different timings — but each would be a new experiment. Searching variations until one succeeds would answer a different question from the one we declared, so this mechanism family stops here.
 
 One caveat has to be stated precisely, because it is the honest limit of the negative result. Our challenge is one particular probe. Two states can differ in a degree of freedom that a given probe simply does not measure — a detector sensitive only to total amplitude responds identically to two signals differing in phase. So what failed is this:
 
@@ -766,31 +715,27 @@ What failed is the promotion of that mechanism into something that carries the *
 
 The two together give a ladder in which every rung is a separate empirical property:
 
+```text
 WRITE                         SUPPORTED
 ↓
 PERSIST                       SUPPORTED
 ↓
-REMAIN ACCESSIBLE             ACHIEVED UNDER TESTED PLACEMENTS
+REMAIN ACCESSIBLE             SUPPORTED under the tested placements
 ↓
 ALTER LATER CONSTRUCTION      SUPPORTED
 ↓
-DISTINGUISH BETWEEN PASTS     TRACE DIFFERENCE SUPPORTED
+DISTINGUISH BETWEEN PASTS     SUPPORTED for the trace itself
 ↓
-DIFFERENTIALLY USE THE PAST   NOT SUPPORTED
-
+DIFFERENTIALLY USE THE PAST   FAILED under the frozen protocol
 ```
 
 The experiments have now earned two distinctions:
 
 > **Persistent does not mean accessible.**
 
-> **Accessible and distinguishable does not mean differentially used.**
+> **Accessible and distinguishable does not mean differentially used — under the protocol frozen here.**
 
-The second failure is more interesting because the first explanation is no longer available.
-
-Earlier, stored state stopped mattering because growth buried it.
-
-Here the two histories remained:
+The second failure is more interesting because the first explanation is no longer available. Earlier, stored state stopped mattering because growth buried it. Here the two histories remained:
 
 ```text
 persistent
@@ -809,7 +754,7 @@ accessible
 ≠
 causally leveraged
 ≠
-differentially read
+differentially used
 ```
 
 ---
@@ -842,11 +787,15 @@ In the symbolic history-discrimination experiment, interaction magnitude was eva
 
 The later non-symbolic experiment removed the A/B decoder, kept one `MODIFIED` material state, matched propagated quantity, and compared two spatially distinct histories under the same later challenge. A label-erased control at the pre-challenge checkpoint was used to subtract differences attributable to geometry already produced by those histories.
 
-Exact write rules, material-effect coefficients, challenge parameters, sample sizes, bootstrap procedures, directional tests and raw per-seed results remain part of the accompanying experimental record.
+[INSERT PER-BRANCH SAMPLE SIZES FOR BOTH HISTORY-DISCRIMINATION EXPERIMENTS — a magnitude gate stated in units of seed-to-seed variation cannot be read without the number of seeds.]
+
+Exact write rules, material-effect coefficients, challenge parameters, bootstrap procedures, directional tests and raw per-seed results remain part of the accompanying experimental record.
 
 ---
 
 ## Evidence Ledger
+
+One row below is not yet evidenced: the spatial-distinguishability result is recorded as supported but its supporting measurement has not been transcribed from the experimental record. This chapter should not be frozen until it is.
 
 | Claim | Status | Evidence |
 |---|---|---|
@@ -858,16 +807,17 @@ Exact write rules, material-effect coefficients, challenge parameters, sample si
 | Propagation alone preserves causal access | **NOT SUPPORTED** | propagated material was still eventually buried |
 | Uncontrolled surface placement establishes a placement effect | **INVALID** | surface policy changed both placement and propagated-state quantity |
 | Placement changes causal lifetime at matched quantity | **SUPPORTED** | `INTERIOR < RANDOM < SURFACE` on all three integrated measures at mean `27.1875` matched transmissions |
-| Placement produces the predicted ordering at the original predeclared late snapshot | **NOT SUPPORTED** | the first matched-quantity late-endpoint experiment failed |
+| Placement produces the predicted ordering at the original predeclared late snapshot | **FAILED** | the first matched-quantity late-endpoint experiment failed |
 | Accessibility feeds back strongly enough to sustain itself | **NOT SUPPORTED** | no reliable increase in total transmissions |
 | Temporal alignment broadly improves accessibility | **NOT SUPPORTED** | narrow leverage signal only |
 | Timing produces a general causal-efficiency advantage | **NOT SUPPORTED** | broad predeclared claim not met |
-| Symbolic A/B labels produce a scientifically meaningful history response | **NOT SUPPORTED** | normalized effect `0.00440`, `p ≈ 0.00025`, but `0.383 SD` against required `0.500 SD` |
+| Symbolic A/B labels produce a scientifically meaningful history response | **FAILED** | normalized effect `0.00440`, `p ≈ 0.00025`, but `0.383 SD` against required `0.500 SD` |
 | Two histories remain spatially distinguishable | **SUPPORTED** | [INSERT DIRECTIONAL-DIAGNOSTIC NAME AND PRE-CHALLENGE A/B RESULT] |
 | Distinguishable histories remain frontier-accessible | **SUPPORTED** | contact fraction ≈ `0.215` / `0.219` at end of retention |
-| Non-symbolic history produces a scientifically meaningful challenge response | **NOT SUPPORTED** | effect `0.000431`, `p ≈ 0.163`, `0.033 SD` |
+| Non-symbolic history produces a scientifically meaningful challenge response | **FAILED** | effect `0.000431`, `p ≈ 0.163`, `0.033 SD` |
 | No possible later probe could distinguish the two spatial histories | **NOT CLAIMED** | only the frozen common challenge was tested |
 | The material constitutes memory, learning or adaptation | **NOT CLAIMED** | no representation, recognition, or use of a past as a past |
+
 ---
 
 ## What Happens When the Material Doesn't Stay?

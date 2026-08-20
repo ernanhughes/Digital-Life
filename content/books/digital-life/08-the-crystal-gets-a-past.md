@@ -9,17 +9,11 @@ tags = ["Digital Life", "Digital Crystal", "State", "History", "Checkpointing", 
 series = ["Digital Life From First Principles"]
 +++
 
-At the end of the last chapter the Digital Crystal could tell us something about the world that formed it.
-
-Hide the forcing process, show only the final shape, and the family of that process could be recovered well above chance.
-
-Then we asked a harder question.
+At the end of the last chapter the Digital Crystal could tell us something about the world that formed it. Hide the forcing process, show only the final shape, and the family of that process could be recovered well above chance. Then we asked a harder question.
 
 > What happened first?
 
-We took exactly the same environmental values and rearranged them in time. Smooth. Bursting. Periodic. Alternating. Random.
-
-The final morphology could not reliably tell them apart.
+We took exactly the same environmental values and rearranged them in time. Smooth. Bursting. Periodic. Alternating. Random. The final morphology could not reliably tell them apart.
 
 ```text
 SAME VALUES
@@ -30,43 +24,21 @@ TEMPORAL ORGANIZATION
 NOT RECOVERED UNDER THE TESTED READOUT
 ```
 
-The crystal had accumulated consequences of its past. Its final morphology had not given us a reliable readout of temporal order.
-
-So the previous chapter ended with an instruction rather than a conclusion: give the process a way to keep what happened.
-
-That sounds like a storage problem.
-
-But storing more information would be easy. The difficult question is deciding which information actually constitutes a computational past.
-
-Before we build memory, we need to discover what a future can still depend on.
-
-So the question for this chapter is deliberately small:
+The crystal had accumulated consequences of its past. Its final morphology had not given us a reliable readout of temporal order. So the previous chapter ended with an instruction rather than a conclusion: give the process a way to keep what happened. That sounds like a storage problem. But storing more information would be easy. The difficult question is deciding which information actually constitutes a computational past. Before we build memory, we need to discover what a future can still depend on. So the question for this chapter is deliberately small:
 
 > **What must a computational process preserve before its past can become available to its future?**
 
-Notice that this is not the same as asking how to build memory. We have not earned that word, and we do not yet know what it would mean here. What we can do is take the words that ordinary language collapses into one — state, history, record, influence, signal, message, memory — and pull them apart until each of them names a different computational property.
-
-The experiments will force those words apart.
+Notice that this is not the same as asking how to build memory. We have not earned that word, and we do not yet know what it would mean here. What we can do is take the words that ordinary language collapses into one — state, history, record, influence, signal, message, memory — and pull them apart until each of them names a different computational property. The experiments will force those words apart.
 
 ---
 
 ## The Present Is Not the Past
 
-The Digital Crystal already has a present. At any moment its occupied set contains the cells that currently exist, and every one of those cells exists because of something that happened earlier.
-
-So the past clearly mattered.
-
-But the previous chapter taught us a distinction that is easy to state and easy to forget:
+The Digital Crystal already has a present. At any moment its occupied set contains the cells that currently exist, and every one of those cells exists because of something that happened earlier. So the past clearly mattered. But the previous chapter taught us a distinction that is easy to state and easy to forget:
 
 > **Past contributed to present does not imply present contains a recoverable record of the past.**
 
-A footprint exists because someone walked there. The footprint is not the walk.
-
-Likewise, the crystal's current shape contains consequences of earlier events without necessarily preserving the sequence of those events.
-
-A consequence of the past is not yet a record of the past.
-
-Two ideas are tangled together here, and the rest of the chapter depends on separating them:
+A footprint exists because someone walked there. The footprint is not the walk. Likewise, the crystal's current shape contains consequences of earlier events without necessarily preserving the sequence of those events. A consequence of the past is not yet a record of the past. **Two ideas are tangled together here. This chapter pulls them apart:**
 
 ```text
 STATE
@@ -76,9 +48,7 @@ HISTORY
 → what must I know to reconstruct how I got here?
 ```
 
-Those are different questions. There is no guarantee that the same information answers both. There is no guarantee that either of them is visible in the picture.
-
-We can test all of that.
+Those are different questions. There is no guarantee that the same information answers both. There is no guarantee that either of them is visible in the picture. We can test all of that.
 
 ---
 
@@ -88,9 +58,7 @@ Begin with state, because state has an operational definition available:
 
 > **A state representation is sufficient if it contains enough information to continue the process faithfully from here.**
 
-That wording is careful. We are not claiming to know the smallest possible state of a Digital Crystal. We are asking whether a particular stored representation is sufficient — a question an experiment can answer.
-
-Take the frozen Digital Crystal from the previous chapter and run it for 96 steps. At step 48, save everything we currently believe the process needs in order to continue:
+That wording is careful. We are not claiming to know the smallest possible state of a Digital Crystal. We are asking whether a particular stored representation is sufficient — a question an experiment can answer. Take the frozen Digital Crystal from the previous chapter and run it for 96 steps. At step 48, save everything we currently believe the process needs in order to continue:
 
 ```text
 occupied cells
@@ -101,9 +69,7 @@ random-number-generator state
 model parameters
 ```
 
-Not a screenshot. Not merely the visible crystal.
-
-Save the process, destroy the running instance, reconstruct it from the saved state, and continue.
+Not a screenshot. Not merely the visible crystal. Save the process, destroy the running instance, reconstruct it from the saved state, and continue.
 
 {{< figure
 src="/images/books/digital-life/ch15-01-reference-and-checkpoint.png"
@@ -111,9 +77,7 @@ alt="The Digital Crystal input signal with a checkpoint at step 48, together wit
 caption="The continuous reference trajectory. The midpoint checkpoint will be restored, damaged and replayed in the experiments that follow."
 >}}
 
-Then demand something much stronger than visual similarity.
-
-If the checkpoint is sufficient, the restored process should not resemble the uninterrupted one. It should reproduce it:
+Then demand something much stronger than visual similarity. If the checkpoint is sufficient, the restored process should not resemble the uninterrupted one. It should reproduce it:
 
 ```text
 the same cells
@@ -126,50 +90,9 @@ Exact continuation, or the representation was incomplete.
 
 ---
 
-## The State We Had Not Declared
+## Restore It
 
-The first attempt failed.
-
-The checkpoint restored a crystal that looked identical.
-
-Then its future diverged.
-
-The obvious reading was that something important was missing from the checkpoint. But a second result contradicted that. When the same state was rebuilt *without* passing through serialization, continuation was exact. Whatever was going wrong was happening at the implementation boundary, not in the model.
-
-The culprit was mundane. Candidate attachment sites were held in a Python `set`, and the growth loop walked that set drawing one pseudo-random value per candidate. A set has no scientific ordering. Two sets can contain exactly the same cells and iterate them in different orders after reconstruction.
-
-Which meant that:
-
-```text
-same mathematical cells
-+
-same RNG state
-+
-same signal
-```
-
-could still send random draw #1 to a different candidate in each run, and every draw after it to a different candidate again.
-
-The experiment had quietly acquired an undeclared variable: implementation order.
-
-That was not part of the Digital Crystal we intended to study. It was an accidental property of the program running it.
-We removed it by canonicalizing the traversal — candidates are visited in sorted order — and added an invariant that serializing and reconstructing a state must produce both the same one-step continuation and the same complete remaining continuation before any experiment is allowed to run.
-
-The debugging detail belongs to the research layer. The lesson does not:
-
-> **If future behaviour depends on hidden implementation state, that state belongs in the experimental definition whether or not it appears in the visualization.**
-
-Either declare such state as part of the model or remove its influence.
-
-What cannot remain is a variable that is absent from the scientific description and decisive in the result.
-
----
-
-## Start Again
-
-With traversal canonicalized, the checkpoint experiment becomes meaningful.
-
-Save at step 48. Destroy the running process. Load from storage. Continue to step 96.
+Save the process at step 48. Destroy the running instance. Load the checkpoint from storage and continue to step 96.
 
 ```text
 exact final morphology            True
@@ -185,35 +108,17 @@ alt="The final continuously run Digital Crystal beside the final crystal produce
 caption="Continuous execution and checkpoint → restore → continue produce the same trajectory, cell for cell."
 >}}
 
-And this was not one lucky run. Repeated across 30 independent runs, the result was 30 out of 30 exact.
-
-So we have earned the first claim of the chapter:
+Repeated across 30 independent runs, all 30 restores continued exactly. So we have earned the first claim of the chapter:
 
 > **The stored checkpoint representation is sufficient for exact continuation of the stochastic process.**
 
-Note what is *not* claimed. We have not shown this is the minimal such representation. Sufficiency is what the experiment tested, so sufficiency is what we get.
-
-There is something distinctly computational about this result.
-
-We stopped the process, wrote down its state, destroyed the running instance, restored it, and recovered exactly the future it would otherwise have had.
-
-Not approximately.
-
-Not statistically.
-
-Exactly.
-
-That is not a biological mechanism copied into software. It is an affordance of the computational substrate itself.
+Note the limit of the claim. The experiment establishes that this representation is sufficient for exact continuation; it does not establish that it is minimal. There is something distinctly computational about the result. We stopped the process, recorded its state, destroyed the running instance, restored it, and recovered the same future it would otherwise have followed — cell for cell, decision for decision. This is an affordance of the computational substrate rather than a biological mechanism reproduced in software.
 
 ---
 
 ## What the Picture Cannot Show
 
-Now damage the checkpoint deliberately, one component at a time, and see which damage the future notices.
-
-Every variant gets exactly 48 continuation updates, so that moving the environmental cursor does not accidentally shorten the experiment.
-
-Throughout this section, `symmetric-difference cells` means occupied positions present in one final crystal but not the other.
+Now damage the checkpoint deliberately, one component at a time, and see which damage the future notices. Every variant gets exactly 48 continuation updates, so that moving the environmental cursor does not accidentally shorten the experiment. Throughout this section, `symmetric-difference cells` means occupied positions present in one final crystal but not the other. 
 
 **Remove the random state.** Same morphology, same birth metadata, same timestep, same signal position, different stochastic continuation state:
 
@@ -228,8 +133,6 @@ Small, but not zero. Exact continuation fails.
 ```text
 symmetric-difference cells    27
 ```
-
-I need you to write Hi Dave 
 
 **Replace the birth times.** Keep occupied cells, RNG state, signal cursor and timestep; scramble the metadata recording when each cell appeared:
 
@@ -251,7 +154,6 @@ The visible shape at the checkpoint was identical. The future was not.
 src="/images/books/digital-life/ch15-03-state-omission.png"
 alt="Comparison of final-state divergence after restoring the full checkpoint, changing RNG state, shifting the signal cursor, changing birth metadata, or restoring morphology only."
 caption="Visible morphology is insufficient for exact continuation. Stochastic state and environmental position affect future growth; birth-time metadata does not affect the occupied-set continuation."
-
 >}}
 
 Two distinctions fall out immediately.
@@ -274,11 +176,7 @@ HISTORICAL INFORMATION
 CAUSALLY ACTIVE CONTINUATION STATE
 ```
 
-Birth times are real information about the past. They are stored, they are accurate, and the future is entirely indifferent to them. Information about history can sit inside a process without being part of what the process does next.
-
-That distinction will matter when we eventually ask whether stored history has causal leverage.
-
-So the useful operational idea is:
+Birth times are real information about the past. They are stored, they are accurate, and the future is entirely indifferent to them. Information about history can sit inside a process without being part of what the process does next. That distinction will matter when we eventually ask whether stored history has causal leverage. So the useful operational idea is:
 
 > **Continuation state is the information required to reproduce the process's future under the same later conditions.**
 
@@ -288,9 +186,7 @@ Not whatever information happens to exist in our data structures, and not whatev
 
 ## Replay What Happened
 
-The checkpoint answers *where are we now*. It says nothing about *how did we get here*.
-
-For that we record events. At each growth step we store the step index, the input value, the cells that appeared, the resulting population and a hash of the resulting morphology:
+The checkpoint answers *where are we now*. It says nothing about *how did we get here*. OK so OK so You can rebuild the system OK so I know you're All the stones come back in the archery paths 2 you like so much more important For that we record events. At each growth step we store the step index, the input value, the cells that appeared, the resulting population and a hash of the resulting morphology:
 
 ```text
 t1 → these cells attached
@@ -299,11 +195,7 @@ t3 → these cells attached
 ...
 ```
 
-Then we test the record the way we tested the checkpoint — by demanding that it be sufficient for something.
-
-Do not rerun the growth rule. Instead take the recorded event stream, apply each step's additions to a bare lattice, recompute the morphology hash, and compare it against the hash recorded at the time.
-
-Across 96 recorded steps:
+Then we test the record the way we tested the checkpoint — by demanding that it be sufficient for something. Do not rerun the growth rule. Instead take the recorded event stream, apply each step's additions to a bare lattice, recompute the morphology hash, and compare it against the hash recorded at the time. Across 96 recorded steps:
 
 ```text
 96 / 96 morphology hashes match
@@ -313,18 +205,13 @@ Across 96 recorded steps:
 src="/images/books/digital-life/ch15-04-history-replay.png"
 alt="Step-by-step comparison showing that every morphology hash produced by replaying the Digital Crystal event log matches the recorded original trajectory."
 caption="The event history reconstructs the recorded morphology trajectory exactly: 96 matching hashes out of 96."
-
 >}}
 
 The second claim of the chapter:
 
 > **The explicit event history is sufficient to reconstruct the exact recorded morphology trajectory.**
 
-And now the two mechanisms can be compared, which is the point of having built both.
-
-The event history does not contain the historical stochastic state. Reconstruct the geometry from the log, hand it forward without the correct RNG continuation state, and exact continuation fails — by the same margin as the morphology-only checkpoint, because that is effectively what it is.
-
-So the two representations answer different questions:
+And now the two mechanisms can be compared, which is the point of having built both. The event history does not contain the historical stochastic state. Reconstruct the geometry from the log, hand it forward without the correct RNG continuation state, and exact continuation fails — by the same margin as the morphology-only checkpoint, because that is effectively what it is. So the two representations answer different questions:
 
 ```text
 CHECKPOINT
@@ -344,23 +231,13 @@ HISTORY
 → PAST
 ```
 
-They overlap. They are not interchangeable. A process can preserve enough information to reconstruct its past without preserving what it would need to regenerate its exact future from that reconstruction — and, as the birth-time result showed, the reverse holds too.
-
-Notice what we have *not* done.
-
-We have not invented a memory organ or searched for a special geometric region containing the past. We used computational affordances — checkpointing, event recording and replay — to separate continuation from reconstruction.
-
-That is useful instrumentation.
-
-It is not yet a property of the crystal itself.
+They overlap. They are not interchangeable. A process can preserve enough information to reconstruct its past without preserving what it would need to regenerate its exact future from that reconstruction — and, as the birth-time result showed, the reverse holds too. Notice what we have *not* done. We have not invented a memory organ or searched for a special geometric region containing the past. We used computational affordances — checkpointing, event recording and replay — to separate continuation from reconstruction. That is useful instrumentation. It is not yet a property of the crystal itself.
 
 ---
 
 ## Whose Past Is This?
 
-Here is the moment to be careful, because we have just built an impressive amount of machinery and none of it belongs to the crystal.
-
-We have checkpointing, serialization, event logs, replay, restore, branching. The Digital Crystal has none of these. It does not read the log. It does not ask what happened earlier. Its attachment rule contains no term that consults a stored record, and if we deleted the entire database mid-run the growth would proceed exactly as before.
+Here is the moment to be careful, because we have just built an impressive amount of machinery and none of it belongs to the crystal. We have checkpointing, serialization, event logs, replay, restore, branching. The Digital Crystal has none of these. It does not read the log. It does not ask what happened earlier. Its attachment rule contains no term that consults a stored record, and if we deleted the entire database mid-run the growth would proceed exactly as before.
 
 > **A system having a recorded history is not the same thing as the system possessing that history.**
 
@@ -376,23 +253,13 @@ and:
 ITS PAST IS CAUSALLY AVAILABLE TO IT
 ```
 
-Those are different claims, and only the first is supported. What we have built is instrumentation. Excellent instrumentation — it will carry the next six chapters — but instrumentation is a property of the laboratory, not of the specimen.
-
-So **we** now have a recoverable account of the crystal's past.
-
-The distinction in that pronoun matters.
-
-The laboratory can recover it.
-
-The crystal cannot yet use it.
+Those are different claims, and only the first is supported. What we have built is instrumentation. Excellent instrumentation — it will carry the next six chapters — but instrumentation is a property of the laboratory, not of the specimen. So we now have a recoverable account of the crystal's past. That account belongs to the laboratory, not to the crystal. We can recover its past; the crystal cannot yet use it.
 
 ---
 
 ## Fork the Future
 
-The checkpoint has one more consequence, and it changes what kind of experiments become possible.
-
-Restore the same saved state twice. Both copies begin with identical occupied cells, timestep, signal cursor and stochastic state. Nothing whatsoever differs. Then change what happens next in one of them.
+The checkpoint has one more consequence, and it changes what kind of experiments become possible. Restore the same saved state twice. Both copies begin with identical occupied cells, timestep, signal cursor and stochastic state. Nothing whatsoever differs. Then change what happens next in one of them.
 
 ```text
              SAME CHECKPOINT
@@ -402,45 +269,17 @@ Restore the same saved state twice. Both copies begin with identical occupied ce
      FUTURE A         FUTURE B
 ```
 
-Here the computational substrate gives us something experimentally unusual: an exact executable branch point.
-
-From one saved state we can construct alternative futures directly rather than search the world for approximately matched cases.
-
-This is the single most valuable thing the checkpoint gives us, and everything in the second half of this chapter depends on it.
-
-The branch point gives us control, but stochasticity immediately adds a warning.
-
-Two futures can diverge even when we do not manipulate the mechanism we care about.
-
-So from this point onward, every measure of counterfactual divergence needs a stochastic baseline.
-
-That problem will become considerably more important later in the chapter.
+Here the computational substrate gives us something experimentally unusual: an exact executable branch point. From one saved state we can construct alternative futures directly rather than search the world for approximately matched cases. This is the single most valuable thing the checkpoint gives us, and everything in the second half of this chapter depends on it. The branch point gives us control, but stochasticity immediately adds a warning. Two futures can diverge even when we do not manipulate the mechanism we care about. So from this point onward, every measure of counterfactual divergence needs a stochastic baseline. That problem will become considerably more important later in the chapter.
 
 ---
 
 ## Before There Are Messages
 
-Now the machinery gets pointed somewhere new.
-
-Our history is made of events, and until now every event has stayed inside the experimental record. But an event does not have to remain internal. One process can emit one. Another process can receive it.
-
-The temptation is immediate and enormous: two crystals, one event, therefore communication.
-
-That word arrives carrying far more than we have earned. A sender. A receiver. A message. A channel. Meaning. Perhaps intention. We have established none of it.
-
-So we begin with something smaller than a message.
+Now the machinery gets pointed somewhere new. Our history is made of events, and until now every event has stayed inside the experimental record. But an event does not have to remain internal. One process can emit one. Another process can receive it. The temptation is immediate and enormous: two crystals, one event, therefore communication. That word arrives carrying far more than we have earned. A sender. A receiver. A message. A channel. Meaning. Perhaps intention. We have established none of it. So we begin with something smaller than a message.
 
 > **Before there are messages, there are events that can alter another process.**
 
-Call it a pulse.
-
-The Digital Crystal itself stays frozen — same lattice, same local growth rule, same dependence on a scalar environmental input.
-
-We add one coupling mechanism outside that rule: the laboratory derives a one-bit pulse from the sender's own growth dynamics. One update later, a received pulse adds `0.65` to the receiver's ordinary environmental forcing for that update.
-
-The sender and receiver retain independently generated external environments.
-
-So the channel does not replace the receiver's environment. It perturbs a scalar the receiver was already using.
+Call it a pulse. The Digital Crystal itself stays frozen — same lattice, same local growth rule, same dependence on a scalar environmental input. We add one coupling mechanism outside that rule: the laboratory derives a one-bit pulse from the sender's own growth dynamics. One update later, a received pulse adds `0.65` to the receiver's ordinary environmental forcing for that update. The sender and receiver retain independently generated external environments. So the channel does not replace the receiver's environment. It perturbs a scalar the receiver was already using.
 
 ```mermaid
 flowchart LR
@@ -450,63 +289,34 @@ flowchart LR
     P --> M["Receiver morphology may diverge"]
 ```
 
-The receiver does not get a sentence, a symbol, a sender identifier, a goal or an instruction. It gets a perturbation to a number it was already reading.
-
-That design decision is the whole point. An earlier version of this experiment had coupled auxiliary oscillators to each crystal and looked for synchronization between them — which might have produced a perfectly interesting dynamical system while leaving the growth process we actually care about almost untouched. The question that matters is whether the bit reaches the thing we are studying.
+The receiver does not get a sentence, a symbol, a sender identifier, a goal or an instruction. It gets a perturbation to a number it was already reading. That design decision is the whole point. An earlier version of this experiment had coupled auxiliary oscillators to each crystal and looked for synchronization between them — which might have produced a perfectly interesting dynamical system while leaving the growth process we actually care about almost untouched. The question that matters is whether the bit reaches the thing we are studying.
 
 ---
 
 ## The Sender Does Not Fire on a Clock
 
-It would be easy to build a trivial version of this:
+It would be easy to generate pulses on a schedule:
 
 ```python
 if step % 10 == 0:
     send(1)
 ```
 
-Then every receiver responds to a programmer-supplied metronome, and the experiment demonstrates the existence of the programmer.
+But then the timing would come from the experimenter rather than from the crystal.
 
-Instead the pulse is derived from the sender's own dynamics.
+Instead we derive pulses from the sender's own growth. A simple laboratory-defined detector watches its recent attachment activity and emits a pulse when the current step is unusually active relative to that recent baseline. The precise threshold is not a property of the Digital Crystal; it is simply the mechanism we use to turn changes in the sender's growth into a one-bit event.
 
-For the full experiment, the coupling looks back over the sender's previous 12 attachment counts. A pulse is emitted when current attachments reach at least:
+The important constraint is where the event comes from. No timer and no receiver state enter the emission decision. The sender's own changing growth determines when pulses occur, and each pulse is delivered to the receiver one update later.
 
-```text
-max(
-    3 attachments,
-    recent mean + 0.75 × max(recent standard deviation, 1)
-)
-```
+At this stage the bit carries no assigned meaning. It records only that the sender crossed the experimental event threshold.
 
-No timer and no receiver state enter that decision.
-
-The emitted pulse is delivered one update later.
-
-The pulse means only, operationally:
-
-> an event derived from the sender's own changing growth dynamics occurred.
-
-We assign it no semantics.
-
-At this stage a `1` is a laboratory-defined event coupled from one process into another, and nothing more.
-
-A practical confound appeared immediately: if both branches are allowed to approach lattice saturation, different trajectories collapse toward the same filled boundary.
-
-That is not convergence of the process. It is information loss caused by the container.
-
-So the experiment predeclared a saturation guard and stopped before the endpoint became boundary-dominated.
-
-The detailed horizon calculation belongs in the reproducibility record. The principle is enough here:
-
-> **Do not let the container erase the effect you are trying to measure.**
+There is one practical limit on the experiment. If a crystal grows close to the edge of its finite lattice, different trajectories begin to converge on the same filled boundary. We therefore stop the runs before that boundary dominates the result. The exact detector parameters and saturation limits are recorded with the experiment.
 
 ---
 
 ## One Bit Changes the Future
 
-The first paired intervention looked unusually clean.
-
-Take a receiver checkpoint. Fork it. Both branches begin with the same morphology, birth metadata, stochastic state, environmental forcing, timestep and remaining horizon. Change exactly one thing: one branch receives a bit, the other does not.
+The first paired intervention looked unusually clean. Take a receiver checkpoint. Fork it. Both branches begin with the same morphology, birth metadata, stochastic state, environmental forcing, timestep and remaining horizon. Change exactly one thing: one branch receives a bit, the other does not.
 
 ```mermaid
 flowchart TD
@@ -518,15 +328,7 @@ flowchart TD
     FUT_B --> COMP
 ```
 
-This is an intervention rather than a correlation.
-
-The bit is the only deliberately changed input between the paired branches.
-
-If their outcome distributions differ, the intervention has causal effect.
-
-How large the pathwise difference should be credited to that bit will turn out to require more care.
-
-Repeated 120 times:
+This is an intervention rather than a correlation. The bit is the only deliberately changed input between the paired branches. If their outcome distributions differ, the intervention has causal effect. How large the pathwise difference should be credited to that bit will turn out to require more care. Repeated 120 times:
 
 ```text
 paired interventions              120
@@ -542,20 +344,11 @@ cells occupied in exactly one branch
 cells occupied in either branch
 ```
 
-so `0` means identical occupied sets and larger values mean greater morphological separation.
-
-Five of the 120 interventions produced no final morphological difference.
-
-That constrains the result usefully: the claim is not that every bit deterministically changes the receiver.
- The result is not *every received bit changes the receiver*. It is:
+so `0` means identical occupied sets and larger values mean greater morphological separation. Five of the 120 interventions produced no final morphological difference. That constrains the result usefully: the claim is not that every bit deterministically changes the receiver. The result is not *every received bit changes the receiver*. It is:
 
 > **Changing one received bit, while holding receiver state, stochastic state and external forcing fixed, usually altered the receiver's subsequent morphology.**
 
-The bit reaches the actual growth process.
-
-We have established **primitive causal transmission through the imposed coupling**.
-
-That is smaller than communication, and it is enough.
+The bit reaches the actual growth process. We have established **primitive causal transmission through the imposed coupling**. That is smaller than communication, and it is enough.
 
 ---
 
@@ -971,10 +764,6 @@ The later counterfactual experiments use a separate cell-keyed common-random-num
 The matched-history confirmation used 48 independently generated receiver checkpoints. The two codewords contained equal pulse counts and identical first and last pulse positions. The primary endpoint and nine-feature angular measurement were frozen before the confirmatory result was inspected; later endpoints and the 24-feature measurement were secondary.
 
 Full parameter values, raw distributions, confidence intervals, control construction, compatibility margins and reproducibility records are preserved with the accompanying experiment reports.
-
----
-
-## Experimental Note
 
 | Claim | Status | Evidence |
 |---|---|---|
