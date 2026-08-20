@@ -1,15 +1,13 @@
 {{- $book := .book -}}
 {{- $size := default "full" .size -}}
+{{- $coverURL := partial "book-cover-path.html" $book -}}
 
-{{- $coverURL := printf "/images/books/%s/cover.png" $book.id -}}
-{{- $coverFile := printf "static%s" $coverURL -}}
-
-{{- if fileExists $coverFile }}
+{{- if $coverURL -}}
   <div class="book-cover book-cover--{{ $size }}">
     <img
       src="{{ $coverURL | relURL }}"
-      alt="{{ $book.title }} cover"
+      alt="{{ $book.Title }} cover"
       loading="lazy"
     >
   </div>
-{{- end }}
+{{- end -}}
