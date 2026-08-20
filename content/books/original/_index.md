@@ -1,6 +1,10 @@
 +++
-title = "Digital Life: From First Principles"
+title = "Original Digital Life: From First Principles"
 description = "Exploring emergence, persistence, learning, inheritance and evolution in computational systems."
+subtitle = "The Original Experimental Edition"
+level = "Artificial life, complex systems and computational emergence"
+solutions_domain = "digital-life"
+weight = 2
 +++
 
 Can life-like behaviour emerge from computation alone?
