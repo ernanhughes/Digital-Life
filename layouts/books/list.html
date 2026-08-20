@@ -1,6 +1,6 @@
 {{ define "main" }}
 
-{{- $books := .Site.Data.books.books -}}
+{{- $books := .Sections.ByWeight -}}
 
 <section class="books-hub">
 
@@ -24,29 +24,41 @@
 
     {{ range $book := $books }}
 
-      <article class="book-card" id="book-{{ $book.id }}">
+      {{- $bookSlug := path.Base (strings.TrimSuffix "/" $book.RelPermalink) -}}
+      {{- $chapterCount := len $book.RegularPages -}}
+      {{- $coverURL := partial "book-cover-path.html" $book -}}
 
-        <div class="book-card__layout">
+      <article class="book-card" id="book-{{ $bookSlug }}">
 
-          {{ partial "book-cover.html" (dict
-              "book" $book
-              "size" "thumb"
-          ) }}
+        <div class="book-card__layout{{ if not $coverURL }} book-card__layout--no-cover{{ end }}">
+
+          {{- if $coverURL -}}
+            {{ partial "book-cover.html" (dict
+                "book" $book
+                "size" "thumb"
+            ) }}
+          {{- end -}}
 
           <div class="book-card__content">
 
             <div class="book-card__meta">
-              <span>{{ $book.level }}</span>
-              <span>{{ $book.expected_chapters }} chapters</span>
+              {{ with $book.Params.level }}
+                <span>{{ . }}</span>
+              {{ end }}
+              <span>{{ $chapterCount }} chapters</span>
             </div>
 
-            <h2>{{ $book.title }}</h2>
+            <h2>{{ $book.Title }}</h2>
 
-            <p class="book-card__subtitle">
-              {{ $book.subtitle }}
-            </p>
+            {{ with $book.Params.subtitle }}
+              <p class="book-card__subtitle">
+                {{ . }}
+              </p>
+            {{ end }}
 
-            <p>{{ $book.description }}</p>
+            {{ with $book.Description }}
+              <p>{{ . }}</p>
+            {{ end }}
 
             <div
               class="book-card__formats"
@@ -56,7 +68,7 @@
 
               {{- $epub := false -}}
 
-              {{- with $book.publication }}
+              {{- with $book.Params.publication }}
                 {{- with .epub }}
                   {{- $epub = . }}
                 {{- end }}
@@ -84,24 +96,20 @@
 
             <div class="book-card__actions">
 
-              {{- $readURL := $book.learn_url -}}
-
-              {{- with $book.book_url }}
-                {{- $readURL = . -}}
-              {{- end }}
-
               <a
                 class="book-card__primary"
-                href="{{ $readURL | relURL }}"
+                href="{{ $book.RelPermalink }}"
               >
                 Read the book →
               </a>
 
-              <a
-                href="{{ printf "/solutions/#solutions-%s" $book.solutions_domain | relURL }}"
-              >
-                Related solutions
-              </a>
+              {{- with $book.Params.solutions_domain }}
+                <a
+                  href="{{ printf "/solutions/#solutions-%s" . | relURL }}"
+                >
+                  Related solutions
+                </a>
+              {{- end }}
 
             </div>
 
