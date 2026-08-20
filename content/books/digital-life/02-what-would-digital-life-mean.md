@@ -7,6 +7,7 @@ weight = 2
 series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Cellular Automata", "Artificial Life", "Emergence", "Experimental Method"]
+has_colab = false
 chapter_status = "final"
 +++
 

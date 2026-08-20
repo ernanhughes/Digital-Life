@@ -7,6 +7,7 @@ weight = 1
 series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Experimental Method", "Evidence", "Controls", "Reproducibility", "Scientific Method"]
+has_colab = false
 chapter_status = "final"
 +++
 

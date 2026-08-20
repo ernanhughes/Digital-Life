@@ -10,3 +10,15 @@ books:
     level: "Artificial life, complex systems and computational emergence"
     status: "near-final"
     formats: ["web", "kindle"]
+
+  - id: "original"
+    title: "Original Digital Life: From First Principles"
+    subtitle: "An Experimental Search for Life-Like Organization in Computation"
+    description: "An evidence-first investigation of emergence, causality, persistence, material turnover, hidden state, finite computation and causal organization in computational systems."
+    content_root: "books/original"
+    expected_chapters: 18
+    book_url: "/books/original/"
+    solutions_domain: "digital-life"
+    level: "Artificial life, complex systems and computational emergence"
+    status: "near-final"
+    formats: ["web", "kindle"]

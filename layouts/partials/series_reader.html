@@ -2,7 +2,7 @@
 
 {{- if $seriesName -}}
 
-  {{- $pages := partial "series_pages.html" (dict "site" .Site "series" $seriesName) -}}
+  {{- $pages := .Parent.RegularPages.ByWeight -}}
 
   {{- $currentIndex := -1 -}}
   {{- range $i, $p := $pages -}}
@@ -96,7 +96,26 @@
 
     {{- $colabURL := "" -}}
 
-    {{- if $hasNotebook -}}
+    
+    {{/* -----------------------------------------------------------
+      Per-chapter Colab availability.
+
+      Most chapters have a notebook, so Colab defaults to enabled.
+
+      Front matter can disable it with:
+
+        has_colab = false
+    ----------------------------------------------------------- */}}
+
+    {{- $hasColab := true -}}
+
+    {{- if isset .Params "has_colab" -}}
+      {{- $hasColab = .Params.has_colab -}}
+    {{- end -}}
+
+    {{- $showColab := and $hasNotebook $hasColab -}}
+
+    {{- if $showColab -}}
       {{- $colabURL = printf
             "https://colab.research.google.com/github/%s/blob/%s/%s"
             $githubRepo
@@ -206,7 +225,7 @@ Adapt the underlying method to my problem.` .Title $publicURL -}}
 
         {{/* ---------------- RUN ---------------- */}}
 
-        {{- if $hasNotebook -}}
+        {{- if $showColab -}}
 
           <a
             class="series-reader__action"
