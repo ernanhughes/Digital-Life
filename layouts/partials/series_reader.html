@@ -19,8 +19,6 @@
 
     {{/* -----------------------------------------------------------
          Curriculum / series hub
-         Existing mappings are retained, but new books can simply
-         fall back to their parent book page.
        ----------------------------------------------------------- */}}
 
     {{- $hub := "" -}}
@@ -47,10 +45,6 @@
 
     {{/* -----------------------------------------------------------
          Work out book + chapter slugs automatically.
-
-         /books/digital-life/00-what-is-digital-life/
-                    ↓                  ↓
-               digital-life    00-what-is-digital-life
        ----------------------------------------------------------- */}}
 
     {{- $segments := split (strings.Trim .RelPermalink "/") "/" -}}
@@ -64,13 +58,6 @@
 
     {{/* -----------------------------------------------------------
          Notebook publication path.
-
-         /books/digital-life/00-what-is-digital-life/
-                    ↓
-         notebooks/digital-life/00-what-is-digital-life.ipynb
-
-         Notebook files live in the public notebook repository, not
-         in static/notebooks in this website repository.
        ----------------------------------------------------------- */}}
 
     {{- $notebookPath := "" -}}
@@ -82,30 +69,13 @@
       {{- $hasNotebook = true -}}
     {{- end -}}
 
-    {{/* -----------------------------------------------------------
-         Colab repository.
-
-         Configure these once in hugo.toml:
-           notebookGithubRepo = "ernanhughes/programmer.ie.notebooks"
-           notebookGithubBranch = "main"
-           notebookRoot = "notebooks"
-       ----------------------------------------------------------- */}}
-
     {{- $githubRepo := .Site.Params.notebookGithubRepo | default "ernanhughes/programmer.ie.notebooks" -}}
     {{- $githubBranch := .Site.Params.notebookGithubBranch | default "main" -}}
-
     {{- $colabURL := "" -}}
 
-    
     {{/* -----------------------------------------------------------
-      Per-chapter Colab availability.
-
-      Most chapters have a notebook, so Colab defaults to enabled.
-
-      Front matter can disable it with:
-
-        has_colab = false
-    ----------------------------------------------------------- */}}
+         Per-chapter Colab availability.
+       ----------------------------------------------------------- */}}
 
     {{- $hasColab := true -}}
 
@@ -125,11 +95,30 @@
     {{- end -}}
 
     {{/* -----------------------------------------------------------
-         Prompt resources.
+         Optional chapter concepts.
 
-         Page bundles can override these with:
-           explain-prompt.txt
-           apply-prompt.txt
+         A sibling file named:
+           08-the-crystal-gets-a-past.concepts.txt
+
+         automatically enables the Concepts button for:
+           08-the-crystal-gets-a-past.md
+       ----------------------------------------------------------- */}}
+
+    {{- $conceptsPath := "" -}}
+    {{- $hasConcepts := false -}}
+    {{- $concepts := "" -}}
+
+    {{- with .File -}}
+      {{- $conceptsPath = printf "content/%s%s.concepts.txt" .Dir .BaseFileName -}}
+    {{- end -}}
+
+    {{- if and $conceptsPath (fileExists $conceptsPath) -}}
+      {{- $hasConcepts = true -}}
+      {{- $concepts = readFile $conceptsPath -}}
+    {{- end -}}
+
+    {{/* -----------------------------------------------------------
+         Prompt resources.
        ----------------------------------------------------------- */}}
 
     {{- $publicURL := .Permalink -}}
@@ -190,7 +179,6 @@ Adapt the underlying method to my problem.` .Title $publicURL -}}
     {{- .Scratch.Add "seriesReaderInstance" 1 -}}
     {{- $dialogIDBase := printf "series-reader-%s-%d" $chapterSlug (.Scratch.Get "seriesReaderInstance") -}}
 
-
     <aside
       class="series-reader"
       aria-label="Chapter learning tools and series navigation"
@@ -211,11 +199,9 @@ Adapt the underlying method to my problem.` .Title $publicURL -}}
         {{- end -}}
       </div>
 
-
       <div class="series-reader__progress" aria-hidden="true">
         <span style="width: {{ printf "%.2f" $progress }}%"></span>
       </div>
-
 
       {{/* =========================================================
            CHAPTER ACTIONS
@@ -226,7 +212,6 @@ Adapt the underlying method to my problem.` .Title $publicURL -}}
         {{/* ---------------- RUN ---------------- */}}
 
         {{- if $showColab -}}
-
           <a
             class="series-reader__action"
             href="{{ $colabURL }}"
@@ -245,9 +230,29 @@ Adapt the underlying method to my problem.` .Title $publicURL -}}
               <small>Execute this chapter</small>
             </span>
           </a>
-
         {{- end -}}
 
+        {{/* ---------------- CONCEPTS ---------------- */}}
+
+        {{- if $hasConcepts -}}
+          <button
+            type="button"
+            class="series-reader__action"
+            data-series-dialog-open="{{ $dialogIDBase }}-concepts"
+          >
+            <span
+              class="series-reader__action-icon series-reader__action-icon--concepts"
+              aria-hidden="true"
+            >
+              ◎
+            </span>
+
+            <span class="series-reader__action-copy">
+              <strong>Concepts</strong>
+              <small>What you need to know</small>
+            </span>
+          </button>
+        {{- end -}}
 
         {{/* ---------------- EXPLAIN ---------------- */}}
 
@@ -268,7 +273,6 @@ Adapt the underlying method to my problem.` .Title $publicURL -}}
             <small>Learn this chapter</small>
           </span>
         </button>
-
 
         {{/* ---------------- APPLY ---------------- */}}
 
@@ -291,7 +295,6 @@ Adapt the underlying method to my problem.` .Title $publicURL -}}
         </button>
 
       </div>
-
 
       {{/* =========================================================
            PREVIOUS / NEXT
@@ -340,7 +343,6 @@ Adapt the underlying method to my problem.` .Title $publicURL -}}
 
         </div>
 
-
         <div class="series-reader__next">
 
           {{- if lt $position $total -}}
@@ -385,6 +387,38 @@ Adapt the underlying method to my problem.` .Title $publicURL -}}
       </div>
 
     </aside>
+
+    {{/* =========================================================
+         CONCEPTS DIALOG
+         ========================================================= */}}
+
+    {{- if $hasConcepts -}}
+      <dialog
+        id="{{ $dialogIDBase }}-concepts"
+        class="series-reader__dialog series-reader__dialog--concepts"
+        aria-labelledby="{{ $dialogIDBase }}-concepts-title"
+      >
+        <form method="dialog" class="series-reader__dialog-panel series-reader__dialog-panel--concepts">
+          <div class="series-reader__dialog-header">
+            <h2 id="{{ $dialogIDBase }}-concepts-title">Concepts</h2>
+            <button
+              class="series-reader__dialog-close"
+              type="button"
+              data-series-dialog-close
+              aria-label="Close concepts"
+            >×</button>
+          </div>
+
+          <div class="series-reader__concepts">
+            {{ $concepts | markdownify }}
+          </div>
+
+          <div class="series-reader__dialog-actions">
+            <button type="button" data-series-dialog-close>Close</button>
+          </div>
+        </form>
+      </dialog>
+    {{- end -}}
 
     <dialog
       id="{{ $dialogIDBase }}-explain"
@@ -442,9 +476,8 @@ Adapt the underlying method to my problem.` .Title $publicURL -}}
       </form>
     </dialog>
 
-
     {{/* ===========================================================
-         AI PROMPT DIALOG SCRIPT
+         DIALOG SCRIPT
        =========================================================== */}}
 
     <script>
@@ -466,6 +499,10 @@ Adapt the underlying method to my problem.` .Title $publicURL -}}
 
         if (openButton) {
           const dialog = document.getElementById(openButton.dataset.seriesDialogOpen);
+
+          if (dialog) {
+            dialog.hidden = false;
+          }
 
           if (dialog && typeof dialog.showModal === "function") {
             dialog.showModal();
