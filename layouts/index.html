@@ -1,7 +1,10 @@
 {{ define "main" }}
 {{ $posts := where .Site.RegularPages "Section" "post" }}
 {{ $latest := first 6 $posts.ByDate.Reverse }}
-{{ $books := .Site.Data.books.books }}
+{{ $books := slice }}
+{{ with .Site.GetPage "/books" }}
+  {{ $books = .Sections.ByWeight }}
+{{ end }}
 {{ $solutions := .Site.Data.solutions }}
 {{ $covered := where $solutions "status" "covered" }}
 <section class="home-modern">
@@ -26,14 +29,16 @@
     <p class="home-section__intro">Programmer.ie is organized around books rather than publication dates. Each book is available as a structured web edition now, with ebook and video editions built from the same source.</p>
     <div class="home-path-grid">
       {{ range $book := $books }}
-        {{- $bookURL := $book.learn_url | default $book.book_url -}}
+        {{- $chapterCount := len $book.RegularPages -}}
 
-        <a class="home-path-card" href="{{ $bookURL | relURL }}">
-          <span class="home-path-card__number">{{ printf "%02d" $book.expected_chapters }}</span>
-          <span class="home-path-card__level">{{ $book.level }}</span>
-          <h3>{{ $book.title }}</h3>
-          <p>{{ $book.description }}</p>
-          <strong>Read {{ $book.expected_chapters }} chapters →</strong>
+        <a class="home-path-card" href="{{ $book.RelPermalink }}">
+          <span class="home-path-card__number">{{ printf "%02d" $chapterCount }}</span>
+          {{ with $book.Params.level }}
+            <span class="home-path-card__level">{{ . }}</span>
+          {{ end }}
+          <h3>{{ $book.Title }}</h3>
+          <p>{{ $book.Description }}</p>
+          <strong>Read {{ $chapterCount }} chapters →</strong>
         </a>
       {{ end }}
     </div>
