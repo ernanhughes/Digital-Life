@@ -1,0 +1,16 @@
+{{- $book := . -}}
+{{- $coverURL := "" -}}
+
+{{- with $book.Params.cover -}}
+  {{- $coverURL = . -}}
+{{- else -}}
+  {{- $bookSlug := path.Base (strings.TrimSuffix "/" $book.RelPermalink) -}}
+  {{- $candidateURL := printf "/images/books/%s/cover.png" $bookSlug -}}
+  {{- $candidateFile := printf "static%s" $candidateURL -}}
+
+  {{- if fileExists $candidateFile -}}
+    {{- $coverURL = $candidateURL -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return $coverURL -}}
