@@ -1,5 +1,8 @@
 {{ define "main" }}
-{{- $books := .Site.Data.books.books -}}
+{{- $books := slice -}}
+{{- with .Site.GetPage "/books" -}}
+  {{- $books = .Sections.ByWeight -}}
+{{- end -}}
 <section class="learn-hub">
   <header class="learn-hub__hero">
     <span class="learn-hub__eyebrow">Learn by building</span>
@@ -10,18 +13,20 @@
 
   <div class="learn-paths">
     {{ range $index, $book := $books }}
-      {{- $readURL := $book.learn_url | default $book.book_url -}}
+      {{- $chapterCount := len $book.RegularPages -}}
       <article class="learn-path-card">
         <div class="learn-path-card__number">{{ printf "%02d" (add $index 1) }}</div>
         <div class="learn-path-card__body">
           <div class="learn-path-card__meta">
-            <span>{{ $book.level }}</span>
-            <span>{{ $book.expected_chapters }} chapters</span>
+            {{ with $book.Params.level }}
+              <span>{{ . }}</span>
+            {{ end }}
+            <span>{{ $chapterCount }} chapters</span>
           </div>
-          <h2>{{ $book.title }}</h2>
-          <p>{{ $book.description }}</p>
+          <h2>{{ $book.Title }}</h2>
+          <p>{{ $book.Description }}</p>
           <div class="learn-path-card__actions">
-            <a class="learn-path-card__primary" href="{{ $readURL | relURL }}">Open book</a>
+            <a class="learn-path-card__primary" href="{{ $book.RelPermalink }}">Open book</a>
           </div>
         </div>
       </article>
@@ -30,7 +35,7 @@
 
   <aside class="learn-hub__next">
     <strong>{{ len $books }} books, one growing library.</strong>
-    <p>The newest books appear first. Each book remains readable on the web while the same catalog drives the wider Programmer.ie publishing system.</p>
+    <p>Book sections are discovered automatically from the content tree, so new books appear here as soon as they are added under <code>content/books/</code>.</p>
   </aside>
 </section>
 {{ end }}
