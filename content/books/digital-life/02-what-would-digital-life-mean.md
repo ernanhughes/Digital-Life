@@ -7,6 +7,7 @@ weight = 2
 series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Cellular Automata", "Artificial Life", "Emergence", "Experimental Method"]
+chapter_status = "final"
 +++
 
 Suppose life were possible in software.
@@ -71,7 +72,7 @@ That is where this book begins.
 
 ## The Cargo Cult of Life
 
-A cargo cult copies the visible form of something without reproducing the mechanism that made the original work.
+A cargo cult copies the visible form of something without reproducing the mechanism that made the original work. Feynman borrowed the image for research that has the appearance of science and none of its substance.[1]
 
 Artificial life has an obvious version of this problem. We can borrow the vocabulary of biology — cell, organism, energy, fitness, birth, death, memory, inheritance, evolution — and then build software structures carrying those names. The result may be complicated. It may be beautiful. It may even be useful.
 
@@ -83,7 +84,7 @@ So we will work under a stricter rule.
 
 Persistence has to be measured.
 
-Regeneration requires damage: disturb the system, then measure what returns.
+Damage tolerance requires damage: disturb the system, then measure what the process does next — and measure it against what an undamaged copy does, before deciding whether anything was restored at all.
 
 Learning requires experience to produce a measurable change in performance.
 
@@ -200,17 +201,21 @@ Which gives us a second rule:
 
 This applies to the small words as well as the impressive ones.
 
-Suppose a pattern persists while moving through a lattice. Is it an object? Perhaps. Suppose the visible pattern disappears and an equivalent pattern reappears elsewhere. Is it the same object? Perhaps not. Suppose two disconnected regions participate in one continuing causal process — are they two things, or one distributed thing? Suppose two structures look identical but have entirely independent histories. Are they the same kind of object? Yes. Are they the same individual? Probably not.
+Suppose a pattern persists while moving through a lattice. Is it an object? Perhaps. Now suppose the visible pattern disappears and an equivalent one reappears elsewhere. Is it the same object? Perhaps not.
+
+Suppose two disconnected regions participate in one continuing causal process. Are those two things, or one distributed thing?
+
+And suppose two structures look identical but have entirely independent histories. They are the same kind of object. They are almost certainly not the same individual.
 
 We will begin with simple geometric definitions, because they are measurable and because we have to begin somewhere. But we should hold them loosely.
 
 > **The visible boundary of a pattern may not be the true boundary of a digital individual.**
 
-Persistence creates the same problem. A program can persist indefinitely by doing nothing, so duration alone tells us very little.
+Persistence has a different weakness. A program can persist indefinitely by doing nothing, so duration alone tells us very little about whether anything is happening.
 
-Reproduction deserves similar suspicion. Biology makes it look unavoidable because organisms die and lineages continue through successors. A digital process might simply continue. Reproduction may turn out to matter — but the substrate has to show us why.
+Reproduction deserves suspicion of a third kind. Biology makes it look unavoidable because organisms die and lineages continue through successors. A digital process might simply continue. Reproduction may turn out to matter — but the substrate has to show us why.
 
-Evolution raises the same problem. Digital inheritance could include acquired state, learned parameters, external memory or modified code.
+Evolution inherits all of these and adds one more. In biology the channel through which the past reaches the future is narrow and well understood. In a computational substrate it might be acquired state, learned parameters, external memory or modified code, and we cannot assume in advance which of those is doing the work.
 
 So the broader question is:
 
@@ -260,7 +265,7 @@ Three parts of the cycle do most of the work.
 
 **Intervention.** Correlation is easy to obtain and hard to interpret. If we think a mechanism produces a capability, the strongest available move is to remove or disrupt that mechanism and measure what changes. If the capability does not depend on the mechanism, the explanation was wrong, however satisfying it looked.
 
-**Controls.** A number alone means very little. A recovery score of 0.87 is impressive or unremarkable depending entirely on what an undamaged system scores, what a random process scores, and what a frozen copy scores. So every control in this book exists because there is a specific alternative explanation we are trying to eliminate — and the first control is often not good enough.
+**Controls.** A number alone means very little. A coherence score of 0.74 is impressive or unremarkable depending entirely on what an undisturbed system scores, what a shuffled process scores, and what a matched comparison scores. So every control in this book exists because there is a specific alternative explanation we are trying to eliminate — and the first control is often not good enough.
 
 Discovering a confound in your own experiment is not a setback. It tells you that the result was carrying more than one possible explanation.
 
@@ -272,9 +277,9 @@ Remove one, and you may finally be able to see what remains.
 
 with a deliberately bounded statement such as:
 
-> Under perturbation `P` in region `R`, structural measure `M` recovered to 0.87 within `T` steps.
+> Under perturbation `P` in region `R`, structural measure `M` differed from a matched control by `D`, and that difference survived control `C`.
 
-The second claim may sound less dramatic, but its edges are visible. We know what was changed, what was measured, and where the conclusion stops.
+The second claim may sound less dramatic, but its edges are visible. We know what was changed, what was measured, what it was compared against, and where the conclusion stops.
 
 One consequence needs stating plainly, because it is where investigations usually go wrong.
 
@@ -324,11 +329,7 @@ We are not trying to prove that digital life exists.
 
 We are trying to find out which claims remain standing after we attack them.
 
----
-
-## There Is No Biological Ladder Here
-
-We will meet familiar properties along the way — structure, persistence, identity, damage tolerance, repair, reproduction, inheritance, adaptation, evolution. They are experimental questions, and the order in which we study them is a path through the investigation rather than a ladder toward life.
+We will meet familiar properties along the way — structure, persistence, identity, damage tolerance, reproduction, inheritance, adaptation. They arrive as experimental questions, not as achievements, and the order in which we study them is a path through the investigation rather than a ladder toward life. Several of them will end the book unearned, and one or two will be refused by name.
 
 Nothing earns points toward an `ALIVE` label.
 
@@ -347,7 +348,7 @@ this structure persists under these conditions
 
 this pattern fails under this perturbation
 
-this organization restores part of its form after this damage
+this process continues after part of its material is lost
 
 this later structure is causally descended from that earlier one
 
@@ -360,7 +361,7 @@ this apparent behaviour disappears when this confound is removed
 
 Those are modest sentences. They are also somewhere solid to stand, which is more than most of the vocabulary we started with can offer.
 
-Perhaps that is where the aerodynamics begin: with measurements precise enough to survive before there is a general theory to contain them.
+Perhaps that is where the aerodynamics begin: not with a theory of life, but with a short list of measured relationships precise enough to survive before there is any general theory to contain them. Whether this book assembles such a list, and how short it turns out to be, is a question for its final chapter.
 
 And if enough surprising properties survive enough attempts to explain them away, a different question eventually becomes unavoidable. Not:
 
@@ -407,3 +408,9 @@ Continuous state. Rich neighbourhoods. Complicated rules. Even the idea that a p
 By the time almost nothing is left, we will already have encountered the problem that drives the rest of this book:
 
 > **Computation can produce something worth explaining long before we know what to call it.**
+
+---
+
+## References
+
+**[1]** Feynman, R. P. *Cargo Cult Science.* Caltech commencement address, 1974. Reprinted in *Surely You're Joking, Mr. Feynman!* (1985).
