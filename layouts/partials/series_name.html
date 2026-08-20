@@ -1,11 +1,19 @@
 {{- $seriesName := "" -}}
-{{- with .Params.series -}}
-  {{- $seriesName = index . 0 -}}
+
+{{- if and (eq .Section "books") (eq .Kind "page") -}}
+  {{- with .Parent -}}
+    {{- $seriesName = .Title -}}
+  {{- end -}}
 {{- else -}}
-  {{- with .File -}}
-    {{- if hasPrefix .BaseFileName "advanced-agents-from-first-principles-" -}}
-      {{- $seriesName = "Advanced Agents From First Principles" -}}
+  {{- with .Params.series -}}
+    {{- $seriesName = index . 0 -}}
+  {{- else -}}
+    {{- with .File -}}
+      {{- if hasPrefix .BaseFileName "advanced-agents-from-first-principles-" -}}
+        {{- $seriesName = "Advanced Agents From First Principles" -}}
+      {{- end -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}
+
 {{- return $seriesName -}}
