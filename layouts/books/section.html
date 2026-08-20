@@ -1,17 +1,19 @@
 {{ define "main" }}
 
+{{- $coverURL := partial "book-cover-path.html" . -}}
+
 <section class="book-page">
 
-  <header class="book-page__hero">
+  <header class="book-page__hero{{ if not $coverURL }} book-page__hero--no-cover{{ end }}">
 
-    {{ with .Params.cover }}
+    {{- if $coverURL -}}
       <div class="book-page__cover">
-        <img
-          src="{{ . | relURL }}"
-          alt="{{ $.Title }} cover"
-        >
+        {{ partial "book-cover.html" (dict
+            "book" .
+            "size" "full"
+        ) }}
       </div>
-    {{ end }}
+    {{- end }}
 
     <div class="book-page__hero-content">
       <span class="books-hub__eyebrow">Programmer.ie Book</span>
@@ -36,7 +38,7 @@
     <h2>Chapters</h2>
 
     <div class="book-chapter-list">
-      {{ range .Pages.ByWeight }}
+      {{ range .RegularPages.ByWeight }}
         <article class="book-chapter-card">
           <h3>
             <a href="{{ .RelPermalink }}">
