@@ -72,9 +72,7 @@ model parameters
 Not a screenshot. Not merely the visible crystal. Save the process, destroy the running instance, reconstruct it from the saved state, and continue.
 
 {{< figure
-src="/images/books/digital-life/ch15-01-reference-and-checkpoint.png"
-alt="The Digital Crystal input signal with a checkpoint at step 48, together with the crystal at the checkpoint and its final state at step 96."
-caption="The continuous reference trajectory. The midpoint checkpoint will be restored, damaged and replayed in the experiments that follow."
+src="/images/books/digital-life/ch15-01-reference-and-checkpoint.png" alt="The Digital Crystal input signal with a checkpoint at step 48, together with the crystal at the checkpoint and its final state at step 96." caption="The continuous reference trajectory. The midpoint checkpoint will be restored, damaged and replayed in the experiments that follow."
 >}}
 
 Then demand something much stronger than visual similarity. If the checkpoint is sufficient, the restored process should not resemble the uninterrupted one. It should reproduce it:
@@ -103,9 +101,7 @@ symmetric-difference cells        0
 ```
 
 {{< figure
-src="/images/books/digital-life/ch15-02-exact-restore.png"
-alt="The final continuously run Digital Crystal beside the final crystal produced after checkpoint, storage, restore and continuation."
-caption="Continuous execution and checkpoint → restore → continue produce the same trajectory, cell for cell."
+src="/images/books/digital-life/ch15-02-exact-restore.png" alt="The final continuously run Digital Crystal beside the final crystal produced after checkpoint, storage, restore and continuation." caption="Continuous execution and checkpoint → restore → continue produce the same trajectory, cell for cell."
 >}}
 
 Repeated across 30 independent runs, all 30 restores continued exactly. So we have earned the first claim of the chapter:
@@ -118,7 +114,7 @@ Note the limit of the claim. The experiment establishes that this representation
 
 ## What the Picture Cannot Show
 
-Now damage the checkpoint deliberately, one component at a time, and see which damage the future notices. Every variant gets exactly 48 continuation updates, so that moving the environmental cursor does not accidentally shorten the experiment. Throughout this section, `symmetric-difference cells` means occupied positions present in one final crystal but not the other. 
+Now damage the checkpoint deliberately, one component at a time, and see which damage the future notices. Every variant gets exactly 48 continuation updates, so that moving the environmental cursor does not accidentally shorten the experiment. Throughout this section, `symmetric-difference cells` means occupied positions present in one final crystal but not the other.
 
 **Remove the random state.** Same morphology, same birth metadata, same timestep, same signal position, different stochastic continuation state:
 
@@ -151,9 +147,7 @@ symmetric-difference cells    30
 The visible shape at the checkpoint was identical. The future was not.
 
 {{< figure
-src="/images/books/digital-life/ch15-03-state-omission.png"
-alt="Comparison of final-state divergence after restoring the full checkpoint, changing RNG state, shifting the signal cursor, changing birth metadata, or restoring morphology only."
-caption="Visible morphology is insufficient for exact continuation. Stochastic state and environmental position affect future growth; birth-time metadata does not affect the occupied-set continuation."
+src="/images/books/digital-life/ch15-03-state-omission.png" alt="Comparison of final-state divergence after restoring the full checkpoint, changing RNG state, shifting the signal cursor, changing birth metadata, or restoring morphology only." caption="Visible morphology is insufficient for exact continuation. Stochastic state and environmental position affect future growth; birth-time metadata does not affect the occupied-set continuation."
 >}}
 
 Two distinctions fall out immediately.
@@ -202,9 +196,7 @@ Then we test the record the way we tested the checkpoint — by demanding that i
 ```
 
 {{< figure
-src="/images/books/digital-life/ch15-04-history-replay.png"
-alt="Step-by-step comparison showing that every morphology hash produced by replaying the Digital Crystal event log matches the recorded original trajectory."
-caption="The event history reconstructs the recorded morphology trajectory exactly: 96 matching hashes out of 96."
+src="/images/books/digital-life/ch15-04-history-replay.png" alt="Step-by-step comparison showing that every morphology hash produced by replaying the Digital Crystal event log matches the recorded original trajectory." caption="The event history reconstructs the recorded morphology trajectory exactly: 96 matching hashes out of 96."
 >}}
 
 The second claim of the chapter:
@@ -852,3 +844,4 @@ Not yet.
 But finally a place inside the process where experience can remain causally available after the original event is gone.
 
 > **Can experience change the material itself?**
+

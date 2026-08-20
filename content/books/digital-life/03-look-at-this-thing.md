@@ -15,9 +15,7 @@ Don't read anything yet.
 Watch this.
 
 {{< figure
-    src="/images/books/digital-life/ch01-lenia-organism.gif"
-    alt="A localized continuous cellular automaton pattern evolving and moving through time."
-    caption="One state of a continuous cellular automaton evolving through time."
+src="/images/books/digital-life/ch01-lenia-organism.gif" alt="A localized continuous cellular automaton pattern evolving and moving through time." caption="One state of a continuous cellular automaton evolving through time."
 >}}
 
 Something is moving. It appears to have a boundary. Different parts of it seem to behave differently: an edge that ripples, an interior that stays denser, a leading region that seems to pull the rest along. Its shape changes as it travels, and yet some larger organization survives those changes. Watch it for thirty seconds and you will start predicting what it is about to do.
@@ -83,9 +81,7 @@ That reversal is a large part of why artificial life is so compelling, and it is
 Look at the pattern travelling left to right.
 
 {{< figure
-    src="/images/books/digital-life/ch01-lenia-fixed-grid-motion.png"
-    alt="Four frames of a Lenia structure moving across a fixed coordinate grid while the lattice remains stationary."
-    caption="The pattern moves across the field while the underlying lattice remains fixed."
+src="/images/books/digital-life/ch01-lenia-fixed-grid-motion.png" alt="Four frames of a Lenia structure moving across a fixed coordinate grid while the lattice remains stationary." caption="The pattern moves across the field while the underlying lattice remains fixed."
 >}}
 
 The grid does not move. The individual locations do not travel. Location (40, 17) is exactly where it always was, holding whatever value the update rule most recently assigned it. Nothing is transported.

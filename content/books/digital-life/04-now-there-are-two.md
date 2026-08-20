@@ -9,39 +9,21 @@ categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Artificial Life", "Outlier", "Cellular Automata", "Self-Replication", "Causality", "Ancestry", "Experimental Method"]
 +++
 
-We have learned not to trust the first noun.
+In the previous chapter an organization survived while nearly everything participating in it was replaced. By the end of the turnover window, only 7 of the original 20,000 agents remained, yet the broader organized network persisted.
 
-Fine.
+That established persistence. It did not establish reproduction.
 
----
+Persistence asks whether an organization continues. Reproduction asks whether it produces another organization with a causal descent relation. Nothing in the Physarum experiment tested that second capability.
 
-In the previous chapter an organization survived while nearly everything participating in it was taken away and replaced. By the end of the turnover window, only 7 of the original 20,000 agents remained.
+The glider makes the distinction sharper. Every four generations its configuration recurs one cell diagonally away, built from active cells at different coordinates. It looks very much like reproduction.
 
-The exact routes had drifted. The broader organized network had not disappeared.
+Under the causal criterion used by Hintze and Bohm, however, a self-replicator must produce at least two copies of itself, each causally traceable to the original and not to one another.[6] The glider fails because its history is a single chain: each occurrence descends from the one immediately before it. Nothing branches. A glider gun fails differently: it produces gliders, not glider guns.
 
-That was persistence, and it was hard-won.
-
-It was also not reproduction, and the gap between those two words is wider than it looks.
-
-A process can persist throughout an observation without ever producing a descendant. Our Physarum experiment did exactly that. It formed, degraded, recovered and remained organized at the end of the run.
-
-But we never defined or observed a descendant relation.
-
-Continuation is one capability. Making another one is a different capability, and nothing we measured in the last chapter bears on it at all.
-
-The glider looks like the harder case, and it is worth spending a moment on, because it is where the distinction becomes precise instead of merely rhetorical.
-
-Every four generations the glider's configuration recurs, displaced by one cell diagonally and built from active cells at different coordinates. New material participation, recurring organization, generation after generation. If anything in the previous chapter deserved the word **reproduction**, surely that did.
-
-It does not qualify, and the reason is not our invention. In the causal analysis we are about to rely on, Hintze and Bohm set out a criterion for calling a structure a self-replicator: it must produce at least two copies of itself, each causally traceable back to the original, and not to each other.[6] The glider fails it. Each glider copy descends from the copy immediately before it, in a single unbranching chain. Nothing ever forks. A glider gun fails for a different reason — it produces gliders, not glider guns.
-
-The criterion is worth making explicit:
+The criterion is therefore:
 
 > **An earlier organization must give rise to at least two later organizations of the same kind, each causally dependent on the original and not on one another.**
 
 Chains are not enough. The history has to branch.
-
-We did not construct that standard to fit a result we already had, which is exactly why it is useful to us. It comes from the literature we are about to test our own run against, and it disqualifies the most charismatic object in the previous chapter.
 
 Now look at this.
 
@@ -169,7 +151,7 @@ Hintze and Bohm answer this by identifying the minimal sets of earlier live cell
 
 Those cell-level dependencies are then grouped into links between larger clusters.
 
-The result is a causal ancestry graph: earlier structures are connected to later structures only when measured dependencies link them.[6] 
+The result is a causal ancestry graph: earlier structures are connected to later structures only when measured dependencies link them.[6]
 
 The question has now changed.
 
@@ -470,7 +452,7 @@ Both results are strong.
 
 They are not the same result, and neither needs to be made larger than it is.
 
---- 
+---
 
 ## Two Instruments, Each Missing Something
 
