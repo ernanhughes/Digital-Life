@@ -1,0 +1,37 @@
+WHAT YOU NEED TO KNOW
+
+CONNECTED GEOMETRY
+
+Occupied cells form one connected shape. The chapter tests whether that visible unity deserves causal privilege.
+
+PRIVILEGED BOUNDARY
+
+A boundary that the dynamics themselves treat as special. Drawing a circle does not make it privileged.
+
+SELF-PREDICTION GAIN
+
+How much a region's own present state improves prediction of its future beyond what surrounding state already predicts.
+
+EXCESS PREDICTIVE COHERENCE
+
+The real self-prediction gain minus a spatially scrambled null. It asks whether prediction is stronger than a control version.
+
+FAMILY-LEVEL NULL
+
+A control that accounts for searching across several candidate scales. It asks whether the best-looking result is unusual after the search itself is included.
+
+CAUSAL LOCALIZATION
+
+A perturbation has stronger effects on the same side of a boundary than across it. This can happen at arbitrary cuts in a local system.
+
+SAME-SIDE LOCALIZATION
+
+Inside perturbations mostly affect inside, and outside perturbations mostly affect outside. It shows locality, not individuality.
+
+BULK VS FLUX
+
+Bulk is what remains occupied. Flux is where material transitions are happening. The causal process may be better seen in the flux than in the snapshot.
+
+PROCESS-FIRST METHOD
+
+Measure causal activity first, then ask whether a boundary emerges. Do not draw the body first and try to justify it afterward.

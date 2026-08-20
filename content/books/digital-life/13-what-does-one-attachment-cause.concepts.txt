@@ -1,0 +1,37 @@
+WHAT YOU NEED TO KNOW
+
+LOCAL-RULE EFFECT
+
+The immediate effect predicted directly by the attachment rule. If one cell attaches, neighbouring candidate probabilities change.
+
+FORCE/PREVENT INTERVENTION
+
+Two branches from the same checkpoint: one forces a candidate cell to attach, the other prevents it. The intervention cell itself is excluded from measured outcomes.
+
+MECHANICALLY EXPECTED GAIN
+
+The one-step neighbouring construction difference predicted by probabilities before random draws. It is the rule's own expected effect.
+
+TRANSIENT ARM
+
+A branch where the forced cell gets one causal exposure and is then removed. This tests whether downstream consequences continue after the initiating difference is gone.
+
+RETAINED ARM
+
+A branch where the forced cell is not experimentally removed. Its later fate follows ordinary loss and reoccupation.
+
+RETAINED STATE DIFFERENCE VS CASCADE
+
+If the initiating cell remains, later effects may be due to its continuing presence rather than a self-sustaining cascade.
+
+FRONTIER CREATION POTENTIAL
+
+How much occupying a candidate changes the number of frontier opportunities. It is observer-defined and did not become a stable predictor here.
+
+ESTIMATOR MANUFACTURE
+
+A statistic can create the appearance of the pattern it was built to summarize. The failed propagation estimator produced a fake ridge from noise and one anchored row.
+
+FAR-FIELD DIFFERENCE
+
+A construction difference outside the local measurement region. The chapter measures it but does not yet identify its mechanism.

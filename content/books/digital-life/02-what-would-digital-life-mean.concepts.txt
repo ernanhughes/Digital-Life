@@ -1,0 +1,43 @@
+WHAT YOU NEED TO KNOW
+
+CARGO CULT
+
+Copying the outward look of something without reproducing the mechanism that makes it work. In this chapter, naming code after life-like properties is treated as cargo-cult evidence.
+
+BIOLOGY AS EVIDENCE, NOT SPECIFICATION
+
+Biology proves that life is possible in one medium. It does not prove that digital life must use the same parts or solve the same problems the same way.
+
+OPERATIONAL DEFINITION
+
+A definition stated in terms of what would be observed or measured. Before calling something memory or reproduction, the chapter asks what result would count for or against that claim.
+
+INTERVENTION
+
+Deliberately changing or removing something to see what difference it makes. If removing a proposed mechanism does not change the result, the explanation was probably wrong.
+
+CONTROL
+
+A comparison case designed to rule out a simpler explanation. A control asks, "Would this have happened anyway?"
+
+CONFOUND
+
+Something mixed into the result that can produce the same measurement for a different reason. Finding a confound means the old interpretation was carrying more than one possible explanation.
+
+BOUNDED CLAIM
+
+A claim whose conditions and limits are visible. Instead of "the system heals," the book prefers claims that say what was changed, what was measured, and what comparison survived.
+
+PHENOMENON VS EXPLANATION
+
+The phenomenon is what happened. The explanation is the story about why it happened.
+
+```
+beautiful animation
+does not equal
+correct interpretation
+```
+
+SUBSTRATE
+
+The medium in which the process runs. Biology uses physical matter; these experiments use computation, which has different costs and possibilities.

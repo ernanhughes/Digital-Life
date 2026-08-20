@@ -1,0 +1,41 @@
+WHAT YOU NEED TO KNOW
+
+DIGITAL CRYSTAL
+
+A local computational growth process whose final shape can carry information about conditions during formation. The name is earned only in this narrow sense.
+
+HEXAGONAL LATTICE
+
+A grid where each location has six immediate neighbours. It makes local attachment geometry simple and symmetric.
+
+IRREVERSIBLE OCCUPANCY
+
+Once a cell becomes occupied, it stays occupied. This is an assumption of the early crystal, not a law of digital systems.
+
+STOCHASTIC ATTACHMENT
+
+Attachment happens with a probability rather than certainty. This gives the environment a way to influence growth.
+
+ENVIRONMENTAL FORCING
+
+An external scalar value that changes attachment conditions at each step. It influences growth but does not draw the final shape.
+
+ANISOTROPY
+
+A built-in directional bias. Growth is not equally likely in every direction.
+
+CROWDING PENALTY
+
+A reduction in attachment probability when a candidate has too many occupied neighbours. It prevents crowded sites from gaining unlimited advantage.
+
+SOURCE-FAMILY RECOVERY
+
+Using final morphology to identify which kind of environmental process produced it. This worked above chance for broad source families.
+
+TEMPORAL ORGANIZATION
+
+The order of the same values through time. The chapter did not establish that final morphology could recover this ordering.
+
+LOSSY INTEGRATION
+
+The process preserves broad consequences of formation conditions while losing detailed chronology.

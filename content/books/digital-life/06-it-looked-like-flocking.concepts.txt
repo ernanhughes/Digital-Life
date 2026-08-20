@@ -1,0 +1,41 @@
+WHAT YOU NEED TO KNOW
+
+DIRECTIONAL ALIGNMENT
+
+A measure of whether two moving structures point the same way. It ranges from +1 for same direction to -1 for opposite direction.
+
+VELOCITY AS MEASUREMENT
+
+Outlier has no velocity variable. Velocity is inferred from how tracked structures change position over time.
+
+FLOCKING VS COHERENT MOTION
+
+Coherent motion means nearby things move in similar directions. Flocking is a stronger interpretation that requires more evidence.
+
+RADIAL EXPANSION CONTROL
+
+A check that removes the outward motion caused by the whole system expanding. If alignment remains, expansion alone is not the explanation.
+
+ANCESTRY LABEL
+
+A label assigning a cluster to a recent causal ancestor. It is useful for comparison, but a label is not itself an explanation.
+
+ESTIMATOR BUG
+
+An error where the measurement method creates the pattern it reports. Here, each member of a tested pair helped define the other's background, creating artificial anti-alignment.
+
+MATCHING
+
+Comparing cases that are similar on important variables. This chapter matches time, distance, and local density before testing ancestry.
+
+COMMON SUPPORT
+
+The region where both comparison groups actually exist. If there are no adequate controls at very short distances, that question remains unresolved.
+
+UNRESOLVED
+
+Not "no." It means the experiment lacks the comparison needed to answer the question.
+
+MEASUREMENT VS EXPLANATION
+
+The short-range motion coherence survived. The ancestry-based flocking explanation did not.

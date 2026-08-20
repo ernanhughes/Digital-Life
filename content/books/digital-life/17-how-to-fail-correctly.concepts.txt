@@ -1,0 +1,47 @@
+WHAT YOU NEED TO KNOW
+
+ESTIMAND
+
+The specific quantity an experiment is built to estimate. Example: excess modularity over matched spatial controls.
+
+CONSTRUCT
+
+The richer idea the experiment hopes to support. Example: individuality, memory, repair, or flocking.
+
+SMALLEST EFFECT OF INTEREST (SEI)
+
+The predeclared effect size large enough to matter scientifically for that estimand.
+
+MINIMUM DETECTABLE EFFECT AT 80% POWER (MDE80)
+
+How small an effect the experiment had enough precision to detect under its frozen analysis convention.
+
+INVALID
+
+The experiment did not implement the intended contrast. It cannot count as evidence for or against that intended claim.
+
+UNRESOLVED
+
+The experiment was valid but not precise enough to answer the declared question at the required scale.
+
+BOUNDED
+
+A meaningful effect region was excluded with enough precision. "Bounded near zero" and "bounded below SEI" are different kinds of bounded result.
+
+NARROWED
+
+A richer interpretation fails while a smaller measurement remains valid.
+
+```
+raw containment survives
+v
+individuality does not
+```
+
+DESCRIPTIVE ONLY
+
+An analysis that explains or contextualizes a result but does not change the frozen confirmatory status.
+
+FAIL THE SMALLEST CLAIM
+
+When a claim fails, remove only the part the evidence actually defeats. Keep the surviving measurement, mechanism, or narrower phenomenon.

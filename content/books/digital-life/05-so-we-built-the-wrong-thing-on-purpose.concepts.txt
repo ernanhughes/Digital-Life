@@ -1,0 +1,37 @@
+WHAT YOU NEED TO KNOW
+
+DECOY SYSTEM
+
+A deliberately simple system built to counterfeit impressive behavior. If the decoy passes a test, that test is too weak by itself.
+
+NEGATIVE CONTROL
+
+A comparison where the target interpretation is expected to be absent. Here, the swarm is not a proof of "not alive"; it is used to test the evidence.
+
+ADVERSARIAL CALIBRATION
+
+Testing an instrument against a case designed to expose false positives. The goal is to learn which measurements are cheap.
+
+ORDINARY VARIATION
+
+How much the untouched control changes by itself. Damage only matters if it moves the system beyond this normal self-variation.
+
+DYNAMICAL REGIME
+
+The range of macroscopic states a system normally moves through. A regime can persist even while the exact visible shape changes.
+
+MACROSTATE
+
+A high-level description of the system using features such as size, speed, elongation, and distances. It is not the full microscopic state.
+
+DOSE-RESPONSE
+
+A pattern where stronger intervention produces a stronger effect. One threshold crossing is weak if stronger doses do not preserve or increase the effect.
+
+EDGE IDENTITY
+
+Which exact particle is linked to which friend or enemy. Replacing edge identity does not necessarily replace the broader interaction law.
+
+PRE-DECLARED CRITERION
+
+A rule for success fixed before seeing the result. It prevents moving the goalposts after the data are known.

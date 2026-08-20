@@ -1,0 +1,47 @@
+WHAT YOU NEED TO KNOW
+
+EVALUATION BUDGET
+
+The maximum number of candidate sites that can be considered for attachment in one update. It is a limit on computation, not an energy store.
+
+ELIGIBLE VS EVALUATED
+
+A site can be allowed by the local rule but still receive no attachment attempt because the budget is exhausted.
+
+```
+ELIGIBLE
+could happen
+
+v only if selected
+
+EVALUATED
+gets a chance to happen
+```
+
+SCARCITY
+
+More possible transitions exist than the process can evaluate. Scarcity forces allocation even without goals or choice.
+
+SCHEDULING POLICY
+
+The rule deciding which eligible sites receive evaluation. High-support, neutral, and low-support scheduling produce different material futures.
+
+LOCAL SUPPORT
+
+How many occupied neighbours a candidate has. It affects both scheduling in this chapter and attachment probability, which makes interpretation harder.
+
+REUSE VS EXPANSION
+
+Reuse means reoccupying previously occupied locations. Expansion means first occupation of never-before-used locations.
+
+STATIONARY POPULATION WITH TURNOVER
+
+A population that stays approximately stable while losses, reoccupations, and new occupations continue. No tested budget met the frozen criterion.
+
+ACCOUNTING IDENTITY
+
+A relationship forced by arithmetic rather than discovered as a new system behavior. The near-stable turnover fraction was largely explained this way.
+
+OPPORTUNITY COST
+
+When evaluating one candidate means another eligible candidate is not evaluated. This is the cost of finite computation in this substrate.

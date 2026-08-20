@@ -1,0 +1,43 @@
+WHAT YOU NEED TO KNOW
+
+PERSISTENCE VS REPRODUCTION
+
+Persistence means one organization continues. Reproduction means an earlier organization causes later organizations of the same kind to appear.
+
+CAUSAL DESCENT
+
+A later structure depends on an earlier one for its existence. Looking similar is not enough.
+
+```
+similarity
+does not equal
+ancestry
+```
+
+BRANCHING HISTORY
+
+For reproduction, one earlier organization must give rise to at least two later ones. A single chain of repeated appearances is not enough.
+
+OUTLIER
+
+A binary cellular automaton whose local rule was selected by search, not hand-written as a reproduction function. Replicating structures were discovered inside the rule's world.
+
+MOORE NEIGHBOURHOOD
+
+The 3 by 3 block around a cell, including the cell itself. Outlier's rule reads that local pattern to decide the next cell state.
+
+CAUSAL ANCESTRY GRAPH
+
+A graph linking earlier clusters to later clusters only when measured cell-level dependencies connect them.
+
+RECURRENCE, REPLICATION, SUSTAINED LINEAGE
+
+Recurrence means a structure appears again. Replication means a copy causally depends on an earlier structure. A sustained lineage means descendants continue reproducing across generations.
+
+DISTRIBUTED REPLICATION
+
+Replication that involves separated components rather than one connected body. The reproducing process need not be a neat object.
+
+PRE-SPECIFIED TARGET
+
+A structure chosen before searching the data. This prevents choosing whichever shape happens to recur most impressively afterward.

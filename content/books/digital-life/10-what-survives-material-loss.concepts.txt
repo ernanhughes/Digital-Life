@@ -1,0 +1,45 @@
+WHAT YOU NEED TO KNOW
+
+MATERIAL LOSS
+
+Occupied cells can become empty again. This removes the earlier guarantee that occupied material stays forever.
+
+FINITE SUSTAINABLE SIZE
+
+A predicted balance where construction and loss stop net growth at a stable size. The tested loss sweep did not establish this.
+
+GROSS CONSTRUCTION
+
+Total attachment events, regardless of how many cells are lost. Gross construction can rise even when net population changes only gently.
+
+CONSTRUCTION INTERFACE
+
+The set of empty locations currently eligible for attachment. With loss, this can appear inside the crystal, not only at the outer edge.
+
+REOCCUPATION
+
+A location that was occupied, became empty, and becomes occupied again.
+
+```
+FIRST OCCUPATION
+new site used for the first time
+
+REOCCUPATION
+old site returns after loss
+```
+
+OBSERVER-ONLY LEDGER
+
+A record kept by the experimenter, not read by the crystal. It lets the laboratory distinguish first occupation from reoccupation.
+
+REPAIR
+
+A special mechanism that detects damage or restores a target state. Rapid reoccupation is not repair because the crystal has no such mechanism.
+
+STOCK VS FLOW
+
+Population is a stock: how much is occupied now. Attachments, losses, and reoccupations are flows: how much material activity is happening.
+
+STRUCTURAL COMPENSATION
+
+Loss creates new attachment opportunities, and ordinary construction reuses many of them. This counter-effect does not imply intention or maintenance.

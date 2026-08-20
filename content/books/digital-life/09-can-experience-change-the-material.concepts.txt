@@ -1,0 +1,49 @@
+WHAT YOU NEED TO KNOW
+
+MATERIAL STATE
+
+Internal condition carried by occupied cells. This chapter adds a modified occupied state beyond simply empty or occupied.
+
+PERSISTENCE
+
+The modified state remains after the pulse that created it ends. Persistence alone does not mean the state can still matter.
+
+CAUSAL ACCESSIBILITY
+
+Stored state is accessible when a current transition rule can read it and let it affect what happens next.
+
+CAUSAL APERTURE
+
+The active interface through which stored material state can affect future transitions. In simple outward growth, this is near the frontier.
+
+```
+stored state
+v only matters if read by
+CAUSAL APERTURE
+v
+changed construction
+```
+
+BURIAL
+
+Old material remains present but falls behind the active growth surface. It is stored but no longer read by new construction.
+
+PROBABILITY LEVERAGE
+
+How much modified material changes local attachment probabilities. A probability change matters only if it can affect actual attachment decisions.
+
+REALIZED CAUSAL FLIP
+
+A case where changing the probability changes the actual outcome. The random draw falls between the two probabilities.
+
+PROPAGATION OF STATE
+
+Copying the modified condition into newly attached cells. Propagation can move the trace, but it still may become inaccessible.
+
+HISTORY DISCRIMINATION
+
+The stronger property where different pasts leave different retained states that produce different responses to the same later challenge.
+
+STATISTICALLY DETECTABLE VS SCIENTIFICALLY LARGE ENOUGH
+
+A tiny effect can be measured precisely without being large enough to count as the phenomenon being tested.

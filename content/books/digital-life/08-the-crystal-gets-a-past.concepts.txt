@@ -1,0 +1,51 @@
+WHAT YOU NEED TO KNOW
+
+STATE
+
+What must be known to continue the process from here.
+
+HISTORY
+
+What must be known to reconstruct how the process got here.
+
+```
+STATE
+what exists now and can continue
+
+v
+
+HISTORY
+the path by which it formed
+```
+
+CHECKPOINT
+
+A saved complete continuation state. In this chapter it includes occupied cells, timestep, signal position, random-number-generator state, and parameters.
+
+EXECUTABLE STATE
+
+The information needed to reproduce the same future. The visible picture alone is not enough.
+
+RANDOM-NUMBER-GENERATOR STATE
+
+The current position and internal condition of the stochastic process. If it changes, the same visible crystal can grow differently.
+
+EVENT HISTORY
+
+A step-by-step record of what attached and when. It can reconstruct the recorded morphology trajectory, but it is not the same as a checkpoint.
+
+RECORDED PAST VS CAUSALLY AVAILABLE PAST
+
+The laboratory can record the crystal's past. That does not mean the crystal can consult or use that record.
+
+COUNTERFACTUAL BRANCH
+
+Two futures started from the same checkpoint, with one deliberate difference. This lets the experiment ask what that one difference caused.
+
+STOCHASTIC COUPLING
+
+The rule for what counts as the same random future in two branches. A shared random stream can accidentally assign random values to different opportunities.
+
+COMMON RANDOM NUMBERS
+
+A cleaner coupling where the same cell at the same step receives the same random value in both branches. This reduces artificial cascade from stream misalignment.

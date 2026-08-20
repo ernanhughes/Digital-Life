@@ -1,0 +1,41 @@
+WHAT YOU NEED TO KNOW
+
+HIDDEN MATERIAL STATE
+
+A state carried by occupied cells that is not visible in the occupancy geometry. Two crystals can look identical while having different hidden state.
+
+ACCESSIBLE VS REMOTE MATERIAL
+
+Accessible material lies on a direct local route to the probe. Remote material has equal mass but is placed outside that route.
+
+OPERATING POINT
+
+Where a candidate sits on the response curve before the perturbation. Hidden material can move the operating point without changing the rule.
+
+LOGISTIC RESPONSE
+
+A curve that converts score into probability. Its slope is largest in the middle and smaller near the extremes.
+
+SENSITIVITY REDUCTION
+
+Positive hidden material can raise baseline probability but reduce how much an additional perturbation changes that probability, because the logistic curve is flatter there.
+
+INVALID INTERVENTION
+
+An experiment that did not implement the intended contrast. The first run allowed the PREVENT branch to naturally attach the supposedly prevented cell.
+
+EXPECTED ESTIMATOR
+
+A measurement that sums probability differences at realized states instead of relying only on noisy attachment outcomes.
+
+DIRECTION VS MAGNITUDE
+
+The experiment can support the direction of an effect while failing to establish that it reaches the predeclared minimum size.
+
+TRACE DECAY
+
+The hidden material weakens over time. The cumulative difference continued changing after much of the trace had faded.
+
+STATE-CONDITIONED ROUTE
+
+Hidden state changes sensitivity, which changes events, which changes later trajectory. This is not the same as reading a stored record.

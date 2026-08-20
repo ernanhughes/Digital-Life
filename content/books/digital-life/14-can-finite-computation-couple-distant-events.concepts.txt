@@ -1,0 +1,49 @@
+WHAT YOU NEED TO KNOW
+
+LOCAL-RULE CONE
+
+The one-step region a local rule can directly affect. For nearest-neighbour attachment, this is distance 1 or less.
+
+FINITE CANDIDATE SELECTION
+
+Only part of the frontier receives evaluation. This can couple distant regions because they compete for the same evaluation slots.
+
+FINITE-BUDGET REDISTRIBUTION
+
+A local frontier change reallocates fixed evaluation slots, changing expected construction elsewhere.
+
+```
+more candidates here
+v
+same number of slots
+v
+fewer slots elsewhere
+```
+
+UNBOUNDED EVALUATION
+
+Every candidate is evaluated. With no subsampling, the selector-mediated outside-cone effect is structurally zero.
+
+ALLOCATION
+
+Which candidates receive evaluation slots.
+
+PAYLOAD
+
+The attachment probability carried by the selected candidates. Moving the same number of slots can have different construction effects.
+
+SWAPPED-CANDIDATE PROBABILITY PAYLOAD
+
+The exact source of the far-field expected difference: candidates evaluated in one branch but not the other, weighted by their probabilities.
+
+DYNAMIC CALIBRATION
+
+Adjusting attachment scores each lag to match background expected construction. This prevents confusing more construction with causal amplification.
+
+CAUSAL ROUTING VS CAUSAL AMPLIFICATION
+
+Routing changes where and how a causal effect is expressed. Amplification would increase its mean downstream size. This chapter supports routing, not amplification.
+
+EXPRESSIBILITY GATING
+
+A perturbation may survive but still have no immediate expressed effect if none of the affected candidates are evaluated.

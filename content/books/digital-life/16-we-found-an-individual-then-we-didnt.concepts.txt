@@ -1,0 +1,41 @@
+WHAT YOU NEED TO KNOW
+
+CAUSAL CONTAINMENT
+
+Perturbations started inside a region express more of their causal effect inside than outside. This can be measured without proving individuality.
+
+INTERNAL RETENTION
+
+The fraction of causal mass from an internal perturbation that stays inside the region.
+
+EXTERNAL PENETRATION
+
+The fraction of causal mass from an external perturbation that appears inside the region.
+
+MODULARITY SCORE
+
+Internal retention minus external penetration. A high score means strong raw containment.
+
+ABSOLUTE CAUSAL MASS
+
+The accumulated size of probability shifts, ignoring sign. It measures where influence is expressed, not whether positive and negative shifts cancel.
+
+SPATIAL NULL
+
+A comparison region with similar geometry. It asks whether the observed score is more than what ordinary spatial layout already produces.
+
+RAW MODULARITY VS EXCESS MODULARITY
+
+Raw modularity measures containment. Excess modularity asks whether selected regions beat matched controls.
+
+OBSERVER-DEFINED BOUNDARY
+
+A boundary imposed by the measurement. It creates inside and outside categories even if the system does not privilege them.
+
+SYSTEM-PRIVILEGED BOUNDARY
+
+A boundary the dynamics distinguish beyond matched geometry. This was not established.
+
+CAUSAL CONTAINMENT VS INDIVIDUATION
+
+Containment is real here. Individuation would require privilege beyond comparable spatial geometry.

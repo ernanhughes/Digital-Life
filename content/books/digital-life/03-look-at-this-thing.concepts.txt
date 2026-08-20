@@ -1,0 +1,47 @@
+WHAT YOU NEED TO KNOW
+
+CELLULAR AUTOMATON
+
+A world made of many locations that update by the same local rule. Each location changes based on nearby values, not because a central controller tells it what to do.
+
+LENIA
+
+A continuous cellular automaton whose patterns can look creature-like. "Continuous" means locations can hold graded values rather than only 0 or 1.
+
+LOCAL DYNAMICS
+
+Rules that act only on nearby state. Large patterns can appear even when every update is local and simple.
+
+LOCALIZED ORGANIZATION
+
+A pattern that stays concentrated in one region instead of spreading everywhere. It may look like an object, but that must be tested.
+
+PROPAGATION
+
+Something recognizable reappears in new places without the same material moving there.
+
+```
+state here
+v influences nearby updates
+similar organization appears over there
+```
+
+MATERIAL IDENTITY
+
+The same parts persist through time. A moving glider in the Game of Life does not preserve the same active cells.
+
+ORGANIZATIONAL IDENTITY
+
+A recognizable arrangement persists even though the parts change. The glider keeps its organization, not its material.
+
+HISTORY DEPENDENCE
+
+Something earlier changes what happens later. In the Physarum-inspired model, earlier traces and agent positions affect later network formation.
+
+STIGMERGY
+
+Coordination through changes left in a shared environment. Agents alter the field, and the altered field changes later agent behavior.
+
+ROUTE IDENTITY VS ORGANIZATIONAL CONTINUITY
+
+Route identity asks whether the same historical paths remain. Organizational continuity asks whether the same broad kind of structure keeps being maintained.
