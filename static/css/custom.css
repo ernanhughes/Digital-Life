@@ -324,6 +324,10 @@ figure figcaption p {
   align-items: start;
 }
 
+.book-page__hero--no-cover {
+  grid-template-columns: 1fr;
+}
+
 .book-page__cover img {
   display: block;
   width: 100%;
@@ -352,6 +356,10 @@ figure figcaption p {
   align-items: start;
 }
 
+.book-card__layout--no-cover {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .book-card__content {
   min-width: 0;
 }
@@ -375,6 +383,10 @@ figure figcaption p {
   .book-card__layout {
     grid-template-columns: 80px minmax(0, 1fr);
     gap: 1rem;
+  }
+
+  .book-card__layout--no-cover {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .book-cover--thumb {

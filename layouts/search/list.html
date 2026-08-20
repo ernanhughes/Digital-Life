@@ -8,16 +8,24 @@
   (dict "path" "/learn/advanced-agents/" "series" "Advanced Agents From First Principles")
 -}}
 
-{{- range $book := .Site.Data.books.books -}}
-  {{- $records = $records | append (dict
-    "title" $book.title
-    "url" (printf "/books/#book-%s" $book.id | relURL)
-    "type" "Book"
-    "series" $book.level
-    "description" $book.description
-    "date" ""
-    "tags" (slice $book.subtitle "book" "ebook")
-  ) -}}
+{{- with .Site.GetPage "/books" -}}
+  {{- range $book := .Sections.ByWeight -}}
+    {{- $bookSlug := path.Base (strings.TrimSuffix "/" $book.RelPermalink) -}}
+    {{- $bookTags := slice "book" "ebook" -}}
+    {{- with $book.Params.subtitle -}}
+      {{- $bookTags = $bookTags | append . -}}
+    {{- end -}}
+    {{- $records = $records | append (dict
+      "title" $book.Title
+      "url" $book.RelPermalink
+      "type" "Book"
+      "series" ($book.Params.level | default "Book")
+      "description" $book.Description
+      "date" ""
+      "tags" $bookTags
+      "id" $bookSlug
+    ) -}}
+  {{- end -}}
 {{- end -}}
 
 {{- range $path := $learningPaths -}}
@@ -48,11 +56,13 @@
 {{- end -}}
 
 {{- range .Site.RegularPages -}}
-  {{- if or (eq .Section "post") (eq .Section "prompts") -}}
+  {{- if or (eq .Section "post") (eq .Section "prompts") (eq .Section "books") -}}
     {{- $seriesName := partial "series_name.html" . -}}
     {{- $type := "Article" -}}
     {{- if eq .Section "prompts" -}}
       {{- $type = "AI Prompt" -}}
+    {{- else if eq .Section "books" -}}
+      {{- $type = "Chapter" -}}
     {{- else if $seriesName -}}
       {{- $type = "Chapter" -}}
     {{- end -}}
