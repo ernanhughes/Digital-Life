@@ -109,13 +109,13 @@ So freeze everything. Same checkpoint, same probe `x`, same FORCE/PREVENT interv
 For each finite arm, `f` sets a fixed evaluation count from the *larger* of the two branch frontiers — the frozen control parameter is `B / max(F_force, F_prevent)`. That same count is then supplied to both branches, and each selects from its own frontier by keyed randomness without replacement. If a branch's frontier is smaller than the count, it simply evaluates all of it.
 
 ```text
-f = 0.05, 0.10, 0.25, 0.50, 0.75, 1.00
+f = 0.05, 0.10, 0.25, 0.50, 0.75, 1.0
 plus an explicit UNBOUNDED arm
 ```
 
-`f = 1.00` is still a fixed-count policy, but taking the count from the larger frontier makes it non-binding: the budget is at least as large as either branch's candidate set, so both evaluate everything. In this implementation `f = 1.00` and `UNBOUNDED` therefore coincide, and the protocol froze both as full-evaluation controls with a hard outside-cone zero at `1e-12` tolerance.
+`f = 1.0` is still a fixed-count policy, but taking the count from the larger frontier makes it non-binding: the budget is at least as large as either branch's candidate set, so both evaluate everything. In this implementation `f = 1.0` and `UNBOUNDED` therefore coincide, and the protocol froze both as full-evaluation controls with a hard outside-cone zero at `1e-12` tolerance.
 
-They remain different *policies*. `f = 1.00` is a fixed count that happens not to bind; `UNBOUNDED` removes the selector. The distinction matters for what each one licenses, not for what either measured here.
+They remain different *policies*. `f = 1.0` is a fixed count that happens not to bind; `UNBOUNDED` removes the selector. The distinction matters for what each one licenses, not for what either measured here.
 
 The same checkpoint generates every budget condition. This is a control-parameter experiment on a single frozen state, not a comparison between differently grown crystals.
 
@@ -138,7 +138,7 @@ f           E_far
 0.25        −0.261
 0.50        −0.492
 0.75        −0.715
-1.00         0.000
+1.0          0.000
 unbounded    0.000
 ```
 
@@ -150,7 +150,7 @@ For sites where the intervention consumes frontier (`FCP = −1`), it runs the o
 0.25        +0.118
 0.50        +0.213
 0.75        +0.294
-1.00         0.000
+1.0         0.000
 unbounded    0.000
 ```
 
@@ -218,17 +218,7 @@ therefore
 Δ(selected far) = −Δ(selected near)
 ```
 
-This is an accounting identity imposed by fixed-size selection, not an empirical law.
-
-And it tells us exactly what is held fixed.
-
-Not attachments.
-
-Not construction.
-
-Not frontier size.
-
-Not causal consequence.
+This is an accounting identity imposed by fixed-size selection, not an empirical law. The intervention holds the number of evaluation slots fixed; attachments, construction, frontier size and downstream causal consequences are free to diffe
 
 **The number of evaluation slots.**
 
@@ -394,7 +384,7 @@ f = 0.10     offset   0.00   reference, by definition
 f = 0.25             −1.59
 f = 0.50             −2.49
 f = 0.75             −2.96
-f = 1.00             −3.28
+f = 1.0             −3.28
 unbounded            −3.28
 ```
 
@@ -460,7 +450,7 @@ f = 0.10       0.0694        0.0542       0.1237
 f = 0.25       0.0433        0.0761       0.1188
 f = 0.50       0.0361        0.0798       0.1157
 f = 0.75       0.0337        0.0840       0.1177
-f = 1.00       0.0330        0.0853       0.1183
+f = 1.0       0.0330        0.0853       0.1183
 unbounded      0.0332        0.0853       0.1184
 ```
 
@@ -506,7 +496,7 @@ f = 0.10      0.363        0.401
 f = 0.25      0.679        0.698
 f = 0.50      0.876        0.880
 f = 0.75      0.914        0.913
-f = 1.00      0.918        0.910
+f = 1.0      0.918        0.910
 unbounded     0.918        0.910
 ```
 
@@ -566,7 +556,7 @@ CAUSAL AMPLIFICATION
 
 This is a better answer than the one we went looking for. An amplification result would have been exciting and, on reflection, slightly suspicious — a mechanism that made perturbations grow simply by rationing computation would have been the sort of free lunch this book has learned to distrust. What the substrate gave instead is a redistribution mechanism: causal opportunity is expressed in different places and through different pathways, while the matched experiment resolves no scientifically meaningful change in the mean twelve-step consequence at its declared scale.
 
-One methodological note before leaving it. The `f = 1.00` arm and the unbounded arm produced identical outside-cone zeros here, and it would be easy to conclude they are the same thing. They are not. `f = 1.00` is a fixed evaluation count that happens to be large enough not to bind; `UNBOUNDED` removes the selector from the design entirely. Finite arms conserve evaluation *count*; the unbounded arm conserves *coverage*. That the two coincide under this reference frontier is a fact about this parameterisation, not an equivalence of policies — and had the budget been referenced to the smaller frontier instead, they would not have coincided. A numerical parameter value is not the same thing as a computational policy.
+One methodological note before leaving it. The `f = 1.0` arm and the unbounded arm produced identical outside-cone zeros here, and it would be easy to conclude they are the same thing. They are not. `f = 1.0` is a fixed evaluation count that happens to be large enough not to bind; `UNBOUNDED` removes the selector from the design entirely. Finite arms conserve evaluation *count*; the unbounded arm conserves *coverage*. That the two coincide under this reference frontier is a fact about this parameterisation, not an equivalence of policies — and had the budget been referenced to the smaller frontier instead, they would not have coincided. A numerical parameter value is not the same thing as a computational policy.
 
 ---
 
@@ -578,7 +568,7 @@ Two frozen experiments stand behind this chapter.
 
 ```text
 control parameter   B / max(F_force, F_prevent)
-f                   0.05, 0.10, 0.25, 0.50, 0.75, 1.00
+f                   0.05, 0.10, 0.25, 0.50, 0.75, 1.0
 UNBOUNDED           each branch evaluates its own full frontier
 selection           keyed randomness, without replacement
 
@@ -592,7 +582,7 @@ far candidate churn size of the far selected-set symmetric difference
 
 scaling test        frozen for f ≤ 0.25, 25% relative residual criterion
 extreme ratio       frozen target −2.0, 25% relative tolerance
-full-evaluation     f = 1.00 and UNBOUNDED, hard zero at 1e-12
+full-evaluation     f = 1.0 and UNBOUNDED, hard zero at 1e-12
 ```
 
 **Dynamically matched amplification.** Intervention budget `96`, horizon 12 updates, 192 groups, 768 probes, same checkpoint and probe across arms.
@@ -627,14 +617,14 @@ The dynamically calibrated family is an experimental instrument, not the canonic
 | Claim | Status | Evidence |
 |---|---|---|
 | Partial evaluation produces outside-cone expected construction differences | **SUPPORTED** | signed far-field effects across the fraction sweep, both classes |
-| True unbounded evaluation gives exactly zero selector-mediated outside-local-rule-cone effect | **ASSERTION** | correctness identity of exhaustive per-branch evaluation; `f = 1.00` coincides here because the budget is referenced to the larger frontier |
+| True unbounded evaluation gives exactly zero selector-mediated outside-local-rule-cone effect | **SUPPORTED** | structural consequence of exhaustive per-branch evaluation, not an empirical estimate; `f = 1.0` coincides here because the budget is referenced to the larger frontier |
 | The outside-cone effect is produced by finite candidate selection | **SUPPORTED** | effect present under subsampling, absent exactly without it |
-| Fixed-budget selection conserves selected-slot count | **IDENTITY** | `Δ(selected far) = −Δ(selected near)` by construction of fixed-size selection |
-| The far-field difference equals swapped-candidate probability payload exactly | **IDENTITY** | shared-candidate contribution exactly `0` in all 37,625 records; residual zero to floating-point |
+| Fixed-budget selection conserves selected-slot count | **SUPPORTED** | exact identity by construction: `Δ(selected far) = −Δ(selected near)` under fixed-size selection |
+| The far-field difference equals swapped-candidate probability payload exactly | **SUPPORTED** | exact decomposition identity; shared-candidate contribution was exactly `0` in all 37,625 records, with residual zero to floating-point precision |
+| Lag-one background matching controls the continuing process | **INVALID** | design invalid: construction rates drifted by lags 2–12; this comparison was superseded by dynamic per-lag matching |
 | Low-budget far-field effect tracks −ΔF × f in the predeclared `f ≤ 0.25` regime | **SUPPORTED** | residuals 12.6% / 9.9% / 2.6% against the frozen 25% criterion |
 | Candidate displacement determines construction displacement | **FAILED** | similar churn (0.483 vs 0.446), opposite effects (−0.013 vs +0.213) |
 | The extreme classes follow a parameter-free −2:1 ratio | **UNRESOLVED** | sweep gives −4.15 / −3.54 / −2.21; actual ΔF ratio ≈ 2.36 |
-| Lag-one background matching controls the continuing process | **INVALID DESIGN** | construction rates drifted by lags 2–12; superseded |
 | Dynamic per-lag matching controls background construction | **SUPPORTED** | record-level pass fraction 1.0; all arm means within ±2% |
 | Strong subsampling changes mean 12-step causal consequence | **BOUNDED NEAR ZERO** | difference `+0.00130`, CI inside the declared ±0.15; achieved MDE `0.11536`, so ±0.10 was never resolvable |
 | Evaluation breadth changes the immediate pathway mixture among surviving interventions | **SUPPORTED** | exact decomposition over the 702 survival-conditioned probes: promotion `0.069→0.033`, shared shift `0.054→0.085` |

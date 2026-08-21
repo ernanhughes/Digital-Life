@@ -670,8 +670,7 @@ the difference dissipates, or goes somewhere
 
 This makes an interaction-generated account plausible: the consequence may depend on what the intervention changes in the subsequent process rather than on a scalar property stored at the intervention site.
 
-That is an interpretation to test, not yet a demonstrated mechanism.
- The analogy is useful if kept narrow: asking where the causal consequence is stored beforehand may be like asking where a traffic jam is stored before the interacting traffic produces it.
+That is an interpretation to test, not yet a demonstrated mechanism. The analogy is useful if kept narrow: asking where the causal consequence is stored beforehand may be like asking where a traffic jam is stored before the interacting traffic produces it.
 
 The safest version of the chapter's conclusion, and the one fully earned:
 

@@ -128,7 +128,7 @@ We do not need the stronger reuse-versus-expansion interpretation to keep this r
 
 The hypothesis had been more specific than *scheduling matters*. It predicted a clean two-sided tradeoff: high-support scheduling should meaningfully increase reuse, and low-support scheduling should meaningfully increase first occupation. Both arms had to clear magnitude thresholds fixed before the result was inspected.
 
-The reuse arm passed comfortably. High-support scheduling beat low-support scheduling by about `0.425` reoccupations per loss, against a required `0.150`.
+The reuse arm passed comfortably. High-support scheduling beat low-support scheduling by about `0.425` reoccupations per loss, against a required `0.15`.
 
 The expansion arm did not. Low-support scheduling beat high-support scheduling by about `61.6` first occupations per thousand evaluations, against a required `100` — roughly sixty-two percent of the declared meaningful magnitude. The effect was statistically detectable. It did not clear the scientific gate.
 
@@ -177,7 +177,7 @@ B = 96     -0.00268
 B = 128    -0.00280
 ```
 
-against a frozen requirement of `|slope| ≤ 0.00250`. The best of them, at `B = 80`, missed by two hundred-thousandths.
+against a frozen requirement of `|slope| ≤ 0.0025`. The best of them, at `B = 80`, missed by two hundred-thousandths.
 
 Close enough to tempt reinterpretation. Not close enough to pass the declared criterion.
 
@@ -261,7 +261,7 @@ One does not. And that failure is more informative than the stability of the agg
 
 ## Expansion Breaks the Pattern
 
-The component that breaks the full invariance claim is first occupation per unit population. At `B = 48` it runs `0.01806` from a small start, `0.01689` from a medium one and `0.01356` from a large one — a coefficient of variation of `0.118` against a frozen maximum of `0.100`. That gate fails.
+The component that breaks the full invariance claim is first occupation per unit population. At `B = 48` it runs `0.01806` from a small start, `0.01689` from a medium one and `0.01356` from a large one — a coefficient of variation of `0.118` against a frozen maximum of `0.10`. That gate fails.
 
 At gentler budgets the dependence weakens and the gate passes: `0.092` at `B = 64`, `0.077` at `B = 80`, `0.074` at `B = 96`, and `0.063` at `B = 128`.
 
@@ -385,14 +385,14 @@ Full confidence intervals, bootstrap summaries, randomization tests and per-run 
 | Finite evaluation opportunity constrains the population reached within the tested horizon | **SUPPORTED** | late population ~381 at `B=64` to ~3513 at `B=1024` |
 | Scheduling changes the material future at fixed budget | **SUPPORTED** | population 1131–1923 and reoccupation/loss 0.534–0.959 at `B=256` |
 | Evaluation opportunity was allocated between reuse and expansion independently of local-support effects | **NOT CLAIMED** | neighbour support enters both scheduling and attachment probability; no support-matched control was run |
-| High-support scheduling meaningfully increases reoccupation | **SUPPORTED** | high-minus-low advantage `0.425` against required `0.150` |
+| High-support scheduling meaningfully increases reoccupation | **SUPPORTED** | high-minus-low advantage `0.425` against required `0.15` |
 | Low-support scheduling produces the required expansion advantage | **FAILED** | low-minus-high advantage `61.6` against required `100` per 1000 evaluations |
 | The full two-sided allocation tradeoff holds | **FAILED** | one required arm failed |
-| Some tested finite budget produces stationary population with continuing turnover | **FAILED** | best slope `-0.00252` against frozen `±0.00250` criterion |
+| Some tested finite budget produces stationary population with continuing turnover | **FAILED** | best slope `-0.00252` against frozen `±0.0025` criterion |
 | Measured gross normalized turnover lies in a narrow band across tested budgets | **SUPPORTED** | `0.17066–0.17229`; between-budget CV `0.0030` |
 | That narrow band constitutes an independent substrate stability law | **NOT SUPPORTED** | much of the aggregate is predicted by fixed `δ = 0.08`, post-loss normalization and small net drift |
 | Loss, attachment and reoccupation fractions satisfy the frozen start-size sensitivity gate | **SUPPORTED** | each remains within the `0.10` CV threshold across tested start sizes and budgets |
-| First occupation is start-size insensitive under severe scarcity | **FAILED** | CV `0.118` at `B=48` against maximum `0.100` |
+| First occupation is start-size insensitive under severe scarcity | **FAILED** | CV `0.118` at `B=48` against maximum `0.10` |
 | The complete normalized process vector is invariant | **FAILED** | first occupation at `B=48` breaks the frozen criterion |
 | Reoccupation-related turnover and first occupation respond identically to scarcity | **NOT SUPPORTED** | first occupation shows greater start-size sensitivity under severe scarcity |
 | The crystal has metabolism, homeostasis or a sustainable body size | **NOT CLAIMED** | no target, controller, internal resource or set point exists |

@@ -756,18 +756,18 @@ The stricter subsets fall below the confirmatory design's 90% group-coverage req
 | Claim | Status | Evidence |
 |---|---|---|
 | Radius-4 selected regions show strong raw causal containment asymmetry | **SUPPORTED** | `M = 0.4402`, CI `[0.4194, 0.4614]`, SEI `0.15`, MDE80 `0.0268` |
-| Internal perturbations have high raw retention at radius 4 | **SUPPORTED AS MEASUREMENT** | mean retention `0.7755` |
-| External perturbations show lower raw inward penetration at radius 4 | **SUPPORTED AS MEASUREMENT** | mean penetration `0.3353` |
+| Internal perturbations have high raw retention at radius 4 | **SUPPORTED** | mean retention `0.7755` |
+| External perturbations show lower raw inward penetration at radius 4 | **SUPPORTED** | mean penetration `0.3353` |
 | Radius 4 is a privileged or characteristic spatial scale | **NOT ESTABLISHED** | descriptive score rises from `0.197` at `r=2` to `0.504` at `r=5` |
 | The scale sweep alone proves geometry caused V1 | **NOT CLAIMED** | sweep motivates the spatial null; it does not identify the cause by itself |
 | V2 matching is scientifically valid | **SUPPORTED / GATE PASSED** | all 192 groups covered, 1,151 pairs, outcome-blind same-checkpoint matching, match-quality gates passed |
-| Selected regions have positive excess modularity over the matched spatial null of at least `+0.10` | **BOUNDED BELOW SEI** | `M_excess = −0.0123`, CI `[−0.0327,+0.0072]`, MDE80 `0.0265` |
-| Selected regions are less modular than matched controls | **DIRECTION UNRESOLVED** | excess interval crosses zero |
+| Selected regions have positive excess modularity over the matched spatial null of at least `+0.10` | **INVALID** | `M_excess = −0.0123`, CI `[−0.0327,+0.0072]`, MDE80 `0.0265` |
+| Selected regions are less modular than matched controls | **INVALID** | excess interval crosses zero |
 | Internal retention shows positive excess over matched controls | **NOT ESTABLISHED** | `−0.0066 [−0.0222,+0.0093]` |
 | Resistance to external penetration shows positive privilege over matched controls | **NOT ESTABLISHED** | excess penetration `+0.0057 [−0.0101,+0.0216]` |
 | A system-privileged causal boundary was established | **NOT ESTABLISHED** | no meaningful excess over this frozen geometry-matched null |
-| Causal containment is the same thing as individuation | **FAILED AS INTERPRETATION** | matched controls reproduce the raw containment |
+| Causal containment is the same thing as individuation | **INVALID** | matched controls reproduce the raw containment |
 | No individual can exist in this substrate | **NOT CLAIMED** | one disk geometry, one radius for the confirmatory null, one horizon and one statistic |
-| Chapter 16 tests the hidden material state from Chapter 15 | **NO** | V1/V2 clear material state before causal-modularity measurement |
+| Chapter 16 tests the hidden material state from Chapter 15 | **INVALID** | V1/V2 clear material state before causal-modularity measurement |
 | Organism, self, agent, autonomy, life | **NOT ESTABLISHED** | outside the operational claim |
 | Near-overlap between selected and matched regions explains the near-zero V2 excess | **NOT SUPPORTED — POST-HOC ROBUSTNESS** | `M_excess` remains near zero under increasing center separation, strict disk non-overlap (`−0.0120 [−0.0502,+0.0277]`) and zero occupied-cell overlap (`−0.0061 [−0.0467,+0.0320]`); stricter subsets have reduced group coverage |
