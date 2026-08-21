@@ -11,9 +11,9 @@ has_colab = true
 chapter_status = "review"
 +++
 
-The previous chapter ended with a list rather than a conclusion, and that was deliberate. Here is what remains after every control, every matched null, every precision gate and every failed interpretation. The question now is what those survivors add up to.
+The previous chapter ended with a list of what survived the tests. Now we can ask what those results add up to.
 
-That is a different kind of question from the ones the book has been asking. Every earlier chapter tested whether a specific interpretation survived. This one looks across the survivors and asks what structure is visible — which is itself a new claim, and has to be labelled as one. The evidence is what it is. The pattern is an inference.
+The results are experimental. The pattern they suggest is an inference.
 
 ---
 
@@ -367,17 +367,7 @@ One influential organizational tradition in theoretical biology focuses not on c
 
 Montévil and Mossio describe biological organization in terms of **closure of constraints**. On their account, constraints act on underlying processes while also standing in relations of mutual dependence: they both depend on and contribute to maintaining one another. The system remains materially and energetically open, but its organization is not merely imposed as a one-way external structure.[^closure]
 
-That is already different from anything established in the Digital Crystal.
-
-A second comparison comes from NASA's long-used working definition:
-
-> **a self-sustaining chemical system capable of Darwinian evolution**
-
-NASA itself presents this as a working, non-binding formulation rather than a settled definition of life, and *self-sustaining* there concerns the system containing what its Darwinian evolution requires. It should not be read as another name for generic causal persistence or for independence from an environment.[^nasa]
-
-So these traditions reach the problem from different directions, and neither should be collapsed into the process-first proposal developed here.
-
-But both make the same gap easier to see.
+That is different from anything established in the Digital Crystal, but it makes the missing piece in our process-first formulation easier to see.
 
 Consider the database counterexample.
 
@@ -449,8 +439,6 @@ And even then, it would be another measured property.
 Not yet life.
 
 [^closure]: Montévil, M. and Mossio, M. (2015). "Biological organisation as closure of constraints." *Journal of Theoretical Biology* 372, 179–191.
-
-[^nasa]: NASA, "Life on Other Planets: What is Life and What Does It Need?", science.nasa.gov. The formulation is usually traced to a 1994 NASA exobiology working group and is presented as a working definition rather than a settled one.
 
 ---
 
