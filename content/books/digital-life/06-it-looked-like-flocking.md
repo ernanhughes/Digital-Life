@@ -4,9 +4,11 @@ date = "2026-08-14T10:30:00+01:00"
 draft = false
 description = "Nearby Outlier structures move coherently. A spectacular ancestry effect survives multiple controls, then collapses when distance, time and local density are finally compared fairly."
 weight = 6
-series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Artificial Life", "Outlier", "Collective Motion", "Causality", "Controls", "Confounds", "Experimental Method"]
+series = ["Digital Life From First Principles"]
+has_colab = true
+chapter_status = "final"
 +++
 
 The previous chapter ended with a warning: a deliberately simple swarm could look organized, move coherently and preserve a measured regime without giving us anything we were prepared to call digital life.

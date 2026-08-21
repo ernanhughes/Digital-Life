@@ -7,6 +7,8 @@ weight = 18
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Synthesis", "Experimental Method"]
 series = ["Digital Life From First Principles"]
+has_colab = true
+chapter_status = "review"
 +++
 
 The previous chapter ended with a list rather than a conclusion, and that was deliberate. Here is what remains after every control, every matched null, every precision gate and every failed interpretation.

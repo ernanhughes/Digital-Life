@@ -4,9 +4,10 @@ date = "2026-08-14T10:00:00+01:00"
 draft = false
 description = "Persistence is not reproduction. In a binary cellular automaton whose rule was found without explicitly searching for self-replication, apparent copying survives a causal test — within carefully bounded claims."
 weight = 4
-series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Artificial Life", "Outlier", "Cellular Automata", "Self-Replication", "Causality", "Ancestry", "Experimental Method"]
+series = ["Digital Life From First Principles"]
+has_colab = true
 chapter_status = "final"
 +++
 

@@ -7,6 +7,8 @@ weight = 14
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Finite Computation", "Causality", "Experimental Method"]
 series = ["Digital Life From First Principles"]
+has_colab = true
+chapter_status = "review"
 +++
 
 The last chapter ended with a causal difference it could measure but could not explain.

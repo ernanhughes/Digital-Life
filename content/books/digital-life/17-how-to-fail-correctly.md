@@ -7,6 +7,8 @@ weight = 17
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Experimental Method", "Epistemology"]
 series = ["Digital Life From First Principles"]
+has_colab = true
+chapter_status = "review"
 +++
 
 The most dangerous result in this book was not a noisy one.

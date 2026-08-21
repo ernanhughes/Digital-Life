@@ -7,6 +7,8 @@ weight = 9
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Material State", "Causality", "Path Dependence", "Experiments"]
 series = ["Digital Life From First Principles"]
+has_colab = true
+chapter_status = "review"
 +++
 
 At the end of the last chapter the Digital Crystal had a past with real consequences and nowhere inside itself to keep it.

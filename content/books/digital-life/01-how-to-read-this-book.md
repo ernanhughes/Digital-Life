@@ -4,9 +4,9 @@ date = "2026-08-14T08:30:00+01:00"
 draft = false
 description = "Digital Life is a scientific investigation with a readable narrative above a reproducible experimental record. This chapter explains how to move between the argument, the evidence, and the underlying code."
 weight = 1
-series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Experimental Method", "Evidence", "Controls", "Reproducibility", "Scientific Method"]
+series = ["Digital Life From First Principles"]
 has_colab = false
 chapter_status = "final"
 +++

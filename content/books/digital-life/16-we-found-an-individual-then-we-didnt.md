@@ -7,6 +7,8 @@ weight = 16
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Causality", "Individuality", "Experimental Method"]
 series = ["Digital Life From First Principles"]
+has_colab = true
+chapter_status = "review"
 +++
 
 The *Is There Actually One Thing Here?* chapter asked whether visible geometry marked a privileged boundary, and failed twice to establish one.

@@ -7,6 +7,8 @@ weight = 11
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Scarcity", "Turnover", "Computation", "Experiments"]
 series = ["Digital Life From First Principles"]
+has_colab = true
+chapter_status = "review"
 +++
 
 The last chapter ended with an impressive number and a suspicion about it. Under its exact-count experiment, roughly `0.94–0.96` reoccupation events were observed per loss event, and more than ninety-three percent of distinct lost locations returned at least once within the finite run. Among the returns we observed, the typical delay was only a step or two — and all of it happened through the ordinary growth rule encountering ordinary empty sites.

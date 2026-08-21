@@ -7,6 +7,8 @@ weight = 12
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Causality", "Boundaries", "Process", "Experiments"]
 series = ["Digital Life From First Principles"]
+has_colab = true
+chapter_status = "review"
 +++
 
 The last chapter ended with a suspicion about a word.

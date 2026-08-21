@@ -7,6 +7,8 @@ weight = 10
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Material Loss", "Turnover", "Reoccupation", "Experiments"]
 series = ["Digital Life From First Principles"]
+has_colab = true
+chapter_status = "review"
 +++
 
 The last chapter ended with a mechanism and a constraint. Experience could write a persistent local change into the material of the crystal, and that change could bias what got built nearby — but only while it remained inside the moving causal aperture.
@@ -19,13 +21,17 @@ Since the Digital Crystal was first defined, one transition has existed — `EMP
 
 That assumption is so basic that we barely treated it as an assumption at all, and yet it has shaped every Crystal experiment since the substrate was introduced.
 
-So this chapter adds exactly one rule — `OCCUPIED → EMPTY`, with some small probability.
+So this chapter changes exactly one rule:
 
-Nothing else. No repair mechanism, no maintenance controller, no damage detector, no energy, no resources, no metabolism, no target morphology. The growth rule is untouched, and the crystal gains no new state and no new ability to notice anything.
+`OCCUPIED → EMPTY`
 
-Just loss.
+with some small probability.
 
-Then we find out what ordinary Digital Crystal dynamics do in a world where material is no longer guaranteed to stay.
+Everything else remains as before. The growth rule is unchanged, and the crystal gains no mechanism for repair, maintenance or damage detection. We do not add resources, metabolism or a target morphology, and the crystal acquires no new state with which to respond to loss.
+
+Material can simply disappear.
+
+Then we ask what ordinary Digital Crystal dynamics do in a world where persistence is no longer guaranteed.
 
 ---
 

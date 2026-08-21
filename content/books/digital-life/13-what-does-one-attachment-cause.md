@@ -7,6 +7,8 @@ weight = 13
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Causality", "Intervention", "Experimental Method"]
 series = ["Digital Life From First Principles"]
+has_colab = true
+chapter_status = "review"
 +++
 
 The last chapter took away the body's privilege.

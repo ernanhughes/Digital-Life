@@ -7,6 +7,7 @@ weight = 8
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "State", "History", "Checkpointing", "Causality", "Counterfactuals"]
 series = ["Digital Life From First Principles"]
+has_colab = true
 chapter_status = "final"
 +++
 

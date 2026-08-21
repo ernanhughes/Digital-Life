@@ -4,9 +4,10 @@ date = "2026-08-14T11:00:00+01:00"
 draft = false
 description = "We build the smallest laboratory that will hold an experiment: one seed, a hexagonal lattice, local attachment. Then we let an environment touch it and ask what the finished structure still carries."
 weight = 7
-series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Artificial Life", "Digital Crystal", "Crystal Growth", "Morphology", "Information", "Experimental Method"]
+series = ["Digital Life From First Principles"]
+has_colab = true
 chapter_status = "final"
 +++
 

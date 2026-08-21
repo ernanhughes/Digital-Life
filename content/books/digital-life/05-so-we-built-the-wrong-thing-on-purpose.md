@@ -4,9 +4,10 @@ date = "2026-08-14T10:30:00+01:00"
 draft = false
 description = "Before trusting our own tests, we built a deliberately simple decoy and attacked it with them. Visible form wandered, heavy positional damage failed to separate cleanly from ordinary variation, and every exact relationship could be replaced without producing a reliably larger macrostate shift than the control's own variation."
 weight = 5
-series = ["Digital Life From First Principles"]
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Artificial Life", "Adversarial Calibration", "Swarm", "Persistence", "Dose Response", "Pre-declared Criteria", "Experimental Method", "Confounds"]
+series = ["Digital Life From First Principles"]
+has_colab = true
 chapter_status = "final"
 +++
 

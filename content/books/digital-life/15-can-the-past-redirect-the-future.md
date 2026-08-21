@@ -7,6 +7,8 @@ weight = 15
 categories = ["Programming", "Artificial Life"]
 tags = ["Digital Life", "Digital Crystal", "Causality", "History Dependence", "Experimental Method"]
 series = ["Digital Life From First Principles"]
+has_colab = true
+chapter_status = "final"
 +++
 
 The last two chapters have narrowed the question to one local event.
@@ -147,9 +149,7 @@ The immediate expected causal response was computed from the branch probabilitie
 ΔE₁ (accessible − remote) ≈ −0.0182
 ```
 
-with a narrow interval entirely below zero.
-
-Accessible hidden material **reduced** the immediate causal response.
+with a narrow interval entirely below zero, so accessible hidden material **reduced** the immediate causal response.
 
 Which is backwards. The material gain is positive; the material raises attachment probabilities. Adding it should, on the obvious reading, make the perturbation matter more, not less.
 
@@ -299,9 +299,7 @@ The corrected run used 192 groups and 564 supported probes, and passed every val
 ΔE₁ (accessible − remote) = −0.01499     95% CI [−0.01725, −0.01281]
 ```
 
-Same sign, with a slightly smaller magnitude.
-
-The immediate hidden-state modulation survives the corrected intervention and control design.
+Same sign, with a slightly smaller magnitude — the immediate hidden-state modulation survives the corrected intervention and control design.
 
 So the sensitivity reduction is not an artifact of the broken PREVENT semantics, not an artifact of the old remote placement, and not the calibration leak. With visible geometry matched and the intervention properly implemented, hidden material state changes the immediate causal response of the same perturbation.
 
@@ -330,11 +328,7 @@ And here the frozen decision rule does something that a looser protocol would ha
 
 ## Direction Is Not Magnitude
 
-The predeclared smallest effect of interest was `±0.15`.
-
-The result separates two questions cleanly.
-
-For the expected estimator:
+The predeclared smallest effect of interest was `±0.15`. The result separates two questions cleanly, and for the expected estimator:
 
 ```text
 mean       −0.397
@@ -345,16 +339,14 @@ The interval lies entirely below zero, so the **negative direction is supported*
 
 But its upper endpoint, `−0.119`, still includes effects whose magnitude is smaller than `0.15`. The interval therefore does not establish the predeclared minimum magnitude.
 
-The frozen protocol also required sufficient prospective precision:
+The frozen protocol also required sufficient prospective precision, and that gate fails as well:
 
 ```text
 achieved MDE80     ≈ 0.357
 required           ≤ 0.150
 ```
 
-That gate fails as well.
-
-So:
+So those are compatible statements:
 
 ```text
 DIRECTION
@@ -363,8 +355,6 @@ SUPPORTED
 PREDECLARED MINIMUM MAGNITUDE
 UNRESOLVED
 ```
-
-Those are compatible statements.
 
 Calling the whole hypothesis **SUPPORTED** would claim a minimum magnitude the experiment did not resolve.
 
@@ -456,9 +446,7 @@ versus
 consequences already embedded in changed downstream states
 ```
 
-Both may contribute.
-
-What is directly measured is narrower:
+Both may contribute, but what is directly measured is narrower:
 
 > **The cumulative causal difference continues to change after the original material trace has substantially weakened.**
 
@@ -636,28 +624,10 @@ statistical unit        group; bootstrap percentile intervals
 
 ## Where Does This State-Conditioned Process End?
 
-We have now established something that earlier chapters had not.
+We have now established something that earlier chapters had not: with visible geometry matched, experimentally written hidden material state can change the response to the same perturbation, and in the corrected V2 sample, the cumulative causal difference continues changing after that material trace has substantially weakened.
 
-With visible geometry matched, experimentally written hidden material state can change the response to the same perturbation.
+That is not yet memory. It is a demonstrated **hidden-state causal response** plus a descriptive trajectory result — to call it endogenous history dependence, the crystal would still have to generate the relevant hidden state from its own past, and no retrieval or history-specific decoding has been demonstrated.
 
-And in the corrected V2 sample, the cumulative causal difference continues changing after that material trace has substantially weakened.
-
-That is not yet memory.
-
-It is a demonstrated **hidden-state causal response** plus a descriptive trajectory result. To call it endogenous history dependence, the crystal would still have to generate the relevant hidden state from its own past.
-
-No retrieval or history-specific decoding has been demonstrated.
-
-Which sharpens a question the book has left open twice.
-
-The *Is There Actually One Thing Here?* chapter looked for a privileged boundary around the connected crystal and failed to find one, twice: no scale showed excess predictive coherence beyond a family null, and the candidate outer boundary localized causal effects no better than a circle drawn arbitrarily through the interior. What survived was spatial causal locality — consequences stay near their causes — which is true of any local field and establishes nothing about individuals.
-
-But *Is There Actually One Thing Here?* tested regions defined primarily by geometry.
-
-We now have a better experimental target.
-
-Instead of asking whether a region is special because its outline looks object-like, ask whether perturbations originating inside it are preferentially contained there — and whether perturbations originating outside penetrate it less — **beyond what geometry alone predicts**.
-
-That reopens the boundary question without assuming in advance that there is an object, a process or an individual waiting to be found.
+Which sharpens a question the book has left open twice. The *Is There Actually One Thing Here?* chapter looked for a privileged boundary around the connected crystal and failed to find one, twice: no scale showed excess predictive coherence beyond a family null, and the candidate outer boundary localized causal effects no better than a circle drawn arbitrarily through the interior. What survived was spatial causal locality — consequences stay near their causes — which is true of any local field and establishes nothing about individuals. But that chapter tested regions defined primarily by geometry, and we now have a better experimental target: instead of asking whether a region is special because its outline looks object-like, ask whether perturbations originating inside it are preferentially contained there — and whether perturbations originating outside penetrate it less — **beyond what geometry alone predicts**. That reopens the boundary question without assuming in advance that there is an object, a process or an individual waiting to be found.
 
 > **Is there a region whose causal containment exceeds what its geometry alone would predict?**
