@@ -13,17 +13,9 @@ chapter_status = "final"
 
 The previous chapter ended with a warning: a deliberately simple swarm could look organized, move coherently and preserve a measured regime without giving us anything we were prepared to call digital life.
 
-Then we went back to Outlier.
+We then went back to Outlier and almost immediately saw structures moving together — not merely outward with the expanding front, but with what looked like stronger coordination among structures sharing recent causal history. The biological noun arrived immediately: **flocking**.
 
-And almost immediately saw structures moving together.
-
-Not merely outward with the expanding front. Together — with what looked like stronger coordination among structures sharing recent causal history.
-
-The biological noun arrived immediately.
-
-**Flocking.**
-
-This time we knew exactly how dangerous the picture was.
+This time we knew how dangerous the picture was.
 
 But Outlier gave us a reason to investigate rather than dismiss it. Published work had already established causal self-replication in this automaton,[1][2] and our smaller reconstruction had recovered branching causal recurrence under its stated criterion. We already had a causal graph, so motion and ancestry could be measured separately.
 
@@ -84,19 +76,11 @@ One distinction runs through the whole chapter. *Short-range directional alignme
 
 ## The First Result
 
-At short range, the result was strong. Observed directional alignment was approximately:
-
-```text
-0.74
-```
-
-on a scale from `-1` to `+1`. A velocity-shuffled control was much lower.
+At short range, the result was strong. Observed directional alignment was approximately: `0.74` on a scale from `-1` to `+1`. A velocity-shuffled control was much lower.
 
 {{< figure src="/images/books/digital-life/ch10-outlier-flocking-test.png" caption="Nearby persistent structures exhibit much stronger directional alignment than a shuffled velocity control." >}}
 
-So the visual impression was not imaginary. Nearby tracked structures in this run really did move coherently.
-
-That is the observation. The explanation remained open.
+So the visual impression was not imaginary. Nearby tracked structures in this run really did move coherently. That is the observation. The explanation remained open.
 
 ---
 
@@ -104,11 +88,7 @@ That is the observation. The explanation remained open.
 
 Outlier expands, and that immediately gives us an obvious alternative explanation. Structures sitting on the same expanding front may have similar velocities simply because they are being carried outward together. Two pieces of debris riding the same circular wave can have beautifully aligned motion without ever interacting.
 
-If that explained the result, our `0.74` would amount to an elaborate measurement of the fact that Outlier grows.
-
-So we removed the radial component of each structure's motion — the part pointing directly away from the centre of expansion — and measured alignment again using only what remained. If global expansion alone explained the coherence, the effect should collapse.
-
-It did not.
+If that explained the result, our `0.74` would amount to an elaborate measurement of the fact that Outlier grows. So we removed the radial component of each structure's motion — the part pointing directly away from the centre of expansion — and measured alignment again using only what remained. If global expansion alone explained the coherence, the effect should collapse. It did not.
 
 ```text
 raw short-range alignment        0.7373
@@ -124,11 +104,7 @@ One simple explanation had failed:
 
 > **Global radial expansion alone does not explain the observed coherence.**
 
-That made the phenomenon more interesting. It still did not make it flocking.
-
-We needed an explanation for why nearby structures moved together. Outlier already gave us one possibility the decoy swarm did not.
-
-Ancestry.
+That made the phenomenon more interesting. It still did not make it flocking. We needed an explanation for why nearby structures moved together. Outlier already gave us one possibility the decoy swarm did not. Ancestry.
 
 ---
 
@@ -142,40 +118,11 @@ If they did, the motion might reflect some continuing causal organization rather
 
 To test that, we assigned each cluster its most recent identifiable `c2` ancestor. A `c2` cluster began a new family; otherwise the label propagated through the causal graph.
 
-Coverage was extremely high. Of:
-
-```text
-138,891 clusters
-```
-
-we assigned a recent `c2` ancestor to:
-
-```text
-138,132
-```
-
-with:
-
-```text
-10 ambiguous
-749 unassigned
-```
-
-Of the `633,808` motion observations:
-
-```text
-633,696
-```
-
-carried a family label.
+Coverage was extremely high. Of `138,891` clusters, `138,132` were assigned a recent `c2` ancestor. Of the `633,808` motion observations, `633,696` carried a family label.
 
 {{< figure src="/images/books/digital-life/ch11-outlier-family-coverage.png" caption="Almost every tracked moving structure in this single-seed experiment can be associated with a recent c2 causal ancestor." >}}
 
-That gave us an unusually complete ancestry label for the moving structures.
-
-It explained nothing by itself. A useful label is not an explanation.
-
-So we compared motion.
+That gave us an unusually complete ancestry label for the moving structures. It explained nothing by itself. A useful label is not an explanation. So we compared motion.
 
 ---
 
@@ -188,15 +135,7 @@ same recent-c2 family          0.828
 different recent-c2 family   -0.349
 ```
 
-Same-family structures appeared strongly aligned. Different-family structures appeared strongly anti-aligned.
-
-For a moment it looked as though causal families were behaving like distinct dynamical units.
-
-But the negative number was too good. Our hypothesis predicted stronger alignment among relatives. It did not predict that unrelated families should actively move against one another.
-
-That was the clue.
-
-Our experiment was wrong.
+Same-family structures appeared strongly aligned. Different-family structures appeared strongly anti-aligned. For a moment it looked as though causal families were behaving like distinct dynamical units. But the negative number was too good. Our hypothesis predicted stronger alignment among relatives. It did not predict that unrelated families should actively move against one another. That was the clue. Our experiment was wrong.
 
 ---
 
@@ -234,11 +173,7 @@ flowchart TD
     F --> G
 ```
 
-We had built anti-correlation into the estimator. The `-0.349` was not evidence that different causal families opposed one another. It was partly a property of our arithmetic. The measurement was using the tested pair to manufacture the background against which that same pair was evaluated.
-
-The control itself had become a confound.
-
-That is worth remembering. Controls are not external guarantees that an experiment is correct. They are part of the experimental machinery, and they can be wrong too.
+We had built anti-correlation into the estimator. The `-0.349` was not evidence that different causal families opposed one another. It was partly a property of our arithmetic. The measurement was using the tested pair to manufacture the background against which that same pair was evaluated. The control itself had become a confound. That is worth remembering. Controls are not external guarantees that an experiment is correct. They are part of the experimental machinery, and they can be wrong too.
 
 ---
 
@@ -246,9 +181,7 @@ That is worth remembering. Controls are not external guarantees that an experime
 
 The repair was straightforward once we could see the problem. When testing a pair drawn from families α and β, we estimated the local background while excluding **both** families. Now neither member of the tested pair could help manufacture the other's residual.
 
-The pathological negative result disappeared.
-
-Unfortunately, the ancestry effect did not. The corrected analysis gave:
+The pathological negative result disappeared. Unfortunately, the ancestry effect did not. The corrected analysis gave:
 
 ```text
 same recent c2 ancestor        0.746
@@ -262,15 +195,7 @@ The first category means that the pair shares the same most recent identified `c
 
 {{< figure src="/images/books/digital-life/ch11-outlier-relatedness-coherence.png" caption="Before distance matching, motion coherence appears far higher for structures sharing the same recent c2 ancestor than for more distant genealogical relationships. This apparent effect does not survive the fair comparison later in the chapter." >}}
 
-The estimator bug was real, and fixing it removed the artificial anti-alignment. But the main contrast still looked enormous. The nearest different-family category sat around `0.101` while same-family pairs sat at `0.746` — an apparent gap of:
-
-```text
-0.645
-```
-
-on a scale bounded at `1.0`.
-
-By now the ancestry explanation had survived:
+The estimator bug was real, and fixing it removed the artificial anti-alignment. But the main contrast still looked enormous. The nearest different-family category sat around `0.101` while same-family pairs sat at `0.746` — an apparent gap of: `0.645` on a scale bounded at `1.0`. By now the ancestry explanation had survived:
 
 ```text
 a shuffled-motion control
@@ -279,9 +204,7 @@ a discovered estimator bug
 a corrected estimator
 ```
 
-It looked increasingly convincing.
-
-And then we checked distance.
+It looked increasingly convincing. And then we checked distance.
 
 ---
 
@@ -353,11 +276,7 @@ different-family     0.1588
 difference          -0.0073
 ```
 
-The ancestry advantage was gone. After matching on time, distance and local density, same-family pairs no longer showed additional positive coherence. The point estimate was slightly negative.
-
-That should have been the end.
-
-It was not. Matching can only answer questions where comparable observations actually exist, and we had not yet checked where that was true.
+The ancestry advantage was gone. After matching on time, distance and local density, same-family pairs no longer showed additional positive coherence. The point estimate was slightly negative. That should have been the end. It was not. Matching can only answer questions where comparable observations actually exist, and we had not yet checked where that was true.
 
 ---
 
@@ -438,13 +357,7 @@ The raw positive difference of `+0.0566` became `-0.0071` after matching.
 
 {{< figure src="/images/books/digital-life/ch11-outlier-distance-matched-coherence.png" caption="Inside the matched comparison, same-family and different-family motion coherence are essentially indistinguishable." >}}
 
-A second summary gives every matched stratum equal weight rather than allowing larger strata to contribute more heavily. That estimate was:
-
-```text
--0.026463
-```
-
-Bootstrapping the `659` stratum-level effects gave:
+A second summary gives every matched stratum equal weight rather than allowing larger strata to contribute more heavily. That estimate was: `-0.026463`. Bootstrapping the `659` stratum-level effects gave:
 
 ```text
 95% stratum-bootstrap interval
@@ -547,9 +460,7 @@ Nothing in the ancestry analysis removes those observations. What collapsed was 
 
 And the surviving phenomenon is still remarkable when we remember what Outlier contains at the substrate level: binary cells, local neighborhoods, one deterministic update rule. There is no velocity variable. No steering force. No alignment rule. No flocking controller. Nothing in the rule's 512 bits mentions direction, neighbours-to-follow, or collective behaviour of any kind.
 
-Yet structures arise whose motion is strongly coherent at short range, and the effect remains after removing the most obvious global explanation.
-
-The bounded result is therefore:
+Yet structures arise whose motion is strongly coherent at short range, and the effect remains after removing the most obvious global explanation. The bounded result is therefore:
 
 > **In this run, detected persistent structures exhibit strong short-range directional alignment, and global radial expansion alone does not explain that alignment.**
 
@@ -624,17 +535,7 @@ But something simple enough that if any of those appear, we can ask what produce
 
 Outlier showed us that surprising causal organization can arise without us explicitly programming the organization itself. This chapter showed the other side of that richness. When geometry, ancestry, motion, expansion and environment emerge together, discovering a phenomenon can be easier than identifying its cause.
 
-So we are going back to almost nothing.
-
-One seed.
-
-One world.
-
-One rule.
-
-One question at a time.
-
-The next experiment begins with a crystal.
+So we go back to a simpler system and change one thing at a time. The next experiment begins with a crystal.
 
 ---
 
@@ -665,13 +566,7 @@ Of `138,891` clusters:
 749 unassigned
 ```
 
-Of `633,808` motion observations:
-
-```text
-633,696
-```
-
-carried a family label.
+Of `633,808` motion observations: `633,696` carried a family label.
 
 An earlier family definition using four descendants of one early `c2` produced too few different-family comparisons and was not used for the final analysis.
 

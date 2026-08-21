@@ -22,14 +22,14 @@ Examples:
 Expected edit format:
 
     **Current Text:**
-    ````
+    ```
     text from the chapter, approximately
-    ````
+    ```
 
     **Recommended Change:**
-    ````
+    ```
     replacement text, or CUT THIS / DELETE THIS / REMOVE THIS
-    ````
+    ```
 """
 
 from __future__ import annotations

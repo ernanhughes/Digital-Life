@@ -109,11 +109,7 @@ Look at the sentences already used in this chapter.
 
 The word **it** is carrying an enormous amount of unearned weight. Before saying that something persists, we need a rule for deciding that the pattern at time *t* and the pattern at time *t+1* are instances of the same continuing organization. That rule might be based on shape similarity, or location, or trajectory, or internal structure, or causal continuity, or something we have not thought of.
 
-We do not have that rule yet. Visual continuity is enough to raise the question. It is nowhere near enough to settle it.
-
-So we will use geometry while it works, and replace it if the experiments force us to.
-
-A discipline that helps: keep two descriptions of the same event side by side.
+We do not have that rule yet. Visual continuity is enough to raise the question. It is nowhere near enough to settle it. So we will use geometry while it works, and replace it if the experiments force us to. A discipline that helps: keep two descriptions of the same event side by side.
 
 | The tempting description | The operational description |
 |---|---|

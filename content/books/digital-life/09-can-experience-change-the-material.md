@@ -542,7 +542,7 @@ But significance was only one of the criteria we had declared. On the two magnit
 
 ```text
 population gate     0.44%      required 1.00%
-seed-noise gate     0.383 SD   required 0.500 SD
+seed-noise gate     0.383 SD   required 0.5 SD
 ```
 
 ```text
@@ -631,7 +631,7 @@ different spatial organization
 
 Then both histories receive the same later challenge.
 
-[INSERT ONE-SENTENCE PHYSICAL DESCRIPTION OF THE CHALLENGE FROM THE EXPERIMENTAL REPORT — the probe-specificity caveat later in this section cannot be read without it]
+The common challenge was a one-step increase of `0.65` in the environmental input at the start of a four-step response window; after that, both branches returned to the same ordinary environmental sequence, and the challenge itself wrote no new material.
 
 The challenge contains no history label and no A/B-specific decoding rule.
 
@@ -661,15 +661,16 @@ cumulative material B       78.5
 
 Their spatial organizations remained measurably different throughout retention.
 
-The predeclared directional diagnostic remained separated at the pre-challenge checkpoint:
+At the pre-challenge checkpoint, the predeclared modified-orientation diagnostic — the mean angle of the `MODIFIED` cells around the crystal centre — remained separated:
 
 ```text
-[INSERT EXACT DIRECTIONAL-DIAGNOSTIC NAME AND A/B VALUES FROM THE EXPERIMENTAL REPORT]
+history A    -0.1323 radians
+history B    +0.3298 radians
 ```
 
-That measurement matters: equal material quantity does not establish different spatial histories.
+That matters because equal material quantity alone does not establish different spatial histories. Here the same amount of modified material remained arranged differently when the challenge arrived.
 
-And the material had not been buried. At the end of retention, the fraction of the active frontier still in contact with modified material was approximately:
+The material had not been buried either. At the end of retention, the fraction of the active frontier still in contact with modified material was approximately:
 
 ```text
 history A     0.215
@@ -690,14 +691,14 @@ both remained exposed to the causal aperture
 primary material-mediated interaction     0.000431
 confidence interval                       [−0.000380, +0.001235]
 directional test                          p ≈ 0.163
-against seed noise                        0.033 SD  (required 0.500 SD)
+against seed noise                        0.033 SD  (required 0.5 SD)
 ```
 
 ```text
 FAILED
 ```
 
-This is not a near miss on the declared scale. The interval straddles zero, and the estimated material-mediated interaction is only `0.033` standard deviations of ordinary seed-to-seed variation against a predeclared requirement of `0.500 SD`. There is nothing here to promote and nothing in the frozen experiment to rescue.
+This is not a near miss on the declared scale. The interval straddles zero, and the estimated material-mediated interaction is only `0.033` standard deviations of ordinary seed-to-seed variation against a predeclared requirement of `0.5 SD`. There is nothing here to promote and nothing in the frozen experiment to rescue.
 
 Many additional probes are possible — different spatial organizations, different challenge geometries, different timings — but each would be a new experiment. Searching variations until one succeeds would answer a different question from the one we declared, so this mechanism family stops here.
 
@@ -791,7 +792,7 @@ In the symbolic history-discrimination experiment, interaction magnitude was eva
 
 The later non-symbolic experiment removed the A/B decoder, kept one `MODIFIED` material state, matched propagated quantity, and compared two spatially distinct histories under the same later challenge. A label-erased control at the pre-challenge checkpoint was used to subtract differences attributable to geometry already produced by those histories.
 
-[INSERT PER-BRANCH SAMPLE SIZES FOR BOTH HISTORY-DISCRIMINATION EXPERIMENTS — a magnitude gate stated in units of seed-to-seed variation cannot be read without the number of seeds.]
+Both history-discrimination experiments used 96 independently seeded experimental groups for the primary comparison, giving `n = 96` paired interaction measurements in each experiment. The seed-to-seed noise scale used for the `0.5 SD` magnitude gate was estimated separately from 200 independently seeded control groups in each case.
 
 Exact write rules, material-effect coefficients, challenge parameters, bootstrap procedures, directional tests and raw per-seed results remain part of the accompanying experimental record.
 
@@ -815,8 +816,8 @@ One row below is not yet evidenced: the spatial-distinguishability result is rec
 | Accessibility feeds back strongly enough to sustain itself | **NOT SUPPORTED** | no reliable increase in total transmissions |
 | Temporal alignment broadly improves accessibility | **NOT SUPPORTED** | narrow leverage signal only |
 | Timing produces a general causal-efficiency advantage | **NOT SUPPORTED** | broad predeclared claim not met |
-| Symbolic A/B labels produce a scientifically meaningful history response | **FAILED** | normalized effect `0.00440`, `p ≈ 0.00025`, but `0.383 SD` against required `0.500 SD` |
-| Two histories remain spatially distinguishable | **SUPPORTED** | [INSERT DIRECTIONAL-DIAGNOSTIC NAME AND PRE-CHALLENGE A/B RESULT] |
+| Symbolic A/B labels produce a scientifically meaningful history response | **FAILED** | normalized effect `0.00440`, `p ≈ 0.00025`, but `0.383 SD` against required `0.5 SD` |
+| Two histories remain spatially distinguishable | **SUPPORTED** | modified-orientation diagnostic at the pre-challenge checkpoint: A = `-0.1323` rad, B = `+0.3298` rad |
 | Distinguishable histories remain frontier-accessible | **SUPPORTED** | contact fraction ≈ `0.215` / `0.219` at end of retention |
 | Non-symbolic history produces a scientifically meaningful challenge response | **FAILED** | effect `0.000431`, `p ≈ 0.163`, `0.033 SD` |
 | No possible later probe could distinguish the two spatial histories | **NOT CLAIMED** | only the frozen common challenge was tested |

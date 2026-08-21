@@ -373,7 +373,7 @@ The real sender stream performs better than the shuffled version:
 ```text
 real minus shuffled       ≈ +0.294
 pairwise superiority      ≈  0.980
-````
+```
 
 Here, *pairwise superiority* is the probability that a randomly selected real-stream result exceeds a randomly selected control result, with ties counting half.
 
@@ -692,7 +692,7 @@ The two histories did not produce identical crystals. Immediately after the fina
 
 ```text
 0.053     [0.048, 0.059]
-````
+```
 
 So the interior arrangement of the pulses had real causal consequences. Rearranging when the bits arrived changed what the receiver became.
 

@@ -13,17 +13,13 @@ chapter_status = "final"
 
 The previous chapter ended with a specification: known rules, controlled interventions, one mechanism varied at a time, a history we can follow. That is the laboratory we will eventually need, and building it is most of the work still ahead.
 
-Before building it, there is a cheaper question.
-
-Are our tests any good?
+Before building it, there is a cheaper question: **are our tests any good?**
 
 That is not an idle worry. The last chapter produced the first positive result in this book — a bounded one, but a real one. Structural recurrence intersected with causal ancestry, and a causal claim survived a test we had not designed to make it pass.
 
 Which is exactly the moment at which standards slip. Once one exciting claim has passed a test, the next exciting claim arrives with that test's reputation already attached to it. The instrument acquires authority it has not separately earned, and it becomes easier to overlook when it reads high.
 
-There is a standard laboratory response to this, and it is not merely to be more careful.
-
-Challenge the instrument with something that should not support the interpretation you care about.
+The standard laboratory response is to challenge the instrument with something that should not support the interpretation you care about.
 
 So we spent this chapter building a system we did not believe in, and attacking it with our own evidence. It passed more of those tests than it had any right to. Violent positional damage did not reliably push it outside its measured regime. Nor did replacing every exact relationship in the system. On the way it produced one beautiful false result that we came close to believing.
 
@@ -101,9 +97,7 @@ Why should persistence require that?
 
 We stopped measuring distance from a privileged configuration. Instead we described each state by nineteen macroscopic features — size, elongation, speed, and a set of distance statistics — and asked a different question.
 
-Not: does the system return to one picture?
-
-But: does the system stay inside its characteristic range of macroscopic states?
+The new question was whether the system stayed inside its characteristic range of macroscopic states rather than returning to one particular picture.
 
 That question needs a baseline, because the control moves around by itself. So before damaging anything we measured how much. We cut the untouched run into time blocks and asked how far apart those blocks were. That gave us a number for how much the system changes when nothing is done to it at all.
 
@@ -119,7 +113,7 @@ median distance, first to last       2.284
 ratio                                0.953 ×
 ```
 
-They did not. The pictures changed radically; the statistical regime showed no corresponding cumulative drift across the observed window.
+They did not: the pictures changed radically, while the statistical regime showed no corresponding cumulative drift across the observed window. OK
 
 ```text
 same visible state
@@ -177,9 +171,7 @@ Two of eight runs exceeded ordinary variation. One exceeded twice it.
 
 So the attractive sentence died — *visible material can be disrupted, but persistence lives in the relationship graph.* Nearly a third of the exact relationship assignments had been replaced, and the resulting macrostate distributions still did not reliably separate from ordinary variation under our measurement.
 
-That is not what we built the experiment hoping to find.
-
-Which is why it is useful.
+That was not the result we had hoped to find, which is precisely why the predeclared comparison was useful.
 
 ---
 
@@ -199,7 +191,7 @@ There are many available explanations for that last line, and they are not equiv
 
 > **How much of the exact relationship graph can be replaced before the measured dynamical regime changes?**
 
-That is measurable. So we measured it.
+That question is measurable, so we measured it.
 
 ---
 
@@ -247,9 +239,7 @@ Two things should have slowed us down even then.
 
 First, the criterion was met exactly at its boundary: six of eight replicates exceeded ordinary variation, and the rule required six. One run moving the other way would have changed the classification. Pre-declaration makes the threshold honest; it does not make the result robust.
 
-The second problem was simpler.
-
-We had nine other doses.
+The second problem was simpler: we had nine other doses.
 
 ---
 
@@ -330,25 +320,17 @@ The result suggests obvious next experiments. We have not run them.
 
 We built the swarm to expose evidence that was too easy to pass, and it did.
 
-It looked organized. It tolerated heavy positional damage. Its visible form wandered while its measured regime remained bounded. And even complete replacement of its exact relationship graph failed to produce a reliably larger long-run departure than ordinary variation.
+It looked organized. It tolerated heavy positional damage. Its visible form wandered while its measured regime remained bounded. Even complete replacement of its exact relationship graph failed to produce a reliably larger long-run departure than ordinary variation.
 
-None of those properties, by itself, distinguishes our candidate systems from a deliberately simple system built to generate complex collective behaviour.
+None of those properties, by itself, distinguishes our candidate systems from a deliberately simple system built to generate complex collective behaviour. Robustness therefore remains a real phenomenon, but it becomes weaker evidence for digital life.
 
-So none of them is strong evidence on its own.
+This sharpens the earlier results rather than erasing them. Physarum still underwent real population turnover, but robustness alone now tells us less than it appeared to. Causal branching reproduction survives the comparison better: this swarm has no operational descendant relation and cannot counterfeit that result.
 
-That is the return on the whole exercise. Not a candidate. A raised bar.
+The value of the decoy is that it raises the evidential bar.
 
 > **From here on, any property we propose as evidence has to discriminate against a system built specifically to counterfeit it.**
 
-This sharpens the earlier results rather than erasing them. Physarum still underwent real population turnover, but robustness alone is now weaker evidence than it looked. Causal branching reproduction survives better: this swarm has no operational descendant relation and was never capable of counterfeiting that result.
-
-That is what the decoy was for. It cannot tell us what digital life is.
-
-It can tell us which evidence is too cheap.
-
-We had learned more about what persistence did not require.
-
-We were still much less certain what carried it.
+We still do not know what carries persistence. We now know several things that do not.
 
 ---
 
