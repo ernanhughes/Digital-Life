@@ -1,0 +1,66 @@
+document_id: 02-what-would-digital-life-mean
+document_type: chapter
+title: What Would Digital Life Mean?
+profile: technical
+metadata_status: working
+metadata_version: 1
+metadata_confidence: 0.95
+chapter_mode: conceptual
+purpose: 'Define the research problem without importing biological categories as implementation
+  requirements: life-like properties must be earned by measurable behaviour rather
+  than names, while biology remains evidence about possibilities rather than a specification.'
+required_beats:
+- id: m01
+  fulfilled: true
+  description: Introduce the question of what software would have to do before life-like
+    language becomes justified.
+- id: m02
+  fulfilled: true
+  description: Expose the cargo-cult error of implementing biological nouns and treating
+    their names as evidence.
+- id: m03
+  fulfilled: true
+  description: Expose the opposite error of assuming digital life must solve the same
+    problems in the same way as biology.
+- id: m04
+  fulfilled: true
+  description: Reframe biology as evidence and inspiration rather than specification.
+- id: m05
+  fulfilled: true
+  description: Establish appearance as insufficient and operational testing as the
+    route forward.
+- id: m06
+  fulfilled: true
+  description: 'Set the book''s actual question: what computational properties can
+    be produced and earned from first principles.'
+concept_targets:
+- cargo-cult biology
+- operational definitions
+- biology as evidence not specification
+- appearance versus mechanism
+- first-principles investigation
+claim_targets:
+- Naming or implementing a biological concept does not establish that property.
+- Digital life should not be required in advance to reproduce biological architecture.
+- Life-like terms must be attached to operational evidence rather than visual resemblance.
+evidence_targets:
+- Examples showing why named software components do not constitute evidence.
+- Operational descriptions of persistence, reproduction, learning, inheritance, and
+  related properties.
+scope_boundaries:
+- The chapter does not define life.
+- The listed biological properties are prompts for investigation, not a checklist
+  of necessary conditions.
+reader_state: The reader should stop asking whether a system looks alive and instead
+  ask what measurable property has actually been demonstrated.
+technical_progression: familiar biological vocabulary -> two specification traps ->
+  operational discipline -> open research question
+entity_requirements:
+- biology
+- artificial life
+- operational criteria
+diagnostic_notes:
+- 'Book contribution: establishes the anti-checklist thesis that the rest of the book
+  repeatedly applies.'
+- 'Placement: foundational; later experimental refusals depend on this chapter''s
+  distinction between names and earned properties.'

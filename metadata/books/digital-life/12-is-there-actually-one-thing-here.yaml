@@ -1,0 +1,75 @@
+document_id: 12-is-there-actually-one-thing-here
+document_type: chapter
+title: Is There Actually One Thing Here?
+profile: technical
+metadata_status: working
+metadata_version: 1
+metadata_confidence: 0.96
+chapter_mode: experimental
+purpose: Test whether connected crystal geometry earns a privileged causal boundary
+  by applying predictive and intervention-based criteria, and show that local coherence
+  does not by itself establish a natural individual.
+required_beats:
+- id: m01
+  fulfilled: true
+  description: Expose the untested inference from connected occupied geometry to one
+    natural object.
+- id: m02
+  fulfilled: true
+  description: Define predictive self-coherence as one candidate signature of a privileged
+    region.
+- id: m03
+  fulfilled: true
+  description: Compare real regions to an observer-only spatial null rather than raw
+    self-prediction.
+- id: m04
+  fulfilled: true
+  description: Show that predictive coherence is insufficient to establish a boundary.
+- id: m05
+  fulfilled: true
+  description: Replace prediction with direct perturbation and causal localization
+    tests.
+- id: m06
+  fulfilled: true
+  description: Show that the tested outer boundary does not uniquely win and that
+    same-side localization can arise locally.
+- id: m07
+  fulfilled: true
+  description: Reframe the crystal as bulk plus dynamically generated flux/interface
+    rather than a body with an obvious shell.
+- id: m08
+  fulfilled: true
+  description: End by refusing individuality while retaining measurable local causal
+    structure.
+concept_targets:
+- privileged boundary
+- predictive coherence
+- causal localization
+- active interface
+- bulk versus flux
+- individuality
+claim_targets:
+- Connected occupied geometry does not by itself establish one natural object.
+- The tested spatial boundaries do not earn unique causal privilege under the chosen
+  criteria.
+- Local causal structure can exist without establishing an individual.
+evidence_targets:
+- Predictive-coherence screen with observer null.
+- Direct causal boundary localization at multiple candidate radii.
+scope_boundaries:
+- Failure of these operational criteria does not prove no natural boundary exists.
+- Locality and same-side localization are not equivalent to individuality.
+reader_state: The reader should stop treating the visible crystal outline as a privileged
+  body and become ready to analyze causal events directly.
+technical_progression: connected thing intuition -> predictive test -> null -> causal
+  perturbation -> boundary failure -> bulk/flux reframing
+entity_requirements:
+- candidate regions
+- observer null
+- causal boundary
+- active interface
+diagnostic_notes:
+- 'Book contribution: removes the body''s privilege and sets up the event-first causal
+  analysis of Chapter 13.'
+- 'Placement: depends on loss and finite-budget chapters because those chapters already
+  destabilize fixed geometric boundaries.'

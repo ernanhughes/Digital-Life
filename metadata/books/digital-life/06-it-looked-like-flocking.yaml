@@ -1,0 +1,66 @@
+document_id: 06-it-looked-like-flocking
+document_type: chapter
+title: It Looked Like Flocking
+profile: technical
+metadata_status: working
+metadata_version: 1
+metadata_confidence: 0.95
+chapter_mode: experimental
+purpose: Investigate apparent flocking in Outlier by separating measured short-range
+  directional coherence from proposed explanations such as global expansion and shared
+  ancestry, then narrow the result to what can be supported under matched comparisons.
+required_beats:
+- id: m01
+  fulfilled: true
+  description: Turn apparent collective motion into a measurable directional-alignment
+    statistic.
+- id: m02
+  fulfilled: true
+  description: Show that short-range coherence is real relative to shuffled controls.
+- id: m03
+  fulfilled: true
+  description: Remove global radial expansion as a sufficient explanation.
+- id: m04
+  fulfilled: true
+  description: Test whether shared recent causal ancestry explains additional coherence.
+- id: m05
+  fulfilled: true
+  description: Identify and repair an invalid comparison/control.
+- id: m06
+  fulfilled: true
+  description: Restrict analysis to common support and matched comparisons.
+- id: m07
+  fulfilled: true
+  description: Keep the observed coherence while refusing the stronger flocking interpretation.
+concept_targets:
+- directional coherence
+- radial confounding
+- causal ancestry
+- matching
+- common support
+- flocking interpretation
+claim_targets:
+- Nearby persistent structures show real short-range directional coherence.
+- Global radial expansion alone does not explain the measured coherence.
+- The evidence does not establish flocking as the correct biological interpretation.
+evidence_targets:
+- Velocity-shuffled control.
+- Radial-subtracted analysis.
+- Matched ancestry comparisons within common support.
+scope_boundaries:
+- Directional alignment is a measurement; flocking is an interpretation.
+- Unsupported regions of the data should not be used to infer ancestry effects.
+reader_state: The reader should see how a striking phenomenon can remain real while
+  its first explanation is progressively weakened.
+technical_progression: visual flocking -> measured coherence -> expansion control
+  -> ancestry hypothesis -> control correction -> matched estimate -> narrowed conclusion
+entity_requirements:
+- Outlier
+- motion tracks
+- causal families
+- common support
+diagnostic_notes:
+- 'Book contribution: demonstrates the full observation-to-control workflow on a seductive
+  phenomenon.'
+- 'Placement: exposes Outlier''s confounding limits and motivates building a cleaner
+  laboratory in Chapter 7.'

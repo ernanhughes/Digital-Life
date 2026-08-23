@@ -150,7 +150,7 @@ For sites where the intervention consumes frontier (`FCP = −1`), it runs the o
 0.25        +0.118
 0.50        +0.213
 0.75        +0.294
-1.0         0.000
+1.0          0.000
 unbounded    0.000
 ```
 

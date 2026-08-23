@@ -1,0 +1,102 @@
+document_id: 18-what-is-digital-life
+document_type: chapter
+title: What Is Digital Life?
+profile: technical
+metadata_status: working
+metadata_version: 1
+metadata_confidence: 0.98
+chapter_mode: synthesis
+purpose: Synthesize the experimentally surviving process-level relationships without
+  declaring the Digital Crystal alive, distinguish substrate affordances from findings,
+  propose a process-first research hypothesis, attack it with ordinary computational
+  counterexamples, and identify organizational self-conditioning as the next unestablished
+  discriminator to test.
+required_beats:
+- id: m01
+  fulfilled: true
+  description: Explicitly refuse the conclusion that the Digital Crystal is alive.
+- id: m02
+  fulfilled: true
+  description: Replace the starting biological nouns with the lower-level relationships
+    that survived controls.
+- id: m03
+  fulfilled: true
+  description: 'Group the survivors into process-level dimensions: continuation through
+    turnover, active interface, finite computation, hidden-state causal sensitivity,
+    and causal organization without established individuality.'
+- id: m04
+  fulfilled: true
+  description: State the methodological process-before-organism result without promoting
+    it to an ontology.
+- id: m05
+  fulfilled: true
+  description: Preserve the Outlier causal reproduction result while separating it
+    from Digital Crystal findings.
+- id: m06
+  fulfilled: true
+  description: Distinguish computational substrate affordances from experimentally
+    discovered findings.
+- id: m07
+  fulfilled: true
+  description: Produce a negative specification of observations known to be insufficient
+    for richer life-like claims.
+- id: m08
+  fulfilled: true
+  description: Propose organized causal consequence through continued change as a
+    process-first foundation, then attack it with ordinary stateful computational
+    systems.
+- id: m09
+  fulfilled: true
+  description: Identify organizational self-conditioning as a speculative missing
+    dimension and state the matched-null form a future experiment would need.
+- id: m10
+  fulfilled: true
+  description: End with a research program rather than a definition of digital life.
+concept_targets:
+- process continuity
+- active interface
+- finite computational opportunity
+- hidden-state causality
+- causal containment
+- negative specification
+- organizational self-conditioning
+- process-first hypothesis
+claim_targets:
+- The Digital Crystal being alive is not established.
+- Useful causal organization became measurable in this substrate before a privileged
+  individual boundary did.
+- The surviving results motivate organized causal consequence through continued change
+  as a research foundation, not a definition of life.
+- Organizational self-conditioning is a speculative next discriminator and was not
+  established by this book.
+evidence_targets:
+- Cross-chapter synthesis restricted to experimentally survived claims.
+- Counterexamples using ordinary stateful computational systems.
+- Explicit separation of Outlier reproduction from Digital Crystal process findings.
+scope_boundaries:
+- The synthesis is drawn from one main experimental substrate plus the separate Outlier
+  result.
+- The proposed process-first foundation is broader than life and is not sufficient.
+- Organizational self-conditioning is a research hypothesis, not a finding.
+- No universal claim is made that life does not require memory, individuality, metabolism,
+  reproduction, or other biological properties.
+reader_state: 'The reader should finish with a narrower, more operational research
+  program: begin from persistent causal process and ask whether its own organization
+  helps preserve the conditions of its continuation beyond matched ordinary persistence.'
+technical_progression: refuse life verdict -> collect survivors -> process-before-organism
+  -> separate substrates -> negative specification -> process-first hypothesis ->
+  adversarial counterexample -> self-conditioning gap -> next research program
+entity_requirements:
+- Digital Crystal
+- Outlier
+- active interface
+- finite evaluation opportunity
+- organizational self-conditioning
+- matched null
+diagnostic_notes:
+- 'Book contribution: closes the current investigation and converts its failures and
+  survivors into the next experimental program.'
+- 'Placement: terminal synthesis; it depends on Chapter 17''s claim-status discipline
+  to avoid upgrading suggestive results.'
+- 'Editorial risk to preserve: the chapter must keep experimentally established results,
+  interpretation, and speculation visibly separated.'

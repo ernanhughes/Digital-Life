@@ -1,0 +1,66 @@
+document_id: 03-look-at-this-thing
+document_type: chapter
+title: Look at This Thing
+profile: technical
+metadata_status: working
+metadata_version: 1
+metadata_confidence: 0.94
+chapter_mode: conceptual_experiment
+purpose: Use visually organism-like computational patterns to demonstrate how quickly
+  observers invent objects and identity, then replace visual intuition with operational
+  descriptions of persistence, propagation, state, history, and material turnover.
+required_beats:
+- id: m01
+  fulfilled: true
+  description: Present a visually organism-like Lenia pattern before explanation.
+- id: m02
+  fulfilled: true
+  description: Show that the observer supplies objecthood, boundary, and identity
+    before the mechanism does.
+- id: m03
+  fulfilled: true
+  description: Explain that apparent motion is repeated reconstruction of organization
+    on a fixed lattice.
+- id: m04
+  fulfilled: true
+  description: Challenge the pronoun 'it' and demand an operational continuity rule.
+- id: m05
+  fulfilled: true
+  description: Separate tempting biological descriptions from measurable computational
+    descriptions.
+- id: m06
+  fulfilled: true
+  description: Introduce material turnover as a way to test whether organizational
+    persistence can outlive component identity.
+concept_targets:
+- observer-imposed objecthood
+- organizational propagation
+- identity through change
+- material versus organization
+- operational description
+claim_targets:
+- Visual continuity does not establish a natural computational object.
+- A recognizable organization can propagate without material transport.
+- Persistence may be organizational rather than dependent on fixed material tokens.
+evidence_targets:
+- Lenia motion on a fixed lattice.
+- Turnover experiment showing organization continuing while original material is largely
+  replaced.
+scope_boundaries:
+- Visual and turnover results do not establish organismal identity or life.
+- Operational persistence is not yet reproduction or individuality.
+reader_state: The reader should become suspicious of object language and understand
+  why continuity must be tested at the level of organization rather than assumed from
+  appearance.
+technical_progression: visual object intuition -> mechanism -> operational translation
+  -> continuity problem -> turnover test
+entity_requirements:
+- Lenia
+- localized organization
+- fixed lattice
+- material turnover
+diagnostic_notes:
+- 'Book contribution: converts the philosophical warning of Chapter 2 into a concrete
+  perceptual and computational example.'
+- 'Placement: prepares the persistence/reproduction distinction used immediately in
+  Chapter 4.'

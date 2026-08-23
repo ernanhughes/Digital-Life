@@ -1,0 +1,79 @@
+document_id: 17-how-to-fail-correctly
+document_type: chapter
+title: How to Fail Correctly
+profile: technical
+metadata_status: working
+metadata_version: 1
+metadata_confidence: 0.98
+chapter_mode: method_synthesis
+purpose: 'Make explicit the inferential bookkeeping used throughout the book: distinguish
+  invalid runs, unresolved questions, supported or bounded claims, descriptive follow-ups,
+  and narrowed interpretations so failures change only the claims they actually touch.'
+required_beats:
+- id: m01
+  fulfilled: true
+  description: Begin with the individuation result to show that procedural rigor cannot
+    guarantee construct validity.
+- id: m02
+  fulfilled: true
+  description: Separate estimand from construct and define SEI/MDE-style precision
+    roles.
+- id: m03
+  fulfilled: true
+  description: Define distinct claim statuses including INVALID, UNRESOLVED, SUPPORTED,
+    BOUNDED, DESCRIPTIVE ONLY, and NARROWED.
+- id: m04
+  fulfilled: true
+  description: Show why implementation failure is logically different from a negative
+    result.
+- id: m05
+  fulfilled: true
+  description: Show why insufficient precision leaves a claim unresolved rather than
+    disproven.
+- id: m06
+  fulfilled: true
+  description: Show how a valid precise result can still fail to identify the richer
+    construct.
+- id: m07
+  fulfilled: true
+  description: Explain why the null is part of the claim and why corrections do not
+    rescue frozen tests retroactively.
+- id: m08
+  fulfilled: true
+  description: Audit the book's failures and extract the lower-level phenomena that
+    survived them.
+concept_targets:
+- estimand versus construct
+- claim status
+- invalidation
+- precision
+- null model
+- narrowing
+- descriptive evidence
+claim_targets:
+- A failed claim, an invalid experiment, and an absent phenomenon are different logical
+  outcomes.
+- Claim status attaches to a claim rather than globally to an experimental run.
+- Procedural rigor does not substitute for choosing an estimand and null that identify
+  the intended construct.
+evidence_targets:
+- Worked examples from the hidden-state and individuation experiments.
+- Cross-book bookkeeping audit of failures, corrections, and survivors.
+scope_boundaries:
+- The taxonomy organizes inference; it does not guarantee scientific truth.
+- Descriptive follow-up cannot silently upgrade a failed confirmatory claim.
+reader_state: The reader should be able to interpret the book's negative and corrected
+  results without collapsing them into a single notion of failure.
+technical_progression: clean-but-wrong inference -> failure taxonomy -> worked cases
+  -> null/construct discipline -> correction policy -> book-wide survivor audit
+entity_requirements:
+- estimand
+- construct
+- SEI
+- MDE80
+- claim status vocabulary
+diagnostic_notes:
+- 'Book contribution: codifies the inferential discipline that was implicit in the
+  experiments and prepares the final synthesis.'
+- 'Placement: belongs immediately before the conclusion because it defines what Chapter
+  18 is permitted to carry forward.'

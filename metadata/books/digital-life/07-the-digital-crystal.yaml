@@ -1,0 +1,75 @@
+document_id: 07-the-digital-crystal
+document_type: chapter
+title: The Digital Crystal
+profile: technical
+metadata_status: working
+metadata_version: 1
+metadata_confidence: 0.97
+chapter_mode: system_design
+purpose: Introduce the Digital Crystal as a deliberately minimal experimental substrate
+  in which mechanisms can be varied independently, then establish baseline growth
+  and environmental influence while refusing to preinstall biological answers.
+required_beats:
+- id: m01
+  fulfilled: true
+  description: Explain why Outlier is insufficient for clean causal isolation.
+- id: m02
+  fulfilled: true
+  description: 'Specify the new laboratory''s design rule: known state and rules,
+    one mechanism changed at a time, no organism/memory/repair/reproduction built
+    in.'
+- id: m03
+  fulfilled: true
+  description: Construct the minimal one-seed local growth rule on a hexagonal lattice.
+- id: m04
+  fulfilled: true
+  description: Show that ordered large-scale geometry follows cheaply from local propagation
+    and is not itself sophistication.
+- id: m05
+  fulfilled: true
+  description: Use damage/refilling to demonstrate why repair language remains unearned.
+- id: m06
+  fulfilled: true
+  description: Introduce environmental forcing and show that final structure can reflect
+    the family of conditions that formed it.
+- id: m07
+  fulfilled: true
+  description: Show that temporal order is not reliably recoverable from the tested
+    final morphology and set up the history problem.
+concept_targets:
+- Digital Crystal
+- minimal substrate
+- local growth
+- environmental forcing
+- state versus history
+- laboratory design
+claim_targets:
+- Repeated local attachment alone produces ordered expanding geometry.
+- Environmental conditions can influence final crystal structure without instructing
+  a target form.
+- Tested morphology can reflect environmental family while failing to recover temporal
+  ordering.
+evidence_targets:
+- Closed-form growth baseline.
+- Environmental-family classification.
+- Temporal-order destruction/rearrangement control.
+scope_boundaries:
+- Growth is not reproduction.
+- Refilling is not repair.
+- Environmental influence is not instruction.
+- Failure to recover order from tested morphology does not prove the history is absent
+  from all possible state.
+reader_state: The reader should understand the Digital Crystal as an intentionally
+  weak but experimentally controllable substrate and see history as the next missing
+  variable.
+technical_progression: Outlier limitation -> minimal laboratory -> cheap growth ->
+  tempting biology -> controlled environmental influence -> state/history distinction
+entity_requirements:
+- Digital Crystal
+- hexagonal lattice
+- local attachment rule
+- environmental forcing
+diagnostic_notes:
+- 'Book contribution: this is the pivot into the book''s core experimental substrate.'
+- 'Placement: foundational for Chapters 8-18; most later concepts are refinements
+  of mechanisms introduced here.'

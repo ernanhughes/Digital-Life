@@ -1,0 +1,77 @@
+document_id: 11-what-does-it-cost-to-stay
+document_type: chapter
+title: What Does It Cost to Stay?
+profile: technical
+metadata_status: working
+metadata_version: 1
+metadata_confidence: 0.96
+chapter_mode: experimental
+purpose: Introduce finite computational opportunity as scarcity, test how evaluation
+  budgets and scheduling rules shape growth and reoccupation, and distinguish stable-looking
+  population from stable underlying flow.
+required_beats:
+- id: m01
+  fulfilled: true
+  description: Replace unlimited evaluation with a finite per-update candidate budget.
+- id: m02
+  fulfilled: true
+  description: Show that binding budgets constrain the population reached within the
+    tested horizon.
+- id: m03
+  fulfilled: true
+  description: Explain how scarcity forces allocation among eligible transitions.
+- id: m04
+  fulfilled: true
+  description: Compare scheduling policies under the same budget and expose support-related
+    confounding.
+- id: m05
+  fulfilled: true
+  description: Test the predicted reuse-versus-expansion tradeoff and preserve the
+    negative result when it fails.
+- id: m06
+  fulfilled: true
+  description: Search for a stationary population regime and distinguish near-stable
+    stock from continuing high flow.
+- id: m07
+  fulfilled: true
+  description: Separate reuse and expansion responses after normalization.
+- id: m08
+  fulfilled: true
+  description: Conclude with finite computation as a genuine process constraint rather
+    than a renamed biological energy variable.
+concept_targets:
+- finite evaluation budget
+- computational scarcity
+- allocation
+- scheduling
+- stable stock versus flow
+- transition opportunity
+claim_targets:
+- Finite evaluation opportunity constrains the population reached within the tested
+  horizon.
+- When the budget binds, eligible transitions compete for computational opportunity.
+- Similar aggregate population can hide materially different process flows.
+evidence_targets:
+- Budget sweep.
+- Equal-budget scheduling-policy comparison.
+- Stationary-population and normalized-flow analyses.
+scope_boundaries:
+- The budget is not energy or metabolism.
+- The experiments do not establish an asymptotic carrying capacity.
+- Support-biased scheduling is not a clean independent test of reuse versus expansion.
+reader_state: The reader should understand computational opportunity as a resource-like
+  causal constraint without importing biological energy language.
+technical_progression: unlimited opportunity -> finite budget -> constrained scale
+  -> allocation -> policy differences -> failed tradeoff -> stable-looking stock ->
+  process-level interpretation
+entity_requirements:
+- evaluation budget B
+- frontier candidates
+- scheduling policy
+- reoccupation
+- expansion
+diagnostic_notes:
+- 'Book contribution: introduces finite computation, one of the book''s final process-level
+  dimensions.'
+- 'Placement: required before Chapter 14, where the shared finite selector becomes
+  the mechanism coupling distant events.'

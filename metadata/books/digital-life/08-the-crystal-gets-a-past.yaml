@@ -1,0 +1,78 @@
+document_id: 08-the-crystal-gets-a-past
+document_type: chapter
+title: The Crystal Gets a Past
+profile: technical
+metadata_status: working
+metadata_version: 1
+metadata_confidence: 0.97
+chapter_mode: experimental
+purpose: Disentangle state, history, record, causal influence, and memory by asking
+  what information must be preserved for exact continuation and what aspects of earlier
+  input can still alter later futures.
+required_beats:
+- id: m01
+  fulfilled: true
+  description: Separate present state from reconstructable history.
+- id: m02
+  fulfilled: true
+  description: Define a sufficient state operationally through exact continuation
+    after checkpoint/restore.
+- id: m03
+  fulfilled: true
+  description: Demonstrate exact checkpoint restoration and identify hidden process
+    state not visible in morphology.
+- id: m04
+  fulfilled: true
+  description: Separate external event logs from state the crystal itself can use.
+- id: m05
+  fulfilled: true
+  description: Show that a received pulse can causally redirect a later trajectory.
+- id: m06
+  fulfilled: true
+  description: Test timing, sender, and sequence interpretations rather than upgrading
+    causal difference to messaging or memory.
+- id: m07
+  fulfilled: true
+  description: Use matched histories to show different futures without a stable tested
+    morphology signature.
+- id: m08
+  fulfilled: true
+  description: End with a hierarchy from causal consequence toward recoverable information
+    rather than calling the result memory.
+concept_targets:
+- complete executable state
+- history
+- checkpoint
+- causal past
+- recoverable information
+- memory boundary
+claim_targets:
+- The stored checkpoint representation is sufficient for exact continuation.
+- Visible morphology is not complete executable state.
+- Earlier input can change later futures without yielding a stable tested readout
+  of temporal history.
+evidence_targets:
+- Checkpoint/restore exactness.
+- State-component ablations.
+- Matched pulse-history counterfactuals and tested readouts.
+scope_boundaries:
+- Sufficient state is not proven minimal.
+- External logs are not internal memory.
+- Different futures do not imply a readable record of the past.
+- Memory is explicitly not established.
+reader_state: The reader should leave with several distinct meanings of 'having a
+  past' and understand why causal history is weaker than memory.
+technical_progression: state/history split -> exact continuation -> hidden executable
+  state -> causal pulse -> history controls -> different futures/no stable signature
+  -> bounded hierarchy
+entity_requirements:
+- checkpoint
+- event log
+- RNG state
+- pulse histories
+- Digital Crystal
+diagnostic_notes:
+- 'Book contribution: supplies the vocabulary for every later claim about hidden state,
+  history dependence, and memory.'
+- 'Placement: prerequisite for Chapters 9 and 15; moving it later would make those
+  chapters conceptually under-specified.'

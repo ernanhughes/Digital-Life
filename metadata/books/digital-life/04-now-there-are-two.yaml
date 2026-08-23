@@ -1,0 +1,66 @@
+document_id: 04-now-there-are-two
+document_type: chapter
+title: Now There Are Two
+profile: technical
+metadata_status: working
+metadata_version: 1
+metadata_confidence: 0.94
+chapter_mode: experimental
+purpose: Separate persistence from reproduction and establish a causal criterion for
+  reproduction-like organization in Outlier, showing that resemblance is insufficient
+  but branching causal ancestry can support a bounded reproduction claim.
+required_beats:
+- id: m01
+  fulfilled: true
+  description: Separate persistence from reproduction and explain why recurrence along
+    one causal chain is insufficient.
+- id: m02
+  fulfilled: true
+  description: Introduce the branching causal criterion for self-replication.
+- id: m03
+  fulfilled: true
+  description: Introduce Outlier as a local-rule world in which replicating organizations
+    were discovered rather than explicitly represented.
+- id: m04
+  fulfilled: true
+  description: Show why visual duplication cannot establish ancestry.
+- id: m05
+  fulfilled: true
+  description: Test recurrence against causal ancestry and cheaper explanations.
+- id: m06
+  fulfilled: true
+  description: Retain the causal reproduction-like result while refusing organism,
+    population, and life claims.
+concept_targets:
+- causal reproduction
+- branching ancestry
+- recurrence versus descent
+- emergent organization
+- Outlier
+claim_targets:
+- Reproduction requires a causal descent relation, not visual copying alone.
+- Outlier contains reproduction-like organization that survives the stated causal
+  ancestry criterion.
+- The result does not establish an organism, population, or life.
+evidence_targets:
+- Causal graph/reconstruction connecting earlier organization to later copies.
+- Controls separating structural recurrence from independent appearance.
+scope_boundaries:
+- The rule search was human-designed.
+- The result is bounded to causal reproduction-like organization under the criterion
+  used.
+- The chapter does not establish individuality.
+reader_state: The reader should understand that some strong life-like claims can survive
+  the book's method, but only when causal structure exceeds resemblance.
+technical_progression: persistence is not reproduction -> causal branching criterion
+  -> Outlier -> ancestry test -> bounded positive result
+entity_requirements:
+- Outlier
+- causal graph
+- glider
+- self-replication criterion
+diagnostic_notes:
+- 'Book contribution: provides an early genuine positive result and proves the methodology
+  is not merely a machine for rejection.'
+- 'Placement: creates the need to calibrate the book''s tests before escalating to
+  further interpretations.'

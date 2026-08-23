@@ -1,0 +1,78 @@
+document_id: 14-can-finite-computation-couple-distant-events
+document_type: chapter
+title: Can Finite Computation Couple Distant Events?
+profile: technical
+metadata_status: working
+metadata_version: 1
+metadata_confidence: 0.97
+chapter_mode: mechanism_experiment
+purpose: Explain the far-field causal difference from the previous chapter by isolating
+  the shared finite evaluation selector and demonstrating that a global computational
+  bottleneck can couple regions outside the one-step reach of the local rule.
+required_beats:
+- id: m01
+  fulfilled: true
+  description: State the unexplained far-field difference left by the previous intervention.
+- id: m02
+  fulfilled: true
+  description: Define the local-rule one-step cone and identify effects outside it
+    as requiring another pathway.
+- id: m03
+  fulfilled: true
+  description: Propose competition for a shared finite selector as the candidate mechanism.
+- id: m04
+  fulfilled: true
+  description: Freeze checkpoint and intervention while varying only available evaluation
+    fraction.
+- id: m05
+  fulfilled: true
+  description: Show that removing the binding selector removes the outside-cone effect.
+- id: m06
+  fulfilled: true
+  description: Distinguish allocation/routing from information payload or physical
+    propagation.
+- id: m07
+  fulfilled: true
+  description: Match the process and test whether finite selection changes mean consequence
+    or mainly rotates the pathway of expression.
+- id: m08
+  fulfilled: true
+  description: Conclude that finite computation routes causal consequence and gates
+    expression without establishing amplification.
+concept_targets:
+- shared selector
+- global computational constraint
+- outside-cone effect
+- causal routing
+- allocation
+- expression gating
+claim_targets:
+- A finite shared evaluation selector can causally couple distant regions despite
+  a nearest-neighbour local rule.
+- Removing the selector removes the measured outside-cone effect.
+- The mechanism is routing/allocation of causal opportunity, not long-range payload
+  transmission or demonstrated amplification.
+evidence_targets:
+- Frozen-state budget-fraction intervention.
+- Full-evaluation controls.
+- Matched-process consequence analysis.
+scope_boundaries:
+- The local transition rule remains local.
+- The result does not establish signalling, payload transmission, or amplification.
+- Mean long-horizon consequence is not shown to change meaningfully at the declared
+  scale.
+reader_state: The reader should recognize finite computational opportunity as a global
+  causal constraint capable of rerouting local effects without nonlocal physics.
+technical_progression: unexplained far-field effect -> local cone -> shared selector
+  hypothesis -> isolation experiment -> selector removal -> routing mechanism -> amplification
+  test -> bounded interpretation
+entity_requirements:
+- finite selector
+- evaluation budget
+- local-rule cone
+- FORCE/PREVENT
+diagnostic_notes:
+- 'Book contribution: turns finite computation from a scale constraint into a causal
+  mechanism.'
+- 'Placement: depends directly on Chapter 11''s budget concept and Chapter 13''s far-field
+  finding.'
