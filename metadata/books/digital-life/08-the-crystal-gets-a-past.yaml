@@ -2,77 +2,353 @@ document_id: 08-the-crystal-gets-a-past
 document_type: chapter
 title: The Crystal Gets a Past
 profile: technical
+
 metadata_status: working
-metadata_version: 1
+metadata_version: 2
 metadata_confidence: 0.97
+
 chapter_mode: experimental
-purpose: Disentangle state, history, record, causal influence, and memory by asking
-  what information must be preserved for exact continuation and what aspects of earlier
-  input can still alter later futures.
+
+purpose: >
+  Disentangle state, history, record, causal influence, and memory by
+  determining what information is sufficient for exact continuation,
+  what information can reconstruct the past, and which earlier events
+  remain capable of altering later futures.
+
 required_beats:
-- id: m01
-  fulfilled: true
-  description: Separate present state from reconstructable history.
-- id: m02
-  fulfilled: true
-  description: Define a sufficient state operationally through exact continuation
-    after checkpoint/restore.
-- id: m03
-  fulfilled: true
-  description: Demonstrate exact checkpoint restoration and identify hidden process
-    state not visible in morphology.
-- id: m04
-  fulfilled: true
-  description: Separate external event logs from state the crystal itself can use.
-- id: m05
-  fulfilled: true
-  description: Show that a received pulse can causally redirect a later trajectory.
-- id: m06
-  fulfilled: true
-  description: Test timing, sender, and sequence interpretations rather than upgrading
-    causal difference to messaging or memory.
-- id: m07
-  fulfilled: true
-  description: Use matched histories to show different futures without a stable tested
-    morphology signature.
-- id: m08
-  fulfilled: true
-  description: End with a hierarchy from causal consequence toward recoverable information
-    rather than calling the result memory.
+
+  - id: m01
+    fulfilled: true
+    description: >
+      Separate the fact that the past contributed to the present from
+      the stronger claim that the present contains a recoverable record
+      of that past.
+
+  - id: m02
+    fulfilled: true
+    description: >
+      Define sufficient continuation state operationally as the
+      information required to reproduce the process's future under the
+      same later conditions.
+
+  - id: m03
+    fulfilled: true
+    description: >
+      Demonstrate that restoring the stored checkpoint reproduces the
+      exact continuation trajectory.
+
+  - id: m04
+    fulfilled: true
+    description: >
+      Show through state-component ablations that visible morphology is
+      not complete executable state and that some hidden process state
+      affects exact continuation.
+
+  - id: m05
+    fulfilled: true
+    description: >
+      Distinguish historical information from causally active
+      continuation state by showing that stored birth-time information
+      can be historically accurate without affecting later growth.
+
+  - id: m06
+    fulfilled: true
+    description: >
+      Demonstrate that the recorded event history can reconstruct the
+      exact recorded morphology trajectory while remaining distinct
+      from the state required for exact future continuation.
+
+  - id: m07
+    fulfilled: true
+    description: >
+      Establish that the external event log belongs to the laboratory
+      and is not possessed, consulted, or made causally available to the
+      Digital Crystal itself.
+
+  - id: m08
+    fulfilled: true
+    description: >
+      Use checkpoint restoration to create an exact executable
+      counterfactual branch point for controlled alternative futures.
+
+  - id: m09
+    fulfilled: true
+    description: >
+      Introduce a one-bit interprocess pulse as a minimal causal event
+      while explicitly withholding stronger interpretations such as
+      message, meaning, or communication.
+
+  - id: m10
+    fulfilled: true
+    description: >
+      Derive pulse timing from the sender's own growth rather than from
+      an experimenter-defined clock or receiver state.
+
+  - id: m11
+    fulfilled: true
+    description: >
+      Show by paired intervention that changing one received bit while
+      holding receiver state, stochastic state, and external forcing
+      fixed can alter the receiver's later morphology.
+
+  - id: m12
+    fulfilled: true
+    description: >
+      Show that real pulse timing produces a stronger receiver response
+      than shuffled or rate-matched random timing, establishing that
+      timing structure matters beyond pulse count alone.
+
+  - id: m13
+    fulfilled: true
+    description: >
+      Show that the actual sender has no meaningful advantage over a
+      count-matched same-class sender, so sender-specific signalling is
+      not established.
+
+  - id: m14
+    fulfilled: true
+    description: >
+      Show that preserving the same multiset of pulse intervals while
+      permuting their order removes no meaningful advantage, so exact
+      interval chronology is not established as the relevant signal.
+
+  - id: m15
+    fulfilled: true
+    description: >
+      Show that connecting multiple crystals does not by itself
+      establish coordinated collective behaviour or topology-specific
+      signal propagation.
+
+  - id: m16
+    fulfilled: true
+    description: >
+      Bound the signalling interpretation by retaining coarse
+      timing-sensitive causal transmission while rejecting stronger
+      claims about sender identity, exact chronology, and coordination.
+
+  - id: m17
+    fulfilled: true
+    description: >
+      Establish that using the same random-number stream does not
+      guarantee matched random opportunities after an intervention
+      changes the candidate frontier.
+
+  - id: m18
+    fulfilled: true
+    description: >
+      Use a cell-keyed common-random-number coupling to show that much
+      of the apparent pathwise cascade was coupling-dependent while the
+      underlying causal effect remained real.
+
+  - id: m19
+    fulfilled: true
+    description: >
+      Show that the tested multi-pulse response is not resolved as
+      mechanistically nonlinear once the observed discrepancy is
+      compared with the measurement-noise floor.
+
+  - id: m20
+    fulfilled: true
+    description: >
+      Construct a matched-history test that controls pulse count, first
+      pulse, and last pulse so that the remaining manipulation isolates
+      interior temporal arrangement.
+
+  - id: m21
+    fulfilled: true
+    description: >
+      Show that matched pulse histories can produce different
+      particular futures while failing to produce a stable,
+      reproducible population-level morphology signature under the
+      predeclared test.
+
+  - id: m22
+    fulfilled: true
+    description: >
+      Preserve the boundary that failure to recover a stable history
+      signature does not establish forgetting or memory loss.
+
+  - id: m23
+    fulfilled: true
+    description: >
+      Synthesize the chapter as a hierarchy from causal consequence
+      toward persistent consequence, systematic signature, and
+      recoverable information, with each transition treated as a
+      separate empirical claim.
+
+  - id: m24
+    fulfilled: true
+    description: >
+      End with the bounded conclusion that the past has become causally
+      real before it has become memory.
+
+  - id: m25
+    fulfilled: true
+    description: >
+      Motivate the next experiment by identifying the missing property
+      as an internal material carrier that can remain changed by
+      experience and influence later computation.
+
 concept_targets:
-- complete executable state
-- history
-- checkpoint
-- causal past
-- recoverable information
-- memory boundary
+  - continuation state
+  - executable state
+  - history
+  - recorded history
+  - checkpoint
+  - event log
+  - causal transmission
+  - counterfactual branch
+  - stochastic coupling
+  - pulse timing
+  - sender identity
+  - temporal arrangement
+  - causal past
+  - persistent consequence
+  - recoverable information
+  - internal carrier
+  - memory boundary
+
 claim_targets:
-- The stored checkpoint representation is sufficient for exact continuation.
-- Visible morphology is not complete executable state.
-- Earlier input can change later futures without yielding a stable tested readout
-  of temporal history.
+  - >
+    The stored checkpoint representation is sufficient for exact
+    continuation.
+  - >
+    Visible morphology is not complete executable state.
+  - >
+    Historical information can be stored without being causally active
+    in continuation.
+  - >
+    The recorded event history is sufficient to reconstruct recorded
+    morphology but is not sufficient to restore historical stochastic
+    continuation state.
+  - >
+    The laboratory can recover the Digital Crystal's recorded past, but
+    the Digital Crystal does not possess or consult that external record.
+  - >
+    A received one-bit event can causally alter the receiver's later
+    morphology.
+  - >
+    Pulse timing matters beyond pulse count alone.
+  - >
+    The actual sender is not distinguished under the tested same-class
+    sender control.
+  - >
+    Exact interval chronology is not distinguished under the
+    interval-preserving permutation control.
+  - >
+    Connected topology does not establish coordinated collective
+    behaviour.
+  - >
+    Pathwise divergence depends strongly on the declared stochastic
+    coupling.
+  - >
+    Different matched histories can cause different particular futures
+    without producing a stable tested population-level morphology
+    signature.
+  - >
+    Causal consequence has been established before memory has been
+    established.
+
 evidence_targets:
-- Checkpoint/restore exactness.
-- State-component ablations.
-- Matched pulse-history counterfactuals and tested readouts.
+  - Exact checkpoint/restore continuation across independent runs.
+  - State-component ablations for RNG state, signal position, birth-time metadata, and morphology-only restoration.
+  - Exact event-history morphology reconstruction.
+  - Laboratory ownership and non-use of the external event log.
+  - Paired one-bit receiver interventions.
+  - Shuffled-timing and rate-matched timing controls.
+  - Count-matched unrelated same-class sender control.
+  - Interval-preserving chronology permutation control.
+  - Chain and local-neighbour topology shuffle controls.
+  - Sequential-RNG versus cell-keyed common-random-number coupling.
+  - Multi-pulse residual versus measurement-noise floor.
+  - Matched-history counterfactuals controlling pulse count, onset, and offset.
+  - Predeclared population-level morphology-signature test.
+
 scope_boundaries:
-- Sufficient state is not proven minimal.
-- External logs are not internal memory.
-- Different futures do not imply a readable record of the past.
-- Memory is explicitly not established.
-reader_state: The reader should leave with several distinct meanings of 'having a
-  past' and understand why causal history is weaker than memory.
-technical_progression: state/history split -> exact continuation -> hidden executable
-  state -> causal pulse -> history controls -> different futures/no stable signature
+  - >
+    The demonstrated checkpoint state is sufficient for exact
+    continuation but is not proven minimal.
+  - >
+    Visible morphology is not equivalent to executable state.
+  - >
+    Historical information is not necessarily causally active
+    continuation state.
+  - >
+    A laboratory-owned event record is not memory possessed by the
+    Digital Crystal.
+  - >
+    Causal transmission is not equivalent to communication.
+  - >
+    Timing sensitivity does not establish sender-specific signalling.
+  - >
+    Connectivity does not establish coordination.
+  - >
+    Pathwise divergence is not automatically a coupling-invariant
+    measure of causal effect.
+  - >
+    Failure to resolve nonlinear response does not establish that no
+    nonlinear mechanism can exist.
+  - >
+    Different particular futures do not imply a stable readable record
+    of temporal history.
+  - >
+    Failure to recover a stable history signature does not establish
+    forgetting.
+  - >
+    Memory is explicitly not established.
+
+reader_state: >
+  The reader should leave able to distinguish continuation state,
+  reconstructable history, recorded history, causally available past,
+  causal transmission, temporal sensitivity, and memory, and should
+  understand which of those properties the Digital Crystal has and has
+  not earned.
+
+technical_progression: >
+  present/history distinction
+  -> operational continuation state
+  -> exact checkpoint restoration
+  -> hidden executable state
+  -> reconstructable event history
+  -> laboratory-owned versus causally available past
+  -> executable counterfactual branch
+  -> minimal interprocess pulse
+  -> causal pulse intervention
+  -> timing controls
+  -> sender and chronology controls
+  -> connectivity without coordination
+  -> stochastic-coupling correction
+  -> matched-history test
+  -> different particular futures without stable tested signature
   -> bounded hierarchy
+  -> internal-carrier question
+
 entity_requirements:
-- checkpoint
-- event log
-- RNG state
-- pulse histories
-- Digital Crystal
+  - checkpoint
+  - event log
+  - RNG state
+  - environmental signal position
+  - pulse
+  - pulse histories
+  - sender
+  - receiver
+  - cell-keyed common-random-number coupling
+  - Digital Crystal
+
 diagnostic_notes:
-- 'Book contribution: supplies the vocabulary for every later claim about hidden state,
-  history dependence, and memory.'
-- 'Placement: prerequisite for Chapters 9 and 15; moving it later would make those
-  chapters conceptually under-specified.'
+  - >
+    Book contribution: supplies the vocabulary and experimental
+    distinctions required for later claims about hidden state, history
+    dependence, causal availability, and memory.
+  - >
+    Placement: prerequisite for Chapters 9 and 15; moving it later
+    would make those chapters conceptually under-specified.
+  - >
+    MRI calibration: required beats are intentionally atomic and
+    section-shaped. A beat should normally be satisfiable by one
+    section or one tightly adjacent section pair rather than by evidence
+    distributed across the full chapter.
+  - >
+    Experimental Note is supporting/reference material and should not
+    be preferred over the prose section in which a structural move is
+    actually performed.
