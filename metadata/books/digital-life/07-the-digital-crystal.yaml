@@ -3,39 +3,67 @@ document_type: chapter
 title: The Digital Crystal
 profile: technical
 metadata_status: working
-metadata_version: 1
-metadata_confidence: 0.97
+metadata_version: 2
+metadata_confidence: 0.96
 chapter_mode: system_design
-purpose: Introduce the Digital Crystal as a deliberately minimal experimental substrate
-  in which mechanisms can be varied independently, then establish baseline growth
-  and environmental influence while refusing to preinstall biological answers.
+purpose: Introduce the Digital Crystal as a deliberately minimal experimental substrate in
+  which mechanisms can be varied independently, then establish baseline growth and environmental
+  influence while refusing to preinstall biological answers.
 required_beats:
 - id: m01
   fulfilled: true
-  description: Explain why Outlier is insufficient for clean causal isolation.
+  description: Motivate a cleaner substrate from the limitations of Outlier and the need for
+    isolatable mechanisms.
 - id: m02
   fulfilled: true
-  description: 'Specify the new laboratory''s design rule: known state and rules,
-    one mechanism changed at a time, no organism/memory/repair/reproduction built
-    in.'
+  description: Construct the one-seed Digital Crystal rule as a minimal local growth laboratory
+    rather than an organism model.
 - id: m03
   fulfilled: true
-  description: Construct the minimal one-seed local growth rule on a hexagonal lattice.
+  description: Show that growth and ordered geometry are cheap consequences of local propagation.
 - id: m04
   fulfilled: true
-  description: Show that ordered large-scale geometry follows cheaply from local propagation
-    and is not itself sophistication.
+  description: Identify the temptation to overread crystal-like order as sophistication.
 - id: m05
   fulfilled: true
-  description: Use damage/refilling to demonstrate why repair language remains unearned.
+  description: Test whether the environment can leave a mark without treating the mark as
+    instruction.
 - id: m06
   fulfilled: true
-  description: Introduce environmental forcing and show that final structure can reflect
-    the family of conditions that formed it.
+  description: Distinguish environmental influence from instruction or target-seeking.
 - id: m07
   fulfilled: true
-  description: Show that temporal order is not reliably recoverable from the tested
-    final morphology and set up the history problem.
+  description: Compare six environments to show that final morphology can reflect families
+    of forming conditions.
+- id: m08
+  fulfilled: true
+  description: Use many crystals to treat environmental influence statistically rather than
+    anecdotally.
+- id: m09
+  fulfilled: true
+  description: Attack the boring explanation before escalating the history interpretation.
+- id: m10
+  fulfilled: true
+  description: Test whether final morphology records what happened rather than merely the
+    condition family.
+- id: m11
+  fulfilled: true
+  description: Destroy temporal order to ask whether timing is recoverable from the tested
+    final state.
+- id: m12
+  fulfilled: true
+  description: Show that same values in different temporal order are not reliably distinguished
+    by the tested morphology.
+- id: m13
+  fulfilled: true
+  description: Reject the tape-recorder interpretation while preserving environmental influence.
+- id: m14
+  fulfilled: true
+  description: Distinguish state from history and identify history as the next missing variable.
+- id: m15
+  fulfilled: true
+  description: Name the Digital Crystal as the bounded experimental substrate for the next
+    chapters.
 concept_targets:
 - Digital Crystal
 - minimal substrate
@@ -44,11 +72,17 @@ concept_targets:
 - state versus history
 - laboratory design
 claim_targets:
-- Repeated local attachment alone produces ordered expanding geometry.
-- Environmental conditions can influence final crystal structure without instructing
-  a target form.
-- Tested morphology can reflect environmental family while failing to recover temporal
-  ordering.
+- id: c01
+  status: supported
+  statement: Repeated local attachment alone produces ordered expanding geometry.
+- id: c02
+  status: supported
+  statement: Environmental conditions can influence final crystal structure without instructing
+    a target form.
+- id: c03
+  status: supported
+  statement: Tested morphology can reflect environmental family while failing to recover temporal
+    ordering.
 evidence_targets:
 - Closed-form growth baseline.
 - Environmental-family classification.
@@ -57,13 +91,13 @@ scope_boundaries:
 - Growth is not reproduction.
 - Refilling is not repair.
 - Environmental influence is not instruction.
-- Failure to recover order from tested morphology does not prove the history is absent
-  from all possible state.
-reader_state: The reader should understand the Digital Crystal as an intentionally
-  weak but experimentally controllable substrate and see history as the next missing
-  variable.
-technical_progression: Outlier limitation -> minimal laboratory -> cheap growth ->
-  tempting biology -> controlled environmental influence -> state/history distinction
+- Failure to recover order from tested morphology does not prove the history is absent from
+  all possible state.
+reader_state:
+  leaves_with: The reader should understand the Digital Crystal as an intentionally weak but
+    experimentally controllable substrate and see history as the next missing variable.
+technical_progression: Outlier limitation -> minimal laboratory -> cheap growth -> tempting
+  biology -> controlled environmental influence -> state/history distinction
 entity_requirements:
 - Digital Crystal
 - hexagonal lattice
@@ -71,5 +105,6 @@ entity_requirements:
 - environmental forcing
 diagnostic_notes:
 - 'Book contribution: this is the pivot into the book''s core experimental substrate.'
-- 'Placement: foundational for Chapters 8-18; most later concepts are refinements
-  of mechanisms introduced here.'
+- 'Placement: foundational for Chapters 8-18; most later concepts are refinements of mechanisms
+  introduced here.'
+- 'MRI calibration: required beats are intentionally atomic and section-shaped.'

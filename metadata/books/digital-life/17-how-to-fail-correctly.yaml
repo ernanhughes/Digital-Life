@@ -3,8 +3,8 @@ document_type: chapter
 title: How to Fail Correctly
 profile: technical
 metadata_status: working
-metadata_version: 1
-metadata_confidence: 0.98
+metadata_version: 2
+metadata_confidence: 0.97
 chapter_mode: method_synthesis
 purpose: 'Make explicit the inferential bookkeeping used throughout the book: distinguish
   invalid runs, unresolved questions, supported or bounded claims, descriptive follow-ups,
@@ -12,36 +12,49 @@ purpose: 'Make explicit the inferential bookkeeping used throughout the book: di
 required_beats:
 - id: m01
   fulfilled: true
-  description: Begin with the individuation result to show that procedural rigor cannot
-    guarantee construct validity.
+  description: Distinguish failure types using the individuation result as the opening example.
 - id: m02
   fulfilled: true
-  description: Separate estimand from construct and define SEI/MDE-style precision
-    roles.
+  description: Separate whether the experiment was implemented as claimed from whether the
+    claim was false.
 - id: m03
   fulfilled: true
-  description: Define distinct claim statuses including INVALID, UNRESOLVED, SUPPORTED,
-    BOUNDED, DESCRIPTIVE ONLY, and NARROWED.
+  description: Distinguish whether an experiment could answer its stated question from whether
+    it produced a disappointing result.
 - id: m04
   fulfilled: true
-  description: Show why implementation failure is logically different from a negative
-    result.
+  description: 'Define exclusion value: a failed result can still rule out an interpretation
+    worth ruling out.'
 - id: m05
   fulfilled: true
-  description: Show why insufficient precision leaves a claim unresolved rather than
-    disproven.
+  description: Separate measurement of an estimand from identification of the richer construct.
 - id: m06
   fulfilled: true
-  description: Show how a valid precise result can still fail to identify the richer
-    construct.
+  description: Establish that the null model is part of the claim rather than a decorative
+    comparison.
 - id: m07
   fulfilled: true
-  description: Explain why the null is part of the claim and why corrections do not
-    rescue frozen tests retroactively.
+  description: Attach failure to the smallest affected claim instead of the whole experiment
+    or whole chapter.
 - id: m08
   fulfilled: true
-  description: Audit the book's failures and extract the lower-level phenomena that
-    survived them.
+  description: Warn that description after a failed confirmatory test is not confirmation.
+- id: m09
+  fulfilled: true
+  description: Explain why corrections improve later inquiry but do not retroactively rescue
+    frozen tests.
+- id: m10
+  fulfilled: true
+  description: Define stopping as an inferential obligation when the current design cannot
+    answer the question.
+- id: m11
+  fulfilled: true
+  description: Audit the book's bookkeeping across invalid, unresolved, bounded, descriptive,
+    supported, and narrowed results.
+- id: m12
+  fulfilled: true
+  description: Synthesize what the failures discovered and what lower-level phenomena survived
+    them.
 concept_targets:
 - estimand versus construct
 - claim status
@@ -51,21 +64,28 @@ concept_targets:
 - narrowing
 - descriptive evidence
 claim_targets:
-- A failed claim, an invalid experiment, and an absent phenomenon are different logical
-  outcomes.
-- Claim status attaches to a claim rather than globally to an experimental run.
-- Procedural rigor does not substitute for choosing an estimand and null that identify
-  the intended construct.
+- id: c01
+  status: supported
+  statement: A failed claim, an invalid experiment, and an absent phenomenon are different
+    logical outcomes.
+- id: c02
+  status: supported
+  statement: Claim status attaches to a claim rather than globally to an experimental run.
+- id: c03
+  status: supported
+  statement: Procedural rigor does not substitute for choosing an estimand and null that identify
+    the intended construct.
 evidence_targets:
 - Worked examples from the hidden-state and individuation experiments.
 - Cross-book bookkeeping audit of failures, corrections, and survivors.
 scope_boundaries:
 - The taxonomy organizes inference; it does not guarantee scientific truth.
 - Descriptive follow-up cannot silently upgrade a failed confirmatory claim.
-reader_state: The reader should be able to interpret the book's negative and corrected
-  results without collapsing them into a single notion of failure.
-technical_progression: clean-but-wrong inference -> failure taxonomy -> worked cases
-  -> null/construct discipline -> correction policy -> book-wide survivor audit
+reader_state:
+  leaves_with: The reader should be able to interpret the book's negative and corrected results
+    without collapsing them into a single notion of failure.
+technical_progression: clean-but-wrong inference -> failure taxonomy -> worked cases -> null/construct
+  discipline -> correction policy -> book-wide survivor audit
 entity_requirements:
 - estimand
 - construct
@@ -73,7 +93,8 @@ entity_requirements:
 - MDE80
 - claim status vocabulary
 diagnostic_notes:
-- 'Book contribution: codifies the inferential discipline that was implicit in the
-  experiments and prepares the final synthesis.'
-- 'Placement: belongs immediately before the conclusion because it defines what Chapter
-  18 is permitted to carry forward.'
+- 'Book contribution: codifies the inferential discipline that was implicit in the experiments
+  and prepares the final synthesis.'
+- 'Placement: belongs immediately before the conclusion because it defines what Chapter 18
+  is permitted to carry forward.'
+- 'MRI calibration: required beats are intentionally atomic and section-shaped.'

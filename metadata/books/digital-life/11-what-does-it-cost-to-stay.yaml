@@ -3,42 +3,66 @@ document_type: chapter
 title: What Does It Cost to Stay?
 profile: technical
 metadata_status: working
-metadata_version: 1
-metadata_confidence: 0.96
+metadata_version: 2
+metadata_confidence: 0.95
 chapter_mode: experimental
-purpose: Introduce finite computational opportunity as scarcity, test how evaluation
-  budgets and scheduling rules shape growth and reoccupation, and distinguish stable-looking
-  population from stable underlying flow.
+purpose: Introduce finite computational opportunity as scarcity, test how evaluation budgets
+  and scheduling rules shape growth and reoccupation, and distinguish stable-looking population
+  from stable underlying flow.
 required_beats:
 - id: m01
   fulfilled: true
-  description: Replace unlimited evaluation with a finite per-update candidate budget.
+  description: Introduce finite evaluation by noting that not every eligible transition gets
+    evaluated.
 - id: m02
   fulfilled: true
-  description: Show that binding budgets constrain the population reached within the
-    tested horizon.
+  description: Show that a binding budget constrains the population reached within the tested
+    horizon.
 - id: m03
   fulfilled: true
-  description: Explain how scarcity forces allocation among eligible transitions.
+  description: Explain scarcity as allocation among candidate transitions rather than biological
+    energy.
 - id: m04
   fulfilled: true
-  description: Compare scheduling policies under the same budget and expose support-related
-    confounding.
+  description: Compare three allocation policies under the same nominal budget.
 - id: m05
   fulfilled: true
-  description: Test the predicted reuse-versus-expansion tradeoff and preserve the
-    negative result when it fails.
+  description: Show that the same budget can produce different futures depending on scheduling.
 - id: m06
   fulfilled: true
-  description: Search for a stationary population regime and distinguish near-stable
-    stock from continuing high flow.
+  description: Preserve the negative result when the predicted reuse-versus-expansion tradeoff
+    fails under the initial comparison.
 - id: m07
   fulfilled: true
-  description: Separate reuse and expansion responses after normalization.
+  description: Ask whether the system can simply stay at a stable population under finite
+    budget and loss.
 - id: m08
   fulfilled: true
-  description: Conclude with finite computation as a genuine process constraint rather
-    than a renamed biological energy variable.
+  description: Show the near-stationary case while keeping it bounded as almost stable.
+- id: m09
+  fulfilled: true
+  description: Distinguish stable-looking stock from continuing high turnover flow.
+- id: m10
+  fulfilled: true
+  description: Compare small and large starts to test whether aggregate stability depends
+    on initial scale.
+- id: m11
+  fulfilled: true
+  description: Show that aggregate population barely moves under the tested normalization.
+- id: m12
+  fulfilled: true
+  description: Show that expansion breaks the apparent reuse pattern.
+- id: m13
+  fulfilled: true
+  description: Separate reuse and expansion responses after normalization.
+- id: m14
+  fulfilled: true
+  description: Conclude that staying has a computational-opportunity cost without equating
+    budget to metabolism.
+- id: m15
+  fulfilled: true
+  description: 'Summarize the three tests that survive: constrained reach, allocation, and
+    stock/flow distinction.'
 concept_targets:
 - finite evaluation budget
 - computational scarcity
@@ -47,10 +71,16 @@ concept_targets:
 - stable stock versus flow
 - transition opportunity
 claim_targets:
-- Finite evaluation opportunity constrains the population reached within the tested
-  horizon.
-- When the budget binds, eligible transitions compete for computational opportunity.
-- Similar aggregate population can hide materially different process flows.
+- id: c01
+  status: supported
+  statement: Finite evaluation opportunity constrains the population reached within the tested
+    horizon.
+- id: c02
+  status: supported
+  statement: When the budget binds, eligible transitions compete for computational opportunity.
+- id: c03
+  status: supported
+  statement: Similar aggregate population can hide materially different process flows.
 evidence_targets:
 - Budget sweep.
 - Equal-budget scheduling-policy comparison.
@@ -59,11 +89,11 @@ scope_boundaries:
 - The budget is not energy or metabolism.
 - The experiments do not establish an asymptotic carrying capacity.
 - Support-biased scheduling is not a clean independent test of reuse versus expansion.
-reader_state: The reader should understand computational opportunity as a resource-like
-  causal constraint without importing biological energy language.
-technical_progression: unlimited opportunity -> finite budget -> constrained scale
-  -> allocation -> policy differences -> failed tradeoff -> stable-looking stock ->
-  process-level interpretation
+reader_state:
+  leaves_with: The reader should understand computational opportunity as a resource-like causal
+    constraint without importing biological energy language.
+technical_progression: unlimited opportunity -> finite budget -> constrained scale -> allocation
+  -> policy differences -> failed tradeoff -> stable-looking stock -> process-level interpretation
 entity_requirements:
 - evaluation budget B
 - frontier candidates
@@ -73,5 +103,6 @@ entity_requirements:
 diagnostic_notes:
 - 'Book contribution: introduces finite computation, one of the book''s final process-level
   dimensions.'
-- 'Placement: required before Chapter 14, where the shared finite selector becomes
-  the mechanism coupling distant events.'
+- 'Placement: required before Chapter 14, where the shared finite selector becomes the mechanism
+  coupling distant events.'
+- 'MRI calibration: required beats are intentionally atomic and section-shaped.'

@@ -3,44 +3,60 @@ document_type: chapter
 title: Is There Actually One Thing Here?
 profile: technical
 metadata_status: working
-metadata_version: 1
-metadata_confidence: 0.96
+metadata_version: 2
+metadata_confidence: 0.95
 chapter_mode: experimental
-purpose: Test whether connected crystal geometry earns a privileged causal boundary
-  by applying predictive and intervention-based criteria, and show that local coherence
-  does not by itself establish a natural individual.
+purpose: Test whether connected crystal geometry earns a privileged causal boundary by applying
+  predictive and intervention-based criteria, and show that local coherence does not by itself
+  establish a natural individual.
 required_beats:
 - id: m01
   fulfilled: true
-  description: Expose the untested inference from connected occupied geometry to one
-    natural object.
+  description: Expose the suspicious inference from connected occupied geometry to one natural
+    thing.
 - id: m02
   fulfilled: true
-  description: Define predictive self-coherence as one candidate signature of a privileged
-    region.
+  description: Define a candidate special region in terms of predictive self-coherence.
 - id: m03
   fulfilled: true
-  description: Compare real regions to an observer-only spatial null rather than raw
-    self-prediction.
+  description: Show the apparent positive predictive result before comparing it to an observer
+    null.
 - id: m04
   fulfilled: true
-  description: Show that predictive coherence is insufficient to establish a boundary.
+  description: Show that the null also finds coherent regions, undermining predictive coherence
+    as a boundary.
 - id: m05
   fulfilled: true
-  description: Replace prediction with direct perturbation and causal localization
-    tests.
+  description: Reject predictability as sufficient evidence for a privileged boundary.
 - id: m06
   fulfilled: true
-  description: Show that the tested outer boundary does not uniquely win and that
-    same-side localization can arise locally.
+  description: Identify geometric artifacts in the candidate-region construction.
 - id: m07
   fulfilled: true
-  description: Reframe the crystal as bulk plus dynamically generated flux/interface
-    rather than a body with an obvious shell.
+  description: Replace prediction with direct perturbation as the stronger causal test.
 - id: m08
   fulfilled: true
-  description: End by refusing individuality while retaining measurable local causal
-    structure.
+  description: Show that the visible outer boundary does not uniquely win the causal localization
+    test.
+- id: m09
+  fulfilled: true
+  description: Preserve the narrower same-side localization result.
+- id: m10
+  fulfilled: true
+  description: Bound the interpretation by distinguishing locality from individuality.
+- id: m11
+  fulfilled: true
+  description: Look backward from events to separate stored bulk from active flux.
+- id: m12
+  fulfilled: true
+  description: Reframe the crystal as bulk plus dynamically generated interface rather than
+    an obvious body.
+- id: m13
+  fulfilled: true
+  description: Conclude that the tested evidence supports local structure but not one individual.
+- id: m14
+  fulfilled: true
+  description: End by requiring event-first measurement before drawing a body.
 concept_targets:
 - privileged boundary
 - predictive coherence
@@ -49,27 +65,35 @@ concept_targets:
 - bulk versus flux
 - individuality
 claim_targets:
-- Connected occupied geometry does not by itself establish one natural object.
-- The tested spatial boundaries do not earn unique causal privilege under the chosen
-  criteria.
-- Local causal structure can exist without establishing an individual.
+- id: c01
+  status: supported
+  statement: Connected occupied geometry does not by itself establish one natural object.
+- id: c02
+  status: supported
+  statement: The tested spatial boundaries do not earn unique causal privilege under the chosen
+    criteria.
+- id: c03
+  status: supported
+  statement: Local causal structure can exist without establishing an individual.
 evidence_targets:
 - Predictive-coherence screen with observer null.
 - Direct causal boundary localization at multiple candidate radii.
 scope_boundaries:
 - Failure of these operational criteria does not prove no natural boundary exists.
 - Locality and same-side localization are not equivalent to individuality.
-reader_state: The reader should stop treating the visible crystal outline as a privileged
-  body and become ready to analyze causal events directly.
-technical_progression: connected thing intuition -> predictive test -> null -> causal
-  perturbation -> boundary failure -> bulk/flux reframing
+reader_state:
+  leaves_with: The reader should stop treating the visible crystal outline as a privileged
+    body and become ready to analyze causal events directly.
+technical_progression: connected thing intuition -> predictive test -> null -> causal perturbation
+  -> boundary failure -> bulk/flux reframing
 entity_requirements:
 - candidate regions
 - observer null
 - causal boundary
 - active interface
 diagnostic_notes:
-- 'Book contribution: removes the body''s privilege and sets up the event-first causal
-  analysis of Chapter 13.'
-- 'Placement: depends on loss and finite-budget chapters because those chapters already
-  destabilize fixed geometric boundaries.'
+- 'Book contribution: removes the body''s privilege and sets up the event-first causal analysis
+  of Chapter 13.'
+- 'Placement: depends on loss and finite-budget chapters because those chapters already destabilize
+  fixed geometric boundaries.'
+- 'MRI calibration: required beats are intentionally atomic and section-shaped.'

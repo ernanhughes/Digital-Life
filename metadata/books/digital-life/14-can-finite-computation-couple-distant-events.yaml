@@ -3,42 +3,65 @@ document_type: chapter
 title: Can Finite Computation Couple Distant Events?
 profile: technical
 metadata_status: working
-metadata_version: 1
-metadata_confidence: 0.97
+metadata_version: 2
+metadata_confidence: 0.96
 chapter_mode: mechanism_experiment
-purpose: Explain the far-field causal difference from the previous chapter by isolating
-  the shared finite evaluation selector and demonstrating that a global computational
-  bottleneck can couple regions outside the one-step reach of the local rule.
+purpose: Explain the far-field causal difference from the previous chapter by isolating the
+  shared finite evaluation selector and demonstrating that a global computational bottleneck
+  can couple regions outside the one-step reach of the local rule.
 required_beats:
 - id: m01
   fulfilled: true
-  description: State the unexplained far-field difference left by the previous intervention.
+  description: State the puzzle that an attachment seems to matter too far away for the local
+    rule alone.
 - id: m02
   fulfilled: true
-  description: Define the local-rule one-step cone and identify effects outside it
-    as requiring another pathway.
+  description: Define the shared scheduler as a candidate global mechanism distinct from local
+    propagation.
 - id: m03
   fulfilled: true
-  description: Propose competition for a shared finite selector as the candidate mechanism.
+  description: Freeze the crystal and change only the available evaluation budget to isolate
+    the selector.
 - id: m04
   fulfilled: true
-  description: Freeze checkpoint and intervention while varying only available evaluation
-    fraction.
+  description: Show an outside-local-cone difference under the finite selector.
 - id: m05
   fulfilled: true
-  description: Show that removing the binding selector removes the outside-cone effect.
+  description: Show that removing the selector removes the outside-cone effect.
 - id: m06
   fulfilled: true
-  description: Distinguish allocation/routing from information payload or physical
-    propagation.
+  description: Distinguish what is conserved under finite selection from what is merely rerouted.
 - id: m07
   fulfilled: true
-  description: Match the process and test whether finite selection changes mean consequence
-    or mainly rotates the pathway of expression.
+  description: Preserve the boundary that allocation is not an information payload.
 - id: m08
   fulfilled: true
-  description: Conclude that finite computation routes causal consequence and gates
-    expression without establishing amplification.
+  description: Identify exactly which opportunity the selector moves between candidate transitions.
+- id: m09
+  fulfilled: true
+  description: Conclude that the effect is distant without being propagation through the lattice.
+- id: m10
+  fulfilled: true
+  description: Test the stronger amplification interpretation instead of assuming it from
+    far-field difference.
+- id: m11
+  fulfilled: true
+  description: Match the process rather than only the first frame when testing long-run consequence.
+- id: m12
+  fulfilled: true
+  description: Show that the mean consequence barely moves under the matched process comparison.
+- id: m13
+  fulfilled: true
+  description: Show that the pathway of expression rotates even when mean consequence does
+    not.
+- id: m14
+  fulfilled: true
+  description: Show that some perturbations are never expressed under the finite selection
+    regime.
+- id: m15
+  fulfilled: true
+  description: Conclude that finite computation routes and gates causal expression without
+    establishing amplification.
 concept_targets:
 - shared selector
 - global computational constraint
@@ -47,11 +70,17 @@ concept_targets:
 - allocation
 - expression gating
 claim_targets:
-- A finite shared evaluation selector can causally couple distant regions despite
-  a nearest-neighbour local rule.
-- Removing the selector removes the measured outside-cone effect.
-- The mechanism is routing/allocation of causal opportunity, not long-range payload
-  transmission or demonstrated amplification.
+- id: c01
+  status: supported
+  statement: A finite shared evaluation selector can causally couple distant regions despite
+    a nearest-neighbour local rule.
+- id: c02
+  status: supported
+  statement: Removing the selector removes the measured outside-cone effect.
+- id: c03
+  status: supported
+  statement: The mechanism is routing/allocation of causal opportunity, not long-range payload
+    transmission or demonstrated amplification.
 evidence_targets:
 - Frozen-state budget-fraction intervention.
 - Full-evaluation controls.
@@ -59,20 +88,20 @@ evidence_targets:
 scope_boundaries:
 - The local transition rule remains local.
 - The result does not establish signalling, payload transmission, or amplification.
-- Mean long-horizon consequence is not shown to change meaningfully at the declared
-  scale.
-reader_state: The reader should recognize finite computational opportunity as a global
-  causal constraint capable of rerouting local effects without nonlocal physics.
-technical_progression: unexplained far-field effect -> local cone -> shared selector
-  hypothesis -> isolation experiment -> selector removal -> routing mechanism -> amplification
-  test -> bounded interpretation
+- Mean long-horizon consequence is not shown to change meaningfully at the declared scale.
+reader_state:
+  leaves_with: The reader should recognize finite computational opportunity as a global causal
+    constraint capable of rerouting local effects without nonlocal physics.
+technical_progression: unexplained far-field effect -> local cone -> shared selector hypothesis
+  -> isolation experiment -> selector removal -> routing mechanism -> amplification test ->
+  bounded interpretation
 entity_requirements:
 - finite selector
 - evaluation budget
 - local-rule cone
 - FORCE/PREVENT
 diagnostic_notes:
-- 'Book contribution: turns finite computation from a scale constraint into a causal
-  mechanism.'
+- 'Book contribution: turns finite computation from a scale constraint into a causal mechanism.'
 - 'Placement: depends directly on Chapter 11''s budget concept and Chapter 13''s far-field
   finding.'
+- 'MRI calibration: required beats are intentionally atomic and section-shaped.'

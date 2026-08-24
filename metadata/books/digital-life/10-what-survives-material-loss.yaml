@@ -3,41 +3,60 @@ document_type: chapter
 title: What Survives Material Loss?
 profile: technical
 metadata_status: working
-metadata_version: 1
-metadata_confidence: 0.97
+metadata_version: 2
+metadata_confidence: 0.96
 chapter_mode: experimental
-purpose: Remove irreversible material persistence and discover how ordinary local
-  growth behaves under ongoing loss, revealing that loss creates new construction
-  interfaces, extensive turnover can coexist with continued growth, and reoccupation
-  must not be mislabeled repair.
+purpose: Remove irreversible material persistence and discover how ordinary local growth behaves
+  under ongoing loss, revealing that loss creates new construction interfaces, extensive turnover
+  can coexist with continued growth, and reoccupation must not be mislabeled repair.
 required_beats:
 - id: m01
   fulfilled: true
-  description: Introduce OCCUPIED to EMPTY transitions without adding repair, maintenance,
-    or target state.
+  description: Introduce material loss as OCCUPIED-to-EMPTY turnover without adding repair
+    or maintenance machinery.
 - id: m02
   fulfilled: true
-  description: Predeclare and test the plausible finite-sustainable-size prediction.
+  description: State the plausible prediction that loss should eventually force a finite sustainable
+    size.
 - id: m03
   fulfilled: true
-  description: Show that the finite-size prediction fails across the tested loss sweep.
+  description: Show that the predicted finite regime does not appear in the tested loss sweep.
 - id: m04
   fulfilled: true
-  description: Discover that gross construction rises sharply with material loss.
+  description: Demonstrate that gross construction rises when material loss is introduced.
 - id: m05
   fulfilled: true
-  description: 'Identify the mechanism: loss creates interior frontier and construction
-    opportunity.'
+  description: Explain that loss manufactures frontier and therefore new construction opportunity.
 - id: m06
   fulfilled: true
-  description: Show that the active interface is not identical to the outer edge.
+  description: Show that the active interface is not identical to the visible outer edge.
 - id: m07
   fulfilled: true
-  description: Measure rapid, frequent reoccupation while refusing to call it repair.
+  description: Redefine attachment under loss because construction can now include reoccupation
+    of previously occupied sites.
 - id: m08
   fulfilled: true
-  description: Reframe population as a poor summary of a high-throughput turnover
-    process.
+  description: Measure that almost everything lost is rapidly reoccupied under the tested
+    conditions.
+- id: m09
+  fulfilled: true
+  description: Preserve the boundary that reoccupation is not repair.
+- id: m10
+  fulfilled: true
+  description: Reject the second hypothesis that reoccupation alone explains a stable maintained
+    object.
+- id: m11
+  fulfilled: true
+  description: Show that population size hides the high-throughput process underneath.
+- id: m12
+  fulfilled: true
+  description: 'Frame the hole paradox: removing material can create the opportunity for replacement.'
+- id: m13
+  fulfilled: true
+  description: Establish coupling between loss and construction at the event-flow level.
+- id: m14
+  fulfilled: true
+  description: Conclude with turnover without repair or metabolism.
 concept_targets:
 - material turnover
 - loss-created frontier
@@ -46,9 +65,16 @@ concept_targets:
 - gross versus net flow
 - repair boundary
 claim_targets:
-- No tested loss rate produced the predeclared finite stationary regime.
-- Loss manufactures new construction opportunities and strongly increases gross construction.
-- Large turnover and reoccupation can occur without an explicit repair mechanism.
+- id: c01
+  status: supported
+  statement: No tested loss rate produced the predeclared finite stationary regime.
+- id: c02
+  status: supported
+  statement: Loss manufactures new construction opportunities and strongly increases gross
+    construction.
+- id: c03
+  status: supported
+  statement: Large turnover and reoccupation can occur without an explicit repair mechanism.
 evidence_targets:
 - Loss-rate sweep with predeclared gates.
 - Gross attachments/losses/net accounting.
@@ -56,20 +82,19 @@ evidence_targets:
 scope_boundaries:
 - Reoccupation is not repair.
 - Continued growth under loss is not self-maintenance or metabolism.
-- Failure of the tested finite-size prediction does not rule out other stationary
-  regimes.
-reader_state: The reader should see the crystal as a dynamic flow of material-changing
-  events rather than a persistent stock of cells.
-technical_progression: introduce loss -> plausible equilibrium prediction -> failure
-  -> gross-flow anomaly -> frontier mechanism -> reoccupation -> turnover without
-  repair
+- Failure of the tested finite-size prediction does not rule out other stationary regimes.
+reader_state:
+  leaves_with: The reader should see the crystal as a dynamic flow of material-changing events
+    rather than a persistent stock of cells.
+technical_progression: introduce loss -> plausible equilibrium prediction -> failure -> gross-flow
+  anomaly -> frontier mechanism -> reoccupation -> turnover without repair
 entity_requirements:
 - loss probability
 - construction interface
 - reoccupation
 - gross construction
 diagnostic_notes:
-- 'Book contribution: breaks the fixed-material assumption and makes process continuity
-  concrete.'
+- 'Book contribution: breaks the fixed-material assumption and makes process continuity concrete.'
 - 'Placement: prerequisite for finite-budget scarcity and later arguments about boundaries,
   turnover, and process-first organization.'
+- 'MRI calibration: required beats are intentionally atomic and section-shaped.'

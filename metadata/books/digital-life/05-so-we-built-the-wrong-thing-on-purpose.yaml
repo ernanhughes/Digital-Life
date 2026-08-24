@@ -3,40 +3,62 @@ document_type: chapter
 title: So We Built the Wrong Thing on Purpose
 profile: technical
 metadata_status: working
-metadata_version: 1
+metadata_version: 2
 metadata_confidence: 0.95
 chapter_mode: method_experiment
-purpose: Calibrate the book's evidence by constructing a deliberately simple decoy
-  system and showing that several apparently discriminating persistence and organization
-  tests are too easy to pass.
+purpose: Calibrate the book's evidence by constructing a deliberately simple decoy system
+  and showing that several apparently discriminating persistence and organization tests are
+  too easy to pass.
 required_beats:
 - id: m01
   fulfilled: true
-  description: Explain why a positive result increases the need to test the measuring
-    instrument itself.
+  description: Introduce the decoy swarm as an adversarial calibration object built to expose
+    cheap tests.
 - id: m02
   fulfilled: true
-  description: Construct a simple friend/enemy particle swarm as an adversarial calibration
-    system.
+  description: Define the four intervention branches needed to compare control drift, damage,
+    rewiring, and identity-label disruption.
 - id: m03
   fulfilled: true
-  description: Test material, organizational, and identity-label interventions.
+  description: Show that the untouched control does not stay fixed, breaking return-to-one-picture
+    as a persistence criterion.
 - id: m04
   fulfilled: true
-  description: Discover that return to one privileged picture is a broken persistence
-    definition.
+  description: Reframe persistence as regime-relative stability against ordinary variation
+    rather than recovery of a privileged snapshot.
 - id: m05
   fulfilled: true
-  description: Replace picture recovery with regime-relative measurement against ordinary
-    variation.
+  description: Demonstrate that material damage can disappear into ordinary variation under
+    the initial measurement.
 - id: m06
   fulfilled: true
-  description: Show that severe interventions and graph replacement can still satisfy
-    cheap persistence/organization measures.
+  description: Preserve the negative result that the hoped-for discriminating persistence
+    test failed.
 - id: m07
   fulfilled: true
-  description: Conclude that the tests, not the swarm, were the primary object learned
-    about.
+  description: Conclude that persistence had been located too early in the visible configuration.
+- id: m08
+  fulfilled: true
+  description: Sweep graph rewiring to test whether relationship structure provides a stronger
+    discriminator.
+- id: m09
+  fulfilled: true
+  description: Identify the apparent fifty-percent threshold as a candidate result rather
+    than a final interpretation.
+- id: m10
+  fulfilled: true
+  description: Use the rest of the curve to bound the threshold interpretation.
+- id: m11
+  fulfilled: true
+  description: Show that even complete relationship replacement can pass the cheap measure
+    under the declared comparison.
+- id: m12
+  fulfilled: true
+  description: Conclude that the chapter primarily learned about the tests, not about the
+    decoy being life-like.
+- id: m13
+  fulfilled: true
+  description: Justify the wrong system as a calibration device for later stronger experiments.
 concept_targets:
 - adversarial calibration
 - negative-control logic
@@ -44,11 +66,17 @@ concept_targets:
 - measurement validity
 - regime persistence
 claim_targets:
-- A deliberately simple decoy can expose evidence that is too easy to satisfy.
-- Persistence should not be defined as return to one preferred picture when the untouched
-  control itself moves.
-- Some seemingly strong organization measures are not discriminating evidence for
-  digital life.
+- id: c01
+  status: supported
+  statement: A deliberately simple decoy can expose evidence that is too easy to satisfy.
+- id: c02
+  status: supported
+  statement: Persistence should not be defined as return to one preferred picture when the
+    untouched control itself moves.
+- id: c03
+  status: supported
+  statement: Some seemingly strong organization measures are not discriminating evidence for
+    digital life.
 evidence_targets:
 - Four-branch intervention design.
 - Longer control runs showing natural movement away from the reference configuration.
@@ -56,10 +84,11 @@ evidence_targets:
 scope_boundaries:
 - The swarm is not proven nonliving.
 - Passing or failing these tests says more about the tests than about life.
-reader_state: The reader should treat every later metric as an instrument that itself
-  needs controls.
-technical_progression: positive-result overconfidence risk -> decoy -> intervention
-  tests -> broken metric -> improved baseline -> limits of discrimination
+reader_state:
+  leaves_with: The reader should treat every later metric as an instrument that itself needs
+    controls.
+technical_progression: positive-result overconfidence risk -> decoy -> intervention tests
+  -> broken metric -> improved baseline -> limits of discrimination
 entity_requirements:
 - friend/enemy particle swarm
 - ordinary variation
@@ -69,3 +98,4 @@ diagnostic_notes:
   later chapters from inheriting unearned confidence.'
 - 'Placement: essential bridge from early positive Outlier result to the more disciplined
   experiments that follow.'
+- 'MRI calibration: required beats are intentionally atomic and section-shaped.'

@@ -3,34 +3,52 @@ document_type: chapter
 title: Now There Are Two
 profile: technical
 metadata_status: working
-metadata_version: 1
+metadata_version: 2
 metadata_confidence: 0.94
 chapter_mode: experimental
-purpose: Separate persistence from reproduction and establish a causal criterion for
-  reproduction-like organization in Outlier, showing that resemblance is insufficient
-  but branching causal ancestry can support a bounded reproduction claim.
+purpose: Separate persistence from reproduction and establish a causal criterion for reproduction-like
+  organization in Outlier, showing that resemblance is insufficient but branching causal ancestry
+  can support a bounded reproduction claim.
 required_beats:
 - id: m01
   fulfilled: true
-  description: Separate persistence from reproduction and explain why recurrence along
-    one causal chain is insufficient.
+  description: Distinguish the human search for a rule from the absence of an explicit replicator
+    variable in the system.
 - id: m02
   fulfilled: true
-  description: Introduce the branching causal criterion for self-replication.
+  description: Show that visual copying is exactly the tempting interpretation that must be
+    tested rather than accepted.
 - id: m03
   fulfilled: true
-  description: Introduce Outlier as a local-rule world in which replicating organizations
-    were discovered rather than explicitly represented.
+  description: Use determinism to make causal ancestry auditable instead of relying on resemblance
+    between before and after states.
 - id: m04
   fulfilled: true
-  description: Show why visual duplication cannot establish ancestry.
+  description: Compare multiple replicator cases to show that recurrence alone does not settle
+    causal reproduction.
 - id: m05
   fulfilled: true
-  description: Test recurrence against causal ancestry and cheaper explanations.
+  description: Preserve the negative lesson that faster or more visually prolific forms are
+    not automatically stronger reproduction evidence.
 - id: m06
   fulfilled: true
-  description: Retain the causal reproduction-like result while refusing organism,
-    population, and life claims.
+  description: Consider whether the replicator is a causal process or organization rather
+    than a bounded body.
+- id: m07
+  fulfilled: true
+  description: Reject the claim that many copies by themselves prove reproduction.
+- id: m08
+  fulfilled: true
+  description: Establish the bounded positive claim that a causal branching relation survives
+    the tested ancestry criterion.
+- id: m09
+  fulfilled: true
+  description: List the stronger claims not earned, including organism, population, individuality,
+    and life.
+- id: m10
+  fulfilled: true
+  description: Contrast visual instruments and causal instruments as complementary but individually
+    insufficient.
 concept_targets:
 - causal reproduction
 - branching ancestry
@@ -38,22 +56,28 @@ concept_targets:
 - emergent organization
 - Outlier
 claim_targets:
-- Reproduction requires a causal descent relation, not visual copying alone.
-- Outlier contains reproduction-like organization that survives the stated causal
-  ancestry criterion.
-- The result does not establish an organism, population, or life.
+- id: c01
+  status: supported
+  statement: Reproduction requires a causal descent relation, not visual copying alone.
+- id: c02
+  status: supported
+  statement: Outlier contains reproduction-like organization that survives the stated causal
+    ancestry criterion.
+- id: c03
+  status: supported
+  statement: The result does not establish an organism, population, or life.
 evidence_targets:
 - Causal graph/reconstruction connecting earlier organization to later copies.
 - Controls separating structural recurrence from independent appearance.
 scope_boundaries:
 - The rule search was human-designed.
-- The result is bounded to causal reproduction-like organization under the criterion
-  used.
+- The result is bounded to causal reproduction-like organization under the criterion used.
 - The chapter does not establish individuality.
-reader_state: The reader should understand that some strong life-like claims can survive
-  the book's method, but only when causal structure exceeds resemblance.
-technical_progression: persistence is not reproduction -> causal branching criterion
-  -> Outlier -> ancestry test -> bounded positive result
+reader_state:
+  leaves_with: The reader should understand that some strong life-like claims can survive
+    the book's method, but only when causal structure exceeds resemblance.
+technical_progression: persistence is not reproduction -> causal branching criterion -> Outlier
+  -> ancestry test -> bounded positive result
 entity_requirements:
 - Outlier
 - causal graph
@@ -62,5 +86,6 @@ entity_requirements:
 diagnostic_notes:
 - 'Book contribution: provides an early genuine positive result and proves the methodology
   is not merely a machine for rejection.'
-- 'Placement: creates the need to calibrate the book''s tests before escalating to
-  further interpretations.'
+- 'Placement: creates the need to calibrate the book''s tests before escalating to further
+  interpretations.'
+- 'MRI calibration: required beats are intentionally atomic and section-shaped.'

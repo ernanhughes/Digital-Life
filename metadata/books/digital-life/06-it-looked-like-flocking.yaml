@@ -3,35 +3,67 @@ document_type: chapter
 title: It Looked Like Flocking
 profile: technical
 metadata_status: working
-metadata_version: 1
-metadata_confidence: 0.95
+metadata_version: 2
+metadata_confidence: 0.94
 chapter_mode: experimental
-purpose: Investigate apparent flocking in Outlier by separating measured short-range
-  directional coherence from proposed explanations such as global expansion and shared
-  ancestry, then narrow the result to what can be supported under matched comparisons.
+purpose: Investigate apparent flocking in Outlier by separating measured short-range directional
+  coherence from proposed explanations such as global expansion and shared ancestry, then
+  narrow the result to what can be supported under matched comparisons.
 required_beats:
 - id: m01
   fulfilled: true
-  description: Turn apparent collective motion into a measurable directional-alignment
-    statistic.
+  description: Turn the visual flocking observation into a measurable directional-coherence
+    question.
 - id: m02
   fulfilled: true
-  description: Show that short-range coherence is real relative to shuffled controls.
+  description: Show an initial short-range alignment effect relative to a shuffled comparison.
 - id: m03
   fulfilled: true
-  description: Remove global radial expansion as a sufficient explanation.
+  description: Test whether global radial expansion explains the effect and retain only what
+    is not explained by expansion.
 - id: m04
   fulfilled: true
-  description: Test whether shared recent causal ancestry explains additional coherence.
+  description: Introduce shared ancestry as a plausible alternative explanation for local
+    coherence.
 - id: m05
   fulfilled: true
-  description: Identify and repair an invalid comparison/control.
+  description: Report the exciting ancestry-related result before auditing whether the comparison
+    was valid.
 - id: m06
   fulfilled: true
-  description: Restrict analysis to common support and matched comparisons.
+  description: Identify the original control as invalid because the compared cases differed
+    in support.
 - id: m07
   fulfilled: true
-  description: Keep the observed coherence while refusing the stronger flocking interpretation.
+  description: Repair the comparison and preserve the effect that survives the corrected control.
+- id: m08
+  fulfilled: true
+  description: Expose the four-and-a-half-cell problem as a locality/support constraint on
+    interpretation.
+- id: m09
+  fulfilled: true
+  description: Construct like-with-like comparisons rather than extrapolating across unsupported
+    regions.
+- id: m10
+  fulfilled: true
+  description: Limit conclusions to the region where common support makes comparison possible.
+- id: m11
+  fulfilled: true
+  description: Show the remaining within-support effect while keeping its scope narrow.
+- id: m12
+  fulfilled: true
+  description: State what the analysis still cannot answer about mechanism or biological flocking.
+- id: m13
+  fulfilled: true
+  description: Reject flocking as an established interpretation while retaining directional
+    coherence as real.
+- id: m14
+  fulfilled: true
+  description: Preserve the phenomenon after the preferred explanation weakens.
+- id: m15
+  fulfilled: true
+  description: Carry forward the methodological lesson that the comparison must be built before
+    the biological label.
 concept_targets:
 - directional coherence
 - radial confounding
@@ -40,9 +72,15 @@ concept_targets:
 - common support
 - flocking interpretation
 claim_targets:
-- Nearby persistent structures show real short-range directional coherence.
-- Global radial expansion alone does not explain the measured coherence.
-- The evidence does not establish flocking as the correct biological interpretation.
+- id: c01
+  status: supported
+  statement: Nearby persistent structures show real short-range directional coherence.
+- id: c02
+  status: supported
+  statement: Global radial expansion alone does not explain the measured coherence.
+- id: c03
+  status: supported
+  statement: The evidence does not establish flocking as the correct biological interpretation.
 evidence_targets:
 - Velocity-shuffled control.
 - Radial-subtracted analysis.
@@ -50,10 +88,11 @@ evidence_targets:
 scope_boundaries:
 - Directional alignment is a measurement; flocking is an interpretation.
 - Unsupported regions of the data should not be used to infer ancestry effects.
-reader_state: The reader should see how a striking phenomenon can remain real while
-  its first explanation is progressively weakened.
-technical_progression: visual flocking -> measured coherence -> expansion control
-  -> ancestry hypothesis -> control correction -> matched estimate -> narrowed conclusion
+reader_state:
+  leaves_with: The reader should see how a striking phenomenon can remain real while its first
+    explanation is progressively weakened.
+technical_progression: visual flocking -> measured coherence -> expansion control -> ancestry
+  hypothesis -> control correction -> matched estimate -> narrowed conclusion
 entity_requirements:
 - Outlier
 - motion tracks
@@ -62,5 +101,6 @@ entity_requirements:
 diagnostic_notes:
 - 'Book contribution: demonstrates the full observation-to-control workflow on a seductive
   phenomenon.'
-- 'Placement: exposes Outlier''s confounding limits and motivates building a cleaner
-  laboratory in Chapter 7.'
+- 'Placement: exposes Outlier''s confounding limits and motivates building a cleaner laboratory
+  in Chapter 7.'
+- 'MRI calibration: required beats are intentionally atomic and section-shaped.'

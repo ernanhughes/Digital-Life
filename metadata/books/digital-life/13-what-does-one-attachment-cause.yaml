@@ -3,43 +3,69 @@ document_type: chapter
 title: What Does One Attachment Cause?
 profile: technical
 metadata_status: working
-metadata_version: 1
-metadata_confidence: 0.96
+metadata_version: 2
+metadata_confidence: 0.95
 chapter_mode: experimental
-purpose: Abandon object-first analysis and isolate the causal consequences of one
-  attachment, separating apparent propagation, immediate mechanical effects, cumulative
-  consequences, geometry, and predictor claims.
+purpose: Abandon object-first analysis and isolate the causal consequences of one attachment,
+  separating apparent propagation, immediate mechanical effects, cumulative consequences,
+  geometry, and predictor claims.
 required_beats:
 - id: m01
   fulfilled: true
-  description: Start from one event rather than a predeclared object or region.
+  description: Start from whether activity propagates after one attachment rather than from
+    a predeclared object.
 - id: m02
   fulfilled: true
-  description: Test and reject a propagation claim after showing that the estimator
-    can manufacture a wave-like pattern.
+  description: Show that the original estimator can invent a wave-like pattern.
 - id: m03
   fulfilled: true
-  description: Recover the signed local structure suppressed by the positive-only
-    estimator.
+  description: Recover signed effects so positive-only summaries do not hide cancellation
+    and mechanics.
 - id: m04
   fulfilled: true
-  description: Force one attachment and verify the immediate effect against the local
-    rule's mechanical prediction.
+  description: Use the local rule to predict the immediate consequence of forcing one attachment.
 - id: m05
   fulfilled: true
-  description: Compare retained, transient, and prevented interventions to separate
-    causal claims.
+  description: Force one attachment and verify that the first effect matches the local mechanics.
 - id: m06
   fulfilled: true
-  description: Show that local geometry changes immediate opportunity differently.
+  description: Track later divergence to show that futures keep separating after the immediate
+    effect.
 - id: m07
   fulfilled: true
-  description: Test whether local geometry predicts long-run causal gain and close
-    the feature search when it does not.
+  description: Remove the cause to distinguish prevented, transient, and retained causal claims.
 - id: m08
   fulfilled: true
-  description: Retain the measured causal effects while refusing unsupported propagation
-    and stable-local-predictor interpretations.
+  description: Measure what survives when the cause is removed rather than retained.
+- id: m09
+  fulfilled: true
+  description: Leave the cause in place to compare retained consequences against transient
+    interventions.
+- id: m10
+  fulfilled: true
+  description: 'Separate the four claims that had been conflated: immediate effect, persistence,
+    cumulative consequence, and prediction.'
+- id: m11
+  fulfilled: true
+  description: Show that the same attachment changes opportunity differently depending on
+    local geometry.
+- id: m12
+  fulfilled: true
+  description: Preserve the negative result that geometry did not predict long-run gain.
+- id: m13
+  fulfilled: true
+  description: Test broader causal-gain maps without treating suggestive feature searches
+    as confirmations.
+- id: m14
+  fulfilled: true
+  description: Summarize what three mapping attempts could and could not resolve.
+- id: m15
+  fulfilled: true
+  description: Stop the feature search rather than rescuing a stable-local-predictor claim.
+- id: m16
+  fulfilled: true
+  description: Conclude with measured causal effects but no supported propagation or stable
+    predictor.
 concept_targets:
 - event-first causality
 - estimator failure
@@ -48,10 +74,17 @@ concept_targets:
 - causal opportunity
 - predictor failure
 claim_targets:
-- The initial propagation statistic failed and could manufacture the shape it sought.
-- A forced attachment has an immediate causal effect consistent with the local mechanics.
-- No stable local predictor of long-run causal gain was established under the tested
-  feature searches.
+- id: c01
+  status: supported
+  statement: The initial propagation statistic failed and could manufacture the shape it sought.
+- id: c02
+  status: supported
+  statement: A forced attachment has an immediate causal effect consistent with the local
+    mechanics.
+- id: c03
+  status: supported
+  statement: No stable local predictor of long-run causal gain was established under the tested
+    feature searches.
 evidence_targets:
 - Distance-lag event field and controls.
 - Corrected FORCE/PREVENT interventions.
@@ -60,11 +93,11 @@ scope_boundaries:
 - Suggestive secondary shapes do not rescue a failed primary propagation claim.
 - Immediate causal effect does not imply durable amplification or organism-level function.
 - Failed feature searches are not proof that no predictor exists.
-reader_state: The reader should understand that causal analysis must distinguish what
-  happens immediately from what accumulates later and must audit the estimator itself.
-technical_progression: event field -> failed propagation -> estimator diagnosis ->
-  direct intervention -> causal decomposition -> geometry -> predictor search -> bounded
-  closeout
+reader_state:
+  leaves_with: The reader should understand that causal analysis must distinguish what happens
+    immediately from what accumulates later and must audit the estimator itself.
+technical_progression: event field -> failed propagation -> estimator diagnosis -> direct
+  intervention -> causal decomposition -> geometry -> predictor search -> bounded closeout
 entity_requirements:
 - attachment event
 - FORCE
@@ -73,5 +106,6 @@ entity_requirements:
 - local geometry
 diagnostic_notes:
 - 'Book contribution: replaces body-first reasoning with event-first causal analysis.'
-- 'Placement: produces the unexplained far-field effect that Chapter 14 is specifically
-  designed to explain.'
+- 'Placement: produces the unexplained far-field effect that Chapter 14 is specifically designed
+  to explain.'
+- 'MRI calibration: required beats are intentionally atomic and section-shaped.'

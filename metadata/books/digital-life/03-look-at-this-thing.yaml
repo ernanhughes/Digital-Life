@@ -3,35 +3,57 @@ document_type: chapter
 title: Look at This Thing
 profile: technical
 metadata_status: working
-metadata_version: 1
-metadata_confidence: 0.94
+metadata_version: 2
+metadata_confidence: 0.93
 chapter_mode: conceptual_experiment
-purpose: Use visually organism-like computational patterns to demonstrate how quickly
-  observers invent objects and identity, then replace visual intuition with operational
-  descriptions of persistence, propagation, state, history, and material turnover.
+purpose: Use visually organism-like computational patterns to demonstrate how quickly observers
+  invent objects and identity, then replace visual intuition with operational descriptions
+  of persistence, propagation, state, history, and material turnover.
 required_beats:
 - id: m01
   fulfilled: true
-  description: Present a visually organism-like Lenia pattern before explanation.
+  description: Present the Lenia-like pattern in a way that makes the reader experience object-language
+    before the mechanism is explained.
 - id: m02
   fulfilled: true
-  description: Show that the observer supplies objecthood, boundary, and identity
-    before the mechanism does.
+  description: Show that the observer supplies objecthood, boundary, and identity before the
+    system declares a creature variable.
 - id: m03
   fulfilled: true
-  description: Explain that apparent motion is repeated reconstruction of organization
-    on a fixed lattice.
+  description: Explain that apparent motion is reconstruction of organization on a fixed lattice
+    rather than transport of a material body.
 - id: m04
   fulfilled: true
-  description: Challenge the pronoun 'it' and demand an operational continuity rule.
+  description: Use the pronoun problem to demand an operational continuity rule for what counts
+    as the same thing.
 - id: m05
   fulfilled: true
-  description: Separate tempting biological descriptions from measurable computational
-    descriptions.
+  description: Reduce the system toward simpler cellular automata to separate seductive visual
+    richness from the minimal persistence question.
 - id: m06
   fulfilled: true
-  description: Introduce material turnover as a way to test whether organizational
-    persistence can outlive component identity.
+  description: Establish what the lattice cannot do, including carrying material identity
+    along with the apparent moving form.
+- id: m07
+  fulfilled: true
+  description: Introduce a world that preserves consequences so the past can matter through
+    state rather than through observer narration.
+- id: m08
+  fulfilled: true
+  description: Use the emerging network example to show that structure can appear from local
+    updates without being pre-named as an organism.
+- id: m09
+  fulfilled: true
+  description: Pose the history question by asking where, if anywhere, the past resides in
+    a current computational state.
+- id: m10
+  fulfilled: true
+  description: Introduce material replacement as a test of whether organization can outlive
+    the original material tokens.
+- id: m11
+  fulfilled: true
+  description: 'Frame destruction as an operational probe: what must be removed to destroy
+    the thing the observer thought was present.'
 concept_targets:
 - observer-imposed objecthood
 - organizational propagation
@@ -39,28 +61,34 @@ concept_targets:
 - material versus organization
 - operational description
 claim_targets:
-- Visual continuity does not establish a natural computational object.
-- A recognizable organization can propagate without material transport.
-- Persistence may be organizational rather than dependent on fixed material tokens.
+- id: c01
+  status: supported
+  statement: Visual continuity does not establish a natural computational object.
+- id: c02
+  status: supported
+  statement: A recognizable organization can propagate without material transport.
+- id: c03
+  status: supported
+  statement: Persistence may be organizational rather than dependent on fixed material tokens.
 evidence_targets:
 - Lenia motion on a fixed lattice.
-- Turnover experiment showing organization continuing while original material is largely
-  replaced.
+- Turnover experiment showing organization continuing while original material is largely replaced.
 scope_boundaries:
 - Visual and turnover results do not establish organismal identity or life.
 - Operational persistence is not yet reproduction or individuality.
-reader_state: The reader should become suspicious of object language and understand
-  why continuity must be tested at the level of organization rather than assumed from
-  appearance.
-technical_progression: visual object intuition -> mechanism -> operational translation
-  -> continuity problem -> turnover test
+reader_state:
+  leaves_with: The reader should become suspicious of object language and understand why continuity
+    must be tested at the level of organization rather than assumed from appearance.
+technical_progression: visual object intuition -> mechanism -> operational translation ->
+  continuity problem -> turnover test
 entity_requirements:
 - Lenia
 - localized organization
 - fixed lattice
 - material turnover
 diagnostic_notes:
-- 'Book contribution: converts the philosophical warning of Chapter 2 into a concrete
-  perceptual and computational example.'
-- 'Placement: prepares the persistence/reproduction distinction used immediately in
-  Chapter 4.'
+- 'Book contribution: converts the philosophical warning of Chapter 2 into a concrete perceptual
+  and computational example.'
+- 'Placement: prepares the persistence/reproduction distinction used immediately in Chapter
+  4.'
+- 'MRI calibration: required beats are intentionally atomic and section-shaped.'

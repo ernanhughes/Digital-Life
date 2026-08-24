@@ -3,41 +3,62 @@ document_type: chapter
 title: We Found an Individual. Then We Didn't.
 profile: technical
 metadata_status: working
-metadata_version: 1
-metadata_confidence: 0.97
+metadata_version: 2
+metadata_confidence: 0.96
 chapter_mode: experimental
-purpose: Revisit individuation with a stronger causal-containment criterion, then
-  demonstrate that a large, precise, reproducible containment statistic does not establish
-  individuality when comparable geometry-matched regions show the same effect.
+purpose: Revisit individuation with a stronger causal-containment criterion, then demonstrate
+  that a large, precise, reproducible containment statistic does not establish individuality
+  when comparable geometry-matched regions show the same effect.
 required_beats:
 - id: m01
   fulfilled: true
-  description: Reopen individuation after earlier geometry-based boundary tests failed.
+  description: Define what a causal individual would need to do beyond being a connected region.
 - id: m02
   fulfilled: true
-  description: Define causal containment through internal retention versus external
-    penetration.
+  description: Remove known channels such as finite-selector coupling so the modularity test
+    targets local containment.
 - id: m03
   fulfilled: true
-  description: Remove known global coupling channels so the local modularity test
-    is not contaminated.
+  description: Predeclare candidate regions before looking at the answer.
 - id: m04
   fulfilled: true
-  description: Predeclare candidate regions and threshold before observing outcomes.
+  description: Show the initial positive result for causal containment.
 - id: m05
   fulfilled: true
-  description: Measure a large and precise raw causal-modularity score.
+  description: Show that enlarging the circle changes the interpretation of the positive result.
 - id: m06
   fulfilled: true
-  description: Reproduce the raw score on a fresh matched-null run.
+  description: Identify how geometry can manufacture a module-like statistic.
 - id: m07
   fulfilled: true
-  description: Replace the insufficient comparison with same-checkpoint geometry/interface-matched
-    regions.
+  description: Preserve that the raw measurement was real rather than dismissing it as noise.
 - id: m08
   fulfilled: true
-  description: Show that controls are similarly modular and narrow the result from
-    individuation to descriptive causal containment.
+  description: Change the null model instead of changing the statistic after disappointment.
+- id: m09
+  fulfilled: true
+  description: Compare regions from the same crystal to remove checkpoint and interface confounds.
+- id: m10
+  fulfilled: true
+  description: Introduce the need for a new threshold when the question changes.
+- id: m11
+  fulfilled: true
+  description: Show that matched controls look just as modular as the candidate regions.
+- id: m12
+  fulfilled: true
+  description: Test whether the null was too close to the regions to be informative.
+- id: m13
+  fulfilled: true
+  description: Show that component-level audits do not reveal hidden privileged structure.
+- id: m14
+  fulfilled: true
+  description: Conclude that the observer can create an inside by drawing regions.
+- id: m15
+  fulfilled: true
+  description: Reject individuation while preserving descriptive causal containment.
+- id: m16
+  fulfilled: true
+  description: 'Specify exactly what failed: construct identification, not measurement precision.'
 concept_targets:
 - causal containment
 - modularity
@@ -46,24 +67,30 @@ concept_targets:
 - construct validity
 - observer-defined region
 claim_targets:
-- Selected regions show strong raw causal containment.
-- Comparable matched regions show essentially the same containment.
-- Causal containment therefore does not establish privileged individuality under the
-  tested comparison.
+- id: c01
+  status: supported
+  statement: Selected regions show strong raw causal containment.
+- id: c02
+  status: supported
+  statement: Comparable matched regions show essentially the same containment.
+- id: c03
+  status: supported
+  statement: Causal containment therefore does not establish privileged individuality under
+    the tested comparison.
 evidence_targets:
 - Predeclared causal-modularity V1.
 - Fresh-seed V2 reproduction.
 - Same-checkpoint matched-region null and overlap robustness audit.
 scope_boundaries:
 - A real and precise statistic does not identify its richer construct automatically.
-- Failure to establish individuation does not establish that no computational individual
-  exists.
+- Failure to establish individuation does not establish that no computational individual exists.
 - The finding is about the tested spatial partition and null.
-reader_state: The reader should see why precision, replication, and predeclaration
-  are still insufficient when the null does not isolate the construct.
-technical_progression: stronger individuation hypothesis -> causal metric -> clean
-  protocol -> impressive positive -> fresh reproduction -> stronger matched null ->
-  construct collapses -> containment survives
+reader_state:
+  leaves_with: The reader should see why precision, replication, and predeclaration are still
+    insufficient when the null does not isolate the construct.
+technical_progression: stronger individuation hypothesis -> causal metric -> clean protocol
+  -> impressive positive -> fresh reproduction -> stronger matched null -> construct collapses
+  -> containment survives
 entity_requirements:
 - causal modularity M
 - candidate regions
@@ -71,6 +98,7 @@ entity_requirements:
 - internal retention
 - external penetration
 diagnostic_notes:
-- 'Book contribution: supplies the book''s clearest example of a correct measurement
-  supporting the wrong interpretation.'
+- 'Book contribution: supplies the book''s clearest example of a correct measurement supporting
+  the wrong interpretation.'
 - 'Placement: sets up Chapter 17''s taxonomy of failure and construct validity.'
+- 'MRI calibration: required beats are intentionally atomic and section-shaped.'

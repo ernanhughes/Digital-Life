@@ -3,37 +3,49 @@ document_type: chapter
 title: How to Read This Book
 profile: technical
 metadata_status: working
-metadata_version: 1
+metadata_version: 2
 metadata_confidence: 0.96
 chapter_mode: method
-purpose: 'Teach the reader how to evaluate the book''s argument: distinguish observation
-  from interpretation, follow claims back to evidence, treat controls and failures
-  as part of the result, and keep conclusions bounded by what the experiments actually
-  establish.'
+purpose: 'Teach the reader how to evaluate the book''s argument: distinguish observation from
+  interpretation, follow claims back to evidence, treat controls and failures as part of the
+  result, and keep conclusions bounded by what the experiments actually establish.'
 required_beats:
 - id: m01
   fulfilled: true
-  description: 'Establish the book''s three reading depths: argument, evidence, and
-    experimental audit.'
+  description: Establish the web edition and repository as part of the reading apparatus rather
+    than decorative supplements.
 - id: m02
   fulfilled: true
-  description: Define the recurring investigation loop from observation through hypothesis,
-    measurement, attack, control, and survivor.
+  description: 'Distinguish the three valid reading depths: following the argument, following
+    the evidence, and auditing the experiments.'
 - id: m03
   fulfilled: true
-  description: Teach that an observation may survive after its preferred interpretation
-    fails.
+  description: Define the book's recurring rule that observation, hypothesis, measurement,
+    attack, control, and survivor must remain separable.
 - id: m04
   fulfilled: true
-  description: Explain what controls do and why claims need explicit edges and scope.
+  description: Explain what a control is doing by showing that it tests an interpretation
+    rather than merely adding rigor.
 - id: m05
   fulfilled: true
-  description: Establish that failed experiments and corrections remain evidence rather
-    than material to hide.
+  description: Establish that every result has edges and that conclusions must stay inside
+    the conditions actually tested.
 - id: m06
   fulfilled: true
-  description: Make the experimental record authoritative over attractive prose or
-    interpretation.
+  description: Bind numerical claims to their specific experimental design instead of treating
+    values as portable facts.
+- id: m07
+  fulfilled: true
+  description: Treat failed predictions, invalidated interpretations, and corrections as evidence-bearing
+    outcomes rather than material to hide.
+- id: m08
+  fulfilled: true
+  description: Make the current experimental record authoritative when prose interpretation
+    and recorded experiment disagree.
+- id: m09
+  fulfilled: true
+  description: Invite skeptical reading while warning that the book will use life-language
+    before it has earned life-claims.
 concept_targets:
 - observation versus interpretation
 - controls
@@ -41,25 +53,32 @@ concept_targets:
 - experimental provenance
 - failure as evidence
 claim_targets:
-- Major conceptual claims should have an inspectable trail toward evidence.
-- Controls test interpretations rather than merely decorate experiments.
-- A failed interpretation can leave a valid lower-level observation intact.
+- id: c01
+  status: supported
+  statement: Major conceptual claims should have an inspectable trail toward evidence.
+- id: c02
+  status: supported
+  statement: Controls test interpretations rather than merely decorate experiments.
+- id: c03
+  status: supported
+  statement: A failed interpretation can leave a valid lower-level observation intact.
 evidence_targets:
 - Worked examples of biological language being narrowed by controls.
 - Explicit reading path from prose to repository and experimental record.
 scope_boundaries:
-- This chapter defines the book's method; it does not establish any property of digital
-  life.
+- This chapter defines the book's method; it does not establish any property of digital life.
 - The method does not guarantee that every chosen measurement or null is correct.
-reader_state: The reader should know how to read later chapters skeptically, what
-  kinds of evidence to look for, and why the book repeatedly narrows its own conclusions.
-technical_progression: reading instructions -> experimental method -> controls and
-  claim boundaries -> failure/correction policy -> invitation to audit
+reader_state:
+  leaves_with: The reader should know how to read later chapters skeptically, what kinds of
+    evidence to look for, and why the book repeatedly narrows its own conclusions.
+technical_progression: reading instructions -> experimental method -> controls and claim boundaries
+  -> failure/correction policy -> invitation to audit
 entity_requirements:
 - Digital Life web edition
 - Digital Life source repository
 - experimental record
 diagnostic_notes:
 - 'Book contribution: establishes the epistemic contract used by every later chapter.'
-- 'Placement: must precede the scientific argument because later chapters assume this
-  vocabulary of evidence, controls, and bounded claims.'
+- 'Placement: must precede the scientific argument because later chapters assume this vocabulary
+  of evidence, controls, and bounded claims.'
+- 'MRI calibration: required beats are intentionally atomic and section-shaped.'

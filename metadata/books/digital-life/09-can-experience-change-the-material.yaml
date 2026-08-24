@@ -3,43 +3,71 @@ document_type: chapter
 title: Can Experience Change the Material?
 profile: technical
 metadata_status: working
-metadata_version: 1
-metadata_confidence: 0.97
+metadata_version: 2
+metadata_confidence: 0.96
 chapter_mode: experimental
-purpose: Test whether an experienced event can leave a persistent material modification
-  that remains causally accessible and can later alter construction, while separating
-  persistence, accessibility, distinguishability, and functional response.
+purpose: Test whether an experienced event can leave a persistent material modification that
+  remains causally accessible and can later alter construction, while separating persistence,
+  accessibility, distinguishability, and functional response.
 required_beats:
 - id: m01
   fulfilled: true
-  description: Add the smallest persistent material distinction rather than an explicit
-    memory subsystem.
+  description: Add one persistent cell state as a minimal material distinction rather than
+    a memory subsystem.
 - id: m02
   fulfilled: true
-  description: Establish that the modification persists but can cease to matter once
-    it leaves the causal aperture.
+  description: Show that the written mark persists after the event that created it.
 - id: m03
   fulfilled: true
-  description: Separate storage from causal access.
+  description: Show that the persistent mark can stop mattering when it leaves the causal
+    aperture.
 - id: m04
   fulfilled: true
-  description: Close the causal chain from experienced state to changed attachment
-    behaviour.
+  description: Distinguish storage from causal access at the active interface.
 - id: m05
   fulfilled: true
-  description: Test mechanisms for keeping the trace near the active interface.
+  description: Close the causal chain by showing the marked state can change later attachment
+    behaviour when reachable.
 - id: m06
   fulfilled: true
-  description: Separate amount of modified material from placement and show placement
-    changes causal lifetime.
+  description: Test mechanisms for keeping the mark moving with the active region instead
+    of marooning it in inert bulk.
 - id: m07
   fulfilled: true
-  description: Test whether different pasts remain distinguishable under a decoder
-    and then remove decoder-dependent interpretation.
+  description: Separate amount of marked material from placement as competing explanations.
 - id: m08
   fulfilled: true
-  description: Conclude with a reachable past while refusing memory or functional-use
-    claims that the tests did not earn.
+  description: Place the same past differently to test causal lifetime under matched material
+    amount.
+- id: m09
+  fulfilled: true
+  description: Show that placement changes how long the trace remains causally active.
+- id: m10
+  fulfilled: true
+  description: Stop mechanism search at the point where the chapter has earned reachable trace
+    rather than memory.
+- id: m11
+  fulfilled: true
+  description: Distinguish whether something happened from which thing happened by comparing
+    different histories.
+- id: m12
+  fulfilled: true
+  description: Use a common challenge to test whether two pasts remain functionally different.
+- id: m13
+  fulfilled: true
+  description: Warn against overreading the most tempting p-value in the history-discrimination
+    result.
+- id: m14
+  fulfilled: true
+  description: Remove the decoder so distinguishability is not borrowed from an external classifier.
+- id: m15
+  fulfilled: true
+  description: Show that two unnamed pasts can leave different traces without producing a
+    stable different response.
+- id: m16
+  fulfilled: true
+  description: Conclude with a past that can be reached while refusing readable memory or
+    functional-use claims.
 concept_targets:
 - persistent material state
 - causal accessibility
@@ -48,30 +76,38 @@ concept_targets:
 - placement
 - history discrimination
 claim_targets:
-- A persistent trace can exist while no longer being causally accessible.
-- Placement of stored material changes how long it can influence later construction.
-- Distinguishable traces do not by themselves establish a different functional response
-  or memory.
+- id: c01
+  status: supported
+  statement: A persistent trace can exist while no longer being causally accessible.
+- id: c02
+  status: supported
+  statement: Placement of stored material changes how long it can influence later construction.
+- id: c03
+  status: supported
+  statement: Distinguishable traces do not by themselves establish a different functional
+    response or memory.
 evidence_targets:
 - Label-retention/erasure ablation.
 - Placement-controlled material experiments.
 - Decoder and decoder-free comparisons of different histories.
 scope_boundaries:
 - Persistence is partly by construction and is not itself a discovery.
-- The mechanism does not establish readable memory, learning, semantics, or endogenous
-  history encoding.
-reader_state: The reader should understand that information must be both present and
-  causally reachable, and that even reachable traces need not constitute memory.
-technical_progression: write trace -> persistence -> loss of access -> causal chain
-  -> keep trace near interface -> placement experiment -> distinguishability test
-  -> narrowed reachable-past result
+- The mechanism does not establish readable memory, learning, semantics, or endogenous history
+  encoding.
+reader_state:
+  leaves_with: The reader should understand that information must be both present and causally
+    reachable, and that even reachable traces need not constitute memory.
+technical_progression: write trace -> persistence -> loss of access -> causal chain -> keep
+  trace near interface -> placement experiment -> distinguishability test -> narrowed reachable-past
+  result
 entity_requirements:
 - modified cells
 - causal aperture
 - active interface
 - history traces
 diagnostic_notes:
-- 'Book contribution: introduces causal accessibility as a central concept and shows
-  why storage alone is too weak.'
-- 'Placement: bridges the state/history chapter to later turnover and hidden-state
-  causal-sensitivity experiments.'
+- 'Book contribution: introduces causal accessibility as a central concept and shows why storage
+  alone is too weak.'
+- 'Placement: bridges the state/history chapter to later turnover and hidden-state causal-sensitivity
+  experiments.'
+- 'MRI calibration: required beats are intentionally atomic and section-shaped.'

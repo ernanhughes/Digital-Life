@@ -3,44 +3,64 @@ document_type: chapter
 title: Can the Past Redirect the Future?
 profile: technical
 metadata_status: working
-metadata_version: 1
-metadata_confidence: 0.97
+metadata_version: 2
+metadata_confidence: 0.95
 chapter_mode: experimental
-purpose: Test causal sufficiency of hidden material state by holding visible geometry
-  fixed and asking whether different hidden states change the response to the same
-  perturbation, while preserving invalidation and refusing to call the result memory.
+purpose: Test causal sufficiency of hidden material state by holding visible geometry fixed
+  and asking whether different hidden states change the response to the same perturbation,
+  while preserving invalidation and refusing to call the result memory.
 required_beats:
 - id: m01
   fulfilled: true
-  description: 'State the narrower question: same visible geometry, different hidden
-    material state, same perturbation.'
+  description: State the hidden-state question as same visible shape, different internal state,
+    same perturbation.
 - id: m02
   fulfilled: true
-  description: Introduce a weak decaying hidden scalar that changes ordinary attachment
-    score.
+  description: Define accessible, remote, and erased hidden-state placements under matched
+    visible occupancy.
 - id: m03
   fulfilled: true
-  description: Compare accessible, remote, and erased hidden-state placements with
-    visible occupancy matched.
+  description: Invalidate the first experiment because the focal PREVENT intervention failed
+    to prevent the focal attachment.
 - id: m04
   fulfilled: true
-  description: Invalidate the first experiment when PREVENT fails to prevent the focal
-    attachment.
+  description: Preserve the limited survivor from the failed experiment without treating invalid
+    downstream results as evidence.
 - id: m05
   fulfilled: true
-  description: Repair the intervention rather than rescuing the original downstream
-    claim.
+  description: Explain why more material can produce less response as a clue about causal
+    access rather than amount alone.
 - id: m06
   fulfilled: true
-  description: Replicate the immediate hidden-state-dependent causal response.
+  description: Identify the remote arm back door that compromised the original interpretation.
 - id: m07
   fulfilled: true
-  description: Track later trajectory divergence and distinguish direction, magnitude,
-    and descriptive closeout.
+  description: Repair the experiment by fixing intervention validity instead of rescuing the
+    old claim.
 - id: m08
   fulfilled: true
-  description: Conclude with hidden-state-conditioned causal response while explicitly
-    refusing memory or endogenous history encoding.
+  description: Replicate the immediate hidden-state-dependent response under the corrected
+    design.
+- id: m09
+  fulfilled: true
+  description: Show that the later future changes as well as the immediate event.
+- id: m10
+  fulfilled: true
+  description: Distinguish direction of response from magnitude of later trajectory difference.
+- id: m11
+  fulfilled: true
+  description: Show that the hidden trace can fade while trajectory difference grows.
+- id: m12
+  fulfilled: true
+  description: Frame the surviving result as trajectory redirection conditioned by hidden
+    state.
+- id: m13
+  fulfilled: true
+  description: Bound the interpretation by distinguishing hidden-state conditioning from reading
+    the past.
+- id: m14
+  fulfilled: true
+  description: Reject memory as an established claim.
 concept_targets:
 - hidden material state
 - causal sensitivity
@@ -49,11 +69,18 @@ concept_targets:
 - trajectory redirection
 - memory boundary
 claim_targets:
-- Same visible occupancy can respond differently because complete hidden state differs.
-- Accessible hidden material changes immediate causal response relative to matched
-  remote material under the corrected intervention.
-- Later trajectory divergence is consistent with redirection but does not establish
-  memory or endogenous history encoding.
+- id: c01
+  status: supported
+  statement: Same visible occupancy can respond differently because complete hidden state
+    differs.
+- id: c02
+  status: supported
+  statement: Accessible hidden material changes immediate causal response relative to matched
+    remote material under the corrected intervention.
+- id: c03
+  status: supported
+  statement: Later trajectory divergence is consistent with redirection but does not establish
+    memory or endogenous history encoding.
 evidence_targets:
 - Accessible/remote/erased matched-state experiment.
 - Intervention audit and corrected FORCE/PREVENT design.
@@ -63,12 +90,12 @@ scope_boundaries:
 - The result establishes causal sufficiency, not readable memory, learning, or self-conditioning.
 - Invalid downstream results from the broken intervention must not be treated as negative
   or positive evidence.
-reader_state: The reader should understand that hidden state can change future response
-  without being a record that the system reads, and should see invalidation as part
-  of the result.
-technical_progression: hidden-state hypothesis -> matched visible present -> flawed
-  intervention -> invalidation -> correction -> immediate replication -> trajectory
-  closeout -> memory refusal
+reader_state:
+  leaves_with: The reader should understand that hidden state can change future response without
+    being a record that the system reads, and should see invalidation as part of the result.
+technical_progression: hidden-state hypothesis -> matched visible present -> flawed intervention
+  -> invalidation -> correction -> immediate replication -> trajectory closeout -> memory
+  refusal
 entity_requirements:
 - hidden scalar state
 - ACCESSIBLE
@@ -77,7 +104,8 @@ entity_requirements:
 - FORCE
 - PREVENT
 diagnostic_notes:
-- 'Book contribution: provides the strongest causal history-dependence result while
-  keeping it below memory.'
-- 'Placement: synthesizes lessons from Chapters 8, 9, 13, and 14 and feeds the final
-  individuation test.'
+- 'Book contribution: provides the strongest causal history-dependence result while keeping
+  it below memory.'
+- 'Placement: synthesizes lessons from Chapters 8, 9, 13, and 14 and feeds the final individuation
+  test.'
+- 'MRI calibration: required beats are intentionally atomic and section-shaped.'
