@@ -19,7 +19,7 @@ Persistence asks whether an organization continues. Reproduction asks whether it
 
 The glider makes the distinction sharper. Every four generations its configuration recurs one cell diagonally away, built from active cells at different coordinates. It looks very much like reproduction.
 
-Under the causal criterion used by Hintze and Bohm, however, a self-replicator must produce at least two copies of itself, each causally traceable to the original and not to one another.[6] The glider fails because its history is a single chain: each occurrence descends from the one immediately before it. Nothing branches. A glider gun fails differently: it produces gliders, not glider guns.
+Under the causal criterion used by Hintze and Bohm, however, a self-replicator must produce at least two copies of itself, each causally traceable to the original and not to one another.[2] The glider fails because its history is a single chain: each occurrence descends from the one immediately before it. Nothing branches. A glider gun fails differently: it produces gliders, not glider guns.
 
 The criterion is therefore:
 
@@ -41,7 +41,7 @@ For our purposes one system is unusually useful: **Outlier**.
 
 The mechanism will take one paragraph, because the previous chapter has already done the teaching.
 
-Every cell is `0` or `1`. Each cell reads its `3 × 3` Moore neighbourhood, itself included, which gives 512 possible local configurations, and the rule specifies an output for each. That is the entire law of this universe: 512 output bits. The published rule is rotationally symmetric but not mirror-symmetric. Of its 512 entries, 220 produce an active centre cell, compared with 140 for Conway's Game of Life.[5]
+Every cell is `0` or `1`. Each cell reads its `3 × 3` Moore neighbourhood, itself included, which gives 512 possible local configurations, and the rule specifies an output for each. That is the entire law of this universe: 512 output bits. The published rule is rotationally symmetric but not mirror-symmetric. Of its 512 entries, 220 produce an active centre cell, compared with 140 for Conway's Game of Life.[1]
 
 Note what is absent. Nothing in the system yet corresponds to an organism or even an individual. We have only binary state, a neighbourhood, a transition rule and time. Genomes, energy budgets, reproduction, fitness and populations are all concepts that would have to emerge later, if they become relevant at all.
 
@@ -49,7 +49,7 @@ How Outlier was found matters, because it is easy to overstate what happened.
 
 Humans designed the search. They chose the cellular-automaton substrate, the space of possible rules and the criteria by which rules were selected. Outlier is therefore not evidence of digital life appearing independently of human design.
 
-But neither did the search specify a replicating organism. It searched for a rule system with dynamics considered promising for open-ended evolution.[5] Self-replication was not itself the explicit target, although such a search could certainly favour rules in which persistent or multiplying structures occur.
+But neither did the search specify a replicating organism. It searched for a rule system with dynamics considered promising for open-ended evolution.[1] Self-replication was not itself the explicit target, although such a search could certainly favour rules in which persistent or multiplying structures occur.
 
 What the search ultimately returned was a **local transition** rule. The particular replicating organizations later found within that rule were not explicitly represented in it.
 
@@ -79,7 +79,7 @@ That does not establish life. It establishes something we need before the questi
 
 ## It Looks Like Reproduction, Which Is the Problem
 
-Run the published rule from sparse random conditions, or from a tiny seed, and the world fills with activity.[5]
+Run the published rule from sparse random conditions, or from a tiny seed, and the world fills with activity.[1]
 
 Small shape-shifting clusters appear. Some of them produce further clusters. Some periodically duplicate. Smaller structures assemble into larger formations, and those formations duplicate too. Collections of them eventually form the boundary of a still larger expanding complex.
 
@@ -97,7 +97,7 @@ replicating formations
 larger expanding complex
 ```
 
-Yang classified structures at more than one of those scales as self-replicating, under the operational criterion used in that work.[5] Duplication-like recurrence really does appear at multiple scales, and that alone is stranger than anything in the previous chapter. The glider gave us one localized organization persisting through time. Here we have organizations built out of organizations, with apparent duplication at more than one level of the hierarchy.
+Yang classified structures at more than one of those scales as self-replicating, under the operational criterion used in that work.[1] Duplication-like recurrence really does appear at multiple scales, and that alone is stranger than anything in the previous chapter. The glider gave us one localized organization persisting through time. Here we have organizations built out of organizations, with apparent duplication at more than one level of the hierarchy.
 
 It is worth being honest about the effect this has on a viewer.
 
@@ -149,11 +149,11 @@ So a question that is usually unanswerable becomes mechanical:
 
 > Which live cells in the preceding neighbourhood were actually necessary for this cell to be alive?
 
-Hintze and Bohm answer this by identifying the minimal sets of earlier live cells required to produce later live cells.[6] Cells that merely happen to be nearby are excluded from the causal trace.
+Hintze and Bohm answer this by identifying the minimal sets of earlier live cells required to produce later live cells.[2] Cells that merely happen to be nearby are excluded from the causal trace.
 
 Those cell-level dependencies are then grouped into links between larger clusters.
 
-The result is a causal ancestry graph: earlier structures are connected to later structures only when measured dependencies link them.[6]
+The result is a causal ancestry graph: earlier structures are connected to later structures only when measured dependencies link them.[2]
 
 The question has now changed.
 
@@ -165,7 +165,7 @@ But:
 
 > **Did the earlier structure causally contribute to producing the later one?**
 
-One restriction is worth carrying forward. Yang's structural analysis allowed rotational variants, while Hintze and Bohm's causal analysis restricted its replication claims to exact copies.[5][6] Whatever the causal analysis finds, it is not finding it by relaxing what counts as the same structure.
+One restriction is worth carrying forward. Yang's structural analysis allowed rotational variants, while Hintze and Bohm's causal analysis restricted its replication claims to exact copies.[1][2] Whatever the causal analysis finds, it is not finding it by relaxing what counts as the same structure.
 
 Causality does not remove the identity problem. The criterion still requires later organizations *of the same kind*, so what counts as the same kind has to be fixed before the search rather than chosen afterwards.
 
@@ -185,7 +185,7 @@ Once causal ancestry could be measured, structures that looked superficially sim
 
 These are the main results of the published causal analysis that matter to us. The rest of this section unpacks them.
 
-The underlying ancestry graph was enormous: 31,959,320 cluster instances linked by 65,552,995 directed causal edges.[6]
+The underlying ancestry graph was enormous: 31,959,320 cluster instances linked by 65,552,995 directed causal edges.[2]
 
 But its most important lesson is much simpler.
 
@@ -203,7 +203,7 @@ So `c0` reproduced hundreds of times without founding a sustained lineage.
 
 `c1` went slightly further: 1,677 copies, followed by only a weak second generation.
 
-`c2` was different. Its descendants continued reproducing for **15 generations**.[6]
+`c2` was different. Its descendants continued reproducing for **15 generations**.[2]
 
 Three apparent replicators had produced three very different histories.
 
@@ -234,17 +234,17 @@ No.
 | Faster | 675 ticks | 96 |
 | Slower | 778 ticks | 125 |
 
-The slower branch produced more replication events.[6]
+The slower branch produced more replication events.[2]
 
 **Faster replication did not produce greater realized lineage output.**
 
-The authors suggest geometry as the explanation: the faster branches expand in directions that create more spatial interference, while the slower branches retain more room in which to continue.[6]
+The authors suggest geometry as the explanation: the faster branches expand in directions that create more spatial interference, while the slower branches retain more room in which to continue.[2]
 
 That explanation was not isolated experimentally, so we keep the narrower result.
 
 There is another clue that replication here is a process rather than simple copying.
 
-Three developmental pathways begin differently, then converge on the same sequence of states for their final 143 ticks before producing offspring.[6]
+Three developmental pathways begin differently, then converge on the same sequence of states for their final 143 ticks before producing offspring.[2]
 
 The eventual copy is therefore the end of a developmental process, not a body duplicated in one step.
 
@@ -256,7 +256,7 @@ The strangest result is also one of the simplest to state:
 
 **the reproducing process does not always form one connected body.**
 
-In some cases, replication unfolds through several spatially separated components. They remain disconnected for part of the process, then later merge or branch as replication continues.[6]
+In some cases, replication unfolds through several spatially separated components. They remain disconnected for part of the process, then later merge or branch as replication continues.[2]
 
 The published paper describes this in terms of distributed, multi-component selfhood. We do not need to make that stronger claim here.
 
@@ -305,7 +305,7 @@ our run:        512 × 512, 1,600 generations
 published run: 1024 × 1024, 20,000 ticks
 ```
 
-That matters because Outlier changes behaviour with scale, and the published system enters a different regime after roughly tick 10,000.[5][6]
+That matters because Outlier changes behaviour with scale, and the published system enters a different regime after roughly tick 10,000.[1][2]
 
 Our run never reaches that regime.
 
@@ -323,7 +323,7 @@ Our detector treats translated and quarter-turn rotated versions of `c2` as equi
 
 Mirror images are not equivalent because the rule is not mirror-symmetric.
 
-This is slightly broader than Hintze and Bohm's causal analysis, which counted only exact copies.[6]
+This is slightly broader than Hintze and Bohm's causal analysis, which counted only exact copies.[2]
 
 The search found **144 `c2`-equivalent occurrences**.
 
@@ -335,11 +335,11 @@ All 144 could, in principle, have arisen independently from the surrounding dyna
 
 That requires ancestry.
 
-Encouragingly, this is not a scruple we invented. The authors of the causal study raise precisely the same possibility about their own result: that `c2` patterns might simply arise often, with descent being a correlate of the dynamics rather than a cause.[6] Their answer is the causal trace.
+Encouragingly, this is not a scruple we invented. The authors of the causal study raise precisely the same possibility about their own result: that `c2` patterns might simply arise often, with descent being a correlate of the dynamics rather than a cause.[2] Their answer is the causal trace.
 
 Our causal test is simpler than the published one.
 
-Hintze and Bohm search for minimal sufficient sets of predecessor cells.[6] We remove each live predecessor individually and record a dependency when that removal prevents the later cell from being alive.
+Hintze and Bohm search for minimal sufficient sets of predecessor cells.[2] We remove each live predecessor individually and record a dependency when that removal prevents the later cell from being alive.
 
 The methods are not equivalent. In particular, our test can miss dependencies involving redundant combinations of cells.
 
@@ -443,7 +443,7 @@ We have two different results, and they should remain separate.
 
 | Evidence                       | What it establishes                                                                                                                   |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| **Published Outlier analysis** | Causal self-replication under the stricter published criterion, including replication involving spatially separated components.[5][6] |
+| **Published Outlier analysis** | Causal self-replication under the stricter published criterion, including replication involving spatially separated components.[1][2] |
 | **Our reconstruction**         | Branching causal recurrence of a pre-specified `c2` structure under our simpler causal test                                           |
 
 Neither result establishes self-maintenance, adaptation, agency, memory, autonomy, individuality, open-ended evolution or life.
@@ -501,14 +501,6 @@ That is not a definition of digital life.
 
 ## References
 
-**[1]** Sayama, H. & Nehaniv, C. L. *Self-Reproduction and Evolution in Cellular Automata: 25 Years After Evoloops.* Artificial Life 31(1), 81–95 (2025).
+**[1]** Yang, B. *Emergence of Self-Replicating Hierarchical Structures in a Binary Cellular Automaton.* Artificial Life 31(1), 96–105 (2025). doi:10.1162/artl_a_00449
 
-**[2]** Plantec, E., Hamon, G., Etcheverry, M., Chan, B. W-C., Oudeyer, P-Y. & Moulin-Frier, C. *Flow-Lenia: Emergent Evolutionary Dynamics in Mass Conservative Continuous Cellular Automata.* Artificial Life 31(2), 228–250 (2025). doi:10.1162/artl_a_00471
-
-**[3]** Packard, N. H. & McCaskill, J. S. *Open-Endedness in Genelife.* Artificial Life 30(3), 356–389 (2024). doi:10.1162/artl_a_00426
-
-**[4]** Agüera y Arcas, B. et al. *Computational Life: How Well-formed, Self-replicating Programs Emerge from Simple Interaction.* arXiv:2406.19108 (2024).
-
-**[5]** Yang, B. *Emergence of Self-Replicating Hierarchical Structures in a Binary Cellular Automaton.* Artificial Life 31(1), 96–105 (2025). doi:10.1162/artl_a_00449
-
-**[6]** Hintze, A. & Bohm, C. *Rethinking self-replication: detecting distributed selfhood in the Outlier cellular automaton.* npj Complexity 3, 11 (2026). doi:10.1038/s44260-026-00074-2
+**[2]** Hintze, A. & Bohm, C. *Rethinking self-replication: detecting distributed selfhood in the Outlier cellular automaton.* npj Complexity 3, 11 (2026). doi:10.1038/s44260-026-00074-2
