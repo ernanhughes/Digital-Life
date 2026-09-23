@@ -6,6 +6,8 @@ level = "Artificial life, complex systems and computational emergence"
 solutions_domain = "digital-life"
 weight = 1
 cover = "/images/books/digital-life/cover.png"
+publication_status = 'published'
+publication_amazon_url = 'https://www.amazon.com/dp/B0HG9QGQD6'
 +++
 
 What would it take for a computational system to earn the language of life?
